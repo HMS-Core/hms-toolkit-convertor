@@ -14,7 +14,16 @@ Convertor
  
 Introduction
 ------------
-Convertor is used to implement efficient conversion between the GMS and HMS. It helps developers quickly integrate open capabilities of the HMS by converting the GMS-based application framework to the HMS-based application framework. The code can be converted from GMS-based to HMS-based or both GMS and HMS are supported.
+
+Convertor is a code conversion tool supporting Java and Kotlin projects. It helps developers to automatically convert GMS APIs called by apps into corresponding HMS APIs, implementing quick conversion and HMS integration. The HMS Convertor provides the following functions:
+
+- New Conversion: Automatically converts GMS APIs invoked by an app to HMS APIs.
+
+- Open Last Conversion: Opens the last conversion result.
+
+- Save All: Save the corrent project and conversion information.
+
+- Restore Project: Restores a project with the backup file.
 
 Build
 ------------------
