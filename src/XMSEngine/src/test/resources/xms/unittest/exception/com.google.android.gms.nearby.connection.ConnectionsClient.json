@@ -1,0 +1,56 @@
+{
+  "gName": "com.google.android.gms.nearby.connection.ConnectionsClient",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.nearby.connection.TimeoutException",
+          "com.google.android.gms.nearby.connection.DeviceNotFoundException"
+        ],
+        "modifiers": [],
+        "name": "acceptConnection",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.connection.PayloadCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [
+          "com.huawei.hms.nearby.connection.TimeoutException",
+          "com.huawei.hms.nearby.connection.DeviceNotFoundException"
+        ],
+        "modifiers": [],
+        "name": "acceptConnection",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.connection.PayloadCallback"
+          }
+        ],
+        "retType": "com.huawei.hms.tasks.Task<java.lang.Void>"
+      }
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.connection.ConnectionsClient"
+}

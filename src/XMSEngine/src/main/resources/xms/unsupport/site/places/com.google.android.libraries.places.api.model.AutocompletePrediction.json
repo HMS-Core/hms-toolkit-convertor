@@ -1,0 +1,133 @@
+{
+  "gName": "com.google.android.libraries.places.api.model.AutocompletePrediction",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "builder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.libraries.places.api.model.AutocompletePrediction.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFullText",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.text.style.CharacterStyle"
+          }
+        ],
+        "retType": "android.text.SpannableString"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPlaceId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPlaceTypes",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.libraries.places.api.model.Place.Type>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPrimaryText",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.text.style.CharacterStyle"
+          }
+        ],
+        "retType": "android.text.SpannableString"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSecondaryText",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.text.style.CharacterStyle"
+          }
+        ],
+        "retType": "android.text.SpannableString"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "AutocompletePrediction",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": ""
+}

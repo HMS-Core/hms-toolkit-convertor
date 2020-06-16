@@ -1,0 +1,77 @@
+{
+  "gName": "com.android.billingclient.api.BillingFlowParams.ProrationMode",
+  "interfaces": [
+    "java.lang.annotation.Annotation"
+  ],
+  "superClass": "",
+  "methods": [],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "DEFERRED",
+        "modifiers": [],
+        "type": "int",
+        "value": "4"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "IMMEDIATE_AND_CHARGE_PRORATED_PRICE",
+        "modifiers": [],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "IMMEDIATE_WITHOUT_PRORATION",
+        "modifiers": [],
+        "type": "int",
+        "value": "3"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "IMMEDIATE_WITH_TIME_PRORATION",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "UNKNOWN_SUBSCRIPTION_UPGRADE_DOWNGRADE_POLICY",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

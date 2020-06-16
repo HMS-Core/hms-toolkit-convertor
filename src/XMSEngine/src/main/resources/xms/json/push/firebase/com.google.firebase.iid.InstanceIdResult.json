@@ -1,0 +1,49 @@
+{
+  "gName": "com.google.firebase.iid.InstanceIdResult",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsInstanceId-cls#getToken",
+      "tipsInfo": "Use HmsInstanceId.getToken(String var1, String var2) as replacement."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.aaid.entity.AAIDResult"
+}

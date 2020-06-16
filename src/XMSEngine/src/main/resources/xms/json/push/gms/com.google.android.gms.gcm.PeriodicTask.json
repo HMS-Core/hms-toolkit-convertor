@@ -1,0 +1,135 @@
+{
+  "gName": "com.google.android.gms.gcm.PeriodicTask",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.gcm.Task",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFlex",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm",
+      "tipsInfo": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPeriod",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm",
+      "tipsInfo": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toBundle",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm",
+      "tipsInfo": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm",
+      "tipsInfo": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm",
+      "tipsInfo": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.gcm.PeriodicTask>",
+        "value": ""
+      },
+      "helpUrl": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm",
+      "tipsInfo": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "mFlexInSeconds",
+        "modifiers": [
+          "protected"
+        ],
+        "type": "long",
+        "value": ""
+      },
+      "helpUrl": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm",
+      "tipsInfo": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "mIntervalInSeconds",
+        "modifiers": [
+          "protected"
+        ],
+        "type": "long",
+        "value": ""
+      },
+      "helpUrl": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm",
+      "tipsInfo": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs."
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

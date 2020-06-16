@@ -1,0 +1,103 @@
+package org.xms.f.messaging;
+
+public class ExtensionMessaging extends org.xms.g.utils.XObject {
+    
+    public ExtensionMessaging(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    public static java.lang.String getINSTANCE_ID_SCOPE() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.push.HmsMessaging.DEFAULT_TOKEN_SCOPE");
+            return com.huawei.hms.push.HmsMessaging.DEFAULT_TOKEN_SCOPE;
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.google.firebase.messaging.FirebaseMessaging.INSTANCE_ID_SCOPE");
+            return com.google.firebase.messaging.FirebaseMessaging.INSTANCE_ID_SCOPE;
+        }
+    }
+
+    public static synchronized org.xms.f.messaging.ExtensionMessaging getInstance(android.content.Context context) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).getInstance(context)");
+            com.huawei.hms.push.HmsMessaging hReturn = com.huawei.hms.push.HmsMessaging.getInstance(context);
+            return ((hReturn) == null ? null : (new org.xms.f.messaging.ExtensionMessaging(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).getInstance()");
+            com.google.firebase.messaging.FirebaseMessaging gReturn = com.google.firebase.messaging.FirebaseMessaging.getInstance();
+            return ((gReturn) == null ? null : (new org.xms.f.messaging.ExtensionMessaging(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    public static synchronized org.xms.f.messaging.ExtensionMessaging getInstance() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public boolean isAutoInitEnabled() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).isAutoInitEnabled()");
+            return ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).isAutoInitEnabled();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).isAutoInitEnabled()");
+            return ((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).isAutoInitEnabled();
+        }
+    }
+
+    public void send(org.xms.f.messaging.RemoteMessage param0) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).send(((com.huawei.hms.push.RemoteMessage) ((param0) == null ? null : (param0.getHInstance()))))");
+            ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).send(((com.huawei.hms.push.RemoteMessage) ((param0) == null ? null : (param0.getHInstance()))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).send(((com.google.firebase.messaging.RemoteMessage) ((param0) == null ? null : (param0.getGInstance()))))");
+            ((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).send(((com.google.firebase.messaging.RemoteMessage) ((param0) == null ? null : (param0.getGInstance()))));
+        }
+    }
+
+    public void setAutoInitEnabled(boolean param0) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).setAutoInitEnabled(param0)");
+            ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).setAutoInitEnabled(param0);
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).setAutoInitEnabled(param0)");
+            ((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).setAutoInitEnabled(param0);
+        }
+    }
+
+    public org.xms.g.tasks.Task<java.lang.Void> subscribeToTopic(java.lang.String param0) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).subscribe(param0)");
+            com.huawei.hmf.tasks.Task hReturn = ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).subscribe(param0);
+            return ((hReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).subscribeToTopic(param0)");
+            com.google.android.gms.tasks.Task gReturn = ((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).subscribeToTopic(param0);
+            return ((gReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    public org.xms.g.tasks.Task<java.lang.Void> unsubscribeFromTopic(java.lang.String param0) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).unsubscribe(param0)");
+            com.huawei.hmf.tasks.Task hReturn = ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).unsubscribe(param0);
+            return ((hReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).unsubscribeFromTopic(param0)");
+            com.google.android.gms.tasks.Task gReturn = ((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).unsubscribeFromTopic(param0);
+            return ((gReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    public static org.xms.f.messaging.ExtensionMessaging dynamicCast(java.lang.Object param0) {
+        return ((org.xms.f.messaging.ExtensionMessaging) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.push.HmsMessaging;
+        } else {
+            return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.firebase.messaging.FirebaseMessaging;
+        }
+    }
+}

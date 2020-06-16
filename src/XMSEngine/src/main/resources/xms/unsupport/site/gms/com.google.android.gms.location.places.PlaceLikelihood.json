@@ -1,0 +1,45 @@
+{
+  "gName": "com.google.android.gms.location.places.PlaceLikelihood",
+  "interfaces": [
+    "com.google.android.gms.common.api.Result",
+    "com.google.android.gms.common.data.Freezable<com.google.android.gms.location.places.PlaceLikelihood>"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLikelihood",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPlace",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.location.places.Place"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": ""
+}

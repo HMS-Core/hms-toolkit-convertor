@@ -1,0 +1,285 @@
+{
+  "gName": "com.google.android.gms.awareness.state.Weather",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getConditions",
+        "paramTypes": [],
+        "retType": "int[]"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getDewPoint",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "float"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getFeelsLikeTemperature",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "float"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getHumidity",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTemperature",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "float"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "CELSIUS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "CONDITION_CLEAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "CONDITION_CLOUDY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "CONDITION_FOGGY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "CONDITION_HAZY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "CONDITION_ICY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "CONDITION_RAINY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "CONDITION_SNOWY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "CONDITION_STORMY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "CONDITION_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "CONDITION_WINDY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "FAHRENHEIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-7",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

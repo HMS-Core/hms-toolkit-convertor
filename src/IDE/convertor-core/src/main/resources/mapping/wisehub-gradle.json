@@ -1,0 +1,650 @@
+{
+    "projectBuildGradle": {
+        "addMavenInRepositories": [
+            {
+                "addMavenInRepositoriesName": "http://developer.huawei.com/repo/",
+                "desc": {
+                    "kit":"Common",
+                    "text": "The Maven repository address provided by HMS SDK will be added.",
+                    "url": "",
+                    "status": "Auto"
+                }
+            }
+        ],
+        "addClassPathInDependencies": [
+            {
+                "addClassPathInDependenciesName": "com.huawei.agconnect:agcp:1.2.1.301",
+                "desc": {
+                    "kit":"Common",
+                    "text": "The AppGallery Connect dependency will be added. ",
+                    "url": "",
+                    "status": "Auto"
+                }
+            }
+        ]
+    },
+    "AppBuildGradle": {
+        "addApplyPlugin": [
+            {
+                "AddApplyPluginInApp": "com.huawei.agconnect",
+                "desc": {
+                    "kit":"Common",
+                    "text": "Please go to the AGC console and apply for HMS access for your app. For details, please refer to HUAWEI Mobile Service Development Guide.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-get-started",
+                    "status": "Auto"
+                }
+            }
+        ],
+        "addInDependencies": [
+            {
+                "version": "17.0.0",
+                "originGoogleName": "com.google.firebase:firebase-core",
+                "addDependenciesName": 
+                [
+                    "com.google.android.gms:play-services-basement:17.1.0",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.google.android.gms:play-services-gcm:17.0.0",
+                    "com.huawei.hms:hianalytics:4.0.2.300",
+                    "com.huawei.hms:push:4.0.3.300"
+                ],
+                "desc_auto": {
+                    "kit":"Push",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Push",
+                    "dependencyName": "firebase-core",
+                    "version": "17.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "20.0.0",
+                "originGoogleName": "com.google.firebase:firebase-messaging",
+                "addDependenciesName": 
+                [
+                    "com.google.android.gms:play-services-basement:17.1.0",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.google.android.gms:play-services-gcm:17.0.0",
+                    "com.huawei.hms:hianalytics:4.0.2.300",
+                    "com.huawei.hms:push:4.0.3.300"
+                ],
+                "desc_auto": {
+                    "kit":"Push",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Push",
+                    "dependencyName": "firebase-messaging",
+                    "version": "20.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.2.1",
+                "originGoogleName": "com.google.firebase:firebase-analytics",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:hianalytics:4.0.2.300",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.google.android.gms:play-services-basement:17.1.0",
+                    "com.google.android.gms:play-services-analytics:17.0.0"
+                ],
+                "desc_auto": {
+                    "kit": "Analytics",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Analytics",
+                    "dependencyName": "firebase-analytics",
+                    "version": "17.2.1",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.0.0",
+                "originGoogleName": "com.google.android.gms:play-services-auth",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:hwid:4.0.1.300",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.google.android.gms:play-services-basement:17.1.0",
+                    "com.google.android.gms:play-services-auth-api-phone:17.3.0"
+                ],
+                "desc_auto": {
+                    "kit": "Account",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Account",
+                    "dependencyName": "play-services-auth",
+                    "version": "17.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "18.0.0",
+                "originGoogleName": "com.google.android.gms:play-services-wallet",
+                "addDependenciesName": 
+                [
+                    "com.google.android.gms:play-services-basement:17.1.0",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.google.android.gms:play-services-auth:17.0.0",
+                    "com.google.android.gms:play-services-auth-base:17.0.0",
+                    "com.google.android.gms:play-services-location:17.0.0",
+                    "com.google.android.gms:play-services-auth-api-phone:17.3.0",
+                    "com.huawei.hms:location:4.0.3.300",
+                    "com.huawei.hms:wallet:4.0.2.301",
+                    "com.huawei.hms:identity:4.0.1.300",
+                    "com.huawei.hms:hwid:4.0.1.300",
+                    "com.huawei.hms:maps:4.0.1.300"
+                ],
+                "desc_auto": {
+                    "kit": "Wallet",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Wallet",
+                    "dependencyName": "play-services-wallet",
+                    "version": "18.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.0.0",
+                "originGoogleName": "com.google.android.gms:play-services-maps",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:maps:4.0.1.300",
+                    "com.huawei.hms:location:4.0.3.300",
+                    "com.google.android.gms:play-services-location:17.0.0",
+                    "com.google.android.material:material:1.0.0-rc01",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.google.android.gms:play-services-basement:17.1.0"
+                ],
+                "desc_auto": {
+                    "kit": "Map",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Map",
+                    "dependencyName": "play-services-maps",
+                    "version": "17.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.0.0",
+                "originGoogleName": "com.google.android.gms:play-services-location",
+                "addDependenciesName": 
+                [
+                    "com.google.android.gms:play-services-basement:17.1.0",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.huawei.hms:location:4.0.3.300"
+                ],
+                "desc_auto": {
+                    "kit": "Location",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Location",
+                    "dependencyName": "play-services-location",
+                    "version": "17.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.0.0",
+                "originGoogleName": "com.google.android.libraries.places:places",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:site:4.0.3.300"
+                ],
+                "desc_auto": {
+                    "kit": "Site",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Site",
+                    "dependencyName": "places",
+                    "version": "17.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.0.0",
+                "originGoogleName": "com.google.android.libraries.places:places-compat",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:site:4.0.3.300"
+                ],
+                "desc_auto": {
+                    "kit": "Site",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Site",
+                    "dependencyName": "places-compat",
+                    "version": "17.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "18.0.0",
+                "originGoogleName": "com.google.android.gms:play-services-vision",
+                "addDependenciesName":
+                [
+                    "com.huawei.hms:ml-computer-vision:1.0.3.300",
+                    "com.huawei.hms:scan:1.1.3.300",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.google.android.gms:play-services-basement:17.1.0"
+                ],
+                "desc_auto": {
+                    "kit": "ML",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "ML",
+                    "dependencyName": "play-services-vision",
+                    "version": "18.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "24.0.1",
+                "originGoogleName": "com.google.firebase:firebase-ml-vision",
+                "addDependenciesName":
+                [
+                    "com.google.android.gms:play-services-auth:17.0.0",
+                    "com.google.android.gms:play-services-auth-api-phone:17.3.0",
+                    "com.google.android.gms:play-services-auth-base:17.0.0",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.google.android.gms:play-services-basement:17.1.0",
+                    "com.huawei.hms:hwid:4.0.1.300",
+                    "com.huawei.hms:ml-computer-vision:1.0.3.300",
+                    "com.huawei.hms:scan:1.1.3.300"
+                ],
+                "desc_auto": {
+                    "kit": "ML",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "ML",
+                    "dependencyName": "firebase-ml-vision",
+                    "version": "24.0.1",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "18.0.0",
+                "originGoogleName": "com.google.android.gms:play-services-fitness",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:hihealth-base:4.0.2.301",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.google.android.gms:play-services-basement:17.1.0"
+                ],
+                "desc_auto": {
+                    "kit": "Health",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Health",
+                    "dependencyName": "play-services-fitness",
+                    "version": "18.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "18.3.0",
+                "originGoogleName": "com.google.android.gms:play-services-ads",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:ads-lite:13.4.28.305",
+                    "com.huawei.hms:ads-identifier:3.4.28.305",
+                    "com.huawei.hms:ads-installreferrer:3.4.28.305",
+                    "com.huawei.hms:hianalytics:4.0.2.300",
+                    "com.google.android.gms:play-services-basement:17.1.0",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.android.installreferrer:installreferrer:1.1"
+                ],
+                "desc_auto": {
+                    "kit": "Ads",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Ads",
+                    "dependencyName": "play-services-ads",
+                    "version": "18.3.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.0.0",
+                "originGoogleName": "com.google.android.gms:play-services-nearby",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:nearby:4.0.3.300",
+                    "com.google.android.gms:play-services-basement:17.1.0",
+                    "com.google.android.gms:play-services-tasks:17.0.0",
+                    "com.google.android.gms:play-services-base:17.1.0"
+                ],
+                "desc_auto": {
+                    "kit": "Nearby",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Nearby",
+                    "dependencyName": "play-services-nearby",
+                    "version": "17.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "18.0.1",
+                "originGoogleName": "com.google.android.gms:play-services-games",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:base:4.0.3.301",
+                    "com.huawei.hms:hwid:4.0.1.300",
+                    "com.huawei.hms:game:4.0.3.301",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.google.android.gms:play-services-basement:17.1.0"
+                ],
+                "desc_auto": {
+                    "kit": "Game",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Game",
+                    "dependencyName": "play-services-games",
+                    "version": "18.0.1",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.1.0",
+                "originGoogleName": "com.google.android.gms:play-services-awareness",
+                "addDependenciesName": 
+                [
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.google.android.gms:play-services-basement:17.1.0",
+                    "com.huawei.hms:awareness:1.0.3.300",
+                    "com.huawei.hms:location:4.0.3.300"
+                ],
+                "desc_auto": {
+                    "kit":"Awareness",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Awareness",
+                    "dependencyName": "play-services-awareness",
+                    "version": "17.1.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.0.0",
+                "originGoogleName": "com.google.android.gms:play-services-safetynet",
+                "addDependenciesName": 
+                [
+                    "com.google.android.gms:play-services-basement:17.1.0",
+                    "com.google.android.gms:play-services-tasks:17.0.0",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.huawei.hms:base:4.0.3.301",
+                    "com.huawei.hms:safetydetect:4.0.0.300"
+                ],
+                "desc_auto": {
+                    "kit":"Safetynet",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit":"Safetynet",
+                    "dependencyName": "play-services-safetynet",
+                    "version": "17.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.0.0",
+                "originGoogleName": "com.google.android.gms:play-services-identity",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:identity:4.0.1.300",
+                    "com.google.android.gms:play-services-basement:17.1.0",
+                    "com.google.android.gms:play-services-tasks:17.0.0",
+                    "com.google.android.gms:play-services-base:17.1.0"
+                ],
+                "desc_auto": {
+                    "kit": "Identity",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Identity",
+                    "dependencyName": "play-services-identity",
+                    "version": "17.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.0.0",
+                "originGoogleName": "com.google.android.gms:play-services-panorama",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:panorama:4.0.3.300",
+                    "com.google.android.gms:play-services-base:17.1.0",
+                    "com.google.android.gms:play-services-basement:17.1.0"
+                ],
+                "desc_auto": {
+                    "kit": "Panorama",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Panorama",
+                    "dependencyName": "play-services-panorama",
+                    "version": "17.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.1.0",
+                "originGoogleName": "com.google.android.gms:play-services-base",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:base:4.0.3.301"
+                ],
+                "desc_auto": {
+                    "kit": "Basement",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Basement",
+                    "dependencyName": "play-services-base",
+                    "version": "17.1.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.1.0",
+                "originGoogleName": "com.google.android.gms:play-services-basement",
+                "addDependenciesName": 
+                [
+                    "com.huawei.hms:base:4.0.3.301"
+                ],
+                "desc_auto": {
+                    "kit": "Basement",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Basement",
+                    "dependencyName": "play-services-basement",
+                    "version": "17.1.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            },
+            {
+                "version": "17.0.0",
+                "originGoogleName": "com.google.android.gms:play-services-tasks",
+                "addDependenciesName":
+                [
+                    "com.huawei.hms:base:4.0.3.301",
+                    "com.google.android.gms:play-services-basement:17.1.0"
+                ],
+                "desc_auto": {
+                    "kit": "Basement",
+                    "text": "Add the specified HMS dependencies.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Auto"
+                },
+                "desc_manual": {
+                    "isUpdate":true,
+                    "kit": "Basement",
+                    "dependencyName": "play-services-tasks",
+                    "version": "17.0.0",
+                    "text": "Before the conversion, please change the GMS SDK to the convertible version.",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/30935655#h1-1579692739333",
+                    "status": "Manual"
+                }
+            }
+        ],
+        "Aidl": [
+
+        ],
+        "addIndirectDependencies": [
+
+        ]
+    },
+    "SettingsGradle": {
+        "addInSettingsGradle": [
+            {
+                "addString": "include ':xmsadapter'",
+                "desc": {
+                    "kit": "Common",
+                    "sdk": true,
+                    "text": "the module 'xmsadapter' will be added in your project",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_gradle_info_maintenance#h1-1578735737259-4",
+                    "status": "Auto"
+                }
+            }
+        ]
+    },
+    "SpecialAddInDependency": {
+        "addSpecialInDependency": [
+            {
+                "addString": "    implementation project(':xmsadapter')",
+                "desc": {
+                    "kit": "Common",
+                    "sdk": true,
+                    "text": "the dependency 'xmsadapter' will be added in your module",
+                    "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_gradle_info_maintenance#h1-1578735737259-4",
+                    "status": "Auto"
+                }
+            }
+        ]
+    }
+}

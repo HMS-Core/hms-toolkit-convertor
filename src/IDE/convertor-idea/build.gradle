@@ -1,0 +1,10 @@
+jar {
+    into("META-INF/maven/${project.group}/${project.name}") {
+        from "${buildDir}/publications/maven"
+        rename ".*", "pom.xml"
+    }
+}
+
+dependencies {
+    compile project(":IDE:convertor-core")
+}

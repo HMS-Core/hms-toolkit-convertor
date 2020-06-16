@@ -1,0 +1,150 @@
+{
+  "gName": "com.google.android.libraries.places.compat.AutocompleteFilter",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "describeContents",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTypeFilter",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "TYPE_FILTER_ADDRESS",
+        "modifiers": [],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "TYPE_FILTER_CITIES",
+        "modifiers": [],
+        "type": "int",
+        "value": "5"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "TYPE_FILTER_ESTABLISHMENT",
+        "modifiers": [],
+        "type": "int",
+        "value": "34"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "TYPE_FILTER_GEOCODE",
+        "modifiers": [],
+        "type": "int",
+        "value": "1007"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "TYPE_FILTER_NONE",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "TYPE_FILTER_REGIONS",
+        "modifiers": [],
+        "type": "int",
+        "value": "4"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.libraries.places.compat.AutocompleteFilter>",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

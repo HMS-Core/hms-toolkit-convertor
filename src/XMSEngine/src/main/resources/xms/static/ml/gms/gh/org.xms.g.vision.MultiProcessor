@@ -1,0 +1,202 @@
+package org.xms.g.vision;
+
+public class MultiProcessor<XT> extends org.xms.g.utils.XObject implements org.xms.g.vision.Detector.Processor<XT> {
+    private boolean wrapper = true;
+    
+    public MultiProcessor(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+    
+    public void release() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLCompositeTransactor) this.getHInstance()).destroy()");
+            ((com.huawei.hms.mlsdk.common.MLCompositeTransactor) this.getHInstance()).destroy();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.vision.MultiProcessor) this.getGInstance()).release()");
+            ((com.google.android.gms.vision.MultiProcessor) this.getGInstance()).release();
+        }
+    }
+    
+    public void receiveDetections(org.xms.g.vision.Detector.Detections<XT> param0) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLCompositeTransactor) this.getHInstance()).transactResult(((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) ((param0) == null ? null : (param0.getHInstance()))))");
+            ((com.huawei.hms.mlsdk.common.MLCompositeTransactor) this.getHInstance()).transactResult(((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) ((param0) == null ? null : (param0.getHInstance()))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.vision.MultiProcessor) this.getGInstance()).receiveDetections(((com.google.android.gms.vision.Detector.Detections) ((param0) == null ? null : (param0.getGInstance()))))");
+            ((com.google.android.gms.vision.MultiProcessor) this.getGInstance()).receiveDetections(((com.google.android.gms.vision.Detector.Detections) ((param0) == null ? null : (param0.getGInstance()))));
+        }
+    }
+    
+    public static org.xms.g.vision.MultiProcessor dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.g.vision.MultiProcessor) {
+            return ((org.xms.g.vision.MultiProcessor) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            com.google.android.gms.vision.MultiProcessor gReturn = ((com.google.android.gms.vision.MultiProcessor) ((org.xms.g.utils.XGettable) param0).getGInstance());
+            com.huawei.hms.mlsdk.common.MLCompositeTransactor hReturn = ((com.huawei.hms.mlsdk.common.MLCompositeTransactor) ((org.xms.g.utils.XGettable) param0).getHInstance());
+            return new org.xms.g.vision.MultiProcessor(new org.xms.g.utils.XBox(gReturn, hReturn));
+        }
+        return ((org.xms.g.vision.MultiProcessor) param0);
+    }
+    
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XObject)) {
+            return false;
+        }
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            return ((org.xms.g.utils.XObject) param0).getHInstance() instanceof com.huawei.hms.mlsdk.common.MLCompositeTransactor;
+        } else {
+            return ((org.xms.g.utils.XObject) param0).getGInstance() instanceof com.google.android.gms.vision.MultiProcessor;
+        }
+    }
+    
+    public static class Builder<XT> extends org.xms.g.utils.XObject {
+        
+        public Builder(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+        
+        public Builder(org.xms.g.vision.MultiProcessor.Factory<XT> param0) {
+            super((org.xms.g.utils.XBox) null);
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                this.setHInstance(new com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator(((param0) == null ? null : (param0.getHInstanceFactory()))));
+            } else {
+                this.setGInstance(new com.google.android.gms.vision.MultiProcessor.Builder(((param0) == null ? null : (param0.getGInstanceFactory()))));
+            }
+        }
+        
+        public org.xms.g.vision.MultiProcessor<XT> build() {
+            com.google.android.gms.vision.MultiProcessor gReturn = null;
+            com.huawei.hms.mlsdk.common.MLCompositeTransactor hReturn = null;
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator) this.getHInstance()).create()");
+                hReturn = ((com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator) this.getHInstance()).create();
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.vision.MultiProcessor.Builder) this.getGInstance()).build()");
+                gReturn = ((com.google.android.gms.vision.MultiProcessor.Builder) this.getGInstance()).build();
+            }
+            if (gReturn == null && hReturn == null) {
+                return null;
+            }
+            return new org.xms.g.vision.MultiProcessor(new org.xms.g.utils.XBox(gReturn, hReturn));
+        }
+        
+        public org.xms.g.vision.MultiProcessor.Builder<XT> setMaxGapFrames(int param0) {
+            com.google.android.gms.vision.MultiProcessor.Builder gReturn = null;
+            com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator hReturn = null;
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator) this.getHInstance()).setMaxFrameLostCount(param0)");
+                hReturn = ((com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator) this.getHInstance()).setMaxFrameLostCount(param0);
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.vision.MultiProcessor.Builder) this.getGInstance()).setMaxGapFrames(param0)");
+                gReturn = ((com.google.android.gms.vision.MultiProcessor.Builder) this.getGInstance()).setMaxGapFrames(param0);
+            }
+            if (gReturn == null && hReturn == null) {
+                return null;
+            }
+            return new org.xms.g.vision.MultiProcessor.Builder(new org.xms.g.utils.XBox(gReturn, hReturn));
+        }
+        
+        public static org.xms.g.vision.MultiProcessor.Builder dynamicCast(java.lang.Object param0) {
+            return ((org.xms.g.vision.MultiProcessor.Builder) param0);
+        }
+
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XObject)) {
+                return false;
+            }
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                return ((org.xms.g.utils.XObject) param0).getHInstance() instanceof com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator;
+            } else {
+                return ((org.xms.g.utils.XObject) param0).getGInstance() instanceof com.google.android.gms.vision.MultiProcessor.Builder;
+            }
+        }
+    }
+
+    public static interface Factory<XT> extends org.xms.g.utils.XInterface {
+
+        public org.xms.g.vision.Tracker<XT> create(XT param0);
+
+        default <T> com.google.android.gms.vision.MultiProcessor.Factory<T> getGInstanceFactory() {
+            if (this instanceof org.xms.g.utils.XGettable) {
+                return ((com.google.android.gms.vision.MultiProcessor.Factory<T>) ((org.xms.g.utils.XGettable) this).getGInstance());
+            }
+            return new com.google.android.gms.vision.MultiProcessor.Factory<T>() {
+
+                public com.google.android.gms.vision.Tracker<T> create(T param0) {
+                    java.lang.Object[] params = new java.lang.Object[1];
+                    java.lang.Class[] types = new java.lang.Class[1];
+                    params[0] = param0;
+                    types[0] = java.lang.Object.class;
+                    java.lang.Object result = org.xms.g.vision.MLUtils.invokeBridgeMethod(org.xms.g.vision.MultiProcessor.Factory.this, "create", params, types, false);
+                    return ((com.google.android.gms.vision.Tracker) org.xms.g.utils.Utils.handleInvokeBridgeReturnValue(result, false));
+                }
+            };
+        }
+
+        default <T> com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory<T> getHInstanceFactory() {
+            if (this instanceof org.xms.g.utils.XGettable) {
+                return ((com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory<T>) ((org.xms.g.utils.XGettable) this).getHInstance());
+            }
+            return new com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory<T>() {
+
+                public com.huawei.hms.mlsdk.common.MLResultTrailer<T> create(T param0) {
+                    java.lang.Object[] params = new java.lang.Object[1];
+                    java.lang.Class[] types = new java.lang.Class[1];
+                    params[0] = param0;
+                    types[0] = java.lang.Object.class;
+                    java.lang.Object result = org.xms.g.vision.MLUtils.invokeBridgeMethod(org.xms.g.vision.MultiProcessor.Factory.this, "create", params, types, true);
+                    return ((com.huawei.hms.mlsdk.common.MLResultTrailer) org.xms.g.utils.Utils.handleInvokeBridgeReturnValue(result, true));
+                }
+            };
+        }
+
+        public static org.xms.g.vision.MultiProcessor.Factory dynamicCast(java.lang.Object param0) {
+            if (param0 instanceof org.xms.g.vision.MultiProcessor.Factory) {
+                return ((org.xms.g.vision.MultiProcessor.Factory) param0);
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                com.google.android.gms.vision.MultiProcessor.Factory gReturn = ((com.google.android.gms.vision.MultiProcessor.Factory) ((org.xms.g.utils.XGettable) param0).getGInstance());
+                com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory hReturn = ((com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory) ((org.xms.g.utils.XGettable) param0).getHInstance());
+                return new org.xms.g.vision.MultiProcessor.Factory.XImpl(new org.xms.g.utils.XBox(gReturn, hReturn));
+            }
+            return ((org.xms.g.vision.MultiProcessor.Factory) param0);
+        }
+
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XObject)) {
+                return false;
+            }
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                return ((org.xms.g.utils.XObject) param0).getHInstance() instanceof com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory;
+            } else {
+                return ((org.xms.g.utils.XObject) param0).getGInstance() instanceof com.google.android.gms.vision.MultiProcessor.Factory;
+            }
+        }
+
+        public static class XImpl<XT> extends org.xms.g.utils.XObject implements org.xms.g.vision.MultiProcessor.Factory<XT> {
+
+            public XImpl(org.xms.g.utils.XBox param0) {
+                super(param0);
+            }
+
+            public org.xms.g.vision.Tracker<XT> create(XT param0) {
+                com.google.android.gms.vision.Tracker gReturn = null;
+                com.huawei.hms.mlsdk.common.MLResultTrailer hReturn = null;
+                if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                    java.lang.Object hObj0 = org.xms.g.utils.Utils.getInstanceInInterface(param0, true);
+                    org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory) this.getHInstance()).create(hObj0)");
+                    hReturn = ((com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory) this.getHInstance()).create(hObj0);
+                } else {
+                    java.lang.Object gObj0 = org.xms.g.utils.Utils.getInstanceInInterface(param0, false);
+                    org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.vision.MultiProcessor.Factory) this.getGInstance()).create(gObj0)");
+                    gReturn = ((com.google.android.gms.vision.MultiProcessor.Factory) this.getGInstance()).create(gObj0);
+                }
+                if (gReturn == null && hReturn == null) {
+                    return null;
+                }
+                return new org.xms.g.vision.Tracker(new org.xms.g.utils.XBox(gReturn, hReturn));
+            }
+        }
+    }
+}

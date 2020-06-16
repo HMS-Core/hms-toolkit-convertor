@@ -1,0 +1,56 @@
+package org.xms.f.iid;
+
+public class ExtensionInstanceId extends org.xms.g.utils.XObject {
+    
+    public ExtensionInstanceId(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    public static org.xms.f.iid.ExtensionInstanceId getInstance(android.content.Context context) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    public static org.xms.f.iid.ExtensionInstanceId getInstance() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    public static org.xms.f.iid.ExtensionInstanceId getInstance(org.xms.f.ExtensionApp param0) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.iid.InstanceIdResult> getInstanceId() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public java.lang.String getId() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public long getCreationTime() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public void deleteInstanceId() throws java.io.IOException {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public java.lang.String getToken() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public java.lang.String getToken(java.lang.String param0, java.lang.String param1) throws java.io.IOException {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public void deleteToken(java.lang.String param0, java.lang.String param1) throws java.io.IOException {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public static org.xms.f.iid.ExtensionInstanceId dynamicCast(java.lang.Object param0) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public static boolean isInstance(java.lang.Object param0) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+}

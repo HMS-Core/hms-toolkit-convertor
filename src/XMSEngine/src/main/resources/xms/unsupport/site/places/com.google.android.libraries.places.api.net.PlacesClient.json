@@ -1,0 +1,94 @@
+{
+  "gName": "com.google.android.libraries.places.api.net.PlacesClient",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "fetchPhoto",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.api.net.FetchPhotoRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.api.net.FetchPhotoResponse>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "fetchPlace",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.api.net.FetchPlaceRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.api.net.FetchPlaceResponse>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "findAutocompletePredictions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.api.net.FindAutocompletePredictionsResponse>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "findCurrentPlace",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.api.net.FindCurrentPlaceRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.api.net.FindCurrentPlaceResponse>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

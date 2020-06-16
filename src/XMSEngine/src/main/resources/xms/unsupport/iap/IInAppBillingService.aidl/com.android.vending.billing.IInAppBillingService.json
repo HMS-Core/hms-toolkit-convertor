@@ -1,0 +1,366 @@
+{
+  "gName": "com.android.vending.billing.IInAppBillingService",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.os.RemoteException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isBillingSupported",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "String"
+          },
+          {
+            "pos": "2",
+            "type": "String"
+          }
+        ],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.os.RemoteException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSkuDetails",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "String"
+          },
+          {
+            "pos": "2",
+            "type": "String"
+          },
+          {
+            "pos": "3",
+            "type": "in"
+          }
+        ],
+        "retType": "Bundle"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.os.RemoteException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBuyIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "String"
+          },
+          {
+            "pos": "2",
+            "type": "String"
+          },
+          {
+            "pos": "3",
+            "type": "String"
+          },
+          {
+            "pos": "4",
+            "type": "String"
+          }
+        ],
+        "retType": "Bundle"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.os.RemoteException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPurchases",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "String"
+          },
+          {
+            "pos": "2",
+            "type": "String"
+          },
+          {
+            "pos": "3",
+            "type": "String"
+          }
+        ],
+        "retType": "Bundle"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.os.RemoteException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "consumePurchase",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "String"
+          },
+          {
+            "pos": "2",
+            "type": "String"
+          }
+        ],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.os.RemoteException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stub",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "String"
+          },
+          {
+            "pos": "2",
+            "type": "String"
+          }
+        ],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.os.RemoteException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBuyIntentToReplaceSkus",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "String"
+          },
+          {
+            "pos": "2",
+            "type": "in"
+          },
+          {
+            "pos": "3",
+            "type": "String"
+          },
+          {
+            "pos": "4",
+            "type": "String"
+          },
+          {
+            "pos": "5",
+            "type": "String"
+          }
+        ],
+        "retType": "Bundle"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.os.RemoteException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBuyIntentExtraParams",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "String"
+          },
+          {
+            "pos": "2",
+            "type": "String"
+          },
+          {
+            "pos": "3",
+            "type": "String"
+          },
+          {
+            "pos": "4",
+            "type": "String"
+          },
+          {
+            "pos": "5",
+            "type": "in"
+          }
+        ],
+        "retType": "Bundle"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.os.RemoteException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPurchaseHistory",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "String"
+          },
+          {
+            "pos": "2",
+            "type": "String"
+          },
+          {
+            "pos": "3",
+            "type": "String"
+          },
+          {
+            "pos": "4",
+            "type": "in"
+          }
+        ],
+        "retType": "Bundle"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.os.RemoteException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isBillingSupportedExtraParams",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "String"
+          },
+          {
+            "pos": "2",
+            "type": "String"
+          },
+          {
+            "pos": "3",
+            "type": "in"
+          }
+        ],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

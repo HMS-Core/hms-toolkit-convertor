@@ -1,0 +1,83 @@
+{
+  "gName": "com.google.android.gms.vision.barcode.BarcodeDetector",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.vision.Detector",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "detect",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.vision.Frame"
+          }
+        ],
+        "retType": "android.util.SparseArray<com.google.android.gms.vision.barcode.Barcode>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "analyseFrame",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLFrame"
+          }
+        ],
+        "retType": "android.util.SparseArray<com.huawei.hms.ml.scan.HmsScan>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isOperational",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isAvailable",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "release",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_ml_conversion_guide#h1-1577103212336-15",
+      "tipsInfo": "You are advised to replace com.google.android.gms.vision.barcode.BarcodeDetector.release with com.huawei.hms.ml.scan.HmsScanAnalyzer.destory in this method."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScanAnalyzer"
+}

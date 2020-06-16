@@ -1,0 +1,24 @@
+{
+  "GradleXml": [
+    {
+       "condition": {
+         "type": "AppGradle",
+         "dependency": "com.google.firebase:firebase-messaging"
+       },
+       "operation": {
+         "type": "xml",
+         "operationType": "add",
+         "labelName": "meta-data",
+         "unconditional": false,
+         "androidName": "firebase_messaging_auto_init_enabled",
+         "addContent": "        <meta-data\n            android:name=\"push_kit_auto_init_enabled\"\n            android:value=\"true\" />",
+         "desc": {
+           "kit":"Push",
+           "text": "Add the specified meta-data:push_kit_auto_init_enabled",
+           "url": "https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/push-basic-capability#automatic_initialization",
+           "status": "Manual"
+         }
+       }
+    }
+  ]
+}

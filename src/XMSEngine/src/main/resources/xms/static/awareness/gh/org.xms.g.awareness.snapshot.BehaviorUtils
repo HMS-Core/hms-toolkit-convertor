@@ -1,0 +1,38 @@
+package org.xms.g.awareness.snapshot;
+
+
+import com.huawei.hms.kit.awareness.status.BehaviorStatus;
+import com.huawei.hms.kit.awareness.status.DetectedBehavior;
+import com.huawei.hms.location.ActivityIdentificationData;
+import com.huawei.hms.location.ActivityIdentificationResponse;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BehaviorUtils {
+
+    protected static ActivityIdentificationResponse convert(BehaviorStatus behaviorStatus) {
+        if (behaviorStatus == null) {
+            return null;
+        }
+
+        ActivityIdentificationResponse response = new ActivityIdentificationResponse();
+        response.setTime(behaviorStatus.getTime());
+        response.setElapsedTimeFromReboot(behaviorStatus.getElapsedRealtimeMillis());
+
+        if (behaviorStatus.getProbableBehavior() == null) {
+            return response;
+        }
+        List<ActivityIdentificationData> activities = new ArrayList<>();
+        for (DetectedBehavior behavior : behaviorStatus.getProbableBehavior()) {
+            activities.add(convertBehavior(behavior));
+        }
+        response.setActivityIdentificationDatas(activities);
+        return response;
+    }
+
+    private static ActivityIdentificationData convertBehavior(DetectedBehavior behavior) {
+        return new ActivityIdentificationData(behavior.getType() + 100, behavior.getConfidence());
+    }
+
+}

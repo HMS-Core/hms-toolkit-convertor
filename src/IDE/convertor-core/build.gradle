@@ -1,0 +1,32 @@
+import java.nio.file.Files
+import java.nio.file.Paths
+jar {
+    into("META-INF/maven/${project.group}/${project.name}") {
+        from "${buildDir}/publications/maven"
+        rename ".*", "pom.xml"
+    }
+}
+
+dependencies {
+    compile 'com.alibaba:fastjson'
+    compile project(":SourceCodeTransformer")
+    compile project(":XMSEngine")
+    compileOnly 'com.google.guava:guava'
+    compileOnly "org.slf4j:slf4j-api"
+    compileOnly "org.apache.commons:commons-lang3"
+
+    testCompile 'ch.qos.logback:logback-classic'
+}
+
+compileJava.doFirst {
+    println "Delete mapping version file"
+    def versionPropsFile = file('src/main/resources/mapping/version.properties')
+    Files.deleteIfExists(Paths.get(versionPropsFile.getPath()))
+
+    println "Create mapping version file"
+    Properties versionProps = new Properties()
+    versionProps.setProperty("versionName", project.getVersion().toString())
+    def outputStream = new FileOutputStream(versionPropsFile)
+    versionProps.store(outputStream, "Mappings version information")
+    outputStream.close()
+}

@@ -1,0 +1,150 @@
+{
+  "gName": "com.google.android.gms.common.data.DataBufferUtils",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "freezeAndClose",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.data.DataBuffer<E>"
+          }
+        ],
+        "retType": "<T extends java.lang.Object, E extends com.google.android.gms.common.data.Freezable<T>> java.util.ArrayList<T>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "freezeAndClose",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.common.data.DataBuffer<E>"
+          }
+        ],
+        "retType": "<T, E extends com.huawei.hms.common.data.Freezable<T>> java.util.ArrayList<T>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "hasData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.data.DataBuffer<?>"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "hasData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.common.data.DataBuffer<?>"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "hasNextPage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.data.DataBuffer<?>"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "hasNextPage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.common.data.DataBuffer<?>"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "hasPrevPage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.data.DataBuffer<?>"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "hasPrevPage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.common.data.DataBuffer<?>"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.common.data.DataBufferUtils"
+}

@@ -1,0 +1,153 @@
+{
+    "commonOperation": [
+        {
+            "androidName": "com.google.android.gms.permission.ACTIVITY_RECOGNITION",
+            "newContent": "<uses-permission android:name=\"com.huawei.hms.permission.ACTIVITY_RECOGNITION\"/>\n<uses-permission android:name=\"com.google.android.gms.permission.ACTIVITY_RECOGNITION\"/>",
+            "operation":"replace",
+            "labelName":"uses-permission",
+            "desc":{
+                "kit":"Common",
+                "text":"Add the permission required for the HMS SDK:com.huawei.hms.permission.ACTIVITY_RECOGNITION.",
+                "url":"",
+                "status": "Auto"
+            }
+        },
+        {
+            "androidName": "com.google.android.gms.vision.DEPENDENCIES",
+            "newContent": "com.huawei.hms.ml.DEPENDENCY",
+            "operation":"insert",
+            "labelName":"meta-data",
+            "desc":{
+                "kit":"ML",
+                "text":"Please add hms meta-data: com.huawei.hms.ml.DEPENDENCY.",
+                "url":"",
+                "status": "Auto"
+            }
+        },
+        {
+            "androidName": "com.google.firebase.ml.vision.DEPENDENCIES",
+            "newContent": "com.huawei.hms.ml.DEPENDENCY",
+            "operation":"insert",
+            "labelName":"meta-data",
+            "desc":{
+                "kit":"ML",
+                "text":"Add the specified meta-data: com.huawei.hms.ml.DEPENDENCY.",
+                "url":"",
+                "status": "Auto"
+            }
+        },
+        {
+            "androidName": "firebase_messaging_auto_init_enabled",
+            "newContent": "push_kit_auto_init_enabled",
+            "operation":"insert",
+            "labelName":"meta-data",
+            "desc":{
+                "kit":"Push",
+                "text":"Add the specified meta-data:push_kit_auto_init_enabled.",
+                "url":"https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/push-basic-capability#automatic_initialization",
+                "status": "Manual"
+            }
+        }
+    ],
+    "layoutOperation":[
+        {
+            "oldClassName":"com.google.android.gms.ads.formats.MediaView",
+            "newClassName":"org.xms.g.ads.formats.MediaView",
+            "desc":{
+                "kit":"Ads",
+                "text":"com.google.android.gms.ads.formats.MediaView will be replaced by org.xms.g.ads.formats.MediaView.",
+                "url":"",
+                "status": "Auto"
+            },
+            "comment":"Ads"
+        },       
+        {
+            "oldClassName":"com.google.android.gms.ads.formats.NativeAppInstallAdView",
+            "newClassName":"org.xms.g.ads.formats.NativeAppInstallAdView",
+            "desc":{
+                "kit":"Ads",
+                "text":"com.google.android.gms.ads.formats.NativeAppInstallAdView will be replaced by org.xms.g.ads.formats.NativeAppInstallAdView.",
+                "url":"",
+                "status": "Auto"
+            },
+            "comment":"Ads"
+        },
+        {
+            "oldClassName":"com.google.android.gms.ads.formats.NativeContentAdView",
+            "newClassName":"org.xms.g.ads.formats.NativeContentAdView",
+            "desc":{
+                "kit":"Ads",
+                "text":"com.google.android.gms.ads.formats.NativeContentAdView will be replaced by org.xms.g.ads.formats.NativeContentAdView.",
+                "url":"",
+                "status": "Auto"
+            },
+            "comment":"Ads"
+        },
+        {
+            "oldClassName":"com.google.android.gms.ads.formats.UnifiedNativeAdView",
+            "newClassName":"org.xms.g.ads.formats.UnifiedNativeAdView",
+            "desc":{
+                "kit":"Ads",
+                "text":"com.google.android.gms.ads.formats.UnifiedNativeAdView will be replaced by org.xms.g.ads.formats.UnifiedNativeAdView.",
+                "url":"",
+                "status": "Auto"
+            },
+            "comment":"Ads"
+        },
+        {
+            "oldClassName":"com.google.android.gms.ads.NativeExpressAdView",
+            "newClassName":"org.xms.g.ads.NativeExpressAdView",
+            "desc":{
+                "kit":"Ads",
+                "text":"com.google.android.gms.ads.NativeExpressAdView will be replaced by org.xms.g.ads.NativeExpressAdView.",
+                "url":"",
+                "status": "Auto"
+            },
+            "comment":"Ads"
+        },
+        {
+            "oldClassName":"com.google.android.gms.ads.AdView",
+            "newClassName":"org.xms.g.ads.AdView",
+            "desc":{
+                "kit":"Ads",
+                "text":"com.google.android.gms.ads.AdView should be replaced by org.xms.g.ads.AdView; Add the element: ads:adId = \" \", ads:bannerSize = \" \".",
+                "url":"https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-guide-banner",
+                "status": "Manual"
+            },
+            "comment":"Ads"
+        },
+        {
+            "oldClassName":"com.google.android.gms.ads.doubleclick.PublisherAdView",
+            "newClassName":"org.xms.g.ads.doubleclick.PublisherAdView",
+            "desc":{
+                "kit":"Ads",
+                "text":"com.google.android.gms.ads.doubleclick.PublisherAdView should be replaced by org.xms.g.ads.doubleclick.PublisherAdView; Add the element: ads:adId = \" \", ads:bannerSize = \" \".",
+                "url":"https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-guide-banner",
+                "status": "Manual"
+            },
+            "comment":"Ads"
+        },
+        {
+            "oldClassName":"com.google.android.gms.maps.MapView",
+            "newClassName":"org.xms.g.maps.MapView",
+            "desc":{
+                "kit":"Map",
+                "text":"com.google.android.gms.maps.MapView will be replaced by org.xms.g.maps.MapView.",
+                "url":"",
+                "status": "Auto"
+            },
+            "comment":"Ads"
+        },
+        {
+            "oldClassName":"com.google.android.gms.maps.StreetViewPanoramaView",
+            "newClassName":"org.xms.g.maps.StreetViewPanoramaView",
+            "desc":{
+                "kit":"Map",
+                "text":"com.google.android.gms.maps.StreetViewPanoramaView will be replaced by org.xms.g.maps.StreetViewPanoramaView.",
+                "url":"",
+                "status": "Auto"
+            },
+            "comment":"Ads"
+        }
+    ]
+}

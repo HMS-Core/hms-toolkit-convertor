@@ -1,0 +1,142 @@
+package org.xms.g.fido.fido2.api.common;
+
+public final class AttestationConveyancePreference extends org.xms.g.utils.XEnum implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator CREATOR = new android.os.Parcelable.Creator() {
+
+        public org.xms.g.fido.fido2.api.common.AttestationConveyancePreference createFromParcel(android.os.Parcel param0) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                String value = param0.readString();
+                com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference hReturn = com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference.fromValue(value);
+                return new org.xms.g.fido.fido2.api.common.AttestationConveyancePreference(new org.xms.g.utils.XBox(null, hReturn));
+            } else {
+                com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference gReturn = com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference.CREATOR.createFromParcel(param0);
+                return new org.xms.g.fido.fido2.api.common.AttestationConveyancePreference(new org.xms.g.utils.XBox(gReturn, null));
+            }
+        }
+
+        public org.xms.g.fido.fido2.api.common.AttestationConveyancePreference[] newArray(int param0) {
+            return new org.xms.g.fido.fido2.api.common.AttestationConveyancePreference[param0];
+        }
+    };
+
+    public AttestationConveyancePreference(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    public static org.xms.g.fido.fido2.api.common.AttestationConveyancePreference getDIRECT() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference.DIRECT");
+            com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference hReturn = null;
+            hReturn = com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference.DIRECT;
+            return ((hReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.AttestationConveyancePreference(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference.DIRECT");
+            com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference gReturn = null;
+            gReturn = com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference.DIRECT;
+            return ((gReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.AttestationConveyancePreference(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    public static org.xms.g.fido.fido2.api.common.AttestationConveyancePreference getINDIRECT() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference.INDIRECT");
+            com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference hReturn = null;
+            hReturn = com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference.INDIRECT;
+            return ((hReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.AttestationConveyancePreference(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference.INDIRECT");
+            com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference gReturn = null;
+            gReturn = com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference.INDIRECT;
+            return ((gReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.AttestationConveyancePreference(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    public static org.xms.g.fido.fido2.api.common.AttestationConveyancePreference getNONE() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference.NONE");
+            com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference hReturn = null;
+            hReturn = com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference.NONE;
+            return ((hReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.AttestationConveyancePreference(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference.NONE");
+            com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference gReturn = null;
+            gReturn = com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference.NONE;
+            return ((gReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.AttestationConveyancePreference(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    public void writeToParcel(android.os.Parcel param0, int param1) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference hAttestationConveyancePreference = ((com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference) this.getHInstance());
+            param0.writeString(hAttestationConveyancePreference.getValue());
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference) this.getGInstance()).writeToParcel(param0, param1)");
+            ((com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference) this.getGInstance()).writeToParcel(param0, param1);
+        }
+    }
+
+    public int describeContents() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public static org.xms.g.fido.fido2.api.common.AttestationConveyancePreference dynamicCast(java.lang.Object param0) {
+        return ((org.xms.g.fido.fido2.api.common.AttestationConveyancePreference) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference;
+        } else {
+            return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference;
+        }
+    }
+
+    public static org.xms.g.fido.fido2.api.common.AttestationConveyancePreference[] values() {
+        return new org.xms.g.fido.fido2.api.common.AttestationConveyancePreference[] {
+            getDIRECT(), getINDIRECT(), getNONE(),
+        };
+    }
+
+    public static class UnsupportedAttestationConveyancePreferenceException extends java.lang.Exception implements org.xms.g.utils.XGettable {
+        public java.lang.Object gInstance;
+        public java.lang.Object hInstance;
+
+        public UnsupportedAttestationConveyancePreferenceException(org.xms.g.utils.XBox param0) {
+            if (param0 == null) {
+                return;
+            }
+            this.setGInstance(param0.getGInstance());
+            this.setHInstance(param0.getHInstance());
+        }
+
+        public UnsupportedAttestationConveyancePreferenceException(java.lang.String param0) {
+        }
+
+        public void setGInstance(java.lang.Object param0) {
+            this.gInstance = param0;
+        }
+
+        public void setHInstance(java.lang.Object param0) {
+            this.hInstance = param0;
+        }
+
+        public java.lang.Object getGInstance() {
+            return this.gInstance;
+        }
+
+        public java.lang.Object getHInstance() {
+            return this.hInstance;
+        }
+
+        public static org.xms.g.fido.fido2.api.common.AttestationConveyancePreference.UnsupportedAttestationConveyancePreferenceException dynamicCast(java.lang.Object param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public static boolean isInstance(java.lang.Object param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+    }
+}

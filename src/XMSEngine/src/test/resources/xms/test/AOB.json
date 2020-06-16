@@ -1,0 +1,119 @@
+{
+  "gName": "com.google.android.gms.nearby.connection.AdvertisingOptions.Builder",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.nearby.connection.AdvertisingOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.nearby.discovery.BroadcastOption"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setStrategy",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.nearby.connection.Strategy"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.connection.AdvertisingOptions.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPolicy",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.nearby.discovery.Policy"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.discovery.BroadcastOption.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.nearby.connection.AdvertisingOptions"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.nearby.discovery.BroadcastOption"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.discovery.BroadcastOption.Builder"
+}

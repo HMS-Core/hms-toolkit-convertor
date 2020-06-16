@@ -1,0 +1,197 @@
+{
+  "gName": "com.google.android.gms.awareness.AwarenessStatusCodes",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.CommonStatusCodes",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusCodeString",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "ACL_ACCESS_DENIED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7503"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-11",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "API_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7512"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-11",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "BAD_ACCOUNT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7504"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-11",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "BLUETOOTH_OFF",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7506"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-11",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "FENCE_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7514"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-11",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "INCONSISTENT_ACCOUNT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7510"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-11",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "INCONSISTENT_MODULE_ID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7511"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-11",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "INCONSISTENT_UID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7513"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-11",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "INTERNAL_API_CLIENT_CONNECTION_FAILED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7507"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-11",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "NA",
+      "g": {
+        "name": "MAX_LIMIT_OF_FENCE_REGISTRATIONS_EXCEEDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7515"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_awareness_conversion_guide#h1-1578731984215-11",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes"
+}

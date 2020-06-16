@@ -1,0 +1,215 @@
+{
+  "gName": "android.content.Intent",
+  "interfaces": [
+    "android.os.Parcelable",
+    "java.lang.Cloneable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getExtra",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "java.lang.Object"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-0",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getExtra",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.lang.Object"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-0",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getParcelableArrayExtra",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "android.os.Parcelable[]"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-1",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getParcelableArrayListExtra",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "<T extends android.os.Parcelable> java.util.ArrayList<T>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-2",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getParcelableExtra",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "<T extends android.os.Parcelable> T"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-0",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSerializableExtra",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.io.Serializable"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-0",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putExtra",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "android.os.Parcelable"
+          }
+        ],
+        "retType": "android.content.Intent"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-5",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putExtra",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "android.os.Parcelable[]"
+          }
+        ],
+        "retType": "android.content.Intent"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-6",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putExtra",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Serializable"
+          }
+        ],
+        "retType": "android.content.Intent"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-5",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putParcelableArrayListExtra",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.ArrayList<? extends Parcelable>"
+          }
+        ],
+        "retType": "android.content.Intent"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-4",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

@@ -1,0 +1,19 @@
+package ${X_PACKAGE};
+
+public class XBox {
+    java.lang.Object gInst;
+    java.lang.Object hInst;
+
+    public XBox(java.lang.Object gInst, java.lang.Object hInst) {
+        this.gInst = gInst;
+        this.hInst = hInst;
+    }
+
+    public Object getGInstance() {
+        return gInst;
+    }
+
+    public Object getHInstance() {
+        return hInst;
+    }
+}

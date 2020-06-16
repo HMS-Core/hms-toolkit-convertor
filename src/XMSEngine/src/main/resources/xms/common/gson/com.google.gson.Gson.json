@@ -1,0 +1,344 @@
+{
+  "gName": "com.google.gson.Gson",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-8",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.reflect.Type"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-9",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Appendable"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-8",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.reflect.Type"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.Appendable"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-9",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.reflect.Type"
+          },
+          {
+            "pos": "2",
+            "type": "JsonWriter"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-9",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.gson.JsonElement"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-10",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.gson.JsonElement"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Appendable"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-10",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.gson.JsonElement"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.gson.stream.JsonWriter"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-10",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "fromJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T> T"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-11",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "fromJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.reflect.Type"
+          }
+        ],
+        "retType": "<T> T"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-11",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "fromJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.Reader"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T> T"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-11",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "fromJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.Reader"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.reflect.Type"
+          }
+        ],
+        "retType": "<T> T"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-11",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "fromJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.gson.stream.JsonReader"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.reflect.Type"
+          }
+        ],
+        "retType": "<T> T"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-11",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "fromJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.gson.JsonElement"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T> T"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-11",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "fromJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.gson.JsonElement"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.reflect.Type"
+          }
+        ],
+        "retType": "<T> T"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/hmssdk_api_conversion_guide#h1-1586778429754-11",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": ""
+}

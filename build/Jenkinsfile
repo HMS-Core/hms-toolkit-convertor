@@ -1,0 +1,35 @@
+@Library('codeflow') _
+node("mesos") {
+    stage("init") {
+        cloudBuildConfig {
+            group_id = "g8b372f2189f44b018a12bc8fa9bea5cc"
+            service_id = "59ba94e6257c4511b2b83bba3a0696d1"
+            project_id = "0f4ada4074ef4cf194afbbe49f2849a6"
+            project_name = "Convertor_OpenSource"
+        }
+    }
+
+    cloudBuild {
+        jobs = [
+            "only_compile":{
+            },
+            "findbugs": {
+                expect(report.high_priority).lessOrEqual(0)
+                expect(report.low_priority).lessOrEqual(0)
+                expect(report.normal_priority).lessOrEqual(0)
+            },
+            "cmetrics": {
+                expect(report.code_duplication_ratio).lessOrEqual(4.9)
+                expect(report.file_duplication_ratio).lessOrEqual(0)
+                expect(report.maximum_cyclomatic_complexity).lessOrEqual(25)
+                expect(report.cyclomatic_complexity_per_method).lessOrEqual(2.22)
+                expect(report.dangerous_funcs_total).lessOrEqual(0)
+            },
+            "codingstylecheck_codeflow": {
+                expect(report.STANDARD_NEW).lessOrEqual(0)
+                //expect(report.STANDARD_RECOMMENDED_NEW).lessOrEqual(0)
+            },
+        ]
+    }
+}
+

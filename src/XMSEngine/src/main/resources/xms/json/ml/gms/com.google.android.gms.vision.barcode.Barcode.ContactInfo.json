@@ -1,0 +1,163 @@
+{
+  "gName": "com.google.android.gms.vision.barcode.Barcode.ContactInfo",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ContactInfo",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ContactDetail",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "addresses",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.Address[]",
+        "value": ""
+      },
+      "h": {
+        "name": "addressesInfos",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.AddressInfo[]",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "emails",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.Email[]",
+        "value": ""
+      },
+      "h": {
+        "name": "eMailContents",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.EmailContent[]",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "name",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.PersonName",
+        "value": ""
+      },
+      "h": {
+        "name": "peopleName",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.PeopleName",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "organization",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "company",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "phones",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.Phone[]",
+        "value": ""
+      },
+      "h": {
+        "name": "telPhoneNumbers",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber[]",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "title",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "title",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "urls",
+        "modifiers": [],
+        "type": "java.lang.String[]",
+        "value": ""
+      },
+      "h": {
+        "name": "contactLinks",
+        "modifiers": [],
+        "type": "java.lang.String[]",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan.ContactDetail"
+}

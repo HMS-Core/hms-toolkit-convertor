@@ -1,0 +1,41 @@
+{
+    "replaceBuilder": [
+
+    ],
+    "deleteUrl": [
+        {
+            "url": "https://fcm.googleapis.com/fcm/googlenotification",
+            "desc": {
+                "kit":"Common",
+                "text": "Currently, HMS does not support this device group management function.",
+                "url": "",
+                "status": "Manual"
+            }
+        },
+        {
+            "url": "https://fcm.googleapis.com/fcm/send",
+            "desc": {
+                "kit":"Common",
+                "text": "Currently, HCM does not support the Rest API call. For details, please refer to HUAWEI Mobile Service Development Guide.",
+                "url": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-sendapi ",
+                "status": "Manual"
+            }
+        }
+    ],
+    
+    "deleteFile": [
+        {
+            "fileName": "google-services.json",
+            "desc": {
+                "kit":"Common",
+                "text": "This property file is not required for the HMS SDK. Please delete it. Download the agconnect-services.json file from AppGallery Connect and configure it in your project.",
+                "url": "https://developer.huawei.com/consumer/en/doc/development/AppGallery-connect-Guides/agc-get-started",
+                "status": "Manual"
+            }
+        }
+    ],
+    "replaceScope": [
+    ],
+    "deleteScope": [
+    ]
+}

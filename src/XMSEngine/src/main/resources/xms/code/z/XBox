@@ -1,0 +1,13 @@
+package ${X_PACKAGE};
+
+public class XBox {
+    java.lang.Object inst;
+
+    public XBox(java.lang.Object inst) {
+        this.inst = inst;
+    }
+
+    public Object getZInstance() {
+        return inst;
+    }
+}

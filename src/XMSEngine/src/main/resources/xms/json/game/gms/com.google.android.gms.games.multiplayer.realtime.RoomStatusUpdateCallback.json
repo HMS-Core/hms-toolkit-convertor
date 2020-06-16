@@ -1,0 +1,293 @@
+{
+  "gName": "com.google.android.gms.games.multiplayer.realtime.RoomStatusUpdateCallback",
+  "interfaces": [
+    "com.google.android.gms.games.multiplayer.realtime.RoomStatusUpdateListener"
+  ],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onConnectedToRoom",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.Room"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onDisconnectedFromRoom",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.Room"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onP2PConnected",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onP2PDisconnected",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onPeerDeclined",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.Room"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.List<java.lang.String>"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onPeerInvitedToRoom",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.Room"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.List<java.lang.String>"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onPeerJoined",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.Room"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.List<java.lang.String>"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onPeerLeft",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.Room"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.List<java.lang.String>"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onPeersConnected",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.Room"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.List<java.lang.String>"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onPeersDisconnected",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.Room"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.List<java.lang.String>"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onRoomAutoMatching",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.Room"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onRoomConnecting",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.Room"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "RoomStatusUpdateCallback",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": ""
+}

@@ -1,0 +1,29 @@
+apply plugin: 'org.jetbrains.intellij'
+ext {
+    userHomePath = System.properties['user.home']
+}
+
+dependencies {
+    compile project(":IDE:convertor-idea")
+    compile 'ch.qos.logback:logback-classic'
+}
+
+intellij {
+    pluginName "HMSConvertor"
+    sandboxDirectory "${buildDir}/sandbox"
+
+
+}
+
+prepareSandbox {
+    doLast {
+        copy {
+            from "${rootDir}/hms-configs"
+            into "${buildDir}/sandbox/plugins/${intellij.pluginName}/lib/config"
+        }
+    }
+}
+
+buildPlugin {
+    archiveName = "convertor-" + project.name + "-" + project.version + ".zip"
+}

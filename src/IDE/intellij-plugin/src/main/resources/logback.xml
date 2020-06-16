@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="log.pattern" value="%date %-5level [%thread] %logger#%method [%file:%line] - %msg%n"/>
+    <property name="log.home" value="${user.home}/.hmstoolkit/logs"/>
+    <property name="log.level" value="INFO"/>
+    <property name="module.default" value="hmstoolkit"/>
+    <property name="module.convertor" value="convertor"/>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="file-default" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.home}/${module.default}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${log.home}/${module.default}-%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <MaxFileSize>5MB</MaxFileSize>
+            <MaxHistory>10</MaxHistory>
+            <TotalSizeCap>500MB</TotalSizeCap>
+            <CleanHistoryOnStart>true</CleanHistoryOnStart>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${log.pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="file-convertor" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.home}/${module.convertor}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${log.home}/${module.convertor}-%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <MaxFileSize>5MB</MaxFileSize>
+            <MaxHistory>10</MaxHistory>
+            <TotalSizeCap>500MB</TotalSizeCap>
+            <CleanHistoryOnStart>true</CleanHistoryOnStart>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${log.pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="com.huawei.hms.convertor" level="${log.level}" additivity="false">
+        <appender-ref ref="stdout" />
+        <appender-ref ref="file-convertor" />
+    </logger>
+
+    <logger name="com.huawei.codebot" level="${log.level}" additivity="false">
+        <appender-ref ref="stdout" />
+        <appender-ref ref="file-convertor" />
+    </logger>
+
+    <logger name="com.huawei.generator" level="${log.level}" additivity="false">
+        <appender-ref ref="stdout" />
+        <appender-ref ref="file-convertor" />
+    </logger>
+
+    <logger name="com.huawei.translator" level="${log.level}" additivity="false">
+        <appender-ref ref="stdout" />
+        <appender-ref ref="file-convertor" />
+    </logger>
+
+    <root level="${log.level}">
+        <appender-ref ref="stdout" />
+        <appender-ref ref="file-default" />
+    </root>
+</configuration>

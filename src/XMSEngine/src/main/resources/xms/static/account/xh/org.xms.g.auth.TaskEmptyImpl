@@ -1,0 +1,72 @@
+
+package org.xms.g.auth;
+
+import android.app.Activity;
+
+import com.huawei.hmf.tasks.OnFailureListener;
+import com.huawei.hmf.tasks.OnSuccessListener;
+import com.huawei.hmf.tasks.Task;
+
+import java.util.concurrent.Executor;
+
+public class TaskEmptyImpl extends com.huawei.hmf.tasks.Task {
+    @Override
+    public boolean isComplete() {
+        return false;
+    }
+
+    @Override
+    public boolean isSuccessful() {
+        return false;
+    }
+
+    @Override
+    public boolean isCanceled() {
+        return false;
+    }
+
+    @Override
+    public Object getResult() {
+        return new Object();
+    }
+
+    @Override
+    public Exception getException() {
+        return new Exception();
+    }
+
+    @Override
+    public Task addOnSuccessListener(OnSuccessListener onSuccessListener) {
+        return this;
+    }
+
+    @Override
+    public Task addOnSuccessListener(Executor executor, OnSuccessListener onSuccessListener) {
+        return this;
+    }
+
+    @Override
+    public Task addOnSuccessListener(Activity activity, OnSuccessListener onSuccessListener) {
+        return this;
+    }
+
+    @Override
+    public Task addOnFailureListener(OnFailureListener onFailureListener) {
+        return this;
+    }
+
+    @Override
+    public Task addOnFailureListener(Executor executor, OnFailureListener onFailureListener) {
+        return this;
+    }
+
+    @Override
+    public Task addOnFailureListener(Activity activity, OnFailureListener onFailureListener) {
+        return this;
+    }
+
+    @Override
+    public Object getResultThrowException(Class aClass) throws Throwable {
+        return new Object();
+    }
+}

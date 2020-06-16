@@ -1,0 +1,85 @@
+{
+    "javaOpts": [
+        "-Xms256m",
+        "-Xmx1280m"
+    ],
+    "classPath": {
+        "fixbot": [
+            "fixbot-x2y"
+        ],
+        "esapi": [
+            "esapi",
+            "commons-configuration",
+            "commons-lang",
+            "commons-logging",
+            "commons-collections"
+        ],
+        "groovy": [
+            "groovy"
+        ],
+        "logback": [
+            "logback-classic",
+            "logback-core",
+            "slf4j-api"
+        ],
+        "commons-io": [
+            "commons-io"
+        ],
+        "commons-lang3": [
+            "commons-lang3"
+        ],
+        "gson": [
+            "gson"
+        ],
+        "argparse4j": [
+            "argparse4j"
+        ],
+        "guava": [
+            "guava",
+            "jsr305"
+            "error_prone_annotations",
+            "animal-sniffer-annotations"
+        ],
+        "bson": [
+            "bson"
+        ],
+        "eclipse": [
+            "org.eclipse.jdt.core",
+            "org.eclipse.core.resources",
+            "org.eclipse.core.expressions",
+            "org.eclipse.core.runtime",
+            "org.eclipse.osgi",
+            "org.eclipse.core.jobs",
+            "org.eclipse.core.contenttype",
+            "org.eclipse.equinox.app",
+            "org.eclipse.equinox.registry",
+            "org.eclipse.equinox.preferences",
+            "org.eclipse.equinox.common",
+            "org.eclipse.core.filesystem",
+            "org.eclipse.text",
+            "org.eclipse.core.commands"
+        ],
+        "juniversalchardet": [
+            "juniversalchardet"
+        ],
+        "dom4j": [
+            "dom4j"
+        ],
+        "antlr4": [
+            "antlr4",
+            "antlr4-runtime",
+            "ST4",
+            "antlr-runtime",
+            "org.abego.treelayout.core"
+        ],
+        "icu": [
+            "icu4j"
+        ],
+        "servlet": [
+            "servlet-api"
+        ],
+        "json": [
+            "json"
+        ]
+    }
+}

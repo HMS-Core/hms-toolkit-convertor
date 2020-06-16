@@ -1,0 +1,401 @@
+{
+  "gName": "com.google.android.gms.wallet.OfferWalletObject",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getBarcodeAlternateText",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-14",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getBarcodeLabel",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getBarcodeType",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-15",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getBarcodeValue",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-16",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getClassId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getPassStyleIdentifier",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getOrganizationPassId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getImageModuleDataMainImageUris",
+        "paramTypes": [],
+        "retType": "java.util.ArrayList<com.google.android.gms.wallet.wobs.UriData>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-42",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getInfoModuleDataHexBackgroundColor",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getInfoModuleDataHexFontColor",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getInfoModuleDataLabelValueRows",
+        "paramTypes": [],
+        "retType": "java.util.ArrayList<com.google.android.gms.wallet.wobs.LabelValueRow>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getInfoModuleDataShowLastUpdateTime",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getIssuerName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-43",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLinksModuleDataUris",
+        "paramTypes": [],
+        "retType": "java.util.ArrayList<com.google.android.gms.wallet.wobs.UriData>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLocations",
+        "paramTypes": [],
+        "retType": "java.util.ArrayList<com.google.android.gms.maps.model.LatLng>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-44",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMessages",
+        "paramTypes": [],
+        "retType": "java.util.ArrayList<com.google.android.gms.wallet.wobs.WalletObjectMessage>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-42",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getRedemptionCode",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-45",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getState",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-46",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTextModulesData",
+        "paramTypes": [],
+        "retType": "java.util.ArrayList<com.google.android.gms.wallet.wobs.TextModuleData>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-42",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getTitle",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-43",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getValidTimeInterval",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.wallet.wobs.TimeInterval"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-47",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getVersionCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "newBuilder",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.wallet.OfferWalletObject.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getBuilder",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.wallet.pass.PassObject.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.wallet.OfferWalletObject>",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.wallet.pass.PassObject"
+}

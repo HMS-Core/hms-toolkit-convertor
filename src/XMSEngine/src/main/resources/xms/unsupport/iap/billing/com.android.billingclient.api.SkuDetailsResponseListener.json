@@ -1,0 +1,38 @@
+{
+  "gName": "com.android.billingclient.api.SkuDetailsResponseListener",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onSkuDetailsResponse",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.android.billingclient.api.BillingResult"
+          },
+          {
+            "pos": "1",
+            "type": "List<com.android.billingclient.api.SkuDetails>"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

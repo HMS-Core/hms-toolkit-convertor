@@ -1,0 +1,60 @@
+package org.xms.g.tasks;
+
+public interface OnFailureListener extends org.xms.g.utils.XInterface {
+    
+    public void onFailure(java.lang.Exception param0);
+    
+    default java.lang.Object getZInstanceOnFailureListener() {
+        return getGInstanceOnFailureListener();
+    }
+    
+    default com.google.android.gms.tasks.OnFailureListener getGInstanceOnFailureListener() {
+        if (this instanceof org.xms.g.utils.XGettable) {
+            return ((com.google.android.gms.tasks.OnFailureListener) ((org.xms.g.utils.XGettable) this).getZInstance());
+        }
+        return new com.google.android.gms.tasks.OnFailureListener() {
+            
+            public void onFailure(java.lang.Exception param0) {
+                if (org.xms.g.utils.Utils.isGmsType(param0)) {
+                    Object gobj = org.xms.g.utils.Utils.getXmsObjectWithGmsObject(param0);
+                    org.xms.g.tasks.OnFailureListener.this.onFailure((Exception) gobj);
+                } else {
+                    org.xms.g.tasks.OnFailureListener.this.onFailure(param0);
+                }
+            }
+        };
+    }
+    
+    public static org.xms.g.tasks.OnFailureListener dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.g.tasks.OnFailureListener) {
+            return ((org.xms.g.tasks.OnFailureListener) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            com.google.android.gms.tasks.OnFailureListener zReturn = ((com.google.android.gms.tasks.OnFailureListener) ((org.xms.g.utils.XGettable) param0).getZInstance());
+            return new org.xms.g.tasks.OnFailureListener.XImpl(new org.xms.g.utils.XBox(zReturn));
+        }
+        return ((org.xms.g.tasks.OnFailureListener) param0);
+    }
+    
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XInterface)) {
+            return false;
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.google.android.gms.tasks.OnFailureListener;
+        }
+        return param0 instanceof org.xms.g.tasks.OnFailureListener;
+    }
+    
+    public static class XImpl extends org.xms.g.utils.XObject implements org.xms.g.tasks.OnFailureListener {
+        
+        public XImpl(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+        
+        public void onFailure(java.lang.Exception param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.tasks.OnFailureListener) this.getZInstance()).onFailure(param0)");
+            ((com.google.android.gms.tasks.OnFailureListener) this.getZInstance()).onFailure(param0);
+        }
+    }
+}

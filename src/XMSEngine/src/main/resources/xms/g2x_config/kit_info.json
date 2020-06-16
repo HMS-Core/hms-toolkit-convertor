@@ -1,0 +1,197 @@
+{
+  "supportedList": [
+    "Account",
+    "Ads",
+    "Analytics",
+    "Awareness",
+    "Basement",
+    "Game",
+    "Health",
+    "Identity",
+    "Location",
+    "Map",
+    "Nearby",
+    "Panorama",
+    "Push",
+    "Safetynet",
+    "Wallet",
+    "MLfirebase",
+    "MLgms"
+  ],
+  "displayMap": {
+    "account": "Account",
+    "ads": "Ads",
+    "analytics": "Analytics",
+    "awareness": "Awareness",
+    "drm": "DRM",
+    "drive": "Drive",
+    "dynamic": "DTM",
+    "framework": "Basement",
+    "game": "Game",
+    "health": "Health",
+    "identity": "Identity",
+    "location": "Location",
+    "maps": "Map",
+    "ml": "ML",
+    "mlfirebase": "MLfirebase",
+    "mlgms": "MLgms",
+    "nearby": "Nearby",
+    "panorama": "Panorama",
+    "push": "Push",
+    "safety": "Safetynet",
+    "site": "Site",
+    "wallet": "Wallet",
+    "iap": "IAP"
+  },
+  "dependencyMap": {
+    "account": [
+      "framework"
+    ],
+    "ads": [
+      "framework"
+    ],
+    "analytics": [
+      "framework"
+    ],
+    "awareness": [
+      "location",
+      "site",
+      "framework"
+    ],
+    "firebase": [],
+    "framework": [],
+    "game": [
+      "framework",
+      "account"
+    ],
+    "health": [
+      "account",
+      "framework"
+    ],
+    "identity": [
+      "framework"
+    ],
+    "location": [
+      "framework"
+    ],
+    "maps": [
+      "location",
+      "framework"
+    ],
+    "mlfirebase": [
+      "account",
+      "framework",
+      "firebase"
+    ],
+    "mlgms": [
+      "framework"
+    ],
+    "nearby": [
+      "framework"
+    ],
+    "panorama": [
+      "framework"
+    ],
+    "push": [
+      "framework",
+      "firebase"
+    ],
+    "safety": [
+      "framework"
+    ],
+    "site": [],
+    "wallet": [
+      "framework",
+      "maps",
+      "identity",
+      "account"
+    ]
+  },
+  "defaultSdkVersion": {
+    "account": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 28,
+      "compileSdkVersion": 28
+    },
+    "ads": {
+      "minSdkVersion": 21,
+      "targetSdkVersion": 28,
+      "compileSdkVersion": 28
+    },
+    "analytics": {
+      "minSdkVersion": 21,
+      "targetSdkVersion": 28,
+      "compileSdkVersion": 28
+    },
+    "awareness": {
+      "minSdkVersion": 24,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "basement": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 26,
+      "compileSdkVersion": 26
+    },
+    "game": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 28,
+      "compileSdkVersion": 28
+    },
+    "health": {
+      "minSdkVersion": 19,
+      "targetSdkVersion": 28,
+      "compileSdkVersion": 28
+    },
+    "identity": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 26,
+      "compileSdkVersion": 26
+    },
+    "location": {
+      "minSdkVersion": 16,
+      "targetSdkVersion": 28,
+      "compileSdkVersion": 28
+    },
+    "map": {
+      "minSdkVersion": 19,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "mlfirebase": {
+      "minSdkVersion": 19,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "mlgms": {
+      "minSdkVersion": 19,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "nearby": {
+      "minSdkVersion": 21,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "panorama": {
+      "minSdkVersion": 18,
+      "targetSdkVersion": 28,
+      "compileSdkVersion": 28
+    },
+    "push": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 28,
+      "compileSdkVersion": 28
+    },
+    "safetynet": {
+      "minSdkVersion": 19,
+      "targetSdkVersion": 28,
+      "compileSdkVersion": 28
+    },
+    "wallet": {
+      "minSdkVersion": 19,
+      "targetSdkVersion": 28,
+      "compileSdkVersion": 28
+    }
+  }
+}

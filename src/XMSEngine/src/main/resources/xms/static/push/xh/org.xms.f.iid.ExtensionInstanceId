@@ -1,0 +1,104 @@
+package org.xms.f.iid;
+
+public class ExtensionInstanceId extends org.xms.g.utils.XObject {
+
+    public ExtensionInstanceId(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    private String getAppId() {
+        android.content.Context context = null;
+        try {
+            java.lang.reflect.Field field = null;
+            java.lang.reflect.Field[] fields = com.huawei.hms.aaid.HmsInstanceId.class.getDeclaredFields();
+            for (java.lang.reflect.Field f : fields) {
+                if (f.getType().getName().equals("android.content.Context")) {
+                    field = f;
+                    break;
+                }
+            }
+            field.setAccessible(true);
+            context = (android.content.Context) field.get(this.getZInstance());
+        } catch (java.lang.IllegalAccessException e) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", e.toString());
+        }
+        if (context != null) {
+            return com.huawei.hms.utils.Util.getAppId(context);
+        } else {
+            throw new java.lang.RuntimeException("context cannot be null");
+        }
+    }
+
+    public static org.xms.f.iid.ExtensionInstanceId getInstance(android.content.Context context) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).getInstance(context)");
+        com.huawei.hms.aaid.HmsInstanceId zReturn = com.huawei.hms.aaid.HmsInstanceId.getInstance(context);
+        return ((zReturn) == null ? null : (new org.xms.f.iid.ExtensionInstanceId(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public static org.xms.f.iid.ExtensionInstanceId getInstance() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public static org.xms.f.iid.ExtensionInstanceId getInstance(org.xms.f.ExtensionApp param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.iid.InstanceIdResult> getInstanceId() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).getAAID()");
+        com.huawei.hmf.tasks.Task zReturn = ((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).getAAID();
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public java.lang.String getId() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).getId()");
+        return ((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).getId();
+    }
+
+    public long getCreationTime() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).getCreationTime()");
+        return ((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).getCreationTime();
+    }
+
+    public void deleteInstanceId() throws java.io.IOException {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).deleteAAID()");
+        try {
+            ((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).deleteAAID();
+        } catch (com.huawei.hms.common.ApiException e) {
+            throw new java.io.IOException(e);
+        }
+    }
+
+    public java.lang.String getToken() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).getToken()");
+        return ((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).getToken();
+    }
+
+    public java.lang.String getToken(java.lang.String param0, java.lang.String param1) throws java.io.IOException {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).getToken(getAppId(), param1)");
+        try {
+            return ((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).getToken(getAppId(), param1);
+        } catch (com.huawei.hms.common.ApiException e) {
+            throw new java.io.IOException(e);
+        }
+    }
+
+    public void deleteToken(java.lang.String param0, java.lang.String param1) throws java.io.IOException {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).deleteToken(getAppId(), param1)");
+        try {
+            ((com.huawei.hms.aaid.HmsInstanceId) this.getZInstance()).deleteToken(getAppId(), param1);
+        } catch (com.huawei.hms.common.ApiException e) {
+            throw new java.io.IOException(e);
+        }
+    }
+
+    public static org.xms.f.iid.ExtensionInstanceId dynamicCast(java.lang.Object param0) {
+        return ((org.xms.f.iid.ExtensionInstanceId) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.huawei.hms.aaid.HmsInstanceId;
+    }
+}

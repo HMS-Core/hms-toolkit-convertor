@@ -1,0 +1,50 @@
+{
+  "gName": "com.google.android.gms.vision.face.LargestFaceFocusingProcessor",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.vision.FocusingProcessor<com.google.android.gms.vision.face.Face>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "LargestFaceFocusingProcessor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.vision.Detector<com.google.android.gms.vision.face.Face>"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.vision.Tracker<com.google.android.gms.vision.face.Face>"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "MLMaxSizeFaceTransactor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLAnalyzer<com.huawei.hms.mlsdk.face.MLFace>"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.mlsdk.common.MLResultTrailer<com.huawei.hms.mlsdk.face.MLFace>"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.face.MLMaxSizeFaceTransactor"
+}

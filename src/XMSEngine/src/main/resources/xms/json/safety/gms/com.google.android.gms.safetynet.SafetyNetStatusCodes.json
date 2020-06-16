@@ -1,0 +1,242 @@
+{
+  "gName": "com.google.android.gms.safetynet.SafetyNetStatusCodes",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.CommonStatusCodes",
+  "methods": [],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "RECAPTCHA_INVALID_KEYTYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12008"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/SafetyDetectStatusCodesAPI",
+      "tipsInfo": "This status code is not implemented in HMS. You are advised to delete it or handle it based on status codes provided by HMS in the development guide."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "RECAPTCHA_INVALID_PACKAGE_NAME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12013"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/SafetyDetectStatusCodesAPI",
+      "tipsInfo": "This status code is not implemented in HMS. You are advised to delete it or handle it based on status codes provided by HMS in the development guide."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "RECAPTCHA_INVALID_SITEKEY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12007"
+      },
+      "h": {
+        "name": "USER_DETECT_INVALID_APPID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19802"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "SAFE_BROWSING_API_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12002"
+      },
+      "h": {
+        "name": "URL_CHECK_INNER_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19600"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "SAFE_BROWSING_API_NOT_INITIALIZED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12009"
+      },
+      "h": {
+        "name": "CHECK_WITHOUT_INIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19601"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "SAFE_BROWSING_MISSING_API_KEY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12001"
+      },
+      "h": {
+        "name": "URL_CHECK_REQUEST_APPID_INVALID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19604"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "SAFE_BROWSING_UNSUPPORTED_THREAT_TYPES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12000"
+      },
+      "h": {
+        "name": "URL_CHECK_THREAT_TYPE_INVALID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19602"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "UNSUPPORTED_SDK_VERSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12006"
+      },
+      "h": {
+        "name": "UNSUPPORTED_EMUI_VERSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19202"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "VERIFY_APPS_INTERNAL_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12004"
+      },
+      "h": {
+        "name": "APPS_CHECK_INTERNAL_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19401"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "VERIFY_APPS_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12003"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/SafetyDetectStatusCodesAPI",
+      "tipsInfo": "This status code is not implemented in HMS. You are advised to delete it or handle it based on status codes provided by HMS in the development guide."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "VERIFY_APPS_NOT_ENABLED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12005"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/SafetyDetectStatusCodesAPI",
+      "tipsInfo": "This status code is not implemented in HMS. You are advised to delete it or handle it based on status codes provided by HMS in the development guide."
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes"
+}

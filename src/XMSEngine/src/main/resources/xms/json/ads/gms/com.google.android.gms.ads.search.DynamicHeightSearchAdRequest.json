@@ -1,0 +1,89 @@
+{
+  "gName": "com.google.android.gms.ads.search.DynamicHeightSearchAdRequest",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCustomEventExtrasBundle",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T extends com.google.android.gms.ads.mediation.customevent.CustomEvent> android.os.Bundle"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support SearchAd in the current version."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getNetworkExtrasBundle",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T extends com.google.android.gms.ads.mediation.MediationAdapter> android.os.Bundle"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support SearchAd in the current version."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getQuery",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support SearchAd in the current version."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isTestDevice",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support SearchAd in the current version."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": ""
+}

@@ -1,0 +1,48 @@
+package org.xms.f.messaging;
+
+public class ExtensionMessaging extends org.xms.g.utils.XObject {
+    
+    public ExtensionMessaging(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+    
+    public static java.lang.String getINSTANCE_ID_SCOPE() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    public static synchronized org.xms.f.messaging.ExtensionMessaging getInstance(android.content.Context context) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    public static synchronized org.xms.f.messaging.ExtensionMessaging getInstance() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public boolean isAutoInitEnabled() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public void send(org.xms.f.messaging.RemoteMessage param0) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public void setAutoInitEnabled(boolean param0) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public org.xms.g.tasks.Task<java.lang.Void> subscribeToTopic(java.lang.String param0) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public org.xms.g.tasks.Task<java.lang.Void> unsubscribeFromTopic(java.lang.String param0) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public static org.xms.f.messaging.ExtensionMessaging dynamicCast(java.lang.Object param0) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+    
+    public static boolean isInstance(java.lang.Object param0) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+}

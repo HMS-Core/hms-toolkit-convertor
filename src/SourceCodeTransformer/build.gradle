@@ -1,0 +1,54 @@
+group = 'com.huawei.hms'
+version = '2.0.3.310'
+archivesBaseName = 'fixbot-x2y'
+sourceCompatibility = '1.8'
+
+dependencies {
+    compile files('lib/sourcecodeengineframework-2.0.3.310.jar')
+    compile 'org.apache.commons:commons-collections4:4.4'
+    compile 'org.codehaus.groovy:groovy:2.5.7'
+    compile 'ch.qos.logback:logback-core:1.2.3'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'org.slf4j:slf4j-api:1.7.30'
+    compile 'commons-io:commons-io:2.6'
+    compile 'org.apache.commons:commons-lang3:3.9'
+    compile 'com.google.code.gson:gson:2.8.5'
+    compile 'net.sourceforge.argparse4j:argparse4j:0.8.1'
+    compile('com.google.guava:guava:28.2-jre') {
+        exclude group: 'com.google.guava', module: 'failureaccess'
+        exclude group: 'org.checkerframework', module: 'checker-qual'
+        exclude group: 'com.google.j2objc', module: 'j2objc-annotations'
+        exclude group: 'com.google.errorprone', module: 'error_prone_annotations'
+        exclude group: 'org.codehaus.mojo', module: 'animal-sniffer-annotations'
+        exclude group: 'com.google.guava', module: 'listenablefuture'
+    }
+    compile 'org.mongodb:bson:3.10.2'
+    compile 'org.eclipse.jdt:org.eclipse.jdt.core:3.18.0'
+    compile 'com.github.albfernandez:juniversalchardet:2.3.0'
+    compile('org.dom4j:dom4j:2.1.3') {
+        exclude group: 'xml-api', module: 'xml-apis'
+    }
+    compile('org.antlr:antlr4:4.7.2') {
+        exclude group: 'org.antlr', module: 'antlr-runtime'
+        exclude group: 'org.glassfish', module: 'javax.json'
+        exclude group: 'org.abego.treelayout', module: 'org.abego.treelayout.core'
+        exclude group: 'org.antlr', module: 'ST4'
+    }
+    compile 'com.ibm.icu:icu4j:64.2'
+    compile 'org.json:json:20190722'
+}
+
+jar {
+    doFirst {}
+    manifest {
+        attributes(
+                "Main-Class": "com.huawei.codebot.entry.codemigrate.MainEntry4CodeMigrate",
+                "Class-Path": configurations.runtime.collect {
+                    it.getName()
+                }.join(' '))
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}

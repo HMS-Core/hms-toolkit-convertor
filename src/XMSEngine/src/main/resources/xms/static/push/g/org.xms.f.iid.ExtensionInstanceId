@@ -1,0 +1,105 @@
+package org.xms.f.iid;
+
+public class ExtensionInstanceId extends org.xms.g.utils.XObject {
+
+    public ExtensionInstanceId(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    public static org.xms.f.iid.ExtensionInstanceId getInstance(android.content.Context context) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            throw new RuntimeException("hms branch not support");
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).getInstance()");
+            com.google.firebase.iid.FirebaseInstanceId gReturn = com.google.firebase.iid.FirebaseInstanceId.getInstance();
+            return ((gReturn) == null ? null : (new org.xms.f.iid.ExtensionInstanceId(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    public static org.xms.f.iid.ExtensionInstanceId getInstance() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+    
+    public static org.xms.f.iid.ExtensionInstanceId getInstance(org.xms.f.ExtensionApp param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.iid.InstanceIdResult> getInstanceId() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            throw new RuntimeException("hms branch not support");
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).getInstanceId()");
+            com.google.android.gms.tasks.Task gReturn = ((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).getInstanceId();
+            return ((gReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    public java.lang.String getId() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            throw new RuntimeException("hms branch not support");
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).getId()");
+            return ((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).getId();
+        }
+    }
+
+    public long getCreationTime() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            throw new RuntimeException("hms branch not support");
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).getCreationTime()");
+            return ((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).getCreationTime();
+        }
+    }
+
+    public void deleteInstanceId() throws java.io.IOException {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            throw new RuntimeException("hms branch not support");
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).deleteInstanceId()");
+            ((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).deleteInstanceId();
+        }
+    }
+
+    public java.lang.String getToken() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            throw new RuntimeException("hms branch not support");
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).getToken()");
+            return ((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).getToken();
+        }
+    }
+
+    public java.lang.String getToken(java.lang.String param0, java.lang.String param1) throws java.io.IOException {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            throw new RuntimeException("hms branch not support");
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).getToken(param0, param1)");
+            return ((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).getToken(param0, param1);
+        }
+    }
+
+    public void deleteToken(java.lang.String param0, java.lang.String param1) throws java.io.IOException {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            throw new RuntimeException("hms branch not support");
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).deleteToken(param0, param1)");
+            ((com.google.firebase.iid.FirebaseInstanceId) this.getGInstance()).deleteToken(param0, param1);
+        }
+    }
+
+    public static org.xms.f.iid.ExtensionInstanceId dynamicCast(java.lang.Object param0) {
+        return ((org.xms.f.iid.ExtensionInstanceId) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof java.lang.Object;
+        } else {
+            return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.firebase.iid.FirebaseInstanceId;
+        }
+    }
+}

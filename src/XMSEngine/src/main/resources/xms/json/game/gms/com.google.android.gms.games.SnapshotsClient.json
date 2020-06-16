@@ -1,0 +1,489 @@
+{
+  "gName": "com.google.android.gms.games.SnapshotsClient",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.games.Games.GamesOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSelectSnapshotIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          },
+          {
+            "pos": "2",
+            "type": "boolean"
+          },
+          {
+            "pos": "3",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<android.content.Intent>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getShowArchiveListIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          },
+          {
+            "pos": "2",
+            "type": "boolean"
+          },
+          {
+            "pos": "3",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<android.content.Intent>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "load",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.AnnotatedData<com.google.android.gms.games.snapshot.SnapshotMetadataBuffer>>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/jos-games-v4",
+      "tipsInfo": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "commitAndClose",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.snapshot.Snapshot"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.games.snapshot.SnapshotMetadataChange"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.snapshot.SnapshotMetadata>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_game_conversion_guide#h1-1578477959973-1",
+      "tipsInfo": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "open",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.SnapshotsClient.DataOrConflict<com.google.android.gms.games.snapshot.Snapshot>>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "loadArchiveDetails",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.jos.games.archive.ArchiveSummary"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.jos.games.archive.OperationResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "open",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.SnapshotsClient.DataOrConflict<com.google.android.gms.games.snapshot.Snapshot>>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "loadArchiveDetails",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.jos.games.archive.OperationResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "open",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.SnapshotsClient.DataOrConflict<com.google.android.gms.games.snapshot.Snapshot>>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/jos-games-v4",
+      "tipsInfo": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "open",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.SnapshotsClient.DataOrConflict<com.google.android.gms.games.snapshot.Snapshot>>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/jos-games-v4",
+      "tipsInfo": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "resolveConflict",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.games.snapshot.Snapshot"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.SnapshotsClient.DataOrConflict<com.google.android.gms.games.snapshot.Snapshot>>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "resolveConflict",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.games.snapshot.SnapshotMetadataChange"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.games.snapshot.SnapshotContents"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.SnapshotsClient.DataOrConflict<com.google.android.gms.games.snapshot.Snapshot>>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMaxCoverImageSize",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Integer>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLimitThumbnailSize",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Integer>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "delete",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.String>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "removeArchive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.jos.games.archive.ArchiveSummary"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.String>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "discardAndClose",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.snapshot.Snapshot"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getSnapshotFromBundle",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_game_conversion_guide#h1-1578477959973-9",
+      "tipsInfo": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "DISPLAY_LIMIT_NONE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "RESOLUTION_POLICY_HIGHEST_PROGRESS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "RESOLUTION_POLICY_LAST_KNOWN_GOOD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "RESOLUTION_POLICY_LONGEST_PLAYTIME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "RESOLUTION_POLICY_MANUAL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "RESOLUTION_POLICY_MOST_RECENTLY_MODIFIED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "EXTRA_SNAPSHOT_METADATA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.games.SNAPSHOT_METADATA"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "EXTRA_SNAPSHOT_NEW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.games.SNAPSHOT_NEW"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.ArchivesClient"
+}

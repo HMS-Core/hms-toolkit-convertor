@@ -1,0 +1,58 @@
+{
+ // account
+  "play-services-auth": [
+    "play-services-auth-api-phone",
+    "play-services-auth-base",
+    "play-services-base",
+    "play-services-basement",
+    "play-services-tasks"
+  ],
+  
+  "play-services-auth-base": [
+    "play-services-base",
+    "play-services-basement",
+    "play-services-tasks"
+  ],
+  "play-services-auth-api-phone": [
+    "play-services-base",
+    "play-services-basement",
+    "play-services-tasks"
+  ],
+  
+  // push
+  "firebase-iid": [
+    "play-services-basement",
+    "play-services-tasks",
+    "firebase-common"
+  ],
+  "firebase-common": [
+    "play-services-basement",
+    "play-services-tasks",
+    "firebase-components"
+  ],
+  "firebase-messaging": [
+    "play-services-basement",
+    "play-services-tasks",
+    "firebase-iid"
+  ],
+  "play-services-gcm": [
+    "play-services-base",
+    "play-services-basement",
+    "play-services-iid"
+  ],
+  "play-services-iid": [
+    "play-services-base",
+    "play-services-basement",
+    "play-services-tasks"
+  ],
+
+  // core
+  "play-services-base": [
+    "play-services-basement",
+    "play-services-tasks"
+  ],
+  "play-services-basement": [],
+  "play-services-tasks": [
+    "play-services-basement"
+  ]
+}

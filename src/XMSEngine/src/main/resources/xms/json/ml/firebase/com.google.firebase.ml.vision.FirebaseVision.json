@@ -1,0 +1,527 @@
+{
+  "gName": "com.google.firebase.ml.vision.FirebaseVision",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCloudDocumentTextRecognizer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.document.FirebaseVisionCloudDocumentRecognizerOptions"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.document.FirebaseVisionDocumentTextRecognizer"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRemoteDocumentAnalyzer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.document.MLDocumentSetting"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.document.MLDocumentAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCloudDocumentTextRecognizer",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.document.FirebaseVisionDocumentTextRecognizer"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRemoteDocumentAnalyzer",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.document.MLDocumentAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCloudImageLabeler",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.label.FirebaseVisionCloudImageLabelerOptions"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.label.FirebaseVisionImageLabeler"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRemoteImageClassificationAnalyzer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.classification.MLRemoteClassificationSetting"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.classification.MLImageClassificationAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCloudImageLabeler",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.label.FirebaseVisionImageLabeler"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRemoteImageClassificationAnalyzer",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.classification.MLImageClassificationAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCloudTextRecognizer",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRemoteTextAnalyzer",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.text.MLTextAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCloudTextRecognizer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptions"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRemoteTextAnalyzer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.text.MLRemoteTextSetting"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.text.MLTextAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.FirebaseVision"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.MLAnalyzerFactory"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.FirebaseApp"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.FirebaseVision"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "com.google.firebase.ml.common.FirebaseMLException"
+        ],
+        "modifiers": [],
+        "name": "getOnDeviceAutoMLImageLabeler",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.label.FirebaseVisionOnDeviceAutoMLImageLabelerOptions"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.label.FirebaseVisionImageLabeler"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getOnDeviceImageLabeler",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.label.FirebaseVisionImageLabeler"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLocalImageClassificationAnalyzer",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.classification.MLImageClassificationAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getOnDeviceImageLabeler",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.label.FirebaseVisionOnDeviceImageLabelerOptions"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.label.FirebaseVisionImageLabeler"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLocalImageClassificationAnalyzer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.classification.MLLocalClassificationSetting"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.classification.MLImageClassificationAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getOnDeviceObjectDetector",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.objects.FirebaseVisionObjectDetector"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLocalObjectAnalyzer",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.objects.MLObjectAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getOnDeviceObjectDetector",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.objects.FirebaseVisionObjectDetectorOptions"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.objects.FirebaseVisionObjectDetector"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLocalObjectAnalyzer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.objects.MLObjectAnalyzerSetting"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.objects.MLObjectAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getOnDeviceTextRecognizer",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLocalTextAnalyzer",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.text.MLTextAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getVisionBarcodeDetector",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetectorOptions"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetector"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_scan_conversion_guide#h1-1577103327384-0",
+      "tipsInfo": "You are advised to replace FirebaseVision.getVisionBarcodeDetector(com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetectorOptions var1) with new new com.huawei.hms.ml.scan.HmsScanAnalyzer.Creator().setHmsScanTypes(com.huawei.hms.ml.scan.HmsScanAnalyzerOptions var1).create()"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getVisionBarcodeDetector",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetector"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_scan_conversion_guide#h1-1577103327384-0",
+      "tipsInfo": "You are advised to replace FirebaseVision. getVisionBarcodeDetector() with new com.huawei.hms.ml.scan.HmsScanAnalyzer.Creator().create()"
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getVisionCloudLandmarkDetector",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.cloud.landmark.FirebaseVisionCloudLandmarkDetector"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRemoteLandmarkAnalyzer",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getVisionCloudLandmarkDetector",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.cloud.FirebaseVisionCloudDetectorOptions"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.cloud.landmark.FirebaseVisionCloudLandmarkDetector"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRemoteLandmarkAnalyzer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.landmark.MLRemoteAnalyzerSetting"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getVisionFaceDetector",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.face.FirebaseVisionFaceDetector"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFaceAnalyzer",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.face.MLFaceAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getVisionFaceDetector",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.face.FirebaseVisionFaceDetector"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFaceAnalyzer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.face.MLFaceAnalyzerSetting"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.face.MLFaceAnalyzer"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isStatsCollectionEnabled",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isStatisticsAllowed",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setStatsCollectionEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setStatisticsAllowed",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.MLAnalyzerFactory"
+}

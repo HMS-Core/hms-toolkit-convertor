@@ -1,0 +1,1038 @@
+{
+  "gName": "com.google.android.gms.maps.GoogleMapOptions",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "ambientEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ambientEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "camera",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.model.CameraPosition"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "camera",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.maps.model.CameraPosition"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "compassEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "compassEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "createFromAttributes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.util.AttributeSet"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "createFromAttributes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.util.AttributeSet"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAmbientEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAmbientEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCamera",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.maps.model.CameraPosition"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCamera",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.maps.model.CameraPosition"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCompassEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCompassEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getLatLngBoundsForCameraTarget",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.maps.model.LatLngBounds"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLatLngBoundsForCameraTarget",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.maps.model.LatLngBounds"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getLiteMode",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLiteMode",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getMapToolbarEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMapToolbarEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getMapType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMapType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getMaxZoomPreference",
+        "paramTypes": [],
+        "retType": "java.lang.Float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMaxZoomPreference",
+        "paramTypes": [],
+        "retType": "java.lang.Float"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getMinZoomPreference",
+        "paramTypes": [],
+        "retType": "java.lang.Float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMinZoomPreference",
+        "paramTypes": [],
+        "retType": "java.lang.Float"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getRotateGesturesEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRotateGesturesEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getScrollGesturesEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getScrollGesturesEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getScrollGesturesEnabledDuringRotateOrZoom",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_map_conversion_guide",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getTiltGesturesEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTiltGesturesEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getUseViewLifecycleInFragment",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getUseViewLifecycleInFragment",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getZOrderOnTop",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getZOrderOnTop",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getZoomControlsEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getZoomControlsEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getZoomGesturesEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getZoomGesturesEnabled",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "latLngBoundsForCameraTarget",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.model.LatLngBounds"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "latLngBoundsForCameraTarget",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.maps.model.LatLngBounds"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "liteMode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "liteMode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "mapToolbarEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "mapToolbarEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "mapType",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "mapType",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "maxZoomPreference",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "maxZoomPreference",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "minZoomPreference",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "minZoomPreference",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "rotateGesturesEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "rotateGesturesEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "scrollGesturesEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "scrollGesturesEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "scrollGesturesEnabledDuringRotateOrZoom",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_map_conversion_guide",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "tiltGesturesEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "tiltGesturesEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "useViewLifecycleInFragment",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "useViewLifecycleInFragment",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "zOrderOnTop",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "zOrderOnTop",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "zoomControlsEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "zoomControlsEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "zoomGesturesEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.GoogleMapOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "zoomGesturesEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.HuaweiMapOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "GoogleMapOptions",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "HuaweiMapOptions",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.maps.HuaweiMapOptions"
+}

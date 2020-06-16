@@ -1,0 +1,38 @@
+{
+  "gName": "com.android.billingclient.api.PurchasesUpdatedListener",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onPurchasesUpdated",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.android.billingclient.api.BillingResult"
+          },
+          {
+            "pos": "1",
+            "type": "List<com.android.billingclient.api.Purchase>"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

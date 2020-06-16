@@ -1,0 +1,42 @@
+{
+  "gName": "com.google.android.gms.ads.reward.mediation.InitializableMediationRewardedVideoAdAdapter",
+  "interfaces": [
+    "com.google.android.gms.ads.reward.mediation.MediationRewardedVideoAdAdapter"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "initialize",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.ads.reward.mediation.MediationRewardedVideoAdListener"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.List"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": ""
+}

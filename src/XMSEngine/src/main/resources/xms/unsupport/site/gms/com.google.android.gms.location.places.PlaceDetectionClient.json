@@ -1,0 +1,48 @@
+{
+  "gName": "com.google.android.gms.location.places.PlaceDetectionClient",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.location.places.PlacesOptions> ",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCurrentPlace",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.location.places.PlaceFilter"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "reportDeviceAtPlace",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.location.places.PlaceReport"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

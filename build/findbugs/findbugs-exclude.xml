@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+
+<FindBugsFilter>
+ <!--
+   <Match>
+
+     <Package name="com.huawei.cloudsop.builder.dispatch.builder" />
+
+   </Match>
+
+   <Match>
+
+     <Class name="com.huawei.oms.mopkg.deploytool.Launcher" />
+
+   </Match>
+ -->
+
+
+   <Match>
+
+     <Class name="com.huawei.hms.convertor.idea.ui.result.conversion.SuggestionHintComponent" />
+
+     <Bug pattern="NP_NULL_ON_SOME_PATH" />
+
+   </Match>
+
+   <Match>
+
+     <Class name="com.huawei.hms.convertor.idea.ui.result.conversion.SuggestionHintComponent" />
+
+     <Method name="getDefectListPopupStep" />
+
+     <Bug pattern="NP_NULL_ON_SOME_PATH" />
+
+   </Match>
+
+    <Match>
+
+     <Class name="com.huawei.hms.convertor.idea.ui.analysis.BinaryAnalyticDialog" />
+
+     <Bug pattern="NP_UNWRITTEN_FIELD" />
+
+    </Match>
+
+    <Match>
+
+     <Class name="com.huawei.hms.convertor.idea.ui.analysis.BinaryAnalyticDialog" />
+
+     <Bug pattern="UWF_UNWRITTEN_FIELD" />
+
+    </Match>
+
+    <Match>
+
+     <Class name="com.huawei.hms.convertor.idea.ui.analysis.PolicySettingDialog" />
+
+     <Method name="&lt;init&gt;"/>
+
+     <Bug pattern="NP_NULL_ON_SOME_PATH" />
+
+    </Match>
+</FindBugsFilter>

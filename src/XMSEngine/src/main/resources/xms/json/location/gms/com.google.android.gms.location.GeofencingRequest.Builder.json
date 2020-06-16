@@ -1,0 +1,156 @@
+{
+  "gName": "com.google.android.gms.location.GeofencingRequest.Builder",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [
+          "java.lang.NullPointerException",
+          "java.lang.IllegalArgumentException"
+        ],
+        "modifiers": [],
+        "name": "addGeofence",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.location.Geofence"
+          }
+        ],
+        "retType": "com.google.android.gms.location.GeofencingRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "createGeofence",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.location.Geofence"
+          }
+        ],
+        "retType": "com.huawei.hms.location.GeofenceRequest.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalArgumentException"
+        ],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addGeofences",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List<com.google.android.gms.location.Geofence>"
+          }
+        ],
+        "retType": "com.google.android.gms.location.GeofencingRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "createGeofenceList",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List<com.huawei.hms.location.Geofence>"
+          }
+        ],
+        "retType": "com.huawei.hms.location.GeofenceRequest.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.location.GeofencingRequest"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.location.GeofenceRequest"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setInitialTrigger",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.location.GeofencingRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setInitConversions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.location.GeofenceRequest.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.location.GeofenceRequest.Builder"
+}

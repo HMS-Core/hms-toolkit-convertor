@@ -1,0 +1,152 @@
+package org.xms.g.fido.fido2.api.common;
+
+public class AuthenticatorSelectionCriteria extends org.xms.g.utils.XObject implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator CREATOR = new android.os.Parcelable.Creator() {
+
+        public org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria createFromParcel(android.os.Parcel param0) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                String authenticatorAttachmentString = param0.readString();
+                String requireResidentKeyString = param0.readString();
+                String userVerificationString = param0.readString();
+
+                com.huawei.hms.support.api.fido.fido2.Attachment authenticatorAttachment = com.huawei.hms.support.api.fido.fido2.Attachment.fromValue(authenticatorAttachmentString) ;
+                Boolean requireResidentKey = new Boolean(requireResidentKeyString);
+                com.huawei.hms.support.api.fido.fido2.UserVerificationRequirement userVerification = com.huawei.hms.support.api.fido.fido2.UserVerificationRequirement.fromValue(userVerificationString);
+
+                com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria hReturn = new com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria(authenticatorAttachment, requireResidentKey, userVerification);
+                return new org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria(new org.xms.g.utils.XBox(null, hReturn));
+            } else {
+                com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria gReturn = com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria.CREATOR.createFromParcel(param0);
+                return new org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria(new org.xms.g.utils.XBox(gReturn, null));
+            }
+        }
+
+        public org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria[] newArray(int param0) {
+            return new org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria[param0];
+        }
+    };
+
+    public AuthenticatorSelectionCriteria(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    public boolean equals(java.lang.Object param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.g.fido.fido2.api.common.Attachment getAttachment() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria) this.getHInstance()).getAuthenticatorAttachment()");
+            com.huawei.hms.support.api.fido.fido2.Attachment hReturn = ((com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria) this.getHInstance()).getAuthenticatorAttachment();
+            return ((hReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.Attachment(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria) this.getGInstance()).getAttachment()");
+            com.google.android.gms.fido.fido2.api.common.Attachment gReturn = ((com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria) this.getGInstance()).getAttachment();
+            return ((gReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.Attachment(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    public java.lang.String getAttachmentAsString() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public java.lang.Boolean getRequireResidentKey() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria) this.getHInstance()).isRequireResidentKey()");
+            return ((com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria) this.getHInstance()).isRequireResidentKey();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria) this.getGInstance()).getRequireResidentKey()");
+            return ((com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria) this.getGInstance()).getRequireResidentKey();
+        }
+    }
+
+    public int hashCode() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public void writeToParcel(android.os.Parcel param0, int param1) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria hAuthenticatorSelectionCriteria = ((com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria) this.getHInstance());
+            param0.writeString(hAuthenticatorSelectionCriteria.getAuthenticatorAttachment().getValue());
+            param0.writeString(hAuthenticatorSelectionCriteria.isRequireResidentKey().toString());
+            param0.writeString(hAuthenticatorSelectionCriteria.getUserVerification().getValue());
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria) this.getGInstance()).writeToParcel(param0, param1)");
+            ((com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria) this.getGInstance()).writeToParcel(param0, param1);
+        }
+    }
+
+    public int describeContents() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public static org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria dynamicCast(java.lang.Object param0) {
+        return ((org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria;
+        } else {
+            return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria;
+        }
+    }
+
+    public static class Builder extends org.xms.g.utils.XObject {
+
+        public Builder(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+
+        public Builder() {
+            super(((org.xms.g.utils.XBox) null));
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                this.setHInstance(new com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria.Builder());
+            } else {
+                this.setGInstance(new com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria.Builder());
+            }
+        }
+
+        public org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria build() {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria.Builder) this.getHInstance()).build()");
+                com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria hReturn = ((com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria.Builder) this.getHInstance()).build();
+                return ((hReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria(new org.xms.g.utils.XBox(null, hReturn))));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria.Builder) this.getGInstance()).build()");
+                com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria gReturn = ((com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria.Builder) this.getGInstance()).build();
+                return ((gReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria(new org.xms.g.utils.XBox(gReturn, null))));
+            }
+        }
+
+        public org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria.Builder setAttachment(org.xms.g.fido.fido2.api.common.Attachment param0) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria.Builder) this.getHInstance()).setAttachment(((com.huawei.hms.support.api.fido.fido2.Attachment) ((param0) == null ? null : (param0.getHInstance()))))");
+                com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria.Builder hReturn = ((com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria.Builder) this.getHInstance()).setAttachment(((com.huawei.hms.support.api.fido.fido2.Attachment) ((param0) == null ? null : (param0.getHInstance()))));
+                return ((hReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria.Builder(new org.xms.g.utils.XBox(null, hReturn))));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria.Builder) this.getGInstance()).setAttachment(((com.google.android.gms.fido.fido2.api.common.Attachment) ((param0) == null ? null : (param0.getGInstance()))))");
+                com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria.Builder gReturn = ((com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria.Builder) this.getGInstance()).setAttachment(((com.google.android.gms.fido.fido2.api.common.Attachment) ((param0) == null ? null : (param0.getGInstance()))));
+                return ((gReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria.Builder(new org.xms.g.utils.XBox(gReturn, null))));
+            }
+        }
+
+        public static org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria.Builder dynamicCast(java.lang.Object param0) {
+            return ((org.xms.g.fido.fido2.api.common.AuthenticatorSelectionCriteria.Builder) param0);
+        }
+
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+                return false;
+            }
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria.Builder;
+            } else {
+                return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria.Builder;
+            }
+        }
+    }
+}

@@ -1,0 +1,110 @@
+{
+  "gName": "com.google.android.gms.wallet.CreateWalletObjectsRequest.Builder",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.wallet.CreateWalletObjectsRequest"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/hmssdk_wallet_conversion_guide#h1-1578541185180-12",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setCreateMode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.CreateWalletObjectsRequest.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setGiftCardWalletObject",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.GiftCardWalletObject"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.CreateWalletObjectsRequest.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setLoyaltyWalletObject",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.LoyaltyWalletObject"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.CreateWalletObjectsRequest.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setOfferWalletObject",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.OfferWalletObject"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.CreateWalletObjectsRequest.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": ""
+}

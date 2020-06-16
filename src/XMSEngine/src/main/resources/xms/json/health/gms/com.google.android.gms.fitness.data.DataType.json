@@ -1,0 +1,1298 @@
+{
+  "gName": "com.google.android.gms.fitness.data.DataType",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAggregatesForInput",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.DataType>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getPolymerizesForInput",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataType"
+          }
+        ],
+        "retType": "java.util.List<com.huawei.hms.hihealth.data.DataType>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFields",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.Field>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFields",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.hihealth.data.Field>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getMimeType",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getMimeType",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataType"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "indexOf",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.Field"
+          }
+        ],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "indexOf",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.Field"
+          }
+        ],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "MIME_TYPE_PREFIX",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "vnd.google.fitness.data_type/"
+      },
+      "h": {
+        "name": "MIME_TYPE_PREFIX",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "vnd.huawei.hiHealth.data_type/"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_ACTIVITY_SUMMARY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CONTINUOUS_ACTIVITY_STATISTICS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_BASAL_METABOLIC_RATE_SUMMARY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CONTINUOUS_CALORIES_BMR_STATISTICS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_BODY_FAT_PERCENTAGE_SUMMARY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CONTINUOUS_BODY_FAT_RATE_STATISTICS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_CALORIES_EXPENDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CALORIES_EXPENDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_DISTANCE_DELTA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_DISTANCE_DELTA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_HEART_POINTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CONTINUOUS_EXERCISE_INTENSITY_STATISTICS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_HEART_RATE_SUMMARY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CONTINUOUS_HEART_RATE_STATISTICS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_HEIGHT_SUMMARY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CONTINUOUS_HEIGHT_STATISTICS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_HYDRATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_HYDRATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_LOCATION_BOUNDING_BOX",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CONTINUOUS_LOCATION_BOUNDARY_RANGE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_MOVE_MINUTES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_CONTINUOUS_WORKOUT_DURATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_NUTRITION_SUMMARY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CONTINUOUS_NUTRITION_FACTS_STATISTICS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_POWER_SUMMARY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CONTINUOUS_POWER_STATISTICS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_SPEED_SUMMARY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CONTINUOUS_SPEED_STATISTICS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_STEP_COUNT_DELTA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_STEP_COUNT_DELTA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "AGGREGATE_WEIGHT_SUMMARY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CONTINUOUS_BODY_WEIGHT_STATISTICS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_ACTIVITY_SAMPLES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_ACTIVITY_SAMPLES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_ACTIVITY_SEGMENT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_CONTINUOUS_ACTIVITY_SEGMENT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_BASAL_METABOLIC_RATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_CALORIES_BMR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_BODY_FAT_PERCENTAGE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_BODY_FAT_RATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_CALORIES_EXPENDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_CONTINUOUS_CALORIES_BURNT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_CYCLING_PEDALING_CADENCE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_BIKING_PEDALING_RATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_CYCLING_PEDALING_CUMULATIVE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_CONTINUOUS_BIKING_PEDALING_TOTAL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_CYCLING_WHEEL_REVOLUTION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_CONTINUOUS_BIKING_WHEEL_ROTATION_TOTAL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_CYCLING_WHEEL_RPM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_BIKING_WHEEL_ROTATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_DISTANCE_DELTA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_CONTINUOUS_DISTANCE_DELTA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_HEART_POINTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_CONTINUOUS_EXERCISE_INTENSITY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_HEART_RATE_BPM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_HEART_RATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_HEIGHT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_HEIGHT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_HYDRATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_HYDRATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_LOCATION_SAMPLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_LOCATION_SAMPLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_LOCATION_TRACK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_LOCATION_TRACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_MOVE_MINUTES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "POLYMERIZE_CONTINUOUS_WORKOUT_DURATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_NUTRITION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_NUTRITION_FACTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_POWER_SAMPLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_POWER_SAMPLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_SPEED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_SPEED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_DISTANCE_CUMULATIVE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_CONTINUOUS_DISTANCE_TOTAL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_STEP_COUNT_CADENCE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_STEPS_RATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_STEP_COUNT_DELTA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_CONTINUOUS_STEPS_DELTA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_STEP_COUNT_CUMULATIVE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_CONTINUOUS_STEPS_TOTAL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_WEIGHT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "h": {
+        "name": "DT_INSTANTANEOUS_BODY_WEIGHT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_WORKOUT_EXERCISE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.data.DataType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.data.DataType"
+}

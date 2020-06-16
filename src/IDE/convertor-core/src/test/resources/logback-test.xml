@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="log.pattern" value="%date %-5level [%thread] %logger#%method [%file:%line] - %msg%n" />
+    <property name="log.level" value="DEBUG" />
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="com.huawei.hms.convertor" level="${log.level}" additivity="false">
+        <appender-ref ref="stdout" />
+    </logger>
+
+    <root level="${log.level}">
+        <appender-ref ref="stdout" />
+    </root>
+</configuration>

@@ -1,0 +1,7 @@
+package ${X_PACKAGE};
+
+public interface XGettable extends XInterface {
+    Object getGInstance();
+
+    Object getHInstance();
+}

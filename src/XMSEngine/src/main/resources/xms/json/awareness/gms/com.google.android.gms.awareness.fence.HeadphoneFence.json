@@ -1,0 +1,96 @@
+{
+  "gName": "com.google.android.gms.awareness.fence.HeadphoneFence",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "during",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "keeping",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "pluggingIn",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "connecting",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "unplugging",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "disconnecting",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.kit.awareness.barrier.HeadsetBarrier"
+}

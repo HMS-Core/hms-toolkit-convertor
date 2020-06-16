@@ -1,0 +1,69 @@
+{
+  "AppBuildGradle":{
+    "deleteInDependencies":[
+      {
+        "deleteInDependenciesName":"com.google.android.gms:play-services-games",
+        "desc":{
+          "kit":"Game",
+          "text":"GMS dependencies will be deleted.",
+          "url":"",
+          "status": "Manual"
+        }
+      }
+    ]
+  },
+  "commonOperation":[
+    {
+      "androidName":"android.intent.action.MAIN",
+      "operation":"delete",
+      "newContent":"",
+      "labelName":"action",
+      "desc":{
+        "kit":"Game",
+        "text":"",
+        "url":"",
+        "status": "Manual"
+      }
+    },
+    {
+      "androidName":"android.intent.category.LAUNCHER",
+      "operation":"delete",
+      "newContent":"",
+      "labelName":"category",
+      "desc":{
+        "kit":"Game",
+        "text":"",
+        "url":"",
+        "status": "Manual"
+      }
+    }
+  ],
+  "fixOperation":[
+    {
+      "fixType":"importDeclaration",
+      "operation":"add",
+      "oldContent":"",
+      "newContent":"import com.huawei.hms.jos.JosApps;",
+      "fixPosition":"import",
+      "desc":{
+        "kit":"Game",
+        "text":"Add the initialization code of HUAWEI Game Service.",
+        "url":"",
+        "status": "Auto"
+      }
+    },
+    {
+      "fixType":"functionDeclaration",
+      "operation":"add",
+      "oldContent":"",
+      "newContent":"JosApps.getJosAppsClient(this,null).init();",
+      "fixPosition":"onCreate",
+      "desc":{
+        "kit":"Game",
+        "text":"Add the initialization code of HUAWEI Game Service.",
+        "url":"",
+        "status": "Auto"
+      }
+    }
+  ]
+}

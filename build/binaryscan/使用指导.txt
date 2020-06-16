@@ -1,0 +1,28 @@
+使用指导：
+一、添加gradle依赖包下载脚本至代码的CI工程目录，路径为：build/binaryscan
+二、修改扫描配置项，配置文件为：build/binaryscan/opensrcscan.ini
+三、云龙流水线配置
+在‘构建’阶段新增两个Execute shell，注意替换代码目录为自己的代码目录
+
+第1个配置：
+cd $WORKSPACE/代码目录
+#移除.git目录，不上传fossid
+rm -r .git
+
+cd $WORKSPACE/代码目录/build/binaryscan/
+find . -name "*" | xargs dos2unix
+
+第2个配置：
+#!/bin/bash
+source /etc/profile
+export SHELL=/bin/bash
+
+echo current branch is $branch
+if [ ! -f $WORKSPACE/代码目录/CI/binaryscan/opensrcscan.sh ];then
+echo "$WORKSPACE/代码目录/CI/binaryscan/opensrcscan.sh not found!!!"
+exit 1;
+fi
+
+chmod +x $WORKSPACE/代码目录/build/binaryscan/opensrcscan.sh
+cd $WORKSPACE/代码目录
+bash build/binaryscan/opensrcscan.sh

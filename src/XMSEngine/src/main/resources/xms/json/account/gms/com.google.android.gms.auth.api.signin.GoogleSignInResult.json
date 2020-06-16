@@ -1,0 +1,74 @@
+{
+  "gName": "com.google.android.gms.auth.api.signin.GoogleSignInResult",
+  "interfaces": [
+    "com.google.android.gms.common.api.Result"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSignInAccount",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHuaweiId",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStatus",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.common.api.Status"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStatus",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.api.client.Status"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isSuccess",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isSuccess",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.support.hwid.result.HuaweiIdAuthResult"
+}
