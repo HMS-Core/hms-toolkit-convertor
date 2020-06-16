@@ -1,6 +1,19 @@
 Convertor
 ------------------
 
+![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
+
+## Table of Contents
+
+ * [Introduction](#Introduction)
+ * [Build](#Build)
+ * [Install](#Install)
+ * [How to use](#How-to-use)
+ * [Code Contributions](#Code-Contributions)
+ * [License](#License)
+ 
+Introduction
+------------
 Convertor is used to implement efficient conversion between the GMS and HMS. It helps developers quickly integrate open capabilities of the HMS by converting the GMS-based application framework to the HMS-based application framework. The code can be converted from GMS-based to HMS-based or both GMS and HMS are supported.
 
 Build
@@ -38,6 +51,11 @@ You can debug the plugin in the sandbox using the following command :
 $ ./gradlew -p IDE/convertor-idea runIde
 ```
 
+How to use
+------------------
+
+For details,you can click: https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/90419706
+
 Code Contributions
 ------------------
 
@@ -54,5 +72,7 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 License
 ------------------
 
-Convertor project are licensed under the [Apache License 2.0](LICENSE/LICENSE.txt)
+Apache License version 2.0;
+
+You can get a licensed copy at: https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/LICENSE/LICENSE.txt
 
