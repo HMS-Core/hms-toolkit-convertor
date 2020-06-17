@@ -5,19 +5,13 @@ buildscript {
     }
 
     repositories {
-        maven { url 'https://developer.huawei.com/repo/' }
         jcenter()
         google()
+
+        maven { url 'https://plugins.gradle.org/m2/' }
         maven { url 'https://www.jetbrains.com/intellij-repository/releases' }
-        maven {
-            url 'http://artifactory.cde.huawei.com/artifactory/maven-public/'
-        }
-        maven {
-            url 'http://szg1.artifactory.inhuawei.com/artifactory/sz-maven-public'
-        }
-        maven {
-            url 'http://artifactory.cde.huawei.com/artifactory/jetbrains-public/intellij-jdk'
-        }
+        maven { url 'https://mvnrepository.com/artifact/'}
+        maven { url 'https://developer.huawei.com/repo/' }
     }
 
     dependencies {
@@ -36,25 +30,14 @@ subprojects {
 
     repositories {
         mavenLocal()
-        maven { url 'https://developer.huawei.com/repo/' }
         jcenter()
         google()
+
+        maven { url 'https://plugins.gradle.org/m2/' }
         maven { url 'https://www.jetbrains.com/intellij-repository/releases' }
-        maven {
-            url 'http://artifactory.cde.huawei.com/artifactory/maven-public/'
-        }
-        maven {
-            url 'http://szg1.artifactory.inhuawei.com/artifactory/sz-maven-public'
-        }
-        maven {
-            url = 'http://szxy1.artifactory.cd-cloud-artifact.tools.huawei.com/artifactory/sz-maven-public'
-        }
-        maven {
-            url 'http://artifactory.cde.huawei.com/artifactory/jetbrains-public/intellij-jdk'
-        }
-        maven {
-            url = 'http://repo.maven.apache.org/maven2'
-        }
+        maven { url 'https://mvnrepository.com/artifact/' }
+        maven { url 'https://developer.huawei.com/repo/' }
+        maven { url 'http://repo.maven.apache.org/maven2' }
     }
 
     group 'com.huawei.hms'
@@ -133,13 +116,6 @@ repositories {
     jcenter()
     google()
     maven { url 'https://www.jetbrains.com/intellij-repository/releases' }
-    maven {
-        url 'http://artifactory.cde.huawei.com/artifactory/maven-public/'
-    }
-    maven {
-        url 'http://szg1.artifactory.inhuawei.com/artifactory/sz-maven-public'
-    }
-    maven {
-        url 'http://artifactory.cde.huawei.com/artifactory/jetbrains-public/intellij-jdk'
-    }
+    maven { url 'http://artifactory.cde.huawei.com/artifactory/maven-public/' }
+    maven { url 'http://artifactory.cde.huawei.com/artifactory/jetbrains-public/intellij-jdk' }
 }
