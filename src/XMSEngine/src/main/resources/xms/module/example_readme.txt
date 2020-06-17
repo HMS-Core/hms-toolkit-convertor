@@ -1,29 +1,29 @@
-﻿概述
-本文档为Android SDK开发者提供使用。更丰富的信息可从如下网址获取：https://developer.huawei.com/consumer/en/doc/development/Tools-Guides
+﻿Overview
+This document is provided for Android SDK developers. More information can be obtained from the following URL：https://developer.huawei.com/consumer/en/doc/development/Tools-Guides
 
-目录
+Table of Contents
 
 
-1、为保证功能的正常使用，强烈不建议修改已经生成的xms代码。
+1、In order to ensure the normal use of the function, it is strongly not recommended to modify the xms code that has been generated.
 
-2、xms代码中使用到了以下HMS kit
+2、The following HMS kit is used in the xms code
 
 Kit Name 		Version		 Description
 Account Kit     4.0.1.300    implementation 'com.huawei.hms:hwid:4.0.1.300'
 Push Kit		4.0.0.303	 implementation 'com.huawei.hms:push:4.0.1.300'
 
 
-3、SDK发布向导
+3、SDK release guide
 
-3.1 安装
-	3.1.1 方式一： 通过gradle
+3.1 Install
+	3.1.1 Method 1: Via gradle
 		Please add dependency to the XXX Services library by adding the following dependency to your dependencies block of app's build.gradle file:
 		
 		dependencies {
 			Implementation ‘com.huawei.xms……’
 		}
 	
-	3.1.2 方式二：通过Maven
+	3.1.2 Method 2: Via Maven
 		You must be using android-maven-plugin 4.1.0 or higher.
 		In your pom.xml add the following:
 
@@ -39,7 +39,7 @@ Push Kit		4.0.0.303	 implementation 'com.huawei.hms:push:4.0.1.300'
 			</dependency>
 		</dependencies>
 	
-	3.1.3 方式三：手动
+	3.1.3 Method 2: Manual
 		1.Download our SDK distribution from here：
 		2.Place XXX.jar into your project's "libs" folder.
 		3.Add the following to your module's build.gradle under 'dependencies':
@@ -49,7 +49,7 @@ Push Kit		4.0.0.303	 implementation 'com.huawei.hms:push:4.0.1.300'
 			 /** Any other dependencies here */
 		}
 
-3.2 编辑修改Manifest
+3.2 Edit Manifest
 	
 	<application>
 		...
@@ -57,7 +57,7 @@ Push Kit		4.0.0.303	 implementation 'com.huawei.hms:push:4.0.1.300'
 		...
 	</application>
 	
-3.3 增加HMS Library
+3.3 Add HMS Library
 	1. Please add dependency to the HMS library by adding the following dependecy to your dependencies block of xmsadapter's build.gradle file:
 	
 	apply plugin: 'com.android.application'
@@ -72,7 +72,7 @@ Push Kit		4.0.0.303	 implementation 'com.huawei.hms:push:4.0.1.300'
 	
 	Include all the above dependencies into your app build.gradle file.
 	
-4、反混淆配置
+4、Anti-aliasing configuration
 	Add the following to your ProGuard configuration:
 	// some examples for ProGuard information
 
