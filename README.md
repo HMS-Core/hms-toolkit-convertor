@@ -8,7 +8,7 @@ Convertor
  * [Introduction](#Introduction)
  * [Build](#Build)
  * [Install](#Install)
- * [How to use](#How-to-use)
+ * [How to Use](#How-to-Use)
  * [Code Contributions](#Code-Contributions)
  * [License](#License)
  
@@ -54,7 +54,7 @@ select the ZIP plugin package generated during the build.
 
 tips:
 
-You can debug the plugin in the sandbox using the following command :
+You can debug the plugin in the sandbox using the following command:
 
 ```shell
 $ ./gradlew -p IDE/convertor-idea runIde
@@ -63,7 +63,7 @@ $ ./gradlew -p IDE/convertor-idea runIde
 How to use
 ------------------
 
-For details,you can click: https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/90419706
+For details, you can click: https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/90419706
 
 Code Contributions
 ------------------
