@@ -10,25 +10,25 @@ import java.util.stream.Collectors;
  * @since 2020-05-12
  */
 public enum Modifier {
-    ABSTRACT("abstract"),
-
-    FINAL("final"),
-
-    STATIC("static"),
-
     PUBLIC("public"),
-
-    PRIVATE("private"),
 
     PROTECTED("protected"),
 
-    DEFAULT("default"),
+    PRIVATE("private"),
 
-    SYNCHRONIZED("synchronized"),
+    ABSTRACT("abstract"),
+
+    STATIC("static"),
+
+    FINAL("final"),
+
+    DEFAULT("default"),
 
     TRANSIENT("transient"),
 
     VOLATILE("volatile"),
+
+    SYNCHRONIZED("synchronized"),
 
     NATIVE("native"),
 
