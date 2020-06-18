@@ -38,7 +38,7 @@ Convertor requires:
 Run the **git clone** command to download the code, go to the **Convertor/src** directory, and run the following command: 
 
 ```shell
-$ ./gradlew -p IDE/convertor-idea buildPlugin
+$ ./gradlew -p IDE/intellij-plugin buildPlugin
 ```
 
 After the build is complete, go to the **Convertor/src/IDE/intellij-plugin/build/distributions** directory to view the plugin package in .zip format. 
