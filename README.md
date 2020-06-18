@@ -57,7 +57,7 @@ tips:
 You can debug the plugin in the sandbox using the following command:
 
 ```shell
-$ ./gradlew -p IDE/convertor-idea runIde
+$ ./gradlew -p IDE/intellij-plugin runIde
 ```
 
 How to use
