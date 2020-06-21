@@ -451,7 +451,7 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
 
         if (!defectItemList.isEmpty()) {
             defectItemList.clear();
-            ConversionCacheService.getInstance().clearConversions(project.getBasePath(), false);
+            ConversionCacheService.getInstance().clearConversions(project.getBasePath());
         }
         if (!fileToDefectsMap.isEmpty()) {
             fileToDefectsMap.clear();

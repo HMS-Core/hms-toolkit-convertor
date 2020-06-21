@@ -1285,7 +1285,7 @@ public class PolicySettingDialog extends DialogWrapper {
     }
 
     private void clearCacheByCancel() {
-        ConversionCacheService.getInstance().clearConversions(project.getBasePath(), false);
+        ConversionCacheService.getInstance().clearConversions(project.getBasePath());
         SummaryCacheManager.getInstance().clearKit2Methods(project.getBasePath());
     }
 

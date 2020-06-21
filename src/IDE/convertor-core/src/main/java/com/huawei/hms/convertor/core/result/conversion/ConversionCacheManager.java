@@ -166,52 +166,12 @@ public final class ConversionCacheManager {
     }
 
     /**
-     * update conversion
-     *
-     * @param projectPath projectPath
-     * @param defectId defectId
-     * @param eventType eventType
-     * @return ok
-     */
-    public Result updateConversion(String projectPath, String defectId, boolean eventType) {
-        if (!conversionCache.containsKey(projectPath)) {
-            return Result.failed("updateConversion failed");
-        }
-        ProjectConversionCache projectConversionCache = conversionCache.get(projectPath);
-        ConversionItem item = projectConversionCache.getConversionItem(defectId);
-        // convert
-        projectConversionCache.correctCache(defectId, eventType);
-        log.info("convert item is ", item);
-        return Result.ok();
-    }
-
-    /**
-     * update conversion
-     *
-     * @param projectPath Project base path
-     * @param changedCode Changed code
-     * @param eventType Event type
-     * @return ok
-     */
-    public Result documentEdit(String projectPath, ChangedCode changedCode, EventType eventType) {
-        if (!conversionCache.containsKey(projectPath)) {
-            return Result.failed("failed");
-        }
-        ProjectConversionCache projectConversionCache = conversionCache.get(projectPath);
-        // edit
-        projectConversionCache.correctCache(changedCode, eventType);
-        log.info("convert item is ", changedCode);
-        return Result.ok();
-    }
-
-    /**
      * clear cache
      *
      * @param projectPath projectPath
-     * @param isClearPersistentFile isClearPersistentFile
      * @return ok
      */
-    public Result clearConversions(String projectPath, boolean isClearPersistentFile) {
+    public Result clearConversions(String projectPath) {
         if (conversionCache.containsKey(projectPath)) {
             ProjectConversionCache projectConversionCache = conversionCache.get(projectPath);
             projectConversionCache.clearProjectConversion();
