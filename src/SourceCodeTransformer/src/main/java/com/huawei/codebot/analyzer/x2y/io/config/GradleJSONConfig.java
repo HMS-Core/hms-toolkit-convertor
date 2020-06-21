@@ -271,14 +271,15 @@ class GradleJSONConfig extends AbstractJSONConfig {
             if (addClassPathInDependenciesTemp.get(i) instanceof JSONObject) {
                 JSONObject jsonObjectTemp = (JSONObject) addClassPathInDependenciesTemp.get(i);
                 StructAddClassPathInDependencies addTemp = new StructAddClassPathInDependencies();
-                if (jsonObjectTemp.keySet().contains("addClassPathInDependenciesName")) {
-                    Object jsonObjectTempGet = jsonObjectTemp.get("addClassPathInDependenciesName");
-                    if (jsonObjectTempGet instanceof String) {
-                        addTemp.setAddClassPathInDependenciesName((String) jsonObjectTempGet);
-                        if (!addTemp.getAddClassPathInDependenciesName().equals("")) {
-                            addTemp.setDesc(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc")));
-                            addClassPathInDependencies.add(addTemp);
-                        }
+                if (!jsonObjectTemp.keySet().contains("addClassPathInDependenciesName")) {
+                    continue;
+                }
+                Object jsonObjectTempGet = jsonObjectTemp.get("addClassPathInDependenciesName");
+                if (jsonObjectTempGet instanceof String) {
+                    addTemp.setAddClassPathInDependenciesName((String) jsonObjectTempGet);
+                    if (!addTemp.getAddClassPathInDependenciesName().equals("")) {
+                        addTemp.setDesc(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc")));
+                        addClassPathInDependencies.add(addTemp);
                     }
                 }
             }
@@ -298,18 +299,17 @@ class GradleJSONConfig extends AbstractJSONConfig {
         for (int i = 0; i < addApplyPluginTemp.length(); i++) {
             Object addApplyPluginTempGet = addApplyPluginTemp.get(i);
             if (addApplyPluginTempGet instanceof JSONObject) {
-                if (addApplyPluginTemp.get(i) instanceof JSONObject) {
-                    JSONObject jsonObjectTemp = (JSONObject) addApplyPluginTemp.get(i);
-                    StructAppAddApplyPlugin addTemp = new StructAppAddApplyPlugin();
-                    if (jsonObjectTemp.keySet().contains("AddApplyPluginInApp")) {
-                        Object jsonObjectTempGet = jsonObjectTemp.get("AddApplyPluginInApp");
-                        if (jsonObjectTempGet instanceof String) {
-                            addTemp.setAddApplyPluginInApp((String) jsonObjectTempGet);
-                            if (!addTemp.getAddApplyPluginInApp().equals("")) {
-                                addTemp.setDesc(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc")));
-                                addApplyPlugin.add(addTemp);
-                            }
-                        }
+                JSONObject jsonObjectTemp = (JSONObject) addApplyPluginTempGet;
+                StructAppAddApplyPlugin addTemp = new StructAppAddApplyPlugin();
+                if (!jsonObjectTemp.keySet().contains("AddApplyPluginInApp")) {
+                    continue;
+                }
+                Object jsonObjectTempGet = jsonObjectTemp.get("AddApplyPluginInApp");
+                if (jsonObjectTempGet instanceof String) {
+                    addTemp.setAddApplyPluginInApp((String) jsonObjectTempGet);
+                    if (!addTemp.getAddApplyPluginInApp().equals("")) {
+                        addTemp.setDesc(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc")));
+                        addApplyPlugin.add(addTemp);
                     }
                 }
             }
@@ -330,15 +330,15 @@ class GradleJSONConfig extends AbstractJSONConfig {
             if (addMessageTemp.get(i) instanceof JSONObject) {
                 JSONObject jsonObjectTemp = (JSONObject) addMessageTemp.get(i);
                 StructAppAddMessage addTemp = new StructAppAddMessage();
-                if (jsonObjectTemp.keySet().contains("addMessageInDependenciesImplementation")) {
-                    Object jsonObjectTempGet =
-                            jsonObjectTemp.get("addMessageInDependenciesImplementation");
-                    if (jsonObjectTempGet instanceof String) {
-                        addTemp.setAddMessageInDependenciesImplementation((String) jsonObjectTempGet);
-                        if (!addTemp.getAddMessageInDependenciesImplementation().equals("")) {
-                            addTemp.setDesc(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc")));
-                            addMessage.add(addTemp);
-                        }
+                if (!jsonObjectTemp.keySet().contains("addMessageInDependenciesImplementation")) {
+                    continue;
+                }
+                Object jsonObjectTempGet = jsonObjectTemp.get("addMessageInDependenciesImplementation");
+                if (jsonObjectTempGet instanceof String) {
+                    addTemp.setAddMessageInDependenciesImplementation((String) jsonObjectTempGet);
+                    if (!addTemp.getAddMessageInDependenciesImplementation().equals("")) {
+                        addTemp.setDesc(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc")));
+                        addMessage.add(addTemp);
                     }
                 }
             }
@@ -359,14 +359,15 @@ class GradleJSONConfig extends AbstractJSONConfig {
             if (deleteGmsApplyPluginTemp.get(i) instanceof JSONObject) {
                 JSONObject jsonObjectTemp = (JSONObject) deleteGmsApplyPluginTemp.get(i);
                 StructAppDeleteGmsApplyPlugin addTemp = new StructAppDeleteGmsApplyPlugin();
-                if (jsonObjectTemp.keySet().contains("deleteGmsApplyPluginName")) {
-                    Object jsonObjectTempGet = jsonObjectTemp.get("deleteGmsApplyPluginName");
-                    if (jsonObjectTempGet instanceof String) {
-                        addTemp.setDeleteApplyPluginInApp((String) jsonObjectTempGet);
-                        if (!addTemp.getDeleteApplyPluginInApp().equals("")) {
-                            addTemp.setDesc(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc")));
-                            deleteGmsApplyPlugin.add(addTemp);
-                        }
+                if (!jsonObjectTemp.keySet().contains("deleteGmsApplyPluginName")) {
+                    continue;
+                }
+                Object jsonObjectTempGet = jsonObjectTemp.get("deleteGmsApplyPluginName");
+                if (jsonObjectTempGet instanceof String) {
+                    addTemp.setDeleteApplyPluginInApp((String) jsonObjectTempGet);
+                    if (!addTemp.getDeleteApplyPluginInApp().equals("")) {
+                        addTemp.setDesc(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc")));
+                        deleteGmsApplyPlugin.add(addTemp);
                     }
                 }
             }
@@ -387,24 +388,26 @@ class GradleJSONConfig extends AbstractJSONConfig {
             if (appReplace.get(i) instanceof JSONObject) {
                 JSONObject jsonObjectTemp = (JSONObject) appReplace.get(i);
                 StructAppReplace addTemp = new StructAppReplace();
-                if (jsonObjectTemp.keySet().contains("originGoogleName")) {
-                    addTemp.setOriginGoogleName((String) jsonObjectTemp.get("originGoogleName"));
-                    addTemp.setVersion((String) jsonObjectTemp.get("version"));
-                    if (addTemp.getOriginGoogleName() != null && !addTemp.getOriginGoogleName().equals("")) {
-                        addTemp.setDescAuto(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc_auto")));
-                        addTemp.setDescManual(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc_manual")));
-                        List<String> listStringTemp = new ArrayList<>();
-                        JSONArray listObjectTemp = jsonObjectTemp.getJSONArray("replaceHmsName");
-                        for (int j = 0; j < listObjectTemp.length(); j++) {
-                            Object listObjectTempGet = listObjectTemp.get(j);
-                            if (listObjectTempGet instanceof String) {
-                                listStringTemp.add((String) listObjectTempGet);
-                            }
-                        }
-                        addTemp.setReplaceHmsName(listStringTemp);
-                        appReplaces.add(addTemp);
+                if (!jsonObjectTemp.keySet().contains("originGoogleName")) {
+                    continue;
+                }
+                addTemp.setOriginGoogleName((String) jsonObjectTemp.get("originGoogleName"));
+                addTemp.setVersion((String) jsonObjectTemp.get("version"));
+                if (StringUtils.isEmpty(addTemp.getOriginGoogleName())) {
+                    continue;
+                }
+                addTemp.setDescAuto(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc_auto")));
+                addTemp.setDescManual(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc_manual")));
+                List<String> listStringTemp = new ArrayList<>();
+                JSONArray listObjectTemp = jsonObjectTemp.getJSONArray("replaceHmsName");
+                for (int j = 0; j < listObjectTemp.length(); j++) {
+                    Object listObjectTempGet = listObjectTemp.get(j);
+                    if (listObjectTempGet instanceof String) {
+                        listStringTemp.add((String) listObjectTempGet);
                     }
                 }
+                addTemp.setReplaceHmsName(listStringTemp);
+                appReplaces.add(addTemp);
             }
         }
         changePattern.setAppBuildGradleReplace(appReplaces);
@@ -423,15 +426,15 @@ class GradleJSONConfig extends AbstractJSONConfig {
             if (deleteInDependenciesTemp.get(i) instanceof JSONObject) {
                 JSONObject jsonObjectTemp = (JSONObject) deleteInDependenciesTemp.get(i);
                 StructAppDeleteInDependencies addTemp = new StructAppDeleteInDependencies();
-                if (jsonObjectTemp.keySet().contains("deleteInDependenciesName")) {
-                    Object deleteInDependenciesNameTemp =
-                            jsonObjectTemp.get("deleteInDependenciesName");
-                    if (deleteInDependenciesNameTemp instanceof String) {
-                        addTemp.setDeleteClasspathInDependenciesName((String) deleteInDependenciesNameTemp);
-                        if (!addTemp.getDeleteClasspathInDependenciesName().equals("")) {
-                            addTemp.setDesc(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc")));
-                            deleteInDependencies.add(addTemp);
-                        }
+                if (!jsonObjectTemp.keySet().contains("deleteInDependenciesName")) {
+                    continue;
+                }
+                Object deleteInDependenciesNameTemp = jsonObjectTemp.get("deleteInDependenciesName");
+                if (deleteInDependenciesNameTemp instanceof String) {
+                    addTemp.setDeleteClasspathInDependenciesName((String) deleteInDependenciesNameTemp);
+                    if (!addTemp.getDeleteClasspathInDependenciesName().equals("")) {
+                        addTemp.setDesc(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc")));
+                        deleteInDependencies.add(addTemp);
                     }
                 }
             }
@@ -523,21 +526,24 @@ class GradleJSONConfig extends AbstractJSONConfig {
             if (addInDependenciesTemp.get(i) instanceof JSONObject) {
                 JSONObject jsonObjectTemp = (JSONObject) addInDependenciesTemp.get(i);
                 StructAppAddInDependencies addTemp = new StructAppAddInDependencies();
-                if (jsonObjectTemp.keySet().contains("originGoogleName")) {
-                    if (jsonObjectTemp.get("version") instanceof String) {
-                        addTemp.setVersion((String) jsonObjectTemp.get("version"));
-                        if (jsonObjectTemp.get("originGoogleName") instanceof String) {
-                            addTemp.setOriginGoogleName((String) jsonObjectTemp.get("originGoogleName"));
-                            if (addTemp.getOriginGoogleName() != null
-                                    && !addTemp.getOriginGoogleName().equals("")) {
-                                addTemp.setDescAuto(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc_auto")));
-                                addTemp.setDescManual(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc_manual")));
-                                addTemp.setDependencies(JsonUtil.toList(
-                                        jsonObjectTemp.getJSONArray("addDependenciesName")));
-                                addInDependencies.add(addTemp);
-                            }
-                        }
-                    }
+                if (!jsonObjectTemp.keySet().contains("originGoogleName")) {
+                    continue;
+                }
+                if (!(jsonObjectTemp.get("version") instanceof String)) {
+                    continue;
+                }
+                addTemp.setVersion(jsonObjectTemp.getString("version"));
+                if (!(jsonObjectTemp.get("originGoogleName") instanceof String)) {
+                    continue;
+                }
+                addTemp.setOriginGoogleName(jsonObjectTemp.getString("originGoogleName"));
+                if (addTemp.getOriginGoogleName() != null
+                    && !addTemp.getOriginGoogleName().equals("")) {
+                    addTemp.setDescAuto(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc_auto")));
+                    addTemp.setDescManual(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc_manual")));
+                    addTemp.setDependencies(JsonUtil.toList(
+                        jsonObjectTemp.getJSONArray("addDependenciesName")));
+                    addInDependencies.add(addTemp);
                 }
             }
         }
