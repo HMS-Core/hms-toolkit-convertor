@@ -163,6 +163,7 @@ public final class FixbotConfigs {
                 .filter(this::validateVmOptions)
                 .collect(Collectors.toList());
         } catch (IOException e) {
+            log.warn("read all lines appear IOException");
             return new ArrayList<>();
         }
     }
