@@ -170,7 +170,7 @@ public final class HmsConvertorStarter {
                     String.valueOf(timeCost), BIReportService.getInstance().getJvmXmx(project.getBasePath()));
             BIInfoManager.getInstance().clearData(project.getBasePath());
         } catch (ProcessCanceledException ignore) {
-            ConversionCacheService.getInstance().clearConversions(project.getBasePath(), false);
+            ConversionCacheService.getInstance().clearConversions(project.getBasePath());
             SummaryCacheManager.getInstance().clearKit2Methods(project.getBasePath());
             LOG.warn(ignore.getMessage(), ignore);
 

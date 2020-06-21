@@ -59,17 +59,6 @@ public final class ConversionCacheService {
     }
 
     /**
-     * get conversion by defectId
-     *
-     * @param projectPath projectPath
-     * @param defectId defectId
-     * @return item
-     */
-    public ConversionItem getConversion(String projectPath, String defectId) {
-        return ConversionCacheManager.getInstance().getConversion(projectPath, defectId);
-    }
-
-    /**
      * get all conversions
      *
      * @param projectPath projectPath
@@ -94,36 +83,14 @@ public final class ConversionCacheService {
     }
 
     /**
-     * Correct conversion cache by id, and will put changed items into {@code changedItemMap}
-     *
-     * @param projectPath projectPath
-     * @param conversionId Conversion id
-     * @return Result
-     */
-    public Result updateConversion(String projectPath, String conversionId, EventType eventType) {
-        boolean isConverted = (eventType == EventType.CONVERT_EVENT) ? true : false;
-        return ConversionCacheManager.getInstance().correctCache(projectPath, conversionId, isConverted);
-    }
-
-    /**
-     * Correct conversion cache by changed code, and will put changed items into {@code changedItemMap}
-     *
-     * @param projectPath projectPath
-     * @param changedCode Changed code
-     */
-    public Result documentEdit(String projectPath, ChangedCode changedCode) {
-        return ConversionCacheManager.getInstance().correctCache(projectPath, changedCode);
-    }
-
-    /**
      * clear cache
      *
      * @param projectPath projectPath
      * @param isClearPersistentFile isClearPersistentFile
      * @return ok
      */
-    public Result clearConversions(String projectPath, boolean isClearPersistentFile) {
-        return ConversionCacheManager.getInstance().clearConversions(projectPath, isClearPersistentFile);
+    public Result clearConversions(String projectPath) {
+        return ConversionCacheManager.getInstance().clearConversions(projectPath);
     }
 
     /**
