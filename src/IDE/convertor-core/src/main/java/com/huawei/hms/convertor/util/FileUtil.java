@@ -69,6 +69,7 @@ public final class FileUtil {
             String canonicalPath = file.getCanonicalPath();
             return canonicalPath.length() < path.length();
         } catch (IOException e) {
+            LOG.warn("get canonical path appear IOException");
             return true;
         }
     }
