@@ -83,5 +83,5 @@ License
 
 Apache License version 2.0;
 
-You can get a licensed copy at: https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/LICENSE/LICENSE.txt
+You can get a licensed copy at: https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/LICENSE
 
