@@ -4,7 +4,7 @@ hms-toolkit-convertor
 
 ![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
 
-中文 | [English](https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/README.md)
+中文 | [English](https://github.com/HMS-Core/hms-toolkit-convertor/blob/master)
 
 ## 内容列表
 
