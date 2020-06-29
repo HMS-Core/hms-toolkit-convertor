@@ -1,8 +1,6 @@
-hms-toolkit-convertor
-------------------
-[![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/Tools-Guides/overview-0000001050060881) 
+# HMS Toolkit Convertor
 
-![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
+[![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/cn/doc/development/Tools-Guides/overview-0000001050060881) ![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
 
 中文 | [English](https://github.com/HMS-Core/hms-toolkit-convertor)
 
@@ -11,12 +9,10 @@ hms-toolkit-convertor
  * [简介](#简介)
  * [构建](#构建)
  * [安装](#安装)
- * [如何使用](#如何使用)
  * [贡献代码](#贡献代码)
  * [许可证](#许可证)
 
-简介
-------------
+## 简介
 
 Convertor工具是为开发者提供的代码转换工具，支持Java和Kotlin工程。可以帮助开发者将应用程序调用GMS（Google Mobile Services）相关的API接口自动转换为HMS相对应的API接口，实现快速转换和集成HMS的能力。HMS Convertor提供如下功能：
 
@@ -28,8 +24,7 @@ Convertor工具是为开发者提供的代码转换工具，支持Java和Kotlin�
 
 - Restore Project：使用备份文件恢复工程。
 
-构建
-------------------
+## 构建
 
 #### 依赖
 
@@ -46,8 +41,7 @@ $ ./gradlew -p IDE/convertor-plugin buildPlugin
 
 构建完成后，切换至 **Convertor/src/IDE/intellij-plugin/build/distributions** 文件夹获取.zip格式压缩包。 
 
-安装
-------------------
+## 安装
 
 启动IDEA或者Android Studio单击左上菜单栏，选择 **File -> Settings -> Plugins -> Install Plugin from Disk**
 
@@ -63,13 +57,9 @@ $ ./gradlew -p IDE/convertor-plugin buildPlugin
 $ ./gradlew -p IDE/convertor-plugin runIde
 ```
 
-如何使用
-------------------
+获取更详细的信息，可以点击[使用说明](https://developer.huawei.com/consumer/cn/doc/development/Tools-Guides/overview-0000001050060881)
 
-获取更详细的信息，可以点击链接: https://developer.huawei.com/consumer/cn/doc/development/Tools-Guides/overview-0000001050060881
-
-代码贡献
-------------------
+## 代码贡献
 
 要对Convertor项目贡献代码，请遵循以下步骤：
 
@@ -81,9 +71,6 @@ $ ./gradlew -p IDE/convertor-plugin runIde
 
 注意：在发出拉取请求之前，一定要将“上游”的最新数据合并!
 
-许可证
-------------------
+## 许可证
 
-Apache License version 2.0;
-
-这里包含一个许可拷贝: https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/LICENSE
+此示例代码已获得[Apache License version 2.0](https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/LICENSE)
