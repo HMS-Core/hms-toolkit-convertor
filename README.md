@@ -1,21 +1,19 @@
-hms-toolkit-convertor
+# HMS Toolkit Convertor
 ------------------
-[![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/05673260) 
-
-![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
+[![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/05673260) ![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
 
 English | [中文](https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/README_ZH.md)
 
 ## Table of Contents
 
- * [Introduction](#Introduction)
- * [Build](#Build)
- * [Install](#Install)
- * [How to Use](#How-to-Use)
- * [Code Contributions](#Code-Contributions)
- * [License](#License)
+ * [Introduction](#introduction)
+ * [Build](#build)
+ * [Install](#install)
+ * [How to Use](#how-to-use)
+ * [Code Contributions](#code-contributions)
+ * [License](#license)
  
-Introduction
+## introduction
 ------------
 
 Convertor is a code conversion tool supporting Java and Kotlin projects. It helps developers to automatically convert GMS APIs called by apps into corresponding HMS APIs, implementing quick conversion and HMS integration. The HMS Convertor provides the following functions:
@@ -46,7 +44,7 @@ $ ./gradlew -p IDE/intellij-plugin buildPlugin
 
 After the build is complete, go to the **Convertor/src/IDE/intellij-plugin/build/distributions** directory to view the plugin package in .zip format. 
 
-Install
+## Install
 ------------------
 
 Start the IDEA or Android Studio and click the menu bar on the upper left, choose **File -> Settings -> Plugins -> Install Plugin from Disk**
@@ -68,7 +66,7 @@ How to use
 
 For details, you can click: https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/90419706
 
-Code Contributions
+## Code Contributions
 ------------------
 
 To make a contribution to Convertor project, follow these steps.
@@ -84,7 +82,5 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 License
 ------------------
 
-Apache License version 2.0;
-
-You can get a licensed copy at: https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/LICENSE
+HMS Toolkit Convertor is licensed under the [Apache License version 2.0](https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/LICENSE)
 
