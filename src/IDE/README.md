@@ -1,5 +1,4 @@
-# Convertor
-
+English | [中文](https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/src/IDE/README_ZH.md)
 
 ## code structure
 ```
