@@ -1,5 +1,5 @@
 # HMS Toolkit Convertor
-------------------
+
 [![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/05673260) ![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
 
 English | [中文](https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/README_ZH.md)
@@ -14,7 +14,6 @@ English | [中文](https://github.com/HMS-Core/hms-toolkit-convertor/blob/master
  * [License](#license)
  
 ## introduction
-------------
 
 Convertor is a code conversion tool supporting Java and Kotlin projects. It helps developers to automatically convert GMS APIs called by apps into corresponding HMS APIs, implementing quick conversion and HMS integration. The HMS Convertor provides the following functions:
 
@@ -26,8 +25,7 @@ Convertor is a code conversion tool supporting Java and Kotlin projects. It help
 
 - Restore Project: Restores a project with the backup file.
 
-Build
-------------------
+## Build
 
 #### Dependencies
 
@@ -45,7 +43,6 @@ $ ./gradlew -p IDE/intellij-plugin buildPlugin
 After the build is complete, go to the **Convertor/src/IDE/intellij-plugin/build/distributions** directory to view the plugin package in .zip format. 
 
 ## Install
-------------------
 
 Start the IDEA or Android Studio and click the menu bar on the upper left, choose **File -> Settings -> Plugins -> Install Plugin from Disk**
 
@@ -61,13 +58,11 @@ You can debug the plugin in the sandbox using the following command:
 $ ./gradlew -p IDE/intellij-plugin runIde
 ```
 
-How to use
-------------------
+## How to use
 
 For details, you can click: https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/90419706
 
 ## Code Contributions
-------------------
 
 To make a contribution to Convertor project, follow these steps.
 
@@ -79,8 +74,7 @@ To make a contribution to Convertor project, follow these steps.
 
 NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
-License
-------------------
+## License
 
 HMS Toolkit Convertor is licensed under the [Apache License version 2.0](https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/LICENSE)
 
