@@ -1,7 +1,10 @@
-Convertor
+hms-toolkit-convertor
 ------------------
+[![License](https://img.shields.io/badge/Docs-hmsguides-brightgreen)](https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/05673260) 
 
 ![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
+
+English | [中文](https://github.com/HMS-Core/hms-toolkit-convertor/blob/master/README_ZH.md)
 
 ## Table of Contents
 
