@@ -9,7 +9,6 @@ English | [中文](https://github.com/HMS-Core/hms-toolkit-convertor/blob/master
  * [Introduction](#introduction)
  * [Build](#build)
  * [Install](#install)
- * [How to Use](#how-to-use)
  * [Code Contributions](#code-contributions)
  * [License](#license)
  
@@ -58,9 +57,7 @@ You can debug the plugin in the sandbox using the following command:
 $ ./gradlew -p IDE/intellij-plugin runIde
 ```
 
-## How to use
-
-For details, you can click: https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/90419706
+For more details, please refer to [Usage Guide](https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/90419706)
 
 ## Code Contributions
 
