@@ -28,11 +28,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Function description
+ * Handler for Z2X Method Param
  *
  * @since 2020-02-22
  */
-public class Z2XMethodParamHandler implements ParamHandler {
+public final class Z2XMethodParamHandler implements ParamHandler {
     private MethodNode methodNode;
 
     private MethodNode xMethodNode;
@@ -51,6 +51,7 @@ public class Z2XMethodParamHandler implements ParamHandler {
         ValueConverter converter = new Z2XValueConverter(methodNode, component);
         for (int i = 0; i < parameters.size(); i++) {
             String paramAt = methodNode.paramAt(i);
+
             // parameters contains Z types, but value converter consumes X types, so a conversion is required here.
             TypeNode targetType;
             if (xMethodNode == null) {

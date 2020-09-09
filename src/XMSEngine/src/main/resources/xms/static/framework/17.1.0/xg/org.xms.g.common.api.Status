@@ -1,0 +1,254 @@
+package org.xms.g.common.api;
+
+/**
+ * Represents the results of work.<br/>
+ * Wrapper class for com.google.android.gms.common.api.Status, but only the GMS API are provided.<br/>
+ * com.google.android.gms.common.api.Status : Represents the results of work.<br/>
+ */
+public final class Status extends org.xms.g.utils.XObject implements org.xms.g.common.api.Result, android.os.Parcelable {
+    public static final android.os.Parcelable.Creator CREATOR = new android.os.Parcelable.Creator() {
+
+        public org.xms.g.common.api.Status createFromParcel(android.os.Parcel param0) {
+            com.google.android.gms.common.api.Status zReturn = com.google.android.gms.common.api.Status.CREATOR.createFromParcel(param0);
+            return new org.xms.g.common.api.Status(new org.xms.g.utils.XBox(zReturn));
+        }
+
+        public org.xms.g.common.api.Status[] newArray(int param0) {
+            return new org.xms.g.common.api.Status[param0];
+        }
+    };
+
+    /**
+     * org.xms.g.common.api.Status.Status(org.xms.g.utils.XBox)  constructor of Status with XBox.<br/>
+     *
+     * @param param0 the wrapper of xms instance
+     */
+    public Status(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    /**
+     * org.xms.g.common.api.Status.Status(int) Creates a representation of the status resulting from a GoogleApiClient operation.<br/>
+     * com.google.android.gms.common.api.Status(int) : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-status-int-statuscode">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-status-int-statuscode</a><br/>
+     *
+     * @param param0 The status code
+     */
+    public Status(int param0) {
+        super(((org.xms.g.utils.XBox) null));
+        this.setZInstance(new com.google.android.gms.common.api.Status(param0));
+    }
+
+    /**
+     * org.xms.g.common.api.Status.Status(int,java.lang.String) Creates a representation of the status resulting from a GoogleApiClient operation.<br/>
+     * com.google.android.gms.common.api.Status.Status(int,java.lang.String) : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-status-int-statuscode,-string-statusmessage">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-status-int-statuscode,-string-statusmessage</a><br/>
+     *
+     * @param param0 The status code
+     * @param param1 The message associated with this status, or null
+     */
+    public Status(int param0, java.lang.String param1) {
+        super(((org.xms.g.utils.XBox) null));
+        this.setZInstance(new com.google.android.gms.common.api.Status(param0, param1));
+    }
+
+    /**
+     * org.xms.g.common.api.Status.Status(int,java.lang.String,android.app.PendingIntent) Creates a representation of the status resulting from a GoogleApiClient operation.<br/>
+     * com.google.android.gms.common.api.Status.Status(int,java.lang.String,android.app.PendingIntent) : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-status-int-statuscode,-string-statusmessage,-pendingintent-pendingintent">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-status-int-statuscode,-string-statusmessage,-pendingintent-pendingintent</a><br/>
+     *
+     * @param param0 The status code
+     * @param param1 The message associated with this status, or null
+     * @param param2 A pending intent that will resolve the issue when started, or null
+     */
+    public Status(int param0, java.lang.String param1, android.app.PendingIntent param2) {
+        super(((org.xms.g.utils.XBox) null));
+        this.setZInstance(new com.google.android.gms.common.api.Status(param0, param1, param2));
+    }
+
+    /**
+     * org.xms.g.common.api.Status.equals(java.lang.Object) Determines whether two instances are equal.<br/>
+     * com.google.android.gms.common.api.Status.equals(java.lang.Object) : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-boolean-equals-object-obj">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-boolean-equals-object-obj</a><br/>
+     *
+     * @param param0 Objects to be compared
+     * @return equal if true, and unequal if false
+     */
+    public boolean equals(java.lang.Object param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).equals(param0)");
+        return ((com.google.android.gms.common.api.Status) this.getZInstance()).equals(param0);
+    }
+
+    /**
+     * org.xms.g.common.api.Status.getResolution() Obtains the pending intent to resolve the failure. <br/>
+     * com.google.android.gms.common.api.Status.getResolution() : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-pendingintent-getresolution">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-pendingintent-getresolution</a><br/>
+     *
+     * @return a pending intent to resolve the failure
+     */
+    public final android.app.PendingIntent getResolution() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).getResolution()");
+        return ((com.google.android.gms.common.api.Status) this.getZInstance()).getResolution();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.getStatus() Returns the status of this result.<br/>
+     * com.google.android.gms.common.api.Status.getStatus() : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-status-getstatus">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-status-getstatus</a><br/>
+     *
+     * @return the status of this result
+     */
+    public final org.xms.g.common.api.Status getStatus() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).getStatus()");
+        com.google.android.gms.common.api.Status zReturn = ((com.google.android.gms.common.api.Status) this.getZInstance()).getStatus();
+        return ((zReturn) == null ? null : (new org.xms.g.common.api.Status(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    /**
+     * org.xms.g.common.api.Status.getStatusCode() Indicates the status of the operation.<br/>
+     * com.google.android.gms.common.api.Status.getStatusCode() : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-int-getstatuscode">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-int-getstatuscode</a><br/>
+     *
+     * @return Status code resulting from the operation. The value is one of the constants in CommonStatusCodes or specific to the APIs added to the GoogleApiClient
+     */
+    public final int getStatusCode() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).getStatusCode()");
+        return ((com.google.android.gms.common.api.Status) this.getZInstance()).getStatusCode();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.getStatusMessage() Obtains the error description.<br/>
+     * com.google.android.gms.common.api.Status.getStatusMessage() : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-string-getstatusmessage">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-string-getstatusmessage</a><br/>
+     *
+     * @return Status description
+     */
+    public final java.lang.String getStatusMessage() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).getStatusMessage()");
+        return ((com.google.android.gms.common.api.Status) this.getZInstance()).getStatusMessage();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.hasResolution() Returns true if calling startResolutionForResult(Activity, int) will start any intents requiring user interaction.<br/>
+     * com.google.android.gms.common.api.Status.hasResolution() : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-boolean-hasresolution">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-boolean-hasresolution</a><br/>
+     *
+     * @return true if there is a resolution that can be started
+     */
+    public final boolean hasResolution() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).hasResolution()");
+        return ((com.google.android.gms.common.api.Status) this.getZInstance()).hasResolution();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.hashCode() hashCode of a compute instance.<br/>
+     * com.google.android.gms.common.api.Status.hashCode() : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-int-hashcode">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-int-hashcode</a><br/>
+     *
+     * @return hashCode of a compute instance
+     */
+    public final int hashCode() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).hashCode()");
+        return ((com.google.android.gms.common.api.Status) this.getZInstance()).hashCode();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.isCanceled() Returns true if the operation was canceled.<br/>
+     * com.google.android.gms.common.api.Status.isCanceled() : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-boolean-iscanceled">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-boolean-iscanceled</a><br/>
+     *
+     * @return true if the operation was canceled
+     */
+    public final boolean isCanceled() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).isCanceled()");
+        return ((com.google.android.gms.common.api.Status) this.getZInstance()).isCanceled();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.isInterrupted() Returns true if the operation was interrupted.<br/>
+     * com.google.android.gms.common.api.Status.isInterrupted() : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-boolean-isinterrupted">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-boolean-isinterrupted</a><br/>
+     *
+     * @return true if the operation was interrupted
+     */
+    public final boolean isInterrupted() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).isInterrupted()");
+        return ((com.google.android.gms.common.api.Status) this.getZInstance()).isInterrupted();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.isSuccess() Returns true if the operation was successful.<br/>
+     * com.google.android.gms.common.api.Status.isSuccess() : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-boolean-issuccess">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-boolean-issuccess</a><br/>
+     *
+     * @return true if the operation was successful, false if there was an error
+     */
+    public final boolean isSuccess() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).isSuccess()");
+        return ((com.google.android.gms.common.api.Status) this.getZInstance()).isSuccess();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.startResolutionForResult(android.app.Activity,int) Resolves an error by starting any intents requiring user interaction. <br/>
+     * com.google.android.gms.common.api.Status.startResolutionForResult(android.app.Activity,int) : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-void-startresolutionforresult-activity-activity,-int-requestcode">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-void-startresolutionforresult-activity-activity,-int-requestcode</a><br/>
+     *
+     * @param param0 An Activity context to use to resolve the issue. The activity's onActivityResult method will be invoked after the user is done. If the resultCode is RESULT_OK, the application should try to connect again
+     * @param param1 The request code to pass to onActivityResult
+     * @throws If the resolution intent has been canceled or is no longer able to execute the request
+     */
+    public void startResolutionForResult(android.app.Activity param0, int param1) throws android.content.IntentSender.SendIntentException {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).startResolutionForResult(param0, param1)");
+        ((com.google.android.gms.common.api.Status) this.getZInstance()).startResolutionForResult(param0, param1);
+    }
+
+    /**
+     * org.xms.g.common.api.Status.toString() Constructs and outputs the string of an instance.<br/>
+     * com.google.android.gms.common.api.Status.toString() : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-string-tostring">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-string-tostring</a><br/>
+     *
+     * @return the string of an instance
+     */
+    public final java.lang.String toString() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).toString()");
+        return ((com.google.android.gms.common.api.Status) this.getZInstance()).toString();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.writeToParcel(android.os.Parcel,int) used in serialization and deserialization.<br/>
+     * com.google.android.gms.common.api.Status.writeToParcel(android.os.Parcel,int) : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-void-writetoparcel-parcel-out,-int-flags">https://developers.google.com/android/reference/com/google/android/gms/common/api/Status#public-void-writetoparcel-parcel-out,-int-flags</a><br/>
+     *
+     * @param param0 Parcel Object
+     * @param param1 Writing mode
+     */
+    public void writeToParcel(android.os.Parcel param0, int param1) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.api.Status) this.getZInstance()).writeToParcel(param0, param1)");
+        ((com.google.android.gms.common.api.Status) this.getZInstance()).writeToParcel(param0, param1);
+    }
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public int describeContents() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * org.xms.g.common.api.Status.dynamicCast(java.lang.Object) dynamic cast the input object to org.xms.g.common.api.Status.<br/>
+     * <p>
+     *
+     * @param param0 the input object
+     * @return casted Status object
+     */
+    public static org.xms.g.common.api.Status dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.g.common.api.Status) {
+            return ((org.xms.g.common.api.Status) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            com.google.android.gms.common.api.Status zReturn = ((com.google.android.gms.common.api.Status) ((org.xms.g.utils.XGettable) param0).getZInstance());
+            return new org.xms.g.common.api.Status(new org.xms.g.utils.XBox(zReturn));
+        }
+        if (param0 instanceof com.google.android.gms.common.api.Status) {
+            return new org.xms.g.common.api.Status(new org.xms.g.utils.XBox(param0));
+        }
+        return ((org.xms.g.common.api.Status) param0);
+    }
+
+    /**
+     * org.xms.g.common.api.Status.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+     *
+     * @param param0 the input object
+     * @return true if the Object is XMS instance, otherwise false
+     */
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.google.android.gms.common.api.Status;
+    }
+}

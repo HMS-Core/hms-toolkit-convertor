@@ -17,7 +17,6 @@
 package com.huawei.generator.method.builder;
 
 import static com.huawei.generator.gen.AstConstants.OBJECT;
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
 
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
@@ -26,12 +25,12 @@ import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JMapping;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.method.gen.BodyGenerator;
-import com.huawei.generator.utils.Modifier;
+import com.huawei.generator.exception.UnExpectedProcessException;
 
 import java.util.Collections;
 
 /**
- * Builder for creating isInstance method for every class.
+ * create "isInstance" for every class.
  *
  * @since 2019-11-26
  */
@@ -50,16 +49,17 @@ public final class IsInstanceBuilder extends AbstractMethodBuilder {
         methodNode.setName("isInstance");
         methodNode.setParent(classNode);
         methodNode.setExceptions(Collections.emptyList());
-        methodNode.setModifiers(Collections.singletonList(Modifier.STATIC.getName()));
+        methodNode.setModifiers(Collections.singletonList("static"));
         methodNode.setParameters(Collections.singletonList(TypeNode.create(OBJECT)));
         methodNode.setReturnType(TypeNode.create("boolean"));
         BodyGenerator isInstanceGenerator = factory.createIsInstanceGenerator(methodNode, jClass);
         methodNode.setBody(isInstanceGenerator.generate());
+        factory.createMethodDoc(methodNode);
         return methodNode;
     }
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode, JMapping methodMapping) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 }

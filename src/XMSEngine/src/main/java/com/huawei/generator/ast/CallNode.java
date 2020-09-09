@@ -19,11 +19,11 @@ package com.huawei.generator.ast;
 import java.util.List;
 
 /**
- * CallNode class
+ * Call Node
  *
  * @since 2019-11-12
  */
-public class CallNode extends StatementNode {
+public final class CallNode extends StatementNode {
     private AstNode receiver;
 
     private String method;

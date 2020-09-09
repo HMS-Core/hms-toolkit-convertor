@@ -76,6 +76,9 @@ public class TypeUtils {
      */
     public static boolean isGmsType(String target) {
         String className = deArray(degenerify(target));
+        if (util.getGClassList() == null) {
+            LOGGER.error("gClassList is null, Please initialize!");
+        }
         // avoid incomplete gms.json
         if (util.getGClassList()
             .containsKey(className) != (className.startsWith("com.google.android.gms")
@@ -299,7 +302,7 @@ public class TypeUtils {
     }
 
     /**
-     * check wheather this type is generic.
+     * check whether this type is generic.
      *
      * @param type is the type for checking
      * @return true is this is pure generic identifier, eg: E, XT, TResult
@@ -308,6 +311,20 @@ public class TypeUtils {
         String typeName = type.getTypeName().trim();
         return !TypeUtils.isPrimitiveType(typeName) && !TypeUtils.isPrimitiveTypeArray(typeName)
             && !TypeUtils.isVoidType(typeName) && !typeName.contains(".");
+    }
+
+    public static TypeNode h2X(TypeNode hType) {
+        Map<String, GlobalMapping> hMappings = GlobalMapping.getHmappings();
+        String hName = hType.getTypeName();
+        if (!hMappings.containsKey(hName)) {
+            throw new IllegalStateException("Missing " + hName + "in hMappings!");
+        }
+        GlobalMapping globalMapping = hMappings.get(hName);
+        return TypeNode.create(globalMapping.getX());
+    }
+
+    public static TypeNode g2X(TypeNode gType) {
+        return TypeNode.create(gType.getTypeName()).toX();
     }
 
     public static boolean isViewSubClass(TypeNode type, boolean isG) {
@@ -385,6 +402,19 @@ public class TypeUtils {
     }
 
     /**
+     * check if this node is Iterator
+     *
+     * @param typeNode to be checked
+     * @return true if this node is instance of Iterator
+     */
+    public static boolean isIterator(TypeNode typeNode) {
+        return typeNode.getTypeName().startsWith("java.util") && typeNode.getTypeName().contains("Iterator");
+    }
+
+    /**
+     * check one type whether is a Map, array, Set, List, SparseArray or Iterable
+     *
+     * @param typeNode to be checked
      * @return true if this TypeNode is Map, array, Set, List, SparseArray or Iterable
      */
     public static boolean needRemap(TypeNode typeNode) {
@@ -407,6 +437,9 @@ public class TypeUtils {
         if (isIterable(typeNode)) {
             return isIterableNeedRemap(typeNode);
         }
+        if (isIterator(typeNode)) {
+            return isIteratorNeedRemap(typeNode);
+        }
 
         throw new IllegalStateException(typeNode.getTypeName() + " not supported now.");
     }
@@ -425,8 +458,10 @@ public class TypeUtils {
             if (TypeUtils.isPrimitiveTypeArray(valueType.getTypeName())) {
                 return false;
             }
+            return XMSUtils.isX(valueType.getTypeName());
+        } else {
+            return XMSUtils.isX(valueType.getTypeName());
         }
-        return XMSUtils.isX(valueType.getTypeName());
     }
 
     private static boolean isSparseArrayNeedRemap(TypeNode typeNode) {
@@ -465,24 +500,37 @@ public class TypeUtils {
         }
     }
 
+    private static boolean isIteratorNeedRemap(TypeNode typeNode) {
+        TypeNode elementType = typeNode.getGenericType().get(0);
+        if (TypeUtils.isGenericIdentifier(elementType)) {
+            return true;
+        } else {
+            return XMSUtils.isX(elementType.getTypeName());
+        }
+    }
+
     /**
      * check one type whether is a collection or not
      *
+     * @param typeNode to be checked
      * @return isContainer, true or false
      */
     public static boolean isCollection(TypeNode typeNode) {
-        boolean isContainer;
+        boolean isContainer = false;
         try {
             isContainer = Collection.class.isAssignableFrom(Class.forName(typeNode.getTypeName()));
             return isContainer;
         } catch (ClassNotFoundException e) {
             LOGGER.error("{} not found ", typeNode.getTypeName());
         }
-        return false;
+        return isContainer;
     }
 
     /**
-     * @Return true if this node is a type of container data structure
+     * check one type whether is a type of container data structure or not
+     *
+     * @param typeNode to be checked
+     * @return true if this node is a type of container data structure
      */
     public static boolean isNonSdkContainer(TypeNode typeNode) {
         if (typeNode.isArray()) {
@@ -502,7 +550,7 @@ public class TypeUtils {
             tName = typeNode.getGenericType().get(1).getTypeName();
         }
         return (isList(typeNode) || isSet(typeNode) || isIterable(typeNode) || isSparseArray(typeNode)
-            || isMap(typeNode)) && !isSDKClass(tName);
+            || isIterator(typeNode) || isMap(typeNode)) && !isSDKClass(tName);
     }
 
     public static boolean isNestedList(TypeNode typeNode) {

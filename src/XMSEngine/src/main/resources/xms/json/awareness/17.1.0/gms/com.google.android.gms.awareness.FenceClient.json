@@ -1,0 +1,76 @@
+{
+  "gName": "com.google.android.gms.awareness.FenceClient",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.common.api.Api.ApiOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "queryFences",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.awareness.fence.FenceQueryRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.awareness.fence.FenceQueryResponse>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "queryBarriers",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.kit.awareness.barrier.BarrierQueryRequest"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.kit.awareness.barrier.BarrierQueryResponse>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "updateFences",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.awareness.fence.FenceUpdateRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "updateBarriers",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.kit.awareness.barrier.BarrierUpdateRequest"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.kit.awareness.BarrierClient"
+}

@@ -42,7 +42,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Function description
+ * Handler for Z2X Method Return
  *
  * @since 2020-02-17
  */

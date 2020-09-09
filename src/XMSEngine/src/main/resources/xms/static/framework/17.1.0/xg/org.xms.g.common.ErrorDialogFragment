@@ -1,0 +1,138 @@
+package org.xms.g.common;
+
+/**
+ * Represents the results of work.<br/>
+ * Wrapper class for com.google.android.gms.common.ErrorDialogFragment, but only the GMS API are provided.<br/>
+ * org.xms.g.common.ErrorDialogFragment : Wraps the Dialog returned by getErrorDialog(Activity, int, int) by using DialogFragment so that it can be properly managed by the Activity.<br/>
+ * com.google.android.gms.common.ErrorDialogFragment : Wraps the Dialog returned by getErrorDialog(Activity, int, int) by using DialogFragment so that it can be properly managed by the Activity.<br/>
+ */
+public class ErrorDialogFragment implements org.xms.g.utils.XGettable {
+    public java.lang.Object zInstance;
+
+    /**
+     * org.xms.g.common.ErrorDialogFragment.ErrorDialogFragment(org.xms.g.utils.XBox) Constructor of the ErrorDialogFragment.<br/>
+     *
+     * @param param0 the XBox
+     */
+    public ErrorDialogFragment(org.xms.g.utils.XBox param0) {
+        this.setZInstance(param0.getZInstance());
+    }
+
+    /**
+     * org.xms.g.common.ErrorDialogFragment.newInstance(android.app.Dialog,android.content.DialogInterface.OnCancelListener)Create a DialogFragment for displaying the getErrorDialog(Activity, int, int) with an OnCancelListener. <br/>
+     *
+     * Support running environments including both GMS which are chosen by users.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.common.ErrorDialogFragment.newInstance(android.app.Dialog,android.content.DialogInterface.OnCancelListener) : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/ErrorDialogFragment#public-static-errordialogfragment-newinstance-dialog-dialog,-dialoginterface.oncancellistener-cancellistener">https://developers.google.com/android/reference/com/google/android/gms/common/ErrorDialogFragment#public-static-errordialogfragment-newinstance-dialog-dialog,-dialoginterface.oncancellistener-cancellistener</a><br/>
+     *
+     * @param param0 The Dialog created by getErrorDialog(Activity, int, int)
+     * @param param1 A DialogInterface.OnCancelListener for when a user cancels the DialogFragment
+     * @return The ErrorDialogFragment
+     */
+    public static org.xms.g.common.ErrorDialogFragment newInstance(android.app.Dialog param0, android.content.DialogInterface.OnCancelListener param1) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "com.google.android.gms.common.ErrorDialogFragment.newInstance(param0, param1)");
+        com.google.android.gms.common.ErrorDialogFragment zReturn = com.google.android.gms.common.ErrorDialogFragment.newInstance(param0, param1);
+        return ((zReturn) == null ? null : (new org.xms.g.common.ErrorDialogFragment(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    /**
+     * org.xms.g.common.ErrorDialogFragment.newInstance(android.app.Dialog) Create a DialogFragment for displaying the getErrorDialog(Activity, int, int).<br/>
+     *
+     * Support running environments including both GMS which are chosen by users.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.common.ErrorDialogFragment.newInstance(android.app.Dialog) : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/ErrorDialogFragment#public-static-errordialogfragment-newinstance-dialog-dialog">https://developers.google.com/android/reference/com/google/android/gms/common/ErrorDialogFragment#public-static-errordialogfragment-newinstance-dialog-dialog</a><br/>
+     *
+     * @param param0 The Dialog created by getErrorDialog(Activity, int, int)
+     * @return The ErrorDialogFragment
+     */
+    public static org.xms.g.common.ErrorDialogFragment newInstance(android.app.Dialog param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "com.google.android.gms.common.ErrorDialogFragment.newInstance(param0)");
+        com.google.android.gms.common.ErrorDialogFragment zReturn = com.google.android.gms.common.ErrorDialogFragment.newInstance(param0);
+        return ((zReturn) == null ? null : (new org.xms.g.common.ErrorDialogFragment(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    /**
+     * org.xms.g.common.ErrorDialogFragment.onCancel(android.content.DialogInterface) the onCancel.<br/>
+     *
+     * Support running environments including both GMS which are chosen by users.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.common.ErrorDialogFragment.onCancel(android.content.DialogInterface) : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/ErrorDialogFragment#public-void-oncancel-dialoginterface-dialog">https://developers.google.com/android/reference/com/google/android/gms/common/ErrorDialogFragment#public-void-oncancel-dialoginterface-dialog</a><br/>
+     *
+     * @param param0 the DialogInterface
+     */
+    public void onCancel(android.content.DialogInterface param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.ErrorDialogFragment) this.getZInstance()).onCancel(param0)");
+        ((com.google.android.gms.common.ErrorDialogFragment) this.getZInstance()).onCancel(param0);
+    }
+
+    /**
+     * org.xms.g.common.ErrorDialogFragment.onCreateDialog(android.os.Bundle) Returns a Dialog created by getErrorDialog(Activity, int, int) with the provided errorCode, activity, request code, and cancel listener.<br/>
+     *
+     * Support running environments including both HMS an GMS which are chosen by users.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.common.ErrorDialogFragment.onCreateDialog(android.os.Bundle) : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/ErrorDialogFragment#public-dialog-oncreatedialog-bundle-savedinstancestate">https://developers.google.com/android/reference/com/google/android/gms/common/ErrorDialogFragment#public-dialog-oncreatedialog-bundle-savedinstancestate</a><br/>
+     *
+     * @param param0 Not used
+     * @return the Dialog
+     */
+    public android.app.Dialog onCreateDialog(android.os.Bundle param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.ErrorDialogFragment) this.getZInstance()).onCreateDialog(param0)");
+        return ((com.google.android.gms.common.ErrorDialogFragment) this.getZInstance()).onCreateDialog(param0);
+    }
+
+    /**
+     * org.xms.g.common.ErrorDialogFragment.show(android.app.FragmentManager,java.lang.String) the show.<br/>
+     *
+     * Support running environments including both GMS which are chosen by users.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.common.ErrorDialogFragment.show(android.app.FragmentManager,java.lang.String) : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/ErrorDialogFragment#public-void-show-fragmentmanager-manager,-string-tag">https://developers.google.com/android/reference/com/google/android/gms/common/ErrorDialogFragment#public-void-show-fragmentmanager-manager,-string-tag</a><br/>
+     *
+     * @param param0 the manager
+     * @param param1 the tag
+     */
+    public void show(android.app.FragmentManager param0, java.lang.String param1) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.common.ErrorDialogFragment) this.getZInstance()).show(param0, param1)");
+        ((com.google.android.gms.common.ErrorDialogFragment) this.getZInstance()).show(param0, param1);
+    }
+
+    /**
+     * org.xms.g.common.ErrorDialogFragment.setZInstance(java.lang.Object) set the gms instance for the corresponding xms instance.<br/>
+     *
+     * @param param0 instance of gms
+     */
+    public void setZInstance(java.lang.Object param0) {
+        this.zInstance = param0;
+    }
+
+    /**
+     * org.xms.g.common.ErrorDialogFragment.getZInstance() get the gms instance from the corresponding xms instance.<br/>
+     *
+     * @return instance of gms
+     */
+    public java.lang.Object getZInstance() {
+        return this.zInstance;
+    }
+
+    /**
+     * org.xms.g.common.ErrorDialogFragment.dynamicCast(java.lang.Object) dynamic cast the input object to org.xms.g.common.ErrorDialogFragment.<br/>
+     *
+     * @param param0 the input object
+     * @return casted ErrorDialogFragment object
+     */
+    public static org.xms.g.common.ErrorDialogFragment dynamicCast(java.lang.Object param0) {
+        return ((org.xms.g.common.ErrorDialogFragment) param0);
+    }
+
+    /**
+     * org.xms.g.common.ErrorDialogFragment.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+     *
+     * @param param0 the input object
+     * @return true if the Object is XMS instance, otherwise false
+     */
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.google.android.gms.common.ErrorDialogFragment;
+    }
+}

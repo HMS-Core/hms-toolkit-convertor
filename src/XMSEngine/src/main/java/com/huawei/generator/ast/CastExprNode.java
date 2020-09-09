@@ -17,7 +17,7 @@
 package com.huawei.generator.ast;
 
 /**
- * CastExprNode class
+ * Cast Expr Node
  *
  * @since 2019-11-18
  */

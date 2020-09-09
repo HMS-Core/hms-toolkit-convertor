@@ -31,7 +31,6 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,7 +39,7 @@ import java.util.stream.Collectors;
  *
  * @since 2019-11-24
  */
-public class XModuleGenerator {
+public final class XModuleGenerator {
     public interface TextHandler {
         /**
          * transform an original String
@@ -55,32 +54,6 @@ public class XModuleGenerator {
 
     private static final String PROJECT_SOURCE_DIR = "src/main/java";
 
-    private static final String XMS_CODE = "/xms/code/";
-
-    private static final String LIBS = "libs";
-
-    private static final List<String> GRADLE_FILES = Arrays.asList("gradle/wrapper/gradle-wrapper.jar",
-        "gradle/wrapper/gradle-wrapper.properties", "build.gradle", "gradlew", "gradlew.bat", "settings.gradle");
-
-    private static final String XMS_BOX = "/XBox";
-    private static final String XMS_OBJECT = "/XObject";
-    private static final String XMS_GETTABLE = "/XGettable";
-    private static final String XMS_ENUM = "/XEnum";
-    private static final String INTERFACE = "XInterface";
-    private static final String BRIDGE_METHOD_UTILS = "BridgeMethodUtils";
-    private static final String FUNCTION = "Function";
-    private static final String PARAMETER = "Parameter";
-    private static final String TYPE_NODE = "TypeNode";
-    private static final String LOG = "XmsLog";
-    private static final String UTILS = "/Utils";
-    private static final String XGH_MAP = "${XGH_MAP}";
-    private static final String XMS_MODULE = "/xms/module/";
-    private static final String X_PACKAGE = "${X_PACKAGE}";
-    private static final String STRATEGY = "${STRATEGY}";
-    private static final String MAPPING_RELATIONS = "/xms/maputil/mapping_relations.json";
-    private static final String GLOBALENVSETTING = "/xms/code/GlobalEnvSetting";
-    private static final String G_GLOBALENVSETTING = "/xms/code/g/GlobalEnvSetting";
-
     private File outPath;
 
     private List<File> generatedFiles;
@@ -93,15 +66,15 @@ public class XModuleGenerator {
     /**
      * Generate a gradle module
      *
-     * @param javaCodeForG2X whether generate java code for g2x
+     * @param javaCodeForG2X indicates whether to generate javacode for the G2X interface
      * @param strategyKind XMS router strategy
+     * @param originKitList list of original kits
      */
-    public void generateModule(boolean javaCodeForG2X, GeneratorStrategyKind strategyKind,
-        List<String> specifiedKitList) {
+    public void generateModule(boolean javaCodeForG2X, GeneratorStrategyKind strategyKind, List<String> originKitList) {
         try {
             outPath = outPath.getCanonicalFile();
         } catch (IOException e) {
-            LOGGER.error("Failed to get canonical file for {}", outPath);
+            LOGGER.error("Failed to get canonical file for gradle module");
             return;
         }
         boolean error = false;
@@ -117,38 +90,52 @@ public class XModuleGenerator {
             throw new IllegalArgumentException("Failed to generate xms project");
         }
 
-        // generate gradle project and code according to not g2X api
+        // generate gradle project and code according to non g2x interface call
         if (!javaCodeForG2X) {
-            createDir(LIBS);
-            createDir(PROJECT_SOURCE_DIR);
-            copyModuleResource();
+            createDir("libs");
+            createDir("src/main/java");
+            copyModuleResource("gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties",
+                "build.gradle", "gradlew", "gradlew.bat", "settings.gradle");
         }
 
         String codeDir = GeneratorConfiguration.getConfiguration(strategyKind).getCodePath();
-        copyJavaSource(XMS_CODE + codeDir + XMS_BOX, javaCodeForG2X);
-        copyJavaSource(XMS_CODE + codeDir + XMS_OBJECT, javaCodeForG2X);
-        copyJavaSource(XMS_CODE + codeDir + XMS_GETTABLE, javaCodeForG2X);
-        copyJavaSource(XMS_CODE + codeDir + XMS_ENUM, javaCodeForG2X);
-
-        copyJavaSource(XMS_CODE + codeDir + UTILS,
-            s -> s.replace(XGH_MAP, RuntimeTypeMappings.create(strategyKind)
-                .dumpMappings(MAPPING_RELATIONS, specifiedKitList)),
-            javaCodeForG2X);
+        copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/" + codeDir + "/XBox", javaCodeForG2X);
+        copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/" + codeDir + "/XObject", javaCodeForG2X);
+        copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/" + codeDir + "/XGettable", javaCodeForG2X);
+        copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/" + codeDir + "/XEnum", javaCodeForG2X);
+        List<String> standardKitList = null;
+        if (originKitList != null) {
+            standardKitList = originKitList;
+        }
+        List<String> finalStandardKitList = standardKitList;
+        copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/" + codeDir + "/Utils", s -> {
+            s = s.replace("${XGH_MAP}", RuntimeTypeMappings.create(strategyKind).dumpMappings(finalStandardKitList));
+            s = s.replace("${GMS_ML_MAP}",
+                originKitList != null && (originKitList.contains("mlfirebase") || originKitList.contains("mlgms"))
+                    ? ("mlGMSMap.putAll(map);" + System.lineSeparator()
+                        + "        mlGMSMap.putAll(org.xms.g.vision.MLMapUtils.loadMLGmsMap());")
+                    : "");
+            s = s.replace("${FIREBASE_ML_MAP}", originKitList != null && (originKitList.contains("mlfirebase"))
+                ? "map.putAll(org.xms.f.ml.vision.MLMapUtils.loadMLFirebaseMap());" : "");
+            return s;
+        }, javaCodeForG2X);
 
         if (strategyKind == GeneratorStrategyKind.G) {
-            copyJavaSource(G_GLOBALENVSETTING, javaCodeForG2X);
+            copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/g/GlobalEnvSetting", javaCodeForG2X);
+        } else if (strategyKind == GeneratorStrategyKind.H) {
+            copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/h/GlobalEnvSetting", javaCodeForG2X);
         } else {
-            copyJavaSource(GLOBALENVSETTING,
-                s -> s.replace(STRATEGY, strategyKind == GeneratorStrategyKind.HOrG ? "" : "; //"),
+            copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/GlobalEnvSetting",
+                s -> s.replace("${STRATEGY}", strategyKind == GeneratorStrategyKind.HOrG ? "" : "; //"),
                 javaCodeForG2X);
         }
 
-        copyJavaSource(XMS_CODE + INTERFACE, javaCodeForG2X);
-        copyJavaSource(XMS_CODE + BRIDGE_METHOD_UTILS, javaCodeForG2X);
-        copyJavaSource(XMS_CODE + FUNCTION, javaCodeForG2X);
-        copyJavaSource(XMS_CODE + PARAMETER, javaCodeForG2X);
-        copyJavaSource(XMS_CODE + TYPE_NODE, javaCodeForG2X);
-        copyJavaSource(XMS_CODE + LOG, javaCodeForG2X);
+        copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/XInterface", javaCodeForG2X);
+        copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/BridgeMethodUtils", javaCodeForG2X);
+        copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/Function", javaCodeForG2X);
+        copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/Parameter", javaCodeForG2X);
+        copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/TypeNode", javaCodeForG2X);
+        copyJavaSource(AstConstants.XMS_PACKAGE, "/xms/code/XmsLog", javaCodeForG2X);
     }
 
     private void createDir(String relativePath) {
@@ -158,15 +145,15 @@ public class XModuleGenerator {
         }
     }
 
-    private void copyModuleResource() {
-        for (String s : XModuleGenerator.GRADLE_FILES) {
-            copyFile(s, XMS_MODULE + s);
+    private void copyModuleResource(String... relPath) {
+        for (String s : relPath) {
+            copyFile(s, "/xms/module/" + s);
         }
     }
 
     private void copyFile(String relativeTargetPath, String resourcePath) {
         File file = new File(outPath, relativeTargetPath);
-        try (InputStream ins = getClass().getResourceAsStream(resourcePath)) {
+        try (InputStream ins = this.getClass().getResourceAsStream(resourcePath)) {
             if (file.exists() && !file.delete()) {
                 LOGGER.warn("File already exists: {}", file.toString());
                 return;
@@ -177,23 +164,23 @@ public class XModuleGenerator {
             }
             Files.copy(ins, file.toPath());
         } catch (IOException e) {
-            LOGGER.error("Failed to copy {}", resourcePath, e);
+            LOGGER.error("Failed to copy file when copying module resource!");
         }
     }
 
-    private void copyJavaSource(String resourcePath, boolean javaCodeForG2X) {
-        copyJavaSource(resourcePath, null, javaCodeForG2X);
+    private void copyJavaSource(String packageName, String resourcePath, boolean javaCodeForG2X) {
+        copyJavaSource(packageName, resourcePath, null, javaCodeForG2X);
     }
 
-    private void copyJavaSource(String resourcePath, TextHandler handler, boolean javaCodeForG2X) {
+    private void copyJavaSource(String packageName, String resourcePath, TextHandler handler, boolean javaCodeForG2X) {
         File srcDir;
         File dir;
         if (javaCodeForG2X) {
-            srcDir = new File(outPath, AstConstants.XMS_PACKAGE.replace(".", File.separator));
+            srcDir = new File(outPath, packageName.replace(".", File.separator));
             dir = new File(srcDir.getPath());
         } else {
             srcDir = new File(outPath, PROJECT_SOURCE_DIR);
-            dir = new File(srcDir, AstConstants.XMS_PACKAGE.replace(".", File.separator));
+            dir = new File(srcDir, packageName.replace(".", File.separator));
         }
 
         if (!dir.exists() && !dir.mkdirs()) {
@@ -209,13 +196,13 @@ public class XModuleGenerator {
             InputStreamReader isr = new InputStreamReader(ins, StandardCharsets.UTF_8);
             BufferedReader reader = new BufferedReader(isr)) {
             String text = reader.lines().collect(Collectors.joining("\n")) + '\n';
-            text = text.replace(X_PACKAGE, AstConstants.XMS_PACKAGE);
+            text = text.replace("${X_PACKAGE}", packageName);
             if (handler != null) {
                 text = handler.transform(text);
             }
             writer.write(text);
         } catch (IOException e) {
-            LOGGER.error("Failed to copy {}", resourcePath, e);
+            LOGGER.error("Failed to copy java source file!");
         }
     }
 }

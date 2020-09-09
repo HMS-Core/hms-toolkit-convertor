@@ -18,8 +18,11 @@ package com.huawei.generator.json;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Locale;
+import java.util.Objects;
+
 /**
- * Model of G<->H mapping for json deserialization.
+ * Model of G/H mapping for json deserialization.
  *
  * @since 2019-11-12
  */
@@ -114,7 +117,7 @@ public class JMapping<T> {
     }
 
     /**
-     * it is needed even if can not fully match
+     * Although not exactly matched, methods also need to be created
      *
      * @return boolean
      */
@@ -122,7 +125,7 @@ public class JMapping<T> {
         return (isManuallyAdapt() || isDummy());
     }
 
-    private boolean isManuallyAdapt() {
+    public boolean isManuallyAdapt() {
         return lowerCaseEqual(JMapping.STATUS_MANUALLY_ADAPT, status);
     }
 
@@ -145,7 +148,7 @@ public class JMapping<T> {
     }
 
     private boolean lowerCaseEqual(String str1, String str2) {
-        return str1.toLowerCase().equals(str2.toLowerCase());
+        return str1.toLowerCase(Locale.forLanguageTag(str1)).equals(str2.toLowerCase(Locale.forLanguageTag(str2)));
     }
 
     public void setH(T h) {
@@ -185,11 +188,14 @@ public class JMapping<T> {
             return false;
         }
         JMapping jMapping = (JMapping) obj;
-        if (h != jMapping.h && (h == null || !h.equals(jMapping.h))) {
+        if (!Objects.equals(h, jMapping.h)) {
             return false;
         }
-        if (g != jMapping.g && (g == null || !g.equals(jMapping.g))) {
+        if (!Objects.equals(g, jMapping.g)) {
             return false;
+        }
+        if (status == null) {
+            throw new IllegalArgumentException();
         }
         if (!status.equals(jMapping.status)) {
             return false;

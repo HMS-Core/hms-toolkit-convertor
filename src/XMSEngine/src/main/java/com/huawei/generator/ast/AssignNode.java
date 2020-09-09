@@ -17,11 +17,11 @@
 package com.huawei.generator.ast;
 
 /**
- * AssignNode class
+ * Assign Node
  *
  * @since 2019-11-12
  */
-public class AssignNode extends StatementNode {
+public final class AssignNode extends StatementNode {
     private AstNode left;
 
     private AstNode right;

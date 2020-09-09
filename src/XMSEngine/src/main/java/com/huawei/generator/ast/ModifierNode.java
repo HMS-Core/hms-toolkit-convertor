@@ -16,23 +16,23 @@
 
 package com.huawei.generator.ast;
 
-import com.huawei.generator.utils.Modifier;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * ModifierNode class
+ * Modifier Node
  *
- * @since 2020-05-12
+ * @since 2020-01-17
  */
 public final class ModifierNode extends AstNode {
     private static final Map<String, Integer> MODIFIER_PRIORITY = new HashMap<>();
 
-    private static final List<String> MODIFIER_BY_PRIORITY = Modifier.getModifierNames();
+    private static final List<String> MODIFIER_BY_PRIORITY = Arrays.asList("public", "private", "protected", "abstract",
+            "static", "final", "transient", "volatile", "default", "synchronized", "native", "strictfp");
 
     private List<String> modifiers = new ArrayList<>();
 
@@ -80,12 +80,12 @@ public final class ModifierNode extends AstNode {
 
     public void sortModifiers() {
         if (modifiers.isEmpty()) {
-            modifiers.add(Modifier.PUBLIC.getName());
+            modifiers.add("public");
             return;
         }
-        if (!modifiers.contains(Modifier.PUBLIC.getName()) && !modifiers.contains(Modifier.PRIVATE.getName())
-            && !modifiers.contains(Modifier.PROTECTED.getName()) && !modifiers.contains(Modifier.DEFAULT.getName())) {
-            modifiers.add(Modifier.PUBLIC.getName());
+        if (!modifiers.contains("public") && !modifiers.contains("private") && !modifiers.contains("protected")
+            && !modifiers.contains("default")) {
+            modifiers.add("public");
         }
         this.modifiers = modifiers.stream()
             .map(MODIFIER_PRIORITY::get)

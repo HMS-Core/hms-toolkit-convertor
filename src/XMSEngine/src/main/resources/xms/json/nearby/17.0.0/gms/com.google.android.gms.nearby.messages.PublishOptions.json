@@ -1,0 +1,83 @@
+{
+  "gName": "com.google.android.gms.nearby.messages.PublishOptions",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCallback",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.nearby.messages.PublishCallback"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCallback",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.nearby.message.PutCallback"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getStrategy",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.nearby.messages.Strategy"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPolicy",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.nearby.message.Policy"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "DEFAULT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.nearby.messages.PublishOptions",
+        "value": ""
+      },
+      "h": {
+        "name": "DEFAULT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.nearby.message.PutOption",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.message.PutOption"
+}

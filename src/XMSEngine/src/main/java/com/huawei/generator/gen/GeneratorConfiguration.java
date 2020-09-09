@@ -19,8 +19,8 @@ package com.huawei.generator.gen;
 import com.huawei.generator.g2x.processor.GeneratorStrategyKind;
 import com.huawei.generator.method.component.GComponent;
 import com.huawei.generator.method.component.HComponent;
+import com.huawei.generator.method.component.StubComponent;
 import com.huawei.generator.method.factory.GHMethodGeneratorFactory;
-import com.huawei.generator.method.factory.GOMethodGeneratorFactory;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.method.factory.SingleTargetGeneratorFactory;
 import com.huawei.generator.method.factory.StubGeneratorFactory;
@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Function description
+ * Configuration for Generator
  *
  * @since 2020-03-27
  */
@@ -58,13 +58,15 @@ public class GeneratorConfiguration {
         configurationMap.put(GeneratorStrategyKind.HOrG,
             new GeneratorConfiguration(new GHMethodGeneratorFactory(), "gh", "gh", true));
         configurationMap.put(GeneratorStrategyKind.G,
-            new GeneratorConfiguration(new GOMethodGeneratorFactory(), "gh", "g", false));
+            new GeneratorConfiguration(new SingleTargetGeneratorFactory(new GComponent("G")), "g", "g", true));
+        configurationMap.put(GeneratorStrategyKind.H,
+            new GeneratorConfiguration(new SingleTargetGeneratorFactory(new HComponent("H")), "h", "h", true));
         configurationMap.put(GeneratorStrategyKind.XG,
             new GeneratorConfiguration(new SingleTargetGeneratorFactory(new GComponent()), "z", "xg", false));
         configurationMap.put(GeneratorStrategyKind.XH,
             new GeneratorConfiguration(new SingleTargetGeneratorFactory(new HComponent()), "z", "xh", true));
         configurationMap.put(GeneratorStrategyKind.XAPI,
-            new GeneratorConfiguration(new StubGeneratorFactory(), "z", "xapi", false));
+            new GeneratorConfiguration(new StubGeneratorFactory(new StubComponent()), "z", "xapi", false));
     }
 
     public static GeneratorConfiguration getConfiguration(GeneratorStrategyKind strategyKind) {

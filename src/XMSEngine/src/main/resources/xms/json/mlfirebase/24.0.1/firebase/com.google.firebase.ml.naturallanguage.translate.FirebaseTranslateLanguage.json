@@ -1,0 +1,953 @@
+{
+  "gName": "com.google.firebase.ml.naturallanguage.translate.FirebaseTranslateLanguage",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAllLanguages",
+        "paramTypes": [],
+        "retType": "java.util.Set<java.lang.Integer>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "languageCodeForLanguage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "languageForLanguageCode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.lang.Integer"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "AF",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "AR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "BE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "BG",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "BN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "CA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "CS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "CY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "DA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "DE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "EL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "EN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "EO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "ES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "13"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "ET",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "14"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "FA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "15"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "FI",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "16"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "FR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "17"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "GA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "18"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "GL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "GU",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "20"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "HE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "21"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "HI",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "22"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "HR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "23"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "HT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "24"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "HU",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "25"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "ID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "26"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "IS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "27"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "IT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "28"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "JA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "29"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "KA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "30"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "KN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "31"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "KO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "32"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "LT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "33"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "LV",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "34"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "MK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "35"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "MR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "36"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "MS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "37"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "MT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "38"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "NL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "39"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "NO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "40"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "PL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "41"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "PT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "42"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "RO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "43"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "RU",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "44"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "SK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "45"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "SL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "46"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "SQ",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "47"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "SV",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "48"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "SW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "49"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "TA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "TE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "51"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "TH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "52"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "TL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "53"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "TR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "54"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "UK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "55"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "UR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "56"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "VI",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "57"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "ZH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "58"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This API is not supported in this version, but we're planning to introduce it in future versions."
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

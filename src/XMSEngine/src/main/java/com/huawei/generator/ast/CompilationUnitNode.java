@@ -22,11 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CompilationUnitNode class
+ * Compilation Unit Node
  *
- * @since 2020-05-12
+ * @since 2019-12-31
  */
-public class CompilationUnitNode extends AstNode {
+public final class CompilationUnitNode extends AstNode {
     private PackageNode packageNode;
 
     private List<ImportNode> importNodes;

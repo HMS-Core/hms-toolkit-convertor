@@ -17,16 +17,16 @@
 package com.huawei.generator.ast;
 
 /**
- * BinaryExprNode class
+ * Binary Expr Node
  *
  * @since 2019-11-18
  */
-public class BinaryExprNode extends StatementNode {
+public final class BinaryExprNode extends StatementNode {
     private StatementNode leftOp;
 
     private StatementNode rightOp;
 
-    private OperatorTypeNode operator;
+    private OperatorType operator;
 
     private BinaryExprNode() {
     }
@@ -39,7 +39,7 @@ public class BinaryExprNode extends StatementNode {
         return rightOp;
     }
 
-    public OperatorTypeNode operator() {
+    public OperatorType operator() {
         return operator;
     }
 
@@ -48,7 +48,7 @@ public class BinaryExprNode extends StatementNode {
         visitor.visit(this);
     }
 
-    public static BinaryExprNode create(StatementNode left, OperatorTypeNode op, StatementNode right) {
+    public static BinaryExprNode create(StatementNode left, OperatorType op, StatementNode right) {
         BinaryExprNode node = new BinaryExprNode();
         node.leftOp = left;
         node.operator = op;

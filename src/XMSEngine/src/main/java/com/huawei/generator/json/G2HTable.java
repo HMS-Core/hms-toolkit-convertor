@@ -23,48 +23,48 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * white/black list for G method
- * 
+ * trust/block list for G method
+ *
  * @since 2019-11-27
  */
 public class G2HTable {
-    @SerializedName("whites")
-    private Map<String, Set<String>> whites = new HashMap<>();
+    @SerializedName("trusts")
+    private Map<String, Set<String>> trusts = new HashMap<>();
 
-    @SerializedName("blacks")
-    private Map<String, Set<String>> blacks = new HashMap<>();
+    @SerializedName("blocks")
+    private Map<String, Set<String>> blocks = new HashMap<>();
 
-    public Map<String, Set<String>> getWhites() {
-        return whites;
+    public Map<String, Set<String>> getTrusts() {
+        return trusts;
     }
 
-    public void setWhites(Map<String, Set<String>> whites) {
-        this.whites = whites;
+    public void setTrusts(Map<String, Set<String>> trusts) {
+        this.trusts = trusts;
     }
 
-    public Map<String, Set<String>> getBlacks() {
-        return blacks;
+    public Map<String, Set<String>> getBlocks() {
+        return blocks;
     }
 
-    public void setBlacks(Map<String, Set<String>> blacks) {
-        this.blacks = blacks;
+    public void setBlocks(Map<String, Set<String>> blocks) {
+        this.blocks = blocks;
     }
 
     /**
-     * merge black and white list
+     * merge blocksList and trustList
      * 
      * @param table the data tobe merged
      */
     public void merge(G2HTable table) {
-        blacks.putAll(table.getBlacks());
-        whites.putAll(table.getWhites());
+        blocks.putAll(table.getBlocks());
+        trusts.putAll(table.getTrusts());
     }
 
     /**
-     * clear black and white list
+     * clear blocksList and trustList
      */
     public void clear() {
-        blacks.clear();
-        whites.clear();
+        blocks.clear();
+        trusts.clear();
     }
 }

@@ -16,8 +16,6 @@
 
 package com.huawei.generator.method.builder;
 
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
-
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.TypeNode;
@@ -25,12 +23,12 @@ import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JMapping;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.method.gen.BodyGenerator;
-import com.huawei.generator.utils.Modifier;
+import com.huawei.generator.exception.UnExpectedProcessException;
 
 import java.util.Collections;
 
 /**
- * Builder for creating dynamicCast method in ALL CLASSES except XImpl
+ * create dynamicCast method in ALL CLASSES except XImpl
  *
  * @since 2019-11-26
  */
@@ -49,16 +47,17 @@ public class DynamicCastBuilder extends AbstractMethodBuilder {
         methodNode.setExceptions(Collections.emptyList());
         methodNode.setParent(classNode);
         methodNode.setName("dynamicCast");
-        methodNode.setModifiers(Collections.singletonList(Modifier.STATIC.getName()));
+        methodNode.setModifiers(Collections.singletonList("static"));
         methodNode.setParameters(Collections.singletonList(TypeNode.OBJECT_TYPE));
         methodNode.setReturnType(TypeNode.create(classNode.fullName(), true));
         BodyGenerator generator = factory.createDynamicCastGenerator(methodNode, jClass);
         methodNode.setBody(generator.generate());
+        factory.createMethodDoc(methodNode);
         return methodNode;
     }
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode, JMapping mapping) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 }

@@ -16,16 +16,16 @@
 
 package com.huawei.generator.mirror;
 
-import com.google.gson.annotations.SerializedName;
 import com.huawei.generator.json.JFieldOrMethod;
 import com.huawei.generator.json.JMapping;
 import com.huawei.generator.json.JMethod;
-import com.huawei.generator.utils.Modifier;
+
+import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 /**
- * Function description
+ * KClass for json
  *
  * @since 2019-12-01
  */
@@ -119,21 +119,33 @@ public class KClass {
     }
 
     public boolean isAbstract() {
-        return type.equals("class") && modifiers.contains(Modifier.ABSTRACT.getName());
+        if (type == null || modifiers == null) {
+            throw new IllegalArgumentException();
+        }
+        return type.equals("class") && modifiers.contains("abstract");
     }
 
     public boolean isInterface() {
+        if (type == null) {
+            throw new IllegalArgumentException();
+        }
         return type.equals("interface");
     }
 
     // Check whether method is declared in this class
     public boolean contains(JMethod method) {
+        if (methods == null) {
+            throw new IllegalArgumentException();
+        }
         return methods.stream().anyMatch(m -> m.sameAs(method));
     }
 
     // Check whether method is implemented/overrode in this class
     public boolean hasImplemented(JMethod method) {
-        return methods.stream().anyMatch(m -> !m.modifiers().contains(Modifier.ABSTRACT.getName()) && m.sameAs(method));
+        if (methods == null) {
+            throw new IllegalArgumentException();
+        }
+        return methods.stream().anyMatch(m -> !m.modifiers().contains("abstract") && m.sameAs(method));
     }
 
     public String toString() {

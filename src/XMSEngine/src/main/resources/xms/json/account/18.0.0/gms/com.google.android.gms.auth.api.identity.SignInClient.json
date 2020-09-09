@@ -1,0 +1,71 @@
+{
+  "gName": "com.google.android.gms.auth.api.identity.SignInClient",
+  "interfaces": [
+    "com.google.android.gms.common.api.HasApiKey<com.google.android.gms.auth.api.identity.SignInOptions>"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "beginSignIn",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.auth.api.identity.BeginSignInRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.auth.api.identity.BeginSignInResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.common.api.ApiException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSignInCredentialFromIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.identity.SignInCredential"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "signOut",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": ""
+}

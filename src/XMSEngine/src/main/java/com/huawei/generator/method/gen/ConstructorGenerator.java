@@ -37,11 +37,11 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Function description
+ * Generator for Constructor
  *
  * @since 2020-03-10
  */
-public class ConstructorGenerator implements BodyGenerator {
+public final class ConstructorGenerator implements BodyGenerator {
     private MethodNode methodNode;
 
     private BodyGenerator setterGenerator;

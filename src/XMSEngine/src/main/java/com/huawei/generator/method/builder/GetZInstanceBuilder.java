@@ -16,8 +16,6 @@
 
 package com.huawei.generator.method.builder;
 
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
-
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.TypeNode;
@@ -26,11 +24,12 @@ import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JMapping;
 import com.huawei.generator.method.component.Component;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
+import com.huawei.generator.exception.UnExpectedProcessException;
 
 import java.util.Collections;
 
 /**
- * Builder for creating getters for field of gInstance and hInstance.
+ * Create getters for gInstance and hInstance.
  *
  * @since 2019-11-26
  */
@@ -53,14 +52,18 @@ public final class GetZInstanceBuilder extends AbstractMethodBuilder {
         getter.setParent(classNode);
         getter.setModifiers(Collections.emptyList());
         getter.setParameters(Collections.emptyList());
+        if (component == null) {
+            throw new IllegalArgumentException();
+        }
         getter.setName(component.getZInstance());
         getter.setReturnType(TypeNode.create(AstConstants.OBJECT));
         getter.setBody(factory.createGetZInstanceGenerator(component).generate());
+        factory.createMethodDoc(getter);
         return getter;
     }
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode, JMapping mapping) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 }

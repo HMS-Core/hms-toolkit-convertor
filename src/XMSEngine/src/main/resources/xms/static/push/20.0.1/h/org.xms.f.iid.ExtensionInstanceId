@@ -1,0 +1,185 @@
+package org.xms.f.iid;
+
+/**
+ * Provides methods for obtaining the AAID of an app and obtaining tokens required for accessing HUAWEI Push Kit.<br/>
+ * Wrapper class forcom.huawei.hms.aaid.HmsInstanceId, but only the HMS API are provided.<br/>
+ * com.huawei.hms.aaid.HmsInstanceId : Provides methods for obtaining the AAID of an app and obtaining tokens required for accessing HUAWEI Push Kit.<br/>
+ */
+public class ExtensionInstanceId extends org.xms.g.utils.XObject {
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.ExtensionInstanceId(org.xms.g.utils.XBox)  constructor of ExtensionInstanceId with XBox.<br/>
+     *
+     * @param param0 the wrapper of xms instance
+     */
+    public ExtensionInstanceId(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    private String getAppId() {
+        android.content.Context context = null;
+        try {
+            java.lang.reflect.Field field = null;
+            java.lang.reflect.Field[] fields = com.huawei.hms.aaid.HmsInstanceId.class.getDeclaredFields();
+            for (java.lang.reflect.Field f : fields) {
+                if (f.getType().getName().equals("android.content.Context")) {
+                    field = f;
+                    break;
+                }
+            }
+            field.setAccessible(true);
+            context = (android.content.Context) field.get(this.getHInstance());
+        } catch (java.lang.IllegalAccessException e) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", e.toString());
+        }
+        if (context != null) {
+            return com.huawei.hms.utils.Util.getAppId(context);
+        } else {
+            throw new java.lang.RuntimeException("context cannot be null");
+        }
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.getInstance(android.content.Context) Returns an instance of this class.<br/>
+     * com.huawei.hms.aaid.HmsInstanceId.getInstance(android.content.Context) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section393712230274">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section393712230274</a><br/>
+     *
+     * @param context App context
+     * @return a ExtensionInstanceId instance
+     */
+    public static org.xms.f.iid.ExtensionInstanceId getInstance(android.content.Context context) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).getInstance(context)");
+        com.huawei.hms.aaid.HmsInstanceId hReturn = com.huawei.hms.aaid.HmsInstanceId.getInstance(context);
+        return ((hReturn) == null ? null : (new org.xms.f.iid.ExtensionInstanceId(new org.xms.g.utils.XBox(hReturn))));
+    }
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public static org.xms.f.iid.ExtensionInstanceId getInstance() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public static org.xms.f.iid.ExtensionInstanceId getInstance(org.xms.f.ExtensionApp param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.getInstanceId() Obtains an AAID in asynchronous mode.<br/>
+     * com.huawei.hms.aaid.HmsInstanceId.getAAID() : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section14116320143111">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section14116320143111</a><br/>
+     *
+     * @return An operation result of the Task<AAIDResult> type
+     */
+    public org.xms.g.tasks.Task<org.xms.f.iid.InstanceIdResult> getInstanceId() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).getAAID()");
+        com.huawei.hmf.tasks.Task hReturn = ((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).getAAID();
+        return ((hReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(hReturn))));
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.getId() Obtains an AAID in synchronous mode.<br/>
+     * com.huawei.hms.aaid.HmsInstanceId.getId() : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section14850101211311">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section14850101211311</a><br/>
+     *
+     * @return An app AAID
+     */
+    public java.lang.String getId() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).getId()");
+        return ((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).getId();
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.getCreationTime() Obtains the generation timestamp of an AAID.<br/>
+     * com.huawei.hms.aaid.HmsInstanceId.getCreationTime() : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section333815358311">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section333815358311</a><br/>
+     *
+     * @return A timestamp, which is the number of milliseconds from 00:00:00 on January 1, 1970 to the AAID generation time
+     */
+    public long getCreationTime() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).getCreationTime()");
+        return ((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).getCreationTime();
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.deleteInstanceId()  Delete the Instance ID and the data associated with it.<br/>
+     * com.huawei.hms.aaid.HmsInstanceId.deleteAAID() : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section8856440133116">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section8856440133116</a><br/>
+     *
+     * @throws java.io.IOException if the request fails
+     */
+    public void deleteInstanceId() throws java.io.IOException {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).deleteAAID()");
+        try {
+            ((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).deleteAAID();
+        } catch (com.huawei.hms.common.ApiException e) {
+            throw new java.io.IOException(e);
+        }
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.getToken() Returns the automatically generated token for the project.<br/>
+     * com.huawei.hms.aaid.HmsInstanceId.getToken() : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section167326341163">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section167326341163</a><br/>
+     *
+     * @return A token required for accessing HUAWEI Push Kit
+     */
+    public java.lang.String getToken() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).getToken()");
+        return ((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).getToken();
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.getToken(java.lang.String,java.lang.String) Returns a token that authorizes a sender ID to perform an action on behalf of the application identified by Instance ID.<br/>
+     * com.huawei.hms.aaid.HmsInstanceId.getToken(java.lang.String,java.lang.String) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section1796315281618">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section1796315281618</a><br/>
+     *
+     * @param param0 App ID allocated when an app is created in AppGallery Connect
+     * @param param1 Authorization scope. Currently, you can transfer the constant DEFAULT_TOKEN_SCOPE, that is, set this parameter to HCM (default value of this constant)
+     * @return a token that authorizes a sender ID to perform an action on behalf of the application identified by Instance ID
+     * @throws java.io.IOException if the request fails
+     */
+    public java.lang.String getToken(java.lang.String param0, java.lang.String param1) throws java.io.IOException {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).getToken(getAppId(), param1)");
+        try {
+            return ((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).getToken(getAppId(), param1);
+        } catch (com.huawei.hms.common.ApiException e) {
+            throw new java.io.IOException(e);
+        }
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.deleteToken(java.lang.String,java.lang.String) Revokes access to a scope (action) for a sender ID previously authorized by getToken().<br/>
+     * com.huawei.hms.aaid.HmsInstanceId.deleteToken(java.lang.String,java.lang.String) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section1142844881810">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section1142844881810</a><br/>
+     *
+     * @param param0 App ID allocated when an app is created in AppGallery Connect
+     * @param param1 Authorization scope. Currently, you can transfer the constant DEFAULT_TOKEN_SCOPE, that is, set this parameter to HCM (default value of this constant)
+     * @throws java.io.IOException if the request fails
+     */
+    public void deleteToken(java.lang.String param0, java.lang.String param1) throws java.io.IOException {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).deleteToken(getAppId(), param1)");
+        try {
+            ((com.huawei.hms.aaid.HmsInstanceId) this.getHInstance()).deleteToken(getAppId(), param1);
+        } catch (com.huawei.hms.common.ApiException e) {
+            throw new java.io.IOException(e);
+        }
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.dynamicCast(java.lang.Object) dynamic cast the input object to ExtensionInstanceId.<br/>
+     *
+     * @param param0 the input object
+     * @return cast ExtensionInstanceId object
+     */
+    public static org.xms.f.iid.ExtensionInstanceId dynamicCast(java.lang.Object param0) {
+        return ((org.xms.f.iid.ExtensionInstanceId) param0);
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+     *
+     * @param param0 the input object
+     * @return true if the Object is XMS instance, otherwise false
+     */
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.aaid.HmsInstanceId;
+    }
+}

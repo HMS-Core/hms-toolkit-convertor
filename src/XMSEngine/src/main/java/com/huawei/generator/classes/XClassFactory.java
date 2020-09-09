@@ -26,8 +26,10 @@ import com.huawei.generator.ast.FieldNode;
 import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.TypeNode;
 import com.huawei.generator.ast.custom.XAdapterClassNode;
+import com.huawei.generator.ast.custom.XClassDoc;
 import com.huawei.generator.gen.ParcelableDecorator;
 import com.huawei.generator.gen.XEnumCreator;
+import com.huawei.generator.json.DocSources;
 import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JFieldOrMethod;
 import com.huawei.generator.json.JMapping;
@@ -48,7 +50,6 @@ import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.mirror.KClassUtils;
 import com.huawei.generator.utils.G2HTables;
 import com.huawei.generator.utils.MappingUtils;
-import com.huawei.generator.utils.Modifier;
 import com.huawei.generator.utils.TypeUtils;
 import com.huawei.generator.utils.XMSUtils;
 
@@ -70,8 +71,16 @@ public class XClassFactory {
 
     private Map<JMapping<JMethod>, MethodNode> xMethodMapping = new HashMap<>();
 
+    private DocSources docSources;
+
     public XClassFactory(MethodGeneratorFactory factory) {
         this.factory = factory;
+        this.docSources = new DocSources();
+    }
+
+    public XClassFactory(MethodGeneratorFactory factory, String pluginPath) {
+        this.factory = factory;
+        this.docSources = new DocSources(pluginPath);
     }
 
     private static boolean isSupportedClass(JClass def) {
@@ -109,14 +118,21 @@ public class XClassFactory {
     }
 
     public ClassNode populate(XAdapterClassNode node) {
-        JClass def = node.getDefinition();
+        // add classDoc information into classNode
+        XClassDoc classDoc = docSources.getClassDoc(node);
+
+        // hacker for javadoc json
+        factory.createClassDoc(classDoc, node);
+
         List<FieldNode> fields = new ArrayList<>();
         node.setFields(fields);
         List<MethodNode> methods = new ArrayList<>();
         node.setMethods(methods);
 
+        JClass def = node.getDefinition();
         if (node.isAnnotation()) {
-            return node;
+            // After some analyse, we decide to change all annotation class to interface and then deal with it
+            node.setClassType("interface");
         }
 
         // <init>(XBox)
@@ -155,18 +171,22 @@ public class XClassFactory {
 
         // Enum.values(), Enum.valueOf
         if (node.isEnum()) {
-            XEnumCreator.populateEnum(def, node);
+            XEnumCreator.populateEnum(def, node, factory);
         }
 
         // set view
         setView(def, node);
+
+        if (classDoc != null) {
+            factory.createFieldDoc(classDoc, node);
+        }
 
         // add GImpl, HImpl, field and assignment
         return WrapperDecorator.with(factory, xMethodMapping).decorate(node);
     }
 
     private void createWrapperConstructor(JClass def, ClassNode node) {
-        if (G2HTables.inBlackList(node.fullName(), node.shortName())
+        if (G2HTables.inBlockList(node.fullName(), node.shortName())
             || TypeUtils.isViewSubClass(node.getGType(), true)) {
             return;
         }
@@ -180,13 +200,16 @@ public class XClassFactory {
             .stream()
             .filter(mapping -> (mapping.isMatching() || mapping.isDisMatchMethodNeedToBeCreated()
                 || mapping.isUnsupported()) && mapping.g().isJField())
-            // check if this field in black list
-            .filter(it -> !G2HTables.inBlackList(node.fullName(), it.g().asJField().name())) // in whitelist
-            // check if this field in white list
-            .filter(it -> G2HTables.inWhiteList(node.fullName(), it.g().asJField().name())) // in whitelist
-            .filter(it -> !XMSUtils.isCreatorField(it.g().asJField()))
+            // check if this field in block list
+            .filter(fieldOrMethodJMapping ->
+                !G2HTables.inBlockList(node.fullName(), fieldOrMethodJMapping.g().asJField().name()))
+            // check if this field in trust list
+            .filter(fieldOrMethodJMapping ->
+                G2HTables.inTrustList(node.fullName(), fieldOrMethodJMapping.g().asJField().name()))
+            .filter(fieldOrMethodJMapping -> !XMSUtils.isCreatorField(fieldOrMethodJMapping.g().asJField()))
             .forEach(mapping -> {
                 MethodNode method = FieldAccessorBuilder.getBuilder(factory).build(def, node, mapping);
+                factory.createMethodDoc(method);
                 node.methods().add(method);
             });
     }
@@ -202,10 +225,10 @@ public class XClassFactory {
             .filter(mapping -> (mapping.isMatching() || mapping.isDisMatchMethodNeedToBeCreated()
                 || mapping.isUnsupported()))
             .filter(mapping -> !Objects.equals(mapping.g().returnType(), ""))
-            // check if this method in black list
-            .filter(it -> !G2HTables.inBlackList(node.fullName(), it.g().name()))
-            // check if this method in white list
-            .filter(it -> G2HTables.inWhiteList(node.fullName(), it.g().name()))
+            // check if this method in block list
+            .filter(methodJMapping -> !G2HTables.inBlockList(node.fullName(), methodJMapping.g().name()))
+            // check if this method in trust list
+            .filter(methodJMapping -> G2HTables.inTrustList(node.fullName(), methodJMapping.g().name()))
             .forEach(mapping -> {
                 MethodNode methodNode = new RoutingMethodBuilder(factory).build(def, node, mapping);
                 node.methods().add(methodNode);
@@ -215,15 +238,14 @@ public class XClassFactory {
 
     private void createXGettableMethods(JClass def, ClassNode node) {
         // zInstance field, getZInstance() and setZInstance() method
-        factory.componentContainer().components().forEach(it -> {
+        factory.componentContainer().components().forEach(component -> {
             node.fields()
-                .add(FieldNode.create(node, Collections.singletonList(Modifier.PUBLIC.getName()), TypeNode.OBJECT_TYPE,
-                    it.zInstanceFieldName(), null));
-            node.methods().add(SetMethodBuilder.getBuilder(factory, it).build(def, node));
+                .add(FieldNode.create(node, Collections.singletonList("public"), TypeNode.OBJECT_TYPE,
+                    component.zInstanceFieldName(), null));
+            node.methods().add(SetMethodBuilder.getBuilder(factory, component).build(def, node));
         });
-        factory.componentContainer().components().forEach(it -> {
-            node.methods().add(GetZInstanceBuilder.getBuilder(factory, it).build(def, node));
-        });
+        factory.componentContainer().components().forEach(component ->
+            node.methods().add(GetZInstanceBuilder.getBuilder(factory, component).build(def, node)));
         // this is a hack for xapi generation, we should generate a getZInstance method to stop the compiler from
         // complaining
         if (factory.componentContainer().components().isEmpty()) {
@@ -232,7 +254,7 @@ public class XClassFactory {
     }
 
     private void createConstructors(JClass def, ClassNode node) {
-        if (G2HTables.inBlackList(node.fullName(), node.shortName())) {
+        if (G2HTables.inBlockList(node.fullName(), node.shortName())) {
             return;
         }
         if (isOnlyForWrapping(TypeNode.create(def.gName()).toX().getTypeName())) {
@@ -243,7 +265,7 @@ public class XClassFactory {
             .stream()
             .filter(
                 mapping -> mapping.isMatching() || mapping.isDisMatchMethodNeedToBeCreated() || mapping.isUnsupported())
-            .filter(mapping -> !mapping.g().modifiers().contains(Modifier.PRIVATE.getName()))
+            .filter(mapping -> !mapping.g().modifiers().contains("private"))
             .filter(mapping -> MappingUtils.isConstructor(def, mapping))
             .forEach(mapping -> {
                 node.methods().add(ConstructorBuilder.getBuilder(factory).build(def, node, mapping));

@@ -19,7 +19,7 @@ package com.huawei.generator.ast;
 import java.util.List;
 
 /**
- * NewNode class
+ * New Node
  *
  * @since 2019-11-12
  */

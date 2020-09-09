@@ -1,0 +1,203 @@
+package org.xms.f.storage;
+
+
+
+import java.io.File;
+
+public class StorageReference extends org.xms.g.utils.XObject implements java.lang.Comparable<org.xms.f.storage.StorageReference> {
+    public StorageReference(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    public org.xms.f.storage.StorageReference child(java.lang.String param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).child(param0)");
+        com.huawei.agconnect.cloud.storage.core.StorageReference zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).child(param0);
+        return ((zReturn) == null ? null : (new org.xms.f.storage.StorageReference(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public int compareTo(org.xms.f.storage.StorageReference param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).compareTo(((com.huawei.agconnect.cloud.storage.core.StorageReference) ((param0) == null ? null : (param0.getZInstance()))))");
+        return ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).compareTo(((com.huawei.agconnect.cloud.storage.core.StorageReference) ((param0) == null ? null : (param0.getZInstance()))));
+    }
+
+    public org.xms.g.tasks.Task<java.lang.Void> delete() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).delete()");
+        com.huawei.hmf.tasks.Task zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).delete();
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public boolean equals(java.lang.Object param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).equals(param0)");
+        return ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).equals(param0);
+    }
+
+    public java.util.List<org.xms.f.storage.FileDownloadTask> getActiveDownloadTasks() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getActiveDownloadTasks()");
+        java.util.List zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getActiveDownloadTasks();
+        return ((java.util.List) org.xms.g.utils.Utils.mapCollection(zReturn, new org.xms.g.utils.Function<com.huawei.agconnect.cloud.storage.core.DownloadTask, org.xms.f.storage.FileDownloadTask>() {
+
+                public org.xms.f.storage.FileDownloadTask apply(com.huawei.agconnect.cloud.storage.core.DownloadTask param0) {
+                return new org.xms.f.storage.FileDownloadTask(new org.xms.g.utils.XBox(null, param0));
+                }
+         }));
+    }
+
+    public java.util.List<org.xms.f.storage.UploadTask> getActiveUploadTasks() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getActiveUploadTasks()");
+                java.util.List zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getActiveUploadTasks();
+                return ((java.util.List) org.xms.g.utils.Utils.mapCollection(zReturn, new org.xms.g.utils.Function<com.huawei.agconnect.cloud.storage.core.UploadTask, org.xms.f.storage.UploadTask>() {
+
+                public org.xms.f.storage.UploadTask apply(com.huawei.agconnect.cloud.storage.core.UploadTask param0) {
+                      return new org.xms.f.storage.UploadTask(new org.xms.g.utils.XBox(null, param0));
+                }
+        }));
+    }
+
+    public java.lang.String getBucket() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getBucket()");
+        return ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getBucket();
+    }
+
+    public org.xms.g.tasks.Task<byte[]> getBytes(long param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getBytes(param0)");
+        com.huawei.hmf.tasks.Task zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getBytes(param0);
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(null, zReturn))));
+    }
+
+    public org.xms.g.tasks.Task<android.net.Uri> getDownloadUrl() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getDownloadUrl()");
+        com.huawei.hmf.tasks.Task zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getDownloadUrl();
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(null, zReturn))));
+    }
+
+    public org.xms.f.storage.FileDownloadTask getFile(java.io.File param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getFile(param0)");
+        com.huawei.agconnect.cloud.storage.core.DownloadTask zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getFile(param0);
+        return ((zReturn) == null ? null : (new org.xms.f.storage.FileDownloadTask(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.f.storage.FileDownloadTask getFile(android.net.Uri param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getFile(param0)");
+        com.huawei.agconnect.cloud.storage.core.DownloadTask zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getFile(param0);
+        return ((zReturn) == null ? null : (new org.xms.f.storage.FileDownloadTask(new org.xms.g.utils.XBox(null, zReturn))));
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.storage.StorageMetadata> getMetadata() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getFileMetadata()");
+        com.huawei.hmf.tasks.Task zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getFileMetadata();
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public java.lang.String getName() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getName()");
+        return ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getName();
+    }
+
+    public org.xms.f.storage.StorageReference getParent() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getParent()");
+        com.huawei.agconnect.cloud.storage.core.StorageReference zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getParent();
+        return ((zReturn) == null ? null : (new org.xms.f.storage.StorageReference(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public java.lang.String getPath() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getPath()");
+        return ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getPath();
+    }
+
+    public org.xms.f.storage.StorageReference getRoot() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getRoot()");
+        com.huawei.agconnect.cloud.storage.core.StorageReference zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getRoot();
+        return ((zReturn) == null ? null : (new org.xms.f.storage.StorageReference(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.f.storage.ExtensionStorage getStorage() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getStorage()");
+        com.huawei.agconnect.cloud.storage.core.AGCStorageManagement zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getStorage();
+        return ((zReturn) == null ? null : (new org.xms.f.storage.ExtensionStorage(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.f.storage.StreamDownloadTask getStream(org.xms.f.storage.StreamDownloadTask.StreamProcessor param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.f.storage.StreamDownloadTask getStream() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getStream()");
+        com.huawei.agconnect.cloud.storage.core.StreamDownloadTask zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).getStream();
+        return ((zReturn) == null ? null : (new org.xms.f.storage.StreamDownloadTask(new org.xms.g.utils.XBox(null, zReturn))));
+    }
+
+    public int hashCode() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.storage.ListResult> list(int param0, java.lang.String param1) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).list(param0, param1)");
+        com.huawei.hmf.tasks.Task zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).list(param0, param1);
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.storage.ListResult> list(int param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).list(param0)");
+        com.huawei.hmf.tasks.Task zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).list(param0);
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.storage.ListResult> listAll() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).listAll()");
+        com.huawei.hmf.tasks.Task zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).listAll();
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.f.storage.UploadTask putBytes(byte[] param0, org.xms.f.storage.StorageMetadata param1) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).putBytes(param0, ((com.huawei.agconnect.cloud.storage.core.FileMetadata) ((param1) == null ? null : (param1.getZInstance()))))");
+        com.huawei.agconnect.cloud.storage.core.UploadTask zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).putBytes(param0, ((com.huawei.agconnect.cloud.storage.core.FileMetadata) ((param1) == null ? null : (param1.getZInstance()))));
+        return ((zReturn) == null ? null : (new org.xms.f.storage.UploadTask(new org.xms.g.utils.XBox(null, zReturn))));
+    }
+
+    public org.xms.f.storage.UploadTask putBytes(byte[] param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.f.storage.UploadTask putFile(android.net.Uri param0, org.xms.f.storage.StorageMetadata param1, android.net.Uri param2) {
+       throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.f.storage.UploadTask putFile(android.net.Uri param0, org.xms.f.storage.StorageMetadata param1) {
+       throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.f.storage.UploadTask putFile(android.net.Uri param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.f.storage.UploadTask putStream(java.io.InputStream param0, org.xms.f.storage.StorageMetadata param1) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.f.storage.UploadTask putStream(java.io.InputStream param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public java.lang.String toString() {
+         org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).toString()");
+         return ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).toString();
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.storage.StorageMetadata> updateMetadata(org.xms.f.storage.StorageMetadata param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).updateFileMetadata(((com.huawei.agconnect.cloud.storage.core.FileMetadata) ((param0) == null ? null : (param0.getZInstance()))))");
+        com.huawei.hmf.tasks.Task zReturn = ((com.huawei.agconnect.cloud.storage.core.StorageReference) this.getZInstance()).updateFileMetadata(((com.huawei.agconnect.cloud.storage.core.FileMetadata) ((param0) == null ? null : (param0.getZInstance()))));
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+
+    public static org.xms.f.storage.StorageReference dynamicCast(java.lang.Object param0) {
+        return ((org.xms.f.storage.StorageReference) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.huawei.agconnect.cloud.storage.core.StorageReference;
+    }
+}

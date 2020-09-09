@@ -45,30 +45,30 @@ public class Z2XExceptionHandler extends ExceptionHandler {
     private JMethod methodDef;
 
     public Z2XExceptionHandler(MethodNode methodNode, JMapping<JMethod> mapping, Component component) {
-        super(methodNode, component);
+        super(methodNode, mapping, component);
         methodDef = component.jMethod(mapping);
     }
 
     @Override
     protected List<TypeNode> findXExceptions() {
         return exceptions.stream()
-            .filter(t -> XMSUtils.isX(t.getTypeName()))
+            .filter(exception -> XMSUtils.isX(exception.getTypeName()))
             // z method may only throw a subset of the exceptions defined in x method.
             .filter(this::thrownByZ)
             .collect(Collectors.toList());
     }
 
     @Override
-    protected CatchNode catchException(TypeNode t) {
-        // catch (zE e) 
+    protected CatchNode catchException(TypeNode typeNode) {
+        // catch (zE e)
         // throw new XE()
-        NewNode newNode = NewNode.create(t, component.xWrapperParams("e"));
-        String zType = component.x2Z(t.getTypeName());
+        NewNode newNode = NewNode.create(typeNode, component.xWrapperParams("e"));
+        String zType = component.x2Z(typeNode.getTypeName());
         return CatchNode.create(zType, Collections.singletonList(ThrowNode.create(newNode)));
     }
 
-    private boolean thrownByZ(TypeNode e) {
-        return methodDef != null && methodDef.exceptions().contains(component.x2Z(e.getTypeName()));
+    private boolean thrownByZ(TypeNode typeNode) {
+        return methodDef != null && methodDef.exceptions().contains(component.x2Z(typeNode.getTypeName()));
     }
 
     @Override

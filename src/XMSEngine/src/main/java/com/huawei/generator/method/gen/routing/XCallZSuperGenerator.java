@@ -31,9 +31,8 @@ import com.huawei.generator.method.returns.Z2XMethodReturnHandler;
  *
  * @since 2020-03-11
  */
-public class XCallZSuperGenerator extends RoutingMethodGenerator {
-    public XCallZSuperGenerator(MethodNode methodNode, JClass def, JMapping<JMethod> mapping,
-        Component component) {
+public final class XCallZSuperGenerator extends RoutingMethodGenerator {
+    public XCallZSuperGenerator(MethodNode methodNode, JClass def, JMapping<JMethod> mapping, Component component) {
         super(methodNode);
         paramHandler = new X2ZMethodParamHandler(methodNode, component);
         routerCallHandler = new XCallZSuperRouter(methodNode, def, mapping, component);

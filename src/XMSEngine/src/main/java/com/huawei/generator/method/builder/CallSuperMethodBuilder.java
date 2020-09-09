@@ -18,7 +18,6 @@ package com.huawei.generator.method.builder;
 
 import static com.huawei.generator.gen.AstConstants.CALL_SUPER;
 import static com.huawei.generator.utils.XMSUtils.listMap;
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
 
 import com.huawei.generator.ast.CallNode;
 import com.huawei.generator.ast.ClassNode;
@@ -32,7 +31,7 @@ import com.huawei.generator.json.JMapping;
 import com.huawei.generator.json.JMethod;
 import com.huawei.generator.method.component.Component;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
-import com.huawei.generator.utils.Modifier;
+import com.huawei.generator.exception.UnExpectedProcessException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,7 +40,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * Builder for building the block needs to call super
+ * Build the block needs to call super
  * for example:
  * public void onDoneCallSuper() {
  * super.onDone();
@@ -59,7 +58,7 @@ public class CallSuperMethodBuilder extends AbstractMethodBuilder<JMethod> {
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 
     @Override
@@ -67,6 +66,7 @@ public class CallSuperMethodBuilder extends AbstractMethodBuilder<JMethod> {
         JMethod jMethod = component.jMethod(mapping);
         MethodNode method = createMethod(jMethod, classNode);
         createMethodBody(jMethod, method);
+        factory.createMethodDoc(method);
         return method;
     }
 
@@ -74,7 +74,7 @@ public class CallSuperMethodBuilder extends AbstractMethodBuilder<JMethod> {
         MethodNode method = new MethodNode();
         method.setModifiers(new ArrayList<>());
         method.modifiers().addAll(jMethod.modifiers());
-        method.modifiers().remove(Modifier.ABSTRACT.getName());
+        method.modifiers().remove("abstract");
         method.setName(jMethod.name() + CALL_SUPER);
         method.setParent(classNode);
         method.setReturnType(TypeNode.create(jMethod.returnType(), false));

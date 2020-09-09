@@ -30,7 +30,7 @@ import java.util.List;
  *
  * @since 2020-03-04
  */
-public class CallGetterGenerator implements BodyGenerator {
+public final class CallGetterGenerator implements BodyGenerator {
     private MethodNode methodNode;
 
     private Component component;

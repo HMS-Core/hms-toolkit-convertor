@@ -17,9 +17,16 @@
 package com.huawei.generator.method.factory;
 
 import com.huawei.generator.ast.AnonymousNode;
+import com.huawei.generator.ast.ClassNode;
+import com.huawei.generator.ast.FieldNode;
 import com.huawei.generator.ast.MethodNode;
+import com.huawei.generator.ast.custom.XClassDoc;
+import com.huawei.generator.ast.custom.XFieldDoc;
+import com.huawei.generator.ast.custom.XMethodDoc;
 import com.huawei.generator.classes.WrapperDecorator;
+import com.huawei.generator.gen.JavadocConstants;
 import com.huawei.generator.gen.ParcelableDecorator;
+import com.huawei.generator.json.DocSources;
 import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JFieldOrMethod;
 import com.huawei.generator.json.JMapping;
@@ -41,13 +48,24 @@ import com.huawei.generator.method.gen.routing.ZCallXGenerator;
 import com.huawei.generator.utils.ReflectionUtils;
 import com.huawei.generator.utils.TodoCommentConstants;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 /**
- * Factory for method generator.
+ * method generator factory
  *
  * @since 2020-03-19
  */
 public abstract class AbstractGeneratorFactory implements MethodGeneratorFactory {
-    ComponentContainer container;
+    public ComponentContainer container;
+
+    public XClassDoc classDoc;
+
+    @Override
+    public XClassDoc getClassDoc() {
+        return classDoc;
+    }
 
     @Override
     public ComponentContainer componentContainer() {
@@ -130,13 +148,91 @@ public abstract class AbstractGeneratorFactory implements MethodGeneratorFactory
     BodyGenerator createXCallZSuperGenerator(MethodNode methodNode, JClass def, JMapping<JMethod> mapping,
         Component component) {
         // generate call super
-        if (!component.isMatching(mapping)) {
+        if (component.isMatching(mapping)) {
+            if (WrapperDecorator.hasZImpl(methodNode.parent(), component)) {
+                return new XCallZSuperGenerator(methodNode, def, mapping, component);
+            } else {
+                return new XCallZGenerator(methodNode, def, mapping, component);
+            }
+        } else {
             return new ToDoBodyGenerator(methodNode, TodoCommentConstants.USER_CUSTOM_CODE_IN_MEIHOD_BODY_WRAPPER);
         }
+    }
 
-        if (WrapperDecorator.hasZImpl(methodNode.parent(), component)) {
-            return new XCallZSuperGenerator(methodNode, def, mapping, component);
+    @Override
+    public void createMethodDoc(MethodNode methodNode) {
+        if (classDoc == null) {
+            return;
         }
-        return new XCallZGenerator(methodNode, def, mapping, component);
+        XMethodDoc methodDocNode = DocSources.createMethodDocHead(methodNode);
+        if (methodDocNode == null) {
+            return;
+        }
+
+        List<String> displayInfoList = methodDocNode.getDisplayInfoList();
+        String methodNodeName = methodNode.name();
+        displayInfoList.addAll(moduleDescriptionForMethodDoc(methodNodeName));
+
+        List<Component> componentsList = container.components();
+        for (int i = componentsList.size() - 1; i >= 0; i--) {
+            displayInfoList.addAll(componentsList.get(i).getMethodDocNameAndInfo(methodDocNode));
+        }
+
+        // params, return and throwExceptions information about the method
+        displayInfoList.addAll(DocSources.getParamsReturnExceptionInfo(methodDocNode));
+        methodDocNode.setDisplayInfoList(displayInfoList);
+    }
+
+    @Override
+    public void createMethodDoc(MethodNode methodNode, String docInfo) {
+        if (classDoc == null) {
+            return;
+        }
+        XMethodDoc methodDoc = new XMethodDoc();
+        List<String> displayInfoList = new LinkedList<>();
+        displayInfoList.add("/**");
+        displayInfoList.add(" * " + docInfo + ".<br/>");
+        displayInfoList.add(" */");
+        methodDoc.setDisplayInfoList(displayInfoList);
+        methodNode.setMethodDocNode(methodDoc);
+    }
+
+    // add fieldDoc's head information into classNode
+    @Override
+    public void createFieldDoc(XClassDoc classDoc, ClassNode classNode) {
+        List<FieldNode> fieldNodes = classNode.fields();
+        Map<String, XFieldDoc> fieldDocs = classDoc.getFields();
+        if (fieldNodes == null || fieldDocs == null) {
+            return;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (FieldNode fieldNode : fieldNodes) {
+            for (XFieldDoc fieldDoc : fieldDocs.values()) {
+                String fieldInfo = fieldDoc.getFieldInfo();
+                String fieldName = "";
+                if (fieldInfo.contains(" ")) {
+                    fieldName = fieldInfo.substring(fieldInfo.lastIndexOf(" ") + 1);
+                } else { // creator field
+                    fieldName = fieldInfo.substring(fieldInfo.lastIndexOf(".") + 1);
+                }
+
+                if (!fieldName.equals(fieldNode.name())) {
+                    return;
+                }
+                sb.append("/**\n     * ");
+                if (fieldDoc.getFieldInfo().contains("android.os.Parcelable.Creator")) {
+                    sb.append(JavadocConstants.FIELD_CREATOR_INFO + ".<br/>\n     * <p>\n     *");
+                } else {
+                    sb.append(fieldDoc.getFieldInfo()).append(" ")
+                        .append(fieldDoc.getDescriptions())
+                        .append(".<br/>\n     * <p>\n     *");
+                }
+                sb.append(moduleDescriptionForFieldDoc(fieldDoc));
+                sb.append("/\n    ");
+                fieldDoc.setDisplayInfo(sb.toString());
+                fieldNode.setFieldDoc(fieldDoc);
+            }
+        }
     }
 }

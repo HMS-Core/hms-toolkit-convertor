@@ -16,17 +16,19 @@
 
 package com.huawei.generator.utils;
 
+import com.huawei.generator.g2x.po.kit.KitInfoContainer;
+import com.huawei.generator.g2x.processor.XmsConstants;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.huawei.generator.g2x.po.kit.KitInfoContainer;
-import com.huawei.generator.g2x.processor.XmsConstants;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -48,15 +50,19 @@ public enum KitInfoRes {
     private Map<String, Map<String, Integer>> DEFAULT_SDK_VERSION_MAP;
 
     private static final String MIN_SDK_VERSION = "minSdkVersion";
+
     private static final String TARGET_SDK_VERSION = "targetSdkVersion";
+
     private static final String COMPILE_SDK_VERSION = "compileSdkVersion";
+
+    public static class MapTypeToken extends TypeToken<KitInfoContainer> {
+    }
 
     KitInfoRes() {
         InputStream inputStream = KitInfoRes.class.getResourceAsStream("/" + XmsConstants.KIT_INFO);
         InputStreamReader isr = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
         Gson gson = new GsonBuilder().create();
-        KitInfoContainer kitInfoContainer = gson.fromJson(isr, new TypeToken<KitInfoContainer>() {
-        }.getType());
+        KitInfoContainer kitInfoContainer = gson.fromJson(isr, new MapTypeToken().getType());
         KIT_DEPENDENCY_MAP = kitInfoContainer.getDependency();
         NORMALIZE_KIT_MAP = kitInfoContainer.getDisplay();
         SUPPORT_LIST = kitInfoContainer.getSupported();
@@ -89,16 +95,16 @@ public enum KitInfoRes {
         int minSDKVersion = 0;
         int targetSDKVersion = 0;
         for (String kit : allKits) {
-            kit = kit.toLowerCase();
+            kit = kit.toLowerCase(Locale.ENGLISH);
             if (DEFAULT_SDK_VERSION_MAP.get(kit) == null) {
                 continue;
             }
-            compileSDKVersion = DEFAULT_SDK_VERSION_MAP.get(kit).get(COMPILE_SDK_VERSION) > compileSDKVersion ?
-                    DEFAULT_SDK_VERSION_MAP.get(kit).get(COMPILE_SDK_VERSION) : compileSDKVersion;
-            minSDKVersion = DEFAULT_SDK_VERSION_MAP.get(kit).get(MIN_SDK_VERSION) > minSDKVersion ?
-                    DEFAULT_SDK_VERSION_MAP.get(kit).get(MIN_SDK_VERSION) : minSDKVersion;
-            targetSDKVersion = DEFAULT_SDK_VERSION_MAP.get(kit).get(TARGET_SDK_VERSION) > targetSDKVersion ?
-                    DEFAULT_SDK_VERSION_MAP.get(kit).get(TARGET_SDK_VERSION) : targetSDKVersion;
+            compileSDKVersion = DEFAULT_SDK_VERSION_MAP.get(kit).get(COMPILE_SDK_VERSION) > compileSDKVersion
+                ? DEFAULT_SDK_VERSION_MAP.get(kit).get(COMPILE_SDK_VERSION) : compileSDKVersion;
+            minSDKVersion = DEFAULT_SDK_VERSION_MAP.get(kit).get(MIN_SDK_VERSION) > minSDKVersion
+                ? DEFAULT_SDK_VERSION_MAP.get(kit).get(MIN_SDK_VERSION) : minSDKVersion;
+            targetSDKVersion = DEFAULT_SDK_VERSION_MAP.get(kit).get(TARGET_SDK_VERSION) > targetSDKVersion
+                ? DEFAULT_SDK_VERSION_MAP.get(kit).get(TARGET_SDK_VERSION) : targetSDKVersion;
         }
         Map<String, Integer> result = new HashMap<>();
         result.put(COMPILE_SDK_VERSION, compileSDKVersion);

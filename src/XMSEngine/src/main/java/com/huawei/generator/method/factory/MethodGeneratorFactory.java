@@ -17,7 +17,10 @@
 package com.huawei.generator.method.factory;
 
 import com.huawei.generator.ast.AnonymousNode;
+import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
+import com.huawei.generator.ast.custom.XClassDoc;
+import com.huawei.generator.ast.custom.XFieldDoc;
 import com.huawei.generator.ast.custom.XWrapperConstructorNode;
 import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JFieldOrMethod;
@@ -27,8 +30,10 @@ import com.huawei.generator.method.component.Component;
 import com.huawei.generator.method.component.ComponentContainer;
 import com.huawei.generator.method.gen.BodyGenerator;
 
+import java.util.List;
+
 /**
- * Factory for method generator.
+ * Method generator factory
  *
  * @since 2020-03-13
  */
@@ -50,7 +55,7 @@ public interface MethodGeneratorFactory {
     BodyGenerator createConstructorGenerator(MethodNode methodNode, JMapping<JMethod> mapping);
 
     /**
-     * Creates a generator for method dynamicCast.
+     * Creates a generator for dynamicCast.
      *
      * @param methodNode the method node to be filled
      * @param def the json definition of the class
@@ -59,7 +64,7 @@ public interface MethodGeneratorFactory {
     BodyGenerator createDynamicCastGenerator(MethodNode methodNode, JClass def);
 
     /**
-     * Creates a generator for method isInstance.
+     * Creates a generator for isInstance.
      *
      * @param methodNode the method node to be filled
      * @param def the json definition of the class
@@ -89,7 +94,7 @@ public interface MethodGeneratorFactory {
     BodyGenerator createGetZInstanceGenerator(MethodNode methodNode);
 
     /**
-     * Creates a generator for method getGInstance or getHInstance for interfaces.
+     * Creates a generator for getGInstance or getHInstance for interfaces.
      *
      * @param methodNode the method node to be filled
      * @param anonymousZImpl the anonymous ZImpl to be returned in this method node
@@ -125,7 +130,7 @@ public interface MethodGeneratorFactory {
      * @param node the constructor node to be filled.
      * @return body generator
      */
-    BodyGenerator createWrapperCtorGenerator(XWrapperConstructorNode node);
+    BodyGenerator createWrapperConstructorGenerator(XWrapperConstructorNode node);
 
     /**
      * Creates a generator for createFromParcel.
@@ -152,4 +157,67 @@ public interface MethodGeneratorFactory {
      * @return body generator
      */
     BodyGenerator createGetZInstanceGenerator(Component component);
+
+    /**
+     * Create XEnum valueOf generator
+     *
+     * @param def the json definition of the class
+     * @param method the method node to be filled
+     * @return body generator
+     */
+    BodyGenerator createXEnumValueOfGenerator(JClass def, MethodNode method);
+
+    /**
+     * get the classDoc by factory
+     *
+     * @return the classDoc
+     */
+    XClassDoc getClassDoc();
+
+    /**
+     * Create methodDoc for common methodNode
+     *
+     * @param methodNode the methodNode
+     */
+    void createMethodDoc(MethodNode methodNode);
+
+    /**
+     * Create methodDoc for methodNode that it is notSupported
+     *
+     * @param methodNode the methodNode
+     * @param docInfo the info of doc
+     */
+    void createMethodDoc(MethodNode methodNode, String docInfo);
+
+    /**
+     * Create classDoc for classNode
+     *
+     * @param classDoc the classDoc
+     * @param classNode the classNode
+     */
+    void createClassDoc(XClassDoc classDoc, ClassNode classNode);
+
+    /**
+     * Create fieldDoc for classNode
+     *
+     * @param classDoc the classDoc
+     * @param classNode the classNode
+     */
+    void createFieldDoc(XClassDoc classDoc, ClassNode classNode);
+
+    /**
+     * Create methodDoc in different modules like xms, xg ...
+     *
+     * @param methodNodeName name of the method
+     * @return a list contains methodDoc information
+     */
+    List<String> moduleDescriptionForMethodDoc(String methodNodeName);
+
+    /**
+     * Create fieldDoc in different modules like xms, xg ...
+     *
+     * @param fieldDoc a XFieldDoc instance which contains the fieldDoc of H and G
+     * @return a string contains fieldDoc information
+     */
+    String moduleDescriptionForFieldDoc(XFieldDoc fieldDoc);
 }

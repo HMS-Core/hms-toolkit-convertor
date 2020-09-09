@@ -1,0 +1,20 @@
+package org.xms.f.inappmessaging.model;
+
+public class XAction {
+
+    private String actionUrl;
+    private com.huawei.agconnect.appmessaging.model.CardMessage.Button button;
+
+    public XAction (String actionUrl, com.huawei.agconnect.appmessaging.model.CardMessage.Button button) {
+        this.actionUrl = actionUrl;
+        this.button = button;
+    }
+
+    public String getActionUrl() {
+        return this.actionUrl;
+    }
+
+    public com.huawei.agconnect.appmessaging.model.CardMessage.Button getButton() {
+        return this.button;
+    }
+}

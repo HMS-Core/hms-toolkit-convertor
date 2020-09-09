@@ -16,16 +16,22 @@
 
 package com.huawei.generator.g2x.po.map.manual;
 
-import com.google.gson.annotations.Expose;
 import com.huawei.generator.g2x.po.map.Desc;
+
+import com.google.gson.annotations.Expose;
 
 /**
  * ManualField: description of manual-fields, indicating wishhub plugins can not modify them directly.
  * Therefore app client developers should change them manually.
+ * <p>
  * including:
- * 1. fieldName -> field name
- * 2. desc -> details of this field, see {@link Desc}
- * Note: for manual field, desc is very important, because it contains the user manual and url to guide developers.
+ * 1. fieldName means field name
+ * 2. desc means details of this field, see {@link Desc}
+ * </p>
+ * <p>
+ * Note: for manual field, desc is very important, because it contains the user manual and url to guide
+ * developers.
+ * </p>
  *
  * @since 2019-11-27
  */

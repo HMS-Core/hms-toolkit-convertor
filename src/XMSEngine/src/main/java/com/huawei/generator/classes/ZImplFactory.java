@@ -39,7 +39,6 @@ import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.mirror.KClass;
 import com.huawei.generator.mirror.SupersVisitor;
 import com.huawei.generator.utils.MappingUtils;
-import com.huawei.generator.utils.Modifier;
 import com.huawei.generator.utils.TodoManager;
 import com.huawei.generator.utils.XMSUtils;
 
@@ -51,7 +50,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Factory for  creating ZImpl class nodes.
+ * Factory for ZImpl
  *
  * @since 2020-02-28
  */
@@ -60,7 +59,7 @@ class ZImplFactory {
         Map<JMapping<JMethod>, MethodNode> xMethodMapping, Component component) {
         JClass def = outerClass.getJClass();
         String zName = component.zName(def);
-        if (zName.isEmpty() || zName.equals(AstConstants.OBJECT)) {
+        if (zName.isEmpty()) {
             return;
         }
         List<JMethod> constructorList = getConstructorList(component.zName(def), component.getZClassList());
@@ -84,12 +83,11 @@ class ZImplFactory {
             if (MappingUtils.isConstructor(def, mapping)) {
                 continue;
             }
-            if (!(jMethod.modifiers().contains(Modifier.FINAL.getName()))
-                && !(jMethod.modifiers().contains(Modifier.ABSTRACT.getName()))
-                && !(jMethod.modifiers().contains(Modifier.STATIC.getName()))) {
+            if (!(jMethod.modifiers().contains("final")) && !(jMethod.modifiers().contains("abstract"))
+                && !(jMethod.modifiers().contains("static"))) {
                 overridedMethods.add(mapping);
             }
-            if (jMethod.modifiers().contains(Modifier.ABSTRACT.getName())) {
+            if (jMethod.modifiers().contains("abstract")) {
                 abstractMethods.add(mapping);
             }
         }
@@ -112,6 +110,7 @@ class ZImplFactory {
                 .filter(Objects::nonNull)
                 .forEach(methods::add);
         zImpl.setMethods(methods);
+
         // add constructor to zNode's methods.
         zImpl.methods().addAll(createConstructorInZImpl(zImpl, constructorList));
 
@@ -126,7 +125,7 @@ class ZImplFactory {
 
     private ZImplClassNode getEmptyInnerClass() {
         ZImplClassNode node = new ZImplClassNode();
-        node.setModifiers(Collections.singletonList(Modifier.PRIVATE.getName()));
+        node.setModifiers(Collections.singletonList("private"));
         node.setClassType("class");
         node.setInterfaces(Collections.emptyList());
         node.setInner(true);
@@ -144,8 +143,7 @@ class ZImplFactory {
         for (KClass cls : classList) {
             if (cls.getClassName().contains(AstConstants.PARCELABLE_INTERFACE)) {
                 List<FieldNode> fields = new ArrayList<>();
-                FieldNode fieldNode = FieldNode.create(xNode,
-                    Arrays.asList(Modifier.PUBLIC.getName(), Modifier.FINAL.getName()),
+                FieldNode fieldNode = FieldNode.create(xNode, Arrays.asList("public", "final"),
                     TypeNode.create(AstConstants.PARCELABLE_INTERFACE + ".Creator"), AstConstants.CREATOR,
                     VarNode.create("null"));
                 fields.add(fieldNode);
@@ -164,28 +162,28 @@ class ZImplFactory {
         abstractMethods.removeAll(additionalMethods);
         additionalMethods.forEach(mapping -> {
             JMethod gMethod = mapping.g();
-            gMethod.modifiers().remove(Modifier.ABSTRACT.getName());
+            gMethod.modifiers().remove("abstract");
             JMethod hMethod = mapping.h();
             if (hMethod != null) {
-                hMethod.modifiers().remove(Modifier.ABSTRACT.getName());
+                hMethod.modifiers().remove("abstract");
             }
             JMapping<JMethod> newMapping = JMapping.create(gMethod, hMethod, mapping.status());
             overridedMethods.add(newMapping);
         });
     }
 
-    private List<MethodNode> createConstructorInZImpl(ClassNode parent, List<JMethod> ctors) {
+    private List<MethodNode> createConstructorInZImpl(ClassNode parent, List<JMethod> constructors) {
         List<MethodNode> constructorMethods = new ArrayList<>();
-        for (JMethod jMethod : ctors) {
+        for (JMethod jMethod : constructors) {
             MethodNode node = new MethodNode();
             node.setName(parent.getXType().getTypeName());
             List<TypeNode> paraTypes = new ArrayList<>();
-            jMethod.parameterTypes().forEach(t -> paraTypes.add(TypeNode.create(t.type(), false)));
+            jMethod.parameterTypes().forEach(jParameter -> paraTypes.add(TypeNode.create(jParameter.type(), false)));
             node.setParameters(paraTypes);
             node.setReturnType(TypeNode.create(""));
             node.setModifiers(jMethod.modifiers());
             List<TypeNode> exceptionTypes = new ArrayList<>();
-            jMethod.exceptions().forEach(e -> exceptionTypes.add(TypeNode.create(e, false)));
+            jMethod.exceptions().forEach(exception -> exceptionTypes.add(TypeNode.create(exception, false)));
             node.setExceptions(exceptionTypes);
             node.setParent(parent);
 

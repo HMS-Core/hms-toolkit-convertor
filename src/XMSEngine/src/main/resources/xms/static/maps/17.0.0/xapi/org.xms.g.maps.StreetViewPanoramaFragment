@@ -1,0 +1,218 @@
+package org.xms.g.maps;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+/**
+ * org.xms.g.maps.StreetViewPanoramaFragment : xms A StreetViewPanorama component in an app. This fragment is the simplest way to place a Street View panorama in an application.<br/>
+ * com.google.android.gms.maps.StreetViewPanoramaFragment : A StreetViewPanorama component in an app. This fragment is the simplest way to place a Street View panorama in an application.<br/>
+ * GClassUrl : https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment <br/>
+ */
+public class StreetViewPanoramaFragment {
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.newInstance() Creates a streetview panorama fragment, using default options.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.newInstance():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#newInstance()">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#newInstance()</a> <br/>
+     *
+     * @return org.xms.g.maps.StreetViewPanoramaFragment the return object is StreetViewPanoramaFragment
+     */
+    public static org.xms.g.maps.StreetViewPanoramaFragment newInstance() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.newInstance(org.xms.g.maps.StreetViewPanoramaOptions) Creates a streetview panorama fragment with the given options.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.newInstance(com.google.android.gms.maps.StreetViewPanoramaOptions):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-static-streetviewpanoramafragment-newinstance-streetviewpanoramaoptions-options">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-static-streetviewpanoramafragment-newinstance-streetviewpanoramaoptions-options</a> <br/>
+     *
+     * @param var0 the param should instanceof StreetViewPanoramaOptions
+     * @return org.xms.g.maps.StreetViewPanoramaFragment the return object is StreetViewPanoramaFragment
+     */
+    public static org.xms.g.maps.StreetViewPanoramaFragment newInstance(StreetViewPanoramaOptions var0) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.StreetViewPanoramaFragment() constructor of StreetViewPanoramaFragment. <br/>
+     */
+    public StreetViewPanoramaFragment() {
+        super();
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onAttach(android.app.Activity) StreetViewPanoramaFragment onAttach.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onAttach(android.app.Activity):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onattach-activity-activity">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onattach-activity-activity</a> <br/>
+     *
+     * @param activity the param should instanceof Activity
+     */
+    public void onAttach(Activity activity) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onInflate(android.app.Activity,android.util.AttributeSet,android.os.Bundle) Parse attributes during inflation from a view hierarchy into the arguments we handle.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onInflate(android.app.Activity,android.util.AttributeSet,android.os.Bundle):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-oninflate-activity-activity,-attributeset-attrs,-bundle-savedinstancestate">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-oninflate-activity-activity,-attributeset-attrs,-bundle-savedinstancestate</a> <br/>
+     *
+     * @param activity     the param should instanceof Activity
+     * @param attributeSet the param should instanceof AttributeSet
+     * @param bundle       the param should instanceof Bundle
+     */
+    public void onInflate(Activity activity, AttributeSet attributeSet, Bundle bundle) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onCreate(android.os.Bundle) StreetViewPanoramaFragment onCreate .<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onCreate(android.os.Bundle):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-oncreate-bundle-savedinstancestate">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-oncreate-bundle-savedinstancestate</a> <br/>
+     *
+     * @param bundle the param should instanceof Bundle
+     */
+    public void onCreate(Bundle bundle) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) StreetViewPanoramaFragment onCreateView.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-view-oncreateview-layoutinflater-inflater,-viewgroup-container,-bundle-savedinstancestate">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-view-oncreateview-layoutinflater-inflater,-viewgroup-container,-bundle-savedinstancestate</a> <br/>
+     *
+     * @param layoutInflater the param should instanceof LayoutInflater
+     * @param viewGroup      the param should instanceof ViewGroup
+     * @param bundle         the param should instanceof Bundle
+     * @return android.view.View the return object is View
+     */
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onStart() StreetViewPanoramaFragment onStart.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onStart():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onstart">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onstart</a> <br/>
+     */
+    public void onStart() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onResume() StreetViewPanoramaFragment onResume.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onResume():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onresume">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onresume</a> <br/>
+     */
+    public void onResume() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onPause() StreetViewPanoramaFragment onPause.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onPause():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onpause">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onpause</a> <br/>
+     */
+    public void onPause() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onStop() StreetViewPanoramaFragment onStop.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onStop():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onpause">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onpause</a> <br/>
+     */
+    public void onStop() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onDestroyView() StreetViewPanoramaFragment onDestroyView.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onDestroyView():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-ondestroyview">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-ondestroyview</a> <br/>
+     */
+    public void onDestroyView() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onDestroy() StreetViewPanoramaFragment onDestroy.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onDestroy():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-ondestroy">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-ondestroy</a> <br/>
+     */
+    public void onDestroy() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onLowMemory() on Low Memory.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onLowMemory():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onlowmemory">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onlowmemory</a> <br/>
+     */
+    public void onLowMemory() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onActivityCreated(android.os.Bundle) StreetViewPanoramaFragment onActivityCreated.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onActivityCreated(android.os.Bundle):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onactivitycreated-bundle-savedinstancestate">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onactivitycreated-bundle-savedinstancestate</a> <br/>
+     *
+     * @param bundle the param should instanceof Bundle
+     */
+    public void onActivityCreated(Bundle bundle) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.onSaveInstanceState(android.os.Bundle) StreetViewPanoramaFragment onSaveInstanceState.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.onSaveInstanceState(android.os.Bundle):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onsaveinstancestate-bundle-outstate">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-onsaveinstancestate-bundle-outstate</a> <br/>
+     *
+     * @param bundle the param should instanceof Bundle
+     */
+    public void onSaveInstanceState(Bundle bundle) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.setArguments(android.os.Bundle) StreetViewPanoramaFragment setArguments.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.setArguments(Bundle):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-setarguments-bundle-args">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-setarguments-bundle-args</a> <br/>
+     *
+     * @param bundle the param should be instanceof Bundle
+     */
+    public void setArguments(Bundle bundle) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.StreetViewPanoramaFragment.getStreetViewPanoramaAsync(org.xms.g.maps.OnStreetViewPanoramaReadyCallback) Sets a callback object which will be triggered when the StreetViewPanorama instance is ready to be used.<br/>
+     * Support running environments including both HMS and GMS which are chosen by users.<br/>
+     * Below are the references of HMS apis and GMS apis respectively:<br/>
+     * com.google.android.gms.maps.StreetViewPanoramaFragment.getStreetViewPanoramaAsync(com.google.android.gms.maps.OnStreetViewPanoramaReadyCallback):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-getstreetviewpanoramaasync-onstreetviewpanoramareadycallback-callback">https://developers.google.com/android/reference/com/google/android/gms/maps/StreetViewPanoramaFragment#public-void-getstreetviewpanoramaasync-onstreetviewpanoramareadycallback-callback</a> <br/>
+     *
+     * @param onStreetViewPanoramaReadyCallback the param should be instanceof OnStreetViewPanoramaReadyCallback
+     */
+    public void getStreetViewPanoramaAsync(OnStreetViewPanoramaReadyCallback onStreetViewPanoramaReadyCallback) {
+        throw new RuntimeException("stub");
+    }
+}

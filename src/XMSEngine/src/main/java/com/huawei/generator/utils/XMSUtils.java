@@ -24,14 +24,16 @@ import com.huawei.generator.json.JField;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
- * XMS mapping utils for x, g, h
+ * Utils for XMS
  *
  * @since 2019-11-12
  */
+
 public class XMSUtils {
     public static GlobalMapping getXGlobalMapping(String s) {
         return GlobalMapping.getXmappings().get(s);
@@ -47,6 +49,14 @@ public class XMSUtils {
             return s;
         }
         return hGlobalMapping.getX();
+    }
+
+    public static String htoG(String s) {
+        GlobalMapping hGlobalMapping = getHGlobalMapping(s);
+        if (hGlobalMapping == null) {
+            return s;
+        }
+        return hGlobalMapping.getG();
     }
 
     public static String xtoH(String s) {
@@ -65,6 +75,14 @@ public class XMSUtils {
         return TypeNode.create(xGlobalMapping.getG()).getTypeName();
     }
 
+    public static String gtoH(String s) {
+        GlobalMapping xGlobalMapping = getXGlobalMapping(gtoX(s));
+        if (xGlobalMapping == null) {
+            return s;
+        }
+        return xGlobalMapping.getH();
+    }
+
     public static String gtoX(String s) {
         return TypeNode.create(s).toX().toString();
     }
@@ -74,33 +92,37 @@ public class XMSUtils {
     }
 
     public static String outerClassOf(String name) {
+        if (name == null) {
+            return "";
+        }
         return name.substring(0, name.lastIndexOf("."));
     }
 
     public static String degenerify(String name) {
-        if (name.contains("<")) {
-            return name.substring(0, name.indexOf("<"));
-        } else {
-            return name;
+        if (name == null) {
+            return "";
         }
+        return name.contains("<") ? name.substring(0, name.indexOf("<")) : name;
     }
 
     public static String deArray(String name) {
-        if (name.contains("[")) {
-            return name.substring(0, name.indexOf("["));
-        } else {
-            return name;
+        if (name == null) {
+            return "";
         }
+        return name.contains("[") ? name.substring(0, name.indexOf("[")) : name;
     }
 
     public static String capitialize(String s) {
-        if (s.isEmpty()) {
-            return s;
+        if (s == null || s.isEmpty()) {
+            return "";
         }
-        return s.substring(0, 1).toUpperCase() + s.substring(1);
+        return s.substring(0, 1).toUpperCase(Locale.forLanguageTag(s.substring(0, 1))) + s.substring(1);
     }
 
     /**
+     * check one type name whether starts with "org.xms"
+     *
+     * @param typeName to be checked
      * @return true if the type including "org.xms"
      */
     public static boolean isX(String typeName) {
@@ -108,18 +130,14 @@ public class XMSUtils {
     }
 
     public static String removePackage(String name) {
-        if (name.contains(".")) {
-            return name.substring(name.lastIndexOf(".") + 1);
+        if (name == null) {
+            return "";
         }
-        return name;
+        return name.contains(".") ? name.substring(name.lastIndexOf(".") + 1) : name;
     }
 
-    public static String getImplCtor(String xmsI) {
+    public static String getImplConstructor(String xmsI) {
         return xmsI + "." + INNER_CLASS_NAME;
-    }
-
-    public static RuntimeException shouldNotReachHere() {
-        throw new IllegalStateException("should not reach here");
     }
 
     public static List<TypeNode> createXBoxTypeParam() {

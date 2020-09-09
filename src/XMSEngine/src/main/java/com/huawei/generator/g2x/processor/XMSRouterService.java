@@ -16,11 +16,12 @@
 
 package com.huawei.generator.g2x.processor;
 
-import com.google.gson.JsonSyntaxException;
-import com.huawei.generator.g2x.po.map.convertor.GSummaryMap;
-import com.huawei.generator.g2x.processor.map.ConvertorProcessor;
+import com.huawei.generator.g2x.po.kit.KitMapping;
 import com.huawei.generator.g2x.processor.map.MapProcessor;
+import com.huawei.generator.g2x.processor.map.Validator;
 import com.huawei.generator.gen.InvalidJsonException;
+
+import com.google.gson.JsonSyntaxException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +30,7 @@ import java.nio.file.InvalidPathException;
 import java.util.Map;
 
 /**
- * class for XMSRouterService
+ * Class for XMSRouterService
  *
  * @since 2019-11-24
  */
@@ -37,63 +38,51 @@ public class XMSRouterService {
     private static final Logger LOGGER = LoggerFactory.getLogger(XMSRouterService.class);
 
     /**
-     * generate full Gms -> Xms mapping
+     * generate full Gms to Xms mapping
      *
-     * @param pluginPath, path for XMSRouterService.jar，used to read resource file and generate code
-     * @param outputPath, path for output
-     * @param logPath, path for log files（reserve: status will be preserve in return value）
-     * @param gmsVersion, value is null if we can not ascertain which gmsVersion
-     * @return hmsVersion，value is null if we can not ascertain which hmsVersion
+     * @param pluginPath location of XMSRouterService.jar
+     * @param outputPath location of output
+     * @param logPath location of log, reserved
+     * @param gmsVersion version reserved
+     * @param hmsVersion version reserved
+     * @return the result of generating xms configuration
      */
     public static GeneratorResult generateXmsConfig(String pluginPath, String outputPath, String logPath,
         Map<String, String> gmsVersion, Map<String, String> hmsVersion) {
-        // back-list
-        System.setProperty("enable_black_list", "true");
+        // blocklist
+        System.setProperty("enable_block_list", "true");
+        GeneratorResult r = Validator.validateParam(outputPath, logPath, pluginPath, gmsVersion);
+        if (r != GeneratorResult.SUCCESS) {
+            return r;
+        }
+        Map<String, String> currentVersion = KitMapping.processGmsVersion(gmsVersion);
         try {
-            MapProcessor creator = new MapProcessor.MapProcessorBuilder(pluginPath, outputPath).build();
+            MapProcessor creator = new MapProcessor.MapProcessorBuilder(pluginPath, outputPath, currentVersion).build();
             return creator.processAllTarget();
-        } catch (InvalidJsonException | JsonSyntaxException e) {
-            LOGGER.error(e.getMessage());
+        } catch (InvalidJsonException e) {
+            LOGGER.error("Invalid input json when generating XmsConfig!");
+            return GeneratorResult.INVALID_JSON_FORMAT;
+        } catch (JsonSyntaxException e) {
+            LOGGER.error("Invalid content exists in input Json!");
             return GeneratorResult.INVALID_JSON_FORMAT;
         } catch (InvalidPathException e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Invalid output path when generating XmsConfig!!");
             return GeneratorResult.INVALID_OUTPATH;
         }
     }
 
     /**
-     * generate summary info for convertor
+     * get current jar location
+     * 
+     * @return current jar location
      */
-    public static GSummaryMap generateSummaryInfo() {
-        return generateSummaryInfo(null);
-    }
-
-    /**
-     * generate summary info for convertor with plugin
-     */
-    public static GSummaryMap generateSummaryInfo(String pluginPath) {
-        String path = pluginPath;
-        if (path == null) {
-            path = whereAmI();
-        }
-        ConvertorProcessor processor = new ConvertorProcessor.ConvertorProcessorBuilder(path).dollar(true).build();
-        return processor.processAllForConvertorSummary();
-    }
-
-    /**
-     * function as follow two conditions:
-     * 1.file '/mirror/gms.json' exits and is in jar package
-     * 2.file 'gms.json' in jar package is loaded earlier than another files having same name with it
-     */
-    private static String whereAmI() {
+    public static String whereAmI() {
         String path = "/mirror/gms.json";
         String tempPath = XMSRouterService.class.getResource(path).getPath();
-        // use the jar
+
+        // use the designated jar
         if (tempPath == null || !tempPath.contains("!") && !tempPath.endsWith(".jar")) {
             return "";
-        }
-        if (tempPath.startsWith("/")) {
-            tempPath = tempPath.substring(1);
         }
         if (tempPath.startsWith("file:/")) {
             tempPath = tempPath.substring(6);

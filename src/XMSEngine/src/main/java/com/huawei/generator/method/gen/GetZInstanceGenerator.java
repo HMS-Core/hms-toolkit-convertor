@@ -16,7 +16,7 @@
 
 package com.huawei.generator.method.gen;
 
-import com.huawei.generator.ast.GetField;
+import com.huawei.generator.ast.GetFieldNode;
 import com.huawei.generator.ast.ReturnNode;
 import com.huawei.generator.ast.StatementNode;
 import com.huawei.generator.ast.VarNode;
@@ -39,7 +39,7 @@ public class GetZInstanceGenerator implements BodyGenerator {
 
     @Override
     public List<StatementNode> generate() {
-        return Collections
-            .singletonList(ReturnNode.create(GetField.create(VarNode.create("this"), component.zInstanceFieldName())));
+        return Collections.singletonList(
+            ReturnNode.create(GetFieldNode.create(VarNode.create("this"), component.zInstanceFieldName())));
     }
 }

@@ -21,8 +21,8 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Model of JFieldOrMethod for json deserialization.
- * 
+ * Model of field or method for json deserialization.
+ *
  * @since 2019-11-15
  */
 public class JFieldOrMethod {
@@ -54,6 +54,11 @@ public class JFieldOrMethod {
 
     /**
      * JFieldOrMethod constructor
+     *
+     * @param name JFieldOrMethod name
+     * @param type JFieldOrMethod type
+     * @param value JFieldOrMethod value
+     * @param modifiers list of JFieldOrMethod modifiers
      */
     public JFieldOrMethod(String name, String type, String value, List<String> modifiers) {
         this.name = name;
@@ -70,11 +75,6 @@ public class JFieldOrMethod {
         return !isJField();
     }
 
-    /**
-     * Get a JField object from JFieldOrMethod.
-     *
-     * @return a JField object.
-     */
     public JField asJField() {
         if (!isJField()) {
             throw new IllegalStateException(name + "  type cast error: not a JField");
@@ -87,11 +87,6 @@ public class JFieldOrMethod {
         return jField;
     }
 
-    /**
-     * Get a JMethod object from JFieldOrMethod.
-     *
-     * @return a JMethod object.
-     */
     public JMethod asJMethod() {
         if (!isJMethod()) {
             throw new IllegalStateException("type cast error: not a isJMethod");

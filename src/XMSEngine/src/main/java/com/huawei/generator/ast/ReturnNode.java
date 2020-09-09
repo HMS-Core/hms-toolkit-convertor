@@ -17,9 +17,9 @@
 package com.huawei.generator.ast;
 
 /**
- * ReturnNode class
+ * Return Node
  *
- * @since 2019-11-12
+ * @since 2019-11-16
  */
 public final class ReturnNode extends StatementNode {
     private AstNode value;

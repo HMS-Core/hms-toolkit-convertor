@@ -1,0 +1,144 @@
+package org.xms.f.messaging;
+
+/**
+ * A class that provides methods for subscribing to topics and enables or disables the function of receiving notification messages.<br/>
+ * Wrapper class for com.huawei.hms.aaid.HmsInstanceId, but only the HMS API are provided.<br/>
+ * com.huawei.hms.push.HmsMessaging : A class that provides methods for subscribing to topics and enables or disables the function of receiving notification messages.<br/>
+ */
+public class ExtensionMessaging extends org.xms.g.utils.XObject {
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.ExtensionMessaging(org.xms.g.utils.XBox) constructor of ExtensionMessaging with XBox.<br/>
+     *
+     * @param param0 the wrapper of xms instance
+     */
+    public ExtensionMessaging(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.getINSTANCE_ID_SCOPE() return the constant value.<br/>
+     * com.huawei.hms.push.HmsMessaging.DEFAULT_TOKEN_SCOPE : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section273210584410">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section273210584410</a><br/>
+     *
+     * @return Default value of the scope parameter when the getToken(String appid, String scope) method in HmsInstanceId is called to obtain a registration token
+     */
+    public static java.lang.String getINSTANCE_ID_SCOPE() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.push.HmsMessaging.DEFAULT_TOKEN_SCOPE");
+        return com.huawei.hms.push.HmsMessaging.DEFAULT_TOKEN_SCOPE;
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.getInstance(android.content.Context) Obtains an instance.<br/>
+     * com.huawei.hms.push.HmsMessaging.getInstance(android.content.Context) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section13628131719466">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section13628131719466</a><br/>
+     *
+     * @param context App context
+     * @return a ExtensionMessaging instance
+     */
+    public static synchronized org.xms.f.messaging.ExtensionMessaging getInstance(android.content.Context context) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).getInstance(context)");
+        com.huawei.hms.push.HmsMessaging hReturn = com.huawei.hms.push.HmsMessaging.getInstance(context);
+        return ((hReturn) == null ? null : new org.xms.f.messaging.ExtensionMessaging(new org.xms.g.utils.XBox(hReturn)));
+    }
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public static synchronized org.xms.f.messaging.ExtensionMessaging getInstance() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public void setDeliveryMetricsExportToBigQuery(boolean param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public boolean deliveryMetricsExportToBigQueryEnabled() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.isAutoInitEnabled() Determines whether FCM auto-initialization is enabled or disabled.<br/>
+     * com.huawei.hms.push.HmsMessaging.isAutoInitEnabled() : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section768215326488">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section768215326488</a><br/>
+     *
+     * @return true if automatic initialization is enabled
+     */
+    public boolean isAutoInitEnabled() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).isAutoInitEnabled()");
+        return ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).isAutoInitEnabled();
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.send(org.xms.f.messaging.RemoteMessage)  Sends uplink messages in asynchronous mode.<br/>
+     * com.huawei.hms.push.HmsMessaging.send(com.huawei.hms.push.RemoteMessage) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section17106147135813">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section17106147135813</a><br/>
+     *
+     * @param param0 Message to be sent
+     */
+    public void send(org.xms.f.messaging.RemoteMessage param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).send(((com.huawei.hms.push.RemoteMessage) ((param0) == null ? null : (param0.getHInstance()))))");
+        ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).send(((com.huawei.hms.push.RemoteMessage) ((param0) == null ? null : (param0.getHInstance()))));
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.setAutoInitEnabled(boolean) Sets whether to enable automatic initialization. If this parameter is set to true, the SDK automatically generates an AAID and applies for a token. The token is returned through the onNewToken() callback method.<br/>
+     * com.huawei.hms.push.HmsMessaging.setAutoInitEnabled(boolean) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section19198183125511">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section19198183125511</a><br/>
+     *
+     * @param param0 Indicates whether to enable automatic initialization
+     */
+    public void setAutoInitEnabled(boolean param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).setAutoInitEnabled(param0)");
+        ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).setAutoInitEnabled(param0);
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.subscribeToTopic(java.lang.String) subscribe To Topic.<br/>
+     * com.huawei.hms.push.HmsMessaging.subscribe(java.lang.String) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section1222313413551">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section1222313413551</a><br/>
+     *
+     * @param param0 Topic to be subscribed to. The topic name must match the following regular expression: [\u4e00-\u9fa5\w-_.~%]{1,900}
+     * @return An operation result of the Task<Void> type. You need to add a listener to listen to the operation result
+     */
+    public org.xms.g.tasks.Task<java.lang.Void> subscribeToTopic(java.lang.String param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).subscribe(param0)");
+        com.huawei.hmf.tasks.Task hReturn = ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).subscribe(param0);
+        return ((hReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(hReturn))));
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.unsubscribeFromTopic(java.lang.String)  Unsubscribes from topic in the background.<br/>
+     * com.huawei.hms.push.HmsMessaging.unsubscribe(java.lang.String) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section7598115275611">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section7598115275611</a><br/>
+     *
+     * @param param0 Name of a topic to be unsubscribed from. The topic name must match the following regular expression: [\u4e00-\u9fa5\w-_.~%]{1,900}
+     * @return An operation result of the Task<Void> type. You need to add a listener to listen to the operation result
+     */
+    public org.xms.g.tasks.Task<java.lang.Void> unsubscribeFromTopic(java.lang.String param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).unsubscribe(param0)");
+        com.huawei.hmf.tasks.Task hReturn = ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).unsubscribe(param0);
+        return ((hReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(hReturn))));
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.dynamicCast(java.lang.Object) dynamic cast the input object to ExtensionMessaging.<br/>
+     *
+     * @param param0 the input object
+     * @return cast ExtensionMessaging object
+     */
+    public static org.xms.f.messaging.ExtensionMessaging dynamicCast(java.lang.Object param0) {
+        return ((org.xms.f.messaging.ExtensionMessaging) param0);
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+     *
+     * @param param0 the input object
+     * @return true if the Object is XMS instance, otherwise false
+     */
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.push.HmsMessaging;
+    }
+}

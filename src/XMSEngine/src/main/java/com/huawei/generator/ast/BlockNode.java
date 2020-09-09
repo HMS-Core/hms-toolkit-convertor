@@ -23,10 +23,11 @@ import java.util.List;
  *
  * @since 2019-11-19
  */
-public class BlockNode extends StatementNode {
+public final class BlockNode extends StatementNode {
     private List<StatementNode> statements;
 
-    private BlockNode(){}
+    private BlockNode() {
+    }
 
     @Override
     public void accept(AstVisitor visitor) {

@@ -16,37 +16,37 @@
 
 package com.huawei.generator.gen;
 
-import com.huawei.generator.g2x.processor.XmsConstants;
 import com.huawei.generator.g2x.processor.map.Validator;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 /**
- * GeneratorBuilder class
+ * Builder for Generator
  *
- * @since 2020-05-12
+ * @since 2019-12-27
  */
 public class GeneratorBuilder {
-    File outPath;
+    private File outPath;
 
-    String pluginPath; // the absolute path of generator
+    private String pluginPath; // the absolute path of generator
 
-    Map<String, String> kitVersionMap;
+    private Map<String, String> kitVersionMap;
 
-    List<String> staticDirs = new ArrayList<>();
+    private List<String> staticDirs = new ArrayList<>();
 
     // kitlist with path information
-    List<String> realkitList;
+    private List<String> realkitList;
 
     // standard kitlist
-    List<String> standardKitList;
+    private List<String> standardKitList;
 
-    GeneratorConfiguration configuration;
+    private List<String> originKitList;
+
+    private GeneratorConfiguration configuration;
 
     public GeneratorBuilder(String pluginPath, String outPath) {
         this.pluginPath = pluginPath;
@@ -55,17 +55,10 @@ public class GeneratorBuilder {
 
     public GeneratorBuilder strategy(List<String> originKitList, GeneratorConfiguration configuration) {
         this.realkitList = Validator.generateEssentialDependency(originKitList);
-        this.standardKitList = buildModuleKitList(new LinkedList<>(realkitList));
-        // handle firebase & gms
-        Map<String, String> map = new HashMap<>();
-        map.put("mlfirebase", XmsConstants.XMS_ML_FIREBASE_PATH);
-        map.put("mlgms", XmsConstants.XMS_ML_GMS_PATH);
-
-        // mlfirebase => ml\\firebase
-        realkitList.replaceAll(x -> map.getOrDefault(x, x));
+        this.standardKitList = new LinkedList<>(realkitList);
         staticDirs.addAll(realkitList);
         this.configuration = configuration;
-
+        this.originKitList = Validator.generateEssentialDependency(originKitList);
         return this;
     }
 
@@ -78,20 +71,35 @@ public class GeneratorBuilder {
         return new Generator(this);
     }
 
-    public List<String> getStandardKitList() {
-        return standardKitList;
+    public File getOutPath() {
+        return outPath;
     }
 
-    // map in util contains extra className. either firebase or gms are included in each kit
-    private List<String> buildModuleKitList(List<String> kitStrategyMap) {
-        // copy map
-        List<String> result = new LinkedList<>(kitStrategyMap);
-        Map<String, String> map = new HashMap<>();
-        map.put("mlfirebase", "ml");
-        map.put("mlgms", "ml");
+    public GeneratorConfiguration getConfiguration() {
+        return configuration;
+    }
 
-        // mlfirebase => ml
-        result.replaceAll(x -> map.getOrDefault(x, x));
-        return result;
+    public List<String> getStaticDirs() {
+        return staticDirs;
+    }
+
+    public Map<String, String> getKitVersionMap() {
+        return kitVersionMap;
+    }
+
+    public String getPluginPath() {
+        return pluginPath;
+    }
+
+    public List<String> getOriginKitList() {
+        return originKitList;
+    }
+
+    public List<String> getRealkitList() {
+        return realkitList;
+    }
+
+    public List<String> getStandardKitList() {
+        return standardKitList;
     }
 }

@@ -1,0 +1,199 @@
+package org.xms.f.storage;
+
+public class StorageReference extends org.xms.g.utils.XObject implements java.lang.Comparable<org.xms.f.storage.StorageReference> {
+
+    public StorageReference(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    public org.xms.f.storage.StorageReference child(java.lang.String param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).child(param0)");
+        com.google.firebase.storage.StorageReference zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).child(param0);
+        return ((zReturn) == null ? null : (new org.xms.f.storage.StorageReference(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public int compareTo(org.xms.f.storage.StorageReference param0) {
+         org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).compareTo(((com.google.firebase.storage.StorageReference) ((param0) == null ? null : (param0.getZInstance()))))");
+         return ((com.google.firebase.storage.StorageReference) this.getZInstance()).compareTo(((com.google.firebase.storage.StorageReference) ((param0) == null ? null : (param0.getZInstance()))));
+    }
+
+    public org.xms.g.tasks.Task<java.lang.Void> delete() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).delete()");
+        com.google.android.gms.tasks.Task zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).delete();
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public boolean equals(java.lang.Object param0) {
+          org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).equals(param0)");
+          return ((com.google.firebase.storage.StorageReference) this.getZInstance()).equals(param0);
+    }
+
+    public java.util.List<org.xms.f.storage.FileDownloadTask> getActiveDownloadTasks() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getGZnstance()).getActiveDownloadTasks()");
+        java.util.List zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).getActiveDownloadTasks();
+        return ((java.util.List) org.xms.g.utils.Utils.mapCollection(zReturn, new org.xms.g.utils.Function<com.google.firebase.storage.FileDownloadTask, org.xms.f.storage.FileDownloadTask>() {
+
+              public org.xms.f.storage.FileDownloadTask apply(com.google.firebase.storage.FileDownloadTask param0) {
+              return new org.xms.f.storage.FileDownloadTask(new org.xms.g.utils.XBox(param0));
+              }
+        }));
+    }
+
+    public java.util.List<org.xms.f.storage.UploadTask> getActiveUploadTasks() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getGZnstance()).getActiveUploadTasks()");
+        java.util.List zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).getActiveUploadTasks();
+        return ((java.util.List) org.xms.g.utils.Utils.mapCollection(zReturn, new org.xms.g.utils.Function<com.google.firebase.storage.UploadTask, org.xms.f.storage.UploadTask>() {
+
+               public org.xms.f.storage.UploadTask apply(com.google.firebase.storage.UploadTask param0) {
+                        return new org.xms.f.storage.UploadTask(new org.xms.g.utils.XBox(param0));
+               }
+        }));
+    }
+
+    public java.lang.String getBucket() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).getBucket()");
+        return ((com.google.firebase.storage.StorageReference) this.getZInstance()).getBucket();
+    }
+
+    public org.xms.g.tasks.Task<byte[]> getBytes(long param0) {
+         org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getGZnstance()).getBytes(param0)");
+         com.google.android.gms.tasks.Task zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).getBytes(param0);
+         return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.g.tasks.Task<android.net.Uri> getDownloadUrl() {
+         org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).getDownloadUrl()");
+         com.google.android.gms.tasks.Task zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).getDownloadUrl();
+         return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.f.storage.FileDownloadTask getFile(java.io.File param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).getFile(param0)");
+        com.google.firebase.storage.FileDownloadTask zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).getFile(param0);
+        return ((zReturn) == null ? null : (new org.xms.f.storage.FileDownloadTask(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.f.storage.FileDownloadTask getFile(android.net.Uri param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getGZnstance()).getFile(param0)");
+        com.google.firebase.storage.FileDownloadTask zReturn = ((com.google.firebase.storage.StorageReference) this.getGZnstance()).getFile(param0);
+        return ((zReturn) == null ? null : (new org.xms.f.storage.FileDownloadTask(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.storage.StorageMetadata> getMetadata() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).getMetadata()");
+        com.google.android.gms.tasks.Task zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).getMetadata();
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public java.lang.String getName() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).getName()");
+        return ((com.google.firebase.storage.StorageReference) this.getZInstance()).getName();
+    }
+
+    public org.xms.f.storage.StorageReference getParent() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).getParent()");
+        com.google.firebase.storage.StorageReference zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).getParent();
+        return ((zReturn) == null ? null : (new org.xms.f.storage.StorageReference(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public java.lang.String getPath() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).getPath()");
+        return ((com.google.firebase.storage.StorageReference) this.getZInstance()).getPath();
+    }
+
+    public org.xms.f.storage.StorageReference getRoot() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).getRoot()");
+        com.google.firebase.storage.StorageReference zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).getRoot();
+        return ((zReturn) == null ? null : (new org.xms.f.storage.StorageReference(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.f.storage.ExtensionStorage getStorage() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).getStorage()");
+        com.google.firebase.storage.FirebaseStorage zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).getStorage();
+        return ((zReturn) == null ? null : (new org.xms.f.storage.ExtensionStorage(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.f.storage.StreamDownloadTask getStream(org.xms.f.storage.StreamDownloadTask.StreamProcessor param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.f.storage.StreamDownloadTask getStream() {
+         org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getGZnstance()).getStream()");
+         com.google.firebase.storage.StreamDownloadTask zReturn = ((com.google.firebase.storage.StorageReference) this.getGZnstance()).getStream();
+         return ((zReturn) == null ? null : (new org.xms.f.storage.StreamDownloadTask(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public int hashCode() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.storage.ListResult> list(int param0, java.lang.String param1) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).list(param0, param1)");
+        com.google.android.gms.tasks.Task zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).list(param0, param1);
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.storage.ListResult> list(int param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).list(param0)");
+        com.google.android.gms.tasks.Task zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).list(param0);
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.storage.ListResult> listAll() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).listAll()");
+        com.google.android.gms.tasks.Task zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).listAll();
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.f.storage.UploadTask putBytes(byte[] param0, org.xms.f.storage.StorageMetadata param1) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getGZnstance()).putBytes(param0, ((com.google.firebase.storage.StorageMetadata) ((param1) == null ? null : (param1.getGZnstance()))))");
+        com.google.firebase.storage.UploadTask zReturn = ((com.google.firebase.storage.StorageReference) this.getGZnstance()).putBytes(param0, ((com.google.firebase.storage.StorageMetadata) ((param1) == null ? null : (param1.getGZnstance()))));
+        return ((zReturn) == null ? null : (new org.xms.f.storage.UploadTask(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public org.xms.f.storage.UploadTask putBytes(byte[] param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.f.storage.UploadTask putFile(android.net.Uri param0, org.xms.f.storage.StorageMetadata param1, android.net.Uri param2) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.f.storage.UploadTask putFile(android.net.Uri param0, org.xms.f.storage.StorageMetadata param1) {
+       throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.f.storage.UploadTask putFile(android.net.Uri param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.f.storage.UploadTask putStream(java.io.InputStream param0, org.xms.f.storage.StorageMetadata param1) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public org.xms.f.storage.UploadTask putStream(java.io.InputStream param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public java.lang.String toString() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getGZnstance()).toString()");
+        return ((com.google.firebase.storage.StorageReference) this.getGZnstance()).toString();
+    }
+
+    public org.xms.g.tasks.Task<org.xms.f.storage.StorageMetadata> updateMetadata(org.xms.f.storage.StorageMetadata param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageReference) this.getZInstance()).updateMetadata(((com.google.firebase.storage.StorageMetadata) ((param0) == null ? null : (param0.getZInstance()))))");
+        com.google.android.gms.tasks.Task zReturn = ((com.google.firebase.storage.StorageReference) this.getZInstance()).updateMetadata(((com.google.firebase.storage.StorageMetadata) ((param0) == null ? null : (param0.getZInstance()))));
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public static org.xms.f.storage.StorageReference dynamicCast(java.lang.Object param0) {
+        return ((org.xms.f.storage.StorageReference) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.google.firebase.storage.StorageReference;
+    }
+}

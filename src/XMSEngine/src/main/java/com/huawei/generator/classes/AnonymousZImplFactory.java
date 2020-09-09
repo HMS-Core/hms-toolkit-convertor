@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Function description
+ * Factory for Anonymous ZImpl
  *
  * @since 2020-03-11
  */
@@ -44,7 +44,7 @@ class AnonymousZImplFactory {
             AnonymousNode.create(component.getZType(classNode).getInstanceName(), Collections.emptyList(), classNode);
         JClass jClass = classNode.getJClass();
 
-        List<JMapping<JMethod>> mappings = KClassUtils.getHierarchicalAbstractMethodMappings(classNode, true);
+        List<JMapping<JMethod>> mappings = KClassUtils.getHierarchicalAbstractMethodMappings(classNode, true, true);
         List<MethodNode> methods = mappings.stream()
             .filter(mapping -> component.hasZ(mapping, jClass))
             .map(mapping -> ZImplMethodBuilder.getBuilder(factory, xMethodMapping, component)

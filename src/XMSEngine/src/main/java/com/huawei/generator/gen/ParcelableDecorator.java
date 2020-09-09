@@ -22,7 +22,6 @@ import static com.huawei.generator.gen.AstConstants.PARCELABLE_INTERFACE;
 import static com.huawei.generator.json.JMapping.STATUS_MANUALLY_ADAPT;
 import static com.huawei.generator.json.JMapping.STATUS_MATCHING;
 import static com.huawei.generator.mirror.KClassUtils.hasInheritance;
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
 
 import com.huawei.generator.ast.AnonymousNode;
 import com.huawei.generator.ast.AssignNode;
@@ -30,7 +29,7 @@ import com.huawei.generator.ast.CallNode;
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.DeclareNode;
 import com.huawei.generator.ast.FieldNode;
-import com.huawei.generator.ast.GetField;
+import com.huawei.generator.ast.GetFieldNode;
 import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.NewArrayNode;
 import com.huawei.generator.ast.NewNode;
@@ -47,7 +46,7 @@ import com.huawei.generator.method.builder.AbstractMethodBuilder;
 import com.huawei.generator.method.component.Component;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.method.gen.BodyGenerator;
-import com.huawei.generator.utils.Modifier;
+import com.huawei.generator.exception.UnExpectedProcessException;
 import com.huawei.generator.utils.XMSUtils;
 
 import java.util.ArrayList;
@@ -56,9 +55,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Parcelable generator
+ * Decorator for Parcelable
  *
- * @since 2020-05-12
+ * @since 2020-03-20
  */
 public final class ParcelableDecorator {
     private static final class CreateFromParcelBuilder extends AbstractMethodBuilder<JMethod> {
@@ -81,7 +80,7 @@ public final class ParcelableDecorator {
 
         @Override
         public MethodNode build(JClass jClass, ClassNode classNode, JMapping<JMethod> mapping) {
-            throw shouldNotReachHere();
+            throw new UnExpectedProcessException();
         }
     }
 
@@ -103,8 +102,8 @@ public final class ParcelableDecorator {
             List<StatementNode> body = new ArrayList<>();
             body.add(
                 AssignNode.create(DeclareNode.create(TypeNode.create(component.zName(def)), component.retVarName()),
-                    CallNode.create(GetField.create(VarNode.create(component.zName(def)), CREATOR), "createFromParcel",
-                        Collections.singletonList(VarNode.create(methodNode.paramAt(0))))));
+                    CallNode.create(GetFieldNode.create(VarNode.create(component.zName(def)), CREATOR),
+                        "createFromParcel", Collections.singletonList(VarNode.create(methodNode.paramAt(0))))));
             body.add(
                 ReturnNode.create(NewNode.create(TypeNode.create(methodNode.parent().outerClass().fullName(), false),
                     component.xWrapperParams(component.retVarName()))));
@@ -140,21 +139,19 @@ public final class ParcelableDecorator {
         return new ParcelableDecorator(factory);
     }
 
-    public ClassNode decorate(ClassNode classNode) {
+    public void decorate(ClassNode classNode) {
         if (!(classNode instanceof XAdapterClassNode)) {
-            return classNode;
+            return;
         }
         XAdapterClassNode xClass = (XAdapterClassNode) classNode;
         if (!shouldCreateParcelableField(xClass.getDefinition())) {
-            return xClass;
+            return;
         }
         classNode.fields().add(createParcelableField(xClass));
-        return xClass;
     }
 
     private FieldNode createParcelableField(XAdapterClassNode classNode) {
-        List<String> mod = Arrays.asList(Modifier.PUBLIC.getName(), Modifier.FINAL.getName(),
-            Modifier.STATIC.getName());
+        List<String> mod = Arrays.asList("public", "final", "static");
         StatementNode value = createAnonymousNode(classNode);
         return FieldNode.create(classNode, mod, TypeNode.create(CREATOR_TYPE), CREATOR, value);
     }
@@ -213,14 +210,15 @@ public final class ParcelableDecorator {
     private static JMapping<JFieldOrMethod> findCreatorMapping(JClass def) {
         return def.fields()
             .stream()
-            .filter(it -> it.g() != null && XMSUtils.isCreatorField(it.g().asJField()))
+            .filter(fieldOrMethodJMapping -> fieldOrMethodJMapping.g() != null
+                && XMSUtils.isCreatorField(fieldOrMethodJMapping.g().asJField()))
             .findFirst()
             .orElse(null);
     }
 
     /**
      * Determine whether needs to insert creator field to class
-     * 
+     *
      * @param def target JClass
      * @return if needs to insert return true, otherwise false
      */
@@ -237,8 +235,7 @@ public final class ParcelableDecorator {
 
     private static JMapping<JFieldOrMethod> generateCreatorMapping(JClass def) {
         JMapping<JFieldOrMethod> fieldMapping = new JMapping<>();
-        JFieldOrMethod jField = new JFieldOrMethod(CREATOR, CREATOR_TYPE, "",
-            Arrays.asList(Modifier.STATIC.getName(), Modifier.FINAL.getName()));
+        JFieldOrMethod jField = new JFieldOrMethod(CREATOR, CREATOR_TYPE, "", Arrays.asList("static", "final"));
         fieldMapping.setG(jField);
         if (hasInheritance(def, PARCELABLE_INTERFACE, false)) {
             fieldMapping.setH(jField);

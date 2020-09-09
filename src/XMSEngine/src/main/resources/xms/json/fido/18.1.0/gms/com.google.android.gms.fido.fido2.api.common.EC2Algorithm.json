@@ -1,0 +1,130 @@
+{
+  "gName": "com.google.android.gms.fido.fido2.api.common.EC2Algorithm",
+  "interfaces": [
+    "com.google.android.gms.fido.fido2.api.common.Algorithm"
+  ],
+  "superClass": "java.lang.Enum<com.google.android.gms.fido.fido2.api.common.EC2Algorithm>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAlgoValue",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "encodeToInt",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "ED256",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.EC2Algorithm",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "ED512",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.EC2Algorithm",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "ES256",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.EC2Algorithm",
+        "value": ""
+      },
+      "h": {
+        "name": "ES256",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.Algorithm",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "ES384",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.EC2Algorithm",
+        "value": ""
+      },
+      "h": {
+        "name": "ES384",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.Algorithm",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "ES512",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.EC2Algorithm",
+        "value": ""
+      },
+      "h": {
+        "name": "ES512",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.Algorithm",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "enum",
+  "hName": "com.huawei.hms.support.api.fido.fido2.Algorithm"
+}

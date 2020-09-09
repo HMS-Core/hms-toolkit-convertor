@@ -16,8 +16,6 @@
 
 package com.huawei.generator.method.builder;
 
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
-
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.TypeNode;
@@ -26,12 +24,12 @@ import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JMapping;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.method.gen.BodyGenerator;
-import com.huawei.generator.utils.Modifier;
+import com.huawei.generator.exception.UnExpectedProcessException;
 
 import java.util.Collections;
 
 /**
- * Builder for generating default getZInstance for Interface.
+ * Generate default getZInstance for Interface.
  *
  * @since 2020-3-11
  */
@@ -56,13 +54,13 @@ public final class GetZInterfaceInstanceBuilder extends AbstractMethodBuilder {
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode, JMapping methodMapping) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 
     private MethodNode generateZGettableMethodNode(ClassNode classNode) {
         MethodNode methodNode = new MethodNode();
         methodNode.setParent(classNode);
-        methodNode.setModifiers(Collections.singletonList(Modifier.DEFAULT.getName()));
+        methodNode.setModifiers(Collections.singletonList("default"));
         methodNode.setParameters(Collections.emptyList());
         methodNode.setName(AstConstants.GET_Z_INSTANCE + classNode.getXType().getTypeNameWithoutPackage());
         methodNode.setReturnType(TypeNode.OBJECT_TYPE);

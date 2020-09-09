@@ -51,4 +51,5 @@ public class Auto {
     public List<AutoField> getAutoFields() {
         return autoFields;
     }
+
 }

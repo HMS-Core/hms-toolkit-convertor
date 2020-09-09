@@ -17,7 +17,6 @@
 package com.huawei.generator.json;
 
 import com.google.gson.annotations.SerializedName;
-import com.huawei.generator.utils.Modifier;
 
 import java.util.List;
 
@@ -27,8 +26,6 @@ import java.util.List;
  * @since 2019-11-12
  */
 public class JClass {
-    public static final JClass J_CLASS = new JClass();
-
     @SerializedName("gName")
     private String gName;
 
@@ -55,27 +52,6 @@ public class JClass {
 
     @SerializedName("fields")
     private List<JMapping<JFieldOrMethod>> fields;
-
-    public JClass() {
-        this(null, null, null, null);
-    }
-
-    public JClass(List<String> modifiers, List<String> interfaces, List<JMapping<JMethod>> methods,
-        List<JMapping<JFieldOrMethod>> fields) {
-        this(false, null, null, null, null);
-        this.modifiers = modifiers;
-        this.interfaces = interfaces;
-        this.methods = methods;
-        this.fields = fields;
-    }
-
-    public JClass(boolean innerClass, String gName, String hName, String type, String superClass) {
-        this.innerClass = innerClass;
-        this.gName = gName;
-        this.hName = hName;
-        this.type = type;
-        this.superClass = superClass;
-    }
 
     public String gName() {
         return gName;
@@ -128,7 +104,7 @@ public class JClass {
      * @return if the class is abstract returns true, otherwise false.
      */
     public boolean isAbstract() {
-        return modifiers().contains(Modifier.ABSTRACT.getName());
+        return modifiers().contains("abstract");
     }
 
     @Override

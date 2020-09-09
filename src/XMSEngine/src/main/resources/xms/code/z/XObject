@@ -1,8 +1,16 @@
 package ${X_PACKAGE};
 
+/**
+ * Class for XObject
+ */
 public class XObject implements XGettable {
     private Object instance;
 
+    /**
+     * org.xms.g.utils.XObject(org.xms.g.utils.XBox xBox)  constructor of XObject with XBox<br/>
+     *
+     * @param xBox the wrapper of xms instance
+     */
     public XObject(org.xms.g.utils.XBox xBox) {
         if (xBox == null) {
             return;
@@ -10,6 +18,11 @@ public class XObject implements XGettable {
         this.instance = xBox.getZInstance();
     }
 
+    /**
+     * org.xms.g.utils.getZInstance() get the hms or gms instance from the corresponding xms instance.<br/>
+     *
+     * @return hInstance or gInstance
+     */
     public Object getZInstance() {
         if (instance == null) {
             org.xms.g.utils.XmsLog.d("1", "instance is null ");
@@ -19,10 +32,21 @@ public class XObject implements XGettable {
         return instance;
     }
 
+    /**
+     * org.xms.g.utils.setZInstance(Object gInst) set the hms or gms instance from the corresponding xms instance.<br/>
+     *
+     * @param inst hms or gms instance
+     */
     public void setZInstance(Object inst){
         this.instance = inst;
     }
 
+    /**
+     * org.xms.g.utils.isSameAs(Object that) judge whether the object is the same as the other.<br/>
+     *
+     * @param that another xms object
+     * @return true if the object is the same as another, otherwise false.
+     */
     @Deprecated
     public boolean isSameAs(Object that) {
         if (that == null) {
@@ -36,6 +60,13 @@ public class XObject implements XGettable {
         return getZInstance() == ((XObject) that).getZInstance();
     }
 
+    /**
+     * org.xms.g.utils.isSame(Object one, Object another) judge if the two objects are the same with each other.<br/>
+     *
+     * @param one one xms object
+     * @param another another xms object
+     * @return true if the two objects are the same, otherwise false.
+     */
     public static boolean isSame(Object one, Object another) {
         if (one == null) {
             return another == null;

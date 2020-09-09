@@ -17,7 +17,6 @@
 package com.huawei.generator.method.builder;
 
 import static com.huawei.generator.utils.XMSUtils.listMap;
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
 
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
@@ -28,6 +27,7 @@ import com.huawei.generator.json.JMapping;
 import com.huawei.generator.json.JMethod;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.method.gen.BodyGenerator;
+import com.huawei.generator.exception.UnExpectedProcessException;
 
 /**
  * Builder for constructors.
@@ -45,7 +45,7 @@ public class ConstructorBuilder extends AbstractMethodBuilder<JMethod> {
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 
     @Override
@@ -53,6 +53,7 @@ public class ConstructorBuilder extends AbstractMethodBuilder<JMethod> {
         MethodNode node = createConstructor(classNode, mapping);
         BodyGenerator bodyGenerator = factory.createConstructorGenerator(node, mapping);
         node.setBody(bodyGenerator.generate());
+        factory.createMethodDoc(node);
         return node;
     }
 

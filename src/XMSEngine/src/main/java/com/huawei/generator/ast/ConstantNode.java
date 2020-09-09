@@ -17,7 +17,7 @@
 package com.huawei.generator.ast;
 
 /**
- * ConstantNode class
+ * Constant Node
  *
  * @since 2019-11-12
  */

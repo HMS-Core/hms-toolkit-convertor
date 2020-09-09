@@ -16,6 +16,8 @@
 
 package com.huawei.generator.json;
 
+import com.huawei.generator.g2x.po.map.extension.G2XExtension;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
@@ -23,7 +25,6 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import com.huawei.generator.g2x.po.map.extension.G2XExtension;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -47,8 +48,9 @@ public class Parser {
         return GSON.fromJson(reader, type);
     }
 
-    // set default value for text，url，hmsversion
-    static Gson createGson() {
+    // To avoid the impact of source code conversion on the transfer of null or default values,
+    // the default values of the text, url, and hmsversion fields must be forcibly set.
+    private static Gson createGson() {
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(String.class, new StringDefaultAdapter());
         return builder.create();
@@ -62,6 +64,7 @@ public class Parser {
 
         @Override
         public String read(JsonReader jsonReader) throws IOException {
+            // In case of emergency, perform all operations in the following three fields
             if ((jsonReader.getPath().endsWith("hmsVersion") || jsonReader.getPath().endsWith("url"))) {
                 if (jsonReader.peek() == JsonToken.NULL) {
                     jsonReader.nextNull();

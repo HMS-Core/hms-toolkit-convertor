@@ -17,27 +17,28 @@
 package com.huawei.generator.gen;
 
 /**
- * status of generated api
+ * API generation statistics
  *
  * @since 2019-12-08
  */
+
 public class ApiStats {
     private int total;
 
     /**
-     * number of api contained in class filtered by '*'
+     * Number of APIs in the class that is filtered out by *
      */
     private int filterByWild;
 
     private int notSupported;
 
     /**
-     * number of transformed api whose status is notSupport and isDeprecated
+     * Number of APIs in the notSupport and isDeprecated states that are converted
      */
     private int fakeApis;
 
     /**
-     * number of filtered api = number of api in file json + filterByWild
+     * Total number of filtered APIs = Number of APIs in the JSON file + filterByWild
      */
     private int totalFilterd;
 

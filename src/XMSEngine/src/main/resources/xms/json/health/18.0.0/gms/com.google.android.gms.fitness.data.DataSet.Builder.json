@@ -1,0 +1,94 @@
+{
+  "gName": "com.google.android.gms.fitness.data.DataSet.Builder",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "add",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataPoint"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataSet.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addSample",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.SamplePoint"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SampleSet.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addAll",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Iterable<com.google.android.gms.fitness.data.DataPoint>"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataSet.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addSampleList",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Iterable<com.huawei.hms.hihealth.data.SamplePoint>"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SampleSet.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.data.DataSet"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.data.SampleSet"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.data.SampleSet.Builder"
+}

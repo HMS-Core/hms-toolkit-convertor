@@ -19,11 +19,11 @@ package com.huawei.generator.ast;
 import java.util.List;
 
 /**
- * This is the TryNode class.
+ * Try Node
  *
  * @since 2019-11-16
  */
-public class TryNode extends BraceNode {
+public final class TryNode extends BraceNode {
     private BlockNode body;
 
     private TryNode() {

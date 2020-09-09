@@ -28,9 +28,9 @@ import java.util.List;
  * @since 2020-04-07
  */
 public final class CustomContentNode extends BraceNode {
-    private String key;
+    private final String key;
 
-    private List<StatementNode> placeholder;
+    private final List<StatementNode> placeholder;
 
     private CustomContentNode(String key, List<StatementNode> placeholder) {
         this.key = key;

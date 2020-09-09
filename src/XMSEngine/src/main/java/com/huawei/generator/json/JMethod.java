@@ -16,17 +16,16 @@
 
 package com.huawei.generator.json;
 
-import com.google.gson.annotations.SerializedName;
 import com.huawei.generator.mirror.KClass;
 import com.huawei.generator.utils.G2XMappingUtils;
-import com.huawei.generator.utils.Modifier;
 import com.huawei.generator.utils.XMSUtils;
+
+import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeMap;
-import java.util.stream.Collectors;
 
 /**
  * Model of methods for json deserialization.
@@ -49,8 +48,8 @@ public class JMethod {
     @SerializedName("retType")
     String returnType;
 
-    // method name with full name of class
-    String nameWithClass;
+    // methodname with className
+    private String nameWithClass;
 
     // just for mirror
     private KClass kClass;
@@ -83,7 +82,7 @@ public class JMethod {
      * Get signature of a JMethod
      *
      * @param removeGenerics signature with generic type or not
-     * @param withClassName signature whether contains classname
+     * @param withClassName whether signature contains classname
      * @return signature of method
      */
     public String getSignature(boolean removeGenerics, boolean withClassName) {
@@ -105,7 +104,7 @@ public class JMethod {
         }
         str.append(tmpName).append("(");
 
-        // sort position in parameters
+        // The position sequence in the parameter is not clear. Sort the positions first
         TreeMap<Integer, String> paras = new TreeMap<>();
         for (JParameter parameter : parameterTypes()) {
             String paraStr = parameter.type();
@@ -115,8 +114,12 @@ public class JMethod {
             paras.put(parameter.pos(), paraStr);
         }
         List<String> valueList = new LinkedList<>(paras.values());
-        String values = valueList.stream().collect(Collectors.joining(","));
-        str.append(values);
+        for (String s : valueList) {
+            str.append(s).append(",");
+        }
+        if (valueList.size() != 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
         str.append(")");
         return str.toString();
     }
@@ -143,13 +146,7 @@ public class JMethod {
         return str.toString();
     }
 
-    /**
-     * Get basic class prefix by removeGenerics.
-     *
-     * @param removeGenerics remove or not Generics.
-     * @param dollar is "$" separator for inner class.
-     * @return class prefix List.
-     */
+    // Obtains the basic type prefix of the input parameter table with or without generic types through removeGenerics
     public List<String> getParaList(boolean removeGenerics, boolean dollar) {
         TreeMap<Integer, String> paras = new TreeMap<>();
         for (JParameter parameter : parameterTypes()) {
@@ -183,6 +180,10 @@ public class JMethod {
             || (other != null && this.getMethodDescription(true).equals(other.getMethodDescription(true)));
     }
 
+    public String getNameWithClass() {
+        return nameWithClass;
+    }
+
     public void setNameWithClass(String nameWithClass) {
         this.nameWithClass = nameWithClass;
     }
@@ -197,14 +198,9 @@ public class JMethod {
      * @return if private return true, otherwise false
      */
     public boolean isPrivate() {
-        return modifiers.contains(Modifier.PRIVATE.getName());
+        return modifiers.contains("private");
     }
 
-    /**
-     * create a new JMethod by this.
-     *
-     * @return a new JMethod.
-     */
     public JMethod deepCopy() {
         JMethod method = new JMethod();
         method.exceptions = new ArrayList<>(this.exceptions);

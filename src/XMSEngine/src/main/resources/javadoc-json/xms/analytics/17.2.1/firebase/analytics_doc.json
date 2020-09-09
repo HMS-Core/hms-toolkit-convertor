@@ -1,0 +1,1462 @@
+{
+  "org.xms.f.analytics.ExtensionAnalytics": {
+    "gClassName": "com.google.firebase.analytics.FirebaseAnalytics",
+    "hClassName": "com.huawei.hms.analytics.HiAnalyticsInstance/com.huawei.hms.analytics.HiAnalytics",
+    "xClassInfo": "The top level Analytics singleton that provides methods for logging events and setting user properties.",
+    "hClassInfo": "Provides public methods to report user behavior data. This class uses the singleton pattern./Obtains an Analytics Kit instance with the given context.",
+    "gClassInfo": "The top level Firebase Analytics singleton that provides methods for logging events and setting user properties.",
+    "hClassUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-hianalytics-instance-0000001050987219-V5",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics",
+    "methods": [
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.ExtensionAnalytics(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of ExtensionAnalytics with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.getAppInstanceId()",
+        "descriptions": "Retrieves the app instance id from the service.",
+        "hName": "com.huawei.hms.analytics.HiAnalyticsInstance.getAppInstanceId()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-hianalytics-instance-0000001050987219-V5#EN-US_TOPIC_0000001050987219__section124931637174316",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.getAppInstanceId()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#public-taskstring-getappinstanceid",
+        "params": [],
+        "retType": "org.xms.g.tasks.Task\u003cjava.lang.String\u003e",
+        "retDescription": "Task with the result of the retrieval",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.getInstance(android.content.Context)",
+        "descriptions": "Returns the singleton FirebaseAnalytics interface.",
+        "hName": "com.huawei.hms.analytics.HiAnalytics.getInstance(android.content.Context)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-hianalytics-0000001050707170-V5#EN-US_TOPIC_0000001050707170__section209812717321",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.getInstance(android.content.Context)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#public-static-firebaseanalytics-getinstance-context-context",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the context used to initialize Firebase Analytics. Must not be null"
+          }
+        ],
+        "retType": "org.xms.f.analytics.ExtensionAnalytics",
+        "retDescription": "the singleton",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.logEvent(java.lang.String,android.os.Bundle)",
+        "descriptions": "Logs an app event.",
+        "hName": "com.huawei.hms.analytics.HiAnalyticsInstance.onEvent(java.lang.String,android.os.Bundle)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-hianalytics-instance-0000001050987219-V5#EN-US_TOPIC_0000001050987219__section15204518184114",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.logEvent(java.lang.String,android.os.Bundle)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#public-void-logevent-string-name,-bundle-params",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "The name of the event. Should contain 1 to 40 alphanumeric characters or underscores"
+          },
+          {
+            "name": "param1",
+            "descriptions": "The map of event parameters. Passing null indicates that the event has no parameters"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.resetAnalyticsData()",
+        "descriptions": "Clears all analytics data for this app from the device and resets the app instance id.",
+        "hName": "com.huawei.hms.analytics.HiAnalyticsInstance.clearCachedData()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-hianalytics-instance-0000001050987219-V5#EN-US_TOPIC_0000001050987219__section7238134312",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.resetAnalyticsData()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#public-void-resetanalyticsdata",
+        "params": [],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.setAnalyticsCollectionEnabled(boolean)",
+        "descriptions": "Sets whether analytics collection is enabled for this app on this device. This setting is persisted across app sessions. By default it is enabled.",
+        "hName": "com.huawei.hms.analytics.HiAnalyticsInstance.setAnalyticsEnabled(boolean)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-hianalytics-instance-0000001050987219-V5#EN-US_TOPIC_0000001050987219__section113486277512",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.setAnalyticsCollectionEnabled(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#public-void-setanalyticscollectionenabled-boolean-enabled",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Whether analytics collection is enabled for this app on this device"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.setCurrentScreen(android.app.Activity,java.lang.String,java.lang.String)",
+        "descriptions": "Sets the current screen name, which specifies the current visual context in your app.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.setCurrentScreen(android.app.Activity,java.lang.String,java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#public-void-setcurrentscreen-activity-activity,-string-screenname,-string-screenclassoverride",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "The activity to which the screen name and class name apply"
+          },
+          {
+            "name": "param1",
+            "descriptions": "The name of the current screen. Set to null to clear the current screen name"
+          },
+          {
+            "name": "param2",
+            "descriptions": "The name of the screen class. By default this is the class name of the current Activity. Set to null to revert to the default class name"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.setMinimumSessionDuration(long)",
+        "descriptions": "Sets the minimum engagement time required before starting a session. The default value is 10000 (10 seconds).",
+        "hName": "com.huawei.hms.analytics.HiAnalyticsInstance.setMinActivitySessions(long)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-hianalytics-instance-0000001050987219-V5#EN-US_TOPIC_0000001050987219__section16504528193313",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.setMinimumSessionDuration(long)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#public-void-setminimumsessionduration-long-milliseconds",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "The minimum engagement time required to start a new session"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.setSessionTimeoutDuration(long)",
+        "descriptions": "Sets the duration of inactivity that terminates the current session. The default value is 1800000 (30 minutes).",
+        "hName": "com.huawei.hms.analytics.HiAnalyticsInstance.setSessionDuration(long)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-hianalytics-instance-0000001050987219-V5#EN-US_TOPIC_0000001050987219__section347035614364",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.setSessionTimeoutDuration(long)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#public-void-setsessiontimeoutduration-long-milliseconds",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Session timeout duration in milliseconds"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.setUserId(java.lang.String)",
+        "descriptions": "Sets the user ID property.",
+        "hName": "com.huawei.hms.analytics.HiAnalyticsInstance.setUserId(java.lang.String)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-hianalytics-instance-0000001050987219-V5#EN-US_TOPIC_0000001050987219__section11961041191220",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.setUserId(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#public-void-setuserid-string-id",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "The user ID to ascribe to the user of this app on this device, which must be non-empty and no more than 256 characters long. Setting the ID to null removes the user ID"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.setUserProperty(java.lang.String,java.lang.String)",
+        "descriptions": "Sets a user property to a given value.",
+        "hName": "com.huawei.hms.analytics.HiAnalyticsInstance.setUserProfile(java.lang.String,java.lang.String)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-hianalytics-instance-0000001050987219-V5#EN-US_TOPIC_0000001050987219__section096353619188",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.setUserProperty(java.lang.String,java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#public-void-setuserproperty-string-name,-string-value",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "The name of the user property to set. Should contain 1 to 24 alphanumeric characters or underscores and must start with an alphabetic character"
+          },
+          {
+            "name": "param1",
+            "descriptions": "The value of the user property. Values can be up to 36 characters long. Setting the value to null removes the user property"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.analytics.ExtensionAnalytics.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.analytics.ExtensionAnalytics",
+        "retDescription": "casted ExtensionAnalytics object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.f.analytics.ExtensionAnalytics.Param": {
+    "gClassName": "com.google.firebase.analytics.FirebaseAnalytics.Param",
+    "hClassName": "com.huawei.hms.analytics.type.HAParamType",
+    "xClassInfo": "Params supply information that contextualize Events.",
+    "hClassInfo": "Provides the IDs of all predefined parameters, including the ID constants of predefined parameters and user attributes.",
+    "gClassInfo": "Params supply information that contextualize Events.",
+    "hClassUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param",
+    "methods": [
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.Param(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of Param with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.Param()",
+        "descriptions": "constructor of Param.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.Param()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#protected-firebaseanalytics.param",
+        "params": [],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getACHIEVEMENT_ID()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.ACHIEVEMENTID",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.ACHIEVEMENT_ID",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-achievement_id",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Game achievement ID (String).The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getACLID()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.CLICKID",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.ACLID",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-aclid",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.CAMPAIGN_DETAILS click ID",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getAFFILIATION()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.STORENAME",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.AFFILIATION",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-affiliation",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.A product affiliation to designate a supplying company or brick and mortar store location (String). The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getCAMPAIGN()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.PROMOTIONNAME",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.CAMPAIGN",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-campaign",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.CAMPAIGN_DETAILS name; used for keyword analysis to identify a specific product promotion or strategic campaign",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getCHARACTER()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.ROLENAME",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-character",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Character used in game (String).The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getCHECKOUT_OPTION()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.OPTION",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.CHECKOUT_OPTION",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-checkout_option",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Some option on a step in an ecommerce flow",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getCHECKOUT_STEP()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.STEP",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.CHECKOUT_STEP",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-checkout_step",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The checkout step (1..N)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getCONTENT()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.CONTENT",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.CONTENT",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-content",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.CAMPAIGN_DETAILS content; used for A/B testing and content-targeted ads to differentiate ads or links that point to the same URL",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getCONTENT_TYPE()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.CONTENTTYPE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.CONTENT_TYPE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-content_type",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Type of content selected (String).The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getCOUPON()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.VOUCHER",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.COUPON",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-coupon",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Coupon code used for a purchase (String).The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getCP1()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.EXTENDPARAM",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.CP1",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-cp1",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.CAMPAIGN_DETAILS custom parameter",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getCREATIVE_NAME()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.MATERIALNAME",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.CREATIVE_NAME",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-creative_name",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The name of a creative used in a promotional spot (String).The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getCREATIVE_SLOT()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.MATERIALSLOT",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.CREATIVE_SLOT",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-creative_slot",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The name of a creative slot (String).The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getCURRENCY()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.CURRNAME",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.CURRENCY",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-currency",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Currency of the purchase or items associated with the event, in 3-letter ISO_4217 format (String).The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getDESTINATION()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.DESTINATION",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.DESTINATION",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-destination",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Flight or Travel destination (String).The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getEND_DATE()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.ENDDATE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.END_DATE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-end_date",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The arrival date, check-out date, or rental end date for the item (String).The parameter expects a date formatted as YYYY-MM-DD and set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getEXTEND_SESSION()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.EXTEND_SESSION",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-extend_session",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Indicates that the associated event should either extend the current session or start a new session if no session was active when the event was logged. Specify 1 to extend the current session or to start a new session; any other long value will not extend or start a session",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getFLIGHT_NUMBER()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.FLIGHTNO",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.FLIGHT_NUMBER",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-flight_number",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Flight number for travel events (String).The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getGROUP_ID()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.USERGROUPID",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.GROUP_ID",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-group_id",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Group/clan/guild id (String).The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getINDEX()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.POSITIONID",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.INDEX",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-index",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The index of the item in a list.The parameter expects a long value set with putLong(String, long)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getITEM_BRAND()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.BRAND",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_BRAND",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-item_brand",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Item brand. The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getITEM_CATEGORY()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.CATEGORY",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_CATEGORY",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-item_category",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Item category (context-specific) (String). The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getITEM_ID()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.PRODUCTID",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_ID",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-item_id",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Item ID (context-specific) (String). The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getITEM_LIST()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.PRODUCTLIST",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_LIST",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-item_list",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The list in which the item was presented to the user",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getITEM_LOCATION_ID()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.PLACEID",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_LOCATION_ID",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-item_location_id",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The Google Place ID that corresponds to the associated item (String). Alternatively, you can supply your own custom Location ID. The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getITEM_NAME()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.PRODUCTNAME",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_NAME",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-item_name",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Item Name (context-specific) (String). The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getITEM_VARIANT()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.PRODUCTFEATURE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_VARIANT",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-item_variant",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Item variant. The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getLEVEL()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.LEVELID",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.LEVEL",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-level",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Level in game (long). The parameter expects a long value set with putLong(String, long)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getLEVEL_NAME()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.LEVELNAME",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.LEVEL_NAME",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-level_name",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The name of a level in a game (String). The parameter expects a String value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getLOCATION()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.MEDIUM",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.MEDIUM",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-medium",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Location (String). The Google Place ID that corresponds to the associated event. Alternatively, you can supply your own custom Location ID. The parameter expects a string value set with putString(String, String).public static java.lang.String getLOCATION() { if (org.xms.g.utils.GlobalEnvSetting.isHms()) { org.xms.g.utils.XmsLog.d(\"XMSRouter\", \"com.huawei.hms.analytics.type.HAParamType.PLACEID\"); return com.huawei.hms.analytics.type.HAParamType.PLACEID; } else { org.xms.g.utils.XmsLog.d(\"XMSRouter\", \"com.google.firebase.analytics.FirebaseAnalytics.Param.LOCATION\"); return com.google.firebase.analytics.FirebaseAnalytics.Param.LOCATION; } } / org.xms.f.analytics.ExtensionAnalytics.Param.getMEDIUM() return the constant value.\u003cbr/\u003e Support running environments including both HMS and GMS which are chosen by users.\u003cbr/\u003e Below are the references of HMS apis and GMS apis respectively:\u003cbr/\u003e com.huawei.hms.analytics.type.HAParamType.MEDIUM : \u003ca href\u003d\"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455\"\u003ehttps://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455\u003c/a\u003e\u003cbr/\u003e com.google.firebase.analytics.FirebaseAnalytics.Param.MEDIUM : \u003ca href\u003d\"https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-medium\"\u003ehttps://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-medium\u003c/a\u003e\u003cbr/\u003e",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getMETHOD()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.CHANNEL",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.METHOD",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-method",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.A particular approach used in an operation; for example, \"facebook\" or \"email\" in the context of a sign_up or login event. The parameter expects a string value set with putString(String, String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getNUMBER_OF_NIGHTS()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.BOOKINGDAYS",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.NUMBER_OF_NIGHTS",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-number_of_nights",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Number of nights staying at hotel (long)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getNUMBER_OF_PASSENGERS()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.PASSENGERSNUMBER",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.NUMBER_OF_PASSENGERS",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-number_of_passengers",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Number of passengers traveling (long)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getNUMBER_OF_ROOMS()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.BOOKINGROOMS",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.NUMBER_OF_ROOMS",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-number_of_rooms",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Number of rooms for travel events (long)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getORIGIN()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.ORIGINATINGPLACE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.ORIGIN",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-origin",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Flight or Travel origin (String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getPRICE()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.PRICE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.PRICE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-price",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Purchase price (double). Expecting a double value set with putDouble(String, double)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getQUANTITY()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.QUANTITY",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.QUANTITY",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-quantity",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Purchase quantity (long)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getSCORE()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.SCORE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.SCORE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-score",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Score in game (long)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getSEARCH_TERM()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.KEYWORDS",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.SEARCH_TERM",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-search_term",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The search string/keywords used (String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getSHIPPING()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.SHIPPING",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.SHIPPING",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-shipping",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Shipping cost associated with a transaction (double). Expecting a double value set with putDouble(String, double)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getSIGN_UP_METHOD()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.CHANNEL",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.SIGN_UP_METHOD",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-sign_up_method",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Signup method (String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getSOURCE()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.SOURCE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.SOURCE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-source",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.CAMPAIGN_DETAILS source; used to identify a search engine, newsletter, or other source",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getSTART_DATE()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.BEGINDATE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.START_DATE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-start_date",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The departure date, check-in date, or rental start date for the item (String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getSUCCESS()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.RESULT",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.SUCCESS",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-success",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The result of an operation (long). Specify 1 to indicate success and 0 to indicate failure",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getTAX()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.TAXFEE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.TAX",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-tax",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Tax cost associated with a transaction (double). Expecting a double value set with putDouble(String, double)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getTERM()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.KEYWORDS",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.TERM",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-term",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.CAMPAIGN_DETAILS term; used with paid search to supply the keywords for ads",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getTRANSACTION_ID()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.TRANSACTIONID",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.TRANSACTION_ID",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-transaction_id",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The unique identifier of a transaction (String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getTRAVEL_CLASS()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.CLASS",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.TRAVEL_CLASS",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-travel_class",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Travel class (String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getVALUE()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.REVENUE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.VALUE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-value",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.A context-specific numeric value which is accumulated automatically for each event type",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.getVIRTUAL_CURRENCY_NAME()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.VIRTUALCURRNAME",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param.VIRTUAL_CURRENCY_NAME",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#public-static-final-string-virtual_currency_name",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Name of virtual currency type (String)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.analytics.ExtensionAnalytics.Param.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.analytics.ExtensionAnalytics.Param",
+        "retDescription": "casted ExtensionAnalytics.Param object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Param.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.f.analytics.ExtensionAnalytics.UserProperty": {
+    "gClassName": "com.google.firebase.analytics.FirebaseAnalytics.UserProperty",
+    "hClassName": "com.huawei.hms.analytics.type.HAParamType",
+    "xClassInfo": "A UserProperty is an attribute that describes the app-user.",
+    "hClassInfo": "Provides the IDs of all predefined parameters, including the ID constants of predefined parameters and user attributes.",
+    "gClassInfo": "A UserProperty is an attribute that describes the app-user.",
+    "hClassUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.UserProperty",
+    "methods": [
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.UserProperty.UserProperty(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of UserProperty with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.UserProperty.UserProperty()",
+        "descriptions": "constructor of UserProperty.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.UserProperty.UserProperty()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.UserProperty#protected-firebaseanalytics.userproperty",
+        "params": [],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.UserProperty.getALLOW_AD_PERSONALIZATION_SIGNALS()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.UserProperty.ALLOW_AD_PERSONALIZATION_SIGNALS",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.UserProperty#public-static-final-string-allow_ad_personalization_signals",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Indicates whether events logged by Google Analytics can be used to personalize ads for the user",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.UserProperty.getSIGN_UP_METHOD()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAParamType.CHANNEL",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section111591243455",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.UserProperty.SIGN_UP_METHOD",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.UserProperty#public-static-final-string-sign_up_method",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.The method used to sign in. For example, \"google\", \"facebook\" or \"twitter\"",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.UserProperty.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.analytics.ExtensionAnalytics.UserProperty.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.analytics.ExtensionAnalytics.UserProperty",
+        "retDescription": "casted ExtensionAnalytics.UserProperty object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.UserProperty.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.f.analytics.ExtensionAnalytics.Event": {
+    "gClassName": "com.google.firebase.analytics.FirebaseAnalytics.Event",
+    "hClassName": "com.huawei.hms.analytics.type.HAEventType",
+    "xClassInfo": "An Event is an important occurrence in your app that you want to measure.",
+    "hClassInfo": "Provides the ID constants of all predefined events.",
+    "gClassInfo": "An Event is an important occurrence in your app that you want to measure.",
+    "hClassUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event",
+    "methods": [
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.Event(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of Event with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.Event()",
+        "descriptions": "constructor of Event.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.Event()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#protected-firebaseanalytics.event",
+        "params": [],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getADD_PAYMENT_INFO()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.CREATEPAYMENTINFO",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.ADD_PAYMENT_INFO",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-add_payment_info",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Add Payment Info event. This event signifies that a user has submitted their payment information",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getADD_TO_CART()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.ADDPRODUCT2CART",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.ADD_TO_CART",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-add_to_cart",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.E-Commerce Add To Cart event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getADD_TO_WISHLIST()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.ADDPRODUCT2WISHLIST",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.ADD_TO_WISHLIST",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-add_to_wishlist",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.E-Commerce Add To Wishlist event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getAPP_OPEN()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.STARTAPP",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.APP_OPEN",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-app_open",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value App Open event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getBEGIN_CHECKOUT()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.STARTCHECKOUT",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.BEGIN_CHECKOUT",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-begin_checkout",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.E-Commerce Begin Checkout event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getCAMPAIGN_DETAILS()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.VIEWCAMPAIGN",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.CAMPAIGN_DETAILS",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-campaign_details",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Log this event to supply the referral details of a re-engagement campaign",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getCHECKOUT_PROGRESS()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.VIEWCHECKOUTSTEP",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.CHECKOUT_PROGRESS",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-checkout_progress",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getEARN_VIRTUAL_CURRENCY()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.WINVIRTUALCOIN",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.EARN_VIRTUAL_CURRENCY",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-earn_virtual_currency",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Earn Virtual Currency event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getECOMMERCE_PURCHASE()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.COMPLETEPURCHASE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.ECOMMERCE_PURCHASE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-ecommerce_purchase",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.E-Commerce Purchase event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getGENERATE_LEAD()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.OBTAINLEADS",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.GENERATE_LEAD",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-generate_lead",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Generate Lead event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getJOIN_GROUP()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.JOINUSERGROUP",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.JOIN_GROUP",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-join_group",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Join Group event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getLEVEL_END()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.COMPLETELEVEL",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.LEVEL_END",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-level_end",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Level End event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getLEVEL_START()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.STARTLEVEL",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.LEVEL_START",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-level_start",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Level Start event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getLEVEL_UP()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.UPGRADELEVEL",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.LEVEL_UP",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-level_up",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Level Up event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getLOGIN()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.SIGNIN",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.LOGIN",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-login",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Login event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getPOST_SCORE()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.SUBMITSCORE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.POST_SCORE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-post_score",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Post Score event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getPRESENT_OFFER()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.CREATEORDER",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.PRESENT_OFFER",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-present_offer",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Present Offer event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getPURCHASE_REFUND()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.REFUNDORDER",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.PURCHASE_REFUND",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-purchase_refund",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.E-Commerce Purchase Refund event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getREMOVE_FROM_CART()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.DELPRODUCTFROMCART",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.REMOVE_FROM_CART",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-remove_from_cart",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.E-Commerce Remove from Cart event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getSEARCH()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.SEARCH",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.SEARCH",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-search",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Search event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getSELECT_CONTENT()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.VIEWCONTENT",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.SELECT_CONTENT",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-select_content",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Select Content event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getSET_CHECKOUT_OPTION()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.UPDATECHECKOUTOPTION",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.SET_CHECKOUT_OPTION",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-set_checkout_option",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Set checkout option",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getSHARE()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.SHARECONTENT",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.SHARE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-share",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Share event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getSIGN_UP()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.REGISTERACCOUNT",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.SIGN_UP",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-sign_up",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Sign Up event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getSPEND_VIRTUAL_CURRENCY()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.CONSUMEVIRTUALCOIN",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.SPEND_VIRTUAL_CURRENCY",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-spend_virtual_currency",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Spend Virtual Currency event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getTUTORIAL_BEGIN()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.STARTTUTORIAL",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.TUTORIAL_BEGIN",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-tutorial_begin",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Tutorial Begin event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getTUTORIAL_COMPLETE()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.COMPLETETUTORIAL",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.TUTORIAL_COMPLETE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-tutorial_complete",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Tutorial End event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getUNLOCK_ACHIEVEMENT()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.OBTAINACHIEVEMENT",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.UNLOCK_ACHIEVEMENT",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-unlock_achievement",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.Unlock Achievement event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getVIEW_ITEM()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.VIEWPRODUCT",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.VIEW_ITEM",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-view_item",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.View Item event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getVIEW_ITEM_LIST()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.VIEWPRODUCTLIST",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.VIEW_ITEM_LIST",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-view_item_list",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.View Item List event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.getVIEW_SEARCH_RESULTS()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.analytics.type.HAEventType.VIEWSEARCHRESULT",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/android-api-constant-values-0000001050987221-V5#EN-US_TOPIC_0000001050987221__section471591317439",
+        "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event.VIEW_SEARCH_RESULTS",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#public-static-final-string-view_search_results",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value.View Search Results event",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.analytics.ExtensionAnalytics.Event.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.analytics.ExtensionAnalytics.Event",
+        "retDescription": "casted ExtensionAnalytics.Event object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.analytics.ExtensionAnalytics.Event.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  }
+}

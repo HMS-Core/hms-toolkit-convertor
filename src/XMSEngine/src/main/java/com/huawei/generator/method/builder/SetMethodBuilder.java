@@ -16,13 +16,11 @@
 
 package com.huawei.generator.method.builder;
 
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
-
 import com.huawei.generator.ast.AssignNode;
 import com.huawei.generator.ast.CallNode;
 import com.huawei.generator.ast.CastExprNode;
 import com.huawei.generator.ast.ClassNode;
-import com.huawei.generator.ast.GetField;
+import com.huawei.generator.ast.GetFieldNode;
 import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.StatementNode;
 import com.huawei.generator.ast.TypeNode;
@@ -32,6 +30,7 @@ import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JMapping;
 import com.huawei.generator.method.component.Component;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
+import com.huawei.generator.exception.UnExpectedProcessException;
 import com.huawei.generator.utils.TypeUtils;
 
 import java.util.ArrayList;
@@ -40,8 +39,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Builder for adding set method to classNode.
+ * Add Set Method to ClassNode.
  *
+ * @author xuwei
  * @since 2019-11-26
  */
 public final class SetMethodBuilder extends AbstractMethodBuilder {
@@ -58,7 +58,7 @@ public final class SetMethodBuilder extends AbstractMethodBuilder {
     }
 
     /**
-     * Build setter for classes that has field gInstance and hInstance.
+     * Build setter for classes who has gInstance and hInstance.
      *
      * @param jClass, class definitions in json.
      * @param classNode, class definitions in Ast Node.
@@ -67,6 +67,9 @@ public final class SetMethodBuilder extends AbstractMethodBuilder {
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode) {
         MethodNode setMethod;
+        if (component == null) {
+            throw new IllegalArgumentException();
+        }
         if (TypeUtils.isViewSubClass(classNode.getGType(), true) && classNode.isSupported()
             && !component.isMatching(jClass)) {
             setMethod = new CustomMethodNode();
@@ -78,34 +81,37 @@ public final class SetMethodBuilder extends AbstractMethodBuilder {
         setMethod.setModifiers(Collections.emptyList());
         setMethod.setReturnType(TypeNode.create("void"));
         setMethod.setParameters(Collections.singletonList(TypeNode.OBJECT_TYPE));
-        List<StatementNode> body = new ArrayList<>(Collections
-            .singletonList(AssignNode.create(GetField.create(VarNode.create("this"), component.zInstanceFieldName()),
+        List<StatementNode> body = new ArrayList<>(Collections.singletonList(
+            AssignNode.create(GetFieldNode.create(VarNode.create("this"), component.zInstanceFieldName()),
                 VarNode.create(setMethod.paramAt(0)))));
         if (TypeUtils.isViewSubClass(classNode.getGType(), true) && classNode.isSupported()
             && component.isMatching(jClass)) {
             setView(jClass, body);
         }
         setMethod.setBody(body);
+        factory.createMethodDoc(setMethod);
         return setMethod;
     }
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode, JMapping methodMapping) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 
     private void setView(JClass def, List<StatementNode> body) {
-        // this.addView(gInst/hInst)
-        CallNode callAddView = CallNode.create(VarNode.create("this"), "addView", Collections.singletonList(
-            CastExprNode.create(TypeNode.create(component.zName(def)),
-                VarNode.create(component.zInstanceFieldName()))));
-
         // this.removeAllViews()
         CallNode callRemove = CallNode.create(VarNode.create("this"), "removeAllViews", Collections.emptyList());
 
+        // this.addView(gInst/hInst)
+        if (component == null) {
+            throw new IllegalArgumentException();
+        }
+        CallNode callAddView = CallNode.create(VarNode.create("this"), "addView", Collections.singletonList(CastExprNode
+            .create(TypeNode.create(component.zName(def)), VarNode.create(component.zInstanceFieldName()))));
+
         // this.setClickable(true)
-        CallNode callSetClickable = CallNode.create(VarNode.create("this"), "setClickable",
-            Collections.singletonList(VarNode.create("true")));
+        CallNode callSetClickable =
+            CallNode.create(VarNode.create("this"), "setClickable", Collections.singletonList(VarNode.create("true")));
         body.addAll(Arrays.asList(callRemove, callAddView, callSetClickable));
     }
 }

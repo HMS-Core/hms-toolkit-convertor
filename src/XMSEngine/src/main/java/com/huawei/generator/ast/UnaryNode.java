@@ -17,12 +17,12 @@
 package com.huawei.generator.ast;
 
 /**
- * This is the UnaryNode class.
+ * Unary Node
  *
- * @since 2019-11-16
+ * @since 2019-12-31
  */
-public class UnaryNode extends StatementNode {
-    private OperatorTypeNode operatorType;
+public final class UnaryNode extends StatementNode {
+    private OperatorType operatorType;
 
     private StatementNode statementNode;
 
@@ -34,7 +34,7 @@ public class UnaryNode extends StatementNode {
         visitor.visit(this);
     }
 
-    public OperatorTypeNode getOperatorType() {
+    public OperatorType getOperatorType() {
         return operatorType;
     }
 
@@ -42,7 +42,7 @@ public class UnaryNode extends StatementNode {
         return statementNode;
     }
 
-    public static UnaryNode create(OperatorTypeNode op, StatementNode statementNode) {
+    public static UnaryNode create(OperatorType op, StatementNode statementNode) {
         UnaryNode node = new UnaryNode();
         node.operatorType = op;
         node.statementNode = statementNode;

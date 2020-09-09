@@ -16,6 +16,8 @@
 
 package com.huawei.generator.mirror;
 
+import com.huawei.generator.build.KClassGen;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -41,8 +43,6 @@ public enum KClassReader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(KClassReader.class);
 
-    private final File GMS_TEST_JSON = new File(System.getProperty("user.dir") + File.separator + "gms.json");
-
     private final File HMS_TEST_JSON = new File(System.getProperty("user.dir") + File.separator + "hms.json");
 
     private final File ANDROID_TEST_JSON = new File(System.getProperty("user.dir") + File.separator + "android.json");
@@ -53,29 +53,25 @@ public enum KClassReader {
 
     private Map<String, KClass> androidClassList;
 
+    public static class MapTypeToken extends TypeToken<Map<String, KClass>> {
+    }
+
     /**
      * Reset all list loaded from json.
      */
     KClassReader() {
-        String gClassJsonPath = "/mirror/gms.json";
         String hClassJsonPath = "/mirror/hms.json";
         String androidJsonPath = "/mirror/android.json";
 
-        gClassList =
-            new Gson().fromJson(getJsonReader(gClassJsonPath), new TypeToken<Map<String, KClass>>() {}.getType());
-        hClassList =
-            new Gson().fromJson(getJsonReader(hClassJsonPath), new TypeToken<Map<String, KClass>>() {}.getType());
-
-        androidClassList =
-            new Gson().fromJson(getJsonReader(androidJsonPath), new TypeToken<Map<String, KClass>>() {}.getType());
+        hClassList = new Gson().fromJson(getJsonReader(hClassJsonPath), new MapTypeToken().getType());
+        androidClassList = new Gson().fromJson(getJsonReader(androidJsonPath), new MapTypeToken().getType());
 
         // add for test
-        if (GMS_TEST_JSON.exists() && HMS_TEST_JSON.exists() && ANDROID_TEST_JSON.exists()) {
+        if (HMS_TEST_JSON.exists() && ANDROID_TEST_JSON.exists()) {
             readExternalJson();
         }
 
         // Set each KMethod's KClass
-        gClassList.values().forEach(kClass -> kClass.getMethods().forEach(kMethod -> kMethod.setClass(kClass)));
         hClassList.values().forEach(kClass -> kClass.getMethods().forEach(kMethod -> kMethod.setClass(kClass)));
         androidClassList.values().forEach(kClass -> kClass.getMethods().forEach(kMethod -> kMethod.setClass(kClass)));
     }
@@ -98,15 +94,17 @@ public enum KClassReader {
     }
 
     private void readExternalJson() {
-        try (InputStreamReader gIns = new InputStreamReader(new FileInputStream(GMS_TEST_JSON), StandardCharsets.UTF_8);
-            InputStreamReader hIns = new InputStreamReader(new FileInputStream(HMS_TEST_JSON), StandardCharsets.UTF_8);
+        try (InputStreamReader hIns = new InputStreamReader(new FileInputStream(HMS_TEST_JSON), StandardCharsets.UTF_8);
             InputStreamReader aIns =
                 new InputStreamReader(new FileInputStream(ANDROID_TEST_JSON), StandardCharsets.UTF_8)) {
-            gClassList = new Gson().fromJson(gIns, new TypeToken<Map<String, KClass>>() {}.getType());
-            hClassList = new Gson().fromJson(hIns, new TypeToken<Map<String, KClass>>() {}.getType());
-            androidClassList = new Gson().fromJson(aIns, new TypeToken<Map<String, KClass>>() {}.getType());
+            hClassList = new Gson().fromJson(hIns, new MapTypeToken().getType());
+            androidClassList = new Gson().fromJson(aIns, new MapTypeToken().getType());
         } catch (IOException e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Read external Json failed!");
         }
+    }
+
+    public void generateGmsClassList(Map<String, String> kitVersion, String pluginPath) {
+        gClassList = KClassGen.INSTANCE.generateGmsClassList(kitVersion, pluginPath);
     }
 }

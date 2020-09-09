@@ -1,0 +1,76 @@
+{
+  "gName": "com.google.android.gms.games.snapshot.Snapshot",
+  "interfaces": [
+    "com.google.android.gms.common.data.Freezable<com.google.android.gms.games.snapshot.Snapshot>",
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSnapshotContents",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotContents"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDetails",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.archive.ArchiveDetails"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isDataValid",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getMetadata",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSummary",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.archive.ArchiveSummary"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.jos.games.archive.Archive"
+}

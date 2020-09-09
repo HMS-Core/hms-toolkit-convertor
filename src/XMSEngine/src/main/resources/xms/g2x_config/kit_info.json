@@ -16,7 +16,17 @@
     "Safetynet",
     "Wallet",
     "MLfirebase",
-    "MLgms"
+    "MLgms",
+    "Authentication",
+    "Crashlytics",
+    "DynamicLinks",
+    "RemoteConfig",
+    "Functions",
+    "FirebaseCore",
+    "FirebasePerf",
+    "InAppMessaging",
+    "FirebaseStorage",
+    "FIDO"
   ],
   "displayMap": {
     "account": "Account",
@@ -41,7 +51,17 @@
     "safety": "Safetynet",
     "site": "Site",
     "wallet": "Wallet",
-    "iap": "IAP"
+    "firebase-auth": "Authentication",
+    "firebase-crash": "Crashlytics",
+    "firebase-dynamiclinks": "DynamicLinks",
+    "firebase-remoteconfig": "RemoteConfig",
+    "firebase-functions": "Functions",
+    "firebase-core": "FirebaseCore",
+    "iap": "IAP",
+    "firebase-perf": "FirebasePerf",
+    "firebase-inappmessaging": "InAppMessaging",
+    "firebase-storage": "FirebaseStorage",
+    "fido": "FIDO"
   },
   "dependencyMap": {
     "account": [
@@ -81,7 +101,8 @@
     "mlfirebase": [
       "account",
       "framework",
-      "firebase"
+      "firebase",
+      "mlgms"
     ],
     "mlgms": [
       "framework"
@@ -105,6 +126,44 @@
       "maps",
       "identity",
       "account"
+    ],
+    "firebase-auth": [
+      "framework",
+      "firebase-core"
+    ],
+    "firebase-crash": [
+      "framework",
+      "firebase-core"
+    ],
+    "firebase-dynamiclinks": [
+      "framework",
+      "firebase-core"
+    ],
+    "firebase-remoteconfig": [
+      "framework",
+      "firebase-core"
+    ],
+    "firebase-functions": [
+      "framework",
+      "firebase-core"
+    ],
+    "firebase-core": [
+      "framework"
+    ],
+    "firebase-perf": [
+      "framework",
+      "firebase-core"
+    ],
+    "firebase-inappmessaging": [
+      "framework",
+      "firebase-core"
+    ],
+    "firebase-storage": [
+      "framework",
+      "firebase-core"
+    ],
+    "fido": [
+      "framework"
     ]
   },
   "defaultSdkVersion": {
@@ -192,6 +251,56 @@
       "minSdkVersion": 19,
       "targetSdkVersion": 28,
       "compileSdkVersion": 28
+    },
+    "authentication": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "crashlytics": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "dynamiclinks": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "remoteconfig": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "functions": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "firebasecore": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "firebaseperf": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "inappmessaging": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "firebasestorage": {
+      "minSdkVersion": 17,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
+    },
+    "fido": {
+      "minSdkVersion": 19,
+      "targetSdkVersion": 29,
+      "compileSdkVersion": 29
     }
   }
 }

@@ -16,7 +16,7 @@
 
 package com.huawei.generator.method.gen;
 
-import static com.huawei.generator.ast.OperatorTypeNode.INSTANCE;
+import static com.huawei.generator.ast.OperatorType.INSTANCE;
 import static com.huawei.generator.gen.AstConstants.XMS_GETTABLE;
 
 import com.huawei.generator.ast.BinaryExprNode;
@@ -38,7 +38,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Function description
+ * Generator for IsInstance method
  *
  * @since 2020-03-03
  */
@@ -60,6 +60,7 @@ public class IsInstanceGenerator implements BodyGenerator {
         List<StatementNode> body = new ArrayList<>();
         String castType = jClass.isInterface() ? AstConstants.XMS_INTERFACE : AstConstants.XMS_GETTABLE;
         VarNode param = VarNode.create(methodNode.paramAt(0));
+
         // if (!(param0 instanceof X))
         BinaryExprNode instOfX = BinaryExprNode.create(param, INSTANCE, VarNode.create(castType));
         StatementNode condition = VarNode.create("!(" + instOfX.toString() + ")");
@@ -98,6 +99,7 @@ public class IsInstanceGenerator implements BodyGenerator {
             }
             List<StatementNode> zBodies = new ArrayList<>();
             String typeName = TypeNode.create(component.zName(jClass)).getTypeName();
+
             // ((XGettable)param0).getZInstance instanceof ZClass
             BinaryExprNode exprNode = BinaryExprNode.create(
                 CallNode.create(CastExprNode.create(TypeNode.create(AstConstants.XMS_GETTABLE),

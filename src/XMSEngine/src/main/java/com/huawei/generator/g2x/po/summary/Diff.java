@@ -18,6 +18,7 @@ package com.huawei.generator.g2x.po.summary;
 
 import com.huawei.generator.g2x.processor.XmsConstants;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +34,7 @@ import java.util.TreeMap;
  *
  * @since 2020-02-20
  */
+
 public class Diff {
     private List<String> addList = new LinkedList<>();
 
@@ -73,31 +75,65 @@ public class Diff {
 
     private String depDescription = null;
 
+    // when generate with repository, key: kit,value: dependencies
+    private Map<String, String> addDependecies = new HashMap<>();
+
+    // when generate with repository, key: kit,value: dependencies
+    private Map<String, String> delDependecies = new HashMap<>();
+
     public Diff(String currentToolVersion) {
         this.currentToolVersion = currentToolVersion;
+    }
+
+    public boolean hasAdd() {
+        return !addList.isEmpty();
+    }
+
+    public boolean hasMod() {
+        return !modMap.isEmpty();
+    }
+
+    public boolean hasDel() {
+        return !delList.isEmpty();
     }
 
     public List<String> getAddList() {
         return addList;
     }
 
+    public void setAddList(List<String> addList) {
+        this.addList = addList;
+    }
+
     public TreeMap<String, String> getUpdatedMap() {
         return updatedMap;
+    }
+
+    public void setUpdatedMap(TreeMap<String, String> updatedMap) {
+        this.updatedMap = updatedMap;
     }
 
     public TreeMap<String, String> getModMap() {
         return modMap;
     }
 
+    public void setModMap(TreeMap<String, String> modMap) {
+        this.modMap = modMap;
+    }
+
     public List<String> getDelList() {
         return delList;
+    }
+
+    public void setDelList(List<String> delList) {
+        this.delList = delList;
     }
 
     public List<String> getLastKitList() {
         return lastKitList;
     }
 
-    void setLastKitList(List<String> lastKitList) {
+    public void setLastKitList(List<String> lastKitList) {
         this.lastKitList = lastKitList;
     }
 
@@ -105,7 +141,7 @@ public class Diff {
         return newKitList;
     }
 
-    void setNewKitList(List<String> newKitList) {
+    public void setNewKitList(List<String> newKitList) {
         this.newKitList = newKitList;
     }
 
@@ -113,11 +149,15 @@ public class Diff {
         return lastGeneratedTime;
     }
 
+    public void setLastGeneratedTime(String lastGeneratedTime) {
+        this.lastGeneratedTime = lastGeneratedTime;
+    }
+
     public String getCurrentTime() {
         return currentTime;
     }
 
-    void setCurrentTime(String currentTime) {
+    public void setCurrentTime(String currentTime) {
         this.currentTime = currentTime;
     }
 
@@ -125,7 +165,7 @@ public class Diff {
         return lastToolVersion;
     }
 
-    void setLastToolVersion(String lastToolVersion) {
+    public void setLastToolVersion(String lastToolVersion) {
         this.lastToolVersion = lastToolVersion;
     }
 
@@ -133,7 +173,7 @@ public class Diff {
         return currentToolVersion;
     }
 
-    void setCurrentToolVersion(String currentToolVersion) {
+    public void setCurrentToolVersion(String currentToolVersion) {
         this.currentToolVersion = currentToolVersion;
     }
 
@@ -141,7 +181,7 @@ public class Diff {
         return oldXMSLocation;
     }
 
-    void setOldXMSLocation(String oldXMSLocation) {
+    public void setOldXMSLocation(String oldXMSLocation) {
         this.oldXMSLocation = oldXMSLocation;
     }
 
@@ -149,7 +189,7 @@ public class Diff {
         return newXMSLocation;
     }
 
-    void setNewXMSLocation(String newXMSLocation) {
+    public void setNewXMSLocation(String newXMSLocation) {
         this.newXMSLocation = newXMSLocation;
     }
 
@@ -157,8 +197,16 @@ public class Diff {
         return targetXMSLocation;
     }
 
+    public void setTargetXMSLocation(String targetXMSLocation) {
+        this.targetXMSLocation = targetXMSLocation;
+    }
+
     public String getDepDescription() {
         return depDescription;
+    }
+
+    public void setDepDescription(String depDescription) {
+        this.depDescription = depDescription;
     }
 
     public boolean hasDiffContent() {
@@ -170,20 +218,52 @@ public class Diff {
         return !(addList.isEmpty() && delList.isEmpty() && modMap.isEmpty());
     }
 
-    List<String> getAddListWithRelativePaths() {
+    public List<String> getAddListWithRelativePaths() {
         return addListWithRelativePaths;
+    }
+
+    public void setAddListWithRelativePaths(List<String> addListWithRelativePaths) {
+        this.addListWithRelativePaths = addListWithRelativePaths;
     }
 
     public TreeMap<String, String> getUpdatedMapRelativePaths() {
         return updatedMapRelativePaths;
     }
 
+    public void setUpdatedMapRelativePaths(TreeMap<String, String> updatedMapRelativePaths) {
+        this.updatedMapRelativePaths = updatedMapRelativePaths;
+    }
+
     public TreeMap<String, String> getModMapRelativePaths() {
         return modMapRelativePaths;
     }
 
-    List<String> getDelListRelativePaths() {
+    public void setModMapRelativePaths(TreeMap<String, String> modMapRelativePaths) {
+        this.modMapRelativePaths = modMapRelativePaths;
+    }
+
+    public List<String> getDelListRelativePaths() {
         return delListRelativePaths;
+    }
+
+    public void setDelListRelativePaths(List<String> delListRelativePaths) {
+        this.delListRelativePaths = delListRelativePaths;
+    }
+
+    public Map<String, String> getAddDependecies() {
+        return addDependecies;
+    }
+
+    public void setAddDependecies(Map<String, String> addDependecies) {
+        this.addDependecies = addDependecies;
+    }
+
+    public Map<String, String> getDelDependecies() {
+        return delDependecies;
+    }
+
+    public void setDelDependecies(Map<String, String> delDependecies) {
+        this.delDependecies = delDependecies;
     }
 
     public String display() {
@@ -200,9 +280,11 @@ public class Diff {
 
     private void createFileHeader(StringBuilder builder) {
         builder.append("# We list the diff info against last generated convertor code as follows.")
-            .append(System.lineSeparator()).append("# Please check the Dependency Section to add " +
-            "the relative dependencies into \"build.gradle\" and Diff Details to solve the conflicts.")
-            .append(System.lineSeparator()).append(System.lineSeparator());
+            .append(System.lineSeparator())
+            .append("# Please check the Dependency Section to add "
+                + "the relative dependencies into \"build.gradle\" and Diff Details to solve the conflicts.")
+            .append(System.lineSeparator())
+            .append(System.lineSeparator());
     }
 
     private void createOverView(StringBuilder builder) {
@@ -236,47 +318,86 @@ public class Diff {
             : this.oldXMSLocation;
         String newLocation = (this.newXMSLocation == null || "".equals(this.newXMSLocation)) ? XmsConstants.NULL_SIGN
             : this.newXMSLocation;
-        String targetLocation = (this.targetXMSLocation == null || "".equals(this.targetXMSLocation)) ?
-            XmsConstants.NULL_SIGN : this.targetXMSLocation;
-        builder.append("====").append(System.lineSeparator()).append("Overview:").append(System.lineSeparator())
-            .append("1. current tool version: ").append(toolVersion).append(System.lineSeparator())
-            .append("2. old kit usages: ").append(lastKitListStringBuilder).append(System.lineSeparator())
-            .append("3. new kit usages: ").append(newKitListStringBuilder).append(System.lineSeparator())
-            .append("4. old generated code location: ").append(oldLocation).append(System.lineSeparator())
-            .append("5. new generated code location: ").append(newLocation).append(System.lineSeparator())
-            .append("6. target location: ").append(targetLocation).append(System.lineSeparator())
-            .append("7. Diff summary").append(System.lineSeparator())
-            .append("Add Files: ").append(this.addList.size()).append(System.lineSeparator())
-            .append("Mod Files: ").append(this.modMap.size()).append(System.lineSeparator())
-            .append("Update Files: ").append(this.updatedMap.size()).append(System.lineSeparator())
-            .append("Del Files: ").append(this.delList.size())
-            .append(System.lineSeparator()).append(System.lineSeparator());
+        String targetLocation = (this.targetXMSLocation == null || "".equals(this.targetXMSLocation))
+            ? XmsConstants.NULL_SIGN : this.targetXMSLocation;
+        builder.append("====")
+            .append(System.lineSeparator())
+            .append("Overview:")
+            .append(System.lineSeparator())
+            .append("1. current tool version: ")
+            .append(toolVersion)
+            .append(System.lineSeparator())
+            .append("2. old kit usages: ")
+            .append(lastKitListStringBuilder)
+            .append(System.lineSeparator())
+            .append("3. new kit usages: ")
+            .append(newKitListStringBuilder)
+            .append(System.lineSeparator())
+            .append("4. old generated code location: ")
+            .append(oldLocation)
+            .append(System.lineSeparator())
+            .append("5. new generated code location: ")
+            .append(newLocation)
+            .append(System.lineSeparator())
+            .append("6. target location: ")
+            .append(targetLocation)
+            .append(System.lineSeparator())
+            .append("7. Diff summary")
+            .append(System.lineSeparator())
+            .append("Add Files: ")
+            .append(this.addList.size())
+            .append(System.lineSeparator())
+            .append("Mod Files: ")
+            .append(this.modMap.size())
+            .append(System.lineSeparator())
+            .append("Update Files: ")
+            .append(this.updatedMap.size())
+            .append(System.lineSeparator())
+            .append("Del Files: ")
+            .append(this.delList.size())
+            .append(System.lineSeparator())
+            .append(System.lineSeparator());
     }
 
     private void createRepoDescription(StringBuilder builder) {
         if (depDescription != null && !depDescription.isEmpty()) {
-            builder.append("====").append(System.lineSeparator()).append("Dependency:").append(System.lineSeparator())
-                .append(depDescription).append(System.lineSeparator());
+            builder.append("====")
+                .append(System.lineSeparator())
+                .append("Dependency:")
+                .append(System.lineSeparator())
+                .append(depDescription)
+                .append(System.lineSeparator());
         }
     }
 
     private void createNotice(StringBuilder builder) {
-        builder.append("====").append(System.lineSeparator()).append("Diff Details:").append(System.lineSeparator())
+        builder.append("====")
+            .append(System.lineSeparator())
+            .append("Diff Details:")
+            .append(System.lineSeparator())
             .append("Notice, we detect modifications of our generated code in this conversion.")
             .append(System.lineSeparator())
-            .append("Basically, our generated code should not be modified.").append(System.lineSeparator())
-            .append("In order to avoid mis-delete, we generate the new code in a temp folder " +
-                "when conflicts detected.").append(System.lineSeparator())
+            .append("Basically, our generated code should not be modified.")
+            .append(System.lineSeparator())
+            .append(
+                "In order to avoid mis-delete, we generate the new code in a temp folder " + "when conflicts detected.")
+            .append(System.lineSeparator())
             .append("Please, manually merge the conflict files in [mod files] and [del] files.")
-            .append(System.lineSeparator()).append(System.lineSeparator())
-            .append("# Add files are files new generated, including the new kits user used or " +
-                "new classes our plugin provided.").append(System.lineSeparator())
-            .append("# Mod files are files modified by user against our original version, user has to " +
-                "manually merged these files.").append(System.lineSeparator())
-            .append("# Update files are files updated by our plugin in this new version to fix bugs or " +
-                "provide new APIs.").append(System.lineSeparator())
-            .append("# Delete files are files missing in this new generation, which may not belongs to " +
-                "our convertor code.").append(System.lineSeparator()).append(System.lineSeparator());
+            .append(System.lineSeparator())
+            .append(System.lineSeparator())
+            .append("# Add files are files new generated, including the new kits user used or "
+                + "new classes our plugin provided.")
+            .append(System.lineSeparator())
+            .append("# Mod files are files modified by user against our original version, user has to "
+                + "manually merged these files.")
+            .append(System.lineSeparator())
+            .append("# Update files are files updated by our plugin in this new version to fix bugs or "
+                + "provide new APIs.")
+            .append(System.lineSeparator())
+            .append("# Delete files are files missing in this new generation, which may not belongs to "
+                + "our convertor code.")
+            .append(System.lineSeparator())
+            .append(System.lineSeparator());
     }
 
     private void createDetails(StringBuilder builder) {
@@ -290,16 +411,20 @@ public class Diff {
             builder.append("Mod Files: [oldFile -> newFile]").append(System.lineSeparator());
             for (Map.Entry<String, String> entry : modMap.entrySet()) {
                 builder.append("[").append(entry.getValue()).append(" ->").append(System.lineSeparator());
-                builder.append(entry.getKey()).append("]")
-                    .append(System.lineSeparator()).append(System.lineSeparator());
+                builder.append(entry.getKey())
+                    .append("]")
+                    .append(System.lineSeparator())
+                    .append(System.lineSeparator());
             }
         }
         if (updatedMap != null && updatedMap.size() != 0) {
             builder.append("Update Files:[oldFile -> newFile]").append(System.lineSeparator());
             for (Map.Entry<String, String> entry : updatedMap.entrySet()) {
                 builder.append("[").append(entry.getValue()).append(" ->").append(System.lineSeparator());
-                builder.append(entry.getKey()).append("]")
-                    .append(System.lineSeparator()).append(System.lineSeparator());
+                builder.append(entry.getKey())
+                    .append("]")
+                    .append(System.lineSeparator())
+                    .append(System.lineSeparator());
             }
         }
         if (delList != null && delList.size() != 0) {

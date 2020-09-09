@@ -17,11 +17,11 @@
 package com.huawei.generator.ast;
 
 /**
- * This is the VarNode class.
+ * Var Node
  *
  * @since 2019-11-12
  */
-public class VarNode extends StatementNode {
+public final class VarNode extends StatementNode {
     private String value;
 
     private VarNode() {

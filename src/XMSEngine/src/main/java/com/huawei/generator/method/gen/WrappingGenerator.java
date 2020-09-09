@@ -26,9 +26,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * WrappingGenerator class
+ * Generator for Wrapper
  *
- * @since 2020-05-12
+ * @since 2020-03-17
  */
 public class WrappingGenerator implements BodyGenerator {
     private BodyGenerator callZGenerator;

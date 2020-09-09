@@ -19,9 +19,9 @@ package com.huawei.generator.ast;
 import java.util.List;
 
 /**
- * LambdaNode class
+ * Lambda Node
  *
- * @since 2020-05-12
+ * @since 2019-12-31
  */
 public final class LambdaNode extends StatementNode {
     private List<VarNode> vars;

@@ -19,7 +19,7 @@ package com.huawei.generator.ast;
 import java.util.List;
 
 /**
- * IfNode class
+ * If Node
  *
  * @since 2019-11-12
  */
@@ -33,16 +33,16 @@ public final class IfNode extends BraceNode {
     private IfNode() {
     }
 
-    public StatementNode condition() {
-        return condition;
+    public StatementNode getCondition() {
+        return this.condition;
     }
 
-    public BlockNode thenBody() {
-        return thenBody;
+    public BlockNode getThenBody() {
+        return this.thenBody;
     }
 
-    public BlockNode elseBody() {
-        return elseBody;
+    public BlockNode getElseBody() {
+        return this.elseBody;
     }
 
     @Override

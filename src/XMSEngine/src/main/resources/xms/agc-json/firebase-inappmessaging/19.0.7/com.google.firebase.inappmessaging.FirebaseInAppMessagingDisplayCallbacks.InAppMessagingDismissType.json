@@ -1,0 +1,81 @@
+{
+  "gName": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayCallbacks.InAppMessagingDismissType",
+  "interfaces": [],
+  "superClass": "java.lang.Enum",
+  "methods": [],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "UNKNOWN_DISMISS_TYPE",
+        "modifiers": [],
+        "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayCallbacks.InAppMessagingDismissType",
+        "value": ""
+      },
+      "h": {
+        "name": "UNKNOWN_DISMISS_TYPE",
+        "modifiers": [],
+        "type": "com.huawei.agconnect.appmessaging.AGConnectAppMessagingCallback.DismissType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "AUTO",
+        "modifiers": [],
+        "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayCallbacks.InAppMessagingDismissType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "CLICK",
+        "modifiers": [],
+        "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayCallbacks.InAppMessagingDismissType",
+        "value": ""
+      },
+      "h": {
+        "name": "CLICK",
+        "modifiers": [],
+        "type": "com.huawei.agconnect.appmessaging.AGConnectAppMessagingCallback.DismissType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "SWIPE",
+        "modifiers": [],
+        "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayCallbacks.InAppMessagingDismissType",
+        "value": ""
+      },
+      "h": {
+        "name": "CLICK_OUTSIDE",
+        "modifiers": [],
+        "type": "com.huawei.agconnect.appmessaging.AGConnectAppMessagingCallback.DismissType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "enum",
+  "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessagingCallback.DismissType"
+}

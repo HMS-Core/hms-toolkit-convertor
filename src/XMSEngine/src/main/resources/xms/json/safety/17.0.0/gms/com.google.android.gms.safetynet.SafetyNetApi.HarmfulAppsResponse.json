@@ -1,0 +1,73 @@
+{
+  "gName": "com.google.android.gms.safetynet.SafetyNetApi.HarmfulAppsResponse",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.Response",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "HarmfulAppsResponse",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/appscheck-0000001050154380",
+      "tipsInfo": "HMS does not provide a response instantiation solution. Make modifications based on the development guide."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHarmfulAppsList",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.safetynet.HarmfulAppsData>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMaliciousAppsList",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.support.api.entity.safetydetect.MaliciousAppsData>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHoursSinceLastScanWithHarmfulApp",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This method is not implemented in HMS. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLastScanTimeMs",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "",
+      "tipsInfo": "This method is not implemented in HMS. You are advised to delete it."
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.entity.safetydetect.MaliciousAppsListResp"
+}

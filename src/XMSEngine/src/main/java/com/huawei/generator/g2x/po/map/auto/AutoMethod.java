@@ -16,8 +16,9 @@
 
 package com.huawei.generator.g2x.po.map.auto;
 
+import com.huawei.generator.g2x.po.map.MethodDesc;
+
 import com.google.gson.annotations.Expose;
-import com.huawei.generator.g2x.po.map.MDesc;
 
 import java.util.List;
 
@@ -25,16 +26,20 @@ import java.util.List;
  * AutoField: description of auto-methods, indicating wishhub plugins can modified them directly.
  * Such as G.ClassG.MethodG can be replaced by X.ClassX.MethodX, directly.
  * These fields will be put into wisehub-auto.json#autoMethods.
+ * <p>
  * including:
  * 1. oldMethodName -> old method name - g
  * 2. newMethodName -> new method name - x
  * 3. paramTypes -> canonical types of parameters
  * 4. weakTypes -> weakTypes for overloaded methods with same size of params,
  * we will fulfill with "*" for source code engine. Others will be same with paramTypes
- * 5. desc -> details of this method, see {@link MDesc}
+ * 5. desc -> details of this method, see {@link MethodDesc}
+ * </p>
+ * <p>
  * Note: For auto method, the following fields of desc should be filled by us according to a default value:
  * 1. desc'text: which will be replaced by which
  * 2. desc'methodName: should be build by ourselves in format of canonical types. But for methods
+ *  </p>
  *
  * @since 2019-11-27
  */
@@ -52,11 +57,14 @@ public class AutoMethod {
     private List<String> weakTypes;
 
     @Expose
-    private MDesc desc;
+    private MethodDesc desc;
 
     // preserved fields for matching methods pair, which have different parameter-length.
     // currently, g and x have the same length
-    public AutoMethod(String oldMethodName, String newMethodName, MDesc desc, List<String> paramTypes,
+    // private List<String> oldParamTypes = new LinkedList<>();
+    // private List<String> newParamTypes = new LinkedList<>();
+
+    public AutoMethod(String oldMethodName, String newMethodName, MethodDesc desc, List<String> paramTypes,
         List<String> weakTypes) {
         this.oldMethodName = oldMethodName;
         this.newMethodName = newMethodName;
@@ -76,7 +84,7 @@ public class AutoMethod {
         return newMethodName;
     }
 
-    public MDesc getDesc() {
+    public MethodDesc getDesc() {
         return desc;
     }
 
@@ -96,7 +104,7 @@ public class AutoMethod {
         this.paramTypes = paramTypes;
     }
 
-    public void setMDesc(MDesc desc) {
+    public void setMDesc(MethodDesc desc) {
         this.desc = desc;
     }
 

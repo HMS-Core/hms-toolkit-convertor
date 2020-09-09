@@ -23,5 +23,5 @@ import com.huawei.generator.ast.XMethodNode;
  *
  * @since 2020-03-18
  */
-public class XViewInitializerNode extends XMethodNode {
+public final class XViewInitializerNode extends XMethodNode {
 }

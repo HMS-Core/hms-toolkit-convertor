@@ -1,0 +1,210 @@
+{
+  "gName": "com.google.android.gms.iid.InstanceID",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "deleteInstanceID",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634",
+      "tipsInfo": "Google APIs has been discarded and Google is migrated to firebase.iid. HMS Core uses com.huawei.hms.aaid.HmsInstanceId as replacement."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "deleteToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634",
+      "tipsInfo": "Google APIs has been discarded and Google is migrated to firebase.iid. HMS Core uses com.huawei.hms.aaid.HmsInstanceId as replacement."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCreationTime",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634",
+      "tipsInfo": "Google APIs has been discarded and Google is migrated to firebase.iid. HMS Core uses com.huawei.hms.aaid.HmsInstanceId as replacement."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634",
+      "tipsInfo": "Google APIs has been discarded and Google is migrated to firebase.iid. HMS Core uses com.huawei.hms.aaid.HmsInstanceId as replacement."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.iid.InstanceID"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634",
+      "tipsInfo": "Google APIs has been discarded and Google is migrated to firebase.iid. HMS Core uses com.huawei.hms.aaid.HmsInstanceId as replacement."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "getToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634",
+      "tipsInfo": "Google APIs has been discarded and Google is migrated to firebase.iid. HMS Core uses com.huawei.hms.aaid.HmsInstanceId as replacement."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "getToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634",
+      "tipsInfo": "Google APIs has been discarded and Google is migrated to firebase.iid. HMS Core uses com.huawei.hms.aaid.HmsInstanceId as replacement."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "ERROR_MAIN_THREAD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "MAIN_THREAD"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634",
+      "tipsInfo": "Google APIs has been discarded and Google is migrated to firebase.iid. HMS Core uses com.huawei.hms.aaid.HmsInstanceId as replacement."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "ERROR_MISSING_INSTANCEID_SERVICE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "MISSING_INSTANCEID_SERVICE"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634",
+      "tipsInfo": "Google APIs has been discarded and Google is migrated to firebase.iid. HMS Core uses com.huawei.hms.aaid.HmsInstanceId as replacement."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "ERROR_SERVICE_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "SERVICE_NOT_AVAILABLE"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634",
+      "tipsInfo": "Google APIs has been discarded and Google is migrated to firebase.iid. HMS Core uses com.huawei.hms.aaid.HmsInstanceId as replacement."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "ERROR_TIMEOUT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "TIMEOUT"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634",
+      "tipsInfo": "Google APIs has been discarded and Google is migrated to firebase.iid. HMS Core uses com.huawei.hms.aaid.HmsInstanceId as replacement."
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

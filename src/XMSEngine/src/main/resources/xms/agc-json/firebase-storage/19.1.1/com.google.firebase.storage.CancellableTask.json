@@ -1,0 +1,140 @@
+{
+  "gName": "com.google.firebase.storage.CancellableTask<StateT>",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.tasks.Task<StateT>",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "addOnProgressListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.storage.OnProgressListener<? super StateT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.CancellableTask<StateT>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "addOnProgressListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.storage.OnProgressListener<? super StateT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.CancellableTask<StateT>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "addOnProgressListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.storage.OnProgressListener<? super StateT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.CancellableTask<StateT>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "cancel",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isCanceled",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isInProgress",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "CancellableTask",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": ""
+}

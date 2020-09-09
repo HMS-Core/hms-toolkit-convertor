@@ -1,0 +1,303 @@
+{
+  "gName": "com.google.android.gms.location.FusedLocationProviderClient",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "flushLocations",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "flushLocations",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLastLocation",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<android.location.Location>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLastLocation",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<android.location.Location>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLocationAvailability",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.location.LocationAvailability>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLocationAvailability",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.location.LocationAvailability>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.location.LocationCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.location.LocationCallback"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalStateException"
+        ],
+        "modifiers": [],
+        "name": "requestLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.location.LocationRequest"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.location.LocationCallback"
+          },
+          {
+            "pos": "2",
+            "type": "android.os.Looper"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "requestLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.location.LocationRequest"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.location.LocationCallback"
+          },
+          {
+            "pos": "2",
+            "type": "android.os.Looper"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "requestLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.location.LocationRequest"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "requestLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.location.LocationRequest"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setMockLocation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.location.Location"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setMockLocation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.location.Location"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setMockMode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setMockMode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "name": "KEY_VERTICAL_ACCURACY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "verticalAccuracy"
+      },
+      "h": {
+        "name": "KEY_VERTICAL_ACCURACY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "verticalAccuracy"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.location.FusedLocationProviderClient"
+}

@@ -17,7 +17,6 @@
 package com.huawei.generator.method.builder;
 
 import static com.huawei.generator.gen.AstConstants.WRAP_INST;
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
 
 import com.huawei.generator.ast.AssignNode;
 import com.huawei.generator.ast.CallNode;
@@ -32,6 +31,7 @@ import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JMapping;
 import com.huawei.generator.method.component.Component;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
+import com.huawei.generator.exception.UnExpectedProcessException;
 import com.huawei.generator.utils.XMSUtils;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Builder for generating wrapInst method.
+ * Builder for InstWrapper
  *
  * @since 2020-01-14
  */
@@ -69,11 +69,12 @@ public final class InstWrapperBuilder extends AbstractMethodBuilder {
         }
         body.add(ReturnNode.create(VarNode.create(AstConstants.THIS)));
         methodNode.setBody(body);
+        factory.createMethodDoc(methodNode);
         return methodNode;
     }
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode, JMapping mapping) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 }

@@ -36,7 +36,6 @@ import com.huawei.generator.json.JClass;
 import com.huawei.generator.method.component.Component;
 import com.huawei.generator.method.component.ComponentContainer;
 import com.huawei.generator.mirror.KClassUtils;
-import com.huawei.generator.utils.Modifier;
 import com.huawei.generator.utils.TodoManager;
 import com.huawei.generator.utils.XMSUtils;
 
@@ -46,7 +45,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Function description
+ * Generator for DynamicCast method
  *
  * @since 2020-03-02
  */
@@ -85,7 +84,7 @@ public class DynamicCastGenerator implements BodyGenerator {
         componentContainer.components().forEach(component -> zBodies.addAll(generateZBody(component)));
         if (!zBodies.isEmpty() && !(zBodies.get(zBodies.size() - 1) instanceof CustomContentNode)) {
             if (classNode.isInterface() || classNode.isAbstract()) {
-                fullName = XMSUtils.getImplCtor(fullName);
+                fullName = XMSUtils.getImplConstructor(fullName);
             }
             TypeNode classType = TypeNode.create(fullName);
             zBodies.add(ReturnNode.create(NewNode.create(classType, componentContainer.fullReturnParams())));
@@ -123,7 +122,7 @@ public class DynamicCastGenerator implements BodyGenerator {
      */
     private static boolean isStaticCast(ClassNode node) {
         // The expectation is that there are no non-static inner classes
-        return (!node.isInner() || node.modifiers().contains(Modifier.STATIC.getName()))
+        return (!node.isInner() || node.modifiers().contains("static"))
             && KClassUtils.hasXImplOnInheritance(node.getGType());
     }
 }

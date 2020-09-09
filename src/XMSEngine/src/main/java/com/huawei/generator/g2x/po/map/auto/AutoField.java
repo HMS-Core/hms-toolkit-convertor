@@ -16,20 +16,25 @@
 
 package com.huawei.generator.g2x.po.map.auto;
 
-import com.google.gson.annotations.Expose;
 import com.huawei.generator.g2x.po.map.Desc;
 
+import com.google.gson.annotations.Expose;
+
 /**
- * AutoField: description of auto-fields, indicating wishhub plugins can modified them directly.
+ * AutoField: description of auto-fields, indicating wisehub plugins can modified them directly.
  * Such as G.ClassG.FieldG can be replaced by X.ClassX.FieldX, directly.
  * These fields will be put into wisehub-auto.json#autoFields.
+ * <p>
  * including:
  * 1. oldFieldName -> old field name - g
  * 2. newFieldName -> new field name - x
  * 3. desc -> details of this field, see {@link Desc}
+ * </p>
+ * <p>
  * Note: For auto field, the following fields of desc should be filled by us according to a default value:
  * 1. desc'text: which will be replaced by which, IMPORTANT, this field can not be used in switch-case statement,
- *      for x provides a getter method which is not a constant
+ * for x provides a getter method which is not a constant
+ * </p>
  *
  * @since 2019-11-27
  */
@@ -49,11 +54,7 @@ public class AutoField {
         this.desc = desc;
     }
 
-    // reserve for document
     public AutoField() {
-        this.oldFieldName = "gms.FirebaseAnalytics.Event.ADD_PAYMENT_INFO";
-        this.newFieldName = "xms.HAEventType.HA_ADD_PAYMENT_INFO";
-        this.desc = new Desc();
     }
 
     public String getOldFieldName() {
@@ -79,4 +80,5 @@ public class AutoField {
     public void setDesc(Desc desc) {
         this.desc = desc;
     }
+
 }

@@ -24,7 +24,7 @@ import com.huawei.generator.ast.XConstructorNode;
  *
  * @since 2020-03-18
  */
-public class XWrapperConstructorNode extends XConstructorNode {
+public final class XWrapperConstructorNode extends XConstructorNode {
     public XWrapperConstructorNode(ClassNode parent) {
         super(parent);
     }

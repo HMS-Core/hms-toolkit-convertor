@@ -1,0 +1,246 @@
+{
+  "mapping": {
+    "com.google.android.gms:play-services-base": "framework",
+    "com.google.android.gms:play-services-auth": "account",
+    "com.google.android.gms:play-services-ads": "ads",
+    "com.google.firebase:firebase-analytics": "analytics",
+    "com.google.android.gms:play-services-awareness": "awareness",
+    "com.google.android.gms:play-services-games": "game",
+    "com.google.android.gms:play-services-fitness": "health",
+    "com.google.android.gms:play-services-identity": "identity",
+    "com.google.android.gms:play-services-location": "location",
+    "com.google.android.gms:play-services-maps": "maps",
+    "com.google.firebase:firebase-ml-vision": "mlfirebase",
+    "com.google.android.gms:play-services-vision": "mlgms",
+    "com.google.android.gms:play-services-nearby": "nearby",
+    "com.google.android.gms:play-services-panorama": "panorama",
+    "com.google.firebase:firebase-messaging": "push",
+    "com.google.android.gms:play-services-safetynet": "safety",
+    "com.google.android.gms:play-services-wallet": "wallet",
+    "com.google.firebase:firebase-auth": "firebase-auth",
+    "com.google.firebase:firebase-common": "firebase-core",
+    "com.google.firebase:firebase-crashlytics": "firebase-crash",
+    "com.google.firebase:firebase-dynamic-links": "firebase-dynamiclinks",
+    "com.google.firebase:firebase-functions": "firebase-functions",
+    "com.google.firebase:firebase-inappmessaging": "firebase-inappmessaging",
+    "com.google.firebase:firebase-perf": "firebase-perf",
+    "com.google.firebase:firebase-config": "firebase-remoteconfig",
+    "com.google.firebase:firebase-storage": "firebase-storage",
+    "com.google.android.gms:play-services-fido": "fido"
+  },
+  "hmsMapping": {
+    "com.huawei.hms:hianalytics": "analytics",
+    "com.huawei.hms:base": "framework",
+    "com.huawei.hms:ads-lite": "ads",
+    "com.huawei.hms:ads-identifier": "ads",
+    "com.huawei.hms:ads-installreferrer": "ads",
+    "com.huawei.agconnect:agconnect-remoteconfig": "firebase-remoteconfig",
+    "com.huawei.hms:hihealth-base": "health",
+    "com.huawei.hms:wallet": "wallet",
+    "com.huawei.hms:dtm-api": "analytics",
+    "com.huawei.agconnect:agconnect-auth": "firebase-auth",
+    "com.huawei.hms:fido-fido2": "fido",
+    "com.huawei.agconnect:agconnect-appmessaging": "firebase-inappmessaging",
+    "com.huawei.hms:awareness": "awareness",
+    "com.huawei.agconnect:agconnect-storage": "firebase-storage",
+    "com.huawei.hms:safetydetect": "safety",
+    "com.huawei.agconnect:agconnect-apms": "firebase-perf",
+    "com.huawei.hms:site": "site",
+    "com.huawei.hms:location": "location",
+    "com.huawei.hms:maps": "maps",
+    "com.huawei.hms:nearby": "nearby",
+    "com.huawei.hms:panorama": "panorama",
+    "com.huawei.hms:push": "push",
+    "com.huawei.hms:iap": "firebase-inappmessaging",
+    "com.huawei.hms:hwid": "account",
+    "com.huawei.hms:game": "game",
+    "com.huawei.hms:ml-computer-vision": "mlfirebase",
+    "com.huawei.hms:scan": "mlgms",
+    "com.huawei.agconnect:agconnect-function": "firebase-functions",
+    "com.huawei.agconnect:agconnect-applinking": "firebase-dynamiclinks",
+    "com.huawei.agconnect:agconnect-crash": "firebase-crash",
+    "com.huawei.hms:drive": "drive",
+    "com.huawei.hms:identity": "identity"
+  },
+  "versions": {
+    "account": [
+      "17.0.0",
+      "18.0.0"
+    ],
+    "ads": [
+      "18.3.0",
+      "19.1.0"
+    ],
+    "analytics": [
+      "17.2.1",
+      "17.4.3"
+    ],
+    "awareness": [
+      "17.1.0"
+    ],
+    "firebase": [
+      "17.0.0"
+    ],
+    "framework": [
+      "17.1.0"
+    ],
+    "game": [
+      "18.0.1",
+      "19.0.0"
+    ],
+    "health": [
+      "18.0.0"
+    ],
+    "identity": [
+      "17.0.0"
+    ],
+    "location": [
+      "17.0.0"
+    ],
+    "maps": [
+      "17.0.0"
+    ],
+    "mlfirebase": [
+      "24.0.1"
+    ],
+    "mlgms": [
+      "19.0.0",
+      "20.0.0"
+    ],
+    "nearby": [
+      "17.0.0"
+    ],
+    "panorama": [
+      "17.0.0"
+    ],
+    "push": [
+      "20.0.1",
+      "20.2.0"
+    ],
+    "safety": [
+      "17.0.0"
+    ],
+    "site": [
+      "17.0.0"
+    ],
+    "wallet": [
+      "18.0.0"
+    ],
+    "firebase-auth": [
+      "19.3.0"
+    ],
+    "firebase-core": [
+      "19.3.0"
+    ],
+    "firebase-crash": [
+      "17.0.0-beta02"
+    ],
+    "firebase-dynamiclinks": [
+      "19.1.0"
+    ],
+    "firebase-functions": [
+      "19.0.2"
+    ],
+    "firebase-inappmessaging": [
+      "19.0.7"
+    ],
+    "firebase-perf": [
+      "19.0.7"
+    ],
+    "firebase-remoteconfig": [
+      "19.1.3"
+    ],
+    "firebase-storage": [
+      "19.1.1"
+    ],
+    "fido": [
+      "18.1.0"
+    ]
+  },
+  "hmsVersions": {
+    "analytics": [
+      "5.0.1.301"
+    ],
+    "framework": [
+      "5.0.0.300"
+    ],
+    "ads": [
+      "13.4.30.301"
+    ],
+    "firebase-remoteconfig": [
+      "1.4.0.300"
+    ],
+    "health": [
+      "5.0.1.300"
+    ],
+    "wallet": [
+      "4.0.2.301"
+    ],
+    "firebase-auth": [
+      "1.4.0.300"
+    ],
+    "fido": [
+      "5.0.0.301"
+    ],
+    "firebase-inappmessaging": [
+      "1.4.0.300"
+    ],
+    "awareness": [
+      "1.0.7.300"
+    ],
+    "firebase-storage": [
+      "1.3.0.200"
+    ],
+    "safety": [
+      "5.0.2.300"
+    ],
+    "firebase-perf": [
+      "1.3.1.300"
+    ],
+    "site": [
+      "5.0.1.300"
+    ],
+    "location": [
+      "5.0.2.300"
+    ],
+    "maps": [
+      "5.0.0.300"
+    ],
+    "nearby": [
+      "5.0.1.300"
+    ],
+    "panorama": [
+      "5.0.2.300"
+    ],
+    "push": [
+      "5.0.2.300"
+    ],
+    "account": [
+      "4.0.4.300"
+    ],
+    "game": [
+      "5.0.2.300"
+    ],
+    "mlgms": [
+      "2.0.2.300"
+    ],
+    "mlfirebase": [
+      "2.0.2.300"
+    ],
+    "firebase-functions": [
+      "1.4.0.300"
+    ],
+    "firebase-dynamiclinks": [
+      "1.4.0.300"
+    ],
+    "firebase-crash": [
+      "1.4.0.300"
+    ],
+    "drive": [
+      "5.0.0.300"
+    ],
+    "identity": [
+      "4.0.4.300"
+    ]
+  }
+}

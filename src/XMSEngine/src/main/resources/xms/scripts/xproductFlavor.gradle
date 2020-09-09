@@ -1,0 +1,18 @@
+
+android {
+    flavorDimensions "xadaptor"
+    productFlavors {
+        xmsgh {
+            dimension "xadaptor"
+            versionNameSuffix "-xmsgh"
+        }
+        xmsg {
+            dimension "xadaptor"
+            versionNameSuffix "-xmsg"
+        }
+        xmsh  {
+            dimension "xadaptor"
+            versionNameSuffix "-xmsh"
+        }		
+    }
+}

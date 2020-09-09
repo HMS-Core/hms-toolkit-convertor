@@ -1,0 +1,34 @@
+package org.xms.g.vision;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MLMapUtils {
+    public static Map<String, String> loadMLGmsMap() {
+        Map<String, String> map = new HashMap<>();
+        map.put("com.huawei.hms.ml.scan.HmsScan", "org.xms.g.vision.barcode.Barcode");
+        map.put("com.huawei.hms.ml.scan.HmsScan.AddressInfo", "org.xms.g.vision.barcode.Barcode$Address");
+        map.put("com.huawei.hms.ml.scan.HmsScan.ContactDetail", "org.xms.g.vision.barcode.Barcode$ContactInfo");
+        map.put("com.huawei.hms.ml.scan.HmsScan.DriverInfo", "org.xms.g.vision.barcode.Barcode$DriverLicense");
+        map.put("com.huawei.hms.ml.scan.HmsScan.EmailContent", "org.xms.g.vision.barcode.Barcode$Email");
+        map.put("com.huawei.hms.ml.scan.HmsScan.EventInfo", "org.xms.g.vision.barcode.Barcode$CalendarEvent");
+        map.put("com.huawei.hms.ml.scan.HmsScan.EventTime", "org.xms.g.vision.barcode.Barcode$CalendarDateTime");
+        map.put("com.huawei.hms.ml.scan.HmsScan.LinkUrl", "org.xms.g.vision.barcode.Barcode$UrlBookmark");
+        map.put("com.huawei.hms.ml.scan.HmsScan.LocationCoordinate", "org.xms.g.vision.barcode.Barcode$GeoPoint");
+        map.put("com.huawei.hms.ml.scan.HmsScan.PeopleName", "org.xms.g.vision.barcode.Barcode$PersonName");
+        map.put("com.huawei.hms.ml.scan.HmsScan.SmsContent", "org.xms.g.vision.barcode.Barcode$Sms");
+        map.put("com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber", "org.xms.g.vision.barcode.Barcode$Phone");
+        map.put("com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo", "org.xms.g.vision.barcode.Barcode$WiFi");
+        map.put("com.huawei.hms.ml.scan.HmsScanAnalyzer", "org.xms.g.vision.barcode.BarcodeDetector");
+        map.put("com.huawei.hms.mlsdk.common.MLFrame", "org.xms.g.vision.Frame");
+        map.put("com.huawei.hms.mlsdk.common.MLFrame.Property", "org.xms.g.vision.Frame$Metadata");
+        map.put("com.huawei.hms.mlsdk.face.MLFace", "org.xms.g.vision.face.Face");
+        map.put("com.huawei.hms.mlsdk.face.MLFaceKeyPoint", "org.xms.g.vision.face.Landmark");
+        map.put("com.huawei.hms.mlsdk.face.MLFaceShape", "org.xms.g.vision.face.Contour");
+        map.put("com.huawei.hms.mlsdk.text.MLText.Block", "org.xms.g.vision.text.TextBlock");
+        map.put("com.huawei.hms.mlsdk.text.MLText.TextLine", "org.xms.g.vision.text.Line");
+        map.put("com.huawei.hms.mlsdk.text.MLText.Word", "org.xms.g.vision.text.Element");
+        map.put("com.huawei.hms.mlsdk.text.MLTextAnalyzer", "org.xms.g.vision.text.TextRecognizer");
+        return map;
+    }
+}

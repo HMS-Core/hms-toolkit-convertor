@@ -17,11 +17,11 @@
 package com.huawei.generator.ast;
 
 /**
- * This is the ThrowNode class.
+ * Throw Node
  *
  * @since 2019-11-16
  */
-public class ThrowNode extends StatementNode {
+public final class ThrowNode extends StatementNode {
     private StatementNode newNode;
 
     private ThrowNode() {

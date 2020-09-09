@@ -1,0 +1,160 @@
+package org.xms.g.identity.intents.model;
+
+public final class UserAddress extends org.xms.g.utils.XObject implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator<org.xms.g.identity.intents.model.UserAddress> CREATOR = new android.os.Parcelable.Creator() {
+        
+        public org.xms.g.identity.intents.model.UserAddress createFromParcel(android.os.Parcel param0) {
+            android.content.Intent intent = new android.content.Intent();
+            org.json.JSONObject addressJsonObj = new org.json.JSONObject();
+            try {
+                addressJsonObj.put("name", param0.readString());
+                addressJsonObj.put("addressLine1", param0.readString());
+                addressJsonObj.put("addressLine2", param0.readString());
+                addressJsonObj.put("addressLine3", param0.readString());
+                addressJsonObj.put("addressLine4", param0.readString());
+                addressJsonObj.put("addressLine5", param0.readString());
+                addressJsonObj.put("administrativeArea", param0.readString());
+                addressJsonObj.put("locality", param0.readString());
+                addressJsonObj.put("countryCode", param0.readString());
+                addressJsonObj.put("postalNumber", param0.readString());
+                addressJsonObj.put("sortingCode", param0.readString());
+                addressJsonObj.put("phoneNumber", param0.readString());
+                boolean[] isPostBoxs = new boolean[]{false};
+                param0.readBooleanArray(isPostBoxs);
+                addressJsonObj.put("isPostBox", isPostBoxs);
+                addressJsonObj.put("companyName", param0.readString());
+                addressJsonObj.put("emailAddress", param0.readString());
+            } catch (org.json.JSONException ex) {
+                org.xms.g.utils.XmsLog.w("XMSRouter", "", ex);
+            }
+
+            intent.putExtra(com.huawei.hms.identity.AddressConstants.Extras.EXTRA_NAME_ADDRESS, addressJsonObj.toString());
+            intent.putExtra(com.huawei.hms.identity.AddressConstants.Extras.EXTRA_NAME_ERR_CODE, "0");
+            com.huawei.hms.identity.entity.UserAddress zReturn = com.huawei.hms.identity.entity.UserAddress.parseIntent(intent);
+            return new org.xms.g.identity.intents.model.UserAddress(new org.xms.g.utils.XBox(zReturn));
+        }
+        
+        public org.xms.g.identity.intents.model.UserAddress[] newArray(int param0) {
+            return new org.xms.g.identity.intents.model.UserAddress[param0];
+        }
+    };
+
+    public UserAddress(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+    
+    public static org.xms.g.identity.intents.model.UserAddress fromIntent(android.content.Intent param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.identity.entity.UserAddress.parseIntent(param0)");
+        com.huawei.hms.identity.entity.UserAddress zReturn = com.huawei.hms.identity.entity.UserAddress.parseIntent(param0);
+        return ((zReturn) == null ? null : (new org.xms.g.identity.intents.model.UserAddress(new org.xms.g.utils.XBox(zReturn))));
+    }
+    
+    public final java.lang.String getAddress1() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getAddressLine1()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getAddressLine1();
+    }
+    
+    public final java.lang.String getAddress2() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getAddressLine2()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getAddressLine2();
+    }
+    
+    public final java.lang.String getAddress3() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getAddressLine3()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getAddressLine3();
+    }
+    
+    public final java.lang.String getAddress4() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getAddressLine4()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getAddressLine4();
+    }
+    
+    public final java.lang.String getAddress5() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getAddressLine5()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getAddressLine5();
+    }
+    
+    public final java.lang.String getAdministrativeArea() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getAdministrativeArea()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getAdministrativeArea();
+    }
+    
+    public final java.lang.String getCompanyName() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getCompanyName()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getCompanyName();
+    }
+    
+    public final java.lang.String getCountryCode() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getCountryCode()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getCountryCode();
+    }
+    
+    public final java.lang.String getEmailAddress() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getEmailAddress()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getEmailAddress();
+    }
+    
+    public final java.lang.String getLocality() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getLocality()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getLocality();
+    }
+    
+    public final java.lang.String getName() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getName()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getName();
+    }
+    
+    public final java.lang.String getPhoneNumber() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getPhoneNumber()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getPhoneNumber();
+    }
+    
+    public final java.lang.String getPostalCode() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getPostalNumber()");
+        return ((com.huawei.hms.identity.entity.UserAddress) this.getZInstance()).getPostalNumber();
+    }
+    
+    public final java.lang.String getSortingCode() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.identity.getSortingCode()");
+        return "";
+    }
+    
+    public final boolean isPostBox() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.identity.isPostBox()");
+        return false;
+    }
+    
+    public void writeToParcel(android.os.Parcel param0, int param1) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.identity.entity.UserAddress) this.getHInstance()).writeToParcel(param0, param1)");
+        param0.writeString(getName());
+        param0.writeString(getAddress1());
+        param0.writeString(getAddress2());
+        param0.writeString(getAddress3());
+        param0.writeString(getAddress4());
+        param0.writeString(getAddress5());
+        param0.writeString(getAdministrativeArea());
+        param0.writeString(getLocality());
+        param0.writeString(getCountryCode());
+        param0.writeString(getPostalCode());
+        param0.writeString(getSortingCode());
+        param0.writeString(getPhoneNumber());
+        param0.writeBooleanArray(new boolean[]{isPostBox()});
+        param0.writeString(getCompanyName());
+        param0.writeString(getEmailAddress());
+    }
+    
+    public int describeContents() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+    
+    public static org.xms.g.identity.intents.model.UserAddress dynamicCast(java.lang.Object param0) {
+        return ((org.xms.g.identity.intents.model.UserAddress) param0);
+    }
+    
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.huawei.hms.identity.entity.UserAddress;
+    }
+}

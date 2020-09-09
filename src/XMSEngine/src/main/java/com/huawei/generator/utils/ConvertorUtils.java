@@ -23,10 +23,9 @@ import com.huawei.generator.json.JParameter;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeMap;
-import java.util.stream.Collectors;
 
 /**
- * This class for get signature
+ * Utils for Convertor
  *
  * @since 2019-11-27
  */
@@ -40,9 +39,9 @@ public class ConvertorUtils {
         retStr = getMethodRetOrParamType(retStr, retRawStr, gRawClassName);
         retStr = G2XMappingUtils.dot2Dollar(retStr);
         str.append(retStr).append(" ");
-
         str.append(tmpName).append("(");
-        // sort position in parameters
+
+        // The position sequence in the parameter is not clear. Sort the positions first.
         TreeMap<Integer, String> paras = new TreeMap<>();
         for (JParameter parameter : jMethod.parameterTypes()) {
             String paraType = parameter.type();
@@ -51,106 +50,117 @@ public class ConvertorUtils {
             paras.put(parameter.pos(), paraType);
         }
         List<String> valueList = new LinkedList<>(paras.values());
-        String values = valueList.stream().collect(Collectors.joining(","));
-        str.append(values);
+        for (String s : valueList) {
+            str.append(s).append(",");
+        }
+        if (valueList.size() != 0) {
+            str.deleteCharAt(str.length() - 1);
+        }
         str.append(")");
         return str.toString().trim();
     }
 
     /**
-     * analyse generic of method by extending relation
+     * Resolve generics of methods based on inheritance relationships
      * 
-     * @param type target type
-     * @param rawReturnType must need convert
+     * @param type Type to be converted. The value can be paramtype or rettype.
+     * @param rawReturnType Mandatory item because some generics are declared in the return value
      * @param gRawClassName com.google.android.gms.tasks.Tasks
-     * @return string
+     * @return Expected String
      */
     public static String getMethodRetOrParamType(String type, String rawReturnType, String gRawClassName) {
         if (gRawClassName == null || gRawClassName.isEmpty()) {
             throw new IllegalArgumentException("getMethodRetOrParamType error occred : null gClassName");
         }
-        String newType = type.replace("...", "[]");
-        String retType = "";
-        if (newType.isEmpty()) {
-            return retType;
-        }
+        type = type.replace("...", "[]");
         boolean isArray = false;
-        if (newType.endsWith("[]")) {
-            newType = newType.substring(0, newType.lastIndexOf("[]"));
+        if (type.endsWith("[]")) {
+            type = type.substring(0, type.lastIndexOf("[]"));
             isArray = true;
         }
-        TypeNode node = TypeNode.create(newType);
-        if (!TypeUtils.isGenericIdentifier(node)) {
-            retType = node.getTypeName();
-            return getRetType(retType, isArray);
-        }
-        if (node.getSuperClass() != null) {
-            // get Type from super
-            retType = node.getSuperClass().get(0).getTypeName();
-            return getRetType(retType, isArray);
-        }
-        if (rawReturnType.isEmpty()) {
-            // find in class
-            retType = getGenericSuperClassByClassType(node, gRawClassName);
-            return getRetType(retType, isArray);
-        }
-        // find in return type
-        TypeNode returnTypeNode = TypeNode.create(rawReturnType);
-        if (returnTypeNode.getDefTypes() == null) {
-            // find in class
-            retType = getGenericSuperClassByClassType(node, gRawClassName);
-            return getRetType(retType, isArray);
-        }
+        String retType = "";
+        if (!type.isEmpty()) {
+            TypeNode node = TypeNode.create(type);
+            if (TypeUtils.isGenericIdentifier(node)) {
+                if (node.getSuperClass() != null) {
+                    // get Type from super
+                    retType = node.getSuperClass().get(0).getTypeName();
+                } else {
+                    if (rawReturnType.isEmpty()) {
+                        // find in class
+                        retType = getGenericSuperClassByClassType(node, gRawClassName);
+                    } else {
+                        // find in return type
+                        TypeNode returnTypeNode = TypeNode.create(rawReturnType);
+                        if (returnTypeNode.getDefTypes() != null) {
+                            // get Type from return types of def type
+                            if (returnTypeNode.getDefTypes().size() <= 0) {
+                                throw new IllegalStateException(
+                                    "could not find any DefTypes for returnTypeNode:" + returnTypeNode.toString());
+                            }
+                            boolean findNode = false;
+                            for (TypeNode defNode : returnTypeNode.getDefTypes()) {
+                                if (defNode.getTypeName().equals(node.getTypeName())) {
+                                    findNode = true;
+                                    if (defNode.getSuperClass() != null) {
+                                        retType = defNode.getSuperClass().get(0).getTypeName();
+                                    } else {
+                                        retType = "java.lang.Object";
+                                    }
+                                    break;
+                                }
+                            }
 
-        // get Type from return types of def type
-        if (returnTypeNode.getDefTypes().size() <= 0) {
-            throw new IllegalStateException("could not find any DefTypes for returnTypeNode:"
-                + returnTypeNode.toString());
-        }
-        boolean findNode = false;
-        for (TypeNode defNode : returnTypeNode.getDefTypes()) {
-            if (defNode.getTypeName().equals(node.getTypeName())) {
-                findNode = true;
-                retType = defNode.getSuperClass() != null
-                    ? defNode.getSuperClass().get(0).getTypeName()
-                    : "java.lang.Object";
-                break;
+                            if (!findNode) {
+                                // find in class
+                                retType = getGenericSuperClassByClassType(node, gRawClassName);
+                            }
+                        } else {
+                            // find in class
+                            retType = getGenericSuperClassByClassType(node, gRawClassName);
+                        }
+                    }
+                }
+            } else {
+                retType = node.getTypeName();
             }
         }
 
-        if (!findNode) {
-            // find in class
-            retType = getGenericSuperClassByClassType(node, gRawClassName);
+        if (isArray) {
+            retType += "[]";
         }
-        return getRetType(retType, isArray);
-    }
-
-    private static String getRetType(String retType, boolean isArray) {
-        return isArray ? retType.concat("[]") : retType;
+        return retType;
     }
 
     private static String getGenericSuperClassByClassType(TypeNode node, String gClassName) {
-        String retType = "java.lang.Object";
+        String retType = "";
         TypeNode classNode = TypeNode.create(gClassName);
-        if (classNode.getGenericType() == null) {
-            return retType;
-        }
-
-        if (classNode.getGenericType().size() <= 0) {
-            throw new IllegalStateException("could not find any GenericType for classNode:"
-                + classNode.toString());
-        }
-        for (TypeNode cNode : classNode.getGenericType()) {
-            if (cNode.getTypeName().equals(node.getTypeName())) {
-                if (cNode.getSuperClass() != null) {
-                    if (cNode.getSuperClass().size() <= 0) {
-                        throw new IllegalStateException("could not find any SuperClass for classNode: "
-                            + cNode.toString());
-                    }
-                    retType = cNode.getSuperClass().get(0).getTypeName();
-                }
-                break;
+        if (classNode.getGenericType() != null) {
+            if (classNode.getGenericType().size() <= 0) {
+                throw new IllegalStateException("could not find any GenericType for classNode:" + classNode.toString());
             }
+            boolean findNode = false;
+            for (TypeNode cNode : classNode.getGenericType()) {
+                if (cNode.getTypeName().equals(node.getTypeName())) {
+                    findNode = true;
+                    if (cNode.getSuperClass() != null) {
+                        if (cNode.getSuperClass().size() <= 0) {
+                            throw new IllegalStateException(
+                                "could not find any SuperClass for classNode: " + cNode.toString());
+                        }
+                        retType = cNode.getSuperClass().get(0).getTypeName();
+                    } else {
+                        retType = "java.lang.Object";
+                    }
+                    break;
+                }
+            }
+
+            if (!findNode) {
+                retType = "java.lang.Object";
+            }
+        } else {
+            retType = "java.lang.Object";
         }
         return retType;
     }

@@ -1,0 +1,48 @@
+{
+  "gName": "com.google.android.gms.fido.fido2.Fido2ApiClient",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.GoogleApi",
+  "methods": [
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRegisterIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fido.fido2.api.common.PublicKeyCredentialCreationOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.fido.fido2.Fido2PendingIntent>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSignIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fido.fido2.api.common.PublicKeyCredentialRequestOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.fido.fido2.Fido2PendingIntent>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

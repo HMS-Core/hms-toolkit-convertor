@@ -1,0 +1,1230 @@
+{
+  "com.huawei.hms.wallet.Wallet": {
+    "classDes": "Provides the entry for the pass functionality in HUAWEI Wallet.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-wallet-0000001050145778-V5",
+    "methods": {
+      "com.huawei.hms.wallet.Wallet.getWalletPassClient(android.app.Activity)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-wallet-0000001050145778-V5#EN-US_TOPIC_0000001050145778__section16882175194413",
+        "methodDes": "Obtains a WalletPassClient instance.",
+        "params": {
+          "activity": "Referenced activity"
+        },
+        "returns": "com.huawei.hms.wallet.WalletPassClient:this is WalletPassClient",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.hms.wallet.Wallet.API": {
+        "des": "",
+        "value": "",
+        "url": ""
+      }
+    }
+  },
+  "com.huawei.hms.wallet.CreateWalletPassRequest.Builder": {
+    "classDes": "Creates a CreateWalletPassRequest object.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-createwalletpasss-0000001050145792-V5",
+    "methods": {
+      "com.huawei.hms.wallet.CreateWalletPassRequest.Builder.build()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-createwalletpasss-0000001050145792-V5#EN-US_TOPIC_0000001050145792__section16770135312114",
+        "methodDes": "Obtains a CreateWalletPassRequest object.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.CreateWalletPassRequest:Builds a CreateWalletPassRequest instance",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.CreateWalletPassRequest.Builder.setContent(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-createwalletpasss-0000001050145792-V5#EN-US_TOPIC_0000001050145792__section83145512118",
+        "methodDes": "Sets data in JWE format to the CreateWalletPassRequest object.",
+        "params": {
+          "jweStr": "this is JWE"
+        },
+        "returns": "com.huawei.hms.wallet.CreateWalletPassRequest.Builder:The CreateWalletPassRequest created using the data passed to the Builder",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.wallet.pass.PassObject.Builder": {
+    "classDes": "Creates a PassObject object.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375",
+    "methods": {
+      "com.huawei.hms.wallet.pass.PassObject.Builder.setPassTypeIdentifier(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section797115114505",
+        "methodDes": "Sets the type of a wallet pass.",
+        "params": {
+          "passTypeIdentifier": "Pass type"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.setCurrencyCode(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section68501355165019",
+        "methodDes": "Sets the currency code of a wallet pass.",
+        "params": {
+          "currencyCode": "Currency code"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.addUrlList(java.util.Collection<com.huawei.hms.wallet.pass.AppendField>)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section51948045111",
+        "methodDes": "Adds URLs to a wallet pass.",
+        "params": {
+          "urlList": "this is URLs"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.setPassStyleIdentifier(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section1117010575115",
+        "methodDes": "Sets the style of a wallet pass.",
+        "params": {
+          "passStyleIdentifier": "Wallet pass style"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.setOrganizationPassId(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section1217189135115",
+        "methodDes": "Sets the unique identifier (such as number) of a wallet pass, which is specified by the issuer. organizationPassId is a mandatory field.",
+        "params": {
+          "organizationPassId": "Wallet pass ID"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.setSerialNumber(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section869851585118",
+        "methodDes": "Sets the SN of a wallet pass.",
+        "params": {
+          "serialNumber": "Wallet pass SN"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.setStatus(com.huawei.hms.wallet.pass.PassStatus)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section629052017510",
+        "methodDes": "Sets the status of a wallet pass.",
+        "params": {
+          "status": "Wallet pass status"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.addRelatedPassIds(java.util.Collection<com.huawei.hms.wallet.pass.RelatedPassInfo>)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section14434172475110",
+        "methodDes": "Adds the IDs of coupons to be linked to a loyalty card.",
+        "params": {
+          "relatedPassIds": "IDs of coupons linked to the loyalty card"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.addLocationList(java.util.Collection<com.huawei.hms.wallet.pass.Location>)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section15729172818515",
+        "methodDes": "the addLocationList.",
+        "params": {
+          "locationList": "Location of a wallet pass"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.setBarCode(com.huawei.hms.wallet.pass.BarCode)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section971493225115",
+        "methodDes": "the setBarCode.",
+        "params": {
+          "barCode": "Barcode or QR code of a wallet pass"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.addCommonFields(java.util.Collection<com.huawei.hms.wallet.pass.CommonField>)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section16610137145117",
+        "methodDes": "Adds the commonFields information.",
+        "params": {
+          "commonFields": "CommonField objects"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.addAppendFields(java.util.Collection<com.huawei.hms.wallet.pass.AppendField>)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section10602443175112",
+        "methodDes": "Adds the appendFields information.",
+        "params": {
+          "appendFieldList": "AppendField objects"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.addMessageList(java.util.Collection<com.huawei.hms.wallet.pass.AppendField>)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section5450164814519",
+        "methodDes": "Adds messages.",
+        "params": {
+          "messageList": "this is Messages"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.addImageList(java.util.Collection<com.huawei.hms.wallet.pass.AppendField>)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section310617530517",
+        "methodDes": "Adds images for ad rotation.",
+        "params": {
+          "imageList": "Wallet pass images for ad rotation"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.addTextList(java.util.Collection<com.huawei.hms.wallet.pass.AppendField>)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section9425957155119",
+        "methodDes": "Adds a list of text information.",
+        "params": {
+          "textList": "Text information of a wallet pass"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.Builder.build()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-builder-0000001050986375#EN-US_TOPIC_0000001050986375__section1938620235212",
+        "methodDes": "Creates a PassObject object.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.PassObject:PassObject object",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.wallet.pass.PassStatus.Builder": {
+    "classDes": "Creates a PassStatus object.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passstatus-build-0000001051066298",
+    "methods": {
+      "com.huawei.hms.wallet.pass.PassStatus.Builder.setState(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passstatus-build-0000001051066298#EN-US_TOPIC_0000001051066298__section12954038154818",
+        "methodDes": "Sets the status of a wallet pass.",
+        "params": {
+          "state": "Status of the wallet pass"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassStatus.Builder:PassStatus.Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassStatus.Builder.setEffectTime(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passstatus-build-0000001051066298#EN-US_TOPIC_0000001051066298__section3393164324813",
+        "methodDes": "Sets the time when a wallet pass takes effect.",
+        "params": {
+          "effectTime": "Time when a wallet pass takes effect, in UTC format: yyyy-MM-ddTHH:mm:ss.SSSZ"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassStatus.Builder:PassStatus.Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassStatus.Builder.setExpireTime(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passstatus-build-0000001051066298#EN-US_TOPIC_0000001051066298__section1273134914818",
+        "methodDes": "Sets the time when a wallet pass expires.",
+        "params": {
+          "expireTime": "Time when a wallet pass expires, in UTC format: yyyy-MM-ddTHH:mm:ss.SSSZ"
+        },
+        "returns": "com.huawei.hms.wallet.pass.PassStatus.Builder:PassStatus.Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassStatus.Builder.build()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passstatus-build-0000001051066298#EN-US_TOPIC_0000001051066298__section11291453134819",
+        "methodDes": "Creates a PassStatus object.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.PassStatus:PassStatus object",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.wallet.CreateWalletPassRequest": {
+    "classDes": "Creates a request for assembling wallet pass data. It is recommended that you instantiate CreateWalletPassRequest using the parameterized constructor in JWE mode.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-create-walletpass-0000001050145782-V5",
+    "methods": {
+      "com.huawei.hms.wallet.CreateWalletPassRequest.CreateWalletPassRequest(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-create-walletpass-0000001050145782-V5#EN-US_TOPIC_0000001050145782__section873011292218",
+        "methodDes": "Adds JWE data to CreateWalletPassRequest.",
+        "params": {
+          "jwe": "JWE. To create a JWE, you need issuerld, privateKey, and the JSON string of the current pass"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.CreateWalletPassRequest.getBuilder()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-create-walletpass-0000001050145782-V5#EN-US_TOPIC_0000001050145782__section594612151023",
+        "methodDes": "Obtains the Builder object.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.CreateWalletPassRequest.Builder:Creates a CreateWalletPassRequest object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.CreateWalletPassRequest.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-create-walletpass-0000001050145782-V5#EN-US_TOPIC_0000001050145782__section15426191216219",
+        "methodDes": "Marshals an object into a Parcel.",
+        "params": {
+          "dest": "this is Parcel",
+          "flags": "this is int"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.CreateWalletPassRequest.getWalletPassContentJson()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-create-walletpass-0000001050145782-V5#EN-US_TOPIC_0000001050145782__section18596161017217",
+        "methodDes": "Obtains a JWE.",
+        "params": {},
+        "returns": "java.lang.String:Returns WalletPassContent Json data",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.hms.wallet.CreateWalletPassRequest.CREATOR": {
+        "des": "",
+        "value": "",
+        "url": ""
+      }
+    }
+  },
+  "com.huawei.hms.wallet.pass.BarCode": {
+    "classDes": "Barcode object of a wallet pass. Values: qrCode and codabar.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-barcode-0000001051066294-V5",
+    "methods": {
+      "com.huawei.hms.wallet.pass.BarCode.getText()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-barcode-0000001051066294-V5#EN-US_TOPIC_0000001051066294__section14720154819016",
+        "methodDes": "Obtains the barcode text, an additional description displayed under the barcode. Currently, a barcode can be a QR code or codabar.",
+        "params": {},
+        "returns": "java.lang.String:Barcode text",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.BarCode.getType()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-barcode-0000001051066294-V5#EN-US_TOPIC_0000001051066294__section225841314615",
+        "methodDes": "Obtains the barcode type, which can be qrCode or codabar. If no barcode type is specified, qrCode will be used by default.",
+        "params": {},
+        "returns": "java.lang.String:Barcode type",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.BarCode.getValue()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-barcode-0000001051066294-V5#EN-US_TOPIC_0000001051066294__section56631611460",
+        "methodDes": "Obtains the barcode value.",
+        "params": {},
+        "returns": "java.lang.String:Barcode value",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.BarCode.getBuilder()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-barcode-0000001051066294-V5#EN-US_TOPIC_0000001051066294__section184182196467",
+        "methodDes": "Obtains the Builder object.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.BarCode.Builder:Builder object",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.hms.wallet.pass.BarCode.CREATOR": {
+        "des": "Instantiates the static BarCode object to implement Parcelable.Creator.",
+        "value": "",
+        "url": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-barcode-0000001051066294-V5#CREATOR"
+      }
+    }
+  },
+  "com.huawei.hms.wallet.pass.CommonField.Builder": {
+    "classDes": "Creates a CommonField object.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-commonfield-build-0000001050746359",
+    "methods": {
+      "com.huawei.hms.wallet.pass.CommonField.Builder.setKey(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-commonfield-build-0000001050746359#EN-US_TOPIC_0000001050746359__section171314411475",
+        "methodDes": "Sets the CommonField key.",
+        "params": {
+          "key": "CommonField key"
+        },
+        "returns": "com.huawei.hms.wallet.pass.CommonField.Builder:CommonField.Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.CommonField.Builder.setValue(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-commonfield-build-0000001050746359#EN-US_TOPIC_0000001050746359__section29217467472",
+        "methodDes": "Sets the CommonField value.",
+        "params": {
+          "value": "CommonField value"
+        },
+        "returns": "com.huawei.hms.wallet.pass.CommonField.Builder:CommonField.Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.CommonField.Builder.setLabel(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-commonfield-build-0000001050746359#EN-US_TOPIC_0000001050746359__section165861151104718",
+        "methodDes": "Sets the CommonField label.",
+        "params": {
+          "label": "CommonField label"
+        },
+        "returns": "com.huawei.hms.wallet.pass.CommonField.Builder:CommonField.Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.CommonField.Builder.build()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-commonfield-build-0000001050746359#EN-US_TOPIC_0000001050746359__section185621355134717",
+        "methodDes": "Creates a CommonField object.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.CommonField:CommonField object",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.wallet.pass.CommonField": {
+    "classDes": "CommonField object of a wallet pass.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-commonfield-0000001051066296",
+    "methods": {
+      "com.huawei.hms.wallet.pass.CommonField.getKey()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-commonfield-0000001051066296#EN-US_TOPIC_0000001051066296__section122101148472",
+        "methodDes": "Obtains the CommonField key.",
+        "params": {},
+        "returns": "java.lang.String:CommonField key",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.CommonField.getValue()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-commonfield-0000001051066296#EN-US_TOPIC_0000001051066296__section1335422654718",
+        "methodDes": "Obtains the CommonField value.",
+        "params": {},
+        "returns": "java.lang.String:CommonField value",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.CommonField.getLabel()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-commonfield-0000001051066296#EN-US_TOPIC_0000001051066296__section1789893234717",
+        "methodDes": "Obtains the CommonField label.",
+        "params": {},
+        "returns": "java.lang.String:CommonField label",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.CommonField.getBuilder()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-commonfield-0000001051066296#EN-US_TOPIC_0000001051066296__section991443620475",
+        "methodDes": "Obtains the Builder object.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.CommonField.Builder:Instantiated Builder",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.hms.wallet.pass.CommonField.CREATOR": {
+        "des": "Instantiates the static CommonField object to implement Parcelable.Creator.",
+        "value": "",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-commonfield-0000001051066296#EN-US_TOPIC_0000001051066296__section5604137195313"
+      }
+    }
+  },
+  "com.huawei.hms.wallet.pass.AppendField": {
+    "classDes": "AppendField object of a wallet pass.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-appendfield-0000001050706322-V5",
+    "methods": {
+      "com.huawei.hms.wallet.pass.AppendField.getKey()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-appendfield-0000001050706322-V5#EN-US_TOPIC_0000001050706322__section254814417466",
+        "methodDes": "Obtains the AppendField key.",
+        "params": {},
+        "returns": "java.lang.String:Returns the AppendField key",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.AppendField.getValue()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-appendfield-0000001050706322-V5#EN-US_TOPIC_0000001050706322__section262674804615",
+        "methodDes": "Obtains the AppendField value.",
+        "params": {},
+        "returns": "java.lang.String:Returns the AppendField value",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.AppendField.getLabel()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-appendfield-0000001050706322-V5#EN-US_TOPIC_0000001050706322__section1185945184613",
+        "methodDes": "Obtains the AppendField label.",
+        "params": {},
+        "returns": "java.lang.String:Returns the AppendField label",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.AppendField.getBuilder()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-appendfield-0000001050706322-V5#EN-US_TOPIC_0000001050706322__section146821254204616",
+        "methodDes": "Obtains the Builder object.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.AppendField.Builder:Returns instantiated Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.AppendField.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "",
+        "methodDes": "",
+        "params": {
+          "dest": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.hms.wallet.pass.AppendField.CREATOR": {
+        "des": "Instantiates the static AppendField object to implement Parcelable.Creator.",
+        "value": "",
+        "url": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-appendfield-0000001050706322-V5#CREATOR"
+      }
+    }
+  },
+  "com.huawei.hms.wallet.pass.RelatedPassInfo": {
+    "classDes": "Links coupon information to a loyalty card object.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-relatedpassinfo-0000001050746361",
+    "methods": {
+      "com.huawei.hms.wallet.pass.RelatedPassInfo.RelatedPassInfo(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-relatedpassinfo-0000001050746361#EN-US_TOPIC_0000001050746361__section525415471705",
+        "methodDes": "Instantiates RelatedPassInfo using the parameterized constructor.",
+        "params": {
+          "passClassId": "passTypeIdentifier of PassObject",
+          "passId": "organizationPassId of PassObject"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.RelatedPassInfo.getTypeId()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-relatedpassinfo-0000001050746361#EN-US_TOPIC_0000001050746361__section378510094910",
+        "methodDes": "Obtains the type of a coupon.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.PassStatus.Builder:passTypeIdentifier of PassObject",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.RelatedPassInfo.getId()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-relatedpassinfo-0000001050746361#EN-US_TOPIC_0000001050746361__section1765012424916",
+        "methodDes": "Obtains the ID of a coupon.",
+        "params": {},
+        "returns": "java.lang.String:organizationPassId of PassObject",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.RelatedPassInfo.setPassClassId(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-relatedpassinfo-0000001050746361#EN-US_TOPIC_0000001050746361__section49781681493",
+        "methodDes": "Sets the type of a coupon.",
+        "params": {
+          "passClassId": "passTypeIdentifier of PassObject"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.RelatedPassInfo.setPassId(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-relatedpassinfo-0000001050746361#EN-US_TOPIC_0000001050746361__section19361131517495",
+        "methodDes": "Sets the ID of a coupon.",
+        "params": {
+          "passId": "organizationPassId of PassObject"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.wallet.hmspass.service.WalletPassStatus": {
+    "classDes": "Describes the wallet pass status.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-wallet-hmspass-service-walletpassstatus-0000001051066306",
+    "methods": {
+      "com.huawei.wallet.hmspass.service.WalletPassStatus.getPassId()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-wallet-hmspass-service-walletpassstatus-0000001051066306#EN-US_TOPIC_0000001051066306__section729511192711",
+        "methodDes": "Obtains the pass ID.",
+        "params": {},
+        "returns": "java.lang.String:Pass ID",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassStatus.getStatus()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-wallet-hmspass-service-walletpassstatus-0000001051066306#EN-US_TOPIC_0000001051066306__section1175713160276",
+        "methodDes": "Obtains the pass status.",
+        "params": {},
+        "returns": "java.lang.String:Pass status",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.wallet.hmspass.service.WalletPassStatus.CREATOR": {
+        "des": "Instantiates the static WalletPassStatus object to implement Parcelable.Creator.",
+        "value": "",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-wallet-hmspass-service-walletpassstatus-0000001051066306#EN-US_TOPIC_0000001051066306__section10398152731118"
+      }
+    }
+  },
+  "com.hw.passsdk.WalletPassApi": {
+    "classDes": "Provides the WalletPassApi for adding wallet passes.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hw-passsdk-walletpassapi-0000001050986379",
+    "methods": {
+      "com.hw.passsdk.WalletPassApi.canAddPass(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hw-passsdk-walletpassapi-0000001050986379#EN-US_TOPIC_0000001050986379__section19229134124911",
+        "methodDes": "Checks whether the type of pass can be added.",
+        "params": {
+          "appid": "Mandatory. App ID applied for on the HUAWEI Developers website",
+          "passType": "Mandatory. Pass type, which uniquely maps to the app ID and is obtained during pass service application on the HUAWEI Developers website"
+        },
+        "returns": "com.huawei.wallet.hmspass.service.WalletPassApiResponse:Object returned by the called API",
+        "Exceptions": {}
+      },
+      "com.hw.passsdk.WalletPassApi.addPass(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hw-passsdk-walletpassapi-0000001050986379#EN-US_TOPIC_0000001050986379__section148541848134914",
+        "methodDes": "Adds a pass to HUAWEI Wallet, which will verify the signature of the pass.",
+        "params": {
+          "hwPassData": "Mandatory. Base64-encoded pass package to be added"
+        },
+        "returns": "com.huawei.wallet.hmspass.service.WalletPassApiResponse:Object returned by the called API",
+        "Exceptions": {}
+      },
+      "com.hw.passsdk.WalletPassApi.requireAccessToken(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hw-passsdk-walletpassapi-0000001050986379#EN-US_TOPIC_0000001050986379__section19665241507",
+        "methodDes": "Requests to modify the token of a pass (for NFC card only). Upon successful request, a one-time token with a validity period will be returned.",
+        "params": {
+          "passTypeId": "Pass type ID entered during pass service application on the HUAWEI Developers website"
+        },
+        "returns": "com.huawei.wallet.hmspass.service.WalletPassApiResponse:Object returned by the called API",
+        "Exceptions": {}
+      },
+      "com.hw.passsdk.WalletPassApi.requireAccessCardSec(java.lang.String,java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hw-passsdk-walletpassapi-0000001050986379#EN-US_TOPIC_0000001050986379__section865455005015",
+        "methodDes": "Requests a temporary public key for communicating with the NFC card. Before making the request, obtain the token for interacting with the NFC card. Then, include the token in the signature for request verification.",
+        "params": {
+          "passTypeId": "Pass type ID",
+          "passId": "Pass ID",
+          "sign": "Certificate-based signature for the string of pass type ID, pass ID, and access token. The access token should be obtained by calling the token application API"
+        },
+        "returns": "com.huawei.wallet.hmspass.service.WalletPassApiResponse:Object returned by the called API",
+        "Exceptions": {}
+      },
+      "com.hw.passsdk.WalletPassApi.modifyNFCCard(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.huawei.wallet.hmspass.service.IpassModifyNFCCardImpl)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hw-passsdk-walletpassapi-0000001050986379#EN-US_TOPIC_0000001050986379__section87731011514",
+        "methodDes": "Modifies parameters of a pass (NFC card only). Before calling this API, obtain the temporary public key for communicating with the NFC card and encrypt the request parameters.",
+        "params": {
+          "passTypeId": "Pass type ID",
+          "passId": "Pass ID",
+          "cardParams": "Pass parameters (in JSON format) to be modified. The key of each parameter should be specified during card application on the HUAWEI Developers website, while the value of the parameter should be encrypted by using tempAccessSec, the temporary public key for communicating with the card. Note: For details about the format of the cardParams parameter, please refer to the blank card format requirements",
+          "reason": "Reason for card writing. This parameter is optional for the initial API call but is mandatory for subsequent updates. A dialog should be displayed for the user to acknowledge card writing",
+          "sign": "Certificate-based signature for the string of pass type ID, pass ID, card parameters, reason, and access token",
+          "callBack": "Callback function that is used after the pass modification API is called, through which the callback result will be returned asynchronously"
+        },
+        "returns": "com.huawei.wallet.hmspass.service.WalletPassApiResponse:Object returned by the called API",
+        "Exceptions": {}
+      },
+      "com.hw.passsdk.WalletPassApi.readNFCCard(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hw-passsdk-walletpassapi-0000001050986379#EN-US_TOPIC_0000001050986379__section3469124135119",
+        "methodDes": "Queries designated parameters of a pass (NFC card only). The request should contain the specified temporary public key for encrypting the query result.",
+        "params": {
+          "passTypeId": "Pass type ID",
+          "passId": "Pass ID",
+          "cardParams": "The value adopts the following format: car_key_sn: , car_key_group: , read_publickey: Temporary public key that is passed to the API, for encrypting the query result. Mandatory.After obtaining the parameters, fill the card serial number in car_key_sn and the key group number in car_key_group (separate multiple key group numbers with vertical bars (|). Then, encrypt the entire string using the public key in read_publickey",
+          "reason": "Reason for the query. This field is reserved and can be left empty",
+          "sign": "Certificate-based signature for the string of pass type ID, pass ID, card parameters, reason, and access token"
+        },
+        "returns": "com.huawei.wallet.hmspass.service.WalletPassApiResponse:Object returned by the called API",
+        "Exceptions": {}
+      },
+      "com.hw.passsdk.WalletPassApi.deletePass(java.lang.String,java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hw-passsdk-walletpassapi-0000001050986379#EN-US_TOPIC_0000001050986379__section77184565117",
+        "methodDes": "Deletes a pass based on PassId.",
+        "params": {
+          "passTypeId": "Pass type ID",
+          "passId": "Pass ID",
+          "sign": "Certificate-based signature for the string of pass type ID and pass ID"
+        },
+        "returns": "com.huawei.wallet.hmspass.service.WalletPassApiResponse:Object returned by the called API",
+        "Exceptions": {}
+      },
+      "com.hw.passsdk.WalletPassApi.queryPassStatus(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hw-passsdk-walletpassapi-0000001050986379#EN-US_TOPIC_0000001050986379__section499825711517",
+        "methodDes": "Queries the status of a pass based on PassId.",
+        "params": {
+          "passTypeId": "Pass type ID",
+          "passId": "Pass ID"
+        },
+        "returns": "com.huawei.wallet.hmspass.service.WalletPassApiResponse:Object returned by the called API",
+        "Exceptions": {}
+      },
+      "com.hw.passsdk.WalletPassApi.requirePassDeviceId(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hw-passsdk-walletpassapi-0000001050986379#EN-US_TOPIC_0000001050986379__section17214142019529",
+        "methodDes": "Queries the device ID.",
+        "params": {
+          "passTypeId": "Pass type ID"
+        },
+        "returns": "com.huawei.wallet.hmspass.service.WalletPassApiResponse:Object returned by the called API",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.wallet.pass.PassStatus": {
+    "classDes": "",
+    "classUrl": "",
+    "methods": {
+      "com.huawei.hms.wallet.pass.PassStatus.getState()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passstatus-0000001050986373#EN-US_TOPIC_0000001050986373__section192981218104816.",
+        "methodDes": "Obtains the status of a wallet pass. Values:WalletPassConstant.PASS_STATE_COMPLETED;WalletPassConstant.PASS_STATE_EXPIRED;WalletPassConstant.PASS_STATE_INACTIVE;WalletPassConstant.PASS_STATE_ACTIVE.",
+        "params": {},
+        "returns": "java.lang.String:Wallet pass status",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassStatus.getEffectTime()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passstatus-0000001050986373#EN-US_TOPIC_0000001050986373__section28901322154817",
+        "methodDes": "Obtains the time when the wallet pass takes effect, in UTC format: yyyy-MM-ddTHH:mm:ss.SSSZ.",
+        "params": {},
+        "returns": "java.lang.String:Effective time of the wallet pass",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassStatus.getExpireTime()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passstatus-0000001050986373#EN-US_TOPIC_0000001050986373__section1265162711485",
+        "methodDes": "Obtains the time when the wallet pass expires, in UTC format: yyyy-MM-ddTHH:mm:ss.SSSZ.",
+        "params": {},
+        "returns": "java.lang.String:Expiration time of the wallet pass",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassStatus.getBuilder()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passstatus-0000001050986373#EN-US_TOPIC_0000001050986373__section10833153116481",
+        "methodDes": "Obtains the Builder object.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.PassStatus.Builder:Instantiated PassStatus.Builder",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.hms.wallet.pass.PassStatus.CREATOR": {
+        "des": "Status object of a wallet pass.",
+        "value": "",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/api-hms-wallet-pass-passstatus-0000001050986373-V5"
+      }
+    }
+  },
+  "com.huawei.hms.wallet.WalletPassClient": {
+    "classDes": "Client for adding a wallet pass through HMS Core. This class encapsulates the methods necessary for connecting to HMS Core and provides createWalletPass(), the method for creating a pass request.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-walletpassclient-0000001050147747-V5",
+    "methods": {
+      "com.huawei.hms.wallet.WalletPassClient.WalletPassClient(android.app.Activity)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-wallet-0000001050145778-V5#EN-US_TOPIC_0000001050145778__section16882175194413",
+        "methodDes": "Instantiates WalletPassClient.",
+        "params": {
+          "activity": "Activity for initiating the request"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.WalletPassClient.createWalletPass(com.huawei.hms.wallet.CreateWalletPassRequest)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-walletpassclient-0000001050147747-V5#EN-US_TOPIC_0000001050147747__section1983633517454",
+        "methodDes": "Creates a wallet pass. This is the core method for wallet pass creation.",
+        "params": {
+          "request": "Request for creating a wallet pass"
+        },
+        "returns": "com.huawei.hmf.tasks.Task<com.huawei.hms.wallet.AutoResolvableForegroundIntentResult>:Request for creating the wallet pass",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.wallet.pass.AppendField.Builder": {
+    "classDes": "Creates an AppendField object.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-appendfield-build-0000001050986371-V5",
+    "methods": {
+      "com.huawei.hms.wallet.pass.AppendField.Builder.setKey(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-appendfield-build-0000001050986371-V5#EN-US_TOPIC_0000001050986371__section9865558104614",
+        "methodDes": "Sets the AppendField key.",
+        "params": {
+          "key": "AppendField key"
+        },
+        "returns": "com.huawei.hms.wallet.pass.AppendField.Builder:AppendField.Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.AppendField.Builder.setValue(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-appendfield-build-0000001050986371-V5#EN-US_TOPIC_0000001050986371__section32256264716",
+        "methodDes": "Sets the AppendField value.",
+        "params": {
+          "value": "AppendField value"
+        },
+        "returns": "com.huawei.hms.wallet.pass.AppendField.Builder:AppendField.Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.AppendField.Builder.setLabel(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-appendfield-build-0000001050986371-V5#EN-US_TOPIC_0000001050986371__section2177514711",
+        "methodDes": "Sets the AppendField label.",
+        "params": {
+          "label": "AppendField label"
+        },
+        "returns": "com.huawei.hms.wallet.pass.AppendField.Builder:AppendField.Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.AppendField.Builder.build()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-appendfield-build-0000001050986371-V5#EN-US_TOPIC_0000001050986371__section10106181476",
+        "methodDes": "Creates an AppendField object.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.AppendField:AppendField object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.AppendField.Builder.getBuilder()": {
+        "methodUrl": "",
+        "methodDes": "",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.AppendField.Builder:",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.wallet.pass.BarCode.Builder": {
+    "classDes": "Creates a BarCode object.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-barcode-build-0000001050746357-V5",
+    "methods": {
+      "com.huawei.hms.wallet.pass.BarCode.Builder.setText(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-barcode-build-0000001050746357-V5#EN-US_TOPIC_0000001050746357__section39292024144615",
+        "methodDes": "Sets the barcode text, an additional description displayed under the barcode. Currently, a barcode can be a QR code or codabar.",
+        "params": {
+          "text": "Barcode text"
+        },
+        "returns": "com.huawei.hms.wallet.pass.BarCode.Builder:Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.BarCode.Builder.setType(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-barcode-build-0000001050746357-V5#EN-US_TOPIC_0000001050746357__section1263422818462",
+        "methodDes": "Sets the barcode type, which can be qrCode or codabar. If no barcode type is specified, qrCode will be used by default. type is an optional field.",
+        "params": {
+          "type": "Barcode type"
+        },
+        "returns": "com.huawei.hms.wallet.pass.BarCode.Builder:Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.BarCode.Builder.setValue(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-barcode-build-0000001050746357-V5#EN-US_TOPIC_0000001050746357__section4618113244615",
+        "methodDes": "Sets the barcode value. value is an optional field.",
+        "params": {
+          "value": "Barcode value"
+        },
+        "returns": "com.huawei.hms.wallet.pass.BarCode.Builder:Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.BarCode.Builder.build()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-pass-barcode-build-0000001050746357-V5#EN-US_TOPIC_0000001050746357__section1140913711461",
+        "methodDes": "Creates a BarCode object.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.BarCode:BarCode object",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.wallet.constant.WalletPassConstant": {
+    "classDes": "Provides constants required for adding a pass.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377",
+    "methods": {},
+    "fields": {
+      "com.huawei.hms.wallet.constant.WalletPassConstant.ERROR_CODE_SERVICE_UNAVAILABLE": {
+        "des": "The service is temporarily unavailable.",
+        "value": "-10",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377#EN-US_TOPIC_0000001050986377__section2303135918194"
+      },
+      "com.huawei.hms.wallet.constant.WalletPassConstant.ERROR_CODE_UNSUPPORTED_API_REQUEST": {
+        "des": "The API is no longer supported.",
+        "value": "-11",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377#EN-US_TOPIC_0000001050986377__section17735102715197"
+      },
+      "com.huawei.hms.wallet.constant.WalletPassConstant.ERROR_CODE_INTERNAL_ERROR": {
+        "des": "Internal error.",
+        "value": "3",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377#EN-US_TOPIC_0000001050986377__section7598725111919"
+      },
+      "com.huawei.hms.wallet.constant.WalletPassConstant.ERROR_CODE_OTHERS": {
+        "des": "Unknown error.",
+        "value": "-100",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377#EN-US_TOPIC_0000001050986377__section1884712559184"
+      },
+      "com.huawei.hms.wallet.constant.WalletPassConstant.ERROR_CODE_INVALID_PARAMETERS": {
+        "des": "Missing or invalid parameters.",
+        "value": "1",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377#EN-US_TOPIC_0000001050986377__section1163104511810"
+      },
+      "com.huawei.hms.wallet.constant.WalletPassConstant.ERROR_CODE_USER_ACCOUNT_ERROR": {
+        "des": "The account is abnormal, for example, the account is closed or is in an unsupported country or region.",
+        "value": "2",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377#EN-US_TOPIC_0000001050986377__section179421647201810"
+      },
+      "com.huawei.hms.wallet.constant.WalletPassConstant.ERROR_CODE_MERCHANT_ACCOUNT_ERROR": {
+        "des": "The merchant account is abnormal.This error is not immediately recoverable. Enable the access to this API for your app. For details on how to enable the access, please refer to the Development Guide.",
+        "value": "101",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377#EN-US_TOPIC_0000001050986377__section8943555181"
+      },
+      "com.huawei.hms.wallet.constant.WalletPassConstant.EXTRA_ERROR_CODE": {
+        "des": "Key of an error code returned through the intent.",
+        "value": "com.huawei.wallet.EXTRA_ERROR_CODE.",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377#EN-US_TOPIC_0000001050986377__section172705404178"
+      },
+      "com.huawei.hms.wallet.constant.WalletPassConstant.PASS_STATE_COMPLETED": {
+        "des": "The wallet pass is in complete state. The value is completed.",
+        "value": "The value is completed",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377-V5"
+      },
+      "com.huawei.hms.wallet.constant.WalletPassConstant.PASS_STATE_ACTIVE": {
+        "des": "The wallet pass is activated. The value is active.",
+        "value": "The value is active",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377-V5"
+      },
+      "com.huawei.hms.wallet.constant.WalletPassConstant.PASS_STATE_INACTIVE": {
+        "des": "The wallet pass is not activated. The value is inactive.",
+        "value": "The value is inactive",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377-V5"
+      },
+      "com.huawei.hms.wallet.constant.WalletPassConstant.PASS_STATE_EXPIRED": {
+        "des": "The wallet pass is in expired state. The value is expired.",
+        "value": "The value is expired",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/api-hms-wallet-pass-constant-walletpasscontant-0000001050986377-V5"
+      }
+    }
+  },
+  "com.huawei.hms.wallet.pass.PassObject": {
+    "classDes": "Constructs the JWE for loyalty cards, gift cards, and coupons.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326",
+    "methods": {
+      "com.huawei.hms.wallet.pass.PassObject.getBuilder()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section17786343145011",
+        "methodDes": "Obtains the Builder object.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.PassObject.Builder:PassObject.Builder object",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getPassTypeIdentifier()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section558018250491",
+        "methodDes": "Obtains the type of a wallet pass.",
+        "params": {},
+        "returns": "java.lang.String:Wallet pass type",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getCurrencyCode()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section11369173064916",
+        "methodDes": "Obtains the currency code of a wallet pass.",
+        "params": {},
+        "returns": "java.lang.String:Currency code",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getUrlList()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section1840914344499",
+        "methodDes": "Obtains the URLs of a wallet pass.",
+        "params": {},
+        "returns": "java.util.ArrayList<com.huawei.hms.wallet.pass.AppendField>:this is URLs",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getPassStyleIdentifier()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section829873954915",
+        "methodDes": "Obtains the style of a wallet pass.",
+        "params": {},
+        "returns": "java.lang.String:Wallet pass style",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getOrganizationPassId()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section829019444491",
+        "methodDes": "Obtains the ID of a wallet pass.",
+        "params": {},
+        "returns": "java.lang.String:Wallet pass ID",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getSerialNumber()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section11892048104918",
+        "methodDes": "Obtains the SN of a wallet pass.",
+        "params": {},
+        "returns": "java.lang.String:Wallet pass SN",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getStatus()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section0657155234915",
+        "methodDes": "Obtains the status of a wallet pass.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.PassStatus:Wallet pass status",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getRelatedPassIds()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section119413583494",
+        "methodDes": "Obtains coupons linked to a wallet pass.",
+        "params": {},
+        "returns": "java.util.ArrayList<com.huawei.hms.wallet.pass.RelatedPassInfo>:Coupons linked to the wallet pass",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getLocationList()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section15346026500",
+        "methodDes": "Obtains locations. A maximum of five locations are supported.",
+        "params": {},
+        "returns": "java.util.ArrayList<com.huawei.hms.wallet.pass.Location>:Geofence locations",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getBarCode()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section167388115020",
+        "methodDes": "Obtains the barcode or QR code.",
+        "params": {},
+        "returns": "com.huawei.hms.wallet.pass.BarCode:Barcode or QR code",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getCommonField()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section13305191317503",
+        "methodDes": "Obtains CommonField objects.",
+        "params": {},
+        "returns": "java.util.ArrayList<com.huawei.hms.wallet.pass.CommonField>:CommonField objects",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getAppendFields()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section17267132335017",
+        "methodDes": "Obtains AppendFields objects.",
+        "params": {},
+        "returns": "java.util.ArrayList<com.huawei.hms.wallet.pass.AppendField>:AppendField objects",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getMessageList()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section1695312207506",
+        "methodDes": "Obtains messages.",
+        "params": {},
+        "returns": "java.util.ArrayList<com.huawei.hms.wallet.pass.AppendField>:this is Messages",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getImageList()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section579343355012",
+        "methodDes": "Obtains images.",
+        "params": {},
+        "returns": "java.util.ArrayList<com.huawei.hms.wallet.pass.AppendField>:this is Images",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.getTextList()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section147051300500",
+        "methodDes": "Obtains the list of text information.",
+        "params": {},
+        "returns": "java.util.ArrayList<com.huawei.hms.wallet.pass.AppendField>:List of text",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.PassObject.toJson()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-passobject-0000001050706326#EN-US_TOPIC_0000001050706326__section149611338155018",
+        "methodDes": "Serves as the core of PassObject to generate a JSON string and convert it into the JWE data source.",
+        "params": {},
+        "returns": "java.lang.String:Strings converted from PassObject into the JWE data source",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.wallet.AutoResolvableForegroundIntentResult": {
+    "classDes": "Implements task callbacks.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-auto-0000001050145804-V5",
+    "methods": {
+      "com.huawei.hms.wallet.AutoResolvableForegroundIntentResult.addIntent(android.content.Intent)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-auto-0000001050145804-V5#EN-US_TOPIC_0000001050145804__section12314519459",
+        "methodDes": "Implements the addIntent method of the IResolvableTaskResult API.",
+        "params": {
+          "intent": "Intent object"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.AutoResolvableForegroundIntentResult.AutoResolvableForegroundIntentResult()": {
+        "methodUrl":"",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.wallet.pass.Location": {
+    "classDes": "Geofence information.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-location-0000001050706324",
+    "methods": {
+      "com.huawei.hms.wallet.pass.Location.getLongitude()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-location-0000001050706324#EN-US_TOPIC_0000001050706324__section34573312489",
+        "methodDes": "Obtains the longitude.",
+        "params": {},
+        "returns": "java.lang.String: this is Longitude",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.Location.getLatitude()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-location-0000001050706324#EN-US_TOPIC_0000001050706324__section810612916488",
+        "methodDes": "Obtains the latitude.",
+        "params": {},
+        "returns": "java.lang.String: this is Latitude",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.wallet.pass.Location.Location(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hms-wallet-pass-location-0000001050706324#EN-US_TOPIC_0000001050706324__section5244971570",
+        "methodDes": "Instantiates Location using the parameterized constructor.",
+        "params": {
+          "longitude": "this is Longitude",
+          "latitude": "this is Latitude"
+        },
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.hms.wallet.pass.Location.CREATOR": {
+        "des": "Instantiates the static Location object to implement Parcelable.Creator.",
+        "value": "",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/api-hms-wallet-pass-location-0000001050706324-V5#EN-US_TOPIC_0000001050706324__section5244971570"
+      }
+    }
+  },
+  "com.huawei.wallet.hmspass.service.WalletPassApiResponse": {
+    "classDes": "Returns an object in response to a Wallet Kit API call.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381",
+    "methods": {
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getReturnCode()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section885519251206",
+        "methodDes": "Obtains the result code, for example, result code 0 indicates a successful operation. For details about the result codes, please refer to Result Codes.",
+        "params": {},
+        "returns": "java.lang.String: Result code",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getReturnRes()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section362982916259",
+        "methodDes": "Obtains the result description.",
+        "params": {},
+        "returns": "java.lang.String: Result description",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getAccessToken()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section343785192513",
+        "methodDes": "Obtains the token for interacting with the card.",
+        "params": {},
+        "returns": "java.lang.String: this is Token",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getTempAccessSec()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section17406105872513",
+        "methodDes": "Obtains the temporary public key for communicating with the card.",
+        "params": {},
+        "returns": "java.lang.String: Temporary public key for communicating with the card",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getCardParams()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section155014315268",
+        "methodDes": "Obtains pass parameters in JSON format.",
+        "params": {},
+        "returns": "java.lang.String: Pass parameters in JSON format",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getPassStatusList()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section12718822612",
+        "methodDes": "Obtains the collection of WalletPassStatus.",
+        "params": {},
+        "returns": "java.util.List<com.huawei.wallet.hmspass.service.WalletPassStatus>: Collection of WalletPassStatus",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getTeeTempAccessSec()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section20421131302617",
+        "methodDes": "Obtains the temporary public key for communicating with TEE.",
+        "params": {},
+        "returns": "java.lang.String: Temporary public key for communicating with TEE",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getTeeTempTransId()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section1133261814266",
+        "methodDes": "Obtains the temporary transaction ID for communicating with TEE.",
+        "params": {},
+        "returns": "java.lang.String: Temporary transaction ID for communicating with TEE",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getPassStatus()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section12718822612",
+        "methodDes": "Obtains the pass status.",
+        "params": {},
+        "returns": "com.huawei.wallet.hmspass.service.WalletPassStatus: Pass status",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getVersion()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section11629122716263",
+        "methodDes": "Obtains the version number.",
+        "params": {},
+        "returns": "java.lang.String: Version number",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getReadNFCResult()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section329317356268",
+        "methodDes": "Obtains the card reading result.",
+        "params": {},
+        "returns": "java.lang.String: Card reading result",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getPassDeviceId()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section541846122619",
+        "methodDes": "Obtains the unique ID of the device where the account is used.",
+        "params": {},
+        "returns": "java.lang.String: Unique ID of the device where the account is used",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getTransactionId()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section482919505268",
+        "methodDes": "Obtains the transaction ID.",
+        "params": {},
+        "returns": "java.lang.String: Transaction ID",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getTransactionIdSign()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section9677105572610",
+        "methodDes": "Obtains the transaction ID signature.",
+        "params": {},
+        "returns": "java.lang.String: Transaction ID signature",
+        "Exceptions": {}
+      },
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.getAuthResult()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381#EN-US_TOPIC_0000001050986381__section1755710182716",
+        "methodDes": "Obtains the APDU execution result for auth0 or auth1.",
+        "params": {},
+        "returns": "java.lang.String: APDU execution result for auth0 or auth1",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.wallet.hmspass.service.WalletPassApiResponse.CREATOR": {
+        "des": "Instantiates the static WalletPassApiResponse object to implement Parcelable.Creator.",
+        "value": "",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/api-hmspass-service-walletpassapi-0000001050986381"
+      }
+    }
+  },
+  "com.huawei.hms.wallet.ResolveTaskHelper": {
+    "classDes": "Helper for resolving tasks. The excuteTask method of this class processes the callback result and returns the callback result to onActivityResult(int, int, Intent) of the current activity. onActivityResult carries the pass creation result code, for example, Activity.RESULT_OK, indicating successful pass creation. Currently, the following error codes specific to this API are defined in WalletPassConstants.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-resolnetaskhelper-0000001050145808-V5",
+    "methods": {
+      "com.huawei.hms.wallet.ResolveTaskHelper.excuteTask(com.huawei.hmf.tasks.Task,android.app.Activity,int)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/api-hms-wallet-resolnetaskhelper-0000001050145808-V5#EN-US_TOPIC_0000001050145808__section103307530455",
+        "methodDes": "Processes the activity callback for the wallet pass creation task.",
+        "params": {
+          "task": "Task callback result",
+          "activity": "Activity object",
+          "requestCode": "Request code"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.hms.wallet.ResolveTaskHelper.RESULT_FAIL": {
+        "des": "",
+        "value": "",
+        "url": ""
+      }
+    }
+  },
+  "com.huawei.hms.wallet.IResolvableTaskResult":{
+    "classDes":"Returns task results.",
+    "classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/api-hms-wallet-ireslovable-0000001050147719-V5",
+    "methods": {
+      "com.huawei.hms.wallet.IResolvableTaskResult.addIntent(android.content.Intent)": {
+        "methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/api-hms-wallet-ireslovable-0000001050147719-V5#EN-US_TOPIC_0000001050147719__section988210315717",
+        "methodDes":"Adds an intent.",
+        "params": {
+          "intent": "Intent object"
+        },
+        "returns":"void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.wallet.LoyaltyWalletObject.PassBuilder": {
+    "classDes":"",
+    "classUrl":"",
+    "methods": {
+      "com.huawei.hms.wallet.LoyaltyWalletObject.PassBuilder.build()": {
+        "methodUrl":"",
+        "methodDes":"",
+        "params": {},
+        "returns":"com.huawei.hms.wallet.LoyaltyWalletObject.PassBuilder:",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.wallet.GiftCardWalletObject": {
+    "classDes":"",
+    "classUrl":"",
+    "methods": {
+      "com.huawei.hms.wallet.GiftCardWalletObject.build()": {
+        "methodUrl":"",
+        "methodDes":"",
+        "params": {},
+        "returns":"com.huawei.hms.wallet.GiftCardWalletObject:",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  }
+}

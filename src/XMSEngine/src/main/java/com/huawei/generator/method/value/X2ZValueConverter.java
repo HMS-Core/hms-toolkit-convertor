@@ -33,7 +33,6 @@ import com.huawei.generator.ast.VarNode;
 import com.huawei.generator.ast.custom.NotNullTernaryNode;
 import com.huawei.generator.gen.AstConstants;
 import com.huawei.generator.method.component.Component;
-import com.huawei.generator.utils.Modifier;
 import com.huawei.generator.utils.TypeUtils;
 import com.huawei.generator.utils.XMSUtils;
 
@@ -43,11 +42,11 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Function description
+ * Converter for X2Z Value
  *
  * @since 2020-02-24
  */
-public class X2ZValueConverter extends ValueConverter {
+public final class X2ZValueConverter extends ValueConverter {
     public X2ZValueConverter(MethodNode methodNode, Component component) {
         super(methodNode, component);
     }
@@ -96,19 +95,19 @@ public class X2ZValueConverter extends ValueConverter {
     }
 
     /**
-     * @param t, a TypeNode
-     * @return t is a XVarArray
+     * @param typeNode, a TypeNode
+     * @return typeNode is a XVarArray
      */
-    private boolean isXVarArray(TypeNode t) {
-        return t.isVarArg() && XMSUtils.isX(t.getTypeName());
+    private boolean isXVarArray(TypeNode typeNode) {
+        return typeNode.isVarArg() && XMSUtils.isX(typeNode.getTypeName());
     }
 
     /**
-     * @param t, a TypeNode
-     * @return t is a XArray
+     * @param typeNode, a TypeNode
+     * @return typeNode is a XArray
      */
-    private boolean isXArray(TypeNode t) {
-        return t.isArray() && XMSUtils.isX(t.getTypeName());
+    private boolean isXArray(TypeNode typeNode) {
+        return typeNode.isArray() && XMSUtils.isX(typeNode.getTypeName());
     }
 
     private StatementNode processArrayValue(TypeNode type, String param) {
@@ -142,8 +141,8 @@ public class X2ZValueConverter extends ValueConverter {
             return mapMapContainer(param, varName);
         } else if (TypeUtils.isSet(valueType)) {
             return mapSetContainer(valueType, param, varName);
-        } else if (TypeUtils.isSparseArray(valueType)) {
-            return mapSparseArray(valueType, rawNode);
+        } else if (TypeUtils.isSparseArray(valueType) || TypeUtils.isIterator(valueType)) {
+            return mapSparseArrayOrIterator(valueType, rawNode);
         } else if (valueType.isArray()) {
             return mapGenericArrayContainer(valueType, param, varName);
         } else {
@@ -206,13 +205,13 @@ public class X2ZValueConverter extends ValueConverter {
             || method.returnType().getDefTypes().isEmpty()) {
             return genObj(method, callNode);
         }
-        for (TypeNode t : method.returnType().getDefTypes()) {
-            if (t.getTypeName().equals(node.getTypeName())) {
+        for (TypeNode typeNode : method.returnType().getDefTypes()) {
+            if (typeNode.getTypeName().equals(node.getTypeName())) {
                 TypeNode targetType;
-                if (t.getSuperClass() == null || t.getSuperClass().isEmpty()) {
+                if (typeNode.getSuperClass() == null || typeNode.getSuperClass().isEmpty()) {
                     targetType = node;
                 } else {
-                    targetType = TypeNode.create(component.x2Z(t.getSuperClass().get(0).getTypeName()));
+                    targetType = TypeNode.create(component.x2Z(typeNode.getSuperClass().get(0).getTypeName()));
                 }
                 setTargetType(targetType.getTypeName());
                 return callNode;
@@ -229,19 +228,24 @@ public class X2ZValueConverter extends ValueConverter {
             String type = typeNode.getSuperClass().get(0).getTypeName();
             TypeNode targetType = TypeNode.create(component.x2Z(type));
             setTargetType(targetType.getTypeName());
+            return callNode;
         } else {
             setTargetType(AstConstants.OBJECT);
+            return callNode;
         }
-        return callNode;
     }
 
-    private StatementNode mapSparseArray(TypeNode xType, StatementNode callNode) {
+    /**
+     * creates G/H -> X mapper method with Utils' method
+     */
+    private StatementNode mapSparseArrayOrIterator(TypeNode xType, StatementNode callNode) {
         String zType = extractGenericType(methodNode.returnType());
+        String xTypeName = xType.getGenericType().get(0).getTypeName();
         String containerType = xType.getTypeName();
-        MethodNode mapper = createWrapMapper(methodNode);
+        MethodNode mapper = createWrapMapper(methodNode, xTypeName);
         String mapperName = getMapperName(xType);
         AnonymousNode mapperNode =
-            AnonymousNode.create(AstConstants.XMS_PACKAGE + ".Function<" + zType + ", " + zType + ">",
+            AnonymousNode.create(AstConstants.XMS_PACKAGE + ".Function<" + xTypeName + ", " + zType + ">",
                 Collections.emptyList(), methodNode.parent());
         mapperNode.methods().add(mapper);
         return CastExprNode.create(TypeNode.create(containerType), CallNode.create(
@@ -250,19 +254,19 @@ public class X2ZValueConverter extends ValueConverter {
     }
 
     /**
-     * creates G/H -> X anonymous method
+     * creates G/H -> X anonymous function method
      */
-    private MethodNode createWrapMapper(MethodNode node) {
+    private MethodNode createWrapMapper(MethodNode node, String xTypeName) {
         String zType = extractGenericType(node.returnType());
         MethodNode mapper = new MethodNode();
         ClassNode dummy = new ClassNode();
         dummy.setClassType("class");
         mapper.setParent(dummy);
-        mapper.setModifiers(Collections.singletonList(Modifier.PUBLIC.getName()));
+        mapper.setModifiers(Collections.singletonList("public"));
         mapper.setReturnType(TypeNode.create(zType));
         mapper.setBody(new ArrayList<>());
         mapper.setName("apply");
-        mapper.setParameters(Collections.singletonList(TypeNode.create(zType)));
+        mapper.setParameters(Collections.singletonList(TypeNode.create(xTypeName)));
         mapper.body()
             .getStatements()
             .add(ReturnNode.create(CastExprNode.create(TypeNode.create(zType),

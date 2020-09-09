@@ -17,11 +17,11 @@
 package com.huawei.generator.ast;
 
 /**
- * AnnotationNode
+ * Annotation Node
  *
  * @since 2019-11-21
  */
-public class AnnotationNode extends AstNode {
+public final class AnnotationNode extends AstNode {
     private String annotation;
 
     public AnnotationNode(String annotation) {
@@ -37,7 +37,8 @@ public class AnnotationNode extends AstNode {
     }
 
     public static AnnotationNode create(String annotation) {
-        return new AnnotationNode(annotation);
+        AnnotationNode node = new AnnotationNode(annotation);
+        return node;
     }
 
     @Override

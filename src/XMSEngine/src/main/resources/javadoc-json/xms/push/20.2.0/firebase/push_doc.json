@@ -1,0 +1,1950 @@
+{
+  "org.xms.f.iid.InstanceIdResult.XImpl": {
+    "gClassName": "com.google.firebase.iid.InstanceIdResult",
+    "hClassName": "com.huawei.hms.aaid.entity.AAIDResult",
+    "xClassInfo": "Result object obtained from requests for an Instance ID and token.",
+    "hClassInfo": "Bears and returns AAIDs obtained through the getAAID() method in HmsInstanceId.",
+    "gClassInfo": "Result object obtained from requests for an Instance ID and token.",
+    "hClassUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/aaidresult-0000001050255642-V5",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/InstanceIdResult",
+    "methods": [
+      {
+        "methodName": "org.xms.f.iid.InstanceIdResult.XImpl.XImpl(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of XImpl with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.InstanceIdResult.XImpl.getId()",
+        "descriptions": "Returns the stable identifier that uniquely identifies this application instance.",
+        "hName": "com.huawei.hms.aaid.entity.AAIDResult.getId()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/aaidresult-0000001050255642-V5#EN-US_TOPIC_0000001050255642__section1788692510237",
+        "gName": "com.google.firebase.iid.InstanceIdResult.getId()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/InstanceIdResult#public-abstract-string-getid",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the stable identifier",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.InstanceIdResult.XImpl.getToken()",
+        "descriptions": "Returns the token that authorizes performing actions on behalf of this application instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.iid.InstanceIdResult.getToken()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/InstanceIdResult#public-abstract-string-gettoken",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the token that authorizes performing actions on behalf of this application instance ",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.f.iid.ExtensionInstanceIdReceiver": {
+    "gClassName": "com.google.firebase.iid.FirebaseInstanceIdReceiver",
+    "hClassName": "",
+    "xClassInfo": "WakefulBroadcastReceiver that receives InstanceId and Messaging events and delivers them to the application-specific InstanceIdService subclass.",
+    "hClassInfo": "",
+    "gClassInfo": "WakefulBroadcastReceiver that receives FirebaseInstanceId and FirebaseMessaging events and delivers them to the application-specific FirebaseInstanceIdService subclass.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceIdReceiver",
+    "methods": [
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceIdReceiver.ExtensionInstanceIdReceiver(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of ExtensionInstanceIdReceiver with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceIdReceiver.onReceive(android.content.Context,android.content.Intent)",
+        "descriptions": "Called when it receives FirebaseInstanceId and FirebaseMessaging events.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.iid.FirebaseInstanceIdReceiver.onReceive(android.content.Context,android.content.Intent)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceIdReceiver#public-void-onreceive-context-context,-intent-intent",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is context"
+          },
+          {
+            "name": "param1",
+            "descriptions": "the intent that contains FirebaseInstanceId and FirebaseMessaging events"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceIdReceiver.setGInstance(java.lang.Object)",
+        "descriptions": "set the gms instance for the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is gInstance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceIdReceiver.setHInstance(java.lang.Object)",
+        "descriptions": "set the hms instance for the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is hInstance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceIdReceiver.getGInstance()",
+        "descriptions": "get the gms instance from the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [],
+        "retType": "java.lang.Object",
+        "retDescription": "this param is gInstance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceIdReceiver.getHInstance()",
+        "descriptions": "get the hms instance from the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [],
+        "retType": "java.lang.Object",
+        "retDescription": "this param is hInstance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceIdReceiver.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.iid.ExtensionInstanceIdReceiver.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.iid.ExtensionInstanceIdReceiver",
+        "retDescription": "casted ExtensionInstanceIdReceiver object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceIdReceiver.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.f.iid.ExtensionInstanceId": {
+    "gClassName": "com.google.firebase.iid.FirebaseInstanceId",
+    "hClassName": "com.huawei.hms.aaid.HmsInstanceId",
+    "xClassInfo": "Instance ID provides a unique identifier for each app instance and a mechanism to authenticate and authorize actions(example: sending FCM messages).",
+    "hClassInfo": "Provides methods for obtaining the AAID of an app and obtaining tokens required for accessing HUAWEI Push Kit.",
+    "gClassInfo": "Firebase Instance ID provides a unique identifier for each app instance and a mechanism to authenticate and authorize actions(example: sending FCM messages).",
+    "hClassUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId",
+    "methods": [
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.getInstance(android.content.Context)",
+        "descriptions": "Returns an instance of this class.",
+        "hName": "com.huawei.hms.aaid.HmsInstanceId.getInstance(android.content.Context)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section393712230274",
+        "gName": "com.google.firebase.iid.FirebaseInstanceId.getInstance()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-static-firebaseinstanceid-getinstance",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "context the param should be instanceof android content Context"
+          }
+        ],
+        "retType": "org.xms.f.iid.ExtensionInstanceId",
+        "retDescription": "the return object is ExtensionInstanceId",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.ExtensionInstanceId(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of ExtensionInstanceId with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.getInstance()",
+        "descriptions": "Returns an instance of this class.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.iid.FirebaseInstanceId.getInstance()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-static-firebaseinstanceid-getinstance",
+        "params": [],
+        "retType": "org.xms.f.iid.ExtensionInstanceId",
+        "retDescription": "ExtensionInstanceId instance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.getInstance(org.xms.f.ExtensionApp)",
+        "descriptions": "Returns an instance for the given FirebaseApp.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.iid.FirebaseInstanceId.getInstance(com.google.firebase.FirebaseApp)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-static-firebaseinstanceid-getinstance-firebaseapp-app",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "FirebaseApp instance"
+          }
+        ],
+        "retType": "org.xms.f.iid.ExtensionInstanceId",
+        "retDescription": "ExtensionInstanceId instance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.getInstanceId()",
+        "descriptions": "Returns the ID and automatically generated token for this Firebase project.",
+        "hName": "com.huawei.hms.aaid.HmsInstanceId.getAAID()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section14116320143111",
+        "gName": "com.google.firebase.iid.FirebaseInstanceId.getInstanceId()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-taskinstanceidresult-getinstanceid",
+        "params": [],
+        "retType": "org.xms.g.tasks.Task\u003corg.xms.f.iid.InstanceIdResult\u003e",
+        "retDescription": "Task which you can use to see the result via the InstanceIdResult which holds the ID and token",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.getId()",
+        "descriptions": "Returns a stable identifier that uniquely identifies the app instance.",
+        "hName": "com.huawei.hms.aaid.HmsInstanceId.getId()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section14850101211311",
+        "gName": "com.google.firebase.iid.FirebaseInstanceId.getId()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-string-getid",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "The identifier for the application instance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.getCreationTime()",
+        "descriptions": "Returns time when instance ID was created.",
+        "hName": "com.huawei.hms.aaid.HmsInstanceId.getCreationTime()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section333815358311",
+        "gName": "com.google.firebase.iid.FirebaseInstanceId.getCreationTime()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-long-getcreationtime",
+        "params": [],
+        "retType": "long",
+        "retDescription": "Time when instance ID was created(milliseconds since Epoch)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.deleteInstanceId()",
+        "descriptions": "Delete the Instance ID and the data associated with it.",
+        "hName": "com.huawei.hms.aaid.HmsInstanceId.deleteAAID()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section8856440133116",
+        "gName": "com.google.firebase.iid.FirebaseInstanceId.deleteInstanceId()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-void-deleteinstanceid",
+        "params": [],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": [
+          {
+            "name": "java.io.IOException",
+            "descriptions": "if the request fails"
+          }
+        ]
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.getToken()",
+        "descriptions": "Returns the automatically generated token for the default Firebase project.",
+        "hName": "com.huawei.hms.aaid.HmsInstanceId.getToken()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section167326341163",
+        "gName": "com.google.firebase.iid.FirebaseInstanceId.getToken()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-string-gettoken",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the master token or null if the token is not yet available",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.getToken(java.lang.String,java.lang.String)",
+        "descriptions": "Returns a token that authorizes a sender ID to perform an action on behalf of the application identified by Instance ID.",
+        "hName": "com.huawei.hms.aaid.HmsInstanceId.getToken(java.lang.String,java.lang.String)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section1796315281618",
+        "gName": "com.google.firebase.iid.FirebaseInstanceId.getToken(java.lang.String,java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-string-gettoken-string-senderid,-string-scope",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "ID of the sender that is authorized by the token in GMS AppId in HMS"
+          },
+          {
+            "name": "param1",
+            "descriptions": "Action authorized for senderId Set the scope to FCM to get authorization to send messages via FirebaseMessaging"
+          }
+        ],
+        "retType": "java.lang.String",
+        "retDescription": "a token that can identify and authorize the instance of the application on the device",
+        "throwExceptions": [
+          {
+            "name": "java.io.IOException",
+            "descriptions": "if the request fails"
+          }
+        ]
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.deleteToken(java.lang.String,java.lang.String)",
+        "descriptions": "Revokes access to a scope(action)for a sender ID previously authorized by getToken().",
+        "hName": "com.huawei.hms.aaid.HmsInstanceId.deleteToken(java.lang.String,java.lang.String)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5#EN-US_TOPIC_0000001050255634__section1142844881810",
+        "gName": "com.google.firebase.iid.FirebaseInstanceId.deleteToken(java.lang.String,java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-void-deletetoken-string-senderid,-string-scope",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "ID of the sender that is authorized by the token in GMS AppId in HMS"
+          },
+          {
+            "name": "param1",
+            "descriptions": "Action authorized for senderId Set the scope to FCM to get authorization to send messages via FirebaseMessaging"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": [
+          {
+            "name": "java.io.IOException",
+            "descriptions": "if the request fails"
+          }
+        ]
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.iid.ExtensionInstanceId.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.iid.ExtensionInstanceId",
+        "retDescription": "casted ExtensionInstanceId object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.ExtensionInstanceId.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.f.iid.InstanceIdResult": {
+    "gClassName": "com.google.firebase.iid.InstanceIdResult",
+    "hClassName": "com.huawei.hms.aaid.entity.AAIDResult",
+    "xClassInfo": "Result object obtained from requests for an Instance ID and token.",
+    "hClassInfo": "Bears and returns AAIDs obtained through the getAAID() method in HmsInstanceId You can call the getId() method in the AAIDResult class to obtain an AAID.",
+    "gClassInfo": "Result object obtained from requests for an Instance ID and token.",
+    "hClassUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/aaidresult-0000001050255642-V5",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/InstanceIdResult",
+    "methods": [
+      {
+        "methodName": "org.xms.f.iid.InstanceIdResult.getId()",
+        "descriptions": "Returns the stable identifier that uniquely identifies this application instance.",
+        "hName": "com.huawei.hms.aaid.entity.AAIDResult.getId()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/aaidresult-0000001050255642-V5#EN-US_TOPIC_0000001050255642__section1788692510237",
+        "gName": "com.google.firebase.iid.InstanceIdResult.getId()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/InstanceIdResult#public-abstract-string-getid",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the stable identifier",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.InstanceIdResult.getToken()",
+        "descriptions": "Returns the token that authorizes performing actions on behalf of this application instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.iid.InstanceIdResult.getToken()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/iid/InstanceIdResult#public-abstract-string-gettoken",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the token that authorizes performing actions on behalf of this application instance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.InstanceIdResult.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.iid.InstanceIdResult.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.iid.InstanceIdResult",
+        "retDescription": "casted InstanceIdResult object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.iid.InstanceIdResult.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.f.messaging.RemoteMessage.Notification": {
+    "gClassName": "com.google.firebase.messaging.RemoteMessage.Notification",
+    "hClassName": "com.huawei.hms.push.RemoteMessage.Notification",
+    "xClassInfo": "xms Remote Firebase notification details.",
+    "hClassInfo": "An internal class of the RemoteMessage class that indicates the notification message.",
+    "gClassInfo": "Remote Firebase notification details.",
+    "hClassUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification",
+    "methods": [
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.Notification(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of Notification with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getBody()",
+        "descriptions": "Gets the body of the notification, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getBody()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section0293164418620",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getBody()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string-getbody",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the body of the notification",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getBodyLocalizationArgs()",
+        "descriptions": "Gets the variable string values to be used as format specifiers in the body localization key, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getBodyLocalizationArgs()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section1595311167",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getBodyLocalizationArgs()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string[]-getbodylocalizationargs",
+        "params": [],
+        "retType": "java.lang.String[]",
+        "retDescription": "the variable string values to be used as format specifiers in the body localization key, or null if not set ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getBodyLocalizationKey()",
+        "descriptions": "Gets the string resource name to use to localize the body of the notification, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getBodyLocalizationKey()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section1299714151664",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getBodyLocalizationKey()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string-getbodylocalizationkey",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the string resource name to use to localize the body of the notification, or null if not set ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getChannelId()",
+        "descriptions": "Gets the channel id from the notification, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getChannelId()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section2399714185",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getChannelId()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string-getchannelid",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the channel id from the notification, or null if not set ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getClickAction()",
+        "descriptions": "Gets the action to be performed on the user opening the notification, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getClickAction()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section48145015817",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getClickAction()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string-getclickaction",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the action to be performed on the user opening the notification, or null if not set ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getColor()",
+        "descriptions": "Gets the color of the notification, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getColor()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section1195064419719",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getColor()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string-getcolor",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the color of the notification, or null if not set ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getDefaultLightSettings()",
+        "descriptions": "Gets whether or not the notification uses the default notification light settings.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.isDefaultLight()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section147508181697",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getDefaultLightSettings()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-boolean-getdefaultlightsettings",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "true if it is set to true; Otherwise false ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getDefaultSound()",
+        "descriptions": "Gets whether or not the notification uses the default sound.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.isDefaultSound()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section83251437591",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getDefaultSound()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-boolean-getdefaultsound",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "true if it is set to true; Otherwise false ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getDefaultVibrateSettings()",
+        "descriptions": "Gets whether or not the notification uses the default vibrate pattern.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.isDefaultVibrate()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section7638452599",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getDefaultVibrateSettings()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-boolean-getdefaultvibratesettings",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "true if it is set to true; Otherwise false ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getEventTime()",
+        "descriptions": "Gets the eventTime from the notification.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getWhen()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section43202881017",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getEventTime()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-long-geteventtime",
+        "params": [],
+        "retType": "java.lang.Long",
+        "retDescription": "the eventTime from the notification ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getIcon()",
+        "descriptions": "Gets the image resource name of the icon of the notification, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getIcon()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section673585920617",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getIcon()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string-geticon",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the image resource name of the icon of the notification, or null if not set ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getImageUrl()",
+        "descriptions": "Gets the image URL from the notification.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getImageUrl()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section1901430885",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getImageUrl()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-uri-getimageurl",
+        "params": [],
+        "retType": "android.net.Uri",
+        "retDescription": "The image URL if it was set, null otherwise ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getLightSettings()",
+        "descriptions": "Gets the lightSettings from the notification.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getLightSettings()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section265272512102",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getLightSettings()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-int[]-getlightsettings",
+        "params": [],
+        "retType": "int[]",
+        "retDescription": "the lightSettings from the notification ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getLink()",
+        "descriptions": "Gets the deep link from the notification, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getLink()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section18340165018815",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getLink()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-uri-getlink",
+        "params": [],
+        "retType": "android.net.Uri",
+        "retDescription": "the deep link from the notification, or null if not set ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getLocalOnly()",
+        "descriptions": "Gets whether or not this notification is only relevant to the current device.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getLocalOnly()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-boolean-getlocalonly",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "true if it is set to true; Otherwise false ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getNotificationCount()",
+        "descriptions": "Gets the notificationCount from the notification.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getBadgeNumber()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section10355156151010",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getNotificationCount()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-integer-getnotificationcount",
+        "params": [],
+        "retType": "java.lang.Integer",
+        "retDescription": "the notificationCount from the notification ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getNotificationPriority()",
+        "descriptions": "Gets the notificationPriority from the notification.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getImportance()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section13184843141118",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getNotificationPriority()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-integer-getnotificationpriority",
+        "params": [],
+        "retType": "java.lang.Integer",
+        "retDescription": "the notificationPriority from the notification ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getSound()",
+        "descriptions": "Gets the sound to be played when the notification is shown, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getSound()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section963611412714",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getSound()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string-getsound",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the sound to be played when the notification is shown, or null if not set ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getSticky()",
+        "descriptions": "Gets whether or not the notification is considered sticky.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.isAutoCancel()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section1388462315113",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getSticky()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-boolean-getsticky",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "true if it is set to true; Otherwise false ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getTag()",
+        "descriptions": "Gets the tag of the notification, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getTag()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section68320303716",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getTag()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string-gettag",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the tag of the notification, or null if not set ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getTicker()",
+        "descriptions": "Gets the ticker text from the notification.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getTicker()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section49128181210",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getTicker()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string-getticker",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the ticker text from the notification ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getTitle()",
+        "descriptions": "Gets the title of the notification, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getTitle()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section1092415181551",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getTitle()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string-gettitle",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the title of the notification, or null if not set ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getTitleLocalizationArgs()",
+        "descriptions": "Gets the variable string values to be used as format specifiers in the title localization key, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getTitleLocalizationArgs()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section7477125819511",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getTitleLocalizationArgs()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string[]-gettitlelocalizationargs",
+        "params": [],
+        "retType": "java.lang.String[]",
+        "retDescription": "the variable string values to be used as format specifiers in the title localization key, or null if not set ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getTitleLocalizationKey()",
+        "descriptions": "Gets the string resource name to use to localize the title of the notification, or null if not set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getTitleLocalizationKey()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section193261440453",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getTitleLocalizationKey()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-string-gettitlelocalizationkey",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the string resource name to use to localize the title of the notification, or null if not set ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getVibrateTimings()",
+        "descriptions": "Gets the vibrateTimings from the notification.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getVibrateConfig()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section16541819161217",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getVibrateTimings()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-long[]-getvibratetimings",
+        "params": [],
+        "retType": "long[]",
+        "retDescription": "the vibrateTimings from the notification ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.getVisibility()",
+        "descriptions": "Gets the visibility from the notification.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Notification.getVisibility()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5#EN-US_TOPIC_0000001050255662__section1213193517127",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Notification.getVisibility()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#public-integer-getvisibility",
+        "params": [],
+        "retType": "java.lang.Integer",
+        "retDescription": "the visibility from the notification ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.messaging.RemoteMessage.Notification.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.messaging.RemoteMessage.Notification",
+        "retDescription": "casted RemoteMessage Notification object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Notification.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.f.messaging.ExtensionMessaging": {
+    "gClassName": "com.google.firebase.messaging.FirebaseMessaging",
+    "hClassName": "com.huawei.hms.push.HmsMessaging",
+    "xClassInfo": "Top level Cloud Messaging singleton that provides methods for subscribing to topics and sending upstream messages.",
+    "hClassInfo": "A class that provides methods for subscribing to topics and enables or disables the function of receiving notification messages.",
+    "gClassInfo": "Top level Firebase Cloud Messaging singleton that provides methods for subscribing to topics and sending upstream messages.",
+    "hClassUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging",
+    "methods": [
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.ExtensionMessaging(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of ExtensionMessaging with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.getINSTANCE_ID_SCOPE()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.push.HmsMessaging.DEFAULT_TOKEN_SCOPE",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section273210584410",
+        "gName": "com.google.firebase.messaging.FirebaseMessaging.INSTANCE_ID_SCOPE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-static-final-string-instance_id_scope",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Specifies scope used in obtaining a registration token when calling getToken()",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.getInstance(android.content.Context)",
+        "descriptions": "Obtains an instance.",
+        "hName": "com.huawei.hms.push.HmsMessaging.getInstance(android.content.Context)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section13628131719466",
+        "gName": "com.google.firebase.messaging.FirebaseMessaging.getInstance()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-static-synchronized-firebasemessaging-getinstance",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is Context"
+          }
+        ],
+        "retType": "org.xms.f.messaging.ExtensionMessaging",
+        "retDescription": "the return object ExtensionMessaging instance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.getInstance()",
+        "descriptions": "Obtains an instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.FirebaseMessaging.getInstance()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-static-synchronized-firebasemessaging-getinstance",
+        "params": [],
+        "retType": "org.xms.f.messaging.ExtensionMessaging",
+        "retDescription": "ExtensionMessaging instance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.setDeliveryMetricsExportToBigQuery(boolean)",
+        "descriptions": "Enables or disables Firebase Cloud Messaging message delivery metrics export to BigQuery.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.FirebaseMessaging.setDeliveryMetricsExportToBigQuery(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-void-setdeliverymetricsexporttobigquery-boolean-enable",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is boolean"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.deliveryMetricsExportToBigQueryEnabled()",
+        "descriptions": "Determines whether Firebase Cloud Messaging exports message delivery metrics to BigQuery.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.FirebaseMessaging.deliveryMetricsExportToBigQueryEnabled()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#deliveryMetricsExportToBigQueryEnabled()",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "true if Firebase Cloud Messaging exports message delivery metrics to BigQuery ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.isAutoInitEnabled()",
+        "descriptions": "Determines whether FCM auto-initialization is enabled or disabled.",
+        "hName": "com.huawei.hms.push.HmsMessaging.isAutoInitEnabled()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section768215326488",
+        "gName": "com.google.firebase.messaging.FirebaseMessaging.isAutoInitEnabled()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-boolean-isautoinitenabled",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "true if auto-init is enabled and false if auto-init is disabled ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.send(org.xms.f.messaging.RemoteMessage)",
+        "descriptions": "Sends message upstream to your app server.",
+        "hName": "com.huawei.hms.push.HmsMessaging.send(com.huawei.hms.push.RemoteMessage)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section17106147135813",
+        "gName": "com.google.firebase.messaging.FirebaseMessaging.send(com.google.firebase.messaging.RemoteMessage)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-void-send-remotemessage-message",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the param is RemoteMessage"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.setAutoInitEnabled(boolean)",
+        "descriptions": "Enables or disables auto-initialization of Firebase Cloud Messaging.",
+        "hName": "com.huawei.hms.push.HmsMessaging.setAutoInitEnabled(boolean)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section19198183125511",
+        "gName": "com.google.firebase.messaging.FirebaseMessaging.setAutoInitEnabled(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-void-setautoinitenabled-boolean-enable",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Whether Firebase Cloud Messaging should auto-initialize"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.subscribeToTopic(java.lang.String)",
+        "descriptions": "subscribe To Topic.",
+        "hName": "com.huawei.hms.push.HmsMessaging.subscribe(java.lang.String)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section1222313413551",
+        "gName": "com.google.firebase.messaging.FirebaseMessaging.subscribeToTopic(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-taskvoid-subscribetotopic-string-topic",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "The name of the topic to subscribe"
+          }
+        ],
+        "retType": "org.xms.g.tasks.Task\u003cjava.lang.Void\u003e",
+        "retDescription": "A task that will be completed when the topic has been successfully subscribed to",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.unsubscribeFromTopic(java.lang.String)",
+        "descriptions": "Unsubscribes from topic in the background.",
+        "hName": "com.huawei.hms.push.HmsMessaging.unsubscribe(java.lang.String)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section7598115275611",
+        "gName": "com.google.firebase.messaging.FirebaseMessaging.unsubscribeFromTopic(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-taskvoid-unsubscribefromtopic-string-topic",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "The name of the topic to unsubscribe from"
+          }
+        ],
+        "retType": "org.xms.g.tasks.Task\u003cjava.lang.Void\u003e",
+        "retDescription": "A task that will be completed when the topic has been successfully unsubscribed from ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.messaging.ExtensionMessaging.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.messaging.ExtensionMessaging",
+        "retDescription": "casted ExtensionMessaging object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessaging.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.f.messaging.RemoteMessage": {
+    "gClassName": "com.google.firebase.messaging.RemoteMessage",
+    "hClassName": "com.huawei.hms.push.RemoteMessage",
+    "xClassInfo": "A remote Message.Messages will be received via onMessageReceived(RemoteMessage)and can be sent via send(RemoteMessage).",
+    "hClassInfo": "A message entity class. An app calls the onMessageReceived(RemoteMessage) method in HmsMessageService to receive messages pushed by the server and calls the send(RemoteMessage) method in HmsMessaging to send uplink messages.",
+    "gClassInfo": "A remote Firebase Message.Messages will be received via onMessageReceived(RemoteMessage)and can be sent via send(RemoteMessage).",
+    "hClassUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage",
+    "methods": [
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.RemoteMessage(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of RemoteMessage with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getPRIORITY_HIGH()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.push.RemoteMessage.PRIORITY_HIGH",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section162751911413",
+        "gName": "com.google.firebase.messaging.RemoteMessage.PRIORITY_HIGH",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-static-final-int-priority_high",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Constant Value",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getPRIORITY_NORMAL()",
+        "descriptions": "return the constant value.",
+        "hName": "com.huawei.hms.push.RemoteMessage.PRIORITY_NORMAL",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section368914251048",
+        "gName": "com.google.firebase.messaging.RemoteMessage.PRIORITY_NORMAL",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-static-final-int-priority_normal",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Constant Value",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getPRIORITY_UNKNOWN()",
+        "descriptions": "Constant Value0.",
+        "hName": "com.huawei.hms.push.RemoteMessage.PRIORITY_UNKNOWN",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section104140235414",
+        "gName": "com.google.firebase.messaging.RemoteMessage.PRIORITY_UNKNOWN",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-static-final-int-priority_unknown",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Constant Value",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getCollapseKey()",
+        "descriptions": "Gets the collapse key of the message.",
+        "hName": "com.huawei.hms.push.RemoteMessage.getCollapseKey()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section159361469",
+        "gName": "com.google.firebase.messaging.RemoteMessage.getCollapseKey()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-string-getcollapsekey",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "The collapse key",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getData()",
+        "descriptions": "Gets the message payload data.",
+        "hName": "com.huawei.hms.push.RemoteMessage.getDataOfMap()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section164939120564",
+        "gName": "com.google.firebase.messaging.RemoteMessage.getData()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-mapstring,-string-getdata",
+        "params": [],
+        "retType": "java.util.Map\u003cjava.lang.String,java.lang.String\u003e",
+        "retDescription": "A map of the message payload",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getFrom()",
+        "descriptions": "Get the sender of this message.",
+        "hName": "com.huawei.hms.push.RemoteMessage.getFrom()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section41231931104710",
+        "gName": "com.google.firebase.messaging.RemoteMessage.getFrom()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-string-getfrom",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "The message sender",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getMessageId()",
+        "descriptions": "Gets the message\u0027s ID.",
+        "hName": "com.huawei.hms.push.RemoteMessage.getMessageId()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section1933912164816",
+        "gName": "com.google.firebase.messaging.RemoteMessage.getMessageId()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-string-getmessageid",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "The message ID",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getMessageType()",
+        "descriptions": "Gets the type of message.",
+        "hName": "com.huawei.hms.push.RemoteMessage.getMessageType()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section653130184812",
+        "gName": "com.google.firebase.messaging.RemoteMessage.getMessageType()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-string-getmessagetype",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "The message type",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getNotification()",
+        "descriptions": "Gets the notification data from the message if set.",
+        "hName": "com.huawei.hms.push.RemoteMessage.getNotification()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section816573816551",
+        "gName": "com.google.firebase.messaging.RemoteMessage.getNotification()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-remotemessage.notification-getnotification",
+        "params": [],
+        "retType": "org.xms.f.messaging.RemoteMessage.Notification",
+        "retDescription": "The message notification or null",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getOriginalPriority()",
+        "descriptions": "Gets the original priority of message.",
+        "hName": "com.huawei.hms.push.RemoteMessage.getOriginalUrgency()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section028925611313",
+        "gName": "com.google.firebase.messaging.RemoteMessage.getOriginalPriority()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-int-getoriginalpriority",
+        "params": [],
+        "retType": "int",
+        "retDescription": "The original message priority",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getPriority()",
+        "descriptions": "Gets the priority of message as delivered. This may be lower than the priority originally requested.",
+        "hName": "com.huawei.hms.push.RemoteMessage.getUrgency()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section14854816165518",
+        "gName": "com.google.firebase.messaging.RemoteMessage.getPriority()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-int-getpriority",
+        "params": [],
+        "retType": "int",
+        "retDescription": "The message priority as delivered",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getSentTime()",
+        "descriptions": "Gets the time in milliseconds from the Epoch that the message was sent.",
+        "hName": "com.huawei.hms.push.RemoteMessage.getSentTime()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section9257184819485",
+        "gName": "com.google.firebase.messaging.RemoteMessage.getSentTime()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-long-getsenttime",
+        "params": [],
+        "retType": "long",
+        "retDescription": "The time that the message was sent",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getTo()",
+        "descriptions": "Gets the message destination.",
+        "hName": "com.huawei.hms.push.RemoteMessage.getTo()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section1553225218479",
+        "gName": "com.google.firebase.messaging.RemoteMessage.getTo()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-string-getto",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the message destination",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.getTtl()",
+        "descriptions": "Gets the message time to live(TTL)in seconds.",
+        "hName": "com.huawei.hms.push.RemoteMessage.getTtl()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5#EN-US_TOPIC_0000001050171874__section12778237175419",
+        "gName": "com.google.firebase.messaging.RemoteMessage.getTtl()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-int-getttl",
+        "params": [],
+        "retType": "int",
+        "retDescription": "The message TTL",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.writeToParcel(android.os.Parcel,int)",
+        "descriptions": "Used in serialization and deserialization.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.RemoteMessage.writeToParcel(android.os.Parcel,int)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#public-void-writetoparcel-parcel-out,-int-flags",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is android os parcel"
+          },
+          {
+            "name": "param1",
+            "descriptions": "this param is int"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.describeContents()",
+        "descriptions": "Used in serialization and deserialization.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [],
+        "retType": "int",
+        "retDescription": "the return is int",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.messaging.RemoteMessage.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.messaging.RemoteMessage",
+        "retDescription": "casted RemoteMessage object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": [
+      {
+        "fieldName": "android.os.Parcelable.Creator.CREATOR",
+        "descriptions": "a public CREATOR field that generates instances of your Parcelable class from a Parcel.",
+        "hName": "com.huawei.hms.push.RemoteMessage.CREATOR",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5",
+        "gName": "com.google.firebase.messaging.RemoteMessage.CREATOR",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage"
+      }
+    ]
+  },
+  "org.xms.f.messaging.SendException": {
+    "gClassName": "com.google.firebase.messaging.SendException",
+    "hClassName": "com.huawei.hms.push.SendException",
+    "xClassInfo": "Message send exception.",
+    "hClassInfo": "Hms message send exception.",
+    "gClassInfo": "Firebase message send exception.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException",
+    "methods": [
+      {
+        "methodName": "org.xms.f.messaging.SendException.SendException(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of SendException with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.SendException.getERROR_INVALID_PARAMETERS()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.SendException.ERROR_INVALID_PARAMETERS",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException#public-static-final-int-error_invalid_parameters",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Message was sent with invalid parameters ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.SendException.getERROR_SIZE()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.SendException.ERROR_SIZE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException#public-static-final-int-error_size",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Message exceeded the maximum payload size ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.SendException.getERROR_TOO_MANY_MESSAGES()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.SendException.ERROR_TOO_MANY_MESSAGES",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException#public-static-final-int-error_too_many_messages",
+        "params": [],
+        "retType": "int",
+        "retDescription": "App has too many pending messages so this one was dropped ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.SendException.getERROR_TTL_EXCEEDED()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.SendException.ERROR_TTL_EXCEEDED",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException#public-static-final-int-error_ttl_exceeded",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Message time to live(TTL) was exceeded before the message could be sent ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.SendException.getERROR_UNKNOWN()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.SendException.ERROR_UNKNOWN",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException#public-static-final-int-error_unknown",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Unknown error",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.SendException.getErrorCode()",
+        "descriptions": "get Error Code.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.SendException.getErrorCode()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException#public-int-geterrorcode",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Error Code of the SendException",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.SendException.setGInstance(java.lang.Object)",
+        "descriptions": "set the gms instance for the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is gInstance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.SendException.setHInstance(java.lang.Object)",
+        "descriptions": "set the hms instance for the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is hInstance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.SendException.getGInstance()",
+        "descriptions": "get the gms instance from the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [],
+        "retType": "java.lang.Object",
+        "retDescription": "this param is gInstance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.SendException.getHInstance()",
+        "descriptions": "get the hms instance from the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [],
+        "retType": "java.lang.Object",
+        "retDescription": "this param is hInstance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.SendException.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.messaging.SendException.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.messaging.SendException",
+        "retDescription": "casted SendException object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.SendException.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.f.messaging.RemoteMessage.Builder": {
+    "gClassName": "com.google.firebase.messaging.RemoteMessage.Builder",
+    "hClassName": "com.huawei.hms.push.RemoteMessage.Builder",
+    "xClassInfo": "xms Builder object for constructing RemoteMessage instances.",
+    "hClassInfo": "Constructs a RemoteMessage instance.",
+    "gClassInfo": "Builder object for constructing RemoteMessage instances.",
+    "hClassUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-builder-0000001050413831-V5",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder",
+    "methods": [
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Builder.Builder(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of Builder with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Builder.Builder(java.lang.String)",
+        "descriptions": "An argument constructor of the RemoteMessage.Builder class.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Builder.Builder(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#public-remotemessage.builder-string-to",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "The destination of the message"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Builder.addData(java.lang.String,java.lang.String)",
+        "descriptions": "Adds a data key value pair to the message.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Builder.addData(java.lang.String,java.lang.String)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-builder-0000001050413831-V5#EN-US_TOPIC_0000001050413831__section1147917462010",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Builder.addData(java.lang.String,java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#public-remotemessage.builder-adddata-string-key,-string-value",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is key"
+          },
+          {
+            "name": "param1",
+            "descriptions": "this param is value"
+          }
+        ],
+        "retType": "org.xms.f.messaging.RemoteMessage.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Builder.build()",
+        "descriptions": "Build a RemoteMessage instance.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Builder.build()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-builder-0000001050413831-V5#EN-US_TOPIC_0000001050413831__section2596125719512",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Builder.build()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#public-remotemessage-build",
+        "params": [],
+        "retType": "org.xms.f.messaging.RemoteMessage",
+        "retDescription": "RemoteMessage instance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Builder.clearData()",
+        "descriptions": "Clears the message data.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Builder.clearData()",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-builder-0000001050413831-V5#EN-US_TOPIC_0000001050413831__section1368753117116",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Builder.clearData()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#public-remotemessage.builder-cleardata",
+        "params": [],
+        "retType": "org.xms.f.messaging.RemoteMessage.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Builder.setCollapseKey(java.lang.String)",
+        "descriptions": "Sets the collapse key of the message.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Builder.setCollapseKey(java.lang.String)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-builder-0000001050413831-V5#EN-US_TOPIC_0000001050413831__section62580523210",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Builder.setCollapseKey(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#public-remotemessage.builder-setcollapsekey-string-collapsekey",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the collapse key of the message"
+          }
+        ],
+        "retType": "org.xms.f.messaging.RemoteMessage.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Builder.setData(java.util.Map\u003cjava.lang.String,java.lang.String\u003e)",
+        "descriptions": "Sets the message data to the contents of data.Any existing data will be removed.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Builder.setData(java.util.Map\u003cjava.lang.String,java.lang.String\u003e)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-builder-0000001050413831-V5#EN-US_TOPIC_0000001050413831__section1872911614112",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Builder.setData(java.util.Map\u003cjava.lang.String,java.lang.String\u003e)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#public-remotemessage.builder-setdata-mapstring,-string-data",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Map data provided by Java"
+          }
+        ],
+        "retType": "org.xms.f.messaging.RemoteMessage.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Builder.setMessageId(java.lang.String)",
+        "descriptions": "Sets the messages ID.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Builder.setMessageId(java.lang.String)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-builder-0000001050413831-V5#EN-US_TOPIC_0000001050413831__section685355220114",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Builder.setMessageId(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#public-remotemessage.builder-setmessageid-string-messageid",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "ID of the message"
+          }
+        ],
+        "retType": "org.xms.f.messaging.RemoteMessage.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Builder.setMessageType(java.lang.String)",
+        "descriptions": "Sets the type of message.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Builder.setMessageType(java.lang.String)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-builder-0000001050413831-V5#EN-US_TOPIC_0000001050413831__section882015111525",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Builder.setMessageType(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#public-remotemessage.builder-setmessagetype-string-messagetype",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the type of message"
+          }
+        ],
+        "retType": "org.xms.f.messaging.RemoteMessage.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Builder.setTtl(int)",
+        "descriptions": "Sets the message time to live in seconds.",
+        "hName": "com.huawei.hms.push.RemoteMessage.Builder.setTtl(int)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-builder-0000001050413831-V5#EN-US_TOPIC_0000001050413831__section152265331222",
+        "gName": "com.google.firebase.messaging.RemoteMessage.Builder.setTtl(int)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#public-remotemessage.builder-setttl-int-ttl",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Maximum cache duration of an offline message set"
+          }
+        ],
+        "retType": "org.xms.f.messaging.RemoteMessage.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Builder.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.messaging.RemoteMessage.Builder.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.messaging.RemoteMessage.Builder",
+        "retDescription": "casted RemoteMessage Builder object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.RemoteMessage.Builder.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.f.messaging.ExtensionMessagingService": {
+    "gClassName": "com.google.firebase.messaging.FirebaseMessagingService",
+    "hClassName": "com.huawei.hms.push.HmsMessageService",
+    "xClassInfo": "Base class for receiving messages from app server.",
+    "hClassInfo": "Basic class of HUAWEI Push Kit for receiving downlink messages or updated tokens.",
+    "gClassInfo": "Base class for receiving messages from Firebase Cloud Messaging.",
+    "hClassUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/hmsmessageservice-0000001050173839-V5",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService",
+    "methods": [
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessagingService.ExtensionMessagingService()",
+        "descriptions": "Constructor of ExtensionMessagingService.",
+        "hName": "com.huawei.hms.push.HmsMessageService.HmsMessageService()",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.FirebaseMessagingService.FirebaseMessagingService()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#public-firebasemessagingservice",
+        "params": [],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessagingService.onMessageReceived(org.xms.f.messaging.RemoteMessage)",
+        "descriptions": "Called when a message is received.",
+        "hName": "com.huawei.hms.push.HmsMessageService.onMessageReceived(com.huawei.hms.push.RemoteMessage)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hmsmessageservice-0000001050173839-V5#EN-US_TOPIC_0000001050173839__section2394629102116",
+        "gName": "com.google.firebase.messaging.FirebaseMessagingService.onMessageReceived(com.google.firebase.messaging.RemoteMessage)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#public-void-onmessagereceived-remotemessage-message",
+        "params": [
+          {
+            "name": "remoteMessage",
+            "descriptions": "Remote message that has been received"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessagingService.onMessageReceived(com.huawei.hms.push.RemoteMessage)",
+        "descriptions": "Called when a message is received.",
+        "hName": "com.huawei.hms.push.HmsMessageService.onMessageReceived(com.huawei.hms.push.RemoteMessage)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hmsmessageservice-0000001050173839-V5#EN-US_TOPIC_0000001050173839__section2394629102116",
+        "gName": "com.google.firebase.messaging.FirebaseMessagingService.onMessageReceived(com.google.firebase.messaging.RemoteMessage)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#public-void-onmessagereceived-remotemessage-message",
+        "params": [
+          {
+            "name": "remoteMessage",
+            "descriptions": "Remote message that has been received"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessagingService.onMessageReceived(com.google.firebase.messaging.RemoteMessage)",
+        "descriptions": "Called when a message is received.",
+        "hName": "com.huawei.hms.push.HmsMessageService.onMessageReceived(com.huawei.hms.push.RemoteMessage)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hmsmessageservice-0000001050173839-V5#EN-US_TOPIC_0000001050173839__section2394629102116",
+        "gName": "com.google.firebase.messaging.FirebaseMessagingService.onMessageReceived(com.google.firebase.messaging.RemoteMessage)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#public-void-onmessagereceived-remotemessage-message",
+        "params": [
+          {
+            "name": "remoteMessage",
+            "descriptions": "Remote message that has been received"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessagingService.onDeletedMessages()",
+        "descriptions": "Called when the Cloud Messaging server deletes pending messages.",
+        "hName": "com.huawei.hms.push.HmsMessageService.onDeletedMessages()",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.FirebaseMessagingService.onDeletedMessages()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#public-void-ondeletedmessages",
+        "params": [],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessagingService.onMessageSent(java.lang.String)",
+        "descriptions": "Called after an upstream message is successfully sent.",
+        "hName": "com.huawei.hms.push.HmsMessageService.onMessageSent(java.lang.String)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hmsmessageservice-0000001050173839-V5#EN-US_TOPIC_0000001050173839__section172125618218",
+        "gName": "com.google.firebase.messaging.FirebaseMessagingService.onMessageSent(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#public-void-onmessagesent-string-msgid",
+        "params": [
+          {
+            "name": "var1",
+            "descriptions": "Message ID"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessagingService.onSendError(java.lang.String,java.lang.Exception)",
+        "descriptions": "Called when there was an error sending an upstream message.",
+        "hName": "com.huawei.hms.push.HmsMessageService.onSendError(java.lang.String,java.lang.Exception)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hmsmessageservice-0000001050173839-V5#EN-US_TOPIC_0000001050173839__section63844313230",
+        "gName": "com.google.firebase.messaging.FirebaseMessagingService.onSendError(java.lang.String,java.lang.Exception)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#public-void-onsenderror-string-msgid,-exception-exception",
+        "params": [
+          {
+            "name": "var1",
+            "descriptions": "Message ID"
+          },
+          {
+            "name": "var2",
+            "descriptions": "description of the error, typically a SendException"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessagingService.onNewToken(java.lang.String)",
+        "descriptions": "Called when a new token for the default Firebase project is generated.This is invoked after app install when a token is first generated, and again if the token changes.",
+        "hName": "com.huawei.hms.push.HmsMessageService.onNewToken(java.lang.String)",
+        "hmsInfo": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hmsmessageservice-0000001050173839-V5#EN-US_TOPIC_0000001050173839__section814414561477",
+        "gName": "com.google.firebase.messaging.FirebaseMessagingService.onNewToken(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#public-void-onnewtoken-string-token",
+        "params": [
+          {
+            "name": "var1",
+            "descriptions": "The token used for sending messages to this application instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessagingService.onBind(android.content.Intent)",
+        "descriptions": "Return the communication channel to the service.",
+        "hName": "com.huawei.hms.push.HmsMessageService.onBind(android.content.Intent)",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.messaging.FirebaseMessagingService.onBind(android.content.Intent)",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "intent",
+            "descriptions": "The Intent that was used to bind to this service, as given to Context.bindService"
+          }
+        ],
+        "retType": "android.os.IBinder",
+        "retDescription": "an IBinder through which clients can call on to the service",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessagingService.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.messaging.ExtensionMessagingService.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.messaging.ExtensionMessagingService",
+        "retDescription": "casted ExtensionMessagingService object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.messaging.ExtensionMessagingService.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  }
+}

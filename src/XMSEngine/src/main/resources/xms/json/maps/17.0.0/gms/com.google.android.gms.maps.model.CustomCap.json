@@ -1,0 +1,149 @@
+{
+  "gName": "com.google.android.gms.maps.model.CustomCap",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.maps.model.Cap",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "CustomCap",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.model.BitmapDescriptor"
+          },
+          {
+            "pos": "1",
+            "type": "float"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "CustomCap",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.maps.model.BitmapDescriptor"
+          },
+          {
+            "pos": "1",
+            "type": "float"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "CustomCap",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.model.BitmapDescriptor"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "CustomCap",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.maps.model.BitmapDescriptor"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "name": "bitmapDescriptor",
+        "modifiers": [
+          "final"
+        ],
+        "type": "com.google.android.gms.maps.model.BitmapDescriptor",
+        "value": ""
+      },
+      "h": {
+        "name": "bitmapDescriptor",
+        "modifiers": [
+          "final"
+        ],
+        "type": "com.huawei.hms.maps.model.BitmapDescriptor",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "name": "refWidth",
+        "modifiers": [
+          "final"
+        ],
+        "type": "float",
+        "value": ""
+      },
+      "h": {
+        "name": "refWidth",
+        "modifiers": [
+          "final"
+        ],
+        "type": "float",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.maps.model.CustomCap"
+}

@@ -1,0 +1,80 @@
+package org.xms.f.storage;
+
+public class UploadTask extends org.xms.f.storage.StorageTask<org.xms.f.storage.UploadTask.TaskSnapshot> {
+
+    public UploadTask(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    protected void onCanceled() {
+        java.lang.Object[] params = new java.lang.Object[0];
+        java.lang.Class[] types = new java.lang.Class[0];
+        org.xms.g.utils.Utils.invokeProtectMethod(((com.huawei.agconnect.cloud.storage.core.UploadTask) this.getHInstance()), com.huawei.agconnect.cloud.storage.core.UploadTask.class, "onCanceled", types, params);
+    }
+
+    protected void resetState() {
+        java.lang.Object[] params = new java.lang.Object[0];
+        java.lang.Class[] types = new java.lang.Class[0];
+        org.xms.g.utils.Utils.invokeProtectMethod(((com.huawei.agconnect.cloud.storage.core.UploadTask) this.getHInstance()), com.huawei.agconnect.cloud.storage.core.UploadTask.class, "resetState", types, params);
+    }
+
+    protected void schedule() {
+        java.lang.Object[] params = new java.lang.Object[0];
+        java.lang.Class[] types = new java.lang.Class[0];
+        org.xms.g.utils.Utils.invokeProtectMethod(((com.huawei.agconnect.cloud.storage.core.UploadTask) this.getHInstance()), com.huawei.agconnect.cloud.storage.core.UploadTask.class, "schedule", types, params);
+    }
+
+    public static org.xms.f.storage.UploadTask dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.f.storage.UploadTask) {
+            return ((org.xms.f.storage.UploadTask) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            com.huawei.agconnect.cloud.storage.core.UploadTask hReturn = ((com.huawei.agconnect.cloud.storage.core.UploadTask) ((org.xms.g.utils.XGettable) param0).getHInstance());
+            return new org.xms.f.storage.UploadTask(new org.xms.g.utils.XBox(hReturn));
+        }
+        return ((org.xms.f.storage.UploadTask) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.agconnect.cloud.storage.core.UploadTask;
+    }
+
+    public static class TaskSnapshot extends org.xms.f.storage.StorageTask.SnapshotBase {
+
+        public TaskSnapshot(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+
+        public long getBytesTransferred() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.UploadTask.UploadResult) this.getHInstance()).getBytesTransferred()");
+            return ((com.huawei.agconnect.cloud.storage.core.UploadTask.UploadResult) this.getHInstance()).getBytesTransferred();
+        }
+
+        public org.xms.f.storage.StorageMetadata getMetadata() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public long getTotalByteCount() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.UploadTask.UploadResult) this.getHInstance()).getTotalByteCount()");
+            return ((com.huawei.agconnect.cloud.storage.core.UploadTask.UploadResult) this.getHInstance()).getTotalByteCount();
+        }
+
+        public android.net.Uri getUploadSessionUri() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public static org.xms.f.storage.UploadTask.TaskSnapshot dynamicCast(java.lang.Object param0) {
+            return ((org.xms.f.storage.UploadTask.TaskSnapshot) param0);
+        }
+
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+                return false;
+            }
+            return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.agconnect.cloud.storage.core.UploadTask.UploadResult;
+        }
+    }
+}

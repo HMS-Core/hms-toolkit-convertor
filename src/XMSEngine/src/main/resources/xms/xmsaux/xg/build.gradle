@@ -1,0 +1,21 @@
+apply plugin: 'com.android.application'
+apply from: '../../scripts/productFlavor.gradle'
+apply from: '../scripts/gen-dex.gradle'
+android {
+    compileSdkVersion ${SDKVERSION}
+    defaultConfig {
+        minSdkVersion ${MINVERSION}
+        targetSdkVersion ${TARGETVERSION}
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    compileOnly project(':xmsadapter')
+    compileOnly 'androidx.appcompat:appcompat:1.0.0'
+    compileOnly 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    ${DEPENDENCY}
+}

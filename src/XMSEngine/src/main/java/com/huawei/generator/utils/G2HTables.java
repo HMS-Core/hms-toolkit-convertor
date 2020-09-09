@@ -16,27 +16,43 @@
 
 package com.huawei.generator.utils;
 
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.Set;
-
-import com.google.gson.Gson;
 import com.huawei.generator.json.G2HTable;
 
+import com.google.gson.Gson;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+
 /**
- * Judge inBlackList or inWhiteList
+ * Tables for G2H
  *
  * @since 2019-11-27
  */
 public class G2HTables {
     private static final G2HTable TABLE = new G2HTable();
 
+    private static final List<String> BLOCK_LIST_RESOURCES = Arrays.asList("/tables/account_table.json",
+        "/tables/ads_table.json", "/tables/analytics_table.json", "/tables/awareness_table.json",
+        "/tables/core_table.json", "/tables/drive_table.json", "/tables/drm_table.json", "/tables/dynamic_table.json",
+        "/tables/game_table.json", "/tables/health_table.json", "/tables/identity_table.json",
+        "/tables/location_table.json", "/tables/maps_table.json", "/tables/ml_table.json", "/tables/nearby_table.json",
+        "/tables/panorama_table.json", "/tables/push_table.json", "/tables/safety_table.json",
+        "/tables/site_table.json", "/tables/wallet_table.json");
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(G2HTables.class);
+
     static {
         initTable();
     }
 
     private static void initTable() {
-        for (String resource : KitInfoConstants.BLACK_LIST_RESOURCES) {
+        for (String resource : BLOCK_LIST_RESOURCES) {
             G2HTable table = new Gson().fromJson(
                 new InputStreamReader(G2HTables.class.getResourceAsStream(resource), StandardCharsets.UTF_8),
                 G2HTable.class);
@@ -49,19 +65,23 @@ public class G2HTables {
      * @param name the name of a java xmethod or xfield
      * @return isSuccess
      */
-    public static boolean inBlackList(String className, String name) {
+    public static boolean inBlockList(String className, String name) {
         int index = className.indexOf('<');
         if (index > 0) {
             className = className.substring(0, className.indexOf('<'));
         }
-        String enableBlackList = System.getProperty("enable_black_list");
-        if (enableBlackList == null) {
+        String enableBlockList = System.getProperty("enable_block_list");
+
+        // The blocklist function is disabled.
+        if (enableBlockList == null) {
             return false;
         }
 
-        if (enableBlackList.equals("true")) {
-            if (TABLE.getBlacks().containsKey(className)) {
-                Set<String> methods = TABLE.getBlacks().get(className);
+        // The blocklist function is enabled.
+        if (enableBlockList.equals("true")) {
+            if (TABLE.getBlocks().containsKey(className)) {
+                Set<String> methods = TABLE.getBlocks().get(className);
+                // All className methods are in the blocklist.
                 if (methods.size() == 1 && methods.toArray()[0].equals("*")) {
                     return true;
                 } else {
@@ -78,37 +98,43 @@ public class G2HTables {
      * @param className the qualified xname of a java class
      * @return isSuccess
      */
-    public static boolean inBlackList(String className) {
+    public static boolean inBlockList(String className) {
         int index = className.indexOf('<');
         if (index > 0) {
             className = className.substring(0, className.indexOf('<'));
         }
-        String enableBlackList = System.getProperty("enable_black_list");
-        if (enableBlackList == null) {
+        String enableBlockList = System.getProperty("enable_block_list");
+
+        // The blocklist function is disabled.
+        if (enableBlockList == null) {
             return false;
         }
 
-        if (enableBlackList.equals("true")) {
-            return TABLE.getBlacks().containsKey(className);
+        // The blocklist function is enabled.
+        if (enableBlockList.equals("true")) {
+            return TABLE.getBlocks().containsKey(className);
         }
         return false;
     }
 
-    public static void openInnerBlackList() {
-        System.setProperty("enable_black_list", "true");
+    public static void openInnerBlockList() {
+        System.setProperty("enable_block_list", "true");
     }
 
     /**
+     * judge whether the input is in trustlist
+     *
      * @param className the qualified name of a java class
      * @param name the name of a java method or field
      * @return boolean
      */
-    public static boolean inWhiteList(String className, String name) {
-        String enableWhiteList = System.getProperty("enable_white_list");
-        if (enableWhiteList == null) {
+    public static boolean inTrustList(String className, String name) {
+        String enableTrustList = System.getProperty("enable_trust_list");
+        if (enableTrustList == null) {
             return true;
-        } else if (TABLE.getWhites().containsKey(className)) {
-            Set<String> methods = TABLE.getWhites().get(className);
+        } else if (TABLE.getTrusts().containsKey(className)) {
+            Set<String> methods = TABLE.getTrusts().get(className);
+            // All className methods are in the trustlist.
             if (methods.size() == 1 && methods.toArray()[0].equals("*")) {
                 return true;
             } else {

@@ -21,9 +21,9 @@ import com.huawei.generator.ast.ClassNode;
 /**
  * ZImpl Class Node
  *
- * @since 2020-05-12
+ * @since 2020-04-01
  */
-public class ZImplClassNode extends ClassNode {
+public final class ZImplClassNode extends ClassNode {
     @Override
     public boolean hasTodo() {
         return true;

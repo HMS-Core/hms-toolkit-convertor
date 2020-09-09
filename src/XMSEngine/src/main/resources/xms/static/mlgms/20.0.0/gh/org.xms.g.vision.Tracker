@@ -1,0 +1,216 @@
+package org.xms.g.vision;
+
+public class Tracker<XT> extends org.xms.g.utils.XObject {
+    private boolean wrapper = true;
+    
+    public Tracker(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+    
+    public Tracker() {
+        super((org.xms.g.utils.XBox) null);
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            this.setHInstance(new HImpl());
+        } else {
+            this.setGInstance(new GImpl());
+        }
+        wrapper = false;
+    }
+    
+    public void onDone() {
+        if (wrapper) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLResultTrailer) this.getHInstance()).completeCallback()");
+                ((com.huawei.hms.mlsdk.common.MLResultTrailer) this.getHInstance()).completeCallback();
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.vision.Tracker) this.getGInstance()).onDone()");
+                ((com.google.android.gms.vision.Tracker) this.getGInstance()).onDone();
+            }
+        } else {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                ((HImpl) ((com.huawei.hms.mlsdk.common.MLResultTrailer) this.getHInstance())).completeCallbackCallSuper();
+            } else {
+                ((GImpl) ((com.google.android.gms.vision.Tracker) this.getGInstance())).onDoneCallSuper();
+            }
+        }
+    }
+    
+    public void onMissing(org.xms.g.vision.Detector.Detections<XT> param0) {
+        if (wrapper) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLResultTrailer) this.getHInstance()).lostCallback(((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) ((param0) == null ? null : (param0.getHInstance()))))");
+                ((com.huawei.hms.mlsdk.common.MLResultTrailer) this.getHInstance()).lostCallback(((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) ((param0) == null ? null : (param0.getHInstance()))));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.vision.Tracker) this.getGInstance()).onMissing(((com.google.android.gms.vision.Detector.Detections) ((param0) == null ? null : (param0.getGInstance()))))");
+                ((com.google.android.gms.vision.Tracker) this.getGInstance()).onMissing(((com.google.android.gms.vision.Detector.Detections) ((param0) == null ? null : (param0.getGInstance()))));
+            }
+        } else {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                ((HImpl) ((com.huawei.hms.mlsdk.common.MLResultTrailer) this.getHInstance())).lostCallbackCallSuper(((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) ((param0) == null ? null : (param0.getHInstance()))));
+            } else {
+                ((GImpl) ((com.google.android.gms.vision.Tracker) this.getGInstance())).onMissingCallSuper(((com.google.android.gms.vision.Detector.Detections) ((param0) == null ? null : (param0.getGInstance()))));
+            }
+        }
+    }
+    
+    public void onNewItem(int param0, XT param1) {
+        if (wrapper) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                java.lang.Object hObj1 = org.xms.g.utils.Utils.getInstanceInInterface(param1, true);
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLResultTrailer) this.getHInstance()).objectCreateCallback(param0, hObj1)");
+                ((com.huawei.hms.mlsdk.common.MLResultTrailer) this.getHInstance()).objectCreateCallback(param0, hObj1);
+            } else {
+                java.lang.Object gObj1 = org.xms.g.utils.Utils.getInstanceInInterface(param1, false);
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.vision.Tracker) this.getGInstance()).onNewItem(param0, gObj1)");
+                ((com.google.android.gms.vision.Tracker) this.getGInstance()).onNewItem(param0, gObj1);
+            }
+        } else {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                java.lang.Object hObj1 = org.xms.g.utils.Utils.getInstanceInInterface(param1, true);
+                ((HImpl) ((com.huawei.hms.mlsdk.common.MLResultTrailer) this.getHInstance())).objectCreateCallbackCallSuper(param0, hObj1);
+            } else {
+                java.lang.Object gObj1 = org.xms.g.utils.Utils.getInstanceInInterface(param1, false);
+                ((GImpl) ((com.google.android.gms.vision.Tracker) this.getGInstance())).onNewItemCallSuper(param0, gObj1);
+            }
+        }
+    }
+    
+    public void onUpdate(org.xms.g.vision.Detector.Detections<XT> param0, XT param1) {
+        if (wrapper) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                java.lang.Object hObj1 = org.xms.g.utils.Utils.getInstanceInInterface(param1, true);
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLResultTrailer) this.getHInstance()).objectUpdateCallback(((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) ((param0) == null ? null : (param0.getHInstance()))), hObj1)");
+                ((com.huawei.hms.mlsdk.common.MLResultTrailer) this.getHInstance()).objectUpdateCallback(((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) ((param0) == null ? null : (param0.getHInstance()))), hObj1);
+            } else {
+                java.lang.Object gObj1 = org.xms.g.utils.Utils.getInstanceInInterface(param1, false);
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.vision.Tracker) this.getGInstance()).onUpdate(((com.google.android.gms.vision.Detector.Detections) ((param0) == null ? null : (param0.getGInstance()))), gObj1)");
+                ((com.google.android.gms.vision.Tracker) this.getGInstance()).onUpdate(((com.google.android.gms.vision.Detector.Detections) ((param0) == null ? null : (param0.getGInstance()))), gObj1);
+            }
+        } else {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                java.lang.Object hObj1 = org.xms.g.utils.Utils.getInstanceInInterface(param1, true);
+                ((HImpl) ((com.huawei.hms.mlsdk.common.MLResultTrailer) this.getHInstance())).objectUpdateCallbackCallSuper(((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) ((param0) == null ? null : (param0.getHInstance()))), hObj1);
+            } else {
+                java.lang.Object gObj1 = org.xms.g.utils.Utils.getInstanceInInterface(param1, false);
+                ((GImpl) ((com.google.android.gms.vision.Tracker) this.getGInstance())).onUpdateCallSuper(((com.google.android.gms.vision.Detector.Detections) ((param0) == null ? null : (param0.getGInstance()))), gObj1);
+            }
+        }
+    }
+    
+    public static org.xms.g.vision.Tracker dynamicCast(java.lang.Object param0) {
+        return ((org.xms.g.vision.Tracker) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.mlsdk.common.MLResultTrailer;
+        } else {
+            return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.android.gms.vision.Tracker;
+        }
+    }
+
+    private class GImpl<T> extends com.google.android.gms.vision.Tracker<T> {
+
+        public void onDone() {
+            org.xms.g.vision.Tracker.this.onDone();
+        }
+
+        public void onMissing(com.google.android.gms.vision.Detector.Detections<T> param0) {
+            org.xms.g.vision.Tracker.this.onMissing(new org.xms.g.vision.Detector.Detections(new org.xms.g.utils.XBox(param0, null)));
+        }
+
+        public void onNewItem(int param0, T param1) {
+            java.lang.Object[] params = new java.lang.Object[2];
+            java.lang.Class[] types = new java.lang.Class[2];
+            params[0] = param0;
+            params[1] = param1;
+            types[0] = int.class;
+            types[1] = java.lang.Object.class;
+            org.xms.g.utils.Utils.invokeMethod(org.xms.g.vision.Tracker.this, "onNewItem", params, types, false);
+        }
+
+        public void onUpdate(com.google.android.gms.vision.Detector.Detections<T> param0, T param1) {
+            java.lang.Object[] params = new java.lang.Object[2];
+            java.lang.Class[] types = new java.lang.Class[2];
+            params[0] = param0;
+            params[1] = param1;
+            types[0] = org.xms.g.vision.Detector.Detections.class;
+            types[1] = java.lang.Object.class;
+            org.xms.g.utils.Utils.invokeMethod(org.xms.g.vision.Tracker.this, "onUpdate", params, types, false);
+        }
+
+        public void onDoneCallSuper() {
+            super.onDone();
+        }
+
+        public void onMissingCallSuper(com.google.android.gms.vision.Detector.Detections<T> param0) {
+            super.onMissing(param0);
+        }
+
+        public void onNewItemCallSuper(int param0, T param1) {
+            super.onNewItem(param0, param1);
+        }
+
+        public void onUpdateCallSuper(com.google.android.gms.vision.Detector.Detections<T> param0, T param1) {
+            super.onUpdate(param0, param1);
+        }
+
+        public GImpl() {
+            super();
+        }
+    }
+
+    private class HImpl<T> extends com.huawei.hms.mlsdk.common.MLResultTrailer<T> {
+
+        public void completeCallback() {
+            org.xms.g.vision.Tracker.this.onDone();
+        }
+
+        public void lostCallback(com.huawei.hms.mlsdk.common.MLAnalyzer.Result<T> param0) {
+            org.xms.g.vision.Tracker.this.onMissing(new org.xms.g.vision.Detector.Detections(new org.xms.g.utils.XBox(null, param0)));
+        }
+
+        public void objectCreateCallback(int param0, T param1) {
+            java.lang.Object[] params = new java.lang.Object[2];
+            java.lang.Class[] types = new java.lang.Class[2];
+            params[0] = param0;
+            params[1] = param1;
+            types[0] = int.class;
+            types[1] = java.lang.Object.class;
+            org.xms.g.utils.Utils.invokeMethod(org.xms.g.vision.Tracker.this, "onNewItem", params, types, true, org.xms.g.utils.Utils.getXmsMap("ML_GMS"));
+        }
+
+        public void objectUpdateCallback(com.huawei.hms.mlsdk.common.MLAnalyzer.Result<T> param0, T param1) {
+            java.lang.Object[] params = new java.lang.Object[2];
+            java.lang.Class[] types = new java.lang.Class[2];
+            params[0] = param0;
+            params[1] = param1;
+            types[0] = org.xms.g.vision.Detector.Detections.class;
+            types[1] = java.lang.Object.class;
+            org.xms.g.utils.Utils.invokeMethod(org.xms.g.vision.Tracker.this, "onUpdate", params, types, true, org.xms.g.utils.Utils.getXmsMap("ML_GMS"));
+        }
+
+        public void completeCallbackCallSuper() {
+            super.completeCallback();
+        }
+
+        public void lostCallbackCallSuper(com.huawei.hms.mlsdk.common.MLAnalyzer.Result<T> param0) {
+            super.lostCallback(param0);
+        }
+
+        public void objectCreateCallbackCallSuper(int param0, T param1) {
+            super.objectCreateCallback(param0, param1);
+        }
+
+        public void objectUpdateCallbackCallSuper(com.huawei.hms.mlsdk.common.MLAnalyzer.Result<T> param0, T param1) {
+            super.objectUpdateCallback(param0, param1);
+        }
+
+        public HImpl() {
+            super();
+        }
+    }
+}

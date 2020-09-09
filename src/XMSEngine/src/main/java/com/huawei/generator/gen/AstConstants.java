@@ -17,7 +17,7 @@
 package com.huawei.generator.gen;
 
 /**
- * AstConstants class
+ * Some constant for ast
  *
  * @since 2019-11-18
  */
@@ -62,6 +62,11 @@ public class AstConstants {
      * Transform iterable data structure
      */
     public static final String TRANSFORM_ITERABLE = "transformIterable";
+
+    /**
+     * Transform iterator data structure
+     */
+    public static final String TRANSFORM_ITERATOR = "transformIterator";
 
     /**
      * Map List data structure, the element is Generic
@@ -112,6 +117,10 @@ public class AstConstants {
 
     public static final String WRAP_INST = "wrapInst";
 
+    public static final String SET_G = "setGInstance";
+
+    public static final String SET_H = "setHInstance";
+
     public static final String INNER_CLASS_NAME = "XImpl";
 
     public static final String EMPTY = "";
@@ -127,6 +136,13 @@ public class AstConstants {
     public static final String REF_GET_INST = "getInstanceInInterface";
 
     /**
+     * Method name used frequently
+     */
+    public static final String ISINSTANCE = "isInstance";
+
+    public static final String DYNAMICCAST = "dynamicCast";
+
+    /**
      * Used for generate call super method name
      */
     public static final String CALL_SUPER = "CallSuper";
@@ -135,6 +151,11 @@ public class AstConstants {
      * Field name for wrapper
      */
     public static final String WRAPPER_FIELD = "wrapper";
+
+    /**
+     * Type of boolean
+     */
+    public static final String BOOLEAN = "boolean";
 
     /**
      * String of this
@@ -150,6 +171,10 @@ public class AstConstants {
 
     public static final String LIST = "java.util.List";
 
+    public static final String X_RESULT = "xResult";
+
+    public static final String COLLECTIONS = "java.util.stream.Collectors";
+
     public static final String GET_GMS_WITH_XMS = "getGmsClassWithXmsClass";
 
     public static final String GET_HMS_WITH_XMS = "getHmsClassWithXmsClass";
@@ -161,4 +186,10 @@ public class AstConstants {
     public static final String XMS_BOX = XMS_PACKAGE + ".XBox";
 
     public static final String IMPL = "Impl";
+
+    public static final String CLASS = ".class";
+
+    public static final String STRING = "java.lang.String";
+
+    public static final String VALUE_OF = "valueOf";
 }

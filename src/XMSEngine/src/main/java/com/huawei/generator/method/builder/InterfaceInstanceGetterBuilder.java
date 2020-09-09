@@ -16,8 +16,6 @@
 
 package com.huawei.generator.method.builder;
 
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
-
 import com.huawei.generator.ast.AnonymousNode;
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
@@ -29,14 +27,14 @@ import com.huawei.generator.json.JMapping;
 import com.huawei.generator.method.component.Component;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.method.gen.BodyGenerator;
-import com.huawei.generator.utils.Modifier;
+import com.huawei.generator.exception.UnExpectedProcessException;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 /**
- * Builder for generating default getGInstanceClassName/getHInstanceClassName for Interface.
+ * Generate default getGInstanceClassName/getHInstanceClassName for Interface.
  *
  * @since 2020-4-2
  */
@@ -68,16 +66,16 @@ public final class InterfaceInstanceGetterBuilder extends AbstractMethodBuilder 
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode, JMapping methodMapping) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 
-    private MethodNode generateZGettableMethodNode(ClassNode classNode, Component component) {
+    public MethodNode generateZGettableMethodNode(ClassNode classNode, Component component) {
         MethodNode methodNode = new MethodNode();
         if (component.getZType(classNode).getTypeName().equals(AstConstants.OBJECT) && classNode.isSupported()) {
             methodNode = new CustomMethodNode();
         }
         methodNode.setParent(classNode);
-        methodNode.setModifiers(Collections.singletonList(Modifier.DEFAULT.getName()));
+        methodNode.setModifiers(Collections.singletonList("default"));
         methodNode.setParameters(Collections.emptyList());
         methodNode.setName(component.getInstancePrefix() + classNode.getXType().getTypeNameWithoutPackage());
         methodNode.setReturnType(component.getZType(classNode));

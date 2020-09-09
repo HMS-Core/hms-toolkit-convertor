@@ -1,0 +1,2433 @@
+{
+  "org.xms.g.iid.InstanceIDListenerService": {
+    "gClassName": "com.google.android.gms.iid.InstanceIDListenerService",
+    "hClassName": "",
+    "xClassInfo": "Base class to handle Instance ID service notifications on token refresh.",
+    "hClassInfo": "",
+    "gClassInfo": "Base class to handle Instance ID service notifications on token refresh.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceIDListenerService",
+    "methods": [
+      {
+        "methodName": "org.xms.g.iid.InstanceIDListenerService.InstanceIDListenerService(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of InstanceIDListenerService.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceIDListenerService.InstanceIDListenerService()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceIDListenerService#public-instanceidlistenerservice",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the param should instanceof utils XBox"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceIDListenerService.InstanceIDListenerService()",
+        "descriptions": "constructor of InstanceIDListenerService.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceIDListenerService.InstanceIDListenerService()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceIDListenerService#public-instanceidlistenerservice",
+        "params": [],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceIDListenerService.onTokenRefresh()",
+        "descriptions": "Called when the system determines that the tokens need to be refreshed.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceIDListenerService.onTokenRefresh()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceIDListenerService#public-void-ontokenrefresh",
+        "params": [],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceIDListenerService.onBind(android.content.Intent)",
+        "descriptions": "Xms doesn\u0027t support this method.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceIDListenerService.onBind(android.content.Intent)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceIDListenerService#public-void-ontokenrefresh",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the param is Intent"
+          }
+        ],
+        "retType": "android.os.IBinder",
+        "retDescription": "the IBinder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceIDListenerService.setGInstance(java.lang.Object)",
+        "descriptions": "set the gms instance for the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the param is gInstance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceIDListenerService.setHInstance(java.lang.Object)",
+        "descriptions": "set the hms instance for the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the param is hInstance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceIDListenerService.getGInstance()",
+        "descriptions": "get the gms instance from the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [],
+        "retType": "java.lang.Object",
+        "retDescription": "the return object is gInstance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceIDListenerService.getHInstance()",
+        "descriptions": "get the hms instance from the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [],
+        "retType": "java.lang.Object",
+        "retDescription": "the return object is hInstance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceIDListenerService.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.g.iid.InstanceIDListenerService.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.g.iid.InstanceIDListenerService",
+        "retDescription": "casted InstanceIDListenerService object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceIDListenerService.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.g.iid.InstanceID": {
+    "gClassName": "com.google.android.gms.iid.InstanceID",
+    "hClassName": "",
+    "xClassInfo": "Instance ID provides a unique identifier for each app instance and a mechanism to authenticate and authorize actions(for example, sending a GCM message).",
+    "hClassInfo": "",
+    "gClassInfo": "Instance ID provides a unique identifier for each app instance and a mechanism to authenticate and authorize actions(for example, sending a GCM message).",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID",
+    "methods": [
+      {
+        "methodName": "org.xms.g.iid.InstanceID.InstanceID(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of InstanceID with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.getERROR_MAIN_THREAD()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceID.ERROR_MAIN_THREAD",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#public-static-final-string-error_main_thread",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value Blocking methods must not be called on the main thread",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.getERROR_MISSING_INSTANCEID_SERVICE()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceID.ERROR_MISSING_INSTANCEID_SERVICE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#public-static-final-string-error_missing_instanceid_service",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value Tokens can\u0027t be generated Only devices with Google Play are supported",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.getERROR_SERVICE_NOT_AVAILABLE()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceID.ERROR_SERVICE_NOT_AVAILABLE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#public-static-final-string-error_service_not_available",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value The device cannot read the response or there was a server error",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.getERROR_TIMEOUT()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceID.ERROR_TIMEOUT",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#public-static-final-string-error_timeout",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value Timeout waiting for a response",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.deleteInstanceID()",
+        "descriptions": "Resets Instance ID and revokes all tokens.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceID.deleteInstanceID()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#public-void-deleteinstanceid",
+        "params": [],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": [
+          {
+            "name": "java.io.IOException",
+            "descriptions": "if the request fails"
+          }
+        ]
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.deleteToken(java.lang.String,java.lang.String)",
+        "descriptions": "Revokes access to a scope(action)for an entity previously authorized by getToken(String, String).Do not call this function on the main thread.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceID.deleteToken(java.lang.String,java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#public-void-deletetoken-string-authorizedentity,-string-scope",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Entity that must no longer have access"
+          },
+          {
+            "name": "param1",
+            "descriptions": "Action that entity is no longer authorized to perform"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": [
+          {
+            "name": "java.io.IOException",
+            "descriptions": "if the request fails"
+          }
+        ]
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.getCreationTime()",
+        "descriptions": "Returns time when instance ID was created.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceID.getCreationTime()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#public-long-getcreationtime",
+        "params": [],
+        "retType": "long",
+        "retDescription": "Time when instance ID was created(milliseconds since Epoch)",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.getId()",
+        "descriptions": "Returns a stable identifier that uniquely identifies the app instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceID.getId()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#public-string-getid",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "The identifier for the application instance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.getInstance(android.content.Context)",
+        "descriptions": "Returns an instance of this class.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceID.getInstance(android.content.Context)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#public-static-instanceid-getinstance-context-context",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the param is Context"
+          }
+        ],
+        "retType": "org.xms.g.iid.InstanceID",
+        "retDescription": "the return object is InstanceID",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.getToken(java.lang.String,java.lang.String)",
+        "descriptions": "Returns a token that authorizes an Entity(example: cloud service)to perform an action on behalf of the application identified by Instance ID.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceID.getToken(java.lang.String,java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#public-string-gettoken-string-authorizedentity,-string-scope",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Entity authorized by the token"
+          },
+          {
+            "name": "param1",
+            "descriptions": "Action authorized for authorizedEntity"
+          }
+        ],
+        "retType": "java.lang.String",
+        "retDescription": "a token that can identify and authorize the instance of the application on the device",
+        "throwExceptions": [
+          {
+            "name": "java.io.IOException",
+            "descriptions": "if the request fails"
+          }
+        ]
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.getToken(java.lang.String,java.lang.String,android.os.Bundle)",
+        "descriptions": "Returns a token that authorizes an Entity(example: cloud service)to perform an action on behalf of the application identified by Instance ID.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.iid.InstanceID.getToken(java.lang.String,java.lang.String,android.os.Bundle)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#public-string-gettoken-string-authorizedentity,-string-scope,-bundle-extras",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Entity authorized by the token"
+          },
+          {
+            "name": "param1",
+            "descriptions": "Action authorized for authorizedEntity"
+          },
+          {
+            "name": "param2",
+            "descriptions": "additional parameters specific to each token scope"
+          }
+        ],
+        "retType": "java.lang.String",
+        "retDescription": "a token that can identify and authorize the instance of the application on the device",
+        "throwExceptions": [
+          {
+            "name": "java.io.IOException",
+            "descriptions": "if the request fails"
+          }
+        ]
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.g.iid.InstanceID.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.g.iid.InstanceID",
+        "retDescription": "casted InstanceID object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.iid.InstanceID.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.g.gcm.Task": {
+    "gClassName": "com.google.android.gms.gcm.Task",
+    "hClassName": "",
+    "xClassInfo": "Encapsulates the parameters of a task that you will schedule on the GcmNetworkManager.",
+    "hClassInfo": "",
+    "gClassInfo": "Encapsulates the parameters of a task that you will schedule on the GcmNetworkManager.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder",
+    "methods": [
+      {
+        "methodName": "org.xms.g.gcm.Task.Task(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of Task with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.getEXTRAS_LIMIT_BYTES()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.EXTRAS_LIMIT_BYTES",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-static-final-int-extras_limit_bytes",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Constant Value The maximum size allowed for extras bundle in bytes",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.getNETWORK_STATE_ANY()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.NETWORK_STATE_ANY",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-static-final-int-network_state_any",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Constant Value Specify using setRequiredNetwork(int) that your task will execute regardless of whether a network is available ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.getNETWORK_STATE_CONNECTED()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.NETWORK_STATE_CONNECTED",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-static-final-int-network_state_connected",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Specify using setRequiredNetwork(int) that your task will only execute if some sort of data connection is available either metered or unmetered This is the default ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.getNETWORK_STATE_UNMETERED()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.NETWORK_STATE_UNMETERED",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-static-final-int-network_state_unmetered",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Specify using setRequiredNetwork(int) that your task will only execute if there is an unmetered network connection available",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.getUNINITIALIZED()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.UNINITIALIZED",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#protected-static-final-long-uninitialized",
+        "params": [],
+        "retType": "long",
+        "retDescription": "Constant Value",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.describeContents()",
+        "descriptions": "Used in serialization and deserialization.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.describeContents()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-int-describecontents",
+        "params": [],
+        "retType": "int",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.getExtras()",
+        "descriptions": "Return the extra parameters for the task set by the client.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.getExtras()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-bundle-getextras",
+        "params": [],
+        "retType": "android.os.Bundle",
+        "retDescription": "The extra parameters for the task set by the client ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.getRequiredNetwork()",
+        "descriptions": "If the specified network is unavailable, your task will not be run until it is.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.getRequiredNetwork()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-int-getrequirednetwork",
+        "params": [],
+        "retType": "int",
+        "retDescription": "The network type that this task requires in order to run",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.getRequiresCharging()",
+        "descriptions": "If the device is not charging and this is set to true, your task will not be run until it is.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.getRequiresCharging()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-boolean-getrequirescharging",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "Whether or not this task depends on the device being connected to power in order to execute ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.getServiceName()",
+        "descriptions": "Return the GcmTaskService component that this task will execute on.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.getServiceName()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-string-getservicename",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "The GcmTaskService component that this task will execute on ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.getTag()",
+        "descriptions": "Return the String identifier for this task, that is returned to onRunTask(TaskParams)when this task executes.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.getTag()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-string-gettag",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "The String identifier for this task that is returned to onRunTask(TaskParams) when this task executes ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.isPersisted()",
+        "descriptions": "Whether this task will be persisted across devices restarts or Google Play Services crashes.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.isPersisted()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-boolean-ispersisted",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "true if this task will be persisted across devices restarts or Google Play Services crashes ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.isUpdateCurrent()",
+        "descriptions": "Whether or not this task will update a pre-existing task in the scheduler queue.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.isUpdateCurrent()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-boolean-isupdatecurrent",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "true if this task will update a pre-existing task in the scheduler queue",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.writeToParcel(android.os.Parcel,int)",
+        "descriptions": "Used in serialization and deserialization.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.writeToParcel(android.os.Parcel,int)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#public-void-writetoparcel-parcel-parcel,-int-i",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is android os parcel"
+          },
+          {
+            "name": "param1",
+            "descriptions": "this param is int"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.g.gcm.Task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task",
+        "retDescription": "casted Task object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": [
+      {
+        "fieldName": "android.os.Parcelable.Creator.CREATOR",
+        "descriptions": "a public CREATOR field that generates instances of your Parcelable class from a Parcel.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.CREATOR",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task"
+      }
+    ]
+  },
+  "org.xms.g.gcm.Task.Builder": {
+    "gClassName": "com.google.android.gms.gcm.Task.Builder",
+    "hClassName": "",
+    "xClassInfo": "xms Encapsulates the parameters of a task that you will schedule on the GcmNetworkManager.",
+    "hClassInfo": "",
+    "gClassInfo": "Encapsulates the parameters of a task that you will schedule on the GcmNetworkManager.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder",
+    "methods": [
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.Builder(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of Builder with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.Builder()",
+        "descriptions": "constructor of Builder.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.Builder()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-task.builder",
+        "params": [],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.getExtras()",
+        "descriptions": "return the Attribute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.extras",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-bundle-extras",
+        "params": [],
+        "retType": "android.os.Bundle",
+        "retDescription": "the return object is android os Bundle",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.getGcmTaskService()",
+        "descriptions": "return the Attribute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.gcmTaskService",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-string-gcmtaskservice",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the return object is java lang String",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.getIsPersisted()",
+        "descriptions": "return the Attribute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.isPersisted",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-boolean-ispersisted",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "the return object is boolean",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.getRequiredNetworkState()",
+        "descriptions": "return the Attribute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.requiredNetworkState",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-int-requirednetworkstate",
+        "params": [],
+        "retType": "int",
+        "retDescription": "the return object is requiredNetworkState",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.getRequiresCharging()",
+        "descriptions": "return the Attribute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.requiresCharging",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-boolean-requirescharging",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "the return obejct is requiresCharging",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.getTag()",
+        "descriptions": "return the Attribute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.tag",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-string-tag",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the return object is java lang string",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.getUpdateCurrent()",
+        "descriptions": "return the Attribute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.updateCurrent",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-boolean-updatecurrent",
+        "params": [],
+        "retType": "boolean",
+        "retDescription": "the return object is updateCurrent",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.build()",
+        "descriptions": "Create a Task instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.build()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task-build",
+        "params": [],
+        "retType": "org.xms.g.gcm.Task",
+        "retDescription": "Task instance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.setExtras(android.os.Bundle)",
+        "descriptions": "Optional setter for specifying any extra parameters necessary for the task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setExtras(android.os.Bundle)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-setextras-bundle-extras",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the bundle with any extra parameters"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.setPersisted(boolean)",
+        "descriptions": "Optional setter to specify whether this task should be persisted across reboots.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setPersisted(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-setpersisted-boolean-ispersisted",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "True if this task should be persisted across device reboots"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.setRequiredNetwork(int)",
+        "descriptions": "Set the network state your task requires to run.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setRequiredNetwork(int)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-setrequirednetwork-int-requirednetworkstate",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the network state"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.setRequiresCharging(boolean)",
+        "descriptions": "Set whether your task requires that the device be connected to power in order to execute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setRequiresCharging(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-setrequirescharging-boolean-requirescharging",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "true if your task requires that the device be connected to power in order to execute"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.setService(java.lang.Class\u003c? extends org.xms.g.gcm.GcmTaskService\u003e)",
+        "descriptions": "Set whichever GcmTaskService you implement to execute the logic for this task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setService(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-setservice-class-extends-gcmtaskservice-gcmtaskservice",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Endpoint against which you\u0027re scheduling this task"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.setTag(java.lang.String)",
+        "descriptions": "Mandatory setter for specifying the tag identifier for this task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setTag(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-settag-string-tag",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "String identifier for this task Consecutive schedule calls for the same tag will update any preexisting task with the same tag"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.setUpdateCurrent(boolean)",
+        "descriptions": "Optional setter to specify whether this task should override any preexisting tasks with the same tag.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setUpdateCurrent(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-setupdatecurrent-boolean-updatecurrent",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "True to update the current task with the parameters of the new Default false"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.checkConditions()",
+        "descriptions": "Check conditions.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.checkConditions()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-void-checkconditions",
+        "params": [],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.g.gcm.Task.Builder.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "casted Task Builder object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.g.gcm.OneoffTask.Builder": {
+    "gClassName": "com.google.android.gms.gcm.OneoffTask.Builder",
+    "hClassName": "",
+    "xClassInfo": "xms A task that will execute once,at some point within the specified window.",
+    "hClassInfo": "",
+    "gClassInfo": "A task that will execute once,at some point within the specified window.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder",
+    "methods": [
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.Builder(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of OneoffTask.Builder with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.Builder()",
+        "descriptions": "constructor of OneoffTask.Builder.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.Builder.Builder()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder#public-oneofftask.builder",
+        "params": [],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.checkConditions()",
+        "descriptions": "check conditions.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.Builder.checkConditions()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder#protected-void-checkconditions",
+        "params": [],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.build()",
+        "descriptions": "Create a OneoffTask Object.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.Builder.build()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder#public-oneofftask-build",
+        "params": [],
+        "retType": "org.xms.g.gcm.OneoffTask",
+        "retDescription": "the OneoffTask",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.setExecutionWindow(long,long)",
+        "descriptions": "Mandatory setter for creating a one-off task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.Builder.setExecutionWindow(long,long)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder#public-oneofftask.builder-setexecutionwindow-long-windowstartdelayseconds,-long-windowenddelayseconds",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Earliest point from which your task is eligible to run"
+          },
+          {
+            "name": "param1",
+            "descriptions": "Latest point at which your task must be run"
+          }
+        ],
+        "retType": "org.xms.g.gcm.OneoffTask.Builder",
+        "retDescription": "the return object is Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.setExtras(android.os.Bundle)",
+        "descriptions": "Optional setter for specifying any extra parameters necessary for the task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.Builder.setExtras(android.os.Bundle)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder#public-oneofftask.builder-setextras-bundle-extras",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the bundle with any extra parameters"
+          }
+        ],
+        "retType": "org.xms.g.gcm.OneoffTask.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.setPersisted(boolean)",
+        "descriptions": "Optional setter to specify whether this task should be persisted across reboots.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.Builder.setPersisted(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder#public-oneofftask.builder-setpersisted-boolean-ispersisted",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "True if this task should be persisted across device reboots"
+          }
+        ],
+        "retType": "org.xms.g.gcm.OneoffTask.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.setRequiredNetwork(int)",
+        "descriptions": "Set the network state your task requires to run.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.Builder.setRequiredNetwork(int)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder#public-oneofftask.builder-setrequirednetwork-int-requirednetworkstate",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the network state"
+          }
+        ],
+        "retType": "org.xms.g.gcm.OneoffTask.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.setRequiresCharging(boolean)",
+        "descriptions": "Set whether your task requires that the device be connected to power in order to execute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.Builder.setRequiresCharging(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder#public-oneofftask.builder-setrequirescharging-boolean-requirescharging",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "true if your task requires that the device be connected to power in order to execute"
+          }
+        ],
+        "retType": "org.xms.g.gcm.OneoffTask.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.setService(java.lang.Class\u003c? extends org.xms.g.gcm.GcmTaskService\u003e)",
+        "descriptions": "Set whichever GcmTaskService you implement to execute the logic for this task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.Builder.setService(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder#public-oneofftask.builder-setservice-class-extends-gcmtaskservice-gcmtaskservice",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Endpoint against which you\u0027re scheduling this task"
+          }
+        ],
+        "retType": "org.xms.g.gcm.OneoffTask.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.setTag(java.lang.String)",
+        "descriptions": "Mandatory setter for specifying the tag identifier for this task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.Builder.setTag(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder#public-oneofftask.builder-settag-string-tag",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "String identifier for this task Consecutive schedule calls for the same tag will update any preexisting task with the same tag"
+          }
+        ],
+        "retType": "org.xms.g.gcm.OneoffTask.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.setUpdateCurrent(boolean)",
+        "descriptions": "Optional setter to specify whether this task should override any preexisting tasks with the same tag.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.Builder.setUpdateCurrent(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder#public-oneofftask.builder-setupdatecurrent-boolean-updatecurrent",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "True to update the current task with the parameters of the new Default false"
+          }
+        ],
+        "retType": "org.xms.g.gcm.OneoffTask.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.g.gcm.OneoffTask.Builder.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.g.gcm.OneoffTask.Builder",
+        "retDescription": "casted OneoffTask Builder object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.Builder.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.g.gcm.TaskParams": {
+    "gClassName": "com.google.android.gms.gcm.TaskParams",
+    "hClassName": "",
+    "xClassInfo": "Container of parameters handed off to the client app in onRunTask(TaskParams).",
+    "hClassInfo": "",
+    "gClassInfo": "Container of parameters handed off to the client app in onRunTask(TaskParams).",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/TaskParams",
+    "methods": [
+      {
+        "methodName": "org.xms.g.gcm.TaskParams.TaskParams(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of TaskParams with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.TaskParams.TaskParams(java.lang.String)",
+        "descriptions": "constructor of TaskParams with String.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.TaskParams.TaskParams(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/TaskParams#public-taskparams-string-tag",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is String"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.TaskParams.TaskParams(java.lang.String,android.os.Bundle)",
+        "descriptions": "constructor of TaskParams with String and Bundle.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.TaskParams.TaskParams(java.lang.String,android.os.Bundle)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/TaskParams#public-taskparams-string-tag,-bundle-extras",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is param"
+          },
+          {
+            "name": "param1",
+            "descriptions": "this param is extras"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.TaskParams.TaskParams(java.lang.String,android.os.Bundle,java.util.List\u003candroid.net.Uri\u003e)",
+        "descriptions": "constructor of TaskParams with String Bundle and Uris.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.TaskParams.TaskParams(java.lang.String,android.os.Bundle,java.util.List\u003candroid.net.Uri\u003e)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/TaskParams#public-taskparams-string-tag,-bundle-extras,-listuri-triggereduris",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is String"
+          },
+          {
+            "name": "param1",
+            "descriptions": "this param is extras"
+          },
+          {
+            "name": "param2",
+            "descriptions": "this param is triggeredUris"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.TaskParams.getExtras()",
+        "descriptions": "Return the extra parameters.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.TaskParams.getExtras()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/TaskParams#public-bundle-getextras",
+        "params": [],
+        "retType": "android.os.Bundle",
+        "retDescription": "the extra parameters",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.TaskParams.getTag()",
+        "descriptions": "Return the String identifier.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.TaskParams.getTag()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/TaskParams#public-string-gettag",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "the String identifier",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.TaskParams.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.g.gcm.TaskParams.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.g.gcm.TaskParams",
+        "retDescription": "casted TaskParams object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.TaskParams.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.g.gcm.PeriodicTask.Builder": {
+    "gClassName": "com.google.android.gms.gcm.PeriodicTask.Builder",
+    "hClassName": "",
+    "xClassInfo": "xms A periodic task is one that will recur at the specified interval, without needing to be rescheduled.",
+    "hClassInfo": "",
+    "gClassInfo": "A periodic task is one that will recur at the specified interval, without needing to be rescheduled.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder",
+    "methods": [
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.Builder(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of Builder with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.Builder()",
+        "descriptions": "constructor of Builder.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.Builder.Builder()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#public-periodictask.builder",
+        "params": [],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.build()",
+        "descriptions": "Create a PeriodicTask object.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.Builder.build()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#public-periodictask-build",
+        "params": [],
+        "retType": "org.xms.g.gcm.PeriodicTask",
+        "retDescription": "PeriodicTask instance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.setExtras(android.os.Bundle)",
+        "descriptions": "Optional setter for specifying any extra parameters necessary for the task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.Builder.setExtras(android.os.Bundle)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#public-periodictask.builder-setextras-bundle-extras",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the bundle with any extra parameters"
+          }
+        ],
+        "retType": "org.xms.g.gcm.PeriodicTask.Builder",
+        "retDescription": "the return object is Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.setFlex(long)",
+        "descriptions": "Optional setter for specifying how close to the end of the period set in setPeriod(long)you are willing to execute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.Builder.setFlex(long)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#public-periodictask.builder-setflex-long-flexinseconds",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the param is flex In Seconds"
+          }
+        ],
+        "retType": "org.xms.g.gcm.PeriodicTask.Builder",
+        "retDescription": "the return obeject is Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.setPeriod(long)",
+        "descriptions": "Mandatory setter for creating a periodic task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.Builder.setPeriod(long)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#public-periodictask.builder-setperiod-long-periodinseconds",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the param is period In Seconds"
+          }
+        ],
+        "retType": "org.xms.g.gcm.PeriodicTask.Builder",
+        "retDescription": "the return object is Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.setPersisted(boolean)",
+        "descriptions": "Optional setter to specify whether this task should be persisted across reboots.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.Builder.setPersisted(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#public-periodictask.builder-setpersisted-boolean-ispersisted",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "True if this task should be persisted across device reboots"
+          }
+        ],
+        "retType": "org.xms.g.gcm.PeriodicTask.Builder",
+        "retDescription": "the return object is Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.setRequiredNetwork(int)",
+        "descriptions": "Set the network state your task requires to run.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.Builder.setRequiredNetwork(int)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#public-periodictask.builder-setrequirednetwork-int-requirednetworkstate",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the param is required Network State"
+          }
+        ],
+        "retType": "org.xms.g.gcm.PeriodicTask.Builder",
+        "retDescription": "the return object is Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.setRequiresCharging(boolean)",
+        "descriptions": "Set whether your task requires that the device be connected to power in order to execute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.Builder.setRequiresCharging(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#public-periodictask.builder-setrequirescharging-boolean-requirescharging",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "true if your task requires that the device be connected to power in order to execute"
+          }
+        ],
+        "retType": "org.xms.g.gcm.PeriodicTask.Builder",
+        "retDescription": "the return object is Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.setService(java.lang.Class\u003c? extends org.xms.g.gcm.GcmTaskService\u003e)",
+        "descriptions": "Set whichever GcmTaskService you implement to execute the logic for this task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.Builder.setService(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#public-periodictask.builder-setservice-class-extends-gcmtaskservice-gcmtaskservice",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Endpoint against which you\u0027re scheduling this task"
+          }
+        ],
+        "retType": "org.xms.g.gcm.PeriodicTask.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.setTag(java.lang.String)",
+        "descriptions": "Mandatory setter for specifying the tag identifier for this task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.Builder.setTag(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#public-periodictask.builder-settag-string-tag",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "String identifier for this task"
+          }
+        ],
+        "retType": "org.xms.g.gcm.PeriodicTask.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.setUpdateCurrent(boolean)",
+        "descriptions": "Optional setter to specify whether this task should override any preexisting tasks with the same tag.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.Builder.setUpdateCurrent(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#public-periodictask.builder-setupdatecurrent-boolean-updatecurrent",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "True to update the current task with the parameters of the new"
+          }
+        ],
+        "retType": "org.xms.g.gcm.PeriodicTask.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.checkConditions()",
+        "descriptions": "Check conditions.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.Builder.checkConditions()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#protected-void-checkconditions",
+        "params": [],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.g.gcm.PeriodicTask.Builder.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.g.gcm.PeriodicTask.Builder",
+        "retDescription": "casted PeriodicTask Builder object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.Builder.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.g.gcm.Task.Builder.XImpl": {
+    "gClassName": "com.google.android.gms.gcm.Task.Builder",
+    "hClassName": "",
+    "xClassInfo": "xms Encapsulates the parameters of a task that you will schedule on the GcmNetworkManager.",
+    "hClassInfo": "",
+    "gClassInfo": "Encapsulates the parameters of a task that you will schedule on the GcmNetworkManager.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder",
+    "methods": [
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.XImpl.XImpl(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of XImpl with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.XImpl.build()",
+        "descriptions": "Create a Task instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.build()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task-build",
+        "params": [],
+        "retType": "org.xms.g.gcm.Task",
+        "retDescription": "Task instance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.XImpl.setExtras(android.os.Bundle)",
+        "descriptions": "Optional setter for specifying any extra parameters necessary for the task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setExtras(android.os.Bundle)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-setextras-bundle-extras",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the bundle with any extra parameters"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.XImpl.setPersisted(boolean)",
+        "descriptions": "Optional setter to specify whether this task should be persisted across reboots.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setPersisted(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-setpersisted-boolean-ispersisted",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "True if this task should be persisted across device reboots"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.XImpl.setRequiredNetwork(int)",
+        "descriptions": "Set the network state your task requires to run.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setRequiredNetwork(int)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-setrequirednetwork-int-requirednetworkstate",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the network state"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.XImpl.setRequiresCharging(boolean)",
+        "descriptions": "Set whether your task requires that the device be connected to power in order to execute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setRequiresCharging(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-setrequirescharging-boolean-requirescharging",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "true if your task requires that the device be connected to power in order to execute"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.XImpl.setService(java.lang.Class\u003c? extends org.xms.g.gcm.GcmTaskService\u003e)",
+        "descriptions": "Set whichever GcmTaskService you implement to execute the logic for this task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setService(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-setservice-class-extends-gcmtaskservice-gcmtaskservice",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Endpoint against which you\u0027re scheduling this task"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.XImpl.setTag(java.lang.String)",
+        "descriptions": "Mandatory setter for specifying the tag identifier for this task.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setTag(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-settag-string-tag",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "String identifier for this task Consecutive schedule calls for the same tag will update any preexisting task with the same tag"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.Task.Builder.XImpl.setUpdateCurrent(boolean)",
+        "descriptions": "Optional setter to specify whether this task should override any preexisting tasks with the same tag.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.Task.Builder.setUpdateCurrent(boolean)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#public-abstract-task.builder-setupdatecurrent-boolean-updatecurrent",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "True to update the current task with the parameters of the new Default false"
+          }
+        ],
+        "retType": "org.xms.g.gcm.Task.Builder",
+        "retDescription": "the Builder",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.g.gcm.GcmTaskService.XImpl": {
+    "gClassName": "com.google.android.gms.gcm.GcmTaskService",
+    "hClassName": "",
+    "xClassInfo": "Implemented by the client application to provide an endpoint for the GcmNetworkManager to call back to when a task is ready to be executed.",
+    "hClassInfo": "",
+    "gClassInfo": "Implemented by the client application to provide an endpoint for the GcmNetworkManager to call back to when a task is ready to be executed.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmTaskService",
+    "methods": [
+      {
+        "methodName": "org.xms.g.gcm.GcmTaskService.XImpl.XImpl(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of XImpl with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmTaskService.XImpl.onBind(android.content.Intent)",
+        "descriptions": "Receives the command to begin doing work, for which it spawns another thread.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the param should instanceof android content Intent"
+          }
+        ],
+        "retType": "android.os.IBinder",
+        "retDescription": "the return object is IBinder",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.g.gcm.GcmNetworkManager": {
+    "gClassName": "com.google.android.gms.gcm.GcmNetworkManager",
+    "hClassName": "",
+    "xClassInfo": "Class to create apps with robust\"send-to-sync\", which is the mechanism to sync data with servers where new information is available.",
+    "hClassInfo": "",
+    "gClassInfo": "Class to create apps with robust\"send-to-sync\", which is the mechanism to sync data with servers where new information is available.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager",
+    "methods": [
+      {
+        "methodName": "org.xms.g.gcm.GcmNetworkManager.GcmNetworkManager(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of GcmNetworkManager with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmNetworkManager.getRESULT_FAILURE()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.GcmNetworkManager.RESULT_FAILURE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#public-static-final-int-result_failure",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Indicates a task has failed, but not to reschedule ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmNetworkManager.getRESULT_RESCHEDULE()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.GcmNetworkManager.RESULT_RESCHEDULE",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#public-static-final-int-result_reschedule",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Indicates a task has failed to execute, and must be retried with back-off ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmNetworkManager.getRESULT_SUCCESS()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.GcmNetworkManager.RESULT_SUCCESS",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#public-static-final-int-result_success",
+        "params": [],
+        "retType": "int",
+        "retDescription": "Indicates a task has successfully been executed, and can be removed from the queue ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmNetworkManager.cancelAllTasks(java.lang.Class\u003c? extends org.xms.g.gcm.GcmTaskService\u003e)",
+        "descriptions": "Cancels all tasks previously scheduled against the provided GcmTaskService.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.GcmNetworkManager.cancelAllTasks(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#public-void-cancelalltasks-class-extends-gcmtaskservice-gcmtaskservice",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "The endpoint for which you want to cancel all outstanding tasks"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmNetworkManager.cancelTask(java.lang.String,java.lang.Class\u003c? extends org.xms.g.gcm.GcmTaskService\u003e)",
+        "descriptions": "Cancel a task, specified by tag.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.GcmNetworkManager.cancelTask(java.lang.String,java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#public-void-canceltask-string-tag,-class-extends-gcmtaskservice-gcmtaskservice",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "The tag to uniquely identify this task on this endpoint"
+          },
+          {
+            "name": "param1",
+            "descriptions": "The endpoint of the task to cancel"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmNetworkManager.getInstance(android.content.Context)",
+        "descriptions": "Use this function to access the GcmNetworkManager API.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.GcmNetworkManager.getInstance(android.content.Context)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#public-static-gcmnetworkmanager-getinstance-context-context",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Context of the calling app"
+          }
+        ],
+        "retType": "org.xms.g.gcm.GcmNetworkManager",
+        "retDescription": "GcmNetworkManager object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmNetworkManager.schedule(org.xms.g.gcm.Task)",
+        "descriptions": "Entry point to schedule a task with the network manager.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.GcmNetworkManager.schedule(com.google.android.gms.gcm.Task)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#public-synchronized-void-schedule-task-task",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "Task constructed using Task Builder Can be an instance of PeriodicTask or OneoffTask"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmNetworkManager.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.g.gcm.GcmNetworkManager.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.g.gcm.GcmNetworkManager",
+        "retDescription": "casted GcmNetworkManager object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmNetworkManager.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.g.gcm.GcmTaskService": {
+    "gClassName": "com.google.android.gms.gcm.GcmTaskService",
+    "hClassName": "",
+    "xClassInfo": "Implemented by the client application to provide an endpoint for the GcmNetworkManager to call back to when a task is ready to be executed.",
+    "hClassInfo": "",
+    "gClassInfo": "Implemented by the client application to provide an endpoint for the GcmNetworkManager to call back to when a task is ready to be executed.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmTaskService",
+    "methods": [
+      {
+        "methodName": "org.xms.g.gcm.GcmTaskService.GcmTaskService(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of GcmTaskService with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmTaskService.getSERVICE_PERMISSION()",
+        "descriptions": "return the constant value.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.GcmTaskService.SERVICE_PERMISSION",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmTaskService#public-static-final-string-service_permission",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "Constant Value You must protect your service with this permission to avoid being bound to by an application other than Google Play Services ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmTaskService.setGInstance(java.lang.Object)",
+        "descriptions": "set the gms instance for the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is gInstance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmTaskService.setHInstance(java.lang.Object)",
+        "descriptions": "set the hms instance for the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is hInstance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmTaskService.getGInstance()",
+        "descriptions": "get the gms instance from the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [],
+        "retType": "java.lang.Object",
+        "retDescription": "this param is gInstance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmTaskService.getHInstance()",
+        "descriptions": "get the hms instance from the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [],
+        "retType": "java.lang.Object",
+        "retDescription": "this param is hInstance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmTaskService.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.g.gcm.GcmTaskService.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.g.gcm.GcmTaskService",
+        "retDescription": "casted GcmTaskService object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.GcmTaskService.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.g.gcm.OneoffTask": {
+    "gClassName": "com.google.android.gms.gcm.OneoffTask",
+    "hClassName": "",
+    "xClassInfo": "A task that will execute once,at some point within the specified window.",
+    "hClassInfo": "",
+    "gClassInfo": "A task that will execute once,at some point within the specified window.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder",
+    "methods": [
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.OneoffTask(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of OneoffTask with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.getWindowEnd()",
+        "descriptions": "Return the number of seconds from now by which this task must have executed.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.getWindowEnd()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask#public-long-getwindowend",
+        "params": [],
+        "retType": "long",
+        "retDescription": "The number of seconds from now by which this task must have executed ",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.getWindowStart()",
+        "descriptions": "Return the number of seconds from now at which this task is eligible for execution.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.getWindowStart()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask#public-long-getwindowstart",
+        "params": [],
+        "retType": "long",
+        "retDescription": "The number of seconds from now at which this task is eligible for execution",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.toBundle(android.os.Bundle)",
+        "descriptions": "Insert the task object into the provided bundle for IPC.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.toBundle(android.os.Bundle)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask#public-void-tobundle-bundle-bundle",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the provided bundle"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.toString()",
+        "descriptions": "Overrides the method of the java.lang.Object class to convert a value into a character string.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.toString()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask#public-string-tostring",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "A character string after being converted",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.writeToParcel(android.os.Parcel,int)",
+        "descriptions": "Used in serialization and deserialization.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.writeToParcel(android.os.Parcel,int)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask#public-void-writetoparcel-parcel-parcel,-int-flags",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "this param is android os paracel"
+          },
+          {
+            "name": "param1",
+            "descriptions": "this param is int"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.g.gcm.OneoffTask.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.g.gcm.OneoffTask",
+        "retDescription": "casted OneoffTask object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.OneoffTask.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": [
+      {
+        "fieldName": "android.os.Parcelable.Creator.CREATOR",
+        "descriptions": "a public CREATOR field that generates instances of your Parcelable class from a Parcel.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.OneoffTask.CREATOR",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask#public-static-final-creatoroneofftask-creator"
+      }
+    ]
+  },
+  "org.xms.g.gcm.PeriodicTask": {
+    "gClassName": "com.google.android.gms.gcm.PeriodicTask",
+    "hClassName": "",
+    "xClassInfo": "A periodic task is one that will recur at the specified interval, without needing to be rescheduled.",
+    "hClassInfo": "",
+    "gClassInfo": "A periodic task is one that will recur at the specified interval, without needing to be rescheduled.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder",
+    "methods": [
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.PeriodicTask(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of PeriodicTask with XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.getMFlexInSeconds()",
+        "descriptions": "return the attribute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.mFlexInSeconds",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#protected-long-mflexinseconds",
+        "params": [],
+        "retType": "long",
+        "retDescription": "the return object is MFlexInSeconds",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.getMIntervalInSeconds()",
+        "descriptions": "return the attribute.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.mIntervalInSeconds",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#protected-long-mintervalinseconds",
+        "params": [],
+        "retType": "long",
+        "retDescription": "the return object is mIntervalInSeconds",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.getFlex()",
+        "descriptions": "Return the number of seconds before the end of the period returned via getPeriod()that this periodic task can be executed early.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.getFlex()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#public-long-getflex",
+        "params": [],
+        "retType": "long",
+        "retDescription": "The number of seconds before the end of the period returned via getPeriod",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.getPeriod()",
+        "descriptions": "Return the period for this task. The number of seconds between subsequent executions.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.getPeriod()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#public-long-getperiod",
+        "params": [],
+        "retType": "long",
+        "retDescription": "The period for this task",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.toBundle(android.os.Bundle)",
+        "descriptions": "Insert the task object into the provided bundle for IPC.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.toBundle(android.os.Bundle)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#public-void-tobundle-bundle-bundle",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the param is bundle"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.toString()",
+        "descriptions": "Overrides the method of the java.lang.Object class to convert a value into a character string.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.toString()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#public-string-tostring",
+        "params": [],
+        "retType": "java.lang.String",
+        "retDescription": "A character string after being converted",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.writeToParcel(android.os.Parcel,int)",
+        "descriptions": "Used in serialization and deserialization.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.writeToParcel(android.os.Parcel,int)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#public-void-writetoparcel-parcel-parcel,-int-flags",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the param is android os Parcel"
+          },
+          {
+            "name": "param1",
+            "descriptions": "the param is android os int"
+          }
+        ],
+        "retType": "void",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.g.gcm.PeriodicTask.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.g.gcm.PeriodicTask",
+        "retDescription": "casted PeriodicTask object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.g.gcm.PeriodicTask.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": [
+      {
+        "fieldName": "android.os.Parcelable.Creator.CREATOR",
+        "descriptions": "a public CREATOR field that generates instances of your Parcelable class from a Parcel.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.android.gms.gcm.PeriodicTask.CREATOR",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#public-static-final-creatorperiodictask-creator"
+      }
+    ]
+  }
+}

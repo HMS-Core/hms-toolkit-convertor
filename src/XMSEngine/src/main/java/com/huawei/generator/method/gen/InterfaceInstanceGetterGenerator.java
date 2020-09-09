@@ -37,7 +37,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Function description
+ * Generator for InterfaceInstance Getter
  *
  * @since 2020-4-2
  */
@@ -65,11 +65,13 @@ public class InterfaceInstanceGetterGenerator implements BodyGenerator {
     private void generateXGettableMethodBody(List<StatementNode> generatedBody) {
         // if (this instanceof XGettable)
         VarNode condition = VarNode.create("this instanceof " + XMS_GETTABLE);
+
         // return (ReturnType)((XGettable) this).getGInstance()
         List<StatementNode> thenBlock =
             Collections.singletonList(ReturnNode.create(CastExprNode.create(methodNode.returnType(),
                 CallNode.create(CastExprNode.create(TypeNode.create(XMS_GETTABLE), VarNode.create("this")),
                     component.getZInstance(), Collections.emptyList()))));
+
         // make a if statement.
         generatedBody.add(IfNode.create(condition, thenBlock, null));
     }

@@ -37,7 +37,7 @@ import com.huawei.generator.ast.DeclareNode;
 import com.huawei.generator.ast.ExceptionNode;
 import com.huawei.generator.ast.FieldNode;
 import com.huawei.generator.ast.ForeachNode;
-import com.huawei.generator.ast.GetField;
+import com.huawei.generator.ast.GetFieldNode;
 import com.huawei.generator.ast.IfNode;
 import com.huawei.generator.ast.ImportNode;
 import com.huawei.generator.ast.InstanceOfNode;
@@ -46,7 +46,7 @@ import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.ModifierNode;
 import com.huawei.generator.ast.NewArrayNode;
 import com.huawei.generator.ast.NewNode;
-import com.huawei.generator.ast.OperatorTypeNode;
+import com.huawei.generator.ast.OperatorType;
 import com.huawei.generator.ast.PackageNode;
 import com.huawei.generator.ast.ReturnNode;
 import com.huawei.generator.ast.StatementNode;
@@ -61,6 +61,9 @@ import com.huawei.generator.ast.custom.CustomContentNode;
 import com.huawei.generator.ast.custom.CustomMethodNode;
 import com.huawei.generator.ast.custom.NotNullTernaryNode;
 import com.huawei.generator.ast.custom.StmtStringNode;
+import com.huawei.generator.ast.custom.XClassDoc;
+import com.huawei.generator.ast.custom.XFieldDoc;
+import com.huawei.generator.ast.custom.XMethodDoc;
 import com.huawei.generator.utils.TodoCommentConstants;
 import com.huawei.generator.utils.TodoManager;
 
@@ -79,7 +82,7 @@ import java.util.Optional;
 
 /**
  * A visitor for generating java code from a given ast.
- * 
+ *
  * @since 2019-11-12
  */
 public final class JavaCodeGenerator implements AstVisitor {
@@ -164,6 +167,7 @@ public final class JavaCodeGenerator implements AstVisitor {
     }
 
     private void visitMethodHead(MethodNode node) {
+        visit(node.getMethodDocNode());
         visit(node.modifiers());
 
         String genericDefines = node.localGenericsAsString();
@@ -235,6 +239,12 @@ public final class JavaCodeGenerator implements AstVisitor {
     @Override
     public void visit(ClassNode node) {
         line();
+
+        XClassDoc classDoc = node.getClassDoc();
+        if (classDoc != null) {
+            visit(classDoc);
+        }
+
         line();
         visit(node.modifiers());
         if (node.isEnum()) {
@@ -295,7 +305,12 @@ public final class JavaCodeGenerator implements AstVisitor {
     @Override
     public void visit(FieldNode node) {
         line();
-        visit(node.modifiers());
+        ModifierNode modifierNode = node.modifiers();
+        if (modifierNode.contains("public") || modifierNode.contains("protected")) {
+            visit(node.getFieldDoc());
+        }
+
+        visit(modifierNode);
         str(node.type().toString());
         str(" " + node.name());
         if (node.value() != null) {
@@ -306,7 +321,7 @@ public final class JavaCodeGenerator implements AstVisitor {
     }
 
     @Override
-    public void visit(GetField node) {
+    public void visit(GetFieldNode node) {
         visit(node.receiver());
         str("." + node.target());
     }
@@ -314,15 +329,15 @@ public final class JavaCodeGenerator implements AstVisitor {
     @Override
     public void visit(IfNode node) {
         str("if (");
-        visit(node.condition());
+        visit(node.getCondition());
         str(")");
         beginBlock();
-        visit(node.thenBody());
+        visit(node.getThenBody());
         endBlock();
-        if (node.elseBody() != null) {
+        if (node.getElseBody() != null) {
             str(" else");
             beginBlock();
-            visit(node.elseBody());
+            visit(node.getElseBody());
             endBlock();
         }
     }
@@ -351,9 +366,6 @@ public final class JavaCodeGenerator implements AstVisitor {
 
     @Override
     public void visit(VarNode node) {
-        if (node.value() == null || node.value().isEmpty()) {
-            return;
-        }
         str(node.value());
     }
 
@@ -395,9 +407,6 @@ public final class JavaCodeGenerator implements AstVisitor {
 
     @Override
     public void visit(CatchNode node) {
-        if (node.getValue() == null || node.getValue().isEmpty()) {
-            return;
-        }
         str("catch (" + node.getValue() + " e)");
         beginBlock();
         visit(node.getBody());
@@ -553,8 +562,8 @@ public final class JavaCodeGenerator implements AstVisitor {
     }
 
     @Override
-    public void visit(OperatorTypeNode node) {
-        String strOperator;
+    public void visit(OperatorType node) {
+        String strOperator = "";
         switch (node) {
             case INSTANCE: {
                 strOperator = " instanceof ";
@@ -679,6 +688,41 @@ public final class JavaCodeGenerator implements AstVisitor {
         if (todoManager.shouldOutputTodoComment()) {
             line();
             str(TodoCommentConstants.TODO_END_PREFIX + node.getKey());
+        }
+    }
+
+    @Override
+    public void visit(XClassDoc node) {
+        List<String> displayInfoList = node.getDisplayInfoList();
+        if (displayInfoList == null || displayInfoList.isEmpty()) {
+            return;
+        }
+        line();
+        int size = displayInfoList.size();
+        for (int i = 0; i < size - 1; i++) {
+            str(displayInfoList.get(i));
+            line();
+        }
+        str(displayInfoList.get(size - 1));
+    }
+
+    @Override
+    public void visit(XMethodDoc node) {
+        if (node != null) {
+            List<String> displayInfoList = node.getDisplayInfoList();
+            if (displayInfoList != null) {
+                for (String info : displayInfoList) {
+                    str(info);
+                    line();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void visit(XFieldDoc node) {
+        if (node != null) {
+            str(node.getDisplayInfo());
         }
     }
 }

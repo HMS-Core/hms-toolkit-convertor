@@ -23,7 +23,7 @@ import com.huawei.generator.ast.ClassNode;
  *
  * @since 2020-03-06
  */
-public class XImplClassNode extends XClassNode {
+public final class XImplClassNode extends XClassNode {
     public static class Builder extends ClassNode.Builder {
         @Override
         protected ClassNode getClassNode() {

@@ -3,26 +3,22 @@ package ${X_PACKAGE};
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
+/**
+ * Class for Parameter
+ */
 public final class Parameter {
-    /**
-     * parameter hosted in method
-     */
     private Method method;
 
-    /**
-     * parameter index
-     */
     private int parameterId;
 
-    /**
-     * receiver class
-     */
     private Class<?> receiverClass;
 
     /**
-     * @param m method
-     * @param id parameter index
-     * @param clazz
+     * org.xms.g.utils.Parameter.Parameter(Method m, int id, Class<?> clazz) constructor of Parameter.<br/>
+     *
+     * @param m     method
+     * @param id    parameter index
+     * @param clazz Class
      */
     Parameter(Method m, int id, Class<?> clazz) {
         assert m != null;
@@ -33,6 +29,8 @@ public final class Parameter {
     }
 
     /**
+     * org.xms.g.utils.Parameter.getMethod() get the Method.<br/>
+     *
      * @return method
      */
     public Method getMethod() {
@@ -40,6 +38,8 @@ public final class Parameter {
     }
 
     /**
+     * org.xms.g.utils.Parameter.getDeclaringClass() get the Declaring Class.<br/>
+     *
      * @return declaring class of method
      */
     public Class<?> getDeclaringClass() {
@@ -47,6 +47,8 @@ public final class Parameter {
     }
 
     /**
+     * org.xms.g.utils.Parameter.getParameterId() get the Parameter Id.<br/>
+     *
      * @return parameter id
      */
     public int getParameterId() {
@@ -54,6 +56,8 @@ public final class Parameter {
     }
 
     /**
+     * org.xms.g.utils.Parameter.getReceiverClass() get the Receiver Class.<br/>
+     *
      * @return receiver Class
      */
     public Class<?> getReceiverClass() {
@@ -63,9 +67,14 @@ public final class Parameter {
     @Override
     public String toString() {
         return "method name : " + method.getName() + " paramter id : " + this.parameterId + " declaring class : "
-            + method.getDeclaringClass().toString();
+                + method.getDeclaringClass().toString();
     }
 
+    /**
+     * org.xms.g.utils.Parameter.toGenericType() transformed to generic type.<br/>
+     *
+     * @return generic type
+     */
     public Type toGenericType() {
         return this.method.getGenericParameterTypes()[this.parameterId];
     }

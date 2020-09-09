@@ -26,6 +26,7 @@ import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.FieldNode;
 import com.huawei.generator.ast.TypeNode;
 import com.huawei.generator.ast.VarNode;
+import com.huawei.generator.ast.custom.XClassDoc;
 import com.huawei.generator.ast.custom.XImplClassNode;
 import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JFieldOrMethod;
@@ -39,7 +40,6 @@ import com.huawei.generator.mirror.KClassReader;
 import com.huawei.generator.mirror.KClassUtils;
 import com.huawei.generator.mirror.SupersVisitor;
 import com.huawei.generator.utils.GlobalMapping;
-import com.huawei.generator.utils.Modifier;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -55,6 +55,7 @@ public class XImplFactory {
      * Creates a class node representing XImpl with information provided by its outer class definition and its outer
      * class node
      *
+     * @param factory The instance of method generator factory
      * @param def JClass representing the outer class
      * @param outerClass class node representing the outer class
      * @return a class node representing XImpl
@@ -86,6 +87,7 @@ public class XImplFactory {
             if (def == null) {
                 throw new IllegalStateException("jClass is null:" + outerClass.fullName());
             }
+
             // Fatal error.
             if (def.gName().isEmpty()) {
                 throw new IllegalStateException("gName is null:" + outerClass.fullName());
@@ -93,6 +95,21 @@ public class XImplFactory {
             this.factory = factory;
             this.def = def;
             this.outerClass = outerClass;
+            xImpl = new XImplClassNode.Builder().setSupported(outerClass.isSupported())
+                .setInner(true)
+                .setClassType("class")
+                .setXType(TypeNode.create(INNER_CLASS_NAME).setGenericType(outerClass.generics()))
+                .setModifiers(Collections.singletonList("static"))
+                .setSuperName(superName())
+                .setInterfaces(interfaces())
+                .setOuterClass(outerClass)
+                .build();
+            XClassDoc classDoc = factory.getClassDoc();
+            if (classDoc != null) {
+                XClassDoc xImplClassDoc = classDoc.getXImplClassDoc();
+                factory.createClassDoc(xImplClassDoc, xImpl);
+                xImpl.setClassDoc(xImplClassDoc);
+            }
         }
 
         /**
@@ -101,15 +118,6 @@ public class XImplFactory {
          * @return a class node representing XImpl, with the corresponding methods been filled.
          */
         final ClassNode createXImpl() {
-            xImpl = new XImplClassNode.Builder().setSupported(outerClass.isSupported())
-                .setInner(true)
-                .setClassType("class")
-                .setXType(TypeNode.create(INNER_CLASS_NAME).setGenericType(outerClass.generics()))
-                .setModifiers(Collections.singletonList(Modifier.STATIC.getName()))
-                .setSuperName(superName())
-                .setInterfaces(interfaces())
-                .build();
-
             insertCreatorField();
 
             // add wrapper constructor
@@ -118,8 +126,9 @@ public class XImplFactory {
             // methods need to be implemented in inheritance chain
             List<JMapping<JMethod>> methods = KClassUtils.getXImplMethods(def, outerClass);
             methods.stream()
-                .filter(it -> it.g() != null)
-                .forEach(it -> xImpl.methods().add(new RoutingMethodBuilder(factory).build(def, xImpl, it)));
+                .filter(methodJMapping -> methodJMapping.g() != null)
+                .forEach(methodJMapping ->
+                    xImpl.methods().add(new RoutingMethodBuilder(factory).build(def, xImpl, methodJMapping)));
 
             return xImpl;
         }
@@ -131,9 +140,8 @@ public class XImplFactory {
             if (!needCreatorField()) {
                 return;
             }
-            /// public static final android.os.Parcelable.Creator CREATOR = null;
-            FieldNode fieldNode = FieldNode.create(xImpl, Arrays.asList(Modifier.PUBLIC.getName(),
-                    Modifier.STATIC.getName(), Modifier.FINAL.getName()),
+            // public static final android.os.Parcelable.Creator CREATOR = null;
+            FieldNode fieldNode = FieldNode.create(xImpl, Arrays.asList("public", "static", "final"),
                 TypeNode.create(PARCELABLE_INTERFACE + ".Creator"), CREATOR, VarNode.create("null"));
             xImpl.fields().add(fieldNode);
         }

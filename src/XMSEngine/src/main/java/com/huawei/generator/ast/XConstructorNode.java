@@ -17,7 +17,7 @@
 package com.huawei.generator.ast;
 
 /**
- * This is the XConstructorNode class.
+ * X Constructor Node
  *
  * @since 2019-11-12
  */

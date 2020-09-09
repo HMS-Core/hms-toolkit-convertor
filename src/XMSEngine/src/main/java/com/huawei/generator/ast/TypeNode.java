@@ -19,7 +19,6 @@ package com.huawei.generator.ast;
 import static com.huawei.generator.gen.AstConstants.GENERIC_PREFIX;
 
 import com.huawei.generator.gen.classes.WithoutReplacementClasses;
-import com.huawei.generator.utils.StringUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,11 +29,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * This is the TypeNode class.
+ * Type Node
  *
- * @since 2019-11-16
+ * @since 2019-11-19
  */
-public class TypeNode extends AstNode {
+public final class TypeNode extends AstNode {
     private static final Logger LOGGER = LoggerFactory.getLogger(TypeNode.class);
 
     public static final TypeNode OBJECT_TYPE = TypeNode.create("java.lang.Object");
@@ -79,23 +78,21 @@ public class TypeNode extends AstNode {
         this.setTypeName(typeName);
     }
 
-    private TypeNode setTypeName(String typeName) {
+    private void setTypeName(String typeName) {
         this.typeName = typeName;
         if (typeName != null && typeName.contains(".")) {
             this.typeNameWithoutPackage = typeName.substring(typeName.lastIndexOf(".") + 1);
         } else {
             this.typeNameWithoutPackage = typeName;
         }
-        return this;
     }
 
     public String getTypeNameWithoutPackage() {
         return typeNameWithoutPackage;
     }
 
-    private TypeNode setEraseGeneric(boolean eraseGeneric) {
+    private void setEraseGeneric(boolean eraseGeneric) {
         this.eraseGeneric = eraseGeneric;
-        return this;
     }
 
     public String getTypeName() {
@@ -134,6 +131,7 @@ public class TypeNode extends AstNode {
      * This will make a generic definition into generic instantiation.
      *
      * @param genericType, generics used in type node.
+     * @return this type node
      */
     public TypeNode setGenericType(List<TypeNode> genericType) {
         this.genericType = genericType;
@@ -145,11 +143,9 @@ public class TypeNode extends AstNode {
      * definition.
      *
      * @param prefix, add a prefix to type name.
-     * @return self
      */
-    TypeNode addPrefix(String prefix) {
+    public void addPrefix(String prefix) {
         this.typeName = prefix + this.typeName;
-        return this;
     }
 
     /**
@@ -225,7 +221,7 @@ public class TypeNode extends AstNode {
         return result.toString();
     }
 
-    private static String typeListToString(List<TypeNode> genericTypes, String delimiter, boolean needBrace) {
+    public static String typeListToString(List<TypeNode> genericTypes, String delimiter, boolean needBrace) {
         List<String> result = new ArrayList<>();
         for (TypeNode n : genericTypes) {
             result.add(n.toString());
@@ -238,7 +234,7 @@ public class TypeNode extends AstNode {
         }
     }
 
-    static String typeListToString(List<TypeNode> genericTypes) {
+    public static String typeListToString(List<TypeNode> genericTypes) {
         return TypeNode.typeListToString(genericTypes, ", ", true);
     }
 
@@ -331,13 +327,13 @@ public class TypeNode extends AstNode {
 
             public TokenType type;
 
-            Token(String value, TokenType type) {
+            public Token(String value, TokenType type) {
                 this.value = value;
                 this.type = type;
             }
         }
 
-        Parser(String name) {
+        public Parser(String name) {
             this.strName = name;
             this.name = name.getBytes(StandardCharsets.UTF_8);
             this.current = nextToken();
@@ -407,7 +403,7 @@ public class TypeNode extends AstNode {
             }
         }
 
-        boolean matchOp(TokenType tokenType) {
+        public boolean matchOp(TokenType tokenType) {
             if (current == null || current.type != tokenType) {
                 return false;
             }
@@ -415,9 +411,9 @@ public class TypeNode extends AstNode {
             return true;
         }
 
-        String matchName() {
+        public String matchName() {
             if (current == null || current.type != TokenType.NAME) {
-                return "";
+                return null;
             }
             String className = current.value;
             current = nextToken();
@@ -456,7 +452,7 @@ public class TypeNode extends AstNode {
                 matchOp(TokenType.RIGHT);
             }
 
-            if ((temp = matchName()).length() != StringUtils.BLANK_STR) {
+            if ((temp = matchName()) != null) {
                 if (temp.equals("extends")) {
                     superClass = new ArrayList<>();
                     superClass.add(parse());
@@ -572,7 +568,7 @@ public class TypeNode extends AstNode {
     }
 
     public static TypeNode create(String typeName, boolean eraseGeneric) {
-        if (typeName == null || typeName.isEmpty()) {
+        if (typeName == null || typeName.equals("")) {
             return null;
         }
 

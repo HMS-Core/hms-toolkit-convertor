@@ -19,8 +19,8 @@ package com.huawei.generator.json;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * JParameter class
- * 
+ * Class for JParameter
+ *
  * @since 2019-11-14
  */
 public class JParameter {

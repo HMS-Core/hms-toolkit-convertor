@@ -1,0 +1,48 @@
+{
+  "gName": "com.google.android.gms.games.leaderboard.Leaderboards.LoadScoresResult",
+  "interfaces": [
+    "com.google.android.gms.common.api.Releasable",
+    "com.google.android.gms.common.api.Result"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLeaderboard",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.leaderboard.Leaderboard"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getScores",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.leaderboard.LeaderboardScoreBuffer"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

@@ -1,0 +1,76 @@
+{
+  "gName": "com.google.android.gms.games.SnapshotsClient.DataOrConflict<T>",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isConflict",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isDifference",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getConflict",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.SnapshotsClient.SnapshotConflict"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDifference",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.archive.OperationResult.Difference"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getData",
+        "paramTypes": [],
+        "retType": "T"
+      },
+      "h": {
+        "exceptions": [
+          "java.lang.IllegalStateException"
+        ],
+        "modifiers": [],
+        "name": "getArchive",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.archive.Archive"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.archive.OperationResult"
+}

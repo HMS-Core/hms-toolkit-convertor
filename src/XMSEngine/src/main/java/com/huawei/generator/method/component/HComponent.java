@@ -18,6 +18,9 @@ package com.huawei.generator.method.component;
 
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.TypeNode;
+import com.huawei.generator.ast.custom.XClassDoc;
+import com.huawei.generator.ast.custom.XFieldDoc;
+import com.huawei.generator.ast.custom.XMethodDoc;
 import com.huawei.generator.gen.AstConstants;
 import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JMapping;
@@ -32,11 +35,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Component representing H, is used for XH generation.
+ * Class for HComponent
  *
  * @since 2020-02-19
  */
-public class HComponent extends Component {
+public final class HComponent extends Component {
     public HComponent() {
         super("Z");
     }
@@ -63,7 +66,10 @@ public class HComponent extends Component {
     @Override
     public String x2Z(String xType) {
         TypeNode tn = TypeNode.create(XMSUtils.xtoH(xType));
-        return tn == null ? null : tn.getTypeName();
+        if (tn == null) {
+            return null;
+        }
+        return tn.getTypeName();
     }
 
     @Override
@@ -89,7 +95,7 @@ public class HComponent extends Component {
 
     @Override
     public List<JMapping<JMethod>> wholeMapping(ClassNode xNode) {
-        return KClassUtils.getHHierachicalMethodMapping(xNode);
+        return KClassUtils.getHHierarchicalMethodMapping(xNode);
     }
 
     @Override
@@ -140,5 +146,35 @@ public class HComponent extends Component {
     @Override
     public String getInstancePrefix() {
         return "getHInstance";
+    }
+
+    @Override
+    public String getZClassNameForDoc(XClassDoc classDocNode) {
+        return classDocNode.getHClassName();
+    }
+
+    @Override
+    public String getZClassInfoForDoc(XClassDoc classDocNode) {
+        return classDocNode.getHClassInfo();
+    }
+
+    @Override
+    public String getZMethodNameForDoc(XMethodDoc methodDocNode) {
+        return methodDocNode.getHName();
+    }
+
+    @Override
+    public String getZMethodInfoForDoc(XMethodDoc methodDocNode) {
+        return methodDocNode.getHmsInfo();
+    }
+
+    @Override
+    public String componentAttribute() {
+        return "H";
+    }
+
+    @Override
+    public String getFieldInfo(XFieldDoc fieldDoc) {
+        return fieldDoc.getDisplayHInfo();
     }
 }

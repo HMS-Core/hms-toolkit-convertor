@@ -1,0 +1,471 @@
+package org.xms.f.storage;
+
+
+public class StorageMetadata extends org.xms.g.utils.XObject {
+
+
+
+    public StorageMetadata(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    public StorageMetadata() {
+        super(((org.xms.g.utils.XBox) null));
+    }
+
+    public java.lang.String getBucket() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getBucket()");
+            return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getBucket();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getBucket()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getBucket();
+        }
+    }
+
+    public java.lang.String getCacheControl() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getCacheControl()");
+            return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getCacheControl();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getCacheControl()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getCacheControl();
+        }
+    }
+
+    public java.lang.String getContentDisposition() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getContentDisposition()");
+            return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getContentDisposition();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getContentDisposition()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getContentDisposition();
+        }
+    }
+
+    public java.lang.String getContentEncoding() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getContentEncoding()");
+            return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getContentEncoding();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getContentEncoding()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getContentEncoding();
+        }
+    }
+
+    public java.lang.String getContentLanguage() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getContentLanguage()");
+            return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getContentLanguage();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getContentLanguage()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getContentLanguage();
+        }
+    }
+
+    public java.lang.String getContentType() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getContentType()");
+            return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getContentType();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getContentType()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getContentType();
+        }
+    }
+
+    public long getCreationTimeMillis() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+
+            org.xms.g.utils.XmsLog.d("XMSRouter", " Long.valueOf(((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getHInstance()).getCTime())");
+            java.text.SimpleDateFormat mSimpleDataFormat = new java.text.SimpleDateFormat("EEE,dd MMM yyyy hh:mm:ss 'GMT'", java.util.Locale.ENGLISH);
+            long creationsTime = 0l;
+            try {
+                java.util.Date date = mSimpleDataFormat.parse(((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getHInstance()).getCTime());
+                creationsTime= date.getTime();
+            } catch (java.text.ParseException e) {
+                e.printStackTrace();
+            }
+            return creationsTime;
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getCreationTimeMillis()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getCreationTimeMillis();
+        }
+    }
+
+    public java.lang.String getCustomMetadata(java.lang.String param0) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getCustomMetadata().get(param0)");
+            return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getCustomMetadata().get(param0);
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getCustomMetadata(param0)");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getCustomMetadata(param0);
+        }
+    }
+
+    public java.util.Set<java.lang.String> getCustomMetadataKeys() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getHInstance()).getCustomMetadata().keySet()");
+            return  ((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getHInstance()).getCustomMetadata().keySet();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getCustomMetadataKeys()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getCustomMetadataKeys();
+        }
+    }
+
+    public java.lang.String getGeneration() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public java.lang.String getMd5Hash() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getSHA256Hash()");
+            return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getSHA256Hash();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getMd5Hash()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getMd5Hash();
+        }
+    }
+
+    public java.lang.String getMetadataGeneration() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public java.lang.String getName() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getName()");
+            return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getName();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getName()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getName();
+        }
+    }
+
+    public java.lang.String getPath() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getPath()");
+            return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getPath();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getPath()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getPath();
+        }
+    }
+
+    public org.xms.f.storage.StorageReference getReference() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getStorageReference()");
+            com.huawei.agconnect.cloud.storage.core.StorageReference hReturn = ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getStorageReference();
+            return ((hReturn) == null ? null : (new org.xms.f.storage.StorageReference(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getReference()");
+            com.google.firebase.storage.StorageReference gReturn = ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getReference();
+            return ((gReturn) == null ? null : (new org.xms.f.storage.StorageReference(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    public long getSizeBytes() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getSize()");
+            return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getSize();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getSizeBytes()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getSizeBytes();
+        }
+    }
+
+    public long getUpdatedTimeMillis() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+
+            org.xms.g.utils.XmsLog.d("XMSRouter", "Long.valueOf(((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getHInstance()).getMTime())");
+            return Long.valueOf(((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getHInstance()).getMTime());
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getUpdatedTimeMillis()");
+            return ((com.google.firebase.storage.StorageMetadata) this.getGInstance()).getUpdatedTimeMillis();
+        }
+    }
+
+    public static org.xms.f.storage.StorageMetadata dynamicCast(java.lang.Object param0) {
+        return ((org.xms.f.storage.StorageMetadata) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.agconnect.cloud.storage.core.FileMetadata;
+        } else {
+            return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.firebase.storage.StorageMetadata;
+        }
+    }
+
+    public static class Builder extends org.xms.g.utils.XObject {
+
+
+
+        public Builder(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+
+        public Builder() {
+            super(((org.xms.g.utils.XBox) null));
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+
+                this.setHInstance(new org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder());
+            } else {
+                this.setGInstance(new com.google.firebase.storage.StorageMetadata.Builder());
+            }
+        }
+
+        public Builder(org.xms.f.storage.StorageMetadata param0) {
+            super(((org.xms.g.utils.XBox) null));
+        }
+
+        public org.xms.f.storage.StorageMetadata build() {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+
+                org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.f.storage.StorageMetadata(new org.xms.g.utils.XBox(null, this.getHInstance()))");
+                com.huawei.agconnect.cloud.storage.core.FileMetadata hReturn = ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getHInstance()).build();
+                return new org.xms.f.storage.StorageMetadata(new org.xms.g.utils.XBox(null, hReturn));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).build()");
+                com.google.firebase.storage.StorageMetadata gReturn = ((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).build();
+                return ((gReturn) == null ? null : (new org.xms.f.storage.StorageMetadata(new org.xms.g.utils.XBox(gReturn, null))));
+            }
+        }
+
+        public java.lang.String getCacheControl() {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getCacheControl()");
+                return ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getHInstance()).getCacheControl();
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).getCacheControl()");
+                return ((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).getCacheControl();
+            }
+        }
+
+        public java.lang.String getContentDisposition() {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getContentDisposition()");
+                return ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getHInstance()).getContentDisposition();
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).getContentDisposition()");
+                return ((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).getContentDisposition();
+            }
+        }
+
+        public java.lang.String getContentEncoding() {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getContentEncoding()");
+                return ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getHInstance()).getContentEncoding();
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).getContentEncoding()");
+                return ((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).getContentEncoding();
+            }
+        }
+
+        public java.lang.String getContentLanguage() {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getContentLanguage()");
+                return ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getHInstance()).getContentLanguage();
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).getContentLanguage()");
+                return ((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).getContentLanguage();
+            }
+        }
+
+        public java.lang.String getContentType() {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getHInstance()).getContentType()");
+                return ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getHInstance()).getContentType();
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).getContentType()");
+                return ((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).getContentType();
+            }
+        }
+
+        public org.xms.f.storage.StorageMetadata.Builder setCacheControl(java.lang.String param0) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+
+                org.xms.g.utils.XmsLog.d("XMSRouter", " ((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getHInstance()).setCacheControl()");
+                org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder hReturn = ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getHInstance());
+                hReturn.setCacheControl(param0);
+                return ((hReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(null, hReturn))));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).setCacheControl(param0)");
+                com.google.firebase.storage.StorageMetadata.Builder gReturn = ((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).setCacheControl(param0);
+                return ((gReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(gReturn, null))));
+            }
+        }
+
+        public org.xms.f.storage.StorageMetadata.Builder setContentDisposition(java.lang.String param0) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+
+                org.xms.g.utils.XmsLog.d("XMSRouter", " ((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getHInstance()).setContentDisposition()");
+                org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder hReturn = ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getHInstance());
+                hReturn.setContentDisposition(param0);
+                return ((hReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(null, hReturn))));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).setContentDisposition(param0)");
+                com.google.firebase.storage.StorageMetadata.Builder gReturn = ((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).setContentDisposition(param0);
+                return ((gReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(gReturn, null))));
+            }
+        }
+
+        public org.xms.f.storage.StorageMetadata.Builder setContentEncoding(java.lang.String param0) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+
+                org.xms.g.utils.XmsLog.d("XMSRouter", " ((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getHInstance()).setContentEncoding()");
+                org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder hReturn = (( org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getHInstance());
+                hReturn.setContentEncoding(param0);
+                return ((hReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(null, hReturn))));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).setContentEncoding(param0)");
+                com.google.firebase.storage.StorageMetadata.Builder gReturn = ((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).setContentEncoding(param0);
+                return ((gReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(gReturn, null))));
+            }
+        }
+
+        public org.xms.f.storage.StorageMetadata.Builder setContentLanguage(java.lang.String param0) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+
+                org.xms.g.utils.XmsLog.d("XMSRouter", " ((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getHInstance()).setContentLanguage()");
+                org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder hReturn = ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getHInstance());
+                hReturn.setContentLanguage(param0);
+                return ((hReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(null, hReturn))));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).setContentLanguage(param0)");
+                com.google.firebase.storage.StorageMetadata.Builder gReturn = ((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).setContentLanguage(param0);
+                return ((gReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(gReturn, null))));
+            }
+        }
+
+        public org.xms.f.storage.StorageMetadata.Builder setContentType(java.lang.String param0) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+
+                org.xms.g.utils.XmsLog.d("XMSRouter", " (( com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getHInstance()).setContentType()");
+                org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder hReturn = (( org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getHInstance());
+				hReturn.setContentType(param0);
+                return ((hReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(null, hReturn))));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).setContentType(param0)");
+                com.google.firebase.storage.StorageMetadata.Builder gReturn = ((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).setContentType(param0);
+                return ((gReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(gReturn, null))));
+            }
+        }
+
+        public org.xms.f.storage.StorageMetadata.Builder setCustomMetadata(java.lang.String param0, java.lang.String param1) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+
+                org.xms.g.utils.XmsLog.d("XMSRouter", " (( com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getHInstance()).setCustomMetadata(map)");
+                org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder hReturn = (( org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getHInstance());
+                java.util.Map<java.lang.String,java.lang.String> map = new java.util.HashMap<>();
+                map.put(param0,param1);
+                hReturn.setCustomMetadata(map);
+                return ((hReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(null, hReturn))));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).setCustomMetadata(param0, param1)");
+                com.google.firebase.storage.StorageMetadata.Builder gReturn = ((com.google.firebase.storage.StorageMetadata.Builder) this.getGInstance()).setCustomMetadata(param0, param1);
+                return ((gReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(gReturn, null))));
+            }
+        }
+
+        public static org.xms.f.storage.StorageMetadata.Builder dynamicCast(java.lang.Object param0) {
+            return ((org.xms.f.storage.StorageMetadata.Builder) param0);
+        }
+
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+                return false;
+            }
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.agconnect.cloud.storage.core.FileMetadata;
+            } else {
+                return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.firebase.storage.StorageMetadata.Builder;
+            }
+        }
+    }
+
+    public static class HStorageMetadataBuilder extends org.xms.g.utils.XObject{
+
+            com.huawei.agconnect.cloud.storage.core.FileMetadata mFileMetadata;
+
+            private java.util.Map<java.lang.String, java.lang.String> metadata;
+
+
+            public HStorageMetadataBuilder(org.xms.g.utils.XBox param0) {
+                super(param0);
+                this.mFileMetadata = new com.huawei.agconnect.cloud.storage.core.FileMetadata();
+            }
+
+            public HStorageMetadataBuilder() {
+                super(((org.xms.g.utils.XBox) null));
+                this.setHInstance(new com.huawei.agconnect.cloud.storage.core.FileMetadata());
+                this.mFileMetadata = new com.huawei.agconnect.cloud.storage.core.FileMetadata();
+            }
+
+            public HStorageMetadataBuilder(org.xms.f.storage.StorageMetadata param0) {
+                super(((org.xms.g.utils.XBox) null));
+                this.mFileMetadata = new com.huawei.agconnect.cloud.storage.core.FileMetadata();
+            }
+            public void setCacheControl(String var1) {
+                this.mFileMetadata.setCacheControl(var1);
+            }
+
+            public java.lang.String getCacheControl(){
+                return this.mFileMetadata.getCacheControl();
+            }
+
+            public void setContentDisposition(String var1) {
+                this.mFileMetadata.setContentDisposition(var1);
+            }
+            public java.lang.String getContentDisposition(){
+                return this.mFileMetadata.getContentDisposition();
+            }
+
+
+            public void setContentEncoding(String var1) {
+                this.mFileMetadata.setContentEncoding(var1);
+            }
+
+            public java.lang.String getContentEncoding(){
+                return this.mFileMetadata.getContentEncoding();
+            }
+
+
+            public void setContentLanguage(String var1) {
+                this.mFileMetadata.setContentLanguage(var1);
+            }
+
+            public java.lang.String getContentLanguage(){
+                return this.mFileMetadata.getContentLanguage();
+            }
+
+            public void setContentType(String var1) {
+                this.mFileMetadata.setContentType(var1);
+            }
+            public java.lang.String getContentType(){
+                return this.mFileMetadata.getContentType();
+            }
+
+            public void setSHA256Hash(String var1) {
+                this.mFileMetadata.setSHA256Hash(var1);
+            }
+            public java.lang.String getSHA256Hash(){
+                return this.mFileMetadata.getSHA256Hash();
+            }
+
+
+            public void setCustomMetadata(java.util.Map<java.lang.String, java.lang.String> var1) {
+                this.mFileMetadata.setCustomMetadata(var1);
+            }
+            public java.util.Map<java.lang.String,java.lang.String> getCustomMetadata(){
+                return this.mFileMetadata.getCustomMetadata();
+            }
+            public  com.huawei.agconnect.cloud.storage.core.FileMetadata build(){
+                return mFileMetadata;
+            }
+        }
+
+}

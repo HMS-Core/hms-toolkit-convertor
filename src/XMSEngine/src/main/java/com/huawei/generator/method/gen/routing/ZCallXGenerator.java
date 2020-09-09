@@ -27,17 +27,17 @@ import com.huawei.generator.method.param.Z2XMethodParamHandler;
 import com.huawei.generator.method.returns.X2ZMethodReturnHandler;
 
 /**
- * Method
+ * Generator for ZCallX
  *
  * @since 2019-12-02
  */
-public class ZCallXGenerator extends RoutingMethodGenerator {
+public final class ZCallXGenerator extends RoutingMethodGenerator {
     public ZCallXGenerator(MethodNode methodNode, MethodNode xMethodNode, JClass def, JMapping<JMethod> mapping,
         Component component) {
         super(methodNode);
         paramHandler = new Z2XMethodParamHandler(methodNode, xMethodNode, component);
         routerCallHandler = new ZCallXRouter(methodNode, def, mapping, component);
         returnHandler = new X2ZMethodReturnHandler(methodNode, xMethodNode, component);
-        exceptionHandler = new X2ZExceptionHandler(methodNode, component);
+        exceptionHandler = new X2ZExceptionHandler(methodNode, mapping, component);
     }
 }

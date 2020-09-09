@@ -26,6 +26,12 @@ import com.huawei.generator.g2x.processor.map.Validator;
 import com.huawei.generator.g2x.processor.module.ModuleGenerator;
 import com.huawei.generator.g2x.processor.module.ParamKind;
 import com.huawei.generator.g2x.processor.module.XmsAdaptorGenerator;
+import com.huawei.generator.g2x.processor.module.XmsRootGenerator;
+import com.huawei.generator.g2x.processor.module.XmsXapiGenerator;
+import com.huawei.generator.g2x.processor.module.XmsXgGenerator;
+import com.huawei.generator.g2x.processor.module.XmsXhGenerator;
+import com.huawei.generator.gen.RuntimeTypeMappings;
+import com.huawei.generator.mirror.KClassReader;
 import com.huawei.generator.utils.EnhancerUtils;
 import com.huawei.generator.utils.FileUtils;
 import com.huawei.generator.utils.KitInfoRes;
@@ -35,6 +41,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -46,6 +53,17 @@ import java.util.Set;
 
 /**
  * New entry of xms-router
+ * Path
+ * xmsadapter: g+h
+ * src -> main -> java -> org -> xms
+ * g+h / g
+ * src -> xmsgh -> java -> org -> xms
+ * src -> xmsg -> java -> org -> xms
+ * Summary:
+ * 1. add thirdSDK?
+ * 2. add strategy
+ * Diff:
+ * add short list
  *
  * @since 2020-02-26
  */
@@ -53,6 +71,14 @@ public class XmsService {
     private static final Logger LOGGER = LoggerFactory.getLogger(XmsService.class);
 
     private static final Map<GeneratorStrategyKind, String> STRATEGY_MODULE_MAP = new HashMap<>();
+
+    private static final int BUFFER_SIZE = 1024;
+
+    private static final int PLUGIN_PATH = 0;
+
+    private static final int BACKUP_PATH = 1;
+
+    private static final int TARGET_PATH = 2;
 
     static {
         STRATEGY_MODULE_MAP.put(GeneratorStrategyKind.G, XMS_MODULE_NAME);
@@ -63,7 +89,9 @@ public class XmsService {
     }
 
     /**
-     * A generate support kitName info
+     * A generate support kitname info
+     * 
+     * @return list of supported kits' information
      */
     public static Set<String> supportKitInfo() {
         return new HashSet<>(KitInfoRes.INSTANCE.getSupportList());
@@ -73,10 +101,14 @@ public class XmsService {
      * B create a new module and generate diff
      *
      * @param processorUtils should be build with
-     *        backPath/pluginPath/targetPath/kitMap/allDepMap/strategyKindList/thirdSDK
+     *        backPath/pluginPath/targetPath/kitMap/allDepMap/strategyKindList/thirdSDK/needClassloader
      * @return generate result
      */
     public static GenerateSummary create(ProcessorUtils processorUtils) {
+        Map<String, String> currentVersion = processorUtils.getKitVersionMap();
+        KClassReader.INSTANCE.generateGmsClassList(currentVersion, processorUtils.getPluginPath());
+        RuntimeTypeMappings.generateMappingRelation(currentVersion, processorUtils.getPluginPath());
+
         LOGGER.info("create: param");
         LOGGER.info("backPath:{}", processorUtils.getBackPath());
         LOGGER.info("pluginPath:{}", processorUtils.getPluginPath());
@@ -85,8 +117,10 @@ public class XmsService {
         LOGGER.info("allDepMap:{}:", processorUtils.getAllDepMap().toString());
         LOGGER.info("kindList:{}", processorUtils.getStrategyKindList().toString());
         LOGGER.info("SDK:{}", processorUtils.isThirdSDK());
-
+        LOGGER.info("gmsVersionMap:{}", processorUtils.getGmsVersionMap().toString());
+        LOGGER.info("needClassloader:{}", processorUtils.getNeedClassLoader());
         LOGGER.info("validate kitMap and allDepMap");
+
         Map<ParamKind, String> paths = new HashMap<>();
         paths.put(ParamKind.PLUGIN_PATH, processorUtils.getPluginPath());
         paths.put(ParamKind.BACKUP_PATH, processorUtils.getBackPath());
@@ -98,40 +132,78 @@ public class XmsService {
             oldSummary = resolveOldSummary(processorUtils.getBackPath());
         }
         Summary localFileSummary = new Summary();
-        EnhancerUtils.inferSummary(localFileSummary, processorUtils.getBackPath(), processorUtils.getPluginPath());
+        EnhancerUtils.inferSummary(
+                localFileSummary,
+                String.join(File.separator, processorUtils.getBackPath(), XmsConstants.XMS_MODULE_NAME),
+                processorUtils.getPluginPath());
         summaries.put(ParamKind.NEW_SUMMARY, newSummary);
         summaries.put(ParamKind.OLD_SUMMARY, oldSummary);
         summaries.put(ParamKind.LOCAL_SUMMARY, localFileSummary);
         GenerateSummary generateSummary = new GenerateSummary();
 
-        Validator.validKits(processorUtils.getKitMap());
-
-        ModuleGenerator moduleGenerator =
-            new XmsAdaptorGenerator(new ProcessorUtils.Builder(processorUtils).setPathMap(paths)
-                .setSummaries(summaries)
-                .setSummary(generateSummary)
-                .build());
+        ProcessorUtils newUtils =
+                new ProcessorUtils
+                        .Builder(processorUtils)
+                        .setPathMap(paths)
+                        .setSummaries(summaries)
+                        .setSummary(generateSummary)
+                        .build();
+        Validator.validKits(newUtils.getKitMap());
+        ModuleGenerator moduleGenerator = new XmsAdaptorGenerator(newUtils);
         moduleGenerator.createModule();
+
+        // classloader
+        if (newUtils.getNeedClassLoader() && !newUtils.isThirdSDK()) {
+            XmsRootGenerator rootModule = new XmsRootGenerator(newUtils);
+            rootModule.createModule();
+            XmsXapiGenerator xmsAdaptorGenerator = new XmsXapiGenerator(newUtils);
+            xmsAdaptorGenerator.createModule();
+            XmsXgGenerator xmsXgGenerator = new XmsXgGenerator(newUtils);
+            xmsXgGenerator.createModule();
+            XmsXhGenerator xmsXhGenerator = new XmsXhGenerator(newUtils);
+            xmsXhGenerator.createModule();
+        }
         EnhancerUtils.inferSummary(newSummary,
-            String.join(File.separator, processorUtils.getTargetPath(), XMS_MODULE_NAME),
-            processorUtils.getPluginPath());
+                String.join(File.separator, newUtils.getTargetPath(), XMS_MODULE_NAME),
+                newUtils.getPluginPath());
         FileUtils.outPutJson(newSummary, moduleGenerator.getSummaryPath(), "summary");
         LOGGER.info("Summary generated in:{}, fileSize:{}:", moduleGenerator.getSummaryPath(),
-            newSummary.allFiles.size());
+                newSummary.allFiles.size());
 
         // backPath is null leads to a new generation,diff is null
-        if (processorUtils.getBackPath() == null || processorUtils.getBackPath().isEmpty()) {
+        if (newUtils.getBackPath() == null || newUtils.getBackPath().isEmpty()) {
             return generateSummary;
         }
 
         // backPath is not null leads to a generation with diff build
         Diff diff = buildDiff(newSummary, oldSummary, localFileSummary);
         LOGGER.info("Diff generated mod{},update{},add{},del{}", diff.getModMap().size(), diff.getUpdatedMap().size(),
-            diff.getAddList().size(), diff.getDelList().size());
+                diff.getAddList().size(), diff.getDelList().size());
         if (diff.isChanged()) {
             generateSummary.setDiff(diff);
         }
         return generateSummary;
+    }
+
+    /**
+     * update a new module
+     *
+     * @param basePath project path
+     * @return updated result
+     */
+    public static GenerateSummary update(String basePath) throws IOException {
+        ProcessorUtils.Builder builder = new ProcessorUtils.Builder();
+        builder.setPluginPath("pluginPath"); //plugin
+        builder.setTargetPath("targetPath"); //plugin
+        builder.setBackPath("backPath");     //plugin
+        builder.setKitMap(XmsKitsInfo.getKitMap(basePath));
+        builder.setAllDepMap(new HashMap<>());//plugin
+        builder.setStrategyKindList(XmsKitsInfo.getStrategyKindList(basePath));
+        builder.setThirdSDK(XmsKitsInfo.isSDK(basePath));
+        builder.setGmsVersionMap(XmsKitsInfo.getGmsVersionMap(basePath));
+        builder.setNeedClassLoader(XmsKitsInfo.needClassLoader(basePath));
+        ProcessorUtils pu = new ProcessorUtils(builder);
+        return create(pu);
     }
 
     private static Diff buildDiff(Summary newSummary, Summary oldSummary, Summary localFileSummary) {
@@ -169,7 +241,7 @@ public class XmsService {
      * C create a new module without g/h first and generate diff
      *
      * @param processorUtils should be build with
-     *        pluginPath/oldPath/newPath/kitMap/allDepMap/useOnlyG/thirdSDK
+     *        pluginPath/oldPath/newPath/kitMap/allDepMap/useOnlyG/thirdSDK/needClassloader
      * @return result
      */
     public static GenerateSummary createWithoutFirstStrategy(ProcessorUtils processorUtils) {
@@ -189,14 +261,15 @@ public class XmsService {
         if (processorUtils.isUseOnlyG()) {
             strategyKindList.add(GeneratorStrategyKind.G);
         }
-        return create(new ProcessorUtils.Builder(processorUtils).setStrategyKindList(strategyKindList).build());
+        LOGGER.info("strategyKindList:{}", strategyKindList.toString());
+        return create(processorUtils);
     }
 
     /**
      * D return summary for IDE to produce sdk/app and strategy
      *
      * @param pluginPath plugin path
-     * @param rootPath path/xms-adapter
+     * @param rootPath path/xmsadapter
      * @return summary, null for fail
      */
     public static Summary inferStrategy(String pluginPath, String rootPath) {
@@ -211,7 +284,7 @@ public class XmsService {
         return SummaryPathUtils.buildSummaryFromJson(file);
     }
 
-    private static Summary resolveOldSummary(String backPath) {
+    static Summary resolveOldSummary(String backPath) {
         List<File> oldSummaryFiles = new ArrayList<>();
         FileUtils.findFileByName(new File(backPath), "summary.json", oldSummaryFiles);
         Summary oldSummary = null;
@@ -223,7 +296,7 @@ public class XmsService {
         LOGGER.info("OldSummary read from:{}:", backPath);
         LOGGER.info("OldSummary:{}, FileSize：{}", oldSummary, oldSummary == null ? "null" : oldSummary.allFiles.size());
 
-        // reset oldSummaryFile#moduleLocation, for it has been move to backPath
+        // reset oldSummaryFile#moduleLocation, for it has been move to backpath
         if (oldSummary != null) {
             oldSummary.moduleLocation = backPath;
         }

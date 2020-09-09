@@ -1,0 +1,36 @@
+{
+  "gName": "com.google.android.gms.safetynet.SafetyNetApi",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "verifyWithRecaptcha",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.safetynet.SafetyNetApi.RecaptchaTokenResult>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/userdetect-0000001050154382",
+      "tipsInfo": "This API has been discarded. Modify it based on the development guide."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

@@ -1,0 +1,359 @@
+{
+  "gName": "com.google.firebase.messaging.RemoteMessage",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCollapseKey",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCollapseKey",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/remotemessage-0000001050171874#EN-US_TOPIC_0000001050171874__section159361469",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getData",
+        "paramTypes": [],
+        "retType": "java.util.Map<java.lang.String, java.lang.String>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataOfMap",
+        "paramTypes": [],
+        "retType": "java.util.Map<java.lang.String, java.lang.String>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getFrom",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFrom",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/remotemessage-0000001050171874#EN-US_TOPIC_0000001050171874__section41231931104710",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getMessageId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMessageId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/remotemessage-0000001050171874#EN-US_TOPIC_0000001050171874__section1933912164816",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getMessageType",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMessageType",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/remotemessage-0000001050171874#EN-US_TOPIC_0000001050171874__section653130184812",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getNotification",
+        "paramTypes": [],
+        "retType": "com.google.firebase.messaging.RemoteMessage.Notification"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getNotification",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.push.RemoteMessage.Notification"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/remotemessage-0000001050171874#EN-US_TOPIC_0000001050171874__section816573816551",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getOriginalPriority",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getOriginalUrgency",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPriority",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getUrgency",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSentTime",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSentTime",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/remotemessage-0000001050171874#EN-US_TOPIC_0000001050171874__section9257184819485",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getTo",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTo",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/remotemessage-0000001050171874#EN-US_TOPIC_0000001050171874__section1553225218479",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTtl",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTtl",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/remotemessage-0000001050171874#EN-US_TOPIC_0000001050171874__section12778237175419",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "name": "PRIORITY_HIGH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "PRIORITY_HIGH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/remotemessage-0000001050171874",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "name": "PRIORITY_NORMAL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "PRIORITY_NORMAL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/remotemessage-0000001050171874",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "name": "PRIORITY_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "PRIORITY_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/remotemessage-0000001050171874",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.push.RemoteMessage"
+}

@@ -24,7 +24,7 @@ import com.huawei.generator.json.JMapping;
 import com.huawei.generator.json.JMethod;
 
 /**
- * Function description
+ * Utils for Mapping
  *
  * @since 2020-03-23
  */

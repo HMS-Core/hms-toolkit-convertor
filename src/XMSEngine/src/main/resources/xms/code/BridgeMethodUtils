@@ -9,34 +9,45 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Utils of bridge methods
+ */
 public final class BridgeMethodUtils {
-    // key is bridge method and value is bridged method
+    /**
+     * Map<Method, Method> bridgeMethodCache Cache for bridge methods.<br/>
+     */
     private final static Map<Method, Method> bridgeMethodCache = new HashMap<>();
 
+    /**
+     * org.xms.g.utils.BridgeMethodUtils.BridgeMethodUtils() Constructor of BridgeMethodUtils<br/>
+     */
     private BridgeMethodUtils() {
     }
 
     /**
+     * org.xms.g.utils.BridgeMethodUtils.getBridgeMethod(Class<?> clazz, String name, Class<?>... types) get Bridge Method.<br/>
+     *
      * @param clazz declaring class
-     * @param name method name
+     * @param name  method name
      * @param types parameter types
      * @return bridge method
      */
-    public static Method getBridgeMethod(Class<?> clazz, String name, Class<?>... types) {
+    public static Method getBridgeMethod(Class<?> clazz, String name, Class<?>... types) throws NoSuchMethodException {
         if (clazz == null) {
             throw new IllegalStateException("bad clazz");
         }
         if (name == null || name.isEmpty()) {
             throw new IllegalStateException("method name is null or empty!");
         }
-        try {
-            return clazz.getMethod(name, types);
-        } catch (NoSuchMethodException ex) {
-            throw new IllegalStateException("Expected method not found: " + ex);
+        Method bridgeMethod = clazz.getMethod(name, types);
+        if (!bridgeMethod.isBridge()) {
+            throw new NoSuchMethodException();
         }
+        return bridgeMethod;
     }
 
     /**
+     * org.xms.g.utils.BridgeMethodUtils.getCachedBridgedMethod(Method bridgeMethod)  get the bridged method from cache if existed.<br/>
      *
      * @param bridgeMethod key
      * @return bridged method
@@ -49,8 +60,9 @@ public final class BridgeMethodUtils {
     }
 
     /**
+     * org.xms.g.utils.BridgeMethodUtils.setCachedBridgedMethodCache(Method bridgeMethod, Method bridgedMethod) put bridged method into cache.<br/>
      *
-     * @param bridgeMethod key
+     * @param bridgeMethod  key
      * @param bridgedMethod value
      */
     private static synchronized void setCachedBridgedMethodCache(Method bridgeMethod, Method bridgedMethod) {
@@ -58,6 +70,8 @@ public final class BridgeMethodUtils {
     }
 
     /**
+     * org.xms.g.utils.BridgeMethodUtils.getBridgedMethod(Method bridgeMethod) get the bridged method.<br/>
+     *
      * @param bridgeMethod bridge class for generic type
      * @return bridged method which has accurate parameter type
      */
@@ -84,10 +98,11 @@ public final class BridgeMethodUtils {
     }
 
     /**
-     * @param clazz declaring class
+     * org.xms.g.utils.BridgeMethodUtils.getCandidateBridgedMethods(Class<?> clazz, Method method, List<Method> list) get Candidate BridgedMethods.<br/>
+     *
+     * @param clazz  declaring class
      * @param method bridge method
-     * @param list contains methods has the same method name and parameter numbers as bridge method.
-     *        for example, overloaded methods.
+     * @param list   contains methods has the same method name and parameter numbers as bridge method.for example, overloaded methods.
      */
     private static void getCandidateBridgedMethods(Class<?> clazz, Method method, List<Method> list) {
         Method[] targetMethods = clazz.getMethods();
@@ -113,10 +128,10 @@ public final class BridgeMethodUtils {
     }
 
     /**
-     * get true bridged method from candidates
-     * 
+     * org.xms.g.utils.BridgeMethodUtils.getBridgedMethodByCandidates(List<Method> candidateMethods, Method bridgeMethod). get true bridged method from candidates.<br/>
+     *
      * @param candidateMethods candidate method list
-     * @param bridgeMethod bridge method
+     * @param bridgeMethod     bridge method
      * @return bridged method
      */
     private static Method getBridgedMethodByCandidates(List<Method> candidateMethods, Method bridgeMethod) {
@@ -129,7 +144,7 @@ public final class BridgeMethodUtils {
                     return candidateMethod;
                 } else if (preMethod != null) {
                     isSameSignature = isSameSignature && Arrays.equals(candidateMethod.getGenericParameterTypes(),
-                        preMethod.getGenericParameterTypes());
+                            preMethod.getGenericParameterTypes());
                 }
                 preMethod = candidateMethod;
             }
@@ -141,11 +156,11 @@ public final class BridgeMethodUtils {
     }
 
     /**
-     * resolve bridged method.
-     * 
-     * @param genericMethod generic declared bridge method
+     * org.xms.g.utils.BridgeMethodUtils.isBridgedMethod(Method genericMethod, Method candidateMethod, Class<?> declaringClass) judge if it's  bridged method.<br/>
+     *
+     * @param genericMethod   generic declared bridge method
      * @param candidateMethod candidate method which may be bridged method
-     * @param declaringClass declaring class of bridge method
+     * @param declaringClass  declaring class of bridge method
      * @return true or false
      */
     private static boolean isBridgedMethod(Method genericMethod, Method candidateMethod, Class<?> declaringClass) {
@@ -156,7 +171,7 @@ public final class BridgeMethodUtils {
             Class<?> candidateParameter = parameters[i];
             if (candidateParameter.isArray()) {
                 if (!candidateParameter.getComponentType()
-                    .equals(genericParameterType.resolveComponentType().getClazz())) {
+                        .equals(genericParameterType.resolveComponentType().getClazz())) {
                     return false;
                 }
             }
@@ -169,15 +184,14 @@ public final class BridgeMethodUtils {
     }
 
     /**
-     * resolve declared generic method by bridge method
-     * 
+     * org.xms.g.utils.BridgeMethodUtils.getGenericMethod(Method bridgeMethod) resolve declared generic method by bridge method.<br/>
+     *
      * @param bridgeMethod bridge method
      * @return declared generic method
      */
     private static Method getGenericMethod(Method bridgeMethod) {
         Method m = null;
 
-        // first super class list
         Class<?> cl = null;
         for (cl = bridgeMethod.getDeclaringClass().getSuperclass(); cl != null && !cl.equals(Object.class);
             cl = cl.getSuperclass()) {
@@ -187,7 +201,6 @@ public final class BridgeMethodUtils {
             }
         }
 
-        // then interface list
         Set<Class<?>> ifcList = new LinkedHashSet<>();
         for (cl = bridgeMethod.getDeclaringClass(); cl != null && !cl.equals(Object.class);
             cl = cl.getSuperclass()) {
@@ -200,6 +213,13 @@ public final class BridgeMethodUtils {
         return getMethodByInterfaces(ifcList.toArray(new Class<?>[0]), bridgeMethod);
     }
 
+    /**
+     * org.xms.g.utils.BridgeMethodUtils.getDeclaredMethod(Class<?> cl, Method bridgeMethod) resolve declared method by bridge method.<br/>
+     *
+     * @param cl Class
+     * @param bridgeMethod the bridge Method
+     * @return declared method
+     */
     private static Method getDeclaredMethod(Class<?> cl, Method bridgeMethod) {
         try {
             return cl.getDeclaredMethod(bridgeMethod.getName(), bridgeMethod.getParameterTypes());
@@ -208,6 +228,13 @@ public final class BridgeMethodUtils {
         }
     }
 
+    /**
+     * org.xms.g.utils.BridgeMethodUtils.getMethodByInterfaces(Class<?>[] interfaces, Method bridgeMethod) resolve method by interfaces.<br/>
+     *
+     * @param interfaces input interfaces
+     * @param bridgeMethod the bridge Method
+     * @return method
+     */
     private static Method getMethodByInterfaces(Class<?>[] interfaces, Method bridgeMethod) {
         for (Class<?> ifc : interfaces) {
             Method method = getDeclaredMethod(ifc, bridgeMethod);

@@ -16,19 +16,25 @@
 
 package com.huawei.generator.utils;
 
-import com.huawei.generator.g2x.po.map.MDesc;
+import com.huawei.generator.g2x.po.map.MethodDesc;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 /**
- * Kit name handle and param handle
+ * Utils for G2XMapping
  *
  * @since 2019-11-27
  */
 public class G2XMappingUtils {
-    // basic type plus prefix
+    private static final Logger LOGGER = LoggerFactory.getLogger(G2XMappingUtils.class);
+
+    // Prefixes basic types for use with ide
     public static String enhancePrimaryType(String type) {
         String result = type;
         if (TypeUtils.isPrimitiveType(type)) {
@@ -37,16 +43,16 @@ public class G2XMappingUtils {
         return result;
     }
 
-    // erase content in '<...>'
+    // Erase all contents in angle brackets
     public static String degenerifyContains(String context) {
         if (context == null || context.isEmpty()) {
             return "";
         }
-        int head = context.indexOf('<');
+        int head = context.indexOf('<'); // Mark the position of the first left parenthesis
         if (head == -1) {
             return context;
         } else {
-            int next = head + 1;
+            int next = head + 1; // Check each character starting from head+1.
             int count = 1;
             do {
                 if (context.charAt(next) == '<') {
@@ -81,7 +87,7 @@ public class G2XMappingUtils {
         }
         result.deleteCharAt(result.length() - 1);
 
-        // handle varargs
+        // Processing Variable Parameter Formats
         if (name.endsWith("...")) {
             result.append("[]");
         }
@@ -108,16 +114,16 @@ public class G2XMappingUtils {
         if (KitInfoRes.INSTANCE.getUnnormalizeKitMap().containsKey(str)) {
             str = KitInfoRes.INSTANCE.getUnnormalizeKitMap().get(str);
         } else {
-            str = str.toLowerCase();
+            str = str.toLowerCase(Locale.ENGLISH);
         }
         return str;
     }
 
     /**
-     * input is method signature，output is remove return information
+     * Input method signature, which is output after the return field is deleted.
      * 
-     * @param signature method signature
-     * @return handled method signature
+     * @param signature  method signature before processing
+     * @return method signature after processing
      */
     public static String simplifySignature(String signature) {
         String[] strs = signature.split(" ");
@@ -125,7 +131,7 @@ public class G2XMappingUtils {
             return strs[1];
         }
         if (strs.length > 2) {
-            throw new IllegalArgumentException("signature for covertor error occured: " + signature);
+            throw new IllegalArgumentException("signature for convertor error occurred: " + signature);
         }
         return signature;
     }
@@ -156,7 +162,7 @@ public class G2XMappingUtils {
      * @param gName gName
      * @param xName xName
      */
-    public static void eraseMDesc(MDesc desc, int size, String gName, String xName) {
+    public static void eraseMDesc(MethodDesc desc, int size, String gName, String xName) {
         String oldMethodName = desc.getMethodName();
         String newMethodName = buildMDescMethodName(oldMethodName, size);
         desc.setMethodName(newMethodName);
@@ -171,7 +177,7 @@ public class G2XMappingUtils {
      * @param desc target desc
      * @param size number of params
      */
-    public static void eraseMDesc(MDesc desc, int size) {
+    public static void eraseMDesc(MethodDesc desc, int size) {
         // replace methodName
         String oldMethodName = desc.getMethodName();
         String newName = buildMDescMethodName(oldMethodName, size);

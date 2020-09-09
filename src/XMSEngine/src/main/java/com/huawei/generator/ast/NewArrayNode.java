@@ -19,9 +19,9 @@ package com.huawei.generator.ast;
 import java.util.List;
 
 /**
- * NewArrayNode class
+ * New Array Node
  *
- * @since 2020-05-12
+ * @since 2019-11-29
  */
 public final class NewArrayNode extends StatementNode {
     private String size;
