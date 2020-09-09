@@ -94,13 +94,13 @@ public class ComplexXmlModificationChanger extends XmlModificationChanger {
         CommonOperation commonOperation = xmlChangerJsonTargets.get(nodekey);
         String grandNodeKey = grandNodeName + grandAndroidName;
         XmlEntity xmlEntity = labelContents.get(grandNodeKey);
-        if (xmlEntity == null || isExistedDefectInstance(xmlEntity.labelStartLine, defectInstances)) {
+        if (xmlEntity == null || isExistedDefectInstance(xmlEntity.getLabelStartLine(), defectInstances)) {
             return;
         }
-        if (commonOperation != null && commonOperation.operation.equals("delete")) {
+        if (commonOperation != null && "delete".equals(commonOperation.operation)) {
             DefectInstance defectInstance =
                     createDefectInstance(
-                            buggyFilePath, xmlEntity.labelStartLine, reformatFixedString(xmlEntity.labelContent), null);
+                            buggyFilePath, xmlEntity.getLabelStartLine(), reformatFixedString(xmlEntity.getLabelContent()), null);
             defectInstance.setMessage(commonOperation.desc);
             defectInstance.setStatus(NONEFIX.toString());
             defectInstance.isFixed = false;
@@ -110,12 +110,12 @@ public class ComplexXmlModificationChanger extends XmlModificationChanger {
             if (getJsonTargetKey(nodeName, androidName, xmlChangerJsonTargets) != null) {
                 String jsonKey = getJsonTargetKey(nodeName, androidName, xmlChangerJsonTargets);
                 CommonOperation newCommonOperation = xmlChangerJsonTargets.get(jsonKey);
-                if (newCommonOperation != null && newCommonOperation.operation.equals("delete")) {
+                if (newCommonOperation != null && "delete".equals(newCommonOperation.operation)) {
                     DefectInstance defectInstance =
                             createDefectInstance(
                                     buggyFilePath,
-                                    xmlEntity.labelStartLine,
-                                    reformatFixedString(xmlEntity.labelContent),
+                                    xmlEntity.getLabelStartLine(),
+                                    reformatFixedString(xmlEntity.getLabelContent()),
                                     null);
                     defectInstance.setMessage(newCommonOperation.desc);
                     defectInstance.setStatus(NONEFIX.toString());
@@ -137,20 +137,9 @@ public class ComplexXmlModificationChanger extends XmlModificationChanger {
     }
 
     @Override
-    public DefectInstance createDefectInstance(
-            String filePath, int buggyLineNumber, String buggyLineContent, String fixedLineContent) {
-        DefectInstance defectInstance = new DefectInstance();
-        defectInstance.buggyLines.put(filePath, buggyLineNumber, buggyLineContent);
-        defectInstance.defectType = this.getFixerInfo().type.toString();
-        defectInstance.message = this.getFixerInfo().description;
-        defectInstance.mainBuggyLineNumber = Math.abs(buggyLineNumber);
-        defectInstance.mainBuggyFilePath = filePath;
-        defectInstance.mainFixedFilePath = filePath;
-        defectInstance.mainFixedLineNumber = Math.abs(buggyLineNumber);
-        defectInstance.fixedLines.put(filePath, buggyLineNumber, fixedLineContent);
-        defectInstance.isFixed = true;
-        defectInstance.status = FixStatus.AUTOFIX.toString();
-        defectInstance.context.add("Complex", "complex");
-        return defectInstance;
+    public DefectInstance createDefectInstance(String filePath, int buggyLineNumber, String buggyLineContent,
+            String fixedLineContent) {
+        return ComplexChangerUtils.createDefectInstance(filePath, buggyLineNumber, buggyLineContent, fixedLineContent,
+                this.getFixerInfo());
     }
 }

@@ -21,6 +21,7 @@ import com.google.gson.GsonBuilder;
 import com.huawei.codebot.analyzer.x2y.global.commonvisitor.JavaLocalVariablesInMethodVisitor;
 import com.huawei.codebot.analyzer.x2y.global.commonvisitor.KotlinLocalVariablesVisitor;
 import com.huawei.codebot.analyzer.x2y.io.config.ConfigService;
+import com.huawei.codebot.analyzer.x2y.java.AtomicAndroidAppChanger;
 import com.huawei.codebot.codeparsing.java.JavaFile;
 import com.huawei.codebot.codeparsing.java.JavaFileAnalyzer;
 import com.huawei.codebot.codeparsing.kotlin.KotlinFile;
@@ -33,6 +34,7 @@ import com.huawei.codebot.framework.x2y.AndroidAppFixer;
 import org.eclipse.jdt.core.dom.ImportDeclaration;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -41,7 +43,7 @@ import java.util.Map;
  *
  * @since 2020-04-20
  */
-public class PackageDeleteChanger extends AndroidAppFixer {
+public class PackageDeleteChanger extends AtomicAndroidAppChanger {
     private Map<String, Map> descriptions;
 
     /**
@@ -50,6 +52,11 @@ public class PackageDeleteChanger extends AndroidAppFixer {
     public PackageDeleteChanger(String fixerType) throws CodeBotRuntimeException {
         ConfigService configService = ConfigService.getInstance(fixerType);
         this.descriptions = configService.getPackageDeleteDescriptions();
+    }
+
+    @Override
+    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
+        return null;
     }
 
     @Override
@@ -81,47 +88,57 @@ public class PackageDeleteChanger extends AndroidAppFixer {
                             defectInstances.add(defectInstance);
                         }
 
-                        String importLine = node.getName().toString();
-                        for (Map.Entry<String, Map> entry : descriptions.entrySet()) {
-                            boolean isContain = importLine.startsWith(entry.getKey());
-                            if (isContain) {
-                                int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
-                                String buggyLine = javaFile.fileLines.get(startLineNumber - 1);
-                                Map desc = entry.getValue();
-                                String message = desc == null ? null : gson.toJson(desc);
-                                DefectInstance defectInstance =
-                                        createWarningDefectInstance(buggyFilePath, startLineNumber, buggyLine, message);
-                                // Determine whether it was scanned by other defectInstance before,
-                                // if it is scanned, it will not be added
-                                boolean isAdd = true;
-                                for (DefectInstance isAddDefectInstance : instancesFromPreFixers) {
-                                    if (isAddDefectInstance
-                                                    .buggyLines
-                                                    .values()
-                                                    .toString()
-                                                    .equals(defectInstance.buggyLines.values().toString())
-                                            && isAddDefectInstance.mainBuggyFilePath.equals(
-                                                    defectInstance.mainBuggyFilePath)) {
-                                        isAdd = false;
-                                        break;
-                                    }
-                                }
-                                if (isAdd) {
-                                    defectInstances.add(defectInstance);
-                                }
-                                break;
-                            }
-                        }
-                        return super.visit(node);
-                    }
-                };
-        javaFile.compilationUnit.accept(visitor);
-        return defectInstances;
-    }
 
-    @Override
-    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
-        return null;
+                String importLine = node.getName().toString();
+                Map.Entry<String, Map> targetEntry = null;
+                int oldMatchValue = 0;
+                for (Map.Entry<String, Map> entry : descriptions.entrySet()) {
+                    String[] originStrs = importLine.split("\\.");
+                    String[] targetStrs = entry.getKey().split("\\.");
+                    int length = Math.min(originStrs.length, targetStrs.length);
+                    int currentMatchValue = 0;
+                    for (int i = 0; i < length; i++) {
+                        if (originStrs[i].equals(targetStrs[i])) {
+                            currentMatchValue++;
+                        } else {
+                            break;
+                        }
+                    }
+                    // Select a field with a higher matching degree under the startwith condition.
+                    if (currentMatchValue > oldMatchValue && importLine.startsWith(entry.getKey())) {
+                        targetEntry = entry;
+                        oldMatchValue = currentMatchValue;
+                    }
+                }
+                if (targetEntry != null) {
+                    int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
+                    String buggyLine = javaFile.fileLines.get(startLineNumber - 1);
+                    Map desc = targetEntry.getValue();
+                    String message = desc == null ? "" : gson.toJson(desc);
+                    DefectInstance defectInstance =
+                            createWarningDefectInstance(buggyFilePath, startLineNumber, buggyLine, message);
+                    // Determine whether it was scanned by other defectInstance before,
+                                // if it is scanned, it will not be added
+                    boolean isAdd = true;
+                    for (DefectInstance isAddDefectInstance : instancesFromPreFixers) {
+                        if (isAddDefectInstance.buggyLines.values().toString()
+                                .equals(defectInstance.buggyLines.values().toString())
+                                && isAddDefectInstance.mainBuggyFilePath.equals(
+                                defectInstance.mainBuggyFilePath)) {
+                            isAdd = false;
+                            break;
+                        }
+                    }
+                    if (isAdd) {
+                        defectInstances.add(defectInstance);
+                    }
+                }
+                return super.visit(node);
+            }
+        };
+        javaFile.compilationUnit.accept(visitor);
+        removeIgnoreBlocks(defectInstances, javaFile.shielder);
+        return defectInstances;
     }
 
     @Override
@@ -194,7 +211,13 @@ public class PackageDeleteChanger extends AndroidAppFixer {
                         return super.visitImportHeader(ctx);
                     }
                 };
-        kotlinFile.tree.accept(visitor);
+        try {
+            kotlinFile.tree.accept(visitor);
+        } catch (Exception e) {
+            logger.error(buggyFilePath);
+            logger.error(Arrays.toString(e.getStackTrace()));
+        }
+        removeIgnoreBlocks(defectInstances, kotlinFile.shielder);
         return defectInstances;
     }
 

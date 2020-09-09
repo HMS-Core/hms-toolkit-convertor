@@ -101,7 +101,7 @@ public class JavaASTUtils {
                 if (!isInTargetList(quafiledType, currentGenerics)) {
                     quafiledType = getGenericQualifiedType(String.valueOf(parm), cu);
                 }
-                if (!quafiledType.equals("")) {
+                if (!"".equals(quafiledType)) {
                     generics.add(quafiledType);
                 }
             }
@@ -136,7 +136,7 @@ public class JavaASTUtils {
      * @param generics generics of sub class.
      * @return Type information of the super class extended by the type declared in typeDeclaration node
      */
-    public static TypeInfo getSupperClass(TypeDeclaration typeDeclaration, List<String> generics) {
+    public static TypeInfo getSuperClass(TypeDeclaration typeDeclaration, List<String> generics) {
         Type supperClassType = typeDeclaration.getSuperclassType();
         if (supperClassType != null) {
             return getTypeInfo(typeDeclaration, generics, supperClassType);

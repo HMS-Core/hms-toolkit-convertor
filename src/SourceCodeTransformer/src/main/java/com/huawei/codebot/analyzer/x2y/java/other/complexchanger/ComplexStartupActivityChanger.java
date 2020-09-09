@@ -16,9 +16,8 @@
 
 package com.huawei.codebot.analyzer.x2y.java.other.complexchanger;
 
-import static com.huawei.codebot.analyzer.x2y.xml.XmlModificationChanger.MANIFEST_PATH;
-
 import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.GradleModificationChanger;
+import com.huawei.codebot.analyzer.x2y.gradle.utils.GradleFileUtils;
 import com.huawei.codebot.analyzer.x2y.java.other.specificchanger.SpecificModificationChanger;
 import com.huawei.codebot.analyzer.x2y.xml.XmlModificationChanger;
 import com.huawei.codebot.framework.DefectFixerType;
@@ -30,6 +29,7 @@ import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.lazyfix.SyncedCompositeDefectFixer;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.utils.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,6 +39,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import static com.huawei.codebot.analyzer.x2y.xml.XmlModificationChanger.MANIFEST_PATH;
 
 /**
  * A changer used to process Complex Startup Activity
@@ -63,6 +65,7 @@ public class ComplexStartupActivityChanger extends SyncedCompositeDefectFixer {
 
     private String fixerType;
 
+
     public ComplexStartupActivityChanger(String fixerType) {
         this.fixerType = fixerType;
     }
@@ -70,11 +73,12 @@ public class ComplexStartupActivityChanger extends SyncedCompositeDefectFixer {
     @Override
     public void preprocessAndAutoFix(FixBotArguments args) throws CodeBotRuntimeException {
         String subjectProjectOrModuleCodeFolder = args.getRepoPath();
+        String[] ignoreLists = args.getIgnoredList();
         this.basicFormatAfterFix = true;
         // Initialize the project path
         initProjectFolders(subjectProjectOrModuleCodeFolder);
         // Project Module analysis, generate xml, gradle, corresponding code path of each Module
-        analyzeProjectAndGenerateDetectors(subjectProjectOrModuleCodeFolder);
+        analyzeProjectAndGenerateDetectors(subjectProjectOrModuleCodeFolder, ignoreLists);
         // Project Module analysis, generate xml, gradle, corresponding code path of each Module
         this.initializeDetectors();
         // Initialize all fixers
@@ -94,8 +98,7 @@ public class ComplexStartupActivityChanger extends SyncedCompositeDefectFixer {
                 }
             }
             if (detectWarnings()) {
-                List<String> tempFixFilePaths = getTargetCodePath(getContextInfo(),
-                    fileEntry.getValue().getCodeFilePaths());
+                List<String> tempFixFilePaths = getTargetCodePath(getContextInfo(), fileEntry.getValue().getCodeFilePaths());
                 for (GenericDefectFixer fixer : atomicFixers) {
                     generateDefectInstance(tempFixFilePaths, fixer);
                     this.defectInstances.addAll(fixer.defectInstances);
@@ -120,7 +123,6 @@ public class ComplexStartupActivityChanger extends SyncedCompositeDefectFixer {
         atomicFixer.defectInstances.clear();
 
         // Detecting defects
-        List<DefectInstance> totalDefectInstances = new ArrayList<>();
         for (String filePath : atomicFixer.analyzedFilePaths) {
             List<DefectInstance> defectWarningsInSingleFile = atomicFixer.detectDefectsForSingleFile(filePath);
             if (defectWarningsInSingleFile == null || defectWarningsInSingleFile.size() == 0) {
@@ -132,11 +134,10 @@ public class ComplexStartupActivityChanger extends SyncedCompositeDefectFixer {
                             .filter(this::verifyWarning)
                             .collect(Collectors.toList());
 
-            totalDefectInstances.addAll(defectWarningsInSingleFile);
             // Update the number of detected defects
             atomicFixer.totalDetectedDefectNumber += defectWarningsInSingleFile.size();
             atomicFixer.analyzedFileNum.getAndIncrement();
-            atomicFixer.defectInstances.addAll(totalDefectInstances);
+            atomicFixer.defectInstances.addAll(defectWarningsInSingleFile);
         }
     }
 
@@ -144,6 +145,9 @@ public class ComplexStartupActivityChanger extends SyncedCompositeDefectFixer {
      * split string to list by ,
      */
     private List<String> stringToList(String strs) {
+        if (StringUtils.isEmpty(strs)) {
+            return new ArrayList<>();
+        }
         String[] str = strs.split(",");
         return Arrays.asList(str);
     }
@@ -169,8 +173,9 @@ public class ComplexStartupActivityChanger extends SyncedCompositeDefectFixer {
      *
      * @throws CodeBotRuntimeException
      */
-    private void analyzeProjectAndGenerateDetectors(String codeFolder) throws CodeBotRuntimeException {
-        List<String> analyzedFilePaths = new ArrayList<>();
+    private void analyzeProjectAndGenerateDetectors(String codeFolder, String[] ignoreLists)
+            throws CodeBotRuntimeException {
+        List<String> analyzedFilePaths = new ArrayList<String>();
         getTargetFilePaths(codeFolder, analyzedFilePaths);
         processFile(codeFolder, analyzedFilePaths);
     }
@@ -183,7 +188,7 @@ public class ComplexStartupActivityChanger extends SyncedCompositeDefectFixer {
         List<String> manifestXmlFilePaths = new ArrayList<String>();
         List<String> javaFilePaths = new ArrayList<String>();
         for (String path : analyzedFilePaths) {
-            if (path.endsWith("build.gradle") && isAppGradleFile(path)) {
+            if (path.endsWith("build.gradle") && !GradleFileUtils.isProjectBuildGradleFile(new File(path))) {
                 gradleFilePaths.add(path);
             } else if (path.endsWith("AndroidManifest.xml")) {
                 manifestXmlFilePaths.add(path);
@@ -203,7 +208,7 @@ public class ComplexStartupActivityChanger extends SyncedCompositeDefectFixer {
                 projectFile.setXmlPath(getXmlPathInModule(manifestXmlFilePaths, modulePath));
                 projectFile.setCodePaths(getCodePathInModule(javaFilePaths, modulePath));
                 projectFile.setCodeFilePaths(getCodeFilePathInModule(javaFilePaths, projectFile.getCodePaths()));
-                if (projectFile.getXmlPath() == null || projectFile.getCodePaths() == null) {
+                if (StringUtils.isEmpty(projectFile.getXmlPath()) || StringUtils.isEmpty(projectFile.getCodePaths())) {
                     continue;
                 }
                 projectFiles.put(modulePath, projectFile);
@@ -244,25 +249,6 @@ public class ComplexStartupActivityChanger extends SyncedCompositeDefectFixer {
     }
 
     /**
-     * judge buildgradle is App file
-     */
-    public static Boolean isAppGradleFile(String path) {
-        try {
-            String content = FileUtils.getFileContent(path);
-            if (content.contains("defaultConfig")
-                    && content.contains("minSdkVersion")
-                    && content.contains("targetSdkVersion")) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    /**
      * get Xml path in module
      */
     public static String getXmlPathInModule(List<String> manifestXmlFilePaths, String modulePath) {
@@ -293,7 +279,7 @@ public class ComplexStartupActivityChanger extends SyncedCompositeDefectFixer {
      */
     public static List<String> getCodeFilePathInModule(List<String> javaFilePaths, String codePath) {
         if (codePath == null) {
-            return null;
+            return new ArrayList<>();
         }
         List<String> codeFilePaths = new ArrayList<String>();
         for (String filePath : javaFilePaths) {
@@ -364,7 +350,7 @@ public class ComplexStartupActivityChanger extends SyncedCompositeDefectFixer {
             return false;
         }
         for (DefectInstance defectInstance : defectInstances) {
-            if (!defectInstance.context.get("Complex").get(0).equals("complex")) {
+            if (!"complex".equals(defectInstance.context.get("Complex").get(0))) {
                 return false;
             }
         }

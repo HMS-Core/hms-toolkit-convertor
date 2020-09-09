@@ -16,18 +16,19 @@
 
 package com.huawei.codebot.analyzer.x2y.global.commonvisitor;
 
-import com.google.common.collect.Lists;
 import com.huawei.codebot.analyzer.x2y.global.bean.FieldInfo;
 import com.huawei.codebot.analyzer.x2y.global.bean.TypeInfo;
 import com.huawei.codebot.analyzer.x2y.global.bean.VariableInfo;
 import com.huawei.codebot.analyzer.x2y.global.service.ClassMemberService;
 import com.huawei.codebot.analyzer.x2y.global.service.InheritanceService;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
+import java.util.concurrent.ConcurrentHashMap;
 
 class VisitorIterator {
     private Map<String, FieldInfo> fieldInfoMap;
@@ -37,21 +38,22 @@ class VisitorIterator {
     }
 
     void loadSuperField(Stack<Map<String, VariableInfo>> varMaps, String classFullName) {
-        List<TypeInfo> superTypes = InheritanceService.getAllSuperClassesAndInterfaces(classFullName);
-        for (TypeInfo superType : Lists.reverse(superTypes)) {
-            Map<String, VariableInfo> superFieldMap = new HashMap<>();
+        Set<TypeInfo> superTypes = InheritanceService.getAllSuperClassesAndInterfaces(classFullName);
+        LinkedList<TypeInfo> list = new LinkedList<>(superTypes);
+        Iterator<TypeInfo> itr = list.descendingIterator();
+        while (itr.hasNext()) {
+            TypeInfo superType = itr.next();
+            Map<String, VariableInfo> superFieldMap = new ConcurrentHashMap<>();
             varMaps.push(superFieldMap);
-            for (Map.Entry<String, FieldInfo> entry : fieldInfoMap.entrySet()) {
-                if (entry.getKey().startsWith(superType.getQualifiedName())) {
-                    FieldInfo fieldInfo = entry.getValue();
-                    VariableInfo variableInfo = new VariableInfo();
-                    variableInfo.setName(fieldInfo.getName());
-                    variableInfo.setOwnerClasses(fieldInfo.getOwnerClasses());
-                    variableInfo.setPackageName(fieldInfo.getPackageName());
-                    variableInfo.setType(fieldInfo.getType());
-                    superFieldMap.put(variableInfo.getName(), variableInfo);
-                }
-            }
+            fieldInfoMap.entrySet().parallelStream()
+                    .filter(entry -> entry.getKey().startsWith(superType.getQualifiedName()))
+                    .forEach(entry -> {
+                        FieldInfo fieldInfo = entry.getValue();
+                        if (fieldInfo != null) {
+                            VariableInfo variableInfo = new VariableInfo(fieldInfo);
+                            superFieldMap.put(variableInfo.getName(), variableInfo);
+                        }
+                    });
         }
     }
 

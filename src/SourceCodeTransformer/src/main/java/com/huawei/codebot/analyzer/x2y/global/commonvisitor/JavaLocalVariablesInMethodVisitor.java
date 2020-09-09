@@ -16,6 +16,7 @@
 
 package com.huawei.codebot.analyzer.x2y.global.commonvisitor;
 
+import com.huawei.codebot.analyzer.x2y.global.TypeInferencer;
 import com.huawei.codebot.analyzer.x2y.global.bean.VariableInfo;
 import com.huawei.codebot.analyzer.x2y.global.java.JavaASTUtils;
 import com.huawei.codebot.analyzer.x2y.global.java.JavaTypeInferencer;
@@ -49,9 +50,12 @@ public class JavaLocalVariablesInMethodVisitor extends ASTVisitor {
     private Stack<Map<String, VariableInfo>> varMaps = new Stack<>();
     private VisitorIterator iterator;
 
+    protected JavaTypeInferencer javaTypeInferencer;
+
     public JavaLocalVariablesInMethodVisitor() {
         super();
         iterator = new VisitorIterator();
+        javaTypeInferencer = new JavaTypeInferencer(this);
     }
 
     @Override
@@ -70,19 +74,18 @@ public class JavaLocalVariablesInMethodVisitor extends ASTVisitor {
         FieldDeclaration[] fields = node.getFields();
         for (FieldDeclaration fieldDeclaration : fields) {
             List fragments = fieldDeclaration.fragments();
-            if (fragments == null) {
-                continue;
-            }
-            for (Object obj : fragments) {
-                if (obj instanceof VariableDeclarationFragment) {
-                    VariableDeclarationFragment fragment = (VariableDeclarationFragment) obj;
-                    VariableInfo varInfo = new VariableInfo();
-                    varInfo.setOwnerClasses(JavaASTUtils.getOwnerClassNames(fieldDeclaration));
-                    varInfo.setPackageName(JavaASTUtils.getPackageName(fieldDeclaration));
-                    varInfo.setName(fragment.getName().getIdentifier());
-                    varInfo.setType(JavaTypeInferencer.getTypeInfo(fieldDeclaration.getType()));
-                    varInfo.setDeclaration(fieldDeclaration);
-                    fieldMap.put(varInfo.getName(), varInfo);
+            if (fragments != null) {
+                for (Object obj : fragments) {
+                    if (obj instanceof VariableDeclarationFragment) {
+                        VariableDeclarationFragment fragment = (VariableDeclarationFragment) obj;
+                        VariableInfo varInfo = new VariableInfo();
+                        varInfo.setOwnerClasses(JavaASTUtils.getOwnerClassNames(fieldDeclaration));
+                        varInfo.setPackageName(JavaASTUtils.getPackageName(fieldDeclaration));
+                        varInfo.setName(fragment.getName().getIdentifier());
+                        varInfo.setType(javaTypeInferencer.getTypeInfo(fieldDeclaration.getType()));
+                        varInfo.setDeclaration(fieldDeclaration);
+                        fieldMap.put(varInfo.getName(), varInfo);
+                    }
                 }
             }
         }
@@ -116,7 +119,7 @@ public class JavaLocalVariablesInMethodVisitor extends ASTVisitor {
         varInfo.setPackageName(JavaASTUtils.getPackageName(varDeclaration));
         varInfo.setName(varDeclaration.getName().toString());
         varInfo.setDeclaration(varDeclaration);
-        varInfo.setType(JavaTypeInferencer.getTypeInfo(varDeclaration.getType()));
+        varInfo.setType(javaTypeInferencer.getTypeInfo(varDeclaration.getType()));
         varMap.put(varInfo.getName(), varInfo);
     }
 
@@ -130,6 +133,7 @@ public class JavaLocalVariablesInMethodVisitor extends ASTVisitor {
      * @param node Block node
      * @return true
      */
+    @Override
     public boolean visit(Block node) {
         varMaps.push(new HashMap<>());
         return super.visit(node);
@@ -138,6 +142,7 @@ public class JavaLocalVariablesInMethodVisitor extends ASTVisitor {
     /**
      * @param node Block node
      */
+    @Override
     public void endVisit(Block node) {
         varMaps.pop();
         super.endVisit(node);
@@ -157,7 +162,7 @@ public class JavaLocalVariablesInMethodVisitor extends ASTVisitor {
             varInfo.setOwnerClasses(JavaASTUtils.getOwnerClassNames(node));
             varInfo.setPackageName(JavaASTUtils.getPackageName(node));
             varInfo.setName(name.getIdentifier());
-            varInfo.setType(JavaTypeInferencer.getTypeInfo(vds.getType()));
+            varInfo.setType(javaTypeInferencer.getTypeInfo(vds.getType()));
             varInfo.setDeclaration(node);
             varMaps.peek().put(name.getIdentifier(), varInfo);
         } else if (node.getParent() instanceof VariableDeclarationExpression) {
@@ -166,7 +171,7 @@ public class JavaLocalVariablesInMethodVisitor extends ASTVisitor {
             varInfo.setOwnerClasses(JavaASTUtils.getOwnerClassNames(node));
             varInfo.setPackageName(JavaASTUtils.getPackageName(node));
             varInfo.setName(name.getIdentifier());
-            varInfo.setType(JavaTypeInferencer.getTypeInfo(vde.getType()));
+            varInfo.setType(javaTypeInferencer.getTypeInfo(vde.getType()));
             varInfo.setDeclaration(node);
             varMaps.peek().put(name.getIdentifier(), varInfo);
         }
@@ -210,7 +215,7 @@ public class JavaLocalVariablesInMethodVisitor extends ASTVisitor {
                                 varInfo.setOwnerClasses(JavaASTUtils.getOwnerClassNames(variableDeclarationFragment));
                                 varInfo.setPackageName(JavaASTUtils.getPackageName(variableDeclarationFragment));
                                 varInfo.setName(variableDeclarationFragment.getName().getIdentifier());
-                                varInfo.setType(JavaTypeInferencer
+                                varInfo.setType(javaTypeInferencer
                                         .getTypeInfo(variableDeclarationExpression.getType()));
                                 varInfo.setDeclaration(variableDeclarationFragment);
                                 varMap.put(varInfo.getName(), varInfo);

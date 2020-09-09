@@ -16,6 +16,7 @@
 
 package com.huawei.codebot.codeparsing;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
@@ -27,9 +28,30 @@ import java.util.List;
  * @since 2020-02-17
  */
 public class Shielder {
+    public static final String IGNORE_START_SYMBOL = "/*ignore*/";
+    public static final String IGNORE_END_SYMBOL = "/*!ignore*/";
+
     private List<Pair<Integer, Integer>> regions = new ArrayList<>();
 
     public Shielder() {}
+
+    public Shielder(List<String> fileLines) {
+        if (CollectionUtils.isNotEmpty(fileLines)){
+            int startLine = -1;
+            int counter = 1;
+            for (String line : fileLines) {
+                if (line.contains(IGNORE_START_SYMBOL)) {
+                    startLine = counter;
+                }
+                if (line.contains(IGNORE_END_SYMBOL) && startLine != -1) {
+                    this.addRegion(startLine, counter);
+                    startLine = -1;
+                    continue;
+                }
+                counter++;
+            }
+        }
+    }
 
     /**
      * add the region that should be excluded during fixing.
@@ -79,4 +101,5 @@ public class Shielder {
         }
         return false;
     }
+
 }

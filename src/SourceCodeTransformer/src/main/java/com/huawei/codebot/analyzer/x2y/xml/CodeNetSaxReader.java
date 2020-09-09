@@ -21,6 +21,8 @@ import org.dom4j.DocumentException;
 import org.dom4j.DocumentFactory;
 import org.dom4j.io.SAXContentHandler;
 import org.dom4j.io.SAXReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.Locator;
@@ -35,6 +37,7 @@ import java.io.IOException;
  * @since 2020-04-22
  */
 public class CodeNetSaxReader extends SAXReader {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CodeNetSaxReader.class);
     private DocumentFactory documentFactory;
     private Locator locator;
 
@@ -42,6 +45,13 @@ public class CodeNetSaxReader extends SAXReader {
         super(documentFactory);
         this.locator = locator;
         this.documentFactory = documentFactory;
+        try {
+            setFeature("http://apache.org/xml/features/disallow-doctype-decl",true);
+            setFeature("http://xml.org/sax/features/external-general-entities", false);
+            setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+        } catch (SAXException e) {
+            LOGGER.error("Fail to create CodeNetSaxReader", e);
+        }
     }
 
     @Override
@@ -72,15 +82,15 @@ public class CodeNetSaxReader extends SAXReader {
             contentHandler.setIgnoreComments(isIgnoreComments());
             xmlReader.setContentHandler(contentHandler);
             configureReader(xmlReader, contentHandler);
-            if (contentHandler instanceof CodeNetSaxContentHandler
-                && documentFactory instanceof CodeNetDocumentLocator) {
+            if (contentHandler instanceof CodeNetSaxContentHandler &&
+                    documentFactory instanceof CodeNetDocumentLocator) {
                 ((CodeNetSaxContentHandler) contentHandler).setDocFactory((CodeNetDocumentLocator) documentFactory);
             }
             contentHandler.setDocumentLocator(locator);
             xmlReader.parse(inputSource);
             return contentHandler.getDocument();
         } catch (SAXException | DocumentException | IOException e) {
-            e.printStackTrace();
+            LOGGER.error("Fail to parse xml", e);
             return null;
         }
     }

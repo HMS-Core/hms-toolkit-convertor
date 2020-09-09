@@ -16,16 +16,14 @@
 
 package com.huawei.codebot.analyzer.x2y.io.config;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import com.huawei.codebot.analyzer.x2y.java.method.MethodChangePattern;
 import com.huawei.codebot.analyzer.x2y.java.method.replace.ReplacedMethod;
 import com.huawei.codebot.framework.AbstractJSONConfig;
 import com.huawei.codebot.framework.DefectFixerType;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.utils.JsonUtil;
-
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -33,6 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 class X2YAutoJSONConfig extends AbstractJSONConfig {
     private List<ReplacedMethod> autoMethods = new ArrayList<>();
@@ -86,6 +85,7 @@ class X2YAutoJSONConfig extends AbstractJSONConfig {
         return descriptions;
     }
 
+
     HashMap<String, String> getFieldRenamePatterns() {
         HashMap<String, String> changePatterns = new HashMap<String, String>();
         JSONObject jsonObj = this.getJSON();
@@ -138,6 +138,7 @@ class X2YAutoJSONConfig extends AbstractJSONConfig {
         return changePatterns;
     }
 
+
     /**
      * Get the desc from Json file
      * for package rename
@@ -164,11 +165,12 @@ class X2YAutoJSONConfig extends AbstractJSONConfig {
         return descriptions;
     }
 
+
     HashMap<String, List<MethodChangePattern>> getMethodReplacePatterns() {
         HashMap<String, List<MethodChangePattern>> changePatterns = new HashMap<>();
         Gson gson = new Gson();
         X2YAutoJSONConfig configJson = gson.fromJson(this.getJSON().toString(),
-            new SubTypeToken().getType());
+                new SubTypeToken().getType());
         if (configJson != null) {
             for (ReplacedMethod replacedMethod : configJson.autoMethods) {
                 if (changePatterns.containsKey(replacedMethod.getOldMethodName())) {
@@ -183,11 +185,12 @@ class X2YAutoJSONConfig extends AbstractJSONConfig {
         return changePatterns;
     }
 
+
     public void setAutoMethods(List<ReplacedMethod> autoMethods) {
         this.autoMethods = autoMethods;
     }
 
-    private static class SubTypeToken extends TypeToken<X2YAutoJSONConfig> {
+    private static class SubTypeToken extends TypeToken<X2YAutoJSONConfig>{
         private static final long serialVersionUID = 1L;
     }
 }

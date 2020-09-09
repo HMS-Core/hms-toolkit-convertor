@@ -17,18 +17,21 @@
 package com.huawei.codebot.analyzer.x2y.gradle.coditionalchanger;
 
 import com.google.common.base.Throwables;
+import com.huawei.codebot.analyzer.x2y.gradle.utils.GradleFileUtils;
 import com.huawei.codebot.framework.DefectFixerType;
 import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.x2y.AndroidAppFixer;
 import com.huawei.codebot.utils.FileUtils;
 import com.huawei.codebot.utils.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.codehaus.groovy.ast.ASTNode;
 import org.codehaus.groovy.ast.builder.AstBuilder;
 import org.codehaus.groovy.control.CompilePhase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,35 +46,29 @@ class GradleConditionalChanger extends AndroidAppFixer {
     GradleConditionalChanger(List<StructGradleXml> config) {
         deleteInAppDependencyOperation = new HashMap<>();
         for (StructGradleXml deleteInDependencyOne : config) {
-            if (deleteInDependencyOne.condition.type.equals("AppGradle")) {
+            if ("AppGradle".equals(deleteInDependencyOne.condition.type)) {
                 deleteInAppDependencyOperation.put(deleteInDependencyOne.condition.dependency, deleteInDependencyOne);
             }
         }
     }
 
     @Override
-    protected List<DefectInstance> detectDefectsInJavaFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
-    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
     protected List<DefectInstance> detectDefectsInGradleFile(String buggyFilePath) {
+        if (StringUtils.isEmpty(buggyFilePath)) {
+            return null;
+        }
         currentFileDefectInstances = new ArrayList<>();
-
         if (!buggyFilePath.endsWith("build.gradle")) {
             return currentFileDefectInstances;
         }
         try {
             String fileContent = FileUtils.getFileContent(buggyFilePath);
-            if (fileContent.contains("minSdkVersion") || fileContent.contains("targetSdkVersion")) {
-                currentScope = "app";
-            } else {
+            // Determine whether the build.gradle file's scope is 'app'
+            boolean isProject = GradleFileUtils.isProjectBuildGradleFile(new File(buggyFilePath));
+            if (isProject) {
                 return currentFileDefectInstances;
+            } else {
+                currentScope = "app";
             }
             currentFileLineBreak = StringUtil.getLineBreak(fileContent);
             parseGradleFile(fileContent);
@@ -91,8 +88,7 @@ class GradleConditionalChanger extends AndroidAppFixer {
     }
 
     @Override
-    protected List<DefectInstance> detectDefectsInKotlinFile(String buggyFilePath) {
-        return null;
+    protected void extractFixInstancesForSingleCodeFile(String filePath) {
     }
 
     @Override
@@ -100,7 +96,18 @@ class GradleConditionalChanger extends AndroidAppFixer {
     }
 
     @Override
-    protected void extractFixInstancesForSingleCodeFile(String filePath) {
+    protected List<DefectInstance> detectDefectsInKotlinFile(String buggyFilePath) {
+        return null;
+    }
+
+    @Override
+    protected List<DefectInstance> detectDefectsInJavaFile(String buggyFilePath) {
+        return null;
+    }
+
+    @Override
+    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
+        return null;
     }
 
     @Override
@@ -108,10 +115,9 @@ class GradleConditionalChanger extends AndroidAppFixer {
         if (this.info == null) {
             FixerInfo info = new FixerInfo();
             info.type = DefectFixerType.LIBADAPTION_CROSSGRADLEXML;
-            info.description = "GradleXml CrossFileChanger";
+            info.description = "Gradle Conditional Changer";
             this.info = info;
         }
         return this.info;
     }
-
 }

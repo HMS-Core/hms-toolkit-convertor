@@ -24,6 +24,8 @@ import com.huawei.codebot.analyzer.x2y.global.java.JavaASTUtils;
 import com.huawei.codebot.analyzer.x2y.global.java.JavaTypeInferencer;
 import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinFunctionCall;
 import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinTypeInferencer;
+import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
+import org.antlr.v4.runtime.ParserRuleContext;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.AnonymousClassDeclaration;
 import org.eclipse.jdt.core.dom.ClassInstanceCreation;
@@ -57,10 +59,10 @@ class MethodCallProfiler {
      *
      * @param node a {@link MethodInvocation} instance
      * @return <ul>
-     *     <li>
-     *         a {@link MethodCall} instance of this {@link MethodInvocation} node
-     *     </li>
-     *     <li>{@code null} if we can't analyze this method's qualifier type</li>
+     * <li>
+     * a {@link MethodCall} instance of this {@link MethodInvocation} node
+     * </li>
+     * <li>{@code null} if we can't analyze this method's qualifier type</li>
      * </ul>
      */
     MethodCall profile(MethodInvocation node) {
@@ -77,10 +79,10 @@ class MethodCallProfiler {
      *
      * @param node a {@link SuperMethodInvocation} instance
      * @return <ul>
-     *     <li>
-     *         a {@link MethodCall} instance of this {@link MethodInvocation} node
-     *     </li>
-     *     <li>{@code null} if we can't analyze this method's qualifier type</li>
+     * <li>
+     * a {@link MethodCall} instance of this {@link MethodInvocation} node
+     * </li>
+     * <li>{@code null} if we can't analyze this method's qualifier type</li>
      * </ul>
      */
     MethodCall profile(SuperMethodInvocation node) {
@@ -92,7 +94,7 @@ class MethodCallProfiler {
         while (parent != null && parent.getParent() != null) {
             if (parent instanceof AnonymousClassDeclaration && parent.getParent() instanceof ClassInstanceCreation) {
                 ClassInstanceCreation classInstanceCreation = (ClassInstanceCreation) parent.getParent();
-                typeInfo = JavaTypeInferencer.getTypeInfo(classInstanceCreation.getType());
+                typeInfo = javaTypeInferencer.getTypeInfo(classInstanceCreation.getType());
                 break;
             }
             parent = parent.getParent();
@@ -116,10 +118,10 @@ class MethodCallProfiler {
      *
      * @param node a {@link ClassInstanceCreation} instance
      * @return <ul>
-     *     <li>
-     *         a {@link MethodCall} instance of this {@link MethodInvocation} node
-     *     </li>
-     *     <li>{@code null} if we can't analyze this method's qualifier type</li>
+     * <li>
+     * a {@link MethodCall} instance of this {@link MethodInvocation} node
+     * </li>
+     * <li>{@code null} if we can't analyze this method's qualifier type</li>
      * </ul>
      */
     MethodCall profile(ClassInstanceCreation node) {
@@ -138,10 +140,10 @@ class MethodCallProfiler {
      *
      * @param node a {@link MethodDeclaration} instance
      * @return <ul>
-     *     <li>
-     *         a {@link MethodCall} instance of this {@link MethodInvocation} node
-     *     </li>
-     *     <li>{@code null} if we can't analyze this method's qualifier type</li>
+     * <li>
+     * a {@link MethodCall} instance of this {@link MethodInvocation} node
+     * </li>
+     * <li>{@code null} if we can't analyze this method's qualifier type</li>
      * </ul>
      */
     MethodCall profile(MethodDeclaration node) {
@@ -163,6 +165,49 @@ class MethodCallProfiler {
         return null;
     }
 
+    MethodCall profile(KotlinParser.FunctionDeclarationContext ctx) {
+        String simpleName = ctx.simpleIdentifier().getText();
+        ParserRuleContext parent = ctx.getParent();
+        while (parent != null) {
+            if (parent instanceof KotlinParser.ObjectLiteralContext) {
+                KotlinParser.ObjectLiteralContext typeDeclaration = (KotlinParser.ObjectLiteralContext) parent;
+                String classSimpleName = getClassSimpleNameFromObjectLiteral(typeDeclaration);
+                return new MethodCall(classSimpleName, simpleName);
+            }
+            if (parent instanceof KotlinParser.ClassDeclarationContext) {
+                KotlinParser.ClassDeclarationContext typeDeclaration = (KotlinParser.ClassDeclarationContext) parent;
+                String classSimpleName = typeDeclaration.simpleIdentifier().getText();
+                return new MethodCall(classSimpleName, simpleName);
+            }
+            parent = parent.getParent();
+        }
+        return null;
+    }
+
+    private String getClassSimpleNameFromObjectLiteral(KotlinParser.ObjectLiteralContext typeDeclaration) {
+        List<KotlinParser.AnnotatedDelegationSpecifierContext> annotatedDelegationSpecifierContexts =
+                typeDeclaration.delegationSpecifiers().annotatedDelegationSpecifier();
+        if (annotatedDelegationSpecifierContexts.size() <= 0) {
+            return null;
+        }
+        KotlinParser.AnnotatedDelegationSpecifierContext annotatedDelegationSpecifierContext =
+                annotatedDelegationSpecifierContexts.get(0);
+        if (annotatedDelegationSpecifierContext.delegationSpecifier() == null) {
+            return null;
+        }
+        KotlinParser.DelegationSpecifierContext delegationSpecifierContext =
+                annotatedDelegationSpecifierContext.delegationSpecifier();
+        if (delegationSpecifierContext.constructorInvocation() == null) {
+            return null;
+        }
+        KotlinParser.ConstructorInvocationContext constructorInvocationContext =
+                delegationSpecifierContext.constructorInvocation();
+        if (constructorInvocationContext.userType() != null) {
+            return constructorInvocationContext.userType().getText();
+        }
+        return null;
+    }
+
     private TypeInfo getMethodInvocationQualifierType(MethodInvocation node) {
         if (node.getExpression() != null) {
             // if there is expression forward method invocation(e.g. this.method1(), xxx.method2()),
@@ -173,11 +218,9 @@ class MethodCallProfiler {
             // e.g. setProperty()
             List<String> ownerClasses = JavaASTUtils.getOwnerClassNames(node);
             String packageName = JavaASTUtils.getPackageName(node);
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(packageName).append(".");
-            stringBuilder.append(String.join(".", Lists.reverse(ownerClasses)));
             TypeInfo typeInfo = new TypeInfo();
-            typeInfo.setQualifiedName(stringBuilder.toString());
+            String packageFullName = packageName + "." + String.join(".", Lists.reverse(ownerClasses));
+            typeInfo.setQualifiedName(packageFullName);
             return typeInfo;
         }
     }
@@ -187,10 +230,10 @@ class MethodCallProfiler {
      *
      * @param functionCall a {@link KotlinFunctionCall} instance
      * @return <ul>
-     *     <li>
-     *         a {@link MethodCall} instance of this {@link MethodInvocation} node
-     *     </li>
-     *     <li>{@code null} if we can't analyze this method's qualifier type</li>
+     * <li>
+     * a {@link MethodCall} instance of this {@link MethodInvocation} node
+     * </li>
+     * <li>{@code null} if we can't analyze this method's qualifier type</li>
      * </ul>
      */
     MethodCall profile(KotlinFunctionCall functionCall) {

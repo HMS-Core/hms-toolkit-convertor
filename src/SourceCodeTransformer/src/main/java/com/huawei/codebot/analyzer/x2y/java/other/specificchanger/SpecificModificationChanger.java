@@ -16,11 +16,10 @@
 
 package com.huawei.codebot.analyzer.x2y.java.other.specificchanger;
 
-import static com.huawei.codebot.framework.FixStatus.NONEFIX;
-
 import com.huawei.codebot.analyzer.x2y.global.bean.FieldInfo;
 import com.huawei.codebot.analyzer.x2y.global.service.ClassMemberService;
 import com.huawei.codebot.analyzer.x2y.io.config.ConfigService;
+import com.huawei.codebot.analyzer.x2y.java.AtomicAndroidAppChanger;
 import com.huawei.codebot.analyzer.x2y.java.other.specificchanger.bean.GenericFunction;
 import com.huawei.codebot.analyzer.x2y.java.other.specificchanger.bean.JavaClass;
 import com.huawei.codebot.analyzer.x2y.java.other.specificchanger.bean.JavaClassCreationInstance;
@@ -30,8 +29,10 @@ import com.huawei.codebot.framework.DefectFixerType;
 import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.model.DefectInstance;
-import com.huawei.codebot.framework.x2y.AndroidAppFixer;
 import com.huawei.codebot.utils.FileUtils;
+import org.apache.commons.collections4.CollectionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,22 +42,20 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import static com.huawei.codebot.framework.FixStatus.NONEFIX;
+
 /**
  * A changer used to process some specific changes.
  *
  * @since 2020-04-20
  */
-public class SpecificModificationChanger extends AndroidAppFixer {
+public class SpecificModificationChanger extends AtomicAndroidAppChanger {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SpecificModificationChanger.class);
     private static List<String> propertyFileNames = new ArrayList<>();
-
     private List<ReplaceData> replaceBuilderPatterns = new ArrayList<>();
-
     private Map<String, String> deleteUrlPatterns = new HashMap<>();
-
     private Map<String, String> deleteFilePatterns = new HashMap<>();
-
     private List<ReplaceData> replaceScopePatterns = new ArrayList<>();
-
     private List<ReplaceData> deleteScopePatterns = new ArrayList<>();
 
     public SpecificModificationChanger(String fixerType) throws CodeBotRuntimeException {
@@ -88,6 +87,9 @@ public class SpecificModificationChanger extends AndroidAppFixer {
     }
 
     private static void getPropertyFilePath(List<String> analyzedFilePaths) {
+        if (CollectionUtils.isEmpty(analyzedFilePaths)) {
+            return;
+        }
         for (String filePath : analyzedFilePaths) {
             if (filePath.endsWith(".properties")) {
                 propertyFileNames.add(filePath);
@@ -98,20 +100,20 @@ public class SpecificModificationChanger extends AndroidAppFixer {
     private void detectUrlDefects(List<DefectInstance> defectInstances, String buggyFilePath) {
         try {
             List<String> fileContent =
-                FileUtils.getOriginalFileLines(buggyFilePath, FileUtils.detectCharset(buggyFilePath));
+                    FileUtils.getOriginalFileLines(buggyFilePath, FileUtils.detectCharset(buggyFilePath));
             for (int i = 0; i < fileContent.size(); i++) {
                 for (Entry<String, String> entry : deleteUrlPatterns.entrySet()) {
                     String url = entry.getKey();
                     String desc = entry.getValue();
                     if (fileContent.get(i).contains(url)) {
                         DefectInstance defectInstance =
-                            createWarningDefectInstance(buggyFilePath, i + 1, fileContent.get(i), desc);
+                                createWarningDefectInstance(buggyFilePath, i + 1, fileContent.get(i), desc);
                         defectInstances.add(defectInstance);
                     }
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error("Fail to detect defects of url", e);
         }
     }
 
@@ -119,7 +121,7 @@ public class SpecificModificationChanger extends AndroidAppFixer {
         for (String propertyName : propertyFileNames) {
             try {
                 List<String> fileContent =
-                    FileUtils.getOriginalFileLines(propertyName, FileUtils.detectCharset(propertyName));
+                        FileUtils.getOriginalFileLines(propertyName, FileUtils.detectCharset(propertyName));
                 for (String lineContent : fileContent) {
                     if (lineContent.contains(variable)) {
                         int index = lineContent.indexOf("=");
@@ -127,7 +129,7 @@ public class SpecificModificationChanger extends AndroidAppFixer {
                     }
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                LOGGER.error("Fail to get target variable value", e);
             }
         }
         return null;
@@ -145,25 +147,25 @@ public class SpecificModificationChanger extends AndroidAppFixer {
         String className = javaFile.getClassName();
         Set<String> imports = javaFile.getImports();
         for (GenericFunction genericFunction : javaFile.getMethods()) {
-            if (genericFunction instanceof JavaMethod) {
+            if(genericFunction instanceof JavaMethod) {
                 JavaMethod javaMethods = (JavaMethod) genericFunction;
                 for (JavaClassCreationInstance classInstance : javaMethods.getClassInstances()) {
                     String generatedQualifiedConstructorName =
-                        getNameBasedOnImportStatement(imports, classInstance.getTypeName());
+                            getNameBasedOnImportStatement(imports, classInstance.getTypeName());
                     String qualifiedConstructorName = null;
                     if (generatedQualifiedConstructorName == null) {
                         generatedQualifiedConstructorName = packageName + "." + classInstance.getTypeName();
                         qualifiedConstructorName = classInstance.getTypeName();
                     }
                     generateDefectInstance(
-                        defectInstances,
-                        buggyFilePath,
-                        generatedQualifiedConstructorName,
-                        qualifiedConstructorName,
-                        classInstance,
-                        packageName,
-                        className,
-                        imports);
+                            defectInstances,
+                            buggyFilePath,
+                            generatedQualifiedConstructorName,
+                            qualifiedConstructorName,
+                            classInstance,
+                            packageName,
+                            className,
+                            imports);
                 }
             }
         }
@@ -193,7 +195,7 @@ public class SpecificModificationChanger extends AndroidAppFixer {
             }
             return defectInstances;
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error("Fail to detect defects of json file", e);
             return null;
         }
     }
@@ -219,47 +221,47 @@ public class SpecificModificationChanger extends AndroidAppFixer {
     }
 
     private void generateDefectInstance(
-        List<DefectInstance> defectInstances,
-        String buggyFilePath,
-        String calleeFullName,
-        String qualifiedConstructorName,
-        JavaClassCreationInstance classInstance,
-        String packageName,
-        String className,
-        Set<String> imports) {
+            List<DefectInstance> defectInstances,
+            String buggyFilePath,
+            String calleeFullName,
+            String qualifiedConstructorName,
+            JavaClassCreationInstance classInstance,
+            String packageName,
+            String className,
+            Set<String> imports) {
         scanReplaceBuilderPattern(
-            defectInstances,
-            buggyFilePath,
-            calleeFullName,
-            qualifiedConstructorName,
-            classInstance,
-            packageName,
-            className,
-            imports);
+                defectInstances,
+                buggyFilePath,
+                calleeFullName,
+                qualifiedConstructorName,
+                classInstance,
+                packageName,
+                className,
+                imports);
 
         scanRenameScopePattern(
-            defectInstances,
-            buggyFilePath,
-            calleeFullName,
-            qualifiedConstructorName,
-            classInstance,
-            packageName,
-            className,
-            imports);
+                defectInstances,
+                buggyFilePath,
+                calleeFullName,
+                qualifiedConstructorName,
+                classInstance,
+                packageName,
+                className,
+                imports);
 
         if (!deleteScopePatterns.isEmpty()
-            && (calleeFullName.equals(deleteScopePatterns.get(0).name)
-            || (qualifiedConstructorName != null
-            && qualifiedConstructorName.equals(deleteScopePatterns.get(0).name)))) {
+                && (calleeFullName.equals(deleteScopePatterns.get(0).name)
+                || (qualifiedConstructorName != null
+                && qualifiedConstructorName.equals(deleteScopePatterns.get(0).name)))) {
             List<String> args = classInstance.getArguments();
             if (args != null && args.size() == 1) {
                 if (isScopeContainsIdentifier(packageName, className, args.get(0), imports)) {
                     DefectInstance defectInstance =
-                        createWarningDefectInstance(
-                            buggyFilePath,
-                            classInstance.getStartLine(),
-                            classInstance.getVariableDeclarationStatement(),
-                            deleteScopePatterns.get(0).description);
+                            createWarningDefectInstance(
+                                    buggyFilePath,
+                                    classInstance.getStartLine(),
+                                    classInstance.getVariableDeclarationStatement(),
+                                    deleteScopePatterns.get(0).description);
                     defectInstances.add(defectInstance);
                 }
             }
@@ -267,17 +269,17 @@ public class SpecificModificationChanger extends AndroidAppFixer {
     }
 
     private void scanRenameScopePattern(
-        List<DefectInstance> defectInstances,
-        String buggyFilePath,
-        String calleeFullName,
-        String qualifiedConstructorName,
-        JavaClassCreationInstance classInstance,
-        String packageName,
-        String className,
-        Set<String> imports) {
+            List<DefectInstance> defectInstances,
+            String buggyFilePath,
+            String calleeFullName,
+            String qualifiedConstructorName,
+            JavaClassCreationInstance classInstance,
+            String packageName,
+            String className,
+            Set<String> imports) {
         for (ReplaceData replaceScopeData : replaceScopePatterns) {
             if (calleeFullName.equals(replaceScopeData.name)
-                || (qualifiedConstructorName != null && qualifiedConstructorName.equals(replaceScopeData.name))) {
+                    || (qualifiedConstructorName != null && qualifiedConstructorName.equals(replaceScopeData.name))) {
                 List<String> args = classInstance.getArguments();
                 if (args != null && args.size() == 1) {
                     if (args.get(0).equals(replaceScopeData.parameterContainsIdentifier)) {
@@ -294,17 +296,17 @@ public class SpecificModificationChanger extends AndroidAppFixer {
     }
 
     private void scanReplaceBuilderPattern(
-        List<DefectInstance> defectInstances,
-        String buggyFilePath,
-        String calleeFullName,
-        String qualifiedConstructorName,
-        JavaClassCreationInstance classInstance,
-        String packageName,
-        String className,
-        Set<String> imports) {
+            List<DefectInstance> defectInstances,
+            String buggyFilePath,
+            String calleeFullName,
+            String qualifiedConstructorName,
+            JavaClassCreationInstance classInstance,
+            String packageName,
+            String className,
+            Set<String> imports) {
         for (ReplaceData replaceBuilderData : replaceBuilderPatterns) {
             if (calleeFullName.equals(replaceBuilderData.name)
-                || (qualifiedConstructorName != null && qualifiedConstructorName.equals(replaceBuilderData.name))) {
+                    || (qualifiedConstructorName != null && qualifiedConstructorName.equals(replaceBuilderData.name))) {
                 List<String> args = classInstance.getArguments();
                 if (!args.isEmpty()) {
                     int index = args.get(0).indexOf("getProperty");
@@ -317,29 +319,29 @@ public class SpecificModificationChanger extends AndroidAppFixer {
                         if (left != -1 && right != -1) {
                             String value = getTargetVariableValueInPropertyFile(subParm.substring(left + 2, right - 2));
                             if (value != null
-                                && value.equals(replaceBuilderData.parameterContainsIdentifier.substring(1))) {
+                                    && value.equals(replaceBuilderData.parameterContainsIdentifier.substring(1))) {
                                 addDefectInstance(
-                                    defectInstances, buggyFilePath, classInstance, replaceBuilderData, args);
+                                        defectInstances, buggyFilePath, classInstance, replaceBuilderData, args);
                             }
                         }
                     } else {
                         String varInitValue = getConstantValue(packageName, className, imports, args.get(0));
                         if (varInitValue != null
-                            && varInitValue.contains(replaceBuilderData.parameterContainsIdentifier)) {
+                                && varInitValue.contains(replaceBuilderData.parameterContainsIdentifier)) {
                             addDefectInstance(defectInstances, buggyFilePath, classInstance, replaceBuilderData, args);
                         } else if (args.get(0).contains("+")) {
                             String[] parms = args.get(0).split("\\+");
                             StringBuilder allParmsValue = new StringBuilder();
                             for (String parm : parms) {
                                 String parmVarValue =
-                                    getConstantValue(packageName, className, imports, parm.replace(" ", ""));
+                                        getConstantValue(packageName, className, imports, parm.replace(" ", ""));
                                 if (parmVarValue != null) {
                                     allParmsValue.append(parmVarValue);
                                 }
                             }
                             if (allParmsValue.toString().contains(replaceBuilderData.parameterContainsIdentifier)) {
                                 addDefectInstance(
-                                    defectInstances, buggyFilePath, classInstance, replaceBuilderData, args);
+                                        defectInstances, buggyFilePath, classInstance, replaceBuilderData, args);
                             }
                         }
                     }
@@ -349,19 +351,19 @@ public class SpecificModificationChanger extends AndroidAppFixer {
     }
 
     private void addDefectInstance(
-        List<DefectInstance> defectInstances,
-        String buggyFilePath,
-        JavaClassCreationInstance classInstance,
-        ReplaceData replaceBuilderData,
-        List<String> args) {
+            List<DefectInstance> defectInstances,
+            String buggyFilePath,
+            JavaClassCreationInstance classInstance,
+            ReplaceData replaceBuilderData,
+            List<String> args) {
         String fixedLine =
-            classInstance.getVariableDeclarationStatement().replace(args.get(0), replaceBuilderData.newContent);
+                classInstance.getVariableDeclarationStatement().replace(args.get(0), replaceBuilderData.newContent);
         DefectInstance defectInstance =
-            createDefectInstance(
-                buggyFilePath,
-                classInstance.getStartLine(),
-                classInstance.getVariableDeclarationStatement(),
-                fixedLine);
+                createDefectInstance(
+                        buggyFilePath,
+                        classInstance.getStartLine(),
+                        classInstance.getVariableDeclarationStatement(),
+                        fixedLine);
         defectInstance.setMessage(replaceBuilderData.description);
         if (!classInstance.getFixFlag()) {
             defectInstance.setStatus(NONEFIX.toString());
@@ -388,11 +390,11 @@ public class SpecificModificationChanger extends AndroidAppFixer {
     }
 
     private Boolean isScopeContainsIdentifier(
-        String packageName, String className, String argument, Set<String> imports) {
+            String packageName, String className, String argument, Set<String> imports) {
         String varInitValue = getConstantValue(packageName, className, imports, argument);
         for (ReplaceData deleteScopeData : deleteScopePatterns) {
             if (argument.equals(deleteScopeData.parameterContainsIdentifier)
-                || (varInitValue != null && varInitValue.equals(deleteScopeData.parameterContainsIdentifier))) {
+                    || (varInitValue != null && varInitValue.equals(deleteScopeData.parameterContainsIdentifier))) {
                 return false;
             }
         }
@@ -424,14 +426,14 @@ public class SpecificModificationChanger extends AndroidAppFixer {
     }
 
     private static void removeDuplicateDefectInstance(
-        List<DefectInstance> defectInstances, List<ReplaceData> replaceBuilderPatterns) {
+            List<DefectInstance> defectInstances, List<ReplaceData> replaceBuilderPatterns) {
         for (ReplaceData replaceBuilderData : replaceBuilderPatterns) {
             List<DefectInstance> deleteDefectInstances = new ArrayList<>();
             Map<String, String> tempMap = new HashMap<>();
             for (DefectInstance defectInstance : defectInstances) {
                 Object fixedLineContent =
-                    defectInstance.fixedLines.get(
-                        defectInstance.mainBuggyFilePath, defectInstance.mainBuggyLineNumber);
+                        defectInstance.fixedLines.get(
+                                defectInstance.mainBuggyFilePath, defectInstance.mainBuggyLineNumber);
                 String desc = defectInstance.getMessage();
                 int lineNumber = defectInstance.mainBuggyLineNumber;
                 if (desc.equals(replaceBuilderData.description)) {

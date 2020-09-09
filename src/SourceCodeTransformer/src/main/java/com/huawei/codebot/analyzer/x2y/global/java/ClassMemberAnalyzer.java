@@ -18,12 +18,12 @@ package com.huawei.codebot.analyzer.x2y.global.java;
 
 import com.huawei.codebot.analyzer.x2y.global.AbstractAnalyzer;
 import com.huawei.codebot.analyzer.x2y.global.AnalyzerHub;
+import com.huawei.codebot.analyzer.x2y.global.TypeInferencer;
 import com.huawei.codebot.analyzer.x2y.global.bean.ClassInfo;
 import com.huawei.codebot.analyzer.x2y.global.bean.FieldInfo;
 import com.huawei.codebot.analyzer.x2y.global.bean.MethodInfo;
 import com.huawei.codebot.analyzer.x2y.global.bean.TypeInfo;
 import com.huawei.codebot.analyzer.x2y.global.service.ClassMemberService;
-
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
@@ -60,8 +60,9 @@ public class ClassMemberAnalyzer extends AbstractAnalyzer {
     }
 
     @Override
-    public void analyze(AnalyzerHub hub, Object node) {
-        if (node instanceof TypeDeclaration) {
+    public void analyze(AnalyzerHub hub, TypeInferencer typeInferencer, Object node) {
+        if (node instanceof TypeDeclaration && typeInferencer instanceof JavaTypeInferencer) {
+            JavaTypeInferencer javaTypeInferencer = (JavaTypeInferencer) typeInferencer;
             // Perform analysis
             TypeDeclaration typeDeclaration = (TypeDeclaration) node;
             ClassInfo classInfo = extractClassInfo(typeDeclaration);
@@ -70,7 +71,7 @@ public class ClassMemberAnalyzer extends AbstractAnalyzer {
                 LOGGER.info("profiling {} java classes...", classNum);
             }
             for (FieldDeclaration field : typeDeclaration.getFields()) {
-                List<FieldInfo> fieldInfoList = extractFieldInfo(field);
+                List<FieldInfo> fieldInfoList = extractFieldInfo(javaTypeInferencer, field);
                 for (FieldInfo fieldInfo : fieldInfoList) {
                     fieldInfoMap.put(fieldInfo.getQualifiedName(), fieldInfo);
                     if (++fieldNum % 50 == 0) {
@@ -79,9 +80,11 @@ public class ClassMemberAnalyzer extends AbstractAnalyzer {
                 }
             }
             for (MethodDeclaration methodDeclaration : typeDeclaration.getMethods()) {
-                MethodInfo methodInfo = extractMethodInfo(methodDeclaration);
-                methodInfoMap.computeIfAbsent(methodInfo.getQualifiedName(), element -> new ArrayList<>())
-                    .add(methodInfo);
+                MethodInfo methodInfo = extractMethodInfo(javaTypeInferencer, methodDeclaration);
+                if (!methodInfoMap.containsKey(methodInfo.getQualifiedName())) {
+                    methodInfoMap.put(methodInfo.getQualifiedName(), new ArrayList<>());
+                }
+                methodInfoMap.get(methodInfo.getQualifiedName()).add(methodInfo);
                 if (++methodNum % 50 == 0) {
                     LOGGER.info("profiling {} java methods...", methodNum);
                 }
@@ -96,7 +99,7 @@ public class ClassMemberAnalyzer extends AbstractAnalyzer {
         LOGGER.info("Total count of java fields in this project: {}", fieldNum);
     }
 
-    private MethodInfo extractMethodInfo(MethodDeclaration methodDeclaration) {
+    private MethodInfo extractMethodInfo(JavaTypeInferencer javaTypeInferencer, MethodDeclaration methodDeclaration) {
         MethodInfo methodInfo = new MethodInfo();
         String simpleName = methodDeclaration.getName().getIdentifier();
         methodInfo.setName(simpleName);
@@ -109,18 +112,21 @@ public class ClassMemberAnalyzer extends AbstractAnalyzer {
         for (Object obj : methodDeclaration.parameters()) {
             SingleVariableDeclaration param = (SingleVariableDeclaration) obj;
             Type paramType = param.getType();
-            TypeInfo typeInfo = JavaTypeInferencer.getTypeInfo(paramType);
-            paramTypes.add(typeInfo);
+            TypeInfo typeInfo = javaTypeInferencer.getTypeInfo(paramType);
+            if (typeInfo != null) {
+                paramTypes.add(typeInfo);
+            }
         }
         methodInfo.setParamTypes(paramTypes);
         if (methodDeclaration.getReturnType2() != null) {
-            TypeInfo returnTypeInfo = JavaTypeInferencer.getTypeInfo(methodDeclaration.getReturnType2());
+            TypeInfo returnTypeInfo = javaTypeInferencer.getTypeInfo(methodDeclaration.getReturnType2());
             methodInfo.setReturnType(returnTypeInfo);
         }
         return methodInfo;
     }
 
-    private List<FieldInfo> extractFieldInfo(FieldDeclaration fieldDeclaration) {
+
+    private List<FieldInfo> extractFieldInfo(JavaTypeInferencer javaTypeInferencer, FieldDeclaration fieldDeclaration) {
         List<FieldInfo> fieldInfoList = new ArrayList<>();
         String packageName = JavaASTUtils.getPackageName(fieldDeclaration);
         List<String> ownerClasses = JavaASTUtils.getOwnerClassNames(fieldDeclaration);
@@ -135,7 +141,7 @@ public class ClassMemberAnalyzer extends AbstractAnalyzer {
                 fieldInfo.setName(varDeclarationFragment.getName().getIdentifier());
             }
             Type type = fieldDeclaration.getType();
-            TypeInfo typeInfo = JavaTypeInferencer.getTypeInfo(type);
+            TypeInfo typeInfo = javaTypeInferencer.getTypeInfo(type);
             fieldInfo.setType(typeInfo);
             fieldInfo.setPackageName(packageName);
             fieldInfo.setOwnerClasses(ownerClasses);
@@ -151,7 +157,7 @@ public class ClassMemberAnalyzer extends AbstractAnalyzer {
         classInfo.setName(simpleName);
         classInfo.setOwnerClasses(JavaASTUtils.getOwnerClassNames(typeDeclaration));
         classInfo.setGenerics(JavaASTUtils.getClassParameters(typeDeclaration));
-        classInfo.setSuperClass(JavaASTUtils.getSupperClass(typeDeclaration, classInfo.getGenerics()));
+        classInfo.setSuperClass(JavaASTUtils.getSuperClass(typeDeclaration, classInfo.getGenerics()));
         classInfo.setInterfaces(JavaASTUtils.getSuperInterfaces(typeDeclaration, classInfo.getGenerics()));
         return classInfo;
     }

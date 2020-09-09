@@ -33,20 +33,9 @@ public class ComplexGradleModificationChanger extends GradleModificationChanger 
     }
 
     @Override
-    public DefectInstance createDefectInstance(
-            String filePath, int buggyLineNumber, String buggyLineContent, String fixedLineContent) {
-        DefectInstance defectInstance = new DefectInstance();
-        defectInstance.buggyLines.put(filePath, buggyLineNumber, buggyLineContent);
-        defectInstance.defectType = this.getFixerInfo().type.toString();
-        defectInstance.message = this.getFixerInfo().description;
-        defectInstance.mainBuggyLineNumber = Math.abs(buggyLineNumber);
-        defectInstance.mainBuggyFilePath = filePath;
-        defectInstance.mainFixedFilePath = filePath;
-        defectInstance.mainFixedLineNumber = Math.abs(buggyLineNumber);
-        defectInstance.fixedLines.put(filePath, buggyLineNumber, fixedLineContent);
-        defectInstance.isFixed = true;
-        defectInstance.status = FixStatus.AUTOFIX.toString();
-        defectInstance.context.add("Complex", "complex");
-        return defectInstance;
+    public DefectInstance createDefectInstance(String filePath, int buggyLineNumber, String buggyLineContent,
+            String fixedLineContent) {
+        return ComplexChangerUtils.createDefectInstance(filePath, buggyLineNumber, buggyLineContent, fixedLineContent,
+                this.getFixerInfo());
     }
 }

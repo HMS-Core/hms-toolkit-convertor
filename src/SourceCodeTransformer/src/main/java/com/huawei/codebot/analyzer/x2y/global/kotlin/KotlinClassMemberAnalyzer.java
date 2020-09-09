@@ -18,6 +18,7 @@ package com.huawei.codebot.analyzer.x2y.global.kotlin;
 
 import com.huawei.codebot.analyzer.x2y.global.AbstractAnalyzer;
 import com.huawei.codebot.analyzer.x2y.global.AnalyzerHub;
+import com.huawei.codebot.analyzer.x2y.global.TypeInferencer;
 import com.huawei.codebot.analyzer.x2y.global.bean.ClassInfo;
 import com.huawei.codebot.analyzer.x2y.global.bean.FieldInfo;
 import com.huawei.codebot.analyzer.x2y.global.bean.MethodInfo;
@@ -53,63 +54,67 @@ public class KotlinClassMemberAnalyzer extends AbstractAnalyzer {
     }
 
     @Override
-    public void analyze(AnalyzerHub hub, Object node) {
-        if (!(node instanceof KotlinParser.ClassDeclarationContext)) {
-            return;
-        }
-        KotlinParser.ClassDeclarationContext classDeclaration = (KotlinParser.ClassDeclarationContext) node;
-        ClassInfo classInfo = extractClassInfo(classDeclaration);
-        classInfoMap.put(classInfo.getQualifiedName(), classInfo);
-        if (++classNum % 10 == 0) {
-            LOGGER.info("profiling {} kotlin classes...", classNum);
-        }
-        KotlinParser.ClassBodyContext classBody = classDeclaration.classBody();
-        if (classBody == null) {
-            return;
-        }
-        KotlinParser.ClassMemberDeclarationsContext classMemberDeclarations =
-                classBody.classMemberDeclarations();
-        if (classMemberDeclarations == null) {
-            return;
-        }
-        List<KotlinParser.ClassMemberDeclarationContext> classMemberDeclarationList =
-                classMemberDeclarations.classMemberDeclaration();
-        for (KotlinParser.ClassMemberDeclarationContext classMemberDeclaration :
-                classMemberDeclarationList) {
-            if (classMemberDeclaration.declaration() != null
-                    && classMemberDeclaration.declaration().propertyDeclaration() != null) {
-                List<FieldInfo> fieldInfoList =
-                        extractFieldInfo(classMemberDeclaration.declaration().propertyDeclaration());
-                for (FieldInfo fieldInfo : fieldInfoList) {
-                    fieldInfoMap.put(fieldInfo.getQualifiedName(), fieldInfo);
-                    if (++fieldNum % 50 == 0) {
-                        LOGGER.info("profiling {} kotlin fields...", fieldNum);
+    public void analyze(AnalyzerHub hub, TypeInferencer typeInferencer, Object node) {
+        if (node instanceof KotlinParser.ClassDeclarationContext && typeInferencer instanceof KotlinTypeInferencer) {
+            KotlinTypeInferencer kotlinTypeInferencer = (KotlinTypeInferencer) typeInferencer;
+            KotlinParser.ClassDeclarationContext classDeclaration = (KotlinParser.ClassDeclarationContext) node;
+            ClassInfo classInfo = extractClassInfo(classDeclaration);
+            classInfoMap.put(classInfo.getQualifiedName(), classInfo);
+            if (++classNum % 10 == 0) {
+                LOGGER.info("profiling {} kotlin classes...", classNum);
+            }
+            KotlinParser.ClassBodyContext classBody = classDeclaration.classBody();
+            if (classBody != null) {
+                KotlinParser.ClassMemberDeclarationsContext classMemberDeclarations =
+                        classBody.classMemberDeclarations();
+                if (classMemberDeclarations != null) {
+                    List<KotlinParser.ClassMemberDeclarationContext> classMemberDeclarationList =
+                            classMemberDeclarations.classMemberDeclaration();
+                    for (KotlinParser.ClassMemberDeclarationContext classMemberDeclaration :
+                            classMemberDeclarationList) {
+                        if (classMemberDeclaration.declaration() != null
+                                && classMemberDeclaration.declaration().propertyDeclaration() != null) {
+                            List<FieldInfo> fieldInfoList =
+                                    extractFieldInfo(kotlinTypeInferencer,
+                                            classMemberDeclaration.declaration().propertyDeclaration());
+                            for (FieldInfo fieldInfo : fieldInfoList) {
+                                fieldInfoMap.put(fieldInfo.getQualifiedName(), fieldInfo);
+                                if (++fieldNum % 50 == 0) {
+                                    LOGGER.info("profiling {} kotlin fields...", fieldNum);
+                                }
+                            }
+                        } else if (classMemberDeclaration.declaration() != null
+                                && classMemberDeclaration.declaration().functionDeclaration() != null) {
+                            MethodInfo methodInfo =
+                                    extractMethodInfo(kotlinTypeInferencer,
+                                            classMemberDeclaration.declaration().functionDeclaration());
+                            storeMethodInfos(methodInfo);
+                        }
                     }
                 }
-            } else if (classMemberDeclaration.declaration() != null
-                    && classMemberDeclaration.declaration().functionDeclaration() != null) {
-                MethodInfo methodInfo =
-                        extractMethodInfo(classMemberDeclaration.declaration().functionDeclaration());
-                storeMethodInfos(methodInfo);
             }
+            MethodInfo methodInfo = new MethodInfo();
+            TypeInfo typeInfo = new TypeInfo();
+            typeInfo.setQualifiedName(classInfo.getQualifiedName());
+            methodInfo.setReturnType(typeInfo);
+            methodInfo.setName(classInfo.getName());
+            methodInfo.setPackageName(classInfo.getPackageName());
+            storeMethodInfos(methodInfo);
         }
-        MethodInfo methodInfo = new MethodInfo();
-        TypeInfo typeInfo = new TypeInfo();
-        typeInfo.setQualifiedName(classInfo.getQualifiedName());
-        methodInfo.setReturnType(typeInfo);
-        methodInfo.setName(classInfo.getName());
-        methodInfo.setPackageName(classInfo.getPackageName());
-        storeMethodInfos(methodInfo);
     }
 
     private void storeMethodInfos(MethodInfo methodInfo) {
-        methodInfoMap.computeIfAbsent(methodInfo.getQualifiedName(), element -> new ArrayList<>()).add(methodInfo);
+        if (!methodInfoMap.containsKey(methodInfo.getQualifiedName())) {
+            methodInfoMap.put(methodInfo.getQualifiedName(), new ArrayList<>());
+        }
+        methodInfoMap.get(methodInfo.getQualifiedName()).add(methodInfo);
         if (++methodNum % 50 == 0) {
             LOGGER.info("profiling {} kotlin methods...", methodNum);
         }
     }
-
-    private MethodInfo extractMethodInfo(KotlinParser.FunctionDeclarationContext functionDeclaration) {
+    
+    private MethodInfo extractMethodInfo(
+            KotlinTypeInferencer kotlinTypeInferencer, KotlinParser.FunctionDeclarationContext functionDeclaration) {
         MethodInfo methodInfo = new MethodInfo();
         String simpleName = functionDeclaration.simpleIdentifier().getText();
         methodInfo.setName(simpleName);
@@ -123,12 +128,12 @@ public class KotlinClassMemberAnalyzer extends AbstractAnalyzer {
         List<KotlinParser.FunctionValueParameterContext> parameters = parametersContext.functionValueParameter();
         for (KotlinParser.FunctionValueParameterContext parameter : parameters) {
             KotlinParser.TypeContext parameterType = parameter.parameter().type();
-            TypeInfo typeInfo = KotlinTypeInferencer.getTypeInfo(parameterType);
+            TypeInfo typeInfo = kotlinTypeInferencer.getTypeInfo(parameterType);
             paramTypes.add(typeInfo);
         }
         methodInfo.setParamTypes(paramTypes);
-        if (functionDeclaration.type() != null && functionDeclaration.type().getText().equals("Unit")) {
-            TypeInfo returnTypeInfo = KotlinTypeInferencer.getTypeInfo(functionDeclaration.type());
+        if (functionDeclaration.type() != null && "Unit".equals(functionDeclaration.type().getText())) {
+            TypeInfo returnTypeInfo = kotlinTypeInferencer.getTypeInfo(functionDeclaration.type());
             methodInfo.setReturnType(returnTypeInfo);
         } else {
             TypeInfo returnType = new TypeInfo();
@@ -138,7 +143,8 @@ public class KotlinClassMemberAnalyzer extends AbstractAnalyzer {
         return methodInfo;
     }
 
-    private List<FieldInfo> extractFieldInfo(KotlinParser.PropertyDeclarationContext propertyDeclaration) {
+    private List<FieldInfo> extractFieldInfo(
+            KotlinTypeInferencer kotlinTypeInferencer, KotlinParser.PropertyDeclarationContext propertyDeclaration) {
         List<FieldInfo> fieldInfoList = new ArrayList<>();
         String packageName = KotlinASTUtils.getPackageName(propertyDeclaration);
         List<String> ownerClasses = KotlinASTUtils.getOwnerClassNames(propertyDeclaration);
@@ -147,17 +153,20 @@ public class KotlinClassMemberAnalyzer extends AbstractAnalyzer {
         if (multiVariableDeclaration != null) {
             for (KotlinParser.VariableDeclarationContext variableDeclaration :
                     multiVariableDeclaration.variableDeclaration()) {
-                storeFieldInfo(propertyDeclaration, fieldInfoList, packageName, ownerClasses, variableDeclaration);
+                storeFieldInfo(kotlinTypeInferencer, propertyDeclaration,
+                        fieldInfoList, packageName, ownerClasses, variableDeclaration);
             }
         } else {
             KotlinParser.VariableDeclarationContext variableDeclaration = propertyDeclaration.variableDeclaration();
-            storeFieldInfo(propertyDeclaration, fieldInfoList, packageName, ownerClasses, variableDeclaration);
+            storeFieldInfo(kotlinTypeInferencer, propertyDeclaration,
+                    fieldInfoList, packageName, ownerClasses, variableDeclaration);
         }
 
         return fieldInfoList;
     }
 
     private void storeFieldInfo(
+            KotlinTypeInferencer kotlinTypeInferencer,
             KotlinParser.PropertyDeclarationContext propertyDeclaration,
             List<FieldInfo> fieldInfoList,
             String packageName,
@@ -168,7 +177,7 @@ public class KotlinClassMemberAnalyzer extends AbstractAnalyzer {
             fieldInfo.setInitValue(propertyDeclaration.expression().getText());
         }
         fieldInfo.setName(variableDeclaration.simpleIdentifier().getText());
-        TypeInfo typeInfo = KotlinTypeInferencer.getTypeInfo(variableDeclaration.type());
+        TypeInfo typeInfo = kotlinTypeInferencer.getTypeInfo(variableDeclaration.type());
         fieldInfo.setType(typeInfo);
         fieldInfo.setPackageName(packageName);
         fieldInfo.setOwnerClasses(ownerClasses);

@@ -16,16 +16,14 @@
 
 package com.huawei.codebot.analyzer.x2y.io.config;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import com.huawei.codebot.analyzer.x2y.java.method.MethodChangePattern;
 import com.huawei.codebot.analyzer.x2y.java.method.delete.DeleteMethod;
 import com.huawei.codebot.framework.AbstractJSONConfig;
 import com.huawei.codebot.framework.DefectFixerType;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.utils.JsonUtil;
-
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -185,14 +183,14 @@ class X2YManualJSONConfig extends AbstractJSONConfig {
         HashMap<String, List<MethodChangePattern>> changePatterns = new HashMap<>();
         Gson gson = new Gson();
         X2YManualJSONConfig configJson = gson.fromJson(this.getJSON().toString(),
-            new SubTypeToken().getType());
-        if (configJson == null) {
+                new SubTypeToken().getType());
+        if(configJson == null){
             return changePatterns;
         }
         configJson.manualMethods.stream()
-            .filter(method -> method != null)
-            .forEach(method -> changePatterns.computeIfAbsent(method.getMethodName(),
-                k -> new ArrayList<>()).add(method));
+                .filter(method -> method != null)
+                .forEach(method -> changePatterns.computeIfAbsent(method.getMethodName(),
+                        k -> new ArrayList<>()).add(method));
         return changePatterns;
     }
 
@@ -200,7 +198,7 @@ class X2YManualJSONConfig extends AbstractJSONConfig {
         this.manualMethods = manualMethods;
     }
 
-    private static class SubTypeToken extends TypeToken<X2YManualJSONConfig> {
+    private static class SubTypeToken extends TypeToken<X2YManualJSONConfig>{
         private static final long serialVersionUID = 1L;
     }
 }

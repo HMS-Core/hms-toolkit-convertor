@@ -41,7 +41,7 @@ final class SecureObjectInputStream extends ObjectInputStream {
                 && !desc.getName().equals(ClassInfo.class.getCanonicalName())
                 && !desc.getName().equals(FieldInfo.class.getCanonicalName())
                 && !desc.getName().equals(MethodInfo.class.getCanonicalName())
-                && !desc.getName().equals(TypeInfo.class.getCanonicalName())) {  // white list check
+                && !desc.getName().equals(TypeInfo.class.getCanonicalName())) {
             throw new ClassNotFoundException(desc.getName() + " not find");
         }
         return super.resolveClass(desc);

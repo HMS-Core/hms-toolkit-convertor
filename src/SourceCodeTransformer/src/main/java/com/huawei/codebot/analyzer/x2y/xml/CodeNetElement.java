@@ -34,7 +34,7 @@ public class CodeNetElement extends DefaultElement {
     private int lineNumber = 0;
     private int columnNumber = 0;
 
-    CodeNetElement(QName qname) {
+    public CodeNetElement(QName qname) {
         super(qname);
     }
 
@@ -42,7 +42,7 @@ public class CodeNetElement extends DefaultElement {
         super(qname, attrCount);
     }
 
-    CodeNetElement(String name) {
+    public CodeNetElement(String name) {
         super(name);
     }
 

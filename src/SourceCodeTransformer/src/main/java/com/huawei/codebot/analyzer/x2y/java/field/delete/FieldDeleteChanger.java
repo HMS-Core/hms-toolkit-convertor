@@ -25,6 +25,7 @@ import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinASTUtils;
 import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinFunctionCall;
 import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinTypeInferencer;
 import com.huawei.codebot.analyzer.x2y.io.config.ConfigService;
+import com.huawei.codebot.analyzer.x2y.java.AtomicAndroidAppChanger;
 import com.huawei.codebot.analyzer.x2y.java.field.FieldChangePattern;
 import com.huawei.codebot.analyzer.x2y.java.field.FieldDeleteMatcher;
 import com.huawei.codebot.analyzer.x2y.java.field.FieldMatcher;
@@ -36,13 +37,14 @@ import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
-import com.huawei.codebot.framework.x2y.AndroidAppFixer;
+
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.FieldAccess;
 import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.SimpleName;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -51,7 +53,7 @@ import java.util.Map;
  *
  * @since 2020-04-16
  */
-public class FieldDeleteChanger extends AndroidAppFixer {
+public class FieldDeleteChanger extends AtomicAndroidAppChanger {
     private Map<String, Map> fieldDeleteDescriptions;
 
     public FieldDeleteChanger(String fixerType) throws CodeBotRuntimeException {
@@ -102,7 +104,7 @@ public class FieldDeleteChanger extends AndroidAppFixer {
                                             javaFile.lineBreak,
                                             javaFile.fileLines.subList(startLineNumber - 1, endLineNumber));
                             Map desc = fieldDeleteDescriptions.get(pattern.getActualFieldName().getFullName());
-                            String message = desc == null ? null : gson.toJson(desc);
+                            String message = desc == null ? "" : gson.toJson(desc);
                             DefectInstance defectInstance =
                                     createWarningDefectInstance(buggyFilePath, startLineNumber, buggyLine, message);
                             defectInstances.add(defectInstance);
@@ -110,17 +112,8 @@ public class FieldDeleteChanger extends AndroidAppFixer {
                     }
                 };
         javaFile.compilationUnit.accept(visitor);
+        removeIgnoreBlocks(defectInstances, javaFile.shielder);
         return defectInstances;
-    }
-
-    @Override
-    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
-    protected List<DefectInstance> detectDefectsInGradleFile(String buggyFilePath) {
-        return null;
     }
 
     @Override
@@ -138,12 +131,10 @@ public class FieldDeleteChanger extends AndroidAppFixer {
                         int buggyLineNumber = ctx.getStart().getLine();
                         String importClassName = ctx.getText();
                         if (fieldDeleteDescriptions.containsKey(importClassName)) {
-                            String buggyLine =
-                                    String.join(
-                                            kotlinFile.lineBreak,
-                                            kotlinFile.fileLines.subList(buggyLineNumber - 1, buggyLineNumber));
+                            String buggyLine = String.join(kotlinFile.lineBreak,
+                                    kotlinFile.fileLines.subList(buggyLineNumber - 1, buggyLineNumber));
                             Map desc = fieldDeleteDescriptions.get(importClassName);
-                            String message = desc == null ? null : gson.toJson(desc);
+                            String message = desc == null ? "" : gson.toJson(desc);
                             DefectInstance defectInstance =
                                     createWarningDefectInstance(buggyFilePath, buggyLineNumber, buggyLine, message);
                             defectInstances.add(defectInstance);
@@ -153,6 +144,7 @@ public class FieldDeleteChanger extends AndroidAppFixer {
 
                     @Override
                     public Boolean visitPostfixUnaryExpression(KotlinParser.PostfixUnaryExpressionContext ctx) {
+                        int startLineNumber = ctx.getStart().getLine();
                         if (ctx.postfixUnarySuffix() != null && ctx.postfixUnarySuffix().size() != 0) {
                             for (int i = 0; i < ctx.postfixUnarySuffix().size(); i++) {
                                 List<KotlinParser.PostfixUnarySuffixContext> currentPostFixUnarySuffixList =
@@ -171,45 +163,76 @@ public class FieldDeleteChanger extends AndroidAppFixer {
                                                     ctx.primaryExpression(), currentPostFixUnarySuffixList);
                                     if (typeInfo != null
                                             && currentPostFixUnarySuffixList
-                                                            .get(currentPostFixUnarySuffixList.size() - 1)
-                                                            .navigationSuffix()
-                                                            .simpleIdentifier()
-                                                    != null) {
+                                            .get(currentPostFixUnarySuffixList.size() - 1)
+                                            .navigationSuffix()
+                                            .simpleIdentifier()
+                                            != null) {
                                         String oldFullName =
                                                 typeInfo.getQualifiedName()
                                                         + "."
                                                         + currentPostFixUnarySuffixList
-                                                                .get(currentPostFixUnarySuffixList.size() - 1)
-                                                                .navigationSuffix()
-                                                                .simpleIdentifier()
-                                                                .getText();
-                                        if (fieldDeleteDescriptions.containsKey(oldFullName)) {
-                                            int startLineNumber = ctx.getStart().getLine();
-                                            String buggyLine = kotlinFile.fileLines.get(startLineNumber - 1);
-                                            Map description = fieldDeleteDescriptions.get(oldFullName);
-                                            String desc = description == null ? null : gson.toJson(description);
-                                            DefectInstance defectInstance =
-                                                    createWarningDefectInstance(
-                                                            buggyFilePath, startLineNumber, buggyLine, desc);
-                                            defectInstances.add(defectInstance);
-                                        }
+                                                        .get(currentPostFixUnarySuffixList.size() - 1)
+                                                        .navigationSuffix()
+                                                        .simpleIdentifier()
+                                                        .getText();
+                                        putFieldDeleteIntoDefectInstanceList(oldFullName, ctx,
+                                                kotlinFile.fileLines.get(startLineNumber - 1), buggyFilePath);
                                     }
                                 }
                             }
+                        } else if (ctx.postfixUnarySuffix() != null && ctx.postfixUnarySuffix().size() == 0
+                                && ctx.primaryExpression() != null
+                                && inferencer.getQualifierType(ctx.primaryExpression()) != null) {
+                            TypeInfo typeInfo = inferencer.getQualifierType(ctx.primaryExpression());
+                            String oldFullName = typeInfo.getQualifiedName();
+                            putFieldDeleteIntoDefectInstanceList(oldFullName, ctx,
+                                    kotlinFile.fileLines.get(startLineNumber - 1), buggyFilePath);
                         }
                         return super.visitPostfixUnaryExpression(ctx);
                     }
-                };
-        kotlinFile.tree.accept(visitor);
 
+                };
+        try {
+            kotlinFile.tree.accept(visitor);
+        } catch (Exception e) {
+            logger.error(buggyFilePath);
+            logger.error(Arrays.toString(e.getStackTrace()));
+        }
+        removeIgnoreBlocks(defectInstances, kotlinFile.shielder);
         return defectInstances;
     }
 
-    @Override
-    protected void generateFixCode(DefectInstance defectWarning) {}
+    private void putFieldDeleteIntoDefectInstanceList(String oldFullName,
+        KotlinParser.PostfixUnaryExpressionContext ctx, String buggyLine, String buggyFilePath) {
+        if (fieldDeleteDescriptions.containsKey(oldFullName)) {
+            Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+            int startLineNumber = ctx.getStart().getLine();
+            Map description = fieldDeleteDescriptions.get(oldFullName);
+            String desc = description == null ? null : gson.toJson(description);
+            DefectInstance defectInstance =
+                    createWarningDefectInstance(
+                            buggyFilePath, startLineNumber, buggyLine, desc);
+            defectInstances.add(defectInstance);
+        }
+    }
 
     @Override
-    protected void extractFixInstancesForSingleCodeFile(String filePath) {}
+    protected void generateFixCode(DefectInstance defectWarning) {
+    }
+
+    @Override
+    protected void extractFixInstancesForSingleCodeFile(String filePath) {
+    }
+
+    @Override
+    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
+        return null;
+    }
+
+    @Override
+    protected List<DefectInstance> detectDefectsInGradleFile(String buggyFilePath) {
+        return null;
+    }
 
     @Override
     public FixerInfo getFixerInfo() {

@@ -16,13 +16,9 @@
 
 package com.huawei.codebot.analyzer.x2y.gradle.coditionalchanger;
 
-import com.google.common.collect.Lists;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.huawei.codebot.analyzer.x2y.xml.CodeNetDocumentLocator;
 import com.huawei.codebot.analyzer.x2y.xml.CodeNetElement;
 import com.huawei.codebot.analyzer.x2y.xml.CodeNetSaxReader;
-import com.huawei.codebot.analyzer.x2y.xml.LabelType;
 import com.huawei.codebot.analyzer.x2y.xml.XmlEntitiesAnalyzer;
 import com.huawei.codebot.analyzer.x2y.xml.XmlEntity;
 import com.huawei.codebot.framework.DefectFixerType;
@@ -30,6 +26,9 @@ import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.x2y.AndroidAppFixer;
 import com.huawei.codebot.utils.FileUtils;
+import com.google.common.collect.Lists;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentFactory;
@@ -49,15 +48,11 @@ import java.util.Map;
 
 import static com.huawei.codebot.analyzer.x2y.xml.LabelType.APPLICATION;
 import static com.huawei.codebot.analyzer.x2y.xml.LabelType.METADATA;
-import static com.huawei.codebot.analyzer.x2y.xml.LabelType.getBranchLabels;
-import static com.huawei.codebot.analyzer.x2y.xml.LabelType.getLeafLabels;
-import static com.huawei.codebot.analyzer.x2y.xml.XmlEntitiesAnalyzer.getTargetBasedOnRegex;
+import static com.huawei.codebot.analyzer.x2y.xml.XmlEntitiesAnalyzer.getXmlCommentLines;
 
 class XmlConditionalChanger extends AndroidAppFixer {
     private static final Logger LOGGER = LoggerFactory.getLogger(XmlConditionalChanger.class);
-
-    private static final String MANIFEST_PATH = "src" + File.separator + "main" + File.separator
-        + "AndroidManifest.xml";
+    private static final String MANIFEST_PATH = "src" + File.separator + "main" + File.separator + "AndroidManifest.xml";
     private Map<String, StructGradleXml> xmlChangerJsonTargets = new HashMap<>();
     private Gson gson = new GsonBuilder().disableHtmlEscaping().create();
 
@@ -79,39 +74,20 @@ class XmlConditionalChanger extends AndroidAppFixer {
             try {
                 List<String> fileContent = FileUtils
                         .getOriginalFileLines(buggyFilePath, FileUtils.detectCharset(buggyFilePath));
-                List<String> annotations = getTargetBasedOnRegex(fileContent, "<!--(\\s|.)*?-->");
+                List<String> annotations = getXmlCommentLines(fileContent);
                 Locator locator = new LocatorImpl();
                 DocumentFactory docFactory = new CodeNetDocumentLocator(locator);
                 SAXReader reader = new CodeNetSaxReader(docFactory, locator);
                 Document document = reader.read(new File(buggyFilePath));
-                List<LabelType> analyzedBranchLabels = getBranchLabels();
-                Map<String, XmlEntity> allLabelContents = new HashMap<String, XmlEntity>();
-                for (LabelType labelType : analyzedBranchLabels) {
-                    try {
-                        XmlEntitiesAnalyzer xmlEntitiesAnalyzer = new XmlEntitiesAnalyzer(fileContent, annotations,
-                                labelType, null);
-                        Map<String, XmlEntity> labelContent = xmlEntitiesAnalyzer.getLabelContents();
-                        allLabelContents.putAll(labelContent);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                List<LabelType> analyzedLeafLabels = getLeafLabels();
-                for (LabelType labelType : analyzedLeafLabels) {
-                    try {
-                        XmlEntitiesAnalyzer xmlEntitiesAnalyzer = new XmlEntitiesAnalyzer(fileContent, annotations,
-                                labelType, allLabelContents);
-                        Map<String, XmlEntity> labelContent = xmlEntitiesAnalyzer.getLabelContents();
-                        allLabelContents.putAll(labelContent);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
                 Element root = document.getRootElement();
+                XmlEntitiesAnalyzer xmlEntitiesAnalyzer = new XmlEntitiesAnalyzer(fileContent, annotations);
+                Map<String, XmlEntity> allLabelContents = xmlEntitiesAnalyzer.getLabelContents(root);
                 operationInXmlNodes((CodeNetElement) root, buggyFilePath, allLabelContents, defectInstances);
                 return defectInstances;
             } catch (IOException | DocumentException e) {
                 LOGGER.error("", e);
+            } catch (Exception e) {
+                LOGGER.error("XML File should be format!", e);
             }
         }
         return defectInstances;
@@ -156,7 +132,7 @@ class XmlConditionalChanger extends AndroidAppFixer {
                         String key = nodeName + androidName;
                         XmlEntity xmlEntity = labelContents.get(key);
                         DefectInstance defectInstance = createDefectInstance(buggyFilePath,
-                                -(xmlEntity.labelEndLine + 1), null,
+                                -(xmlEntity.getLabelEndLine() + 1), null,
                                 sb.toString().substring(0, sb.toString().length() - System.lineSeparator().length()));
                         defectInstance.setMessage(descs.toString().substring(0, descs.toString().length() - 1));
                         defectInstance.isFixed = true;
@@ -194,7 +170,7 @@ class XmlConditionalChanger extends AndroidAppFixer {
         if (this.info == null) {
             FixerInfo info = new FixerInfo();
             info.type = DefectFixerType.LIBADAPTION_CROSSGRADLEXML;
-            info.description = "GradleXml CrossFileChanger";
+            info.description = "Xml Conditional Changer";
             this.info = info;
         }
         return this.info;

@@ -26,6 +26,7 @@ public class FixAction {
 
     private String operation = null;
 
+
     private String newContent = null;
 
     private String fixPosition = null;

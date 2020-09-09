@@ -16,8 +16,12 @@
 
 package com.huawei.codebot.analyzer.x2y.global.bean;
 
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Data structure of basic information for code methods
@@ -56,13 +60,13 @@ public class MethodInfo extends EntityInfo {
 
     @Override
     public int hashCode() {
-        int result = 17;
-        result = 31 * result + this.getQualifiedName().hashCode();
-        result = 31 * result + this.getReturnType().hashCode();
-        for (TypeInfo paramType : getParamTypes()) {
-            result = 31 * result + paramType.getQualifiedName().hashCode();
+        List<Object> hashArr = new ArrayList<>();
+        hashArr.add(this.getQualifiedName());
+        hashArr.add(this.getReturnType());
+        if (CollectionUtils.isNotEmpty(getParamTypes())) {
+            hashArr.addAll(getParamTypes());
         }
-        return result;
+        return Objects.hash(hashArr.toArray());
     }
 
     @Override
@@ -89,8 +93,8 @@ public class MethodInfo extends EntityInfo {
             }
         }
 
-        if (mi.getQualifiedName() == null) {
-            return this.getQualifiedName() == null;
+        if (StringUtils.isEmpty(mi.getQualifiedName())) {
+            return StringUtils.isEmpty(this.getQualifiedName());
         }
         return mi.getQualifiedName().equals(this.getQualifiedName());
     }

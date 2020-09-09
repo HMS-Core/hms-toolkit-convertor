@@ -28,6 +28,20 @@ public class VariableInfo extends EntityInfo {
 
     private TypeInfo type;
 
+    public VariableInfo() {}
+
+    public VariableInfo(FieldInfo fieldInfo) {
+        this.setName(fieldInfo.getName());
+        this.setOwnerClasses(fieldInfo.getOwnerClasses());
+        this.setPackageName(fieldInfo.getPackageName());
+        this.setType(fieldInfo.getType());
+    }
+
+    public VariableInfo(TypeInfo typeInfo, Object declaration) {
+        this.type = typeInfo;
+        this.declaration = declaration;
+    }
+
     public Object getDeclaration() {
         return declaration;
     }

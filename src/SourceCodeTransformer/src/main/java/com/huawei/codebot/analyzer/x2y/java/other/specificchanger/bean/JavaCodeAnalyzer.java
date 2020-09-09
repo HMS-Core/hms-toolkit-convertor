@@ -18,7 +18,6 @@ package com.huawei.codebot.analyzer.x2y.java.other.specificchanger.bean;
 
 import com.huawei.codebot.codeparsing.java.JavaFileAnalyzer;
 import com.huawei.codebot.utils.FileUtils;
-
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
@@ -54,6 +53,7 @@ public class JavaCodeAnalyzer extends JavaFileAnalyzer {
     private static final String WIN_LINE_SEPARATOR = "\015\012";
     private static final String LINUX_LINE_SEPARATOR = "\012";
 
+
     private List<String> importList = new ArrayList<>();
 
     /**
@@ -73,8 +73,10 @@ public class JavaCodeAnalyzer extends JavaFileAnalyzer {
             // Get filename without extension.
             String fileName = getFileName(filePath);
             // for single code file.
-            String packageName = "default";
-            if (cu.getPackage() != null) {
+            String packageName = null;
+            if (cu.getPackage() == null) {
+                packageName = "default";
+            } else {
                 packageName = cu.getPackage().getName().toString();
                 fileName = packageName + "." + fileName;
             }
@@ -107,7 +109,30 @@ public class JavaCodeAnalyzer extends JavaFileAnalyzer {
             TypeDeclaration typeDec = (TypeDeclaration) types.get(0);
             javaClassObj.setClassName(typeDec.getName().toString());
 
-            JavaClass parentClass = getParentClass(javaClassObj, packageName, typeDec);
+            String[] getPackageName = getParentPackageName(typeDec, javaClassObj);
+            String parentPackageName = getPackageName[0];
+            String parentName = getPackageName[1];
+
+            List<String> potentialPackageNames = new ArrayList<String>();
+            if (parentPackageName == null) {
+                // extract potential package name
+                for (String importName : javaClassObj.imports) {
+                    if (importName.contains(".*")) {
+                        String candidateParentPackage = importName.substring(0, importName.lastIndexOf('.'));
+                        potentialPackageNames.add(candidateParentPackage);
+                    }
+                }
+            }
+
+            JavaClass parentClass = null;
+            if (parentPackageName != null) {
+                parentClass = new JavaClass(parentName, parentPackageName);
+            } else if (potentialPackageNames.size() > 0) {
+                potentialPackageNames.add(packageName);
+                parentClass = new JavaClass(parentName, potentialPackageNames);
+            } else {
+                parentClass = new JavaClass(parentName, packageName);
+            }
             javaClassObj.setParentClass(parentClass);
             analyzeMethods(typeDec, cu, javaClassObj);
 
@@ -118,34 +143,6 @@ public class JavaCodeAnalyzer extends JavaFileAnalyzer {
             LOGGER.error("extract Java Class Info failed, file path is:" + filePath);
         }
         return javaClassObj;
-    }
-
-    private JavaClass getParentClass(JavaClass javaClassObj, String packageName, TypeDeclaration typeDec) {
-        String[] getPackageName = getParentPackageName(typeDec, javaClassObj);
-        String parentPackageName = getPackageName[0];
-        String parentName = getPackageName[1];
-
-        List<String> potentialPackageNames = new ArrayList<String>();
-        if (parentPackageName == null) {
-            // extract potential package name
-            for (String importName : javaClassObj.imports) {
-                if (importName.contains(".*")) {
-                    String candidateParentPackage = importName.substring(0, importName.lastIndexOf('.'));
-                    potentialPackageNames.add(candidateParentPackage);
-                }
-            }
-        }
-
-        JavaClass parentClass = null;
-        if (parentPackageName != null) {
-            parentClass = new JavaClass(parentName, parentPackageName);
-        } else if (potentialPackageNames.size() > 0) {
-            potentialPackageNames.add(packageName);
-            parentClass = new JavaClass(parentName, potentialPackageNames);
-        } else {
-            parentClass = new JavaClass(parentName, packageName);
-        }
-        return parentClass;
     }
 
     private String[] getParentPackageName(TypeDeclaration typeDec, JavaClass javaClassObj) {
@@ -203,118 +200,115 @@ public class JavaCodeAnalyzer extends JavaFileAnalyzer {
                 continue;
             }
 
-            acceptVisitor(cu, javaClassObj, method, javaMethod);
+            method.getBody()
+                    .accept(
+                            new ASTVisitor() {
+                                @Override
+                                public boolean visit(VariableDeclarationFragment node) {
+                                    SimpleName name = node.getName();
+                                    if (node.getParent() instanceof VariableDeclarationStatement) {
+                                        VariableDeclarationStatement vds =
+                                                (VariableDeclarationStatement) node.getParent();
+                                        javaMethod.declaredVariables.put(
+                                                name.getIdentifier(),
+                                                new GenericVariableDeclaration(
+                                                        name.getIdentifier(), vds.getType().toString()));
+                                    } else if (node.getParent() instanceof FieldDeclaration) {
+                                        FieldDeclaration vds = (FieldDeclaration) node.getParent();
+                                        javaMethod.declaredVariables.put(
+                                                name.getIdentifier(),
+                                                new GenericVariableDeclaration(
+                                                        name.getIdentifier(), vds.getType().toString()));
+                                    }
+                                    return true; // do not continue
+                                }
+
+                                @Override
+                                public boolean visit(SimpleName node) {
+                                    if (javaMethod.declaredVariables.get(node.getIdentifier()) != null) {
+                                        javaMethod.usedVariables.put(
+                                                node.getIdentifier(),
+                                                javaMethod.declaredVariables.get(node.getIdentifier()));
+                                    }
+                                    return true;
+                                }
+
+                                @Override
+                                public boolean visit(ClassInstanceCreation classInstanceCreation) {
+                                    JavaClassCreationInstance classInstance = new JavaClassCreationInstance();
+                                    classInstance.setTypeName(classInstanceCreation.getType().toString());
+                                    classInstance.setStartPosition(classInstanceCreation.getStartPosition());
+                                    classInstance.setEndPosition(
+                                            classInstance.getStartPosition() + classInstanceCreation.getLength());
+                                    classInstance.setStartLine(cu.getLineNumber(classInstance.getStartPosition()));
+                                    classInstance.setEndLine(cu.getLineNumber(classInstance.getEndPosition()));
+                                    classInstance.setEndLine(cu.getLineNumber(classInstance.getEndPosition()));
+                                    for (Object arg : classInstanceCreation.arguments()) {
+                                        classInstance.addArgument(String.valueOf(arg));
+                                    }
+                                    if (classInstanceCreation.getParent() != null) {
+                                        ASTNode parentAstNode = classInstanceCreation.getParent();
+                                        if ((parentAstNode instanceof VariableDeclarationFragment)
+                                                && parentAstNode.getParent() != null) {
+                                            ASTNode grandAstNode = parentAstNode.getParent();
+                                            if (grandAstNode instanceof VariableDeclarationStatement) {
+                                                analyzeVarDeclStmt(classInstance, grandAstNode);
+                                            }
+                                        } else if (parentAstNode instanceof ExpressionStatement) {
+                                            analyzeVarDeclStmt(classInstance, parentAstNode);
+                                        }
+                                    }
+                                    if (StringUtils.isEmpty(classInstance.getVariableDeclarationStatement())) {
+                                        classInstance.setVariableDeclarationStatement(classInstanceCreation.toString());
+                                    }
+
+                                    javaMethod.addClassInstance(classInstance);
+
+                                    return true;
+                                }
+
+                                @Override
+                                public boolean visit(MethodInvocation calleeNode) {
+                                    JavaMethod calleeMethod = new JavaMethod();
+
+                                    int startPosition = calleeNode.getStartPosition();
+                                    int endPosition = startPosition + calleeNode.getLength();
+                                    int startLine = cu.getLineNumber(startPosition);
+                                    int endLine = cu.getLineNumber(endPosition);
+                                    calleeMethod.setBeginLineNumber(startLine);
+                                    calleeMethod.setEndLineNumber(endLine);
+                                    calleeMethod.setBeginPosition(startPosition);
+                                    calleeMethod.setEndPosition(endPosition);
+                                    calleeMethod.setName(calleeNode.getName().toString());
+
+                                    String expression = calleeNode.toString();
+                                    calleeMethod.setOriginalSignature(expression);
+
+                                    String ownerName = null;
+                                    if (calleeNode.getExpression() != null) {
+                                        ownerName = calleeNode.getExpression().toString();
+                                    }
+
+                                    if (StringUtils.isBlank(ownerName) || "this".equals(ownerName)) {
+                                        calleeMethod.setOwnerName("this");
+                                        calleeMethod.setOwnerClassType(
+                                                javaClassObj.getPackageName() + "." + javaClassObj.getClassName());
+                                    } else {
+                                        calleeMethod.setOwnerName(ownerName);
+                                        if (javaMethod.declaredVariables.get(ownerName) != null) {
+                                            String ownerType = javaMethod.declaredVariables.get(ownerName).getType();
+                                            calleeMethod.setOwnerClassType(ownerType);
+                                        }
+                                    }
+
+                                    javaMethod.addMethodCallee(calleeMethod);
+                                    return true;
+                                }
+                            });
 
             // set javaClassObj
             javaClassObj.addMethod(javaMethod);
         }
-    }
-
-    private void acceptVisitor(CompilationUnit cu, JavaClass javaClassObj, MethodDeclaration method,
-        JavaMethod javaMethod) {
-        method.getBody().accept(new ASTVisitor() {
-            @Override
-            public boolean visit(VariableDeclarationFragment node) {
-                SimpleName name = node.getName();
-                if (node.getParent() instanceof VariableDeclarationStatement) {
-                    VariableDeclarationStatement vds =
-                        (VariableDeclarationStatement) node.getParent();
-                    javaMethod.declaredVariables.put(
-                        name.getIdentifier(),
-                        new GenericVariableDeclaration(
-                            name.getIdentifier(), vds.getType().toString()));
-                } else if (node.getParent() instanceof FieldDeclaration) {
-                    FieldDeclaration vds = (FieldDeclaration) node.getParent();
-                    javaMethod.declaredVariables.put(
-                        name.getIdentifier(),
-                        new GenericVariableDeclaration(
-                            name.getIdentifier(), vds.getType().toString()));
-                }
-                return true; // do not continue
-            }
-
-            @Override
-            public boolean visit(SimpleName node) {
-                if (javaMethod.declaredVariables.get(node.getIdentifier()) != null) {
-                    javaMethod.usedVariables.put(
-                        node.getIdentifier(),
-                        javaMethod.declaredVariables.get(node.getIdentifier()));
-                }
-                return true;
-            }
-
-            @Override
-            public boolean visit(ClassInstanceCreation classInstanceCreation) {
-                JavaClassCreationInstance classInstance = new JavaClassCreationInstance();
-                classInstance.setTypeName(classInstanceCreation.getType().toString());
-                classInstance.setStartPosition(classInstanceCreation.getStartPosition());
-                classInstance.setEndPosition(
-                    classInstance.getStartPosition() + classInstanceCreation.getLength());
-                classInstance.setStartLine(cu.getLineNumber(classInstance.getStartPosition()));
-                classInstance.setEndLine(cu.getLineNumber(classInstance.getEndPosition()));
-                classInstance.setEndLine(cu.getLineNumber(classInstance.getEndPosition()));
-                for (Object arg : classInstanceCreation.arguments()) {
-                    classInstance.addArgument(String.valueOf(arg));
-                }
-                if (classInstanceCreation.getParent() != null) {
-                    ASTNode parentAstNode = classInstanceCreation.getParent();
-                    if ((parentAstNode instanceof VariableDeclarationFragment)
-                        && parentAstNode.getParent() != null) {
-                        ASTNode grandAstNode = parentAstNode.getParent();
-                        if (grandAstNode instanceof VariableDeclarationStatement) {
-                            analyzeVarDeclStmt(classInstance, grandAstNode);
-                        }
-                    } else if (parentAstNode instanceof ExpressionStatement) {
-                        analyzeVarDeclStmt(classInstance, parentAstNode);
-                    }
-                }
-                if (classInstance.getVariableDeclarationStatement().equals("")) {
-                    classInstance.setVariableDeclarationStatement(classInstanceCreation.toString());
-                }
-
-                javaMethod.addClassInstance(classInstance);
-
-                return true;
-            }
-
-            @Override
-            public boolean visit(MethodInvocation calleeNode) {
-                JavaMethod calleeMethod = new JavaMethod();
-
-                int startPosition = calleeNode.getStartPosition();
-                int endPosition = startPosition + calleeNode.getLength();
-                int startLine = cu.getLineNumber(startPosition);
-                int endLine = cu.getLineNumber(endPosition);
-                calleeMethod.setBeginLineNumber(startLine);
-                calleeMethod.setEndLineNumber(endLine);
-                calleeMethod.setBeginPosition(startPosition);
-                calleeMethod.setEndPosition(endPosition);
-                calleeMethod.setName(calleeNode.getName().toString());
-
-                String expression = calleeNode.toString();
-                calleeMethod.setOriginalSignature(expression);
-
-                String ownerName = null;
-                if (calleeNode.getExpression() != null) {
-                    ownerName = calleeNode.getExpression().toString();
-                }
-
-                if (StringUtils.isBlank(ownerName) || ownerName.equals("this")) {
-                    calleeMethod.setOwnerName("this");
-                    calleeMethod.setOwnerClassType(
-                        javaClassObj.getPackageName() + "." + javaClassObj.getClassName());
-                } else {
-                    calleeMethod.setOwnerName(ownerName);
-                    if (javaMethod.declaredVariables.get(ownerName) != null) {
-                        String ownerType = javaMethod.declaredVariables.get(ownerName).getType();
-                        calleeMethod.setOwnerClassType(ownerType);
-                    }
-                }
-
-                javaMethod.addMethodCallee(calleeMethod);
-                return true;
-            }
-        });
     }
 
     private void analyzeVarDeclStmt(JavaClassCreationInstance classInstance, ASTNode grandAstNode) {
@@ -345,6 +339,6 @@ public class JavaCodeAnalyzer extends JavaFileAnalyzer {
             fileName = fileName.substring(0, fileName.lastIndexOf("."));
             return fileName;
         }
-        return null;
+        return "";
     }
 }

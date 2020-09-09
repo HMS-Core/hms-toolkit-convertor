@@ -16,12 +16,17 @@
 
 package com.huawei.codebot.entry.codemigrate;
 
+import com.huawei.codebot.analyzer.x2y.global.GlobalSettings;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.model.GradleProjectInfo;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.huawei.codebot.analyzer.x2y.java.Code2CommentChanger;
 import com.huawei.codebot.framework.FixBotArguments;
 import com.huawei.codebot.framework.FixStatus;
 import com.huawei.codebot.framework.GenericDefectFixer;
 import com.huawei.codebot.framework.ICodeMigrateChanger;
 import com.huawei.codebot.framework.api.CodeBotResultCode;
+import com.huawei.codebot.framework.context.Context;
 import com.huawei.codebot.framework.dispatch.model.DefectFile;
 import com.huawei.codebot.framework.dispatch.model.DefectFile.StatusEnum;
 import com.huawei.codebot.framework.dispatch.model.UIDefectInstance;
@@ -34,14 +39,9 @@ import com.huawei.codebot.framework.utils.PathUtil;
 import com.huawei.codebot.framework.utils.UUIDUtil;
 import com.huawei.codebot.utils.FileUtils;
 import com.huawei.codebot.utils.StringUtil;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import org.apache.commons.collections4.MapIterator;
 import org.apache.commons.collections4.keyvalue.MultiKey;
 import org.apache.commons.collections4.map.MultiKeyMap;
-import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -223,8 +223,6 @@ public class CodeMigrateEntry {
      *     </ul>
      * </p>
      *
-     *
-     *
      * @param filePath  the original file path
      * @param blockType an identification of file type, has three possible values, defect_only, defect_and_fix, fix_only
      * @param fixer     supply corresponding files
@@ -382,8 +380,10 @@ public class CodeMigrateEntry {
         }
     }
 
-    private void setFixedLines(String repoId, GenericDefectFixer fixer, DefectInstance defectInstance,
-        String buggyFilePath, UIDefectInstance uiDefectInstance) {
+    private void setFixedLines(
+            String repoId,
+            GenericDefectFixer fixer,
+            DefectInstance defectInstance, String buggyFilePath, UIDefectInstance uiDefectInstance) {
         MapIterator iterator = defectInstance.fixedLines.mapIterator();
         while (iterator.hasNext()) {
             // get file path and line number
@@ -422,7 +422,8 @@ public class CodeMigrateEntry {
 
             // calculate line number according to fix type (add, delete or update)
             fixedStartLineNum =
-                (Integer) fixer.buggyToFixedLineNumMap.get(buggyFilePath).get(fixedStartLineNum, defectInstance);
+                    (Integer)
+                            fixer.buggyToFixedLineNumMap.get(buggyFilePath).get(fixedStartLineNum, defectInstance);
             int buggyEndLineNum;
             String buggyLine = (String) defectInstance.otherLinesUnderFixing.get(filePath, buggyStartLineNum);
             int buggyLineLength = (buggyLine == null) ? 0 : StringUtil.getLOC(buggyLine);
@@ -459,8 +460,7 @@ public class CodeMigrateEntry {
         }
     }
 
-    private void setBuggyLines(String repoId, GenericDefectFixer fixer, DefectInstance defectInstance,
-        UIDefectInstance uiDefectInstance) {
+    private void setBuggyLines(String repoId, GenericDefectFixer fixer, DefectInstance defectInstance, UIDefectInstance uiDefectInstance) {
         MapIterator iterator = defectInstance.buggyLines.mapIterator();
         while (iterator.hasNext()) {
             // get file path and line number of the buggyLine
@@ -468,7 +468,13 @@ public class CodeMigrateEntry {
             String filePath = (String) keys.getKey(0);
             Integer buggyStartLine = (Integer) keys.getKey(1);
             String buggyLine = (String) iterator.getValue();
-            int buggyEndLine = getBuggyEndLine(buggyStartLine, buggyLine);
+            int buggyEndLine;
+            if (buggyLine == null) {
+                buggyEndLine = buggyStartLine;
+            } else {
+                int buggyLineLength = StringUtil.getLOC(buggyLine);
+                buggyEndLine = buggyStartLine + buggyLineLength - 1;
+            }
 
             DefectFile defectFile = generateDefectFile(repoId, filePath);
             uiDefectInstance.addDefectFileIdItem(defectFile.getId());
@@ -489,7 +495,16 @@ public class CodeMigrateEntry {
             Integer fixedStartLine =
                     (Integer) fixer.buggyToFixedLineNumMap.get(filePath).get(buggyStartLine, defectInstance);
             String fixedLine = (String) defectInstance.fixedLines.get(filePath, buggyStartLine);
-            int fixedEndLine = getFixedEndLine(fixedStartLine, fixedLine);
+            int fixedEndLine;
+            if (fixedLine == null) {
+                fixedEndLine = fixedStartLine;
+            } else {
+                if (fixedStartLine > 0) {
+                    fixedEndLine = fixedStartLine + StringUtil.getLOC(fixedLine) - 1;
+                } else {
+                    fixedEndLine = fixedStartLine - StringUtil.getLOC(fixedLine) + 1;
+                }
+            }
 
             if (defectInstance.fixedLines.containsKey(filePath, buggyStartLine)) {
                 // both defect and fixed
@@ -517,31 +532,6 @@ public class CodeMigrateEntry {
             defectBlock.setManualFixedBlockStartLine(fixedStartLine);
             defectBlock.setManualFixedBlockEndLine(fixedEndLine);
         }
-    }
-
-    private int getBuggyEndLine(Integer buggyStartLine, String buggyLine) {
-        int buggyEndLine;
-        if (buggyLine == null) {
-            buggyEndLine = buggyStartLine;
-        } else {
-            int buggyLineLength = StringUtil.getLOC(buggyLine);
-            buggyEndLine = buggyStartLine + buggyLineLength - 1;
-        }
-        return buggyEndLine;
-    }
-
-    private int getFixedEndLine(Integer fixedStartLine, String fixedLine) {
-        int fixedEndLine;
-        if (fixedLine == null) {
-            fixedEndLine = fixedStartLine;
-        } else {
-            if (fixedStartLine > 0) {
-                fixedEndLine = fixedStartLine + StringUtil.getLOC(fixedLine) - 1;
-            } else {
-                fixedEndLine = fixedStartLine - StringUtil.getLOC(fixedLine) + 1;
-            }
-        }
-        return fixedEndLine;
     }
 
     /**
@@ -653,43 +643,46 @@ public class CodeMigrateEntry {
             generateFixBotUIData(repoId, c2cChanger);
         }
 
-        File instances = new File(this.fixedResultPath, "DefectInstances.json");
-        File files = new File(this.fixedResultPath, "DefectFiles.json");
-        writeUiDefectInstanceToFile(instances, files);
+        writeFile();
 
         return c2cChanger;
     }
 
-    private void writeUiDefectInstanceToFile(File defectInstances, File defectFiles) {
+    private void writeFile() {
         Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
         LOGGER.info("write defect instances to file, size: {}", uiDefectInstances.size());
+        File defectInstances = new File(this.fixedResultPath, "DefectInstances.json");
+        writeJsonFile(defectInstances, gson.toJson(uiDefectInstances));
+
+        LOGGER.info("write defect files to file, size: {}", uiDefectFiles.size());
+        File defectFiles = new File(this.fixedResultPath, "DefectFiles.json");
+        writeJsonFile(defectFiles, gson.toJson(uiDefectFiles.values()));
+
+        Context context = Context.getContext();
+        if (context.getContextMap().containsKey(GradleProjectInfo.class, "")) {
+            LOGGER.info("write project files to file.");
+            GradleProjectInfo projectInfo = (GradleProjectInfo) context.getContextMap().get(GradleProjectInfo.class,
+                    "");
+            File projectInfoFile = new File(this.fixedResultPath, "ProjectInfo.json");
+            writeJsonFile(projectInfoFile, gson.toJson(projectInfo.getProjectInfoMap()));
+        }
+        File globalSettingFile = new File(this.fixedResultPath, "XmsSetting.json");
+        writeJsonFile(globalSettingFile, gson.toJson(GlobalSettings.toMap()));
+    }
+
+    private void writeJsonFile(File file, String jsonData) {
         Writer writer = null;
         try {
-            writer = new OutputStreamWriter(new FileOutputStream(defectInstances), StandardCharsets.UTF_8);
-            writer.write(gson.toJson(uiDefectInstances));
+            writer = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
+            writer.write(jsonData);
         } catch (IOException e) {
-            LOGGER.error(ExceptionUtils.getStackTrace(e));
+            LOGGER.error("An exception occurred during the processing:", e);
         } finally {
             if (writer != null) {
                 try {
                     writer.close();
                 } catch (IOException e) {
-                    LOGGER.error(ExceptionUtils.getStackTrace(e));
-                }
-            }
-        }
-        LOGGER.info("write defect files to file, size: {}", uiDefectFiles.size());
-        try {
-            writer = new OutputStreamWriter(new FileOutputStream(defectFiles), StandardCharsets.UTF_8);
-            writer.write(gson.toJson(uiDefectFiles.values()));
-        } catch (IOException e) {
-            LOGGER.error(ExceptionUtils.getStackTrace(e));
-        } finally {
-            if (writer != null) {
-                try {
-                    writer.close();
-                } catch (IOException e) {
-                    LOGGER.error(ExceptionUtils.getStackTrace(e));
+                    LOGGER.error("An exception occurred during the processing:", e);
                 }
             }
         }

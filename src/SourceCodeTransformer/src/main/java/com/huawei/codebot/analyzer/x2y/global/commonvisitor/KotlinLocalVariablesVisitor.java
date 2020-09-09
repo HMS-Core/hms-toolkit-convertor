@@ -23,6 +23,8 @@ import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinASTUtils;
 import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinTypeInferencer;
 import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
 import com.huawei.codebot.framework.parser.kotlin.KotlinParserBaseVisitor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.List;
@@ -36,16 +38,20 @@ import java.util.Stack;
  * @since 2019-07-14
  */
 public class KotlinLocalVariablesVisitor extends KotlinParserBaseVisitor<Boolean> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(KotlinLocalVariablesVisitor.class);
     // store local variable info
     private Stack<Map<String, VariableInfo>> varMaps = new Stack<>();
 
-    private KotlinTypeInferencer typeInferencer;
+    /**
+     * A type infer helper.
+     */
+    protected KotlinTypeInferencer kotlinTypeInferencer;
 
     private VisitorIterator iterator;
 
     public KotlinLocalVariablesVisitor() {
         super();
-        typeInferencer = new KotlinTypeInferencer(this);
+        kotlinTypeInferencer = new KotlinTypeInferencer(this);
         iterator = new VisitorIterator();
     }
 
@@ -65,7 +71,7 @@ public class KotlinLocalVariablesVisitor extends KotlinParserBaseVisitor<Boolean
                     varInfo.setOwnerClasses(KotlinASTUtils.getOwnerClassNames(ctx));
                     varInfo.setPackageName(KotlinASTUtils.getPackageName(ctx));
                     varInfo.setName(variableDeclaration.simpleIdentifier().getText());
-                    varInfo.setType(KotlinTypeInferencer.getTypeInfo(variableDeclaration.type()));
+                    varInfo.setType(kotlinTypeInferencer.getTypeInfo(variableDeclaration.type()));
                     varInfo.setDeclaration(variableDeclaration);
                     varMap.put(varInfo.getName(), varInfo);
                 }
@@ -75,7 +81,7 @@ public class KotlinLocalVariablesVisitor extends KotlinParserBaseVisitor<Boolean
                 varInfo.setOwnerClasses(KotlinASTUtils.getOwnerClassNames(ctx));
                 varInfo.setPackageName(KotlinASTUtils.getPackageName(ctx));
                 varInfo.setName(variableDeclaration.simpleIdentifier().getText());
-                varInfo.setType(KotlinTypeInferencer.getTypeInfo(variableDeclaration.type()));
+                varInfo.setType(kotlinTypeInferencer.getTypeInfo(variableDeclaration.type()));
                 varInfo.setDeclaration(variableDeclaration);
                 varMap.put(varInfo.getName(), varInfo);
             }
@@ -139,9 +145,9 @@ public class KotlinLocalVariablesVisitor extends KotlinParserBaseVisitor<Boolean
                 varInfo.setPackageName(KotlinASTUtils.getPackageName(variableDeclaration));
                 varInfo.setName(variableDeclaration.simpleIdentifier().getText());
                 if (variableDeclaration.type() != null) {
-                    varInfo.setType(KotlinTypeInferencer.getTypeInfo(variableDeclaration.type()));
+                    varInfo.setType(kotlinTypeInferencer.getTypeInfo(variableDeclaration.type()));
                 } else {
-                    varInfo.setType(typeInferencer.getExpressionType(propertyDeclaration.expression()));
+                    varInfo.setType(kotlinTypeInferencer.getExpressionType(propertyDeclaration.expression()));
                 }
                 varInfo.setDeclaration(propertyDeclaration);
                 fieldMap.put(varInfo.getName(), varInfo);
@@ -153,9 +159,9 @@ public class KotlinLocalVariablesVisitor extends KotlinParserBaseVisitor<Boolean
             varInfo.setPackageName(KotlinASTUtils.getPackageName(propertyDeclaration.getParent().getParent()));
             varInfo.setName(variableDeclaration.simpleIdentifier().getText());
             if (variableDeclaration.type() != null) {
-                varInfo.setType(KotlinTypeInferencer.getTypeInfo(variableDeclaration.type()));
+                varInfo.setType(kotlinTypeInferencer.getTypeInfo(variableDeclaration.type()));
             } else {
-                varInfo.setType(typeInferencer.getExpressionType(propertyDeclaration.expression()));
+                varInfo.setType(kotlinTypeInferencer.getExpressionType(propertyDeclaration.expression()));
             }
             varInfo.setDeclaration(propertyDeclaration);
             fieldMap.put(varInfo.getName(), varInfo);
@@ -175,7 +181,7 @@ public class KotlinLocalVariablesVisitor extends KotlinParserBaseVisitor<Boolean
             varInfo.setPackageName(KotlinASTUtils.getPackageName(ctx));
             varInfo.setName(parameter.simpleIdentifier().getText());
             varInfo.setDeclaration(valueParameterContext);
-            varInfo.setType(KotlinTypeInferencer.getTypeInfo(parameter.type()));
+            varInfo.setType(kotlinTypeInferencer.getTypeInfo(parameter.type()));
             varMap.put(varInfo.getName(), varInfo);
         }
         Boolean result = super.visitFunctionDeclaration(ctx);
@@ -204,7 +210,7 @@ public class KotlinLocalVariablesVisitor extends KotlinParserBaseVisitor<Boolean
                 varInfo.setOwnerClasses(KotlinASTUtils.getOwnerClassNames(ctx));
                 varInfo.setPackageName(KotlinASTUtils.getPackageName(ctx));
                 varInfo.setName(variableDeclaration.simpleIdentifier().getText());
-                varInfo.setType(KotlinTypeInferencer.getTypeInfo(variableDeclaration.type()));
+                varInfo.setType(kotlinTypeInferencer.getTypeInfo(variableDeclaration.type()));
                 varInfo.setDeclaration(variableDeclaration);
                 varMap.put(varInfo.getName(), varInfo);
             }
@@ -214,7 +220,23 @@ public class KotlinLocalVariablesVisitor extends KotlinParserBaseVisitor<Boolean
             varInfo.setOwnerClasses(KotlinASTUtils.getOwnerClassNames(ctx));
             varInfo.setPackageName(KotlinASTUtils.getPackageName(ctx));
             varInfo.setName(variableDeclaration.simpleIdentifier().getText());
-            varInfo.setType(KotlinTypeInferencer.getTypeInfo(variableDeclaration.type()));
+            if (variableDeclaration.type() != null) {
+                varInfo.setType(kotlinTypeInferencer.getTypeInfo(variableDeclaration.type()));
+            } else { // infer item's type according to collection type
+                TypeInfo exprType = kotlinTypeInferencer.getExpressionType(ctx.expression());
+                if (exprType != null
+                        && exprType.getGenerics() != null
+                        && exprType.getGenerics().size() > 0 && exprType.getGenerics().get(0) != null) {
+                    TypeInfo varType = new TypeInfo();
+                    if (exprType.getQualifiedName() != null && exprType.getQualifiedName().contains("Map")) {
+                        varType.setQualifiedName("kotlin.collection.Map.Entry");
+                        varType.setGenerics(exprType.getGenerics());
+                    } else {
+                        varType.setQualifiedName(exprType.getGenerics().get(0));
+                    }
+                    varInfo.setType(varType);
+                }
+            }
             varInfo.setDeclaration(variableDeclaration);
             varMap.put(varInfo.getName(), varInfo);
         }
@@ -229,6 +251,15 @@ public class KotlinLocalVariablesVisitor extends KotlinParserBaseVisitor<Boolean
         varMaps.push(varMap);
         getVarInfoFromPropertyDeclaration(varMap, ctx);
         return super.visitPropertyDeclaration(ctx);
+    }
+
+    @Override
+    public Boolean visitLambdaLiteral(KotlinParser.LambdaLiteralContext ctx) {
+        Map<String, VariableInfo> lambdaParamsResult = kotlinTypeInferencer.inferLambdaParams(ctx);
+        varMaps.push(lambdaParamsResult);
+        Boolean visit = super.visitLambdaLiteral(ctx);
+        varMaps.pop();
+        return visit;
     }
 
     /**

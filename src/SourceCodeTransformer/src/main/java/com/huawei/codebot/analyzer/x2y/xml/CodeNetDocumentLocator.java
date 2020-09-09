@@ -16,9 +16,11 @@
 
 package com.huawei.codebot.analyzer.x2y.xml;
 
+import org.dom4j.Comment;
 import org.dom4j.DocumentFactory;
 import org.dom4j.Element;
 import org.dom4j.QName;
+import org.dom4j.Text;
 import org.xml.sax.Locator;
 
 /**
@@ -51,7 +53,21 @@ public class CodeNetDocumentLocator extends DocumentFactory {
         return codeNetElement;
     }
 
-    void setLocator(Locator locator) {
+    @Override
+    public Text createText(String text) {
+        CodeNetText codeNetText = new CodeNetText(text);
+        codeNetText.setLocation(this.locator.getLineNumber(), this.locator.getColumnNumber());
+        return codeNetText;
+    }
+
+    @Override
+    public Comment createComment(String text) {
+        CodeNetComment codeNetComment = new CodeNetComment(text);
+        codeNetComment.setLocation(this.locator.getLineNumber(), this.locator.getColumnNumber());
+        return codeNetComment;
+    }
+
+    public void setLocator(Locator locator) {
         this.locator = locator;
     }
 }

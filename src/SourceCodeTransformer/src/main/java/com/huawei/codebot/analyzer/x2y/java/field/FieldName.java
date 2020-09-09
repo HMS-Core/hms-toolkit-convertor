@@ -16,6 +16,8 @@
 
 package com.huawei.codebot.analyzer.x2y.java.field;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * An entity that identified a unique field
  *
@@ -31,13 +33,15 @@ public class FieldName {
     }
 
     public FieldName(String fullName) {
-        int index = fullName.lastIndexOf(".");
-        if (index > 0) {
-            this.simpleName = fullName.substring(fullName.lastIndexOf(".") + 1);
-            this.qualifier = fullName.substring(0, fullName.lastIndexOf("."));
-        } else {
-            this.qualifier = "";
-            this.simpleName = fullName;
+        if (StringUtils.isNotEmpty(fullName)) {
+            int index = fullName.lastIndexOf(".");
+            if (index > 0) {
+                this.simpleName = fullName.substring(fullName.lastIndexOf(".") + 1);
+                this.qualifier = fullName.substring(0, fullName.lastIndexOf("."));
+            } else {
+                this.qualifier = "";
+                this.simpleName = fullName;
+            }
         }
     }
 

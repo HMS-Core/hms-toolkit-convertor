@@ -16,9 +16,13 @@
 
 package com.huawei.codebot.analyzer.x2y.global.bean;
 
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Data structure that contains the type information of an expression
@@ -49,12 +53,47 @@ public class TypeInfo implements Serializable {
     @Override
     public String toString() {
         StringBuilder buffer = new StringBuilder();
-        buffer.append(qualifiedName);
+        if (StringUtils.isNotEmpty(qualifiedName)) {
+            buffer.append(qualifiedName);
+        }
         if (!generics.isEmpty()) {
             buffer.append("<");
             buffer.append(String.join(", ", generics));
             buffer.append(">");
         }
         return buffer.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        List<Object> hashArr = new ArrayList<>();
+        hashArr.add(qualifiedName);
+        if (CollectionUtils.isNotEmpty(generics)) {
+            hashArr.addAll(generics);
+        }
+        return Objects.hash(hashArr.toArray());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof TypeInfo)) {
+            return false;
+        }
+        TypeInfo ti = (TypeInfo) obj;
+        if (ti.generics.size() != this.generics.size()) {
+            return false;
+        }
+        for (int i = 0; i < ti.generics.size(); i++) {
+            if (!ti.generics.get(i).equals(this.generics.get(i))) {
+                return false;
+            }
+        }
+        if (ti.getQualifiedName() == null) {
+            return this.getQualifiedName() == null;
+        }
+        return ti.getQualifiedName().equals(this.getQualifiedName());
     }
 }
