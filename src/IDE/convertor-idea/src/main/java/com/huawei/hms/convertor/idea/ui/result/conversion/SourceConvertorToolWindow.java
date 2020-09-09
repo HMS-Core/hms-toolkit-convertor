@@ -19,28 +19,35 @@ package com.huawei.hms.convertor.idea.ui.result.conversion;
 import com.huawei.hms.convertor.core.bi.bean.ConversionOperationBean;
 import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
 import com.huawei.hms.convertor.core.engine.fixbot.model.RoutePolicy;
+import com.huawei.hms.convertor.core.engine.fixbot.model.kit.KitSdkVersion;
+import com.huawei.hms.convertor.core.engine.fixbot.model.project.ProjectStatisticsResult;
 import com.huawei.hms.convertor.core.engine.fixbot.util.FixbotConstants;
 import com.huawei.hms.convertor.core.event.context.EventType;
 import com.huawei.hms.convertor.core.event.context.project.ProjectEvent;
 import com.huawei.hms.convertor.core.kits.KitsConstants;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.core.result.conversion.ConversionItem;
 import com.huawei.hms.convertor.core.result.conversion.ConvertType;
 import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
 import com.huawei.hms.convertor.idea.listener.DocumentChangeListener;
 import com.huawei.hms.convertor.idea.ui.common.BalloonNotifications;
+import com.huawei.hms.convertor.idea.ui.common.UIConstants;
 import com.huawei.hms.convertor.idea.ui.result.difftool.HmsConvertorDiffUserDataKeys;
 import com.huawei.hms.convertor.idea.ui.result.searchcombobox.ComboBoxFilterDecorator;
 import com.huawei.hms.convertor.idea.ui.result.searchcombobox.CustomComboBoxRenderer;
 import com.huawei.hms.convertor.idea.util.IconUtil;
+import com.huawei.hms.convertor.idea.util.StringUtil;
 import com.huawei.hms.convertor.idea.util.TimeUtil;
 import com.huawei.hms.convertor.idea.util.UiUtil;
 import com.huawei.hms.convertor.openapi.BIReportService;
 import com.huawei.hms.convertor.openapi.ConfigCacheService;
 import com.huawei.hms.convertor.openapi.ConversionCacheService;
 import com.huawei.hms.convertor.openapi.EventService;
+import com.huawei.hms.convertor.openapi.SummaryCacheService;
 import com.huawei.hms.convertor.openapi.result.Result;
 import com.huawei.hms.convertor.util.Constant;
+import com.huawei.hms.convertor.util.ExecutorServiceBuilder;
 import com.huawei.hms.convertor.util.FileUtil;
 
 import com.intellij.diff.DiffContentFactory;
@@ -70,8 +77,8 @@ import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.fileEditor.OpenFileDescriptor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.ComboBox;
+import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.SimpleToolWindowPanel;
-import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.JBColor;
@@ -81,9 +88,11 @@ import com.intellij.ui.components.JBScrollPane;
 import com.intellij.ui.table.TableView;
 import com.intellij.util.ui.UIUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.jetbrains.annotations.Nullable;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -91,6 +100,7 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -99,18 +109,24 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.NoSuchFileException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.concurrent.ExecutorService;
 import java.util.stream.Collectors;
 
+import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -131,20 +147,29 @@ import javax.swing.table.DefaultTableCellRenderer;
  *
  * @since 2019-06-11
  */
+@Slf4j
 public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements Disposable {
-    private static final Logger LOG = LoggerFactory.getLogger(SourceConvertorToolWindow.class);
-
-    private static final int RIGHT_MARGIN = 10;
-
     private static final long serialVersionUID = 8086729502521504370L;
 
-    private static final int ROW_HEIGHT = 25;
+    private static final String MIN_SDK_VERSION = "minSdkVersion";
+
+    private static final String TARGET_SDK_VERSION = "targetSdkVersion";
+
+    private static final int TARGET_VERSION_28 = 28;
+
+    private static final int RIGHT_MARGIN = 10;
 
     private static final int MOUSE_SINGLE_CLICK = 1;
 
     private static final int MOUSE_DOUBLE_CLICK = 2;
 
     private static final int CLICK_DELAY = 300; // ms
+
+    private static final int CONSTRANTS_IPADX = 5;
+
+    private static final String GET_WIZARD_CLASS = "com.huawei.hms.common.util.DataShare";
+
+    private static final String GET_SHOW_CONFIG_METHOD = "showConfigurationWizardAction";
 
     private JPanel rootPanel;
 
@@ -153,6 +178,8 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
     private JComboBox fileComboBox;
 
     private JComboBox kitNameComboBox;
+
+    private JComboBox convertionTypeComboBox;
 
     private JCheckBox showConvertedCheckBox;
 
@@ -180,6 +207,8 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
 
     private int autoConvertFilteredCount = 0;
 
+    private int dummyConvertFilteredCount = 0;
+
     private int convertedTotalCount = 0;
 
     private boolean isConfirmedAllFiltered = false;
@@ -192,6 +221,12 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
 
     private Timer mouseTimer;
 
+    private ExecutorService convertExecutor;
+
+    private ExecutorService revertExecutor;
+
+    private HashSet<String> convertionTypes = new HashSet<>();
+
     private HashSet<String> kitNames = new HashSet<>();
 
     private DocumentChangeListener changeListener = null;
@@ -203,6 +238,10 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
     private ConfigCacheService configCacheService;
 
     private boolean enableConvert = true;
+
+    private List<DefectItem> filteredDefectItems;
+
+    private Map<String, Boolean> stateMap = new HashMap<>();
 
     public SourceConvertorToolWindow(@NotNull Project project) {
         super(true, true);
@@ -220,6 +259,8 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         if (mouseTimer != null) {
             mouseTimer.stop();
         }
+        convertExecutor.shutdown();
+        revertExecutor.shutdown();
     }
 
     public void init() {
@@ -237,6 +278,12 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         addSummaryListener();
 
         setContent(rootPanel);
+
+        String projectName = configCacheService.getProjectConfig(project.getBasePath(),
+            ConfigKeyConstants.INSPECT_FOLDER, String.class, "");
+        convertExecutor =
+            ExecutorServiceBuilder.newSingleThreadExecutor("project-" + projectName + "-convert-action-%d");
+        revertExecutor = ExecutorServiceBuilder.newSingleThreadExecutor("project-" + projectName + "-revert-action-%d");
     }
 
     public JPanel getRootPanel() {
@@ -254,81 +301,52 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 0, 0);
         layoutComponent(topPanel, fileLabel, layoutConfigeration);
 
-        fileComboBox = new ComboBox(320);
+        fileComboBox = new ComboBox(UIConstants.ToolWindow.SourceConvertor.FILE_COMBOBOX_WIDTH);
         fileComboBox.setAutoscrolls(true);
-        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 1, 20);
+        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 1,
+            UIConstants.ToolWindow.SourceConvertor.FILE_COMBOBOX_WEIGHTX);
         layoutComponent(topPanel, fileComboBox, layoutConfigeration);
 
         JLabel convertTypeLabel = new JLabel(HmsConvertorBundle.message("gms_kits_name"));
         layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 2, 0);
         layoutComponent(topPanel, convertTypeLabel, layoutConfigeration);
 
-        kitNameComboBox = new ComboBox(130);
+        kitNameComboBox = new ComboBox(UIConstants.ToolWindow.SourceConvertor.KIT_NAME_COMBOBOX_WIDTH);
         kitNameComboBox.setAutoscrolls(true);
         layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 3, 0);
         layoutComponent(topPanel, kitNameComboBox, layoutConfigeration);
 
+        JLabel convertorTypeLabel = new JLabel(HmsConvertorBundle.message("conversion_type"));
+        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 4, 0);
+        layoutComponent(topPanel, convertorTypeLabel, layoutConfigeration);
+
+        convertionTypeComboBox = new ComboBox(UIConstants.ToolWindow.SourceConvertor.CONVERTION_TYPE_COMBOBOX_WIDTH);
+        convertionTypeComboBox.setAutoscrolls(true);
+        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 5, 0);
+        layoutComponent(topPanel, convertionTypeComboBox, layoutConfigeration);
+
         showConvertedCheckBox = new JCheckBox("");
         showConvertedCheckBox.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 4, 0);
+        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 6, 0);
         layoutComponent(topPanel, showConvertedCheckBox, layoutConfigeration);
 
         JLabel showConvertedLabel = new JLabel(HmsConvertorBundle.message("show_converted"));
-        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 5, 0);
+        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 7, 0);
         layoutComponent(topPanel, showConvertedLabel, layoutConfigeration);
 
         JPanel splitPanel = new JPanel();
-        splitPanel.setPreferredSize(new Dimension(120, -1));
-        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 6, 0);
+        splitPanel.setPreferredSize(new Dimension(UIConstants.ToolWindow.SourceConvertor.SPLIT_PANEL_WIDTH,
+            UIConstants.ToolWindow.SourceConvertor.SPLIT_PANEL_HEIGHT));
+        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 8, 0);
         layoutComponent(topPanel, splitPanel, layoutConfigeration);
 
         JLabel totalLabel = new JLabel(HmsConvertorBundle.message("total") + ": ");
-        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 7, 0);
+        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 9, 0);
         layoutComponent(topPanel, totalLabel, layoutConfigeration);
 
         addCopmponentForTopPanel(layoutConfigeration, gridBagLayout, gridBagConstraints, topPanel);
 
         return topPanel;
-    }
-
-    private void addCopmponentForTopPanel(LayoutConfigeration layoutConfigeration, GridBagLayout gridBagLayout,
-        GridBagConstraints gridBagConstraints, JPanel topPanel) {
-        totalNumberLabel = new JLabel("");
-        totalNumberLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, RIGHT_MARGIN));
-        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 8, 0);
-        layoutComponent(topPanel, totalNumberLabel, layoutConfigeration);
-
-        JLabel convertedCountLabel = new JLabel(HmsConvertorBundle.message("converted") + ": ");
-        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 9, 0);
-        layoutComponent(topPanel, convertedCountLabel, layoutConfigeration);
-
-        convertedNumberLabel = new JLabel("");
-        convertedNumberLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, RIGHT_MARGIN));
-        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 10, 1);
-        layoutComponent(topPanel, convertedNumberLabel, layoutConfigeration);
-
-        convertButton = new JButton(HmsConvertorBundle.message("convert"));
-        convertButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 11, 0);
-        layoutComponent(topPanel, convertButton, layoutConfigeration);
-
-        revertButton = new JButton(HmsConvertorBundle.message("revert"));
-        revertButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 12, 0);
-        layoutComponent(topPanel, revertButton, layoutConfigeration);
-    }
-
-    private void layoutComponent(JPanel panel, JComponent component, LayoutConfigeration layoutConfigeration) {
-        GridBagConstraints constraints = layoutConfigeration.getGridBagConstraints();
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.anchor = GridBagConstraints.WEST;
-        constraints.ipadx = 5;
-        constraints.gridx = layoutConfigeration.getColunm();
-        constraints.gridy = 0;
-        constraints.weightx = layoutConfigeration.getWeigthx();
-        constraints.weighty = 0;
-        layoutConfigeration.getGridBagLayout().setConstraints(component, constraints);
-        panel.add(component);
     }
 
     public JPanel createResultTable() {
@@ -352,7 +370,7 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
             }
         });
 
-        resultTable.setRowHeight(ROW_HEIGHT);
+        resultTable.setRowHeight(UIConstants.ToolWindow.ROW_HEIGHT);
         resultTable.setDragEnabled(true);
         resultTable.setEnabled(true);
         resultTable.setAutoscrolls(true);
@@ -373,6 +391,156 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         tablePanel.add(toolbarDecorator.createPanel(), BorderLayout.CENTER);
 
         return tablePanel;
+    }
+
+    public void asyncClearData() {
+        ApplicationManager.getApplication().invokeAndWait(() -> {
+            clearData();
+        }, ModalityState.defaultModalityState());
+    }
+
+    public void refreshData(List<ConversionItem> conversionItems) {
+        refreshConversionItems(conversionItems);
+        refreshResultData(conversionItems);
+    }
+
+    public void refreshResultTable(List<ConversionItem> updateItemsData) {
+        log.info("refreshResultTable start! updateItemsData size: {}", updateItemsData.size());
+        if (updateItemsData.isEmpty()) {
+            return;
+        }
+        List<DefectItem> defectItemsData = defectToConvertItem(updateItemsData);
+        defectItemsData.forEach(updateItem -> {
+            defectItemList.forEach(defectItem -> {
+                if (updateItem.getConversionId().equals(defectItem.getConversionId())) {
+                    defectItem.setConverted(updateItem.isConverted());
+                    defectItem.setDefectStartLine(updateItem.getDefectStartLine());
+                    defectItem.setDefectEndLine(updateItem.getDefectEndLine());
+                }
+            });
+        });
+        defectItemsData.forEach(updateItem -> {
+            allDefectItems.forEach(defectItem -> {
+                if (updateItem.getConversionId().equals(defectItem.getConversionId())) {
+                    defectItem.setConverted(updateItem.isConverted());
+                    defectItem.setDefectStartLine(updateItem.getDefectStartLine());
+                    defectItem.setDefectEndLine(updateItem.getDefectEndLine());
+                }
+            });
+        });
+
+        convertedTotalCount = (int) allDefectItems.stream().filter(DefectItem::isConverted).count();
+        log.info("refreshResultTable end! converted is {}, all is {}", convertedTotalCount, allDefectItems.size());
+        setConvertedTotalCount(convertedTotalCount);
+        if (convertedTotalCount == allDefectItems.size()) {
+            jumpToAssistant();
+        }
+
+        resultTable.repaint();
+    }
+
+    public void loadLastConversion() {
+        synchronized (SourceConvertorToolWindow.class) {
+            asyncClearData();
+            List<ConversionItem> conversionItems =
+                ConversionCacheService.getInstance().loadConversions(project.getBasePath());
+            refreshResultData(conversionItems);
+        }
+    }
+
+    public void asyncConvertDefectItem(final DefectItem defectItem) {
+        Runnable asyncConvert = (() -> {
+            UiUtil.setStatusBarInfo(project, "");
+            convertDefectItem(defectItem);
+            UiUtil.setStatusBarInfo(project, "Convert OK!");
+        });
+
+        ApplicationManager.getApplication().invokeAndWait(asyncConvert, ModalityState.NON_MODAL);
+    }
+
+    public void asyncRevertDefectItem(final DefectItem defectItem) {
+        Runnable asyncRevert = (() -> {
+            UiUtil.setStatusBarInfo(project, "");
+            revertDefectItem(defectItem);
+            UiUtil.setStatusBarInfo(project, "Revert OK!");
+        });
+
+        ApplicationManager.getApplication().invokeAndWait(asyncRevert, ModalityState.NON_MODAL);
+    }
+
+    public void postProcessingAfterConvert(Document document) {
+        FileDocumentManager.getInstance().saveDocument(document);
+        convertedTotalCount++;
+    }
+
+    public void postProcessingAfterRevert(Document document) {
+        FileDocumentManager.getInstance().saveDocument(document);
+        convertedTotalCount--;
+    }
+
+    private void clearData() {
+        removeListenerForCombox();
+
+        if (!defectItemList.isEmpty()) {
+            defectItemList.clear();
+            // clear conversion toolWindow, so need to clear conversion toolWindow cache
+            ConversionCacheService.getInstance().clearConversions(project.getBasePath());
+            SummaryCacheService.getInstance().clearAnalyseResultCache4ConversionToolWindow(project.getBasePath());
+        }
+        if (!fileToDefectsMap.isEmpty()) {
+            fileToDefectsMap.clear();
+        }
+
+        initSummaryData();
+        isConfirmedAllFiltered = false;
+        resultTable.getTableHeader().repaint();
+
+        resultTableModel.setItems(defectItemList);
+
+        if (changeListener != null) {
+            EditorFactory.getInstance().getEventMulticaster().removeDocumentListener(changeListener);
+            changeListener = null;
+        }
+    }
+
+    private void addCopmponentForTopPanel(LayoutConfigeration layoutConfigeration, GridBagLayout gridBagLayout,
+        GridBagConstraints gridBagConstraints, JPanel topPanel) {
+        totalNumberLabel = new JLabel("");
+        totalNumberLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, RIGHT_MARGIN));
+        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 10, 0);
+        layoutComponent(topPanel, totalNumberLabel, layoutConfigeration);
+
+        JLabel convertedCountLabel = new JLabel(HmsConvertorBundle.message("converted") + ": ");
+        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 11, 0);
+        layoutComponent(topPanel, convertedCountLabel, layoutConfigeration);
+
+        convertedNumberLabel = new JLabel("");
+        convertedNumberLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, RIGHT_MARGIN));
+        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 12, 1);
+        layoutComponent(topPanel, convertedNumberLabel, layoutConfigeration);
+
+        convertButton = new JButton(HmsConvertorBundle.message("convert"));
+        convertButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 13, 0);
+        layoutComponent(topPanel, convertButton, layoutConfigeration);
+
+        revertButton = new JButton(HmsConvertorBundle.message("revert"));
+        revertButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        layoutConfigeration.setParams(gridBagLayout, gridBagConstraints, 14, 0);
+        layoutComponent(topPanel, revertButton, layoutConfigeration);
+    }
+
+    private void layoutComponent(JPanel panel, JComponent component, LayoutConfigeration layoutConfigeration) {
+        GridBagConstraints constraints = layoutConfigeration.getGridBagConstraints();
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.anchor = GridBagConstraints.WEST;
+        constraints.ipadx = CONSTRANTS_IPADX;
+        constraints.gridx = layoutConfigeration.getColunm();
+        constraints.gridy = 0;
+        constraints.weightx = layoutConfigeration.getWeigthx();
+        constraints.weighty = 0;
+        layoutConfigeration.getGridBagLayout().setConstraints(component, constraints);
+        panel.add(component);
     }
 
     private void setResultTable() {
@@ -402,14 +570,20 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         mouseTimer = new Timer(CLICK_DELAY, e1 -> {
             int selectedColumn = resultTable.getSelectedColumn();
             DefectItem defectItem = resultTable.getSelectedObject();
-            if (null == defectItem) {
-                LOG.warn("MOUSE_SINGLE_CLICK: defectItem is null!");
+            if (defectItem == null) {
+                log.warn("MOUSE_SINGLE_CLICK: defectItem is null!");
                 mouseTimer.stop();
                 return;
             }
 
             if (ResultTableModel.CONFIRM_COLUMN_INDEX == selectedColumn) {
                 confirmOrSetConverted(defectItem);
+                mouseTimer.stop();
+                return;
+            }
+
+            if (ResultTableModel.REFERENCE_COLUMN_INDEX == selectedColumn) {
+                openDetailUrl(defectItem);
                 mouseTimer.stop();
                 return;
             }
@@ -434,39 +608,99 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         kitNameComboBox.addItem(Constant.ALL);
         kitNameComboBox.setSelectedItem(Constant.ALL);
 
+        convertionTypeComboBox.removeAllItems();
+        convertionTypeComboBox.addItem(Constant.ALL);
+        convertionTypeComboBox.setSelectedItem(Constant.ALL);
+
         showConvertedCheckBox.setSelected(true);
         totalCount = 0;
         convertedTotalCount = 0;
         convertedNumberLabel.setText("0");
     }
 
-    public void asyncClearData() {
-        ApplicationManager.getApplication().invokeAndWait(() -> {
-            clearData();
-        }, ModalityState.defaultModalityState());
+    private void refreshConversionItems(List<ConversionItem> conversionItems) {
+        ProjectStatisticsResult projectStatisticsResult =
+            SummaryCacheService.getInstance().getProjectStatisticsResult(project.getBasePath());
+        KitSdkVersion kitSdkVersion = projectStatisticsResult.getKitSdkVersion() == null ? new KitSdkVersion()
+            : projectStatisticsResult.getKitSdkVersion();
+        RoutePolicy routePolicy = ConfigCacheService.getInstance()
+            .getProjectConfig(project.getBasePath(), ConfigKeyConstants.ROUTE_POLICY, RoutePolicy.class,
+                RoutePolicy.G_AND_H);
+        int minSdkVersion = routePolicy.equals(RoutePolicy.G_AND_H) ? kitSdkVersion.getMinSdkVersion4GaddH()
+            : kitSdkVersion.getMinSdkVersion4G2H();
+        int targetSdkVersion = kitSdkVersion.getTargetSdkVersion();
+
+        Iterator<ConversionItem> itemIterator = conversionItems.iterator();
+        while (itemIterator.hasNext()) {
+            ConversionItem conversionItem = itemIterator.next();
+            boolean hasRemoveOrUpdate = removeOrUpdateMinSdkItem(minSdkVersion, itemIterator, conversionItem);
+            if (hasRemoveOrUpdate) {
+                continue;
+            }
+            removeOrUpdateTargetItem(targetSdkVersion, itemIterator, conversionItem);
+        }
     }
 
-    public void clearData() {
-        removeListenerForCombox();
-
-        if (!defectItemList.isEmpty()) {
-            defectItemList.clear();
-            ConversionCacheService.getInstance().clearConversions(project.getBasePath());
+    private boolean removeOrUpdateMinSdkItem(Integer sdkVersion, Iterator<ConversionItem> itemIterator,
+        ConversionItem conversionItem) {
+        int minSdkVersionIndex = conversionItem.getDefectContent().indexOf(MIN_SDK_VERSION);
+        if (minSdkVersionIndex < 0) {
+            return false;
         }
-        if (!fileToDefectsMap.isEmpty()) {
-            fileToDefectsMap.clear();
+        int gradleMinSdkVersion = getGradleSdkVersion(conversionItem, MIN_SDK_VERSION, minSdkVersionIndex);
+        if (gradleMinSdkVersion >= sdkVersion) {
+            log.info("conversionItem minSdkVersion has removed,conversionId is {}.", conversionItem.getConversionId());
+            itemIterator.remove();
+            return true;
         }
+        String description = conversionItem.getDescriptions()
+            .get(0)
+            .getText()
+            .replace("{" + MIN_SDK_VERSION + "}", sdkVersion.toString());
+        conversionItem.getDescriptions().get(0).setText(description);
+        String mergedDescription =
+            conversionItem.getMergedDescription().replace("{" + MIN_SDK_VERSION + "}", sdkVersion.toString());
+        conversionItem.setMergedDescription(mergedDescription);
+        log.info("conversionItem minSdkVersion desc has updated,conversionId is {}.", conversionItem.getConversionId());
+        return true;
+    }
 
-        initSummaryData();
-        isConfirmedAllFiltered = false;
-        resultTable.getTableHeader().repaint();
-
-        resultTableModel.setItems(defectItemList);
-
-        if (changeListener != null) {
-            EditorFactory.getInstance().getEventMulticaster().removeDocumentListener(changeListener);
-            changeListener = null;
+    private void removeOrUpdateTargetItem(Integer sdkVersion, Iterator<ConversionItem> itemIterator,
+        ConversionItem conversionItem) {
+        int minSdkVersionIndex = conversionItem.getDefectContent().indexOf(TARGET_SDK_VERSION);
+        if (minSdkVersionIndex < 0) {
+            return;
         }
+        int gradleMinSdkVersion = getGradleSdkVersion(conversionItem, TARGET_SDK_VERSION, minSdkVersionIndex);
+        if (gradleMinSdkVersion >= sdkVersion) {
+            if (gradleMinSdkVersion < TARGET_VERSION_28) {
+                log.info("conversionItem targetSdkVersion has removed,conversionId is {}.",
+                    conversionItem.getConversionId());
+                itemIterator.remove();
+            }
+            return;
+        }
+        String descriptionText = "Please update targetSdkVersion value to " + sdkVersion + ". ";
+        String descHead = "<html><u>";
+        if (sdkVersion < TARGET_VERSION_28) {
+            conversionItem.getDescriptions().get(0).setText(descriptionText);
+            conversionItem.setMergedDescription(descHead + descriptionText + "</html></u>");
+        } else {
+            String oldDescription = conversionItem.getDescriptions().get(0).getText();
+            conversionItem.getDescriptions().get(0).setText(descriptionText + oldDescription);
+            conversionItem.setMergedDescription(
+                conversionItem.getMergedDescription().replace(descHead, descHead + descriptionText));
+        }
+        log.info("conversionItem targetSdkVersion desc has updated,conversionId is {}.",
+            conversionItem.getConversionId());
+    }
+
+    private int getGradleSdkVersion(ConversionItem conversionItem, String sdkVersion, int sdkVersionIndex) {
+        String version = conversionItem.getDefectContent().substring(sdkVersionIndex + sdkVersion.length()).trim();
+        if (!StringUtils.isNumeric(version)) {
+            return 0;
+        }
+        return Integer.parseInt(version);
     }
 
     private void coversionItem2defectItem(List<ConversionItem> conversionItems) {
@@ -476,16 +710,17 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         }
     }
 
-    public void refreshData(List<ConversionItem> conversionItems) {
+    private void refreshResultData(List<ConversionItem> conversionItems) {
         enableConversionFunc(true);
         ApplicationManager.getApplication().invokeAndWait(() -> {
             clearData();
             coversionItem2defectItem(conversionItems);
             constructResultTable();
-            ComboBoxFilterDecorator decorator = ComboBoxFilterDecorator.decorate(fileComboBox);
+            ComboBoxFilterDecorator decorator = ComboBoxFilterDecorator.decorate(fileComboBox, rootPanel);
             fileComboBox.setRenderer(new CustomComboBoxRenderer(decorator.getFilterLabel()));
 
             parseKitName();
+            parseConvertorType();
 
             resultTableModel.setItems(defectItemList);
             if (defectItemList.isEmpty()) {
@@ -503,6 +738,7 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
     private void addListenerForCombox() {
         fileComboBox.addActionListener(filterAction);
         kitNameComboBox.addActionListener(filterAction);
+        convertionTypeComboBox.addActionListener(filterAction);
         showConvertedCheckBox.addActionListener(filterAction);
         kitNameComboBox.addKeyListener(comboBoxKeyAdapter);
     }
@@ -513,6 +749,9 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         }
         if (kitNameComboBox.getActionListeners().length > 0) {
             kitNameComboBox.removeActionListener(filterAction);
+        }
+        if (convertionTypeComboBox.getActionListeners().length > 0) {
+            convertionTypeComboBox.removeActionListener(filterAction);
         }
         if (showConvertedCheckBox.getActionListeners().length > 0) {
             showConvertedCheckBox.removeActionListener(filterAction);
@@ -527,39 +766,7 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         LocalFileSystem.getInstance().refresh(true);
 
         refreshResultTable(conversionItems);
-        LOG.info("HMS convert/revert finished! Elapsed time: {}", TimeUtil.getInstance().getElapsedTime());
-    }
-
-    public void refreshResultTable(List<ConversionItem> updateItemsData) {
-        LOG.info("refreshResultTable start! updateItemsData size is : {}", updateItemsData.size());
-        if (updateItemsData.isEmpty()) {
-            return;
-        }
-        List<DefectItem> defectItemsData = defectToConvertItem(updateItemsData);
-        defectItemsData.forEach(updateItem -> {
-            defectItemList.forEach(defectItem -> {
-                if (updateItem.getConversionId().equals(defectItem.getConversionId())) {
-                    defectItem.setConverted(updateItem.isConverted());
-                    defectItem.setDefectStartLine(updateItem.getDefectStartLine());
-                    defectItem.setDefectEndLine(updateItem.getDefectEndLine());
-                }
-            });
-        });
-        defectItemsData.forEach(updateItem -> {
-            allDefectItems.forEach(defectItem -> {
-                if (updateItem.getConversionId().equals(defectItem.getConversionId())) {
-                    defectItem.setConverted(updateItem.isConverted());
-                    defectItem.setDefectStartLine(updateItem.getDefectStartLine());
-                    defectItem.setDefectEndLine(updateItem.getDefectEndLine());
-                }
-            });
-        });
-
-        convertedTotalCount = (int) allDefectItems.stream().filter(DefectItem::isConverted).count();
-        LOG.info("refreshResultTable end! converted is : {}, all is {}", convertedTotalCount, allDefectItems.size());
-        setConvertedTotalCount(convertedTotalCount);
-
-        resultTable.repaint();
+        log.info("HMS convert/revert finished! Elapsed time: {}", TimeUtil.getInstance().getElapsedTime());
     }
 
     private void constructResultTable() {
@@ -606,6 +813,7 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
             revertButton.setEnabled(enable);
             fileComboBox.setEnabled(enable);
             kitNameComboBox.setEnabled(enable);
+            convertionTypeComboBox.setEnabled(enable);
             showConvertedCheckBox.setEnabled(enable);
             for (DefectItem item : defectItemList) {
                 item.setEnable(enable);
@@ -639,7 +847,7 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
             .submitProjectEvent(ProjectEvent.<List<String>, List<ConversionItem>> of(project.getBasePath(),
                 EventType.CONVERT_EVENT, itemIds, (message) -> refreshConversionListAndTable(message)));
         if (result.getCode() != 0) {
-            LOG.info("HMS convert defectItem failed. {}", result.getMessage());
+            log.info("HMS convert defectItem failed, message: {}.", result.getMessage());
         }
     }
 
@@ -666,29 +874,25 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
             .submitProjectEvent(ProjectEvent.<List<String>, List<ConversionItem>> of(project.getBasePath(),
                 EventType.REVERT_EVENT, itemIds, (message) -> refreshConversionListAndTable(message)));
         if (result.getCode() != 0) {
-            LOG.info("Revert defectItem failed. {}", result.getMessage());
+            log.info("Revert defectItem failed, message: {}.", result.getMessage());
         }
     }
 
     private void convertButtonAddListener() {
-        convertButton.addActionListener((e) -> {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    converButtonAction();
-                }
-            }).start();
-        });
+        convertButton.addActionListener(e -> convertExecutor.execute(() -> converButtonAction()));
     }
 
     private void revertButtonAddListener() {
-        revertButton.addActionListener((e) -> {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    revertButtonAction();
-                }
-            }).start();
+        revertButton.addActionListener(e -> revertExecutor.execute(() -> revertButtonAction()));
+    }
+
+    private void parseConvertorType() {
+        defectItemList.forEach(item -> {
+            String convertorType = item.getConvertType();
+            convertionTypes.add(convertorType);
+        });
+        convertionTypes.forEach(name -> {
+            convertionTypeComboBox.addItem(name);
         });
     }
 
@@ -710,15 +914,6 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         kitNames.forEach(name -> {
             kitNameComboBox.addItem(name);
         });
-    }
-
-    public void loadLastConversion() {
-        synchronized (SourceConvertorToolWindow.class) {
-            asyncClearData();
-            List<ConversionItem> conversionItems =
-                ConversionCacheService.getInstance().loadConversions(project.getBasePath());
-            refreshData(conversionItems);
-        }
     }
 
     // isToConvert: true, get defects to convert; false, get defects to revert
@@ -755,8 +950,8 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
                 DefectItem item = fileDefectItems.get(i);
                 if ((item.getDefectStartLine() == lastItem.getDefectStartLine())
                     && (item.getDefectEndLine() == lastItem.getDefectEndLine())) {
-                    LOG.debug("i = {}, lastItem = {}", i, lastItem.toString());
-                    LOG.debug("i = {}, item = {}", i, item.toString());
+                    log.debug("i: {}, lastItem: {}.", i, lastItem.toString());
+                    log.debug("i: {}, item: {}.", i, item.toString());
 
                     lastItem.setFixEndLine(item.getFixEndLine());
                     lastItem.setDefectContent(
@@ -776,7 +971,7 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
                     }
                     lastItem.setDescriptions(lastItem.getDescriptions());
 
-                    LOG.debug("i = {}, merged lastItem = {}", i, lastItem.toString());
+                    log.debug("i: {}, merged lastItem: {}.", i, lastItem.toString());
                 } else {
                     mergedDefects.add(lastItem);
                     lastItem = item;
@@ -802,12 +997,13 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
 
     private void confirmAllDefects() {
         isConfirmedAllFiltered = !isConfirmedAllFiltered;
-        List<DefectItem> filteredDefectItems = getFilteredDefectItems();
+        reAssignFilteredDefectItemsConfirm();
         if (isConfirmedAllFiltered) {
             for (DefectItem defectItem : filteredDefectItems) {
                 if (ConvertType.AUTO.equals(defectItem.getConvertType()) && !defectItem.isConfirmed()
-                    || ConvertType.DUMMY.equals(defectItem.getConvertType()) && defectItem.isConverted()) {
+                    || ConvertType.DUMMY.equals(defectItem.getConvertType()) &&  !defectItem.isConfirmed()) {
                     defectItem.setConfirmed(true);
+                    stateMap.put(defectItem.getConversionId(), true);
                     confirmedTotalCount++;
                     confirmedFilteredCount++;
                 }
@@ -815,16 +1011,34 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         } else {
             for (DefectItem defectItem : filteredDefectItems) {
                 if (ConvertType.AUTO.equals(defectItem.getConvertType()) && defectItem.isConfirmed()
-                    || ConvertType.DUMMY.equals(defectItem.getConvertType()) && defectItem.isConverted()) {
+                    || ConvertType.DUMMY.equals(defectItem.getConvertType()) && defectItem.isConfirmed()) {
                     defectItem.setConfirmed(false);
+                    for (String key : stateMap.keySet()) {
+                        if (defectItem.getConversionId().equals(key)) {
+                            stateMap.put(key, false);
+                        }
+                    }
                     confirmedTotalCount--;
                     confirmedFilteredCount--;
                 }
             }
         }
-
+        resultTableModel.setItems(filteredDefectItems);
         resultTable.getTableHeader().repaint();
         resultTable.repaint();
+    }
+
+    private void openDetailUrl(DefectItem defectItem) {
+        String url = defectItem.getUrl();
+        String allianceDomain = configCacheService.getProjectConfig(project.getBasePath(),
+            ConfigKeyConstants.ALLIANCE_DOMAIN, String.class, "");
+        if (!StringUtil.isEmpty(url)) {
+            if (url.startsWith(allianceDomain)) {
+                BrowserUtil.browse(url);
+            } else {
+                BrowserUtil.browse(allianceDomain + url);
+            }
+        }
     }
 
     private void confirmOrSetConverted(DefectItem defectItem) {
@@ -864,24 +1078,24 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
                 BrowserUtil.browse(allianceDomain + HmsConvertorBundle.message("initHelp_url"));
                 return;
             }
-            String defectFile = inspectPath + File.separatorChar + filePath;
+            String defectFile = inspectPath + Constant.UNIX_FILE_SEPARATOR + filePath;
 
             File file = new File(defectFile);
             if (StringUtil.isEmpty(defectFile) || (!file.exists()) || (!file.isFile())) {
-                LOG.warn(defectFile + " is not a valid file!");
+                log.warn("defect file is not a valid file, file: {}.", defectFile);
                 throw new NoSuchFileException(filePath + "is not a valid file!");
             }
 
             VirtualFile virtualFile = LocalFileSystem.getInstance().refreshAndFindFileByIoFile(file);
-            if (null == virtualFile) {
-                LOG.warn("openFile: virtualFile is null!");
+            if (virtualFile == null) {
+                log.warn("openFile: virtualFile is null!");
                 return;
             }
 
             OpenFileDescriptor descriptor = new OpenFileDescriptor(project, virtualFile);
             Editor editor = FileEditorManager.getInstance(project).openTextEditor(descriptor, true);
-            if (null == editor) {
-                LOG.warn("openFile: editor is null!");
+            if (editor == null) {
+                log.warn("openFile: editor is null!");
                 return;
             }
 
@@ -914,7 +1128,7 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
                 }
             });
         } catch (NoSuchFileException e) {
-            LOG.warn(e.getMessage(), e);
+            log.warn(e.getMessage(), e);
             BalloonNotifications.showErrorNotification(e.getMessage(), project, Constant.PLUGIN_NAME, true);
         }
     }
@@ -935,19 +1149,9 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
                 ProjectEvent.<String, List<ConversionItem>> of(project.getBasePath(), EventType.CONVERT_EVENT,
                     defectItem.getConversionId(), (message) -> refreshConversionListAndTable(message)));
         if (result.getCode() != 0) {
-            LOG.info("HMS convert defectItem failed. {}", result.getMessage());
+            log.info("HMS convert defectItem failed, message: {}.", result.getMessage());
         }
-        LOG.info("HMS convert defectItem finished.");
-    }
-
-    public void asyncConvertDefectItem(final DefectItem defectItem) {
-        Runnable asyncConvert = (() -> {
-            UiUtil.setStatusBarInfo(project, "");
-            convertDefectItem(defectItem);
-            UiUtil.setStatusBarInfo(project, "Convert OK!");
-        });
-
-        ApplicationManager.getApplication().invokeAndWait(asyncConvert, ModalityState.NON_MODAL);
+        log.info("HMS convert defectItem finished.");
     }
 
     private void revertDefectItem(DefectItem defectItem) {
@@ -962,26 +1166,16 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
                 ProjectEvent.<String, List<ConversionItem>> of(project.getBasePath(), EventType.REVERT_EVENT,
                     defectItem.getConversionId(), (message) -> refreshConversionListAndTable(message)));
         if (result.getCode() != 0) {
-            LOG.info("HMS convert defectItem failed. {}", result.getMessage());
+            log.info("HMS convert defectItem failed, message: {}.", result.getMessage());
         }
-        LOG.info("HMS revert defectItem finished.");
-    }
-
-    public void asyncRevertDefectItem(final DefectItem defectItem) {
-        Runnable asyncRevert = (() -> {
-            UiUtil.setStatusBarInfo(project, "");
-            revertDefectItem(defectItem);
-            UiUtil.setStatusBarInfo(project, "Revert OK!");
-        });
-
-        ApplicationManager.getApplication().invokeAndWait(asyncRevert, ModalityState.NON_MODAL);
+        log.info("HMS revert defectItem finished.");
     }
 
     private void showDiff() {
         try {
             DefectItem defectItem = resultTable.getSelectedObject();
-            if (null == defectItem) {
-                LOG.warn("showDiff: defectItem is null!");
+            if (defectItem == null) {
+                log.warn("showDiff: defectItem is null!");
                 return;
             }
 
@@ -991,20 +1185,20 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
 
             String file = defectItem.getFile();
             String fileName;
-            if (file.contains(Constant.SEPARATOR)) {
-                fileName = file.substring(file.lastIndexOf(Constant.SEPARATOR) + 1);
+            if (file.contains(Constant.UNIX_FILE_SEPARATOR)) {
+                fileName = file.substring(file.lastIndexOf(Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
             } else {
                 fileName = file;
             }
 
-            final String defectFilePath = inspectPath + File.separatorChar + file;
+            final String defectFilePath = inspectPath + Constant.UNIX_FILE_SEPARATOR + file;
             final DiffContent defectFileContent =
-                DiffContentFactory.getInstance().create(FileUtil.readToFormatString(defectFilePath, Constant.UTF8));
+                DiffContentFactory.getInstance().create(FileUtil.readToFormatString(defectFilePath, StandardCharsets.UTF_8.toString()));
 
-            String fixFilePath = Constant.PLUGIN_CACHE_PATH + repoID + File.separatorChar + FixbotConstants.FIXBOT_DIR
-                + File.separatorChar + file;
+            String fixFilePath = PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + repoID + Constant.UNIX_FILE_SEPARATOR
+                + FixbotConstants.FIXBOT_DIR + Constant.UNIX_FILE_SEPARATOR + file;
             final DiffContent fixFileContent =
-                DiffContentFactory.getInstance().create(FileUtil.readToFormatString(fixFilePath, Constant.UTF8));
+                DiffContentFactory.getInstance().create(FileUtil.readToFormatString(fixFilePath, StandardCharsets.UTF_8.toString()));
 
             DiffRequest diffRequest = new SimpleDiffRequest(Constant.PLUGIN_NAME, defectFileContent, fixFileContent,
                 "Original File - " + fileName, "Fix File - " + fileName);
@@ -1014,32 +1208,49 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
                 DiffManager.getInstance().showDiff(project, diffRequest);
             });
         } catch (IOException e) {
-            LOG.warn(e.getMessage(), e);
+            log.warn(e.getMessage(), e);
             BalloonNotifications.showErrorNotification(e.getMessage(), project, Constant.PLUGIN_NAME, true);
         }
     }
 
-    public void postProcessingAfterConvert(Document document) {
-        FileDocumentManager.getInstance().saveDocument(document);
-        convertedTotalCount++;
-    }
-
-    public void postProcessingAfterRevert(Document document) {
-        FileDocumentManager.getInstance().saveDocument(document);
-        convertedTotalCount--;
-    }
-
     private void filterAndRefresh() {
         ApplicationManager.getApplication().invokeLater(() -> {
-            List<DefectItem> filteredDefectItems = getFilteredDefectItems();
-            resultTableModel.setItems(filteredDefectItems);
+            String convertionType = getFilter(convertionTypeComboBox);
+            List<DefectItem> filterConversoinTypeDefectItems;
+            int selectedItemCount = 0;
+            reAssignFilteredDefectItemsConfirm();
+            if (Constant.ALL.equals(convertionType)) {
+                filterConversoinTypeDefectItems = filteredDefectItems;
+            } else {
+                filterConversoinTypeDefectItems = filteredDefectItems.stream()
+                    .filter(defectItem -> defectItem.getConvertType().equals(convertionType))
+                    .collect(Collectors.toList());
+            }
 
-            autoConvertFilteredCount = (int) filteredDefectItems.stream()
+            resultTableModel.setItems(filterConversoinTypeDefectItems);
+            autoConvertFilteredCount = (int) filterConversoinTypeDefectItems.stream()
                 .filter(defectItem -> ConvertType.AUTO.equals(defectItem.getConvertType()))
                 .count();
+            dummyConvertFilteredCount = (int) filterConversoinTypeDefectItems.stream()
+                .filter(defectItem -> ConvertType.DUMMY.equals(defectItem.getConvertType()))
+                .count();
+            switch (convertionType) {
+                case Constant.ALL:
+                    selectedItemCount = autoConvertFilteredCount + dummyConvertFilteredCount;
+                    break;
+                case ConvertType.AUTO:
+                    selectedItemCount = autoConvertFilteredCount;
+                    break;
+                case ConvertType.DUMMY:
+                    selectedItemCount = dummyConvertFilteredCount;
+                    break;
+                default:
+                    break;
+            }
+
             confirmedFilteredCount =
-                (int) filteredDefectItems.stream().filter(defectItem -> defectItem.isConfirmed()).count();
-            if ((confirmedFilteredCount == autoConvertFilteredCount) && (autoConvertFilteredCount > 0)) {
+                (int) filterConversoinTypeDefectItems.stream().filter(defectItem -> defectItem.isConfirmed()).count();
+            if (selectedItemCount > 0 && (confirmedFilteredCount == selectedItemCount)) {
                 isConfirmedAllFiltered = true;
             } else {
                 isConfirmedAllFiltered = false;
@@ -1059,10 +1270,16 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
 
     private List<DefectItem> getFilteredDefectItems() {
         String fileName = getFilter(fileComboBox);
+        String convertionType = getFilter(convertionTypeComboBox);
         String kitName = getFilter(kitNameComboBox);
         boolean converted = showConvertedCheckBox.isSelected();
-        List<ConversionItem> conversionItems =
-            ConversionCacheService.getInstance().queryConversions(project.getBasePath(), fileName, kitName, converted);
+        ConversionItem conversionItem = new ConversionItem();
+        conversionItem.setFilePath(project.getBasePath());
+        conversionItem.setFile(fileName);
+        conversionItem.setKitName(kitName);
+        conversionItem.setConvertType(convertionType);
+        conversionItem.setConverted(converted);
+        List<ConversionItem> conversionItems = ConversionCacheService.getInstance().queryConversions(conversionItem);
         coversionItem2defectItem(conversionItems);
         return defectItemList;
     }
@@ -1129,7 +1346,7 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         boolean isPatchProcess = currentProcessNum > 1;
         Long timeCost = System.currentTimeMillis() - Long.parseLong(ConfigCacheService.getInstance()
             .getProjectConfig(project.getBasePath(), ConfigKeyConstants.NEW_CONVERSION_BEGIN_TIME, String.class, null));
-        double processRate = convertedTotalCount * 1.0 / totalCount;
+        double processRate = totalCount == 0 ? 0.0 : convertedTotalCount * 1.0 / totalCount;
         ConversionOperationBean data = ConversionOperationBean.builder()
             .totalNum(String.valueOf(totalNum))
             .processedNum(String.valueOf(convertedTotalCount))
@@ -1165,7 +1382,7 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
             .submitProjectEvent(ProjectEvent.<List<String>, List<ConversionItem>> of(project.getBasePath(), type,
                 selectItems, (message) -> refreshConversionListAndTable(message)));
         if (result.getCode() != 0) {
-            LOG.info("HMS convert defectItem failed. {}", selectItems);
+            log.info("HMS convert defectItem failed, message: {}.", selectItems);
         }
     }
 
@@ -1196,6 +1413,26 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         // bi report action: trace convert operation.
         traceConvertOperation(project.getBasePath(), convertedTotalCount);
         convertedNumberLabel.setText(String.valueOf(convertedTotalCount));
+    }
+
+    private void jumpToAssistant() {
+        ApplicationManager.getApplication().invokeLater(() -> {
+            IntegrityCheckDialog integrityCheckDialog = new IntegrityCheckDialog();
+            integrityCheckDialog.show();
+        });
+    }
+
+    private void reAssignFilteredDefectItemsConfirm() {
+        filteredDefectItems = getFilteredDefectItems();
+        if (stateMap != null) {
+            for (Map.Entry<String, Boolean> entry : stateMap.entrySet()) {
+                for (DefectItem defectItem : filteredDefectItems) {
+                    if (defectItem.getConversionId().equals(entry.getKey())) {
+                        defectItem.setConfirmed(stateMap.get(entry.getKey()));
+                    }
+                }
+            }
+        }
     }
 
     private static class LayoutConfigeration {
@@ -1280,7 +1517,7 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
             int row, int column) {
-            // Restore Default Status
+            // Restore default status
             super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             if ((ResultTableModel.DEFECT_CONTENT_COLUMN_INDEX == column)
                 || (ResultTableModel.DESCRIPTION_COLUMN_INDEX == column)) {
@@ -1373,6 +1610,64 @@ public class SourceConvertorToolWindow extends SimpleToolWindowPanel implements 
             boolean isEnabled = isSetToConvertedEnabled(false);
             if (null != e) {
                 e.getPresentation().setEnabled(isEnabled);
+            }
+        }
+    }
+
+    private class IntegrityCheckDialog extends DialogWrapper {
+
+        private CustomOKAction okAction;
+
+        private DialogWrapperExitAction exitAction;
+
+        public IntegrityCheckDialog() {
+            super(true);
+            super.init();
+            setTitle(Constant.PLUGIN_NAME);
+        }
+
+        @Nullable
+        @Override
+        protected JComponent createCenterPanel() {
+            JPanel dialogPanel = new JPanel(new BorderLayout());
+            JLabel label = new JLabel(HmsConvertorBundle.message("jump_msg"));
+            label.setPreferredSize(
+                new Dimension(UIConstants.ToolWindow.JUMP_DIALOG_WIDTH, UIConstants.ToolWindow.JUMP_DIALOG_HEIGHT));
+            dialogPanel.add(label, BorderLayout.CENTER);
+            return dialogPanel;
+        }
+
+        @Override
+        protected Action[] createActions() {
+            exitAction = new DialogWrapperExitAction(HmsConvertorBundle.message("cancel_c"), CANCEL_EXIT_CODE);
+            okAction = new CustomOKAction();
+            okAction.putValue(DialogWrapper.DEFAULT_ACTION, true);
+            return new Action[] {okAction, exitAction};
+        }
+
+        protected class CustomOKAction extends DialogWrapperAction {
+            private static final long serialVersionUID = 3978680002545361019L;
+
+            protected CustomOKAction() {
+                super(HmsConvertorBundle.message("jump"));
+            }
+
+            @Override
+            protected void doAction(ActionEvent actionEvent) {
+                log.info("A customized redirection event occurs");
+                try {
+                    Class dataShareClass = Class.forName(GET_WIZARD_CLASS);
+                    Method shareMethod = dataShareClass.getMethod(GET_SHOW_CONFIG_METHOD, Project.class);
+                    Object[] parameters = new Object[] {project};
+                    shareMethod.invoke(null, parameters);
+                    close(CANCEL_EXIT_CODE);
+                } catch (ClassNotFoundException | NoSuchMethodException e) {
+                    log.error("invoke method failed");
+                    close(CANCEL_EXIT_CODE);
+                } catch (IllegalAccessException | InvocationTargetException e) {
+                    log.error("access method failed ");
+                    close(CANCEL_EXIT_CODE);
+                }
             }
         }
     }

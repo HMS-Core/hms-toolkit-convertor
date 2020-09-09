@@ -25,7 +25,6 @@ import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.project.Project;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import javax.swing.Icon;
 
@@ -41,18 +40,18 @@ public final class ActionUtil {
     /**
      * update action
      *
-     * @param event the instance of AnActionEvent, action event
+     * @param e the instance of AnActionEvent, action event
      * @param icon the icon of this action menu
      */
-    public static void updateAction(@Nullable AnActionEvent event, @Nullable Icon icon) {
-        if (null == event) {
+    public static void updateAction(@NotNull AnActionEvent e, @NotNull Icon icon) {
+        if (e == null) {
             return;
         }
-        final Presentation presentation = event.getPresentation();
+        final Presentation presentation = e.getPresentation();
         presentation.setIcon(icon);
 
-        final Project project = event.getProject();
-        if ((null == project) || (!project.isInitialized()) || (project.isDisposed()) || (!project.isOpen())) {
+        final Project project = e.getProject();
+        if (project == null || !project.isInitialized() || project.isDisposed() || !project.isOpen()) {
             presentation.setEnabled(false);
             return;
         }
@@ -68,7 +67,7 @@ public final class ActionUtil {
      * @param actionId the action ID
      * @param icon the icon of this action menu
      */
-    public static void updateAction(@NotNull String actionId, @Nullable Icon icon) {
+    public static void updateAction(@NotNull String actionId, @NotNull Icon icon) {
         final AnAction action = ActionManager.getInstance().getAction(actionId);
         if (null != action) {
             final Presentation presentation = action.getTemplatePresentation();

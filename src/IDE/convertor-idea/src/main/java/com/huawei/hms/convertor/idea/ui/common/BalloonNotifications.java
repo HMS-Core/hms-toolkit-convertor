@@ -112,35 +112,4 @@ public final class BalloonNotifications {
         group.createNotification(newTitle, message, NotificationType.ERROR, null).notify(project);
     }
 
-    /**
-     * Show success notification
-     *
-     * @param message notification message
-     * @param project current project
-     * @param listener notification listener
-     * @param title notification title
-     * @param sticky true or false
-     */
-    public static void showSuccessNotification(@NotNull String message, Project project, NotificationListener listener,
-        @Nullable String title, boolean sticky) {
-        final String newTitle = StringUtil.isEmptyOrSpaces(title) ? TITLE : title;
-        NotificationGroup group = sticky ? STICKY_BALLOON_GROUP : BALLOON_GROUP;
-        group.createNotification(newTitle, message, NotificationType.INFORMATION, listener).notify(project);
-    }
-
-    /**
-     * Show success notification
-     *
-     * @param message notification message
-     * @param project current project
-     * @param listener notification listener
-     * @param title notification title
-     * @param sticky true or false
-     */
-    public static void showErrorNotification(@NotNull String message, Project project, NotificationListener listener,
-        @Nullable String title, boolean sticky) {
-        final String newTitle = StringUtil.isEmptyOrSpaces(title) ? TITLE : title;
-        NotificationGroup group = sticky ? STICKY_BALLOON_GROUP : BALLOON_GROUP;
-        group.createNotification(newTitle, message, NotificationType.ERROR, listener).notify(project);
-    }
 }

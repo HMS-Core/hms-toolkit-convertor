@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.huawei.hms.convertor.idea.ui.analysis.PolicySettingDialog">
-  <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="15" column-count="14" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="16" column-count="14" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="40" bottom="0" right="40"/>
     <constraints>
       <xy x="48" y="54" width="860" height="800"/>
@@ -129,7 +129,7 @@
       </grid>
       <vspacer id="b80b2">
         <constraints>
-          <grid row="14" column="11" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="15" column="11" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
       <grid id="620ca" binding="tableManagerPanel" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -181,7 +181,9 @@
                 <children>
                   <component id="67ca" class="javax.swing.JLabel" binding="toHmsTableLabel">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="90" height="-1"/>
+                      </grid>
                     </constraints>
                     <properties>
                       <font size="14" style="1"/>
@@ -196,7 +198,9 @@
                   </hspacer>
                   <component id="efec0" class="javax.swing.JLabel" binding="toHmsPromptLabel">
                     <constraints>
-                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="20" height="20"/>
+                      </grid>
                     </constraints>
                     <properties>
                       <icon value="icons/question_dark.png"/>
@@ -236,7 +240,9 @@
                         <children>
                           <component id="33dad" class="javax.swing.JLabel" binding="addHmsPromptLabel">
                             <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                <preferred-size width="20" height="20"/>
+                              </grid>
                             </constraints>
                             <properties>
                               <icon value="icons/question_dark.png"/>
@@ -248,7 +254,9 @@
                       <grid id="ee290" binding="row1_2_3Panel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                         <margin top="0" left="0" bottom="0" right="0"/>
                         <constraints>
-                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                            <preferred-size width="100" height="-1"/>
+                          </grid>
                         </constraints>
                         <properties>
                           <background color="-12104621"/>
@@ -257,7 +265,9 @@
                         <children>
                           <component id="8d4da" class="javax.swing.JLabel" binding="addHmsTableLabel">
                             <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                                <preferred-size width="100" height="-1"/>
+                              </grid>
                             </constraints>
                             <properties>
                               <enabled value="true"/>
@@ -298,7 +308,9 @@
                 <children>
                   <component id="37a0c" class="javax.swing.JLabel" binding="tableRow1Label">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="170" height="-1"/>
+                      </grid>
                     </constraints>
                     <properties>
                       <text value=" Dependent GMS APIs"/>
@@ -361,6 +373,9 @@
                   <component id="3ca9b" class="javax.swing.JLabel" binding="tableRow2Label">
                     <constraints border-constraint="Center"/>
                     <properties>
+                      <maximumSize width="190" height="17"/>
+                      <preferredSize width="180" height="17"/>
+                      <requestFocusEnabled value="false"/>
                       <text value=" Convertible GMS Methods"/>
                     </properties>
                   </component>
@@ -432,7 +447,9 @@
                 <children>
                   <component id="4bdf7" class="javax.swing.JLabel" binding="tableRow3Label">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="170" height="-1"/>
+                      </grid>
                     </constraints>
                     <properties>
                       <text value=" Unconvertible GMS APIs"/>
@@ -519,7 +536,9 @@
                 <children>
                   <component id="1a2b0" class="javax.swing.JLabel" binding="tableRow4Label">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="205" height="-1"/>
+                      </grid>
                     </constraints>
                     <properties>
                       <text value=" Unconvertible GMS Methods"/>
@@ -593,7 +612,7 @@
       </vspacer>
       <vspacer id="10290">
         <constraints>
-          <grid row="10" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="1" fill="0" indent="0" use-parent-layout="false">
+          <grid row="11" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="1" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="-1" height="10"/>
           </grid>
         </constraints>
@@ -829,7 +848,7 @@
       <grid id="a4e45" binding="xmsTittlePanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="11" column="1" row-span="1" col-span="13" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="12" column="1" row-span="1" col-span="13" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -906,7 +925,7 @@
       <grid id="3758f" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="12" column="1" row-span="1" col-span="13" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="13" column="1" row-span="1" col-span="13" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -925,11 +944,44 @@
       </grid>
       <vspacer id="c48ea">
         <constraints>
-          <grid row="13" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="1" anchor="1" fill="0" indent="0" use-parent-layout="false">
+          <grid row="14" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="1" anchor="1" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="-1" height="4"/>
           </grid>
         </constraints>
       </vspacer>
+      <component id="f59a9" class="javax.swing.JLabel" binding="exportAnalyseResultLabel">
+        <constraints>
+          <grid row="5" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font/>
+          <foreground color="-12814661"/>
+          <text value="Label"/>
+        </properties>
+      </component>
+      <grid id="7ce85" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="13" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="5c19f" class="javax.swing.JCheckBox" binding="checkBoxH">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="CheckBox"/>
+            </properties>
+          </component>
+          <hspacer id="84b50">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+        </children>
+      </grid>
     </children>
   </grid>
 </form>

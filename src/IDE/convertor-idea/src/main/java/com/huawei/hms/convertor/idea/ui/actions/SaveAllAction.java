@@ -54,7 +54,7 @@ import java.util.concurrent.Semaphore;
  */
 @Slf4j
 public class SaveAllAction extends AnAction {
-    private static final int ASYC_SAVE_TASK_SLEEPTIME = 20;
+    private static final int ASYNC_SAVE_TASK_SLEEP_MILLIS = 20;
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
@@ -63,15 +63,13 @@ public class SaveAllAction extends AnAction {
             return;
         }
 
-        if (PrivacyStatementChecker.isNotAgreed()) {
+        if (PrivacyStatementChecker.isNotAgreed(project)) {
             // bi report action: trace cancel operation.
             BIReportService.getInstance().traceCancelListener(project.getBasePath(), CancelableViewEnum.PRIVACY);
             return;
         }
-
         // bi report action: menu click.
         BIReportService.getInstance().traceMenuSelection(project.getBasePath(), MenuEnum.SAVE);
-
         ConfigCacheService configCacheService = ConfigCacheService.getInstance();
         if (StringUtil.isEmpty(configCacheService.getProjectConfig(project.getBasePath(),
             ConfigKeyConstants.INSPECT_PATH, String.class, ""))) {
@@ -100,6 +98,11 @@ public class SaveAllAction extends AnAction {
         task.queue();
     }
 
+    @Override
+    public void update(AnActionEvent e) {
+        ActionUtil.updateAction(e, IconUtil.SAVEALL);
+    }
+
     private void asycSaveTask(Project project, ProgressIndicator indicator) {
         if (indicator == null) {
             BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("no_tool_window"), project,
@@ -107,8 +110,8 @@ public class SaveAllAction extends AnAction {
             return;
         }
         indicator.setIndeterminate(true);
-        TimeoutUtil.sleep(ASYC_SAVE_TASK_SLEEPTIME);
-        indicator.setText(HmsConvertorBundle.message("indicater_saveall_notice"));
+        TimeoutUtil.sleep(ASYNC_SAVE_TASK_SLEEP_MILLIS);
+        indicator.setText(HmsConvertorBundle.message("indicator_saveall_notice"));
 
         Semaphore semaphore = new Semaphore(1);
         try {
@@ -117,7 +120,6 @@ public class SaveAllAction extends AnAction {
                 .submitProjectEvent(
                     ProjectEvent.<String, Result> of(project.getBasePath(), EventType.SAVE_ALL_EVENT, "", (message) -> {
                         semaphore.release();
-
                         // Show the result of task.
                         if (message.isOk()) {
                             String folderName = "";
@@ -138,7 +140,6 @@ public class SaveAllAction extends AnAction {
                 BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("save_all_error"), project,
                     Constant.PLUGIN_NAME, true);
             }
-
             // Wait till the task ends.
             semaphore.acquire();
         } catch (InterruptedException e) {
@@ -148,13 +149,8 @@ public class SaveAllAction extends AnAction {
             log.error(e.getMessage(), e);
             BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("save_all_error"), project,
                 Constant.PLUGIN_NAME, true);
-        }finally {
+        } finally {
             semaphore.release();
         }
-    }
-
-    @Override
-    public void update(AnActionEvent e) {
-        ActionUtil.updateAction(e, IconUtil.SAVEALL);
     }
 }

@@ -20,8 +20,6 @@ import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
 import com.huawei.hms.convertor.idea.listener.HmsLifecycleListenerImpl;
 import com.huawei.hms.convertor.idea.setting.HmsConvertorSettings;
 import com.huawei.hms.convertor.idea.util.HmsConvertorUtil;
-import com.huawei.hms.convertor.idea.xmsevent.XmsEventConsumer;
-import com.huawei.hms.convertor.idea.xmsevent.XmsManager;
 import com.huawei.hms.convertor.openapi.BIReportService;
 import com.huawei.hms.convertor.openapi.ConfigCacheService;
 import com.huawei.hms.convertor.openapi.EventService;
@@ -37,11 +35,8 @@ import com.intellij.util.messages.MessageBusConnection;
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.file.NoSuchFileException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * Convertor startup activity
@@ -67,7 +62,7 @@ public class HmsStartupActivity implements StartupActivity {
     }
 
     private void initProject(Project project) {
-        log.info("init {}...", project.getName());
+        log.info("init {}.", project.getName());
         EventService.getInstance().startupProjectEventContext(project.getBasePath());
 
         // bi init
@@ -82,23 +77,11 @@ public class HmsStartupActivity implements StartupActivity {
         ConfigCacheService.getInstance().loadProjectConfig(project.getBasePath());
         try {
             HmsConvertorUtil.findXmsGeneratorJar();
+            HmsConvertorUtil.findMapping4G2hJar();
         } catch (NoSuchFileException e) {
             log.error(e.getMessage(), e);
         }
 
-        // Start the xms event listener and loads the xms events
-        // that are not completely processed last time.
-        XmsManager.getInstance().createPipeline(project);
-        reloadQueue(project);
-        Optional<XmsEventConsumer> optional = XmsManager.getInstance().getConsumer(project.getBasePath());
-        if (!optional.isPresent()) {
-            log.error("start consumer error");
-            return;
-        }
-        if (!optional.get().isRunning()) {
-            log.info("start consumer for {}", project.getBasePath());
-            optional.get().startup();
-        }
         log.info("init {} end", project.getName());
     }
 
@@ -118,25 +101,4 @@ public class HmsStartupActivity implements StartupActivity {
         return localConfig;
     }
 
-    private void reloadQueue(Project project) {
-        log.info("reload queue...");
-        List<String> leftQueue = ConfigCacheService.getInstance()
-            .getProjectConfig(project.getBasePath(), ConfigKeyConstants.XMS_EVENT_QUEUE, List.class, new ArrayList<>());
-        if (leftQueue.isEmpty()) {
-            log.info("reload nothing");
-            return;
-        }
-
-        XmsManager.getInstance().getQueue(project.getBasePath()).ifPresent(queue -> {
-            if (queue == null) {
-                log.warn("No queue!");
-                return;
-            }
-            for (int i = 0; i < leftQueue.size(); i++) {
-                queue.push(leftQueue.get(i));
-            }
-        });
-
-        ConfigCacheService.getInstance().deleteProjectConfig(project.getBasePath(), ConfigKeyConstants.XMS_EVENT_QUEUE);
-    }
 }

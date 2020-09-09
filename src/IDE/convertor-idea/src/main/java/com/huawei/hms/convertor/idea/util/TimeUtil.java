@@ -22,7 +22,15 @@ package com.huawei.hms.convertor.idea.util;
  * @since 2018-03-05
  */
 public final class TimeUtil {
-    private static TimeUtil instance = null;
+    private static volatile TimeUtil instance = null;
+
+    private static final int MINUTE_UNIT = 1000 * 60;
+
+    private static final int SECOND_UNIT = 1000;
+
+    private static final int SECOND = 60;
+
+    private static final int MILLSECOND = 1000;
 
     private long startTime;
 
@@ -30,7 +38,7 @@ public final class TimeUtil {
     }
 
     public static TimeUtil getInstance() {
-        if (null == instance) {
+        if (instance == null) {
             instance = new TimeUtil();
         }
 
@@ -43,9 +51,9 @@ public final class TimeUtil {
 
     public String getElapsedTime() {
         long time = System.currentTimeMillis() - startTime;
-        long min = time / 1000 / 60 % 60;
-        long sec = time / 1000 % 60;
-        long ms = time % 1000;
+        long min = time / MINUTE_UNIT % SECOND;
+        long sec = time / SECOND_UNIT % SECOND;
+        long ms = time % MILLSECOND;
 
         StringBuilder elapsedTime = new StringBuilder();
         if (min > 0) {

@@ -17,27 +17,24 @@
 package com.huawei.hms.convertor.idea.util;
 
 import io.netty.channel.ConnectTimeoutException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Method;
-import java.util.List;
+import java.util.Arrays;
 
 /**
- * Proxy service reflection call encapsulation
+ * Platform reflect invoker
  *
  * @since 2020-01-15
  */
+@Slf4j
 public final class PlatformReflectInvoker {
-    private static final Logger LOGGER = LoggerFactory.getLogger(PlatformReflectInvoker.class);
-
     /**
-     * Call platform static method
+     * Invoke platform method
      *
-     * @param className The class name to be proxied
-     * @param methodName The method name to be proxied
-     * @return InvokeResult
+     * @param className The class name
+     * @param methodName The method name
+     * @return Invoke result
      */
     static InvokeResult invokeMethod(String className, String methodName) {
         try {
@@ -45,34 +42,34 @@ public final class PlatformReflectInvoker {
             Method targetMethod = targetClass.getDeclaredMethod(methodName);
             return new InvokeResult(false, targetMethod.invoke(targetClass.newInstance()));
         } catch (ClassNotFoundException | NoSuchMethodException e) {
-            LOGGER.info("No sdk found");
+            log.info("No sdk found");
             return new InvokeResult(true);
         } catch (Exception e) {
-            LOGGER.error("Cannot access {}.{}", className, methodName, e);
+            log.error("Cannot access {}.{}", className, methodName, e);
             return new InvokeResult(false);
         }
     }
 
     /**
-     * Call platform method
+     * Invoke platform method
      *
-     * @param className The class name to be proxied
-     * @param methodName The method name to be proxied
-     * @param parameterTypes List of delegated method parameter names
-     * @param parameters List of parameters to be passed in reflection call
-     * @return InvokeResult
+     * @param className Class name
+     * @param methodName Method name
+     * @param parameterTypes Parameter types
+     * @param parameters Parameters
+     * @return Invoke result
      */
     static InvokeResult invokeMethod(String className, String methodName, Class<?>[] parameterTypes,
-        List<Object> parameters) {
+        Object[] parameters) {
         try {
             Class targetClass = Class.forName(className);
             Method targetMethod = targetClass.getDeclaredMethod(methodName, parameterTypes);
             return new InvokeResult(false, targetMethod.invoke(targetClass.newInstance(), parameters));
         } catch (ClassNotFoundException | NoSuchMethodException e) {
-            LOGGER.info("No sdk found");
+            log.info("No sdk found");
             return new InvokeResult(true);
         } catch (Exception e) {
-            LOGGER.error("Cannot access {}.{}", className, methodName, e);
+            log.error("Cannot access {}.{}", className, methodName, e);
             if (e instanceof ConnectTimeoutException) {
                 throw new NetworkTimeoutException("Connection timeout", e);
             }
@@ -81,11 +78,11 @@ public final class PlatformReflectInvoker {
     }
 
     /**
-     * Call platform static method
+     * Invoke platform static method
      *
-     * @param className The class name to be proxied
-     * @param methodName The method name to be proxied
-     * @return InvokeResult
+     * @param className The class name
+     * @param methodName The method name
+     * @return Invoke result
      */
     public static InvokeResult invokeStaticMethod(String className, String methodName) {
         try {
@@ -93,50 +90,72 @@ public final class PlatformReflectInvoker {
             Method targetMethod = targetClass.getDeclaredMethod(methodName);
             return new InvokeResult(false, targetMethod.invoke(null));
         } catch (ClassNotFoundException | NoSuchMethodException e) {
-            LOGGER.info("No sdk found");
+            log.info("No sdk found");
             return new InvokeResult(true);
         } catch (Exception e) {
-            LOGGER.error("Cannot access {}.{}", className, methodName, e);
+            log.error("Cannot access {}.{}", className, methodName, e);
+            return new InvokeResult(false);
+        }
+    }
+
+    public static InvokeResult invokeStaticMethod(String className, String methodName, Class<?>[] parameterTypes,
+        Object[] parameters) {
+        log.info("Begin invoke static method, className: {}, methodName: {}, parameterTypes: {}.", className,
+            methodName, Arrays.toString(parameterTypes));
+
+        try {
+            Class targetClass = Class.forName(className);
+            Method targetMethod = targetClass.getDeclaredMethod(methodName, parameterTypes);
+            InvokeResult result = new InvokeResult(false, targetMethod.invoke(null, parameters));
+            log.info("End invoke static method, sdkNotFound: {}.", result.isSdkNotFound());
+            return result;
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
+            log.info("No sdk found, error: {}.", e.getMessage());
+            return new InvokeResult(true);
+        } catch (Exception e) {
+            log.error("Cannot access class, error: {}.", e.getMessage());
             return new InvokeResult(false);
         }
     }
 
     public static class NetworkTimeoutException extends RuntimeException {
+        private static final long serialVersionUID = 6250891878280402029L;
+
         public NetworkTimeoutException(String message, Throwable throwable) {
             super(message, throwable);
         }
     }
 
     /**
-     * Reflection call result encapsulation
+     * Reflect invoke result
      */
     public static class InvokeResult {
-        private boolean sdkLost;
+        private boolean sdkNotFound;
 
         private Object returnValue;
 
         /**
          * Construction method
          *
-         * @param sdkLost set to{@code true}if no SDK found，else{@code false}
+         * @param sdkNotFound Set to {@code true} if SDK not found, else {@code false}
          */
-        InvokeResult(boolean sdkLost) {
-            this.sdkLost = sdkLost;
+        InvokeResult(boolean sdkNotFound) {
+            this.sdkNotFound = sdkNotFound;
         }
 
         /**
          * Construction method
          *
-         * @param sdkLost set to{@code true}if no SDK found，else{@code false}
-         * @param returnValue Reflection call result
+         * @param sdkNotFound Set to {@code true} if SDK not found, else {@code false}
+         * @param returnValue Reflect return value
          */
-        InvokeResult(boolean sdkLost, Object returnValue) {
-            this.sdkLost = sdkLost;
+        InvokeResult(boolean sdkNotFound, Object returnValue) {
+            this.sdkNotFound = sdkNotFound;
             this.returnValue = returnValue;
         }
 
-        public boolean isSdkLost() {
-            return sdkLost;
+        public boolean isSdkNotFound() {
+            return sdkNotFound;
         }
 
         public Object getReturnValue() {

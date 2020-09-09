@@ -16,14 +16,24 @@
 
 package com.huawei.hms.convertor.idea.spi;
 
+import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
+import com.huawei.hms.convertor.core.engine.fixbot.util.FixbotConstants;
+import com.huawei.hms.convertor.core.engine.xms.XmsConstants;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
+import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.core.project.convert.CodeConvertService;
 import com.huawei.hms.convertor.core.result.conversion.ConversionItem;
+import com.huawei.hms.convertor.core.result.conversion.ConversionPointDesc;
 import com.huawei.hms.convertor.core.result.conversion.ConvertType;
 import com.huawei.hms.convertor.idea.ui.common.BalloonNotifications;
 import com.huawei.hms.convertor.idea.util.HmsConvertorUtil;
+import com.huawei.hms.convertor.idea.util.StringUtil;
+import com.huawei.hms.convertor.openapi.ConfigCacheService;
 import com.huawei.hms.convertor.openapi.result.Result;
 import com.huawei.hms.convertor.util.Constant;
+import com.huawei.hms.convertor.util.FileUtil;
 
+import com.alibaba.fastjson.JSON;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Document;
@@ -35,9 +45,17 @@ import com.intellij.openapi.vfs.VirtualFile;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.apache.commons.collections4.CollectionUtils;
+
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Code convert and revert implementation
@@ -46,7 +64,8 @@ import java.util.Map;
  */
 @Slf4j
 public class CodeConvertServiceImpl implements CodeConvertService {
-    Map<String, Project> projectMap = new HashMap<>();
+
+    public Map<String, Project> projectMap = new HashMap<>();
 
     @Override
     public Result convert(String projectPath, ConversionItem conversionItem) {
@@ -55,11 +74,12 @@ public class CodeConvertServiceImpl implements CodeConvertService {
         }
         Project project = projectMap.get(projectPath);
         ApplicationManager.getApplication().invokeAndWait(() -> {
-            final String file = projectPath + File.separatorChar + conversionItem.getFile();
+            final String file = projectPath + Constant.UNIX_FILE_SEPARATOR + conversionItem.getFile();
             final VirtualFile virtualFile = LocalFileSystem.getInstance().refreshAndFindFileByPath(file);
             if (virtualFile == null || !virtualFile.exists()) {
-                BalloonNotifications.showErrorNotification("File doesn't exist: " + file.replace("\\", "/"), project,
-                    Constant.PLUGIN_NAME, true);
+                BalloonNotifications.showErrorNotification(
+                    "File doesn't exist: " + FileUtil.unifyToUnixFileSeparator(file), project, Constant.PLUGIN_NAME,
+                    true);
                 return;
             }
             virtualFile.refresh(false, false);
@@ -84,7 +104,7 @@ public class CodeConvertServiceImpl implements CodeConvertService {
                 } else {
                     // InsertLine exceed the file
                     final StringBuilder sb = new StringBuilder();
-                    for (int i = lineCount - 1; i < insertLine; i++) {
+                    for (int i = (lineCount - 1); i < insertLine; i++) {
                         sb.append(Constant.LINE_SEPARATOR);
                     }
 
@@ -117,6 +137,7 @@ public class CodeConvertServiceImpl implements CodeConvertService {
                     postProcessingAfterConvert(project, document);
                 });
             }
+            copyExtraClassFile(projectPath, conversionItem);
         });
         return Result.ok();
     }
@@ -126,20 +147,6 @@ public class CodeConvertServiceImpl implements CodeConvertService {
         getProject(projectPath);
     }
 
-    private void getProject(String projectPath) {
-        Project[] projects = ProjectManager.getInstance().getOpenProjects();
-        if (projects == null) {
-            log.error("Can't get current project");
-            return;
-        }
-        for (Project pjt : projects) {
-            if (pjt.getBasePath().equals(projectPath)) {
-                projectMap.put(projectPath, pjt);
-                log.info("Get project, name = {}, path = {}", pjt.getName(), pjt.getBasePath());
-            }
-        }
-    }
-
     @Override
     public Result revert(String projectPath, ConversionItem defectItem) {
         if (defectItem.getConvertType().equals(ConvertType.MANUAL)) {
@@ -147,11 +154,12 @@ public class CodeConvertServiceImpl implements CodeConvertService {
         }
         Project project = projectMap.get(projectPath);
         ApplicationManager.getApplication().invokeAndWait(() -> {
-            final String file = projectPath + File.separatorChar + defectItem.getFile();
+            final String file = projectPath + Constant.UNIX_FILE_SEPARATOR + defectItem.getFile();
             final VirtualFile virtualFile = LocalFileSystem.getInstance().refreshAndFindFileByPath(file);
             if (virtualFile == null || !virtualFile.exists()) {
-                BalloonNotifications.showErrorNotification("File doesn't exist: " + file.replace("\\", "/"), project,
-                    Constant.PLUGIN_NAME, true);
+                BalloonNotifications.showErrorNotification(
+                    "File doesn't exist: " + FileUtil.unifyToUnixFileSeparator(file), project, Constant.PLUGIN_NAME,
+                    true);
                 return;
             }
             virtualFile.refresh(false, false);
@@ -194,6 +202,135 @@ public class CodeConvertServiceImpl implements CodeConvertService {
             }
         });
         return Result.ok();
+    }
+
+    private void copyExtraClassFile(String projectPath, ConversionItem conversionItem) {
+        Set<String> extraClasses = getExtraClasses(conversionItem);
+        if (extraClasses.isEmpty()) {
+            return;
+        }
+        String repoId = ConfigCacheService.getInstance()
+            .getProjectConfig(projectPath, ConfigKeyConstants.REPO_ID, String.class, "");
+        String moduleName = getModuleName(conversionItem.getFile());
+        String copySourceDirPath = FileUtil.unifyToUnixFileSeparator(buildCopySourceDirPath(repoId, moduleName));
+        String copyTargetDirPath = FileUtil.unifyToUnixFileSeparator(buildCopyTargetDirPath(projectPath, moduleName));
+
+        List<String> excludeList = new ArrayList<>();
+        for (String extraClass : extraClasses) {
+            String targetClassPath = FileUtil.unifyToUnixFileSeparator(copyTargetDirPath + extraClass);
+            File targetFile = new File(targetClassPath);
+            if (targetFile.exists()) {
+                continue;
+            }
+            String sourceClassPath = FileUtil.unifyToUnixFileSeparator(copySourceDirPath + extraClass);
+
+            makeDirIncrementally(copyTargetDirPath, FileUtil.unifyToUnixFileSeparator(extraClass));
+            boolean copyResult = FileUtil.copyFile(sourceClassPath, targetClassPath);
+            if (!copyResult) {
+                log.warn("copy failed: {}", extraClass);
+                // A notification will be sent when the copy fails.
+                BalloonNotifications.showErrorNotification(
+                    "File copy failed: " + FileUtil.unifyToUnixFileSeparator(extraClass), projectMap.get(projectPath),
+                    Constant.PLUGIN_NAME, true);
+                return;
+            }
+
+            if (targetClassPath.endsWith(XmsConstants.MY_APP_FILE)) {
+                continue;
+            }
+            excludeList.add(targetClassPath);
+        }
+
+        updateExcludePath(projectPath, excludeList);
+    }
+
+    private void updateExcludePath(String projectPath, List<String> excludeList) {
+        if (CollectionUtils.isEmpty(excludeList)) {
+            return;
+        }
+        List<String> excludesInConfig = ConfigCacheService.getInstance()
+            .getProjectConfig(projectPath, ConfigKeyConstants.EXCLUDE_PATH, List.class, new ArrayList());
+        excludesInConfig.addAll(excludeList);
+        List<String> excludePaths = excludesInConfig.stream().distinct().collect(Collectors.toList());
+        ConfigCacheService.getInstance()
+            .updateProjectConfig(projectPath, ConfigKeyConstants.EXCLUDE_PATH, JSON.toJSON(excludePaths));
+    }
+
+    private String buildCopySourceDirPath(String repoId, String moduleName) {
+        StringBuilder copySourceDirPath = new StringBuilder(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH);
+        copySourceDirPath.append(repoId)
+            .append(Constant.UNIX_FILE_SEPARATOR)
+            .append(FixbotConstants.FIXBOT_DIR)
+            .append(Constant.UNIX_FILE_SEPARATOR)
+            .append(moduleName)
+            .append(ProjectConstants.SourceDir.JAVA_SRC_DIR)
+            .append(Constant.UNIX_FILE_SEPARATOR);
+        return copySourceDirPath.toString();
+    }
+
+    private String buildCopyTargetDirPath(String projectPath, String moduleName) {
+        StringBuilder copyTargetDirPath = new StringBuilder(projectPath);
+        copyTargetDirPath.append(Constant.UNIX_FILE_SEPARATOR)
+            .append(moduleName)
+            .append(ProjectConstants.SourceDir.JAVA_SRC_DIR)
+            .append(Constant.UNIX_FILE_SEPARATOR);
+        return copyTargetDirPath.toString();
+    }
+
+    private String getModuleName(String file) {
+        return file.split(ProjectConstants.SourceDir.SRC_DIR)[0];
+    }
+
+    private void makeDirIncrementally(String makeFrom, String targetPath) {
+        String[] dirsAndFile = targetPath.split(Constant.UNIX_FILE_SEPARATOR);
+        List<String> dirs = Arrays.stream(dirsAndFile).collect(Collectors.toList());
+        dirs.remove(dirs.size() - 1);
+
+        StringBuilder current = new StringBuilder(makeFrom);
+        for (String dir : dirs) {
+            current.append(dir);
+            current.append(Constant.UNIX_FILE_SEPARATOR);
+            File currentDir = new File(current.toString());
+            if (currentDir.exists()) {
+                continue;
+            }
+            if (!currentDir.mkdir()) {
+                log.warn("make dir failed: {}", current);
+            }
+        }
+    }
+
+    private Set<String> getExtraClasses(ConversionItem conversionItem) {
+        Set<String> extraClasses = new HashSet<String>();
+        List<ConversionPointDesc> descs = conversionItem.getDescriptions();
+        if (descs == null || descs.isEmpty()) {
+            return extraClasses;
+        }
+        for (ConversionPointDesc desc : descs) {
+            String extraPathStr = desc.getExtraPath();
+            if (StringUtil.isEmpty(extraPathStr)) {
+                continue;
+            }
+            String[] extraPaths = extraPathStr.split(FixbotConstants.CONVERSION_EXTRA_PATH_SEPARATOR);
+            Arrays.stream(extraPaths)
+                .filter(path -> !StringUtil.isEmpty(path))
+                .forEach(clazz -> extraClasses.add(clazz));
+        }
+        return extraClasses;
+    }
+
+    private void getProject(String projectPath) {
+        Project[] projects = ProjectManager.getInstance().getOpenProjects();
+        if (projects == null) {
+            log.error("Can't get current project");
+            return;
+        }
+        for (Project pjt : projects) {
+            if (pjt.getBasePath().equals(projectPath)) {
+                projectMap.put(projectPath, pjt);
+                log.info("Get project, name: {}, path: {}", pjt.getName(), pjt.getBasePath());
+            }
+        }
     }
 
     private void postProcessingAfterConvert(Project project, Document document) {

@@ -17,6 +17,7 @@
 package com.huawei.hms.convertor.idea.util;
 
 import com.huawei.hms.convertor.core.result.conversion.ConversionPointDesc;
+import com.huawei.hms.convertor.idea.ui.common.UIConstants;
 import com.huawei.hms.convertor.idea.ui.result.conversion.DefectItem;
 
 import com.intellij.ide.BrowserUtil;
@@ -53,8 +54,8 @@ public final class UiUtil {
      * @param defectItem a defect item
      * @param editor IDE editor
      */
-    public static void showDefectTips(@NotNull DefectItem defectItem, @Nullable Editor editor) {
-        if (null == editor || !editor.getComponent().isShowing()) {
+    public static void showDefectTips(@NotNull DefectItem defectItem, @NotNull Editor editor) {
+        if (editor == null || !editor.getComponent().isShowing()) {
             return;
         }
 
@@ -77,7 +78,7 @@ public final class UiUtil {
 
                 @Override
                 public String getTextFor(ConversionPointDesc value) {
-                    final String descText = wrapComment(value.getText(), 120);
+                    final String descText = wrapComment(value.getText(), UIConstants.Util.Ui.DESC_TEXT_WRAP_LENGTH);
                     return StringUtil.isEmptyOrSpaces(descText) ? "" : descText.trim();
                 }
 
@@ -113,7 +114,7 @@ public final class UiUtil {
                 spaceIndex = -1;
             }
             if (comment.charAt(i) == ' ') {
-                spaceIndex = i + replaceCount * 3;
+                spaceIndex = i + replaceCount * UIConstants.Util.Ui.REPLACE_COUNT_INDEX;
             }
         }
         return sb.toString();
@@ -126,7 +127,7 @@ public final class UiUtil {
      * @param message the message to show in statusbar
      */
     public static void setStatusBarInfo(final Project project, final String message) {
-        if (null == project) {
+        if (project == null) {
             return;
         }
 

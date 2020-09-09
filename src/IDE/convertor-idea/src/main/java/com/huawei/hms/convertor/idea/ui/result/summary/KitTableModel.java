@@ -26,13 +26,13 @@ import com.intellij.util.ui.ListTableModel;
  * @since 2019/11/28
  */
 public class KitTableModel extends ListTableModel<KitItem> {
-    static final int NUM_COLUMN_INDEX = 0;
+    public static final int NUM_COLUMN_INDEX = 0;
 
-    static final int KIT_NAME_COLUMN_INDEX = 1;
+    public static final int KIT_NAME_COLUMN_INDEX = 1;
 
-    static final int DEPENDENT_METHOD_INDEX = 2;
+    public static final int DEPENDENT_METHOD_INDEX = 2;
 
-    static final int METHOD_COUNT_COLUMN_INDEX = 3;
+    public static final int METHOD_COUNT_COLUMN_INDEX = 3;
 
     private static final String NUM_COLUMN_TITLE = HmsConvertorBundle.message("number");
 

@@ -16,23 +16,30 @@
 
 package com.huawei.hms.convertor.idea.ui.result.searchcombobox;
 
+import com.huawei.hms.convertor.util.Constant;
+
 import lombok.extern.slf4j.Slf4j;
 
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.ItemEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.Popup;
 import javax.swing.PopupFactory;
 import javax.swing.SwingUtilities;
@@ -68,24 +75,41 @@ public final class ComboBoxFilterDecorator<T> {
      * @param <T> Generic parameter
      * @return ComboBoxFilterDecorator
      */
-    public static <T> ComboBoxFilterDecorator<T> decorate(JComboBox<T> comboBox) {
+    public static <T> ComboBoxFilterDecorator<T> decorate(JComboBox<T> comboBox, JPanel rootPanel) {
         ComboBoxFilterDecorator decorator = new ComboBoxFilterDecorator(comboBox);
-        decorator.init();
+        decorator.init(rootPanel);
         return decorator;
     }
 
-    private void init() {
+    public JLabel getFilterLabel() {
+        return filterLabel;
+    }
+
+    private void init(JPanel rootPanel) {
         prepareComboFiltering();
         initFilterLabel();
         initComboPopupListener();
         initComboKeyListener();
+        initRootPanelListener(rootPanel);
+    }
+
+    private void initRootPanelListener(JPanel rootPanel) {
+        rootPanel.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                if (null != filterPopup) {
+                    filterPopup.hide();
+                    filterPopup = null;
+                }
+            }
+        });
     }
 
     private void prepareComboFiltering() {
         DefaultComboBoxModel<T> model = (DefaultComboBoxModel<T>) comboBox.getModel();
-        this.originalItems = new ArrayList<>();
+        originalItems = new ArrayList<>();
         for (int i = 0; i < model.getSize(); i++) {
-            this.originalItems.add(model.getElementAt(i));
+            originalItems.add(model.getElementAt(i));
         }
     }
 
@@ -93,6 +117,11 @@ public final class ComboBoxFilterDecorator<T> {
         comboBox.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
+                DefaultComboBoxModel<T> model = (DefaultComboBoxModel<T>) comboBox.getModel();
+                model.removeAllElements();
+                for (T item : originalItems) {
+                    model.addElement(item);
+                }
                 showFilterPopup();
             }
         });
@@ -101,6 +130,18 @@ public final class ComboBoxFilterDecorator<T> {
             @Override
             public void focusLost(FocusEvent e) {
                 resetFilterPopup();
+            }
+        });
+
+        comboBox.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                if (null != filterPopup && comboBox.getSelectedIndex() >= 1
+                    && !comboBox.getSelectedItem().equals(Constant.ALL)) {
+                    filterPopup.hide();
+                    filterPopup = null;
+                    filterLabel.setText(Constant.FILTER_HINT);
+                    textHandler.reset();
+                }
             }
         });
 
@@ -113,6 +154,7 @@ public final class ComboBoxFilterDecorator<T> {
             public void keyPressed(KeyEvent e) {
                 char keyChar = e.getKeyChar();
                 int keyCode = e.getKeyCode();
+
                 if (keyCode != KeyEvent.VK_CAPS_LOCK && keyCode != KeyEvent.VK_SHIFT && !Character.isDefined(keyChar)) {
                     resetFilterPopup();
                     if (comboBox.isPopupVisible()) {
@@ -127,11 +169,20 @@ public final class ComboBoxFilterDecorator<T> {
                 if (!comboBox.isPopupVisible()) {
                     comboBox.showPopup();
                 }
+
                 if (!textHandler.text.isEmpty()) {
-                    showFilterPopup();
                     performFilter();
                 } else {
-                    resetFilterPopup();
+                    if (keyCode == KeyEvent.VK_BACK_SPACE) {
+                        filterLabel.setText(Constant.FILTER_HINT);
+                        textHandler.reset();
+                        resetComboBoxPopup();
+                    } else if (keyCode == KeyEvent.VK_CAPS_LOCK) {
+                        filterLabel.setText(Constant.FILTER_HINT);
+                        textHandler.reset();
+                    } else {
+                        resetFilterPopup();
+                    }
                 }
                 e.consume();
             }
@@ -143,7 +194,20 @@ public final class ComboBoxFilterDecorator<T> {
             case KeyEvent.VK_DELETE:
                 return;
             case KeyEvent.VK_ENTER:
-                resetFilterPopup();
+                if (null != filterPopup) {
+                    filterPopup.hide();
+                    filterPopup = null;
+                    filterLabel.setText(Constant.FILTER_HINT);
+                    textHandler.reset();
+                    Object lastSelectedItem = comboBox.getSelectedItem();
+                    DefaultComboBoxModel<T> model = (DefaultComboBoxModel<T>) comboBox.getModel();
+                    model.removeAllElements();
+                    model.setSelectedItem(lastSelectedItem);
+                    selectedItem = lastSelectedItem;
+                    if (comboBox.isPopupVisible()) {
+                        comboBox.hidePopup();
+                    }
+                }
                 return;
             case KeyEvent.VK_ESCAPE:
                 if (null != selectedItem) {
@@ -169,10 +233,13 @@ public final class ComboBoxFilterDecorator<T> {
         filterLabel = new CustomLabel();
         filterLabel.setOpaque(true);
         filterLabel.setFont(filterLabel.getFont().deriveFont(Font.PLAIN));
-    }
-
-    public JLabel getFilterLabel() {
-        return filterLabel;
+        filterLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                filterLabel.setText("");
+                textHandler.reset();
+            }
+        });
     }
 
     private void initComboPopupListener() {
@@ -180,7 +247,7 @@ public final class ComboBoxFilterDecorator<T> {
     }
 
     private void showFilterPopup() {
-        if (null == filterPopup) {
+        if (filterPopup == null) {
             Point point = new Point(0, 0);
             SwingUtilities.convertPointToScreen(point, comboBox);
             filterLabel.setPreferredSize(new Dimension(comboBox.getWidth(), comboBox.getHeight()));
@@ -191,34 +258,32 @@ public final class ComboBoxFilterDecorator<T> {
         }
 
         filterPopup.show();
+        filterLabel.setText(Constant.FILTER_HINT);
     }
 
     private void resetFilterPopup() {
         if (null != filterPopup) {
             filterPopup.hide();
             filterPopup = null;
-            filterLabel.setText("");
+            filterLabel.setText(Constant.FILTER_HINT);
             textHandler.reset();
-
-            // add items in the original order
-            Object lastSelectedItem = comboBox.getSelectedItem();
-            DefaultComboBoxModel<T> model = (DefaultComboBoxModel<T>) comboBox.getModel();
-            model.removeAllElements();
-            for (T item : originalItems) {
-                model.addElement(item);
-            }
-            // preserve the selection
-            model.setSelectedItem(lastSelectedItem);
-            this.selectedItem = lastSelectedItem;
+            resetComboBoxPopup();
         }
     }
 
     private void hideFilterPopup() {
         if (null != filterPopup) {
-            filterPopup.hide();
-            filterPopup = null;
-            filterLabel.setText("");
+            filterLabel.setText(Constant.FILTER_HINT);
             textHandler.reset();
+        }
+    }
+
+    private void resetComboBoxPopup() {
+        // add items in the original order
+        DefaultComboBoxModel<T> model = (DefaultComboBoxModel<T>) comboBox.getModel();
+        model.removeAllElements();
+        for (T item : originalItems) {
+            model.addElement(item);
         }
     }
 
@@ -232,7 +297,7 @@ public final class ComboBoxFilterDecorator<T> {
             for (T item : originalItems) {
                 if (item instanceof String) {
                     String itemFile = (String) item;
-                    if (itemFile.contains(textHandler.getText())) {
+                    if (itemFile.toLowerCase(Locale.US).contains(textHandler.getText().toLowerCase(Locale.US))) {
                         model.addElement(item);
                     }
                 }
@@ -285,6 +350,8 @@ public final class ComboBoxFilterDecorator<T> {
 
         @Override
         public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
+            resetComboBoxPopup();
+            showFilterPopup();
         }
 
         @Override

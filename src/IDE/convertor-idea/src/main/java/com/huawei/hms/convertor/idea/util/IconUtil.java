@@ -118,11 +118,6 @@ public final class IconUtil {
     public static final Icon NOTICE = load("/icons/notice.png");
 
     /**
-     * HMS first icon
-     */
-    public static final Icon QUESTION = load("/icons/question.png");
-
-    /**
      * HMS prompt icon
      */
     public static final Icon PROMPT_QUESTION =
@@ -169,19 +164,12 @@ public final class IconUtil {
     public static final Icon WARN = load("/icons/item_warn.png");
 
     /**
-     * view icon
-     */
-    public static final Icon VIEW = load("/icons/wisehub_view.png");
-
-    public static final Icon DETAIL = load("/icons/detail.png");
-
-    /**
      * Get confirm icon
      *
      * @param isConfirmed boolean value, isConfirmed
      * @return confirmed icon
      */
-    public static Icon getConfirmIcon(boolean isConfirmed, boolean enable) {
+    public static final Icon getConfirmIcon(boolean isConfirmed, boolean enable) {
         return isConfirmed ? (enable ? SELECT : SELECT_DISENABLE) : (enable ? UNSELECT : UNSELECT_DISENABLE);
     }
 
@@ -191,15 +179,15 @@ public final class IconUtil {
      * @param isConverted boolean value, isConverted
      * @return converted icon
      */
-    public static Icon getCovertedIcon(boolean isConverted) {
+    public static final Icon getCovertedIcon(boolean isConverted) {
         return isConverted ? MANUAL_OK : MANUAL;
     }
 
     /**
-     * loading picture
+     * Loading picture
      *
-     * @param path icon path
-     * @return Icon Object Instance
+     * @param path Icon path
+     * @return Icon instance
      */
     private static Icon load(String path) {
         return IconLoader.findIcon(path, IconUtil.class);

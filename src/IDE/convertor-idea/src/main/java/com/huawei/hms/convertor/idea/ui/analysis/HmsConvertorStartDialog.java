@@ -22,6 +22,7 @@ import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
 import com.huawei.hms.convertor.core.engine.fixbot.model.RoutePolicy;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
+import com.huawei.hms.convertor.idea.ui.common.UIConstants;
 import com.huawei.hms.convertor.idea.util.GrsServiceProvider;
 import com.huawei.hms.convertor.idea.util.IconUtil;
 import com.huawei.hms.convertor.openapi.BIReportService;
@@ -45,10 +46,10 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.util.ImageLoader;
 import com.intellij.util.ui.UIUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -72,12 +73,9 @@ import javax.swing.ListModel;
  *
  * @since 2019-06-27
  */
+@Slf4j
 public class HmsConvertorStartDialog extends DialogWrapper {
-    private static final Logger LOG = LoggerFactory.getLogger(HmsConvertorStartDialog.class);
-
     private static final Pattern EXCLUDE_PATTERN = Pattern.compile("\\.idea|\\.gradle|build|\\.git|\\.svn|gradle");
-
-    private static final String JDK_VERSION = "1.8";
 
     private JPanel rootPanel;
 
@@ -135,82 +133,11 @@ public class HmsConvertorStartDialog extends DialogWrapper {
     public void init() {
         super.init();
         setTitle(Constant.PLUGIN_NAME);
-        getWindow().setIconImage(ImageLoader.loadFromResource("/icons/convertor.png"));
+        getWindow().setIconImage(ImageLoader.loadFromResource(UIConstants.Dialog.WINDOW_ICON_RESOURCE));
 
         initComponents();
         initShowData();
         addListener();
-    }
-
-    private void initComponents() {
-        anDirLabel.setText(HmsConvertorBundle.message("aly_dir"));
-        excDirLabel.setText(HmsConvertorBundle.message("exc_dir"));
-        typeLable.setText(HmsConvertorBundle.message("project_type"));
-        appRadio.setText(HmsConvertorBundle.message("app"));
-        appRadio.setSelected(true);
-        sdkRadio.setText(HmsConvertorBundle.message("sdk"));
-        ButtonGroup policyButtonGroup = new ButtonGroup();
-        policyButtonGroup.add(appRadio);
-        policyButtonGroup.add(sdkRadio);
-        browserBackupPathButton.setText(HmsConvertorBundle.message("browse_b"));
-        browserInspectPathButton.setText(HmsConvertorBundle.message("browse_s"));
-        addButton.setText(HmsConvertorBundle.message("add_a"));
-        removeButton.setText(HmsConvertorBundle.message("remove_r"));
-        backupLabel.setText(HmsConvertorBundle.message("backup_dir"));
-        commentCheckBox.setText(HmsConvertorBundle.message("comment_valid"));
-        inspectPathTextField.setEditable(false);
-        backupPathTextField.setEditable(false);
-        step1Label.setIcon(IconUtil.RUNNING);
-        step2Label.setIcon(IconUtil.WAIT);
-        if (UIUtil.isUnderDarcula()) {
-            lineLabel.setIcon(IconUtil.GUIDE_LINE);
-        } else {
-            lineLabel.setIcon(IconUtil.GUIDE_LINE_GRAY);
-        }
-        addButton.setMnemonic(KeyEvent.VK_A);
-        removeButton.setMnemonic(KeyEvent.VK_R);
-        browserInspectPathButton.setMnemonic(KeyEvent.VK_S);
-        browserBackupPathButton.setMnemonic(KeyEvent.VK_B);
-
-        allianceDomain = GrsServiceProvider.getGrsAllianceDomain();
-        configCacheService.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.ALLIANCE_DOMAIN,
-            allianceDomain);
-    }
-
-    private void initShowData() {
-        String inspectPath;
-        String backupPath;
-        List<String> excludePaths;
-        if ((configCacheService == null) || StringUtil.isEmpty(configCacheService
-            .getProjectConfig(project.getBasePath(), ConfigKeyConstants.INSPECT_PATH, String.class, ""))) {
-            inspectPath = projectBasePath;
-            backupPath = "";
-            excludePaths = FileUtil.findFoldersByMask(EXCLUDE_PATTERN, inspectPath);
-        } else {
-            inspectPath = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.INSPECT_PATH,
-                String.class, "");
-            backupPath = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.BACK_PATH,
-                String.class, "");
-            excludePaths = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.EXCLUDE_PATH,
-                List.class, new ArrayList<String>());
-            mergeExcludePaths(excludePaths, inspectPath);
-        }
-
-        setInspectPath(inspectPath);
-        setExcludePaths(excludePaths);
-        setBackupPath(backupPath);
-
-        LOG.info("initData: inspectPath = {}, backupPath = {}, excludePaths = {}", inspectPath, backupPath,
-            StringUtil.join(excludePaths.toArray(new String[0]), ","));
-    }
-
-    private void mergeExcludePaths(List<String> oldExcludePaths, String inspectPath) {
-        List<String> newExcludePaths = FileUtil.findFoldersByMask(EXCLUDE_PATTERN, inspectPath);
-        for (String path : newExcludePaths) {
-            if (!oldExcludePaths.contains(path)) {
-                oldExcludePaths.add(path);
-            }
-        }
     }
 
     @Override
@@ -309,7 +236,7 @@ public class HmsConvertorStartDialog extends DialogWrapper {
             return new ValidationInfo(HmsConvertorBundle.message("no_backup_path"));
         }
 
-        if (getBackupPath().contains(getInspectPath() + Constant.SEPARATOR)) {
+        if (getBackupPath().contains(getInspectPath() + Constant.UNIX_FILE_SEPARATOR)) {
             backupPathTextField.requestFocus();
             return new ValidationInfo(HmsConvertorBundle.message("backup_in_project"));
         }
@@ -320,6 +247,77 @@ public class HmsConvertorStartDialog extends DialogWrapper {
         }
 
         return null;
+    }
+
+    private void initComponents() {
+        anDirLabel.setText(HmsConvertorBundle.message("aly_dir"));
+        excDirLabel.setText(HmsConvertorBundle.message("exc_dir"));
+        typeLable.setText(HmsConvertorBundle.message("project_type"));
+        appRadio.setText(HmsConvertorBundle.message("app"));
+        appRadio.setSelected(true);
+        sdkRadio.setText(HmsConvertorBundle.message("sdk"));
+        ButtonGroup policyButtonGroup = new ButtonGroup();
+        policyButtonGroup.add(appRadio);
+        policyButtonGroup.add(sdkRadio);
+        browserBackupPathButton.setText(HmsConvertorBundle.message("browse_b"));
+        browserInspectPathButton.setText(HmsConvertorBundle.message("browse_s"));
+        addButton.setText(HmsConvertorBundle.message("add_a"));
+        removeButton.setText(HmsConvertorBundle.message("remove_r"));
+        backupLabel.setText(HmsConvertorBundle.message("backup_dir"));
+        commentCheckBox.setText(HmsConvertorBundle.message("comment_valid"));
+        inspectPathTextField.setEditable(false);
+        backupPathTextField.setEditable(false);
+        step1Label.setIcon(IconUtil.RUNNING);
+        step2Label.setIcon(IconUtil.WAIT);
+        if (UIUtil.isUnderDarcula()) {
+            lineLabel.setIcon(IconUtil.GUIDE_LINE);
+        } else {
+            lineLabel.setIcon(IconUtil.GUIDE_LINE_GRAY);
+        }
+        addButton.setMnemonic(KeyEvent.VK_A);
+        removeButton.setMnemonic(KeyEvent.VK_R);
+        browserInspectPathButton.setMnemonic(KeyEvent.VK_S);
+        browserBackupPathButton.setMnemonic(KeyEvent.VK_B);
+
+        allianceDomain = GrsServiceProvider.getGrsAllianceDomain();
+        configCacheService.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.ALLIANCE_DOMAIN,
+            allianceDomain);
+    }
+
+    private void initShowData() {
+        String inspectPath;
+        String backupPath;
+        List<String> excludePaths;
+        if ((configCacheService == null) || StringUtil.isEmpty(configCacheService
+            .getProjectConfig(project.getBasePath(), ConfigKeyConstants.INSPECT_PATH, String.class, ""))) {
+            inspectPath = projectBasePath;
+            backupPath = "";
+            excludePaths = FileUtil.findFoldersByMask(EXCLUDE_PATTERN, inspectPath);
+        } else {
+            inspectPath = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.INSPECT_PATH,
+                String.class, "");
+            backupPath = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.BACK_PATH,
+                String.class, "");
+            excludePaths = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.EXCLUDE_PATH,
+                List.class, new ArrayList<String>());
+            mergeExcludePaths(excludePaths, inspectPath);
+        }
+
+        setInspectPath(inspectPath);
+        setExcludePaths(excludePaths);
+        setBackupPath(backupPath);
+
+        log.info("initData: inspectPath: {}, backupPath: {}, excludePaths: {}", inspectPath, backupPath,
+            String.join(",", excludePaths));
+    }
+
+    private void mergeExcludePaths(List<String> oldExcludePaths, String inspectPath) {
+        List<String> newExcludePaths = FileUtil.findFoldersByMask(EXCLUDE_PATTERN, inspectPath);
+        for (String path : newExcludePaths) {
+            if (!oldExcludePaths.contains(path)) {
+                oldExcludePaths.add(path);
+            }
+        }
     }
 
     private void addListener() {
@@ -362,7 +360,7 @@ public class HmsConvertorStartDialog extends DialogWrapper {
 
             List<String> excludePaths = getExcludePaths();
             for (VirtualFile file : files) {
-                String excludePath = file.getPath().replace("\\", "/");
+                String excludePath = FileUtil.unifyToUnixFileSeparator(file.getPath());
                 if (isNewItem(excludePath, excludePaths)) {
                     excludePaths.add(excludePath);
                 }
@@ -393,7 +391,7 @@ public class HmsConvertorStartDialog extends DialogWrapper {
         if (singleFolder == null) {
             return "";
         }
-        return singleFolder.getPath().replace("\\", "/");
+        return FileUtil.unifyToUnixFileSeparator(singleFolder.getPath());
     }
 
     private String getInspectPath() {

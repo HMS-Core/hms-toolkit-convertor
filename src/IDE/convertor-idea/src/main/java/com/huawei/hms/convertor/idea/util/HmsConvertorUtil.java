@@ -17,6 +17,8 @@
 package com.huawei.hms.convertor.idea.util;
 
 import com.huawei.hms.convertor.core.engine.xms.XmsConstants;
+import com.huawei.hms.convertor.core.mapping.MappingConstant;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
 import com.huawei.hms.convertor.idea.ui.common.UIConstants;
 import com.huawei.hms.convertor.idea.ui.result.HmsConvertorToolWindow;
@@ -29,10 +31,10 @@ import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.platform.ProjectBaseDirectory;
 import com.intellij.ui.content.Content;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.nio.file.NoSuchFileException;
@@ -47,9 +49,8 @@ import javax.swing.JComponent;
  *
  * @since 2019-07-01
  */
+@Slf4j
 public final class HmsConvertorUtil {
-    private static final Logger LOG = LoggerFactory.getLogger(HmsConvertorUtil.class);
-
     private static final Pattern XMS_JAR_PATTERN = Pattern.compile("^xms-engine-[\\d+\\.]*(.)*\\.jar$");
 
     private HmsConvertorUtil() {
@@ -62,7 +63,7 @@ public final class HmsConvertorUtil {
      * @return the project base path
      */
     @Nullable
-    public static String getProjectBasePath(@Nullable Project project) {
+    public static String getProjectBasePath(@NotNull Project project) {
         if (null != project && null != project.getBasePath()) {
             return project.getBasePath();
         }
@@ -105,9 +106,18 @@ public final class HmsConvertorUtil {
      * @throws NoSuchFileException jar not exist
      */
     public static void findXmsGeneratorJar() throws NoSuchFileException {
-        if (!StringUtil.isEmpty(System.getProperty(XmsConstants.KEY_XMS_JAR))) {
-            if (LOG.isInfoEnabled()) {
-                LOG.info("findXmsGeneratorJar: already set. ");
+        findEngineJar(XmsConstants.KEY_XMS_JAR, XMS_JAR_PATTERN);
+    }
+
+    public static void findMapping4G2hJar() throws NoSuchFileException {
+        findEngineJar(MappingConstant.Mapping4G2hJar.KEY_MAPPING_4_G2H_JAR,
+            MappingConstant.Mapping4G2hJar.MAPPING_4_G2H_JAR_PATTERN);
+    }
+
+    private static void findEngineJar(String keyEngineJar, Pattern engineJarPattern) throws NoSuchFileException {
+        if (!StringUtil.isEmpty(System.getProperty(keyEngineJar))) {
+            if (log.isInfoEnabled()) {
+                log.info("findEngineJar: already set. ");
             }
             return;
         }
@@ -116,17 +126,17 @@ public final class HmsConvertorUtil {
         if (StringUtil.isEmpty(pluginPackagePath)) {
             throw new NoSuchFileException(HmsConvertorBundle.message("no_engine_found"));
         }
-        String pluginJarPath = pluginPackagePath.replace("\\", "/");
-        String pluginJarDir = pluginJarPath + "/lib";
-        List<File> jars = FileUtil.findFilesByMask(XMS_JAR_PATTERN, new File(pluginJarDir));
-        if (LOG.isInfoEnabled()) {
-            LOG.info("Xms generator jar count = " + jars.size());
+        String pluginJarPath = FileUtil.unifyToUnixFileSeparator(pluginPackagePath);
+        String pluginJarDir = pluginJarPath + PluginConstant.PluginPackageDir.LIB_DIR;
+        List<File> jars = FileUtil.findFilesByMask(engineJarPattern, new File(pluginJarDir));
+        if (log.isInfoEnabled()) {
+            log.info("Engine jar count = " + jars.size());
         }
         if (jars.isEmpty()) {
             throw new NoSuchFileException(HmsConvertorBundle.message("no_engine_found"));
         }
 
-        String jarPath = jars.get(Constant.FIRST_INDEX).getPath().replace("\\", "/");
-        System.setProperty(XmsConstants.KEY_XMS_JAR, jarPath);
+        String jarPath = FileUtil.unifyToUnixFileSeparator(jars.get(Constant.FIRST_INDEX).getPath());
+        System.setProperty(keyEngineJar, jarPath);
     }
 }

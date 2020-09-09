@@ -27,7 +27,7 @@ import java.lang.ref.SoftReference;
 import java.util.ResourceBundle;
 
 /**
- * Internationalized processing
+ * I18N
  *
  * @since 2019-06-14
  */

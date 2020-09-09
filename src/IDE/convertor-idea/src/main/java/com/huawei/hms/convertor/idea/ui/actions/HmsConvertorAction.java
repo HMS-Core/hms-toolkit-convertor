@@ -19,6 +19,7 @@ package com.huawei.hms.convertor.idea.ui.actions;
 import com.huawei.hms.convertor.core.bi.enumration.CancelableViewEnum;
 import com.huawei.hms.convertor.core.bi.enumration.MenuEnum;
 import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
 import com.huawei.hms.convertor.idea.ui.analysis.HmsConvertorStartDialog;
@@ -50,9 +51,9 @@ import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFileManager;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.nio.file.NoSuchFileException;
@@ -65,9 +66,8 @@ import javax.swing.event.HyperlinkEvent;
  *
  * @since 2019-06-10
  */
+@Slf4j
 public class HmsConvertorAction extends AnAction {
-    private static final Logger LOG = LoggerFactory.getLogger(HmsConvertorAction.class);
-
     /**
      * Save the date in the tool windows.
      *
@@ -86,7 +86,7 @@ public class HmsConvertorAction extends AnAction {
         }
 
         // Check privacy statement.
-        if (PrivacyStatementChecker.isNotAgreed()) {
+        if (PrivacyStatementChecker.isNotAgreed(project)) {
             // bi report action: trace cancel operation.
             BIReportService.getInstance().traceCancelListener(project.getBasePath(), CancelableViewEnum.PRIVACY);
             return;
@@ -102,11 +102,11 @@ public class HmsConvertorAction extends AnAction {
         try {
             /* Save all unsaved files */
             FileDocumentManager.getInstance().saveAllDocuments();
-            VirtualFileManager.getInstance().refreshWithoutFileWatcher(false);
+            VirtualFileManager.getInstance().refreshWithoutFileWatcher(true);
 
             // Get operating environment information.
             UserEnvUtil userEnv = UserEnvUtil.create();
-            LOG.info(userEnv.toString());
+            log.info(userEnv.toString());
 
             String projectBasePath = HmsConvertorUtil.getProjectBasePath(project);
             if (StringUtil.isEmpty(projectBasePath)) {
@@ -125,11 +125,12 @@ public class HmsConvertorAction extends AnAction {
             }
 
             HmsConvertorUtil.findXmsGeneratorJar();
+            HmsConvertorUtil.findMapping4G2hJar();
             HmsConvertorStartDialog dialog = new HmsConvertorStartDialog(project, projectBasePath);
             dialog.show();
-        } catch (NoSuchFileException noSuchFileException) {
-            LOG.warn("no such file error!");
-            BalloonNotifications.showErrorNotification(noSuchFileException.getMessage(), project, Constant.PLUGIN_NAME, true);
+        } catch (NoSuchFileException ex) {
+            log.warn("project, XMSEngine jar or G2H mapping jar not found, exception: {}.", ex.getMessage());
+            BalloonNotifications.showErrorNotification(ex.getMessage(), project, Constant.PLUGIN_NAME, true);
         }
     }
 
@@ -142,7 +143,7 @@ public class HmsConvertorAction extends AnAction {
     private boolean confirmSettings(Project project) {
         boolean isAddUnambiguousImports = CodeInsightSettings.getInstance().ADD_UNAMBIGIOUS_IMPORTS_ON_THE_FLY;
         boolean isOptimizeImports = CodeInsightWorkspaceSettings.getInstance(project).optimizeImportsOnTheFly;
-        LOG.info("isAddUnambiguousImports = {}, isOptimizeImports = {}", isAddUnambiguousImports, isOptimizeImports);
+        log.info("isAddUnambiguousImports: {}, isOptimizeImports: {}", isAddUnambiguousImports, isOptimizeImports);
         if (isAddUnambiguousImports || isOptimizeImports) {
             BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("auto_import_tips"), project,
                 new NotificationListener.Adapter() {
@@ -160,13 +161,15 @@ public class HmsConvertorAction extends AnAction {
     }
 
     private boolean checkWhetherOpenLastConversion(Project project) {
+        ConfigCacheService configCacheService = ConfigCacheService.getInstance();
         String repoId = ConfigCacheService.getInstance()
             .getProjectConfig(project.getBasePath(), ConfigKeyConstants.REPO_ID, String.class, "");
-        if (StringUtil.isEmpty(repoId)) {
+        if (configCacheService == null || StringUtil.isEmpty(repoId)) {
             return true;
         }
-        String lastConversionFilePath =
-            Paths.get(Constant.PLUGIN_CACHE_PATH, repoId, ProjectConstants.Result.LAST_CONVERSION_JSON).toString();
+        String lastConversionFilePath = Paths
+            .get(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH, repoId, ProjectConstants.Result.LAST_CONVERSION_JSON)
+            .toString();
         if (FileUtil.isInvalidDirectoryPath(lastConversionFilePath)) {
             return true;
         }
@@ -181,10 +184,8 @@ public class HmsConvertorAction extends AnAction {
                 return true;
             } else if (toContinue == Messages.NO) { // Open last converison.
                 OpenLastAction.openLastConversion(project);
-            } else {
-                // Cancel
-                LOG.info("Cancel");
-
+            } else { // Cancel
+                log.info("Cancel");
                 // bi report action: trace cancel operation.
                 BIReportService.getInstance()
                     .traceCancelListener(project.getBasePath(), CancelableViewEnum.NEW_CONVERSION);

@@ -43,7 +43,7 @@ public enum HmsConvertorState {
     @NotNull
     public static HmsConvertorState get(@NotNull final Project project) {
         HmsConvertorState state = STATE_BY_PROJECT.get(project);
-        return null == state ? IDLE : state;
+        return state == null ? IDLE : state;
     }
 
     /**

@@ -24,7 +24,7 @@ import java.awt.Toolkit;
 /**
  * User environment util
  *
- * @since 2019-05-10
+ * @since 2019/5/10
  */
 public final class UserEnvUtil {
     private String ideName;

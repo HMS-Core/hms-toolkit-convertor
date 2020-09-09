@@ -16,9 +16,9 @@
 
 package com.huawei.hms.convertor.idea.spi;
 
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.base.FileService;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
-import com.huawei.hms.convertor.util.Constant;
 
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.vfs.LocalFileSystem;
@@ -28,7 +28,6 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * File service impl
@@ -66,25 +65,13 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public void delFilesByPath(List<String> paths) {
-        for (String path : paths) {
-            com.intellij.openapi.util.io.FileUtil.delete(new File(path));
-        }
-    }
-
-    @Override
-    public void createDirectory(File file) {
-        com.intellij.openapi.util.io.FileUtil.createDirectory(file);
-    }
-
-    @Override
     public void preProcess(String folderName) {
         /* Make plugin cache directory */
-        File cacheRootDirectory = new File(Constant.PLUGIN_CACHE_PATH);
+        File cacheRootDirectory = new File(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH);
         if (!cacheRootDirectory.exists()) {
             boolean isSuccess = cacheRootDirectory.mkdir();
             if (!isSuccess) {
-                log.error("Failed to make directory: {}", Constant.PLUGIN_CACHE_PATH);
+                log.error("Failed to make directory: {}", PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH);
                 return;
             }
         }
@@ -98,6 +85,6 @@ public class FileServiceImpl implements FileService {
         for (File file : files) {
             deleteCacheFile(file, folderName);
         }
-        LocalFileSystem.getInstance().refresh(false);
+        LocalFileSystem.getInstance().refresh(true);
     }
 }

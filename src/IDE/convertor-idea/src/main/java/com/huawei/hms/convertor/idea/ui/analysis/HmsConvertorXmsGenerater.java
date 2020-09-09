@@ -17,28 +17,24 @@
 package com.huawei.hms.convertor.idea.ui.analysis;
 
 import com.huawei.generator.g2x.po.summary.Diff;
-import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
-import com.huawei.hms.convertor.core.engine.fixbot.model.RoutePolicy;
-import com.huawei.hms.convertor.core.project.base.ProjectConstants;
+import com.huawei.hms.convertor.core.mapping.MappingConstant;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
+import com.huawei.hms.convertor.core.result.diff.Strategy;
 import com.huawei.hms.convertor.core.result.diff.UpdatedXmsService;
 import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
 import com.huawei.hms.convertor.idea.ui.common.BalloonNotifications;
 import com.huawei.hms.convertor.idea.util.ClientUtil;
-import com.huawei.hms.convertor.openapi.ConfigCacheService;
 import com.huawei.hms.convertor.util.Constant;
-import com.huawei.hms.convertor.util.FileUtil;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.LocalFileSystem;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
+@Slf4j
 public final class HmsConvertorXmsGenerater {
-    private static final Logger LOG = LoggerFactory.getLogger(HmsConvertorXmsGenerater.class);
-
     private Project project;
 
     private Diff diff;
@@ -48,44 +44,27 @@ public final class HmsConvertorXmsGenerater {
         this.project = project;
     }
 
-    public static void inferenceGAndHOrMultiApk(Project project, RoutePolicy oldRoutePolicy) {
-        ConfigCacheService configCache = ConfigCacheService.getInstance();
-        if (oldRoutePolicy != RoutePolicy.G_AND_H) {
-            return;
-        }
-
-        List<String> gAndHXmsPaths = FileUtil.getXmsPaths(project.getBasePath(), false);
-        List<String> multiApkXmsPaths = FileUtil.getXmsPaths(project.getBasePath(), true);
-        LOG.info("inference GAndH or MultiApk");
-        if (gAndHXmsPaths.size() == 1) {
-            configCache.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.MULTI_APK, false);
-        } else if (multiApkXmsPaths.size() == 2) {
-            configCache.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.MULTI_APK, true);
-        } else {
-            LOG.info("Not Add HMS API policy");
-        }
-    }
-
     public Diff getDiff() {
         return diff;
     }
 
-    public boolean generateNewModule(List<String> allDependency, boolean hmsFirst, boolean onlyG) {
-        LOG.info("start to generate new module");
+    public boolean generateNewModule(List<String> allDependencies, Strategy strategy) {
+        log.info("start to generate new module");
 
-        String configFilePath = ClientUtil.getPluginPackagePath().get() + "/lib/config/"
-            + ProjectConstants.Mapping.ADD_HMS_GRADLE_JSON_FILE;
+        String configFilePath = ClientUtil.getPluginPackagePath().get() + PluginConstant.PluginPackageDir.CONFIG_DIR
+            + MappingConstant.MappingFile.ADD_HMS_GRADLE_AUTO_JSON_FILE_NAME;
         Boolean result = UpdatedXmsService.getInstance()
-            .generateXms(configFilePath, project.getBasePath(), allDependency, hmsFirst, onlyG);
+            .generateXms(configFilePath, project.getBasePath(), allDependencies, strategy);
         if (!result) {
-            LOG.error("failed to createModule");
+            log.error("failed to createModule");
             return false;
         }
         diff = UpdatedXmsService.getInstance().getDiff();
-        LOG.info("end to createModule");
+        log.info("end to createModule");
         LocalFileSystem.getInstance().refresh(true);
         BalloonNotifications.showSuccessNotification(HmsConvertorBundle.message("module_adapter_success"), project,
             Constant.PLUGIN_NAME, false);
         return result;
     }
+
 }

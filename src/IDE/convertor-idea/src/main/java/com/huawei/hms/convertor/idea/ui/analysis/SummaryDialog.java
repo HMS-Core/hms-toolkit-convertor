@@ -16,21 +16,31 @@
 
 package com.huawei.hms.convertor.idea.ui.analysis;
 
-import com.huawei.hms.convertor.core.engine.fixbot.model.MethodItem;
-import com.huawei.hms.convertor.core.kits.KitsConstants;
+import com.huawei.hms.convertor.core.bi.enumration.AnalyseExportEnum;
+import com.huawei.hms.convertor.core.engine.fixbot.model.api.FixbotApiInfo;
+import com.huawei.hms.convertor.core.engine.fixbot.model.kit.KitStatisticsResult;
 import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
 import com.huawei.hms.convertor.idea.ui.common.BalloonNotifications;
+import com.huawei.hms.convertor.idea.ui.common.UIConstants;
 import com.huawei.hms.convertor.idea.ui.result.summary.KitItem;
 import com.huawei.hms.convertor.idea.ui.result.summary.KitTableModel;
 import com.huawei.hms.convertor.idea.ui.result.summary.MethodTableModel;
+import com.huawei.hms.convertor.idea.util.AnalyseResultExportUtil;
+import com.huawei.hms.convertor.idea.util.SummaryResultUtil;
+import com.huawei.hms.convertor.openapi.BIReportService;
 import com.huawei.hms.convertor.util.Constant;
 
+import com.intellij.ide.actions.ShowFilePathAction;
+import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.ToolbarDecorator;
 import com.intellij.ui.table.TableView;
 import com.intellij.util.ImageLoader;
+
+import lombok.extern.slf4j.Slf4j;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -39,11 +49,14 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.TreeMap;
 
 import javax.swing.Action;
@@ -63,9 +76,8 @@ import javax.swing.table.DefaultTableCellRenderer;
  *
  * @since 2019/11/28
  */
+@Slf4j
 public class SummaryDialog extends DialogWrapper {
-    private static final int ROW_HEIGHT = 25;
-
     private static final int MOUSE_SINGLE_CLICK = 1;
 
     private JPanel rootPanel;
@@ -94,17 +106,18 @@ public class SummaryDialog extends DialogWrapper {
 
     private KitTableModel kitTableModel;
 
-    private TableView<MethodItem> methodTable;
+    private TableView<FixbotApiInfo> methodTable;
 
     private MethodTableModel methodTableModel;
 
     private List<KitItem> kitItems = new ArrayList<>();
 
-    private TreeMap<String, List<MethodItem>> kit2MethodItemsMap = new TreeMap<>();
+    private TreeMap<String, List<FixbotApiInfo>> kit2FixbotMethodsMap;
 
     public SummaryDialog(@NotNull Project project) {
         super(project);
         this.project = project;
+        kit2FixbotMethodsMap = new TreeMap<>();
 
         init();
     }
@@ -122,7 +135,7 @@ public class SummaryDialog extends DialogWrapper {
         totalMetLabel.setText(HmsConvertorBundle.message("total_methods"));
         supportLabel.setText(HmsConvertorBundle.message("total_support"));
         kitTablePanel.add(createKitTable());
-        kitTablePanel.setPreferredSize(new Dimension(300, -1));
+        kitTablePanel.setPreferredSize(new Dimension(UIConstants.Dialog.SUMMARY_DIALOG_TABLE_WIDTH, UIConstants.Dialog.SUMMARY_DIALOG_TABLE_HEIGHT));
         methodTablePanel.add(createMethodTable());
         splitePane.setDividerLocation(splitePane.getPreferredSize().width / 2);
     }
@@ -132,7 +145,7 @@ public class SummaryDialog extends DialogWrapper {
         tablePanel.setLayout(new BorderLayout());
         kitTableModel = new KitTableModel();
         kitTable = new TableView<>(kitTableModel);
-        kitTable.setRowHeight(ROW_HEIGHT);
+        kitTable.setRowHeight(UIConstants.Dialog.ROW_HEIGHT);
         kitTable.setDragEnabled(false);
         kitTable.setEnabled(true);
         kitTable.setAutoscrolls(true);
@@ -146,22 +159,22 @@ public class SummaryDialog extends DialogWrapper {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (SwingUtilities.isLeftMouseButton(e) && (e.getClickCount() == MOUSE_SINGLE_CLICK)) {
-                    final int selectedRow = kitTable.getSelectedRow();
+                    int selectedRow = kitTable.getSelectedRow();
                     if (selectedRow < 0) {
                         return;
                     }
 
-                    final int kitTableModelSelectedIndex = kitTable.convertRowIndexToModel(selectedRow);
+                    int kitTableModelSelectedIndex = kitTable.convertRowIndexToModel(selectedRow);
                     if (kitTableModelSelectedIndex < 0) {
                         return;
                     }
-                    final String kitName = kitItems.get(kitTableModelSelectedIndex).getKitName();
-                    methodTableModel.setItems(kit2MethodItemsMap.get(kitName));
+                    String kitName = kitItems.get(kitTableModelSelectedIndex).getKitName();
+                    methodTableModel.setItems(kit2FixbotMethodsMap.get(kitName));
                 }
             }
         });
 
-        final ToolbarDecorator toolbarDecorator = ToolbarDecorator.createDecorator(kitTable);
+        ToolbarDecorator toolbarDecorator = ToolbarDecorator.createDecorator(kitTable);
         toolbarDecorator.disableRemoveAction();
         toolbarDecorator.disableUpAction();
         toolbarDecorator.disableAddAction();
@@ -176,7 +189,7 @@ public class SummaryDialog extends DialogWrapper {
         tablePanel.setLayout(new BorderLayout());
         methodTableModel = new MethodTableModel();
         methodTable = new TableView<>(methodTableModel);
-        methodTable.setRowHeight(ROW_HEIGHT);
+        methodTable.setRowHeight(UIConstants.Dialog.ROW_HEIGHT);
         methodTable.setDragEnabled(false);
         methodTable.getTableHeader().setVisible(true);
         methodTable.getTableHeader().setReorderingAllowed(false);
@@ -186,7 +199,7 @@ public class SummaryDialog extends DialogWrapper {
         methodTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         methodTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        final ToolbarDecorator toolbarDecorator = ToolbarDecorator.createDecorator(methodTable);
+        ToolbarDecorator toolbarDecorator = ToolbarDecorator.createDecorator(methodTable);
         toolbarDecorator.disableAddAction();
         toolbarDecorator.disableRemoveAction();
         toolbarDecorator.disableUpAction();
@@ -197,47 +210,76 @@ public class SummaryDialog extends DialogWrapper {
         return tablePanel;
     }
 
-    public void refreshData(TreeMap<String, List<MethodItem>> kit2Methods, List<String> allKits) {
-        kit2MethodItemsMap = kit2Methods;
+    public void refreshData(TreeMap<String, List<FixbotApiInfo>> kit2Methods,
+        List<KitStatisticsResult> kitStatisticsResults) {
+        kit2FixbotMethodsMap = kit2Methods;
         int kitIndex = 0;
         int methodCount = 0;
         int supportCount = 0;
-        for (Iterator ite = kit2MethodItemsMap.keySet().iterator(); ite.hasNext();) {
+        List<String> kits4DependOnGmsMethod = new ArrayList<>();
+        for (Iterator ite = kit2FixbotMethodsMap.keySet().iterator(); ite.hasNext();) {
             String kit = ite.next().toString();
-            List<MethodItem> methodItems = kit2MethodItemsMap.get(kit);
-            KitItem kitItem = new KitItem(++kitIndex, kit, methodItems.size());
+            List<FixbotApiInfo> fixbotMethods = kit2FixbotMethodsMap.get(kit);
+            KitItem kitItem = new KitItem(++kitIndex, kit, fixbotMethods.size());
             kitItems.add(kitItem);
-            methodCount += methodItems.size();
-            for (MethodItem methodItem : methodItems) {
-                if (methodItem.isSupport()) {
+            kits4DependOnGmsMethod.add(kit);
+            methodCount += fixbotMethods.size();
+            for (FixbotApiInfo fixbotMethod : fixbotMethods) {
+                if (fixbotMethod.isSupport()) {
                     supportCount++;
                 }
             }
         }
-        int kitCount = allKits.size();
-        if (allKits.contains(KitsConstants.COMMON)) {
-            kitCount = kitCount - 1;
+
+        List<String> kits4DependOnGmsClassOrField =
+            SummaryResultUtil.computeKit4DependOnGmsClassOrField(kitStatisticsResults, kits4DependOnGmsMethod);
+        for (String kit : kits4DependOnGmsClassOrField) {
+            KitItem kitItem = new KitItem(++kitIndex, kit, 0);
+            kitItems.add(kitItem);
         }
-        if (allKits.contains(KitsConstants.OTHER)) {
-            kitCount = kitCount - 1;
-        }
-        totalTextField.setText(String.valueOf(kitCount));
+
+        totalTextField.setText(String.valueOf(kitItems.size()));
         methodTextField.setText(String.valueOf(methodCount));
         supportTextField.setText(String.valueOf(supportCount));
-        if (kit2MethodItemsMap.isEmpty()) {
+        if (kit2FixbotMethodsMap.isEmpty()) {
             BalloonNotifications.showSuccessNotification(HmsConvertorBundle.message("no_gms_found"), project,
                 Constant.PLUGIN_NAME, true);
             return;
         }
         kitTableModel.setItems(kitItems);
-        methodTableModel.setItems(kit2MethodItemsMap.get(kitItems.get(Constant.FIRST_INDEX).getKitName()));
+        methodTableModel.setItems(kit2FixbotMethodsMap.get(kitItems.get(Constant.FIRST_INDEX).getKitName()));
         splitePane.setDividerLocation(splitePane.getPreferredSize().width / 2);
     }
 
-    @NotNull
     @Override
     public Action[] createActions() {
-        return new Action[] {};
+        return new Action[] {getOKAction(), getCancelAction()};
+    }
+
+    @Override
+    public Action getOKAction() {
+        Action okAction = super.getOKAction();
+        okAction.putValue(Action.NAME, HmsConvertorBundle.message("summary_export2file"));
+        okAction.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_N);
+        return okAction;
+    }
+
+    @Override
+    public Action getCancelAction() {
+        Action cancelAction = super.getCancelAction();
+        cancelAction.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_C);
+        cancelAction.putValue(Action.NAME, HmsConvertorBundle.message("summary_close"));
+        return cancelAction;
+    }
+
+    @Override
+    public void doOKAction() {
+        ApplicationManager.getApplication().invokeAndWait(() -> {
+            BIReportService.getInstance().traceExportClick(project.getBasePath(), AnalyseExportEnum.PRE_ANALYZE_DETAIL);
+
+            exportAnalyseResult();
+        }, ModalityState.defaultModalityState());
+        super.doOKAction();
     }
 
     @Nullable
@@ -246,13 +288,34 @@ public class SummaryDialog extends DialogWrapper {
         return rootPanel;
     }
 
+    private void exportAnalyseResult() {
+        Optional<String> analyseFilePath;
+        try {
+            analyseFilePath = AnalyseResultExportUtil.exportPdf(project.getBasePath());
+        } catch (Exception e) {
+            log.error("export analyseResult fail, projectBasePath: {}.", project.getBasePath());
+            BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("summary_export2file_error"), project,
+                Constant.PLUGIN_NAME, true);
+            return;
+        }
+        if (!analyseFilePath.isPresent()) {
+            log.error("export analyseResult fail, projectBasePath: {}.", project.getBasePath());
+            BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("summary_export2file_error"), project,
+                Constant.PLUGIN_NAME, true);
+            return;
+        }
+
+        File analyseResultFile = new File(analyseFilePath.get());
+        ShowFilePathAction.openFile(analyseResultFile);
+    }
+
     private static class KitTableCellRenderer extends DefaultTableCellRenderer {
         private static final long serialVersionUID = 8151103041655612461L;
 
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
             int row, int column) {
-            // Restore Default Status
+            // Restore default status
             super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             setForeground(JBColor.black);
             table.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -267,7 +330,7 @@ public class SummaryDialog extends DialogWrapper {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
             int row, int column) {
-            // Restore Default Status
+            // Restore default status
             super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             table.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
             if (column == MethodTableModel.METHOD_NAME_COLUMN_INDEX) {
@@ -278,4 +341,5 @@ public class SummaryDialog extends DialogWrapper {
             return this;
         }
     }
+
 }

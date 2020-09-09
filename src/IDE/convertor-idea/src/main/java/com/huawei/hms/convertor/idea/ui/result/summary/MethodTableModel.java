@@ -16,7 +16,7 @@
 
 package com.huawei.hms.convertor.idea.ui.result.summary;
 
-import com.huawei.hms.convertor.core.engine.fixbot.model.MethodItem;
+import com.huawei.hms.convertor.core.engine.fixbot.model.api.FixbotApiInfo;
 import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
 
 import com.intellij.util.ui.ListTableModel;
@@ -26,7 +26,9 @@ import com.intellij.util.ui.ListTableModel;
  *
  * @since 2019/11/28
  */
-public class MethodTableModel extends ListTableModel<MethodItem> {
+public class MethodTableModel extends ListTableModel<FixbotApiInfo> {
+    private static final long serialVersionUID = 7198474218970510026L;
+
     public static final int METHOD_NAME_COLUMN_INDEX = 1;
 
     public static final int SUPPORT_INDEX = 0;

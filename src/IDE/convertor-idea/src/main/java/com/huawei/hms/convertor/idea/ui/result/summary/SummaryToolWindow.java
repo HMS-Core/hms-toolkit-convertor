@@ -16,9 +16,13 @@
 
 package com.huawei.hms.convertor.idea.ui.result.summary;
 
-import com.huawei.hms.convertor.core.engine.fixbot.model.MethodItem;
+import com.huawei.hms.convertor.core.engine.fixbot.model.api.FixbotApiInfo;
+import com.huawei.hms.convertor.core.engine.fixbot.model.kit.KitStatisticsResult;
+import com.huawei.hms.convertor.core.result.summary.SummaryCacheManager;
 import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
 import com.huawei.hms.convertor.idea.ui.common.BalloonNotifications;
+import com.huawei.hms.convertor.idea.ui.common.UIConstants;
+import com.huawei.hms.convertor.idea.util.SummaryResultUtil;
 import com.huawei.hms.convertor.openapi.SummaryCacheService;
 import com.huawei.hms.convertor.util.Constant;
 
@@ -62,11 +66,9 @@ import javax.swing.table.DefaultTableCellRenderer;
  * @since 2019/11/30
  */
 public class SummaryToolWindow extends SimpleToolWindowPanel implements Disposable {
-    private static final int ROW_HEIGHT = 25;
+    private static final long serialVersionUID = -5082041560673705712L;
 
     private static final int MOUSE_SINGLE_CLICK = 1;
-
-    private static final long serialVersionUID = -5082041560673705712L;
 
     private JPanel rootPanel;
 
@@ -94,17 +96,18 @@ public class SummaryToolWindow extends SimpleToolWindowPanel implements Disposab
 
     private KitTableModel kitTableModel;
 
-    private TableView<MethodItem> methodTable;
+    private TableView<FixbotApiInfo> methodTable;
 
     private MethodTableModel methodTableModel;
 
     private List<KitItem> kitItems = new ArrayList<>();
 
-    private TreeMap<String, List<MethodItem>> kit2MethodItemsMap = new TreeMap<>();
+    private TreeMap<String, List<FixbotApiInfo>> kit2FixbotMethodsMap;
 
     public SummaryToolWindow(@NotNull Project project) {
         super(true, true);
         this.project = project;
+        kit2FixbotMethodsMap = new TreeMap<>();
 
         init();
     }
@@ -113,7 +116,42 @@ public class SummaryToolWindow extends SimpleToolWindowPanel implements Disposab
     public void dispose() {
     }
 
-    public void init() {
+    public JPanel getRootPanel() {
+        return rootPanel;
+    }
+
+    public void asyncClearData() {
+        ApplicationManager.getApplication().invokeAndWait(() -> {
+            clearData();
+        }, ModalityState.defaultModalityState());
+    }
+
+    public void refreshData(TreeMap<String, List<FixbotApiInfo>> kit2Methods,
+        List<KitStatisticsResult> kitStatisticsResults) {
+        ApplicationManager.getApplication().invokeAndWait(() -> {
+            clearData();
+            dealTextField(kit2Methods, kitStatisticsResults);
+            if (kit2FixbotMethodsMap.isEmpty()) {
+                BalloonNotifications.showSuccessNotification(HmsConvertorBundle.message("no_gms_found"), project,
+                    Constant.PLUGIN_NAME, true);
+                return;
+            }
+            kitTableModel.setItems(kitItems);
+            methodTableModel.setItems(kit2FixbotMethodsMap.get(kitItems.get(Constant.FIRST_INDEX).getKitName()));
+            splitePane.setDividerLocation(splitePane.getSize().width / UIConstants.ToolWindow.Summary.SPLITE_PANE_DIVISOR);
+        }, ModalityState.defaultModalityState());
+    }
+
+    public void loadLastConversion() {
+        asyncClearData();
+        TreeMap<String, List<FixbotApiInfo>> kit2MethodItemListMap =
+            SummaryCacheService.getInstance().loadSummary(project.getBasePath());
+        List<KitStatisticsResult> kitStatisticsResults =
+            SummaryCacheManager.getInstance().getKitStatisticsResults(project.getBasePath());
+        refreshData(kit2MethodItemListMap, kitStatisticsResults);
+    }
+
+    private void init() {
         gmsApisLabel.setText(HmsConvertorBundle.message("gms_kits") + ":");
         totalMetLabel.setText(HmsConvertorBundle.message("total_methods") + ":");
         supportLabel.setText(HmsConvertorBundle.message("total_support") + ":");
@@ -129,13 +167,9 @@ public class SummaryToolWindow extends SimpleToolWindowPanel implements Disposab
     private void setTextFieldStyle(JTextField textField) {
         textField.setText("0");
         textField.setHorizontalAlignment(SwingConstants.LEFT);
-        textField.setPreferredSize(new Dimension(20, 20));
+        textField.setPreferredSize(new Dimension(UIConstants.ToolWindow.Summary.TEXT_FIELD_WIDTH, UIConstants.ToolWindow.Summary.TEXT_FIELD_HEIGHT));
         textField.setBorder(new EmptyBorder(0, 0, 0, 0));
         textField.setBackground(rootPanel.getBackground());
-    }
-
-    public JPanel getRootPanel() {
-        return rootPanel;
     }
 
     private JPanel createMethodTable() {
@@ -143,7 +177,7 @@ public class SummaryToolWindow extends SimpleToolWindowPanel implements Disposab
         tablePanel.setLayout(new BorderLayout());
         methodTableModel = new MethodTableModel();
         methodTable = new TableView<>(methodTableModel);
-        methodTable.setRowHeight(ROW_HEIGHT);
+        methodTable.setRowHeight(UIConstants.ToolWindow.ROW_HEIGHT);
         methodTable.setEnabled(true);
         methodTable.setAutoscrolls(true);
         methodTable.setDragEnabled(false);
@@ -168,7 +202,7 @@ public class SummaryToolWindow extends SimpleToolWindowPanel implements Disposab
         tablePanel.setLayout(new BorderLayout());
         kitTableModel = new KitTableModel();
         kitTable = new TableView<>(kitTableModel);
-        kitTable.setRowHeight(ROW_HEIGHT);
+        kitTable.setRowHeight(UIConstants.ToolWindow.ROW_HEIGHT);
         kitTable.setDragEnabled(false);
         kitTable.getTableHeader().setVisible(true);
         kitTable.getTableHeader().setReorderingAllowed(false);
@@ -192,7 +226,7 @@ public class SummaryToolWindow extends SimpleToolWindowPanel implements Disposab
                         return;
                     }
                     final String kitName = kitItems.get(kitTableModelSelectedIndex).getKitName();
-                    methodTableModel.setItems(kit2MethodItemsMap.get(kitName));
+                    methodTableModel.setItems(kit2FixbotMethodsMap.get(kitName));
                 }
             }
         });
@@ -207,12 +241,6 @@ public class SummaryToolWindow extends SimpleToolWindowPanel implements Disposab
         return tablePanel;
     }
 
-    public void asyncClearData() {
-        ApplicationManager.getApplication().invokeAndWait(() -> {
-            clearData();
-        }, ModalityState.defaultModalityState());
-    }
-
     private void clearData() {
         totalTextField.setText("");
         methodTextField.setText("");
@@ -220,54 +248,44 @@ public class SummaryToolWindow extends SimpleToolWindowPanel implements Disposab
         if (!kitItems.isEmpty()) {
             kitItems.clear();
         }
-        if (!kit2MethodItemsMap.isEmpty()) {
-            kit2MethodItemsMap.clear();
+        if (!kit2FixbotMethodsMap.isEmpty()) {
+            kit2FixbotMethodsMap.clear();
+            // clear summary toolWindow, so need to clear summary toolWindow cache
+            SummaryCacheService.getInstance().clearAnalyseResultCache4SummaryResult(project.getBasePath());
         }
         kitTableModel.setItems(Collections.emptyList());
         methodTableModel.setItems(Collections.emptyList());
     }
 
-    public void refreshData(TreeMap<String, List<MethodItem>> kit2Methods) {
-        ApplicationManager.getApplication().invokeAndWait(() -> {
-            clearData();
-            dealTextField(kit2Methods);
-            if (kit2MethodItemsMap.isEmpty()) {
-                BalloonNotifications.showSuccessNotification(HmsConvertorBundle.message("no_gms_found"), project,
-                    Constant.PLUGIN_NAME, true);
-                return;
-            }
-            kitTableModel.setItems(kitItems);
-            methodTableModel.setItems(kit2MethodItemsMap.get(kitItems.get(Constant.FIRST_INDEX).getKitName()));
-            splitePane.setDividerLocation(splitePane.getSize().width / 3);
-        }, ModalityState.defaultModalityState());
-    }
-
-    public void loadLastConversion() {
-        asyncClearData();
-        TreeMap<String, List<MethodItem>> kit2MethodItemListMap =
-            SummaryCacheService.getInstance().loadSummary(project.getBasePath());
-        refreshData(kit2MethodItemListMap);
-    }
-
-    private void dealTextField(TreeMap<String, List<MethodItem>> kit2MethodItemListMap) {
-        kit2MethodItemsMap = new TreeMap<>(kit2MethodItemListMap);
+    private void dealTextField(TreeMap<String, List<FixbotApiInfo>> kit2MethodItemListMap,
+        List<KitStatisticsResult> kitStatisticsResults) {
+        kit2FixbotMethodsMap = new TreeMap<>(kit2MethodItemListMap);
         int kitIndex = 0;
         int methodCount = 0;
         int supportCount = 0;
-        for (Iterator ite = kit2MethodItemsMap.keySet().iterator(); ite.hasNext();) {
+        List<String> kits4DependOnGmsMethod = new ArrayList<>();
+        for (Iterator ite = kit2FixbotMethodsMap.keySet().iterator(); ite.hasNext();) {
             String kit = ite.next().toString();
-            List<MethodItem> methodItems = kit2MethodItemsMap.get(kit);
-            KitItem kitItem = new KitItem(++kitIndex, kit, methodItems.size());
+            List<FixbotApiInfo> fixbotMethods = kit2FixbotMethodsMap.get(kit);
+            KitItem kitItem = new KitItem(++kitIndex, kit, fixbotMethods.size());
             kitItems.add(kitItem);
-            methodCount += methodItems.size();
-            for (MethodItem methodItem : methodItems) {
-                if (methodItem.isSupport()) {
+            kits4DependOnGmsMethod.add(kit);
+            methodCount += fixbotMethods.size();
+            for (FixbotApiInfo fixbotMethod : fixbotMethods) {
+                if (fixbotMethod.isSupport()) {
                     supportCount++;
                 }
             }
         }
 
-        totalTextField.setText(String.valueOf(kitIndex));
+        List<String> kits4DependOnGmsClassOrField =
+            SummaryResultUtil.computeKit4DependOnGmsClassOrField(kitStatisticsResults, kits4DependOnGmsMethod);
+        for (String kit : kits4DependOnGmsClassOrField) {
+            KitItem kitItem = new KitItem(++kitIndex, kit, 0);
+            kitItems.add(kitItem);
+        }
+
+        totalTextField.setText(String.valueOf(kitItems.size()));
         supportTextField.setText(String.valueOf(supportCount));
         methodTextField.setText(String.valueOf(methodCount));
     }
@@ -278,7 +296,7 @@ public class SummaryToolWindow extends SimpleToolWindowPanel implements Disposab
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
             int row, int column) {
-            // Restore Default Status
+            // Restore default status
             super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             setForeground(JBColor.black);
             table.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -294,7 +312,7 @@ public class SummaryToolWindow extends SimpleToolWindowPanel implements Disposab
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
             int row, int column) {
-            // Restore Default Status
+            // Restore default status
             super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             table.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
             if (MethodTableModel.METHOD_NAME_COLUMN_INDEX == column) {

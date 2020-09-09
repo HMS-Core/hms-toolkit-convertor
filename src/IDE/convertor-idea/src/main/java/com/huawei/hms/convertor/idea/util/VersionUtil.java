@@ -19,7 +19,7 @@ package com.huawei.hms.convertor.idea.util;
 import com.intellij.openapi.application.ApplicationInfo;
 
 /**
- * VersionUtil
+ * Version util
  *
  * @since 2018-09-12
  */

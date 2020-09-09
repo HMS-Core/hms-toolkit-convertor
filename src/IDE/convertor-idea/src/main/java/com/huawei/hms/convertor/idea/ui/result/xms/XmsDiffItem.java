@@ -17,6 +17,7 @@
 package com.huawei.hms.convertor.idea.ui.result.xms;
 
 import com.huawei.hms.convertor.util.Constant;
+import com.huawei.hms.convertor.util.FileUtil;
 
 import com.alibaba.fastjson.JSON;
 
@@ -34,17 +35,17 @@ public final class XmsDiffItem {
 
     private String originPath;
 
-    XmsDiffItem(String newName, String oldName, Status status, String xmsTempPathStr, String originPathStr) {
-        xmsTempPath = xmsTempPathStr.replace("\\", "/");
-        originPath = originPathStr.replace("\\", "/");
+    public XmsDiffItem(String newName, String oldName, Status status, String xmsTempPathStr, String originPathStr) {
+        xmsTempPath = FileUtil.unifyToUnixFileSeparator(xmsTempPathStr);
+        originPath = FileUtil.unifyToUnixFileSeparator(originPathStr);
         if (newName != null) {
-            newFileName = newName.replace("\\", "/");
+            newFileName = FileUtil.unifyToUnixFileSeparator(newName);
             if (newFileName.contains(xmsTempPath)) {
                 newFileName = newFileName.substring(xmsTempPath.length());
             }
         }
         if (oldName != null) {
-            oldFileName = oldName.replace("\\", "/");
+            oldFileName = FileUtil.unifyToUnixFileSeparator(oldName);
             if (oldFileName.contains(originPath)) {
                 oldFileName = oldFileName.substring(originPath.length());
             }
@@ -52,22 +53,22 @@ public final class XmsDiffItem {
         this.status = status;
     }
 
-    String getShowNewFileName() {
+    public String getShowNewFileName() {
         return newFileName;
     }
 
-    String getNewFileName() {
+    public String getNewFileName() {
         if (xmsTempPath != null && newFileName != null && !newFileName.equals(Constant.NA)) {
             return xmsTempPath + newFileName;
         }
         return newFileName;
     }
 
-    String getShowOldFileName() {
+    public String getShowOldFileName() {
         return oldFileName;
     }
 
-    String getOldFileName() {
+    public String getOldFileName() {
         if (originPath != null && oldFileName != null && !oldFileName.equals(Constant.NA)) {
             return originPath + oldFileName;
         }

@@ -160,24 +160,24 @@ public class CustomPopupMenuListener implements PopupMenuListener {
         return new JBScrollPane();
     }
 
-    private int getScrollBarWidth(BasicComboPopup popup, JScrollPane pane) {
+    private int getScrollBarWidth(BasicComboPopup popup, JScrollPane scrollPane) {
         int scrollBarWidth = 0;
         if (popup.getInvoker() instanceof JComboBox) {
             JComboBox comboBox = (JComboBox) popup.getInvoker();
 
             if (comboBox.getItemCount() > comboBox.getMaximumRowCount()) {
-                JScrollBar vertical = pane.getVerticalScrollBar();
+                JScrollBar vertical = scrollPane.getVerticalScrollBar();
                 scrollBarWidth = vertical.getPreferredSize().width;
             }
         }
         return scrollBarWidth;
     }
 
-    private boolean horizontalScrollBarWillBeVisible(BasicComboPopup popup, JScrollPane pane) {
+    private boolean horizontalScrollBarWillBeVisible(BasicComboPopup popup, JScrollPane scrollPane) {
         JList list = popup.getList();
-        int scrollBarWidth = getScrollBarWidth(popup, pane);
+        int scrollBarWidth = getScrollBarWidth(popup, scrollPane);
         int popupWidth = list.getPreferredSize().width + scrollBarWidth;
 
-        return popupWidth > pane.getPreferredSize().width;
+        return popupWidth > scrollPane.getPreferredSize().width;
     }
 }

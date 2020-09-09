@@ -22,6 +22,7 @@ import com.huawei.hms.convertor.core.result.conversion.ChangedCode;
 import com.huawei.hms.convertor.core.result.conversion.ConversionItem;
 import com.huawei.hms.convertor.idea.util.HmsConvertorUtil;
 import com.huawei.hms.convertor.openapi.EventService;
+import com.huawei.hms.convertor.util.FileUtil;
 
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.event.DocumentEvent;
@@ -30,9 +31,9 @@ import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -41,9 +42,8 @@ import java.util.List;
  *
  * @since 2019-07-18
  */
+@Slf4j
 public class DocumentChangeListener implements DocumentListener {
-    private static final Logger LOG = LoggerFactory.getLogger(DocumentChangeListener.class);
-
     private String inspectPath;
 
     private int oldLineCount;
@@ -74,11 +74,11 @@ public class DocumentChangeListener implements DocumentListener {
             return;
         }
         if ((inspectPath.length() + 1) > virtualFile.getPath().length()) {
-            LOG.warn("Warring virtual File Path length is ={}, inspectPath length={}", virtualFile.getPath().length(),
+            log.warn("Warring virtual File Path length is: {}, inspectPath length: {}", virtualFile.getPath().length(),
                 inspectPath.length());
             return;
         }
-        String filePath = virtualFile.getPath().substring(inspectPath.length() + 1).replace("\\", "/");
+        String filePath = FileUtil.unifyToUnixFileSeparator(virtualFile.getPath().substring(inspectPath.length() + 1));
         String newContent = event.getNewFragment().toString();
         String oldContent = event.getOldFragment().toString();
         ChangedCode changedCode = new ChangedCode(filePath, changeEndLine, newContent, oldContent, changeLineCount);
@@ -88,11 +88,11 @@ public class DocumentChangeListener implements DocumentListener {
                 changedCode, (message) -> refreshConversionTable(message)));
     }
 
-    public void refreshConversionTable(List<ConversionItem> message) {
+    public void refreshConversionTable(List<ConversionItem> messages) {
         HmsConvertorUtil.getHmsConvertorToolWindow(project)
             .ifPresent(hmsConvertorToolWindow -> {
                 // Refresh the conversion list displayed on the tool window.
-                hmsConvertorToolWindow.getSourceConvertorToolWindow().refreshResultTable(message);
+                hmsConvertorToolWindow.getSourceConvertorToolWindow().refreshResultTable(messages);
             });
     }
 
@@ -105,4 +105,5 @@ public class DocumentChangeListener implements DocumentListener {
         changeEndLine = doc.getLineNumber(event.getOffset() + event.getOldLength()) + 1;
         oldLineCount = doc.getLineCount();
     }
+
 }

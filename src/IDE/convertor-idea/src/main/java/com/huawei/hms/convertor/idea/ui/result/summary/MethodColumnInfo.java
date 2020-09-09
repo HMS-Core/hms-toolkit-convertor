@@ -16,7 +16,7 @@
 
 package com.huawei.hms.convertor.idea.ui.result.summary;
 
-import com.huawei.hms.convertor.core.engine.fixbot.model.MethodItem;
+import com.huawei.hms.convertor.core.engine.fixbot.model.api.FixbotApiInfo;
 
 import com.intellij.ui.JBColor;
 import com.intellij.util.ui.ColumnInfo;
@@ -38,31 +38,20 @@ import javax.swing.table.TableCellRenderer;
  *
  * @since 2019/11/28
  */
-public class MethodColumnInfo extends ColumnInfo<MethodItem, String> {
+public class MethodColumnInfo extends ColumnInfo<FixbotApiInfo, String> {
     private int columnIndex;
 
     private int[] columnWidth = {130, -1};
 
-    MethodColumnInfo(String columnTitle, int columnIndex) {
+    public MethodColumnInfo(String columnTitle, int columnIndex) {
         super(columnTitle);
         this.columnIndex = columnIndex;
     }
 
     @Nullable
     @Override
-    public String valueOf(MethodItem methodItem) {
-        return getValue(methodItem, columnIndex);
-    }
-
-    private String getValue(MethodItem methodItem, int index) {
-        switch (index) {
-            case MethodTableModel.METHOD_NAME_COLUMN_INDEX:
-                return methodItem.getMethodName();
-            case MethodTableModel.SUPPORT_INDEX:
-                return String.valueOf(methodItem.isSupport());
-            default:
-                return "";
-        }
+    public String valueOf(FixbotApiInfo fixbotMethod) {
+        return getValue(fixbotMethod, columnIndex);
     }
 
     @Override
@@ -72,37 +61,48 @@ public class MethodColumnInfo extends ColumnInfo<MethodItem, String> {
 
     @Nullable
     @Override
-    public Comparator<MethodItem> getComparator() {
+    public Comparator<FixbotApiInfo> getComparator() {
         return new MethodComparator(columnIndex);
     }
 
     @Nullable
     @Override
-    public TableCellRenderer getRenderer(MethodItem methodItem) {
+    public TableCellRenderer getRenderer(FixbotApiInfo fixbotMethod) {
         DefaultTableCellRenderer renderer = new MethodTableCellRenderer();
-        if (!methodItem.isSupport()) {
+        if (!fixbotMethod.isSupport()) {
             renderer.setForeground(JBColor.RED);
         }
         return renderer;
     }
 
-    private static class MethodComparator implements Comparator<MethodItem>, Serializable {
+    private String getValue(FixbotApiInfo fixbotMethod, int columnIndex) {
+        switch (columnIndex) {
+            case MethodTableModel.METHOD_NAME_COLUMN_INDEX:
+                return fixbotMethod.getOldNameInDesc();
+            case MethodTableModel.SUPPORT_INDEX:
+                return String.valueOf(fixbotMethod.isSupport());
+            default:
+                return "";
+        }
+    }
+
+    private static class MethodComparator implements Comparator<FixbotApiInfo>, Serializable {
         private static final long serialVersionUID = -6953084591915057227L;
 
         private int columnIndex;
 
-        MethodComparator(int columnIndex) {
+        public MethodComparator(int columnIndex) {
             this.columnIndex = columnIndex;
         }
 
         @Override
-        public int compare(MethodItem o1, MethodItem o2) {
+        public int compare(FixbotApiInfo o1, FixbotApiInfo o2) {
             switch (columnIndex) {
                 case MethodTableModel.SUPPORT_INDEX:
                     return Boolean.toString(o1.isSupport()).compareTo(Boolean.toString(o2.isSupport()));
 
                 case MethodTableModel.METHOD_NAME_COLUMN_INDEX:
-                    return o1.getMethodName().compareTo(o2.getMethodName());
+                    return o1.getOldNameInDesc().compareTo(o2.getOldNameInDesc());
 
                 default:
                     return 0;
@@ -116,7 +116,7 @@ public class MethodColumnInfo extends ColumnInfo<MethodItem, String> {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
             int row, int column) {
-            // Restore Default Status
+            // Restore default status
             super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             table.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             if (MethodTableModel.METHOD_NAME_COLUMN_INDEX == column) {

@@ -28,10 +28,11 @@ import javax.swing.JList;
  * @since 2019-08-06
  */
 public class CustomComboBoxRenderer extends DefaultListCellRenderer {
+    private static final long serialVersionUID = -1875881743829014790L;
     private JLabel searchLabel;
 
     public CustomComboBoxRenderer(JLabel filterLabel) {
-        this.searchLabel = filterLabel;
+        searchLabel = filterLabel;
     }
 
     @Override
@@ -42,12 +43,12 @@ public class CustomComboBoxRenderer extends DefaultListCellRenderer {
         if (value instanceof String) {
             text = (String) value;
         }
-        if (null == text) {
+        if (text == null) {
             return this;
         }
 
         text = HtmlHighlighter.highlightText(text, searchLabel.getText());
-        this.setText(text);
+        setText(text);
         return this;
     }
 

@@ -25,6 +25,9 @@ import com.intellij.openapi.components.Storage;
 import com.intellij.openapi.project.Project;
 import com.intellij.util.xmlb.XmlSerializerUtil;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -37,6 +40,8 @@ import java.util.List;
  *
  * @since 2019-06-27
  */
+@Getter
+@Setter
 @State(name = "HmsConvertorSettings", storages = @Storage("HmsConvertorSettings.xml"))
 public class HmsConvertorSettings implements PersistentStateComponent<HmsConvertorSettings> {
     private String inspectPath;
@@ -80,107 +85,4 @@ public class HmsConvertorSettings implements PersistentStateComponent<HmsConvert
         XmlSerializerUtil.copyBean(hmsConvertorSettings, this);
     }
 
-    public String getInspectPath() {
-        return inspectPath;
-    }
-
-    public void setInspectPath(String inspectPath) {
-        this.inspectPath = inspectPath;
-    }
-
-    public String getBackupPath() {
-        return backupPath;
-    }
-
-    public void setBackupPath(String backupPath) {
-        this.backupPath = backupPath;
-    }
-
-    public List<String> getExcludeList() {
-        return excludeList;
-    }
-
-    public void setExcludeList(List<String> excludeList) {
-        this.excludeList = excludeList;
-    }
-
-    public RoutePolicy getRoutePolicy() {
-        return routePolicy;
-    }
-
-    public void setRoutePolicy(RoutePolicy routePolicy) {
-        this.routePolicy = routePolicy;
-    }
-
-    public boolean isMultiApk() {
-        return multiApk;
-    }
-
-    public void setMultiApk(boolean multiApk) {
-        this.multiApk = multiApk;
-    }
-
-    public boolean isHmsFirst() {
-        return hmsFirst;
-    }
-
-    public void setHmsFirst(boolean hmsFirst) {
-        this.hmsFirst = hmsFirst;
-    }
-
-    public List<String> getXmsAdaptorPathList() {
-        return xmsAdaptorPathList;
-    }
-
-    public void setXmsAdaptorPathList(List<String> xmsAdaptorPathList) {
-        this.xmsAdaptorPathList = xmsAdaptorPathList;
-    }
-
-    public String getRepoId() {
-        return repoId;
-    }
-
-    public void setRepoId(String repoId) {
-        this.repoId = repoId;
-    }
-
-    public String getInspectFolder() {
-        return inspectFolder;
-    }
-
-    public void setInspectFolder(String inspectFolder) {
-        this.inspectFolder = inspectFolder;
-    }
-
-    public List<String> getXms4GAdaptorPathList() {
-        return xms4GAdaptorPathList;
-    }
-
-    public void setXms4GAdaptorPathList(List<String> xms4GAdaptorPathList) {
-        this.xms4GAdaptorPathList = xms4GAdaptorPathList;
-    }
-
-    public String getAllianceDomain() {
-        return allianceDomain;
-    }
-
-    public void setAllianceDomain(String allianceDomain) {
-        this.allianceDomain = allianceDomain;
-    }
-
-    public boolean isCommentEnable() {
-        return commentEnable;
-    }
-
-    public void setCommentEnable(boolean commentEnable) {
-        this.commentEnable = commentEnable;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 }
