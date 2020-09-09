@@ -97,22 +97,6 @@ public final class ProjectConversionCache {
     }
 
     /**
-     * Get conversion items by relative file path
-     *
-     * @param filePath Relative file path
-     * @return Conversion item
-     */
-    public List<ConversionItem> getConversionItemsByFile(String filePath) {
-        List<String> conversionIds = fileConversions.get(filePath);
-        if (Objects.isNull(conversionIds)) {
-            return new ArrayList<>();
-        }
-        return conversionIds.stream()
-            .map(conversionId -> conversionCache.get(conversionId))
-            .collect(Collectors.toList());
-    }
-
-    /**
      * Correct conversion cache by id, and will put changed items into {@code changedItemMap}
      *
      * @param conversionId Conversion id
@@ -152,30 +136,6 @@ public final class ProjectConversionCache {
             conversionId);
     }
 
-    private boolean lineNoChange(ConversionItem appliedItem, int fixChangedEndLineNumber,
-        int defectChangedEndLineNumber) {
-        return appliedItem.getFixEndLine() > 0 && appliedItem.getDefectEndLine() > 0
-            && fixChangedEndLineNumber == defectChangedEndLineNumber;
-    }
-
-    private int getChangedLineCount(boolean convert, ConversionItem appliedItem) {
-        int changedLineCount = appliedItem.getFixEndLine() - appliedItem.getFixStartLine() -
-            (appliedItem.getDefectEndLine() - appliedItem.getDefectStartLine());
-        if (appliedItem.getFixEndLine() > 0 && appliedItem.getDefectEndLine() > 0
-            && appliedItem.getDefectStartLine() > 0 && appliedItem.getFixStartLine() > 0) {
-            // 1 -> n
-            changedLineCount = convert ? changedLineCount : -changedLineCount;
-        } else {
-            // insert or delete
-            if (convert) {
-                changedLineCount = changedLineCount + 1;
-            } else {
-                changedLineCount = changedLineCount - 1;
-            }
-        }
-        return changedLineCount;
-    }
-
     /**
      * Correct conversion cache by changed code, and will put changed items into {@code changedItemMap}
      *
@@ -187,21 +147,22 @@ public final class ProjectConversionCache {
         // revert repeat submission
 
         if (eventType.equals(EventType.EDIT_EVENT)) {
-            log.info("Enter correctCache. {}, {}",
-                changedCode.getChangedLineCount(), changedCode.getChangedEndLineNumber());
+            log.info("Enter correctCache. {}, {}", changedCode.getChangedLineCount(),
+                changedCode.getChangedEndLineNumber());
             for (ConversionItem item : fileItems) {
                 if (item.getConvertType().equals(ConvertType.MANUAL)) {
                     continue;
                 }
 
-                if (!isContextCompare(changedCode, item)) {
+                boolean contextCompare = isContextCompare(changedCode, item);
+                if (!contextCompare) {
                     continue;
                 }
 
                 int editChangeEndLine = changedCode.getChangedEndLineNumber();
                 int changedLineCount = changedCode.getChangedLineCount();
-                if ((reduceLineItem(item) && changedCode.getChangedLineCount() > 0) ||
-                    (!reduceLineItem(item) && changedCode.getChangedLineCount() < 0)) {
+                if ((reduceLineItem(item) && changedCode.getChangedLineCount() > 0)
+                    || (!reduceLineItem(item) && changedCode.getChangedLineCount() < 0)) {
                     editChangeEndLine = changedCode.getChangedEndLineNumber() + changedLineCount;
                 }
 
@@ -218,28 +179,107 @@ public final class ProjectConversionCache {
             log.info("out is edit");
         }
 
+        adjustDefectItems(changedCode, fileItems);
+        log.info("changedCode correctCache, correctedItemMap size is {}", correctedItemMap.size());
+    }
+
+    /**
+     * Get corrected conversion items
+     *
+     * @return Corrected conversion items
+     */
+    public List<ConversionItem> getCorrectedItems() {
+        log.info("getCorrectedItems, item size is {}", correctedItemMap.size());
+        List<ConversionItem> correctItems = new ArrayList<>(correctedItemMap.values());
+        correctedItemMap.clear();
+        return correctItems;
+    }
+
+    /**
+     * clear cache
+     */
+    public void clearProjectConversion() {
+        conversionItemList.clear();
+        conversionCache.clear();
+        fileConversions.clear();
+        correctedItemMap.clear();
+    }
+
+    /**
+     * Get conversion items by relative file path
+     *
+     * @param filePath Relative file path
+     * @return Conversion item
+     */
+    private List<ConversionItem> getConversionItemsByFile(String filePath) {
+        List<String> conversionIds = fileConversions.get(filePath);
+        if (Objects.isNull(conversionIds)) {
+            return new ArrayList<>();
+        }
+        return conversionIds.stream()
+            .map(conversionId -> conversionCache.get(conversionId))
+            .collect(Collectors.toList());
+    }
+
+    private boolean lineNoChange(ConversionItem appliedItem, int fixChangedEndLineNumber,
+        int defectChangedEndLineNumber) {
+        return appliedItem.getFixEndLine() > 0 && appliedItem.getDefectEndLine() > 0
+            && fixChangedEndLineNumber == defectChangedEndLineNumber;
+    }
+
+    private int getChangedLineCount(boolean convert, ConversionItem appliedItem) {
+        int changedLineCount = appliedItem.getFixEndLine() - appliedItem.getFixStartLine()
+            - (appliedItem.getDefectEndLine() - appliedItem.getDefectStartLine());
+        if (appliedItem.getFixEndLine() > 0 && appliedItem.getDefectEndLine() > 0
+            && appliedItem.getDefectStartLine() > 0 && appliedItem.getFixStartLine() > 0) {
+            // 1 -> n
+            changedLineCount = convert ? changedLineCount : -changedLineCount;
+        } else {
+            // insert or delete
+            if (convert) {
+                changedLineCount = changedLineCount + 1;
+            } else {
+                changedLineCount = -(changedLineCount + 1);
+            }
+        }
+        return changedLineCount;
+    }
+
+    private void adjustDefectItems(ChangedCode changedCode, List<ConversionItem> fileItems) {
         // Correct line number of the conversions after the changed code
         for (ConversionItem item : fileItems) {
             if (item.isFileTailConvert()) {
                 item.setFileTailConvert(false);
             }
-            // If itemStartLine not exceed changeEndLine, do not adjust line
-            int itemStartLine = Math.abs(item.getDefectStartLine());
-            if (itemStartLine <= Math.abs(changedCode.getChangedEndLineNumber())) {
+
+            int itemLineNumber = Math.abs(item.getDefectStartLine());
+            int currentLineNumber = Math.abs(changedCode.getChangedEndLineNumber());
+            if (itemLineNumber < currentLineNumber) {
                 continue;
+            }
+
+            if (itemLineNumber == currentLineNumber) {
+                if (item.getDefectStartLine() == changedCode.getChangedEndLineNumber()) {
+                    continue;
+                }
+
+                boolean isCurrentItemReplaceType = changedCode.getChangedEndLineNumber() > 0;
+                boolean isItemInsertType = item.getDefectStartLine() < 0;
+                if (isCurrentItemReplaceType && isItemInsertType) {
+                    continue;
+                }
             }
             adjustDefectLine(item, changedCode.getChangedLineCount());
             correctedItemMap.put(item.getConversionId(), item);
         }
-        log.info("changedCode correctCache, correctedItemMap size is {}", correctedItemMap.size());
     }
 
     private int getChangedLineNum(ConversionItem item) {
         int changedLineNum = Math.abs(item.getFixEndLine() - item.getFixStartLine()) + 1;
         if (item.getFixEndLine() > 0 && item.getDefectEndLine() > 0 && item.getDefectStartLine() > 0
             && item.getFixStartLine() > 0) {
-            changedLineNum = item.getFixEndLine() - item.getFixStartLine() -
-                (item.getDefectEndLine() - item.getDefectStartLine());
+            changedLineNum =
+                item.getFixEndLine() - item.getFixStartLine() - (item.getDefectEndLine() - item.getDefectStartLine());
             changedLineNum = Math.abs(changedLineNum);
         }
         return changedLineNum;
@@ -274,27 +314,5 @@ public final class ProjectConversionCache {
             }
         }
         return false;
-    }
-
-    /**
-     * Get corrected conversion items
-     *
-     * @return Corrected conversion items
-     */
-    public List<ConversionItem> getCorrectedItems() {
-        log.info("getCorrectedItems, item size is {}", correctedItemMap.size());
-        List<ConversionItem> correctItems = new ArrayList<>(correctedItemMap.values());
-        correctedItemMap.clear();
-        return correctItems;
-    }
-
-    /**
-     * clear cache
-     */
-    public void clearProjectConversion() {
-        conversionItemList.clear();
-        conversionCache.clear();
-        fileConversions.clear();
-        correctedItemMap.clear();
     }
 }

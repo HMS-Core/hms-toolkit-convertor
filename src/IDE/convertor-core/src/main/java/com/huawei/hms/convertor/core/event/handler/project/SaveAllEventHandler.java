@@ -18,12 +18,14 @@ package com.huawei.hms.convertor.core.event.handler.project;
 
 import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
 import com.huawei.hms.convertor.core.event.handler.AbstractCallbackHandler;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.backup.ProjectBackup;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.openapi.ConfigCacheService;
 import com.huawei.hms.convertor.openapi.ProjectArchiveService;
 import com.huawei.hms.convertor.openapi.result.Result;
-import com.huawei.hms.convertor.util.Constant;
+import com.huawei.hms.convertor.util.FileUtil;
+
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.file.Files;
@@ -42,7 +44,8 @@ public class SaveAllEventHandler extends AbstractCallbackHandler<String, Result>
 
         String repoID = ConfigCacheService.getInstance()
             .getProjectConfig(projectPath, ConfigKeyConstants.REPO_ID, String.class, "");
-        final String engineCachePath = Constant.PLUGIN_CACHE_PATH.replace("\\", "/") + repoID;
+        final String engineCachePath =
+            FileUtil.unifyToUnixFileSeparator(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH) + repoID;
         if (Files.notExists(Paths.get(engineCachePath, ProjectConstants.Result.LAST_SUMMARY_JSON))
             || Files.notExists(Paths.get(engineCachePath, ProjectConstants.Result.LAST_CONVERSION_JSON))) {
             log.warn("Last summary and last conversion file are missing");

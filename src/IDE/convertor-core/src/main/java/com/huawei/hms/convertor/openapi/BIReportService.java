@@ -19,13 +19,17 @@ package com.huawei.hms.convertor.openapi;
 import com.huawei.hms.convertor.core.bi.BITraceManager;
 import com.huawei.hms.convertor.core.bi.bean.CancelListenerBean;
 import com.huawei.hms.convertor.core.bi.bean.ConversionOperationBean;
+import com.huawei.hms.convertor.core.bi.bean.ExportClickBean;
 import com.huawei.hms.convertor.core.bi.bean.FunctionSelectionBean;
 import com.huawei.hms.convertor.core.bi.bean.HelpClickBean;
+import com.huawei.hms.convertor.core.bi.bean.JavaDocMenuBean;
 import com.huawei.hms.convertor.core.bi.bean.MenuSelectionBean;
 import com.huawei.hms.convertor.core.bi.bean.TimeCostBean;
+import com.huawei.hms.convertor.core.bi.enumration.AnalyseExportEnum;
 import com.huawei.hms.convertor.core.bi.enumration.BIActionEnum;
 import com.huawei.hms.convertor.core.bi.enumration.CancelableViewEnum;
 import com.huawei.hms.convertor.core.bi.enumration.ConversionHelpEnum;
+import com.huawei.hms.convertor.core.bi.enumration.JavaDocActionEnum;
 import com.huawei.hms.convertor.core.bi.enumration.MenuEnum;
 import com.huawei.hms.convertor.core.bi.enumration.OperationViewEnum;
 
@@ -40,7 +44,7 @@ import java.util.List;
  */
 @Slf4j
 public final class BIReportService {
-    private static BIReportService INSTANCE = new BIReportService();
+    private static final BIReportService INSTANCE = new BIReportService();
 
     private BIReportService() {
     }
@@ -56,7 +60,7 @@ public final class BIReportService {
      * @param menu menu selected
      */
     public void traceMenuSelection(String projectPath, MenuEnum menu) {
-        if (null == menu) {
+        if (menu == null) {
             return;
         }
 
@@ -117,7 +121,7 @@ public final class BIReportService {
      * @param view cancel view.
      */
     public void traceCancelListener(String projectPath, CancelableViewEnum view) {
-        if (null == view) {
+        if (view == null) {
             return;
         }
 
@@ -133,11 +137,17 @@ public final class BIReportService {
      * @param help help view.
      */
     public void traceHelpClick(String projectPath, ConversionHelpEnum help) {
-        if (null == help) {
+        if (help == null) {
             return;
         }
         BITraceManager.getInstance()
             .traceData(projectPath, BIActionEnum.HELP_CLICK, HelpClickBean.builder().helpView(help.getValue()).build());
+    }
+
+    public void traceExportClick(String projectPath, AnalyseExportEnum export) {
+        BITraceManager.getInstance()
+            .traceData(projectPath, BIActionEnum.EXPORT_CLICK,
+                ExportClickBean.builder().exportView(export.getValue()).build());
     }
 
     /**
@@ -149,7 +159,7 @@ public final class BIReportService {
      * @param jvmXmx jvmXmx option.
      */
     public void traceTimeAnalyzeCost(String projectPath, OperationViewEnum view, String timeCost, String jvmXmx) {
-        if (null == view) {
+        if (view == null) {
             return;
         }
 
@@ -204,4 +214,39 @@ public final class BIReportService {
     public void clearTraceService(String projectPath) {
         BITraceManager.getInstance().clearTraceServiceInstance(projectPath);
     }
+
+    /**
+     * Trace javadoc selection.
+     *
+     * @param projectPath project path
+     * @param menu menu selected
+     */
+    public void traceJavaDocSelection(String projectPath, JavaDocActionEnum menu) {
+        if (menu == null) {
+            return;
+        }
+
+        if (menu.equals(JavaDocActionEnum.HMS_API_HELPER)) {
+            BITraceManager.getInstance()
+                .setNewConversionBeginTime(projectPath, String.valueOf(System.currentTimeMillis()));
+        }
+        BITraceManager.getInstance()
+            .traceData(projectPath, BIActionEnum.JAVADOC_SELECTION,
+                JavaDocMenuBean.builder().menu(menu.getValue()).build());
+    }
+
+    public void traceJavaDocSearch(String projectPath, JavaDocActionEnum menu) {
+        if (menu == null) {
+            return;
+        }
+
+        if (menu.equals(JavaDocActionEnum.HMS_API_SEARCH)) {
+            BITraceManager.getInstance()
+                .setNewConversionBeginTime(projectPath, String.valueOf(System.currentTimeMillis()));
+        }
+        BITraceManager.getInstance()
+            .traceData(projectPath, BIActionEnum.JAVADOC_SEARCH,
+                JavaDocMenuBean.builder().menu(menu.getValue()).build());
+    }
+
 }

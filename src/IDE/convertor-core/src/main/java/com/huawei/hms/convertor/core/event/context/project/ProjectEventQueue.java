@@ -71,9 +71,11 @@ public class ProjectEventQueue {
     Result<ProjectEvent> consume() {
         try {
             ProjectEvent event = generalEvents.take();
+
             if (log.isDebugEnabled()) {
                 log.debug("Consume event: {}", event);
             }
+
             return Result.ok(event);
         } catch (InterruptedException e) {
             log.error("Take event from event queue failed", e);
@@ -92,10 +94,13 @@ public class ProjectEventQueue {
             if (editEvents.isEmpty()) {
                 return Result.failed("None edit event in the queue");
             }
+
             ProjectEvent event = editEvents.poll();
+
             if (log.isDebugEnabled()) {
                 log.debug("Consume event: {}", event);
             }
+
             return Result.ok(event);
         } else {
             throw new IllegalArgumentException("Unsupported event: " + eventType.getName());

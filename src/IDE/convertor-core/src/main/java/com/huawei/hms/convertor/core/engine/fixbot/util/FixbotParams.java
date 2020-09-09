@@ -44,6 +44,20 @@ public class FixbotParams {
 
     private static final String EXCLUDE_PATH_SYMBOL = "-excludedPath";
 
+    private static final String PROJECT_CLIENT_TYPE_SYMBOL = "-client";
+
+    private static final String PROJECT_TYPE_SKD = "SDK";
+
+    private static final String ONLY_G = "G";
+
+    private static final String ONLY_H = "H";
+
+    private boolean isSdk;
+
+    private boolean onlyG;
+
+    private boolean onlyH;
+
     private String enginePath;
 
     private String mappingPath;
@@ -69,7 +83,20 @@ public class FixbotParams {
         jvmOpt = FixbotConfigs.getInstance().getVmOptions(enginePath);
     }
 
-    public String[] toStringArgs() {
+    public String[] toPreAnalysisStringArgs() {
+        jvmOpt.add(CACHE_DIRECTORY_SYMBOL);
+        jvmOpt.add(cacheDirectory);
+        jvmOpt.add(INSPECT_PATH_SYMBOL);
+        jvmOpt.add(inspectPath);
+        jvmOpt.add(FIX_PATH_SYMBOL);
+        jvmOpt.add(fixPath);
+        jvmOpt.add(POLICY_SYMBOL);
+        jvmOpt.add(policy);
+        addExcludePathToArgs();
+        return jvmOpt.toArray(new String[0]);
+    }
+
+    public String[] toAnalysisStringArgs() {
         initJvmOpt();
         jvmOpt.add(ENGINE_PATH_SYMBOL);
         jvmOpt.add(enginePath);
@@ -83,10 +110,39 @@ public class FixbotParams {
         jvmOpt.add(fixPath);
         jvmOpt.add(POLICY_SYMBOL);
         jvmOpt.add(policy);
+        if (isSdk) {
+            getParameterWithSdk();
+        } else {
+            getParameterWithNoSdk();
+        }
+        addExcludePathToArgs();
+        return jvmOpt.toArray(new String[0]);
+    }
+
+    private void addExcludePathToArgs() {
         for (int i = 0; ((excludedPaths != null) && (i < excludedPaths.size())); i++) {
             jvmOpt.add(EXCLUDE_PATH_SYMBOL);
             jvmOpt.add(excludedPaths.get(i));
         }
-        return jvmOpt.toArray(new String[0]);
+    }
+
+    private void getParameterWithSdk() {
+        jvmOpt.add(PROJECT_CLIENT_TYPE_SYMBOL);
+        jvmOpt.add(PROJECT_TYPE_SKD);
+    }
+
+    private void getParameterWithNoSdk() {
+
+        if (!onlyG && !onlyH) {
+            return;
+        }
+        jvmOpt.add(PROJECT_CLIENT_TYPE_SYMBOL);
+
+        if (onlyG && onlyH) {
+            jvmOpt.add(ONLY_G + "#" + ONLY_H);
+            return;
+        }
+
+        jvmOpt.add(onlyG == true ? ONLY_G : ONLY_H);
     }
 }

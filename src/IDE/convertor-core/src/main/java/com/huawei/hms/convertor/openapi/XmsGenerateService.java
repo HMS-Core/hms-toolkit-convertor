@@ -16,14 +16,16 @@
 
 package com.huawei.hms.convertor.openapi;
 
-import com.huawei.generator.g2x.po.summary.Summary;
 import com.huawei.generator.g2x.processor.GenerateSummary;
 import com.huawei.generator.g2x.processor.GeneratorResult;
+import com.huawei.generator.g2x.processor.GeneratorStrategyKind;
+import com.huawei.generator.g2x.processor.ProcessorUtils;
 import com.huawei.generator.g2x.processor.XMSRouterService;
 import com.huawei.generator.g2x.processor.XmsService;
-import com.huawei.generator.g2x.processor.ProcessorUtils;
 
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -32,17 +34,10 @@ import java.util.Set;
  * @since 2020-02-11
  */
 public final class XmsGenerateService {
-    /**
-     * generate g+h mapping
-     *
-     * @param pluginJarPath xms package path
-     * @param outPath mapping generation path
-     * @param logPath log path
-     * @return GeneratorResult
-     */
-    public static GeneratorResult generateXmsConfig(String pluginJarPath, String outPath, String logPath) {
-        return XMSRouterService.generateXmsConfig(pluginJarPath, outPath, logPath, Collections.emptyMap(),
-                Collections.emptyMap());
+    public static GeneratorResult generateXmsConfig(String pluginJarPath, String outPath, String logPath,
+        Map<String, String> dependencyVersionMap) {
+        return XMSRouterService.generateXmsConfig(pluginJarPath, outPath, logPath, dependencyVersionMap,
+            Collections.emptyMap());
     }
 
     /**
@@ -54,36 +49,22 @@ public final class XmsGenerateService {
         return XmsService.supportKitInfo();
     }
 
-    /**
-     * Create a new module and generate diff
-     *
-     * @param processorUtils should be build with
-     *        pluginPath/backPath/targetPath/kitMap/allDepMap/strategyKindList/thirdSDK
-     * @return generate result
-     */
-    public static GenerateSummary create(ProcessorUtils processorUtils) {
+    public static GenerateSummary create(String pluginPath, String backPath, String targetPath,
+        Map<String, String> kitMap, Map<String, Set<String>> allDepMap, List<GeneratorStrategyKind> strategykindList,
+        boolean thirdSdk, Map<String, String> dependencyVersionMap, boolean useClassloader) {
+        ProcessorUtils.Builder builder = new ProcessorUtils.Builder();
+        builder.setPluginPath(pluginPath)
+            .setBackPath(backPath)
+            .setTargetPath(targetPath)
+            .setKitMap(kitMap)
+            .setAllDepMap(allDepMap)
+            .setStrategyKindList(strategykindList)
+            .setThirdSDK(thirdSdk)
+            .setGmsVersionMap(dependencyVersionMap)
+            .setNeedClassLoader(useClassloader)
+            .build();
+        ProcessorUtils processorUtils = new ProcessorUtils(builder);
         return XmsService.create(processorUtils);
     }
 
-    /**
-     * Create a new module without g/h first and generate diff
-     *
-     * @param processorUtils should be build with
-     *        pluginPath/oldPath/newPath/kitMap/allDepMap/useOnlyG/thirdSDK
-     * @return result
-     */
-    public static GenerateSummary createWithoutFirstStrategy(ProcessorUtils processorUtils) {
-        return XmsService.createWithoutFirstStrategy(processorUtils);
-    }
-
-    /**
-     * D return summary for IDE to produce sdk/app and strategy
-     *
-     * @param pluginPath plugin path
-     * @param rootPath path/xmsadapter
-     * @return summary, null for fail
-     */
-    public static Summary inferStrategy(String pluginPath, String rootPath) {
-        return XmsService.inferStrategy(pluginPath, rootPath);
-    }
 }

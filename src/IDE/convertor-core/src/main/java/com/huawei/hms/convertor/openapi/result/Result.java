@@ -27,7 +27,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class Result<T> {
-    private long code;
+    private int code;
 
     private T data;
 
@@ -41,11 +41,6 @@ public class Result<T> {
      */
     public static <T> Result<T> ok() {
         return ok(null);
-    }
-
-    public Result(long code, String message) {
-        this.code = code;
-        this.message = message;
     }
 
     /**
@@ -71,7 +66,7 @@ public class Result<T> {
      * @return Failed result object
      */
     public static <T> Result<T> failed(String message) {
-        return of(ErrorCode.FAILURE.getCode(), message);
+        return of(ErrorCode.FAILURE.getCode(), null, message);
     }
 
     /**
@@ -82,7 +77,7 @@ public class Result<T> {
      * @return Failed result object
      */
     public static <T> Result<T> failed(ErrorCode errorCode) {
-        return of(errorCode);
+        return of(null, errorCode);
     }
 
     /**
@@ -97,15 +92,7 @@ public class Result<T> {
         return of(errorCode.getCode(), data, errorCode.getMessage());
     }
 
-    private static <T> Result<T> of(long code, String message) {
-        return new Result<T>(code, message);
-    }
-
-    public static <T> Result<T> of(ErrorCode errorCode) {
-        return of(errorCode.getCode(), errorCode.getMessage());
-    }
-
-    private static <T> Result<T> of(long code, T data, String message) {
+    private static <T> Result<T> of(int code, T data, String message) {
         return new Result<T>(code, data, message);
     }
 

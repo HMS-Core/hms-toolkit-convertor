@@ -34,7 +34,15 @@ public interface ConfigKeyConstants {
 
     String PROJECT_TYPE = "type";
 
+    /**
+     * Generate code for creating app dependent only on GMS SDK
+     */
     String MULTI_APK = "multiApk";
+
+    /**
+     * Generate code for creating app dependent only on HMS SDK
+     */
+    String ONLY_H = "onlyH";
 
     String INSPECT_PATH = "inspectPath";
 
@@ -51,8 +59,6 @@ public interface ConfigKeyConstants {
     String ROUTE_POLICY = "routePolicy";
 
     String NEW_MODULE = "newModule";
-
-    String XMS_EVENT_QUEUE = "xmsEventQueue";
 
     String CONVERTED_BY_OLD_SETTING = "convertedByOldSetting";
 

@@ -17,7 +17,12 @@
 package com.huawei.hms.convertor.core.result.summary;
 
 import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
-import com.huawei.hms.convertor.core.engine.fixbot.model.MethodItem;
+import com.huawei.hms.convertor.core.engine.fixbot.model.XmsSetting;
+import com.huawei.hms.convertor.core.engine.fixbot.model.api.ApiAnalyseResult;
+import com.huawei.hms.convertor.core.engine.fixbot.model.api.FixbotApiInfo;
+import com.huawei.hms.convertor.core.engine.fixbot.model.kit.KitStatisticsResult;
+import com.huawei.hms.convertor.core.engine.fixbot.model.project.ProjectStatisticsResult;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.openapi.ConfigCacheService;
 import com.huawei.hms.convertor.util.Constant;
@@ -34,6 +39,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
@@ -52,15 +58,40 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class SummaryCacheManager {
     private static final SummaryCacheManager SUMMARY_CACHE_MANAGER = new SummaryCacheManager();
 
-    private Map<String, List<String>> allKitsMap = new ConcurrentHashMap<>();
+    private Map<String, List<String>> project2AllKitsMap;
 
-    private Map<String, List<String>> allDependenciesMap = new ConcurrentHashMap<>();
+    private Map<String, List<String>> project2AllDependenciesMap;
 
-    private Map<String, Map<String, String>> showDataMap = new ConcurrentHashMap<>();
+    private Map<String, Map<String, String>> project2DependencyVersionMap;
 
-    private Map<String, TreeMap<String, List<MethodItem>>> kit2MethodsMap = new ConcurrentHashMap<>();
+    private Map<String, Map<String, String>> project2ShowDataMap;
+
+    private Map<String, Map<String, List<ApiAnalyseResult>>> project2KitMethodAnalyseResultsMap;
+
+    private Map<String, Map<String, List<ApiAnalyseResult>>> project2KitClassAnalyseResultsMap;
+
+    private Map<String, Map<String, List<ApiAnalyseResult>>> project2KitFieldAnalyseResultsMap;
+
+    private Map<String, List<KitStatisticsResult>> project2KitStatisticsResultsMap;
+
+    private Map<String, ProjectStatisticsResult> project2ProjectStatisticsResultMap;
+
+    private Map<String, TreeMap<String, List<FixbotApiInfo>>> project2KitFixbotMethodsMap;
+
+    private Map<String, XmsSetting> xmsSettingMap;
 
     private SummaryCacheManager() {
+        project2AllKitsMap = new ConcurrentHashMap<>();
+        project2AllDependenciesMap = new ConcurrentHashMap<>();
+        project2DependencyVersionMap = new ConcurrentHashMap<>();
+        project2ShowDataMap = new ConcurrentHashMap<>();
+        project2KitMethodAnalyseResultsMap = new ConcurrentHashMap<>();
+        project2KitClassAnalyseResultsMap = new ConcurrentHashMap<>();
+        project2KitFieldAnalyseResultsMap = new ConcurrentHashMap<>();
+        project2KitStatisticsResultsMap = new ConcurrentHashMap<>();
+        project2ProjectStatisticsResultMap = new ConcurrentHashMap<>();
+        project2KitFixbotMethodsMap = new ConcurrentHashMap<>();
+        xmsSettingMap = new ConcurrentHashMap<>();
     }
 
     /**
@@ -72,13 +103,54 @@ public final class SummaryCacheManager {
         return SUMMARY_CACHE_MANAGER;
     }
 
+    public void clearKit2MethodAnalyseResultsMap(String projectBasePath) {
+        if (project2KitMethodAnalyseResultsMap.containsKey(projectBasePath)) {
+            project2KitMethodAnalyseResultsMap.get(projectBasePath).clear();
+        }
+    }
+
+    public void clearKit2ClassAnalyseResultsMap(String projectBasePath) {
+        if (project2KitClassAnalyseResultsMap.containsKey(projectBasePath)) {
+            project2KitClassAnalyseResultsMap.get(projectBasePath).clear();
+        }
+    }
+
+    public void clearKit2FieldAnalyseResultsMap(String projectBasePath) {
+        if (project2KitFieldAnalyseResultsMap.containsKey(projectBasePath)) {
+            project2KitFieldAnalyseResultsMap.get(projectBasePath).clear();
+        }
+    }
+
+    public void clearKitStatisticsResultsMap(String projectBasePath) {
+        if (project2KitStatisticsResultsMap.containsKey(projectBasePath)) {
+            project2KitStatisticsResultsMap.get(projectBasePath).clear();
+        }
+    }
+
+    public void clearProjectStatisticsResultMap(String projectBasePath) {
+        if (project2ProjectStatisticsResultMap.containsKey(projectBasePath)) {
+            project2ProjectStatisticsResultMap.remove(projectBasePath);
+        }
+    }
+
     /**
      * Clear kit-method items
      */
-    public void clearKit2Methods(String projectBasePath) {
-        if (kit2MethodsMap.containsKey(projectBasePath)) {
-            kit2MethodsMap.get(projectBasePath).clear();
+    public void clearKit2FixbotMethodsMap(String projectBasePath) {
+        if (project2KitFixbotMethodsMap.containsKey(projectBasePath)) {
+            project2KitFixbotMethodsMap.get(projectBasePath).clear();
         }
+    }
+
+    public void setXmsSetting(String projectBasePath, XmsSetting xmsSetting) {
+        if (StringUtils.isEmpty(projectBasePath)) {
+            return;
+        }
+        xmsSettingMap.put(projectBasePath, xmsSetting);
+    }
+
+    public XmsSetting getXmsSettingMap(String projectBasePath) {
+        return xmsSettingMap.get(projectBasePath);
     }
 
     /**
@@ -91,7 +163,7 @@ public final class SummaryCacheManager {
         if (StringUtils.isEmpty(projectBasePath) || allKits == null) {
             return;
         }
-        allKitsMap.put(projectBasePath, allKits);
+        project2AllKitsMap.put(projectBasePath, allKits);
     }
 
     /**
@@ -104,7 +176,14 @@ public final class SummaryCacheManager {
         if (StringUtils.isEmpty(projectBasePath) || allDependencies == null) {
             return;
         }
-        allDependenciesMap.put(projectBasePath, allDependencies);
+        project2AllDependenciesMap.put(projectBasePath, allDependencies);
+    }
+
+    public void setDependencyVersion(String projectBasePath, Map<String, String> dependencyVersion) {
+        if (StringUtils.isEmpty(projectBasePath) || dependencyVersion == null) {
+            return;
+        }
+        project2DependencyVersionMap.put(projectBasePath, dependencyVersion);
     }
 
     /**
@@ -117,60 +196,123 @@ public final class SummaryCacheManager {
         if (StringUtils.isEmpty(projectBasePath) || showData == null) {
             return;
         }
-        showDataMap.put(projectBasePath, showData);
+        project2ShowDataMap.put(projectBasePath, showData);
+    }
+
+    public void setKit2MethodAnalyseResultsMap(String projectBasePath,
+        Map<String, List<ApiAnalyseResult>> kit2MethodAnalyseResultsMap) {
+        if (StringUtils.isEmpty(projectBasePath) || kit2MethodAnalyseResultsMap == null) {
+            return;
+        }
+        project2KitMethodAnalyseResultsMap.put(projectBasePath, kit2MethodAnalyseResultsMap);
+    }
+
+    public void setKit2ClassAnalyseResultsMap(String projectBasePath,
+        Map<String, List<ApiAnalyseResult>> kit2ClassAnalyseResultsMap) {
+        if (StringUtils.isEmpty(projectBasePath) || kit2ClassAnalyseResultsMap == null) {
+            return;
+        }
+        project2KitClassAnalyseResultsMap.put(projectBasePath, kit2ClassAnalyseResultsMap);
+    }
+
+    public void setKit2FieldAnalyseResultsMap(String projectBasePath,
+        Map<String, List<ApiAnalyseResult>> kit2FieldAnalyseResultsMap) {
+        if (StringUtils.isEmpty(projectBasePath) || kit2FieldAnalyseResultsMap == null) {
+            return;
+        }
+        project2KitFieldAnalyseResultsMap.put(projectBasePath, kit2FieldAnalyseResultsMap);
+    }
+
+    public void setKitStatisticsResults(String projectBasePath, List<KitStatisticsResult> kitStatisticsResults) {
+        if (StringUtils.isEmpty(projectBasePath) || kitStatisticsResults == null) {
+            return;
+        }
+        project2KitStatisticsResultsMap.put(projectBasePath, kitStatisticsResults);
+    }
+
+    public void setProjectStatisticsResult(String projectBasePath, ProjectStatisticsResult projectStatisticsResult) {
+        if (StringUtils.isEmpty(projectBasePath) || projectStatisticsResult == null) {
+            return;
+        }
+        project2ProjectStatisticsResultMap.put(projectBasePath, projectStatisticsResult);
     }
 
     /**
      * Set kit - methods
      *
      * @param projectBasePath project base path
-     * @param kit2Methods kit - methods data
+     * @param kit2FixbotMethodsMap kit - methods data
      */
-    public void setKit2Methods(String projectBasePath, TreeMap<String, List<MethodItem>> kit2Methods) {
-        if (StringUtils.isEmpty(projectBasePath) || kit2Methods == null) {
+    public void setKit2FixbotMethodsMap(String projectBasePath,
+        TreeMap<String, List<FixbotApiInfo>> kit2FixbotMethodsMap) {
+        if (StringUtils.isEmpty(projectBasePath) || kit2FixbotMethodsMap == null) {
             return;
         }
-        kit2MethodsMap.put(projectBasePath, kit2Methods);
+        project2KitFixbotMethodsMap.put(projectBasePath, kit2FixbotMethodsMap);
     }
 
     /**
      * Get kits name list
      *
-     * @param projectBasePath  project base path
+     * @param projectBasePath project base path
      * @return kit name list
      */
     public List<String> getAllKits(String projectBasePath) {
-        return allKitsMap.get(projectBasePath);
+        return project2AllKitsMap.get(projectBasePath);
     }
 
     /**
      * Get dependency list
      *
-     * @param projectBasePath  project base path
+     * @param projectBasePath project base path
      * @return dependency list
      */
     public List<String> getAllDependencies(String projectBasePath) {
-        return allDependenciesMap.get(projectBasePath);
+        return project2AllDependenciesMap.get(projectBasePath);
+    }
+
+    public Map<String, String> getDependencyVersion(String projectBasePath) {
+        return project2DependencyVersionMap.get(projectBasePath);
     }
 
     /**
      * Get detail summary data
      *
-     * @param projectBasePath  project base path
+     * @param projectBasePath project base path
      * @return detail data map
      */
     public Map<String, String> getShowData(String projectBasePath) {
-        return showDataMap.get(projectBasePath);
+        return project2ShowDataMap.get(projectBasePath);
+    }
+
+    public Map<String, List<ApiAnalyseResult>> getKit2MethodAnalyseResultsMap(String projectBasePath) {
+        return project2KitMethodAnalyseResultsMap.get(projectBasePath);
+    }
+
+    public Map<String, List<ApiAnalyseResult>> getKit2ClassAnalyseResultsMap(String projectBasePath) {
+        return project2KitClassAnalyseResultsMap.get(projectBasePath);
+    }
+
+    public Map<String, List<ApiAnalyseResult>> getKit2FieldAnalyseResultsMap(String projectBasePath) {
+        return project2KitFieldAnalyseResultsMap.get(projectBasePath);
+    }
+
+    public List<KitStatisticsResult> getKitStatisticsResults(String projectBasePath) {
+        return project2KitStatisticsResultsMap.get(projectBasePath);
+    }
+
+    public ProjectStatisticsResult getProjectStatisticsResult(String projectBasePath) {
+        return project2ProjectStatisticsResultMap.get(projectBasePath);
     }
 
     /**
      * Get kit - methods map
      *
-     * @param projectBasePath  project base path
+     * @param projectBasePath project base path
      * @return kit - methods
      */
-    public TreeMap<String, List<MethodItem>> getKit2Methods(String projectBasePath) {
-        return kit2MethodsMap.get(projectBasePath);
+    public TreeMap<String, List<FixbotApiInfo>> getKit2FixbotMethodsMap(String projectBasePath) {
+        return project2KitFixbotMethodsMap.get(projectBasePath);
     }
 
     /**
@@ -179,15 +321,17 @@ public final class SummaryCacheManager {
      * @param projectBasePath project base path
      */
     public void saveSummary(String projectBasePath) {
-        TreeMap<String, List<MethodItem>> kit2Methods = kit2MethodsMap.get(projectBasePath);
+        TreeMap<String, List<FixbotApiInfo>> kit2FixbotMethodsMap = project2KitFixbotMethodsMap.get(projectBasePath);
+
         String folderName = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.REPO_ID, String.class, "");
-        if (kit2Methods == null || kit2Methods.isEmpty() || StringUtils.isEmpty(folderName)) {
+        if (kit2FixbotMethodsMap == null || kit2FixbotMethodsMap.isEmpty() || StringUtils.isEmpty(folderName)) {
             log.warn("No summary content to be saved or folder name empty");
             return;
         }
-        String saveFilePath =
-            Paths.get(Constant.PLUGIN_CACHE_PATH, folderName, ProjectConstants.Result.LAST_SUMMARY_JSON).toString();
+        String saveFilePath = Paths
+            .get(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH, folderName, ProjectConstants.Result.LAST_SUMMARY_JSON)
+            .toString();
         if (FileUtil.isInvalidDirectoryPath(saveFilePath)) {
             log.error("Invalid directory path");
             return;
@@ -195,7 +339,8 @@ public final class SummaryCacheManager {
 
         File saveFile = new File(saveFilePath);
         if (!saveFile.getParentFile().exists()) {
-            log.warn("{} does not exist, maybe not analysis yet", Constant.PLUGIN_CACHE_PATH + folderName);
+            log.warn("{} does not exist, maybe not analysis yet",
+                PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + folderName);
             return;
         }
         if (saveFile.exists()) {
@@ -210,7 +355,7 @@ public final class SummaryCacheManager {
                 log.error("Create new file failed");
             }
 
-            String defectItemListString = JSON.toJSONString(kit2Methods, true);
+            String defectItemListString = JSON.toJSONString(kit2FixbotMethodsMap, true);
             FileUtil.writeFile(saveFilePath, defectItemListString);
             log.info("Save summary success");
         } catch (IOException e) {
@@ -224,11 +369,11 @@ public final class SummaryCacheManager {
      * @param projectBasePath project base path
      * @return kit-method items
      */
-    public TreeMap<String, List<MethodItem>> loadSummary(String projectBasePath) {
+    public TreeMap<String, List<FixbotApiInfo>> loadSummary(String projectBasePath) {
         String folderName = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.REPO_ID, String.class, "");
-        String saveFilePath =
-            Constant.PLUGIN_CACHE_PATH + folderName + Constant.SEPARATOR + ProjectConstants.Result.LAST_SUMMARY_JSON;
+        String saveFilePath = PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + folderName + Constant.UNIX_FILE_SEPARATOR
+            + ProjectConstants.Result.LAST_SUMMARY_JSON;
         if (!new File(saveFilePath).exists()) {
             log.info("LastSummary.json doesn't exist");
             return new TreeMap<>(Collections.emptyMap());
@@ -236,7 +381,7 @@ public final class SummaryCacheManager {
 
         String lastSummaryString;
         try {
-            lastSummaryString = FileUtil.readToString(saveFilePath, Constant.UTF8);
+            lastSummaryString = FileUtil.readToString(saveFilePath, StandardCharsets.UTF_8.toString());
         } catch (IOException e) {
             log.error(e.getMessage(), e);
             return new TreeMap<>(Collections.emptyMap());
@@ -248,14 +393,15 @@ public final class SummaryCacheManager {
             return new TreeMap<>(Collections.emptyMap());
         }
 
-        TreeMap<String, List<MethodItem>> kit2MethodItemListMap = new TreeMap<>();
-        for (String s : jsonObject.keySet()) {
-            List<MethodItem> methodItems = JSONObject.parseArray(String.valueOf(jsonObject.get(s)), MethodItem.class);
-            kit2MethodItemListMap.put(s, methodItems);
+        TreeMap<String, List<FixbotApiInfo>> kit2FixbotMethodsMap = new TreeMap<>();
+        for (Map.Entry<String, Object> s : jsonObject.entrySet()) {
+            List<FixbotApiInfo> fixbotApiInfos =
+                JSONObject.parseArray(jsonObject.getString(s.getKey()), FixbotApiInfo.class);
+            kit2FixbotMethodsMap.put(s.getKey(), fixbotApiInfos);
         }
 
-        kit2MethodsMap.put(projectBasePath, kit2MethodItemListMap);
+        project2KitFixbotMethodsMap.put(projectBasePath, kit2FixbotMethodsMap);
         log.error("Load summary success");
-        return kit2MethodItemListMap;
+        return kit2FixbotMethodsMap;
     }
 }

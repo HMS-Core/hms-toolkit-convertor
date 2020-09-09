@@ -23,4 +23,12 @@ package com.huawei.hms.convertor.core.engine.fixbot.util;
  */
 public interface FixbotConstants {
     String FIXBOT_DIR = "fixbot";
+
+    String CONVERSION_EXTRA_PATH_SEPARATOR = "#";
+
+    String FIXBOT_VMOPTIONS_FILENAME = "/fixbot.vmoptions";
+
+    String CUSTOM_VMOPTIONS_FILENAME = "convertor.vmoptions";
+
+    String DEFAULT_MAX_HEAP_MEMORY_SIZE = "-Xmx1024m";
 }

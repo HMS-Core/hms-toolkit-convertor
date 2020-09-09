@@ -16,7 +16,7 @@
 
 package com.huawei.hms.convertor.core.engine.fixbot.util;
 
-import com.huawei.hms.convertor.util.Constant;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 
 import com.alibaba.fastjson.JSON;
 
@@ -49,10 +49,6 @@ import java.util.stream.Stream;
 @Slf4j
 public final class FixbotConfigs {
     private static final String FIXBOT_MAIN_CLASS = "com.huawei.codebot.entry.codemigrate.MainEntry4CodeMigrate";
-
-    private static final String FIXBOT_VMOPTIONS_FILENAME = "/fixbot.vmoptions";
-
-    private static final String CUSTOM_VMOPTIONS_FILENAME = "convertor.vmoptions";
 
     private static final String DEPENDENCY_EXTENSION_NAME = ".jar";
 
@@ -97,7 +93,7 @@ public final class FixbotConfigs {
     }
 
     private String readDefaultVmOptions() {
-        try (InputStream inputStream = getClass().getResourceAsStream(FIXBOT_VMOPTIONS_FILENAME);
+        try (InputStream inputStream = getClass().getResourceAsStream(FixbotConstants.FIXBOT_VMOPTIONS_FILENAME);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
             return reader.lines().collect(Collectors.joining());
         } catch (IOException e) {
@@ -156,7 +152,8 @@ public final class FixbotConfigs {
     }
 
     private List<String> getCustomVmOptions() {
-        Path customVmOptions = Paths.get(Constant.CONFIG_CACHE_PATH, CUSTOM_VMOPTIONS_FILENAME);
+        Path customVmOptions =
+            Paths.get(PluginConstant.PluginDataDir.CONFIG_CACHE_PATH, FixbotConstants.CUSTOM_VMOPTIONS_FILENAME);
         try {
             return Files.readAllLines(customVmOptions)
                 .stream()

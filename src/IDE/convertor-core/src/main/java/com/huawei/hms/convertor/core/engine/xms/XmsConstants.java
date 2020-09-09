@@ -26,9 +26,9 @@ public interface XmsConstants {
 
     String XMS_KIT_ADD = "ADD";
 
-    String XMS_KIT_REMOVE = "REMOVE";
-
     String XMS_ADAPTER = "/xmsadapter";
 
     String README_FILE = "/README.md";
+
+    String MY_APP_FILE = "/MyApp.java";
 }

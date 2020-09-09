@@ -4,7 +4,7 @@
       "nodeName": "android",
       "desc": {
         "text": "The HMS SDK uses JDK 1.8. To ensure code compatibility, you can add compileOptions in the build.gradle file of your app and set the JDK version in compileOptions to 1.8 or later.",
-        "url": "https://developer.huawei.com/consumer/en/doc/hmssdk_gradle_info_maintenance#h1-1578735737259-2",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/gradle-info-0000001050060392#EN-US_TOPIC_0000001050060392__section060715535419",
         "status": "Manual",
         "kit": "Common"
       }
@@ -12,8 +12,17 @@
     {
       "nodeName": "minSdkVersion",
       "desc": {
-        "text": "Plan your version based on the minSdkVersion value of each HMS service.",
-        "url": "https://developer.huawei.com/consumer/en/doc/hmssdk_gradle_info_maintenance#h1-1578735737259-0",
+        "text": "Please update minSdkVersion value to {minSdkVersion}.",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/gradle-info-0000001050060392#EN-US_TOPIC_0000001050060392__section179931349115218",
+        "status": "Manual",
+        "kit": "Common"
+      }
+    },
+    {
+      "nodeName": "compileSdkVersion",
+      "desc": {
+        "text": "Plan your version based on the compileSdkVersion value of each HMS service.",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/gradle-info-0000001050060392#EN-US_TOPIC_0000001050060392__section179931349115218",
         "status": "Manual",
         "kit": "Common"
       }
@@ -22,7 +31,7 @@
       "nodeName": "targetSdkVersion",
       "desc": {
         "text": "If the target version is 28 or later, AndroidX will be supported. To use AndroidX, add \"android.useAndroidX=true\" and  \"android.enableJetifier=true\"in the gradle.properties file.",
-        "url": "https://developer.huawei.com/consumer/en/doc/hmssdk_gradle_info_maintenance#h1-1578735737259-1",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/gradle-info-0000001050060392#EN-US_TOPIC_0000001050060392__section67589196539",
         "status": "Manual",
         "kit": "Common"
       }

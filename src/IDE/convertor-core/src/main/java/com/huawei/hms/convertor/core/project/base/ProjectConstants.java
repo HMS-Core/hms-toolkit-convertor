@@ -31,19 +31,18 @@ public final class ProjectConstants {
         String APP = "APP";
     }
 
-    /**
-     * Mapping config files
-     */
-    public interface Mapping {
-        String ADD_HMS_AUTO_JSON_FILE = "wisehub-auto.json";
+    public interface SourceDir {
+        String SRC_DIR = "/src/main";
 
-        String TO_HMS_AUTO_JSON_FILE = "wisehub-auto-hms.json";
+        String JAVA_SRC_DIR = SRC_DIR + "/java";
+    }
 
-        String ADD_HMS_MANUAL_JSON_FILE = "wisehub-manual.json";
-
-        String TO_HMS_MANUAL_JSON_FILE = "wisehub-manual-hms.json";
-
-        String ADD_HMS_GRADLE_JSON_FILE = "wisehub-gradle.json";
+    public interface KitSdkVersionConfig {
+        /**
+         * if all sdkVersion is legal, this contains the Kit.
+         * if any sdkVersion is N/A, this not contains the Kit.
+         */
+        String KIT_SDK_VERSION_JSON_FILE = "/kitSdkVersion.json";
     }
 
     /**
@@ -59,6 +58,10 @@ public final class ProjectConstants {
         String LAST_SUMMARY_JSON = "LastSummary.json";
 
         String LAST_CONVERSION_JSON = "LastConversion.json";
+
+        String PROJECT_INFO_JSON = "ProjectInfo.json";
+
+        String XMS_SETTING_JSON = "XmsSetting.json";
     }
 
     /**

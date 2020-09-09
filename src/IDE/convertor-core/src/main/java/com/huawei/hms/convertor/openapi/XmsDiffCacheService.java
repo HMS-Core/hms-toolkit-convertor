@@ -18,6 +18,7 @@ package com.huawei.hms.convertor.openapi;
 
 import com.huawei.hms.convertor.core.result.diff.XmsDiff;
 import com.huawei.hms.convertor.core.result.diff.XmsDiffCacheManager;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;

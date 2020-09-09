@@ -26,5 +26,6 @@ public enum RoutePolicy {
     G_TO_H,
     UNKNOWN;
 
-    RoutePolicy() {}
+    RoutePolicy() {
+    }
 }

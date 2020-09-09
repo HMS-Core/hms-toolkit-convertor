@@ -44,8 +44,20 @@
             "desc":{
                 "kit":"Push",
                 "text":"Add the specified meta-data:push_kit_auto_init_enabled.",
-                "url":"https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/push-basic-capability#automatic_initialization",
+                "url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-client-dev-0000001050042041#EN-US_TOPIC_0000001050042041__section13546121751811",
                 "status": "Manual"
+            }
+        },
+        {
+            "androidName": "com.google.firebase.messaging.FirebaseMessagingService",
+            "operation": "replace",
+            "newContent": "<service android:name=\"%subclass\" \n android:exported=\"true\" \n android:permission=\"${applicationId}.permission.PROCESS_PUSH_MSG\" >\n <intent-filter>\n <action android:name=\"com.huawei.push.action.MESSAGING_EVENT\"/>\n <action android:name=\"com.google.firebase.MESSAGING_EVENT\" />\n </intent-filter>\n</service>",
+            "labelName": "service",
+            "desc": {
+                "kit": "Push",
+                "text": "This configuration will be replaced by a subclass of com.huawei.hms.push.HmsMessageService.",
+                "url": "",
+                "status": "Dummy"
             }
         }
     ],
@@ -111,7 +123,7 @@
             "desc":{
                 "kit":"Ads",
                 "text":"com.google.android.gms.ads.AdView should be replaced by org.xms.g.ads.AdView; Add the element: ads:adId = \" \", ads:bannerSize = \" \".",
-                "url":"https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-guide-banner",
+                "url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-banner-0000001050066915",
                 "status": "Manual"
             },
             "comment":"Ads"
@@ -122,7 +134,7 @@
             "desc":{
                 "kit":"Ads",
                 "text":"com.google.android.gms.ads.doubleclick.PublisherAdView should be replaced by org.xms.g.ads.doubleclick.PublisherAdView; Add the element: ads:adId = \" \", ads:bannerSize = \" \".",
-                "url":"https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-guide-banner",
+                "url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-banner-0000001050066915",
                 "status": "Manual"
             },
             "comment":"Ads"
@@ -148,6 +160,50 @@
                 "status": "Auto"
             },
             "comment":"Ads"
+        },
+        {
+            "oldClassName": "com.google.android.gms.maps.SupportMapFragment",
+            "newClassName": "org.xms.g.maps.SupportMapFragment",
+            "desc": {
+                "kit": "Map",
+                "text": "com.google.android.gms.maps.SupportMapFragment will be replaced by com.huawei.hms.maps.SupportMapFragment.",
+                "url": "",
+                "status": "Dummy"
+            },
+            "comment": "Map"
+        },
+        {
+            "oldClassName": "com.google.android.gms.maps.StreetViewPanoramaFragment",
+            "newClassName": "org.xms.g.maps.StreetViewPanoramaFragment",
+            "desc": {
+                "kit": "Map",
+                "text": "com.google.android.gms.maps.StreetViewPanoramaFragment will be replaced by com.huawei.hms.maps.StreetViewPanoramaFragment.",
+                "url": "",
+                "status": "Dummy"
+            },
+            "comment": "Ads"
+        },
+        {
+            "oldClassName": "com.google.android.gms.maps.MapFragment",
+            "newClassName": "org.xms.g.maps.MapFragment",
+            "desc": {
+                "kit": "Map",
+                "text": "com.google.android.gms.maps.MapFragment will be replaced by com.huawei.hms.maps.MapFragment.",
+                "url": "",
+                "status": "Dummy"
+            },
+            "comment": "Ads"
+        },
+        {
+            "oldClassName": "com.google.android.gms.maps.SupportStreetViewPanoramaFragment",
+            "newClassName": "org.xms.g.maps.SupportStreetViewPanoramaFragment",
+            "desc": {
+                "kit": "Map",
+                "text": "com.google.android.gms.maps.SupportStreetViewPanoramaFragment will be replaced by com.huawei.hms.maps.SupportStreetViewPanoramaFragment.",
+                "url": "",
+                "status": "Dummy"
+            },
+            "comment": "Map"
         }
     ]
 }

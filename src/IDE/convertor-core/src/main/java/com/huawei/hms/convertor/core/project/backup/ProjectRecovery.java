@@ -17,6 +17,7 @@
 package com.huawei.hms.convertor.core.project.backup;
 
 import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.base.FileService;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.openapi.ConfigCacheService;
@@ -47,6 +48,12 @@ import java.util.ServiceLoader;
 public final class ProjectRecovery {
     private static final ProjectRecovery PROJECT_RECOVERY = new ProjectRecovery();
 
+    private static final String BACKUP_FILENAME_NORMAL_KEY = ".normal.G";
+
+    private static final String BACKUP_FILENAME_COMMENT_KEY = ".comment.G";
+
+    private static final String BACKUP_POINT_PROCESS_KEY = "process_";
+
     private Result result;
 
     private ProjectRecovery() {
@@ -70,7 +77,7 @@ public final class ProjectRecovery {
      * @param recoveryPath recovery path
      */
     public void recoveryProject(String projectBasePath, String backupPath, String backupFileName, String recoveryPath) {
-        log.info("backupPoint = {}, recovery path = {}", backupFileName, recoveryPath);
+        log.info("backupPoint: {}, recovery path: {}", backupFileName, recoveryPath);
         String repoID = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.REPO_ID, String.class, "");
         if (repoID.isEmpty()) {
@@ -78,13 +85,12 @@ public final class ProjectRecovery {
             return;
         }
 
-        String archiveFilePath = backupPath + Constant.SEPARATOR + backupFileName;
+        String archiveFilePath = backupPath + Constant.UNIX_FILE_SEPARATOR + backupFileName;
         String archivePath = archiveFilePath.replace(Constant.EXTENSION_ZIP, "");
-        if (FileUtil.isInvalidDirectoryPath(archiveFilePath) ||
-            FileUtil.isInvalidDirectoryPath(archivePath) ||
-            FileUtil.isInvalidDirectoryPath(recoveryPath)) {
-            log.error("Invalid path, fromPath={} destPath={} recoveryPath={}",
-                archiveFilePath, archivePath, recoveryPath);
+        if (FileUtil.isInvalidDirectoryPath(archiveFilePath) || FileUtil.isInvalidDirectoryPath(archivePath)
+            || FileUtil.isInvalidDirectoryPath(recoveryPath)) {
+            log.error("Invalid path, fromPath: {} destPath: {}, recoveryPath: {}.", archiveFilePath, archivePath,
+                recoveryPath);
             result = Result.failed("Invalid path");
             return;
         }
@@ -113,10 +119,10 @@ public final class ProjectRecovery {
 
     private String refreshRepoID(String backupFileName, String projectBasePath, String repoID) {
         String newRepoID = repoID;
-        if (backupFileName.contains(".normal.G")) {
+        if (backupFileName.contains(BACKUP_FILENAME_NORMAL_KEY)) {
             newRepoID = newRepoID.replace(ProjectConstants.Common.COMMENT_SUFFIX, "");
             ConfigCacheService.getInstance().updateProjectConfig(projectBasePath, ConfigKeyConstants.COMMENT, false);
-        } else if (backupFileName.contains(".comment.G")) {
+        } else if (backupFileName.contains(BACKUP_FILENAME_COMMENT_KEY)) {
             if (!newRepoID.contains(ProjectConstants.Common.COMMENT_SUFFIX)) {
                 newRepoID = newRepoID + ProjectConstants.Common.COMMENT_SUFFIX;
             }
@@ -129,17 +135,17 @@ public final class ProjectRecovery {
     }
 
     private List<String> recoveryConfigAndCache(String backupPoint, String projectBasePath, String destPath,
-                                                String repoID) throws IOException {
+        String repoID) throws IOException {
         deleteOleCache(projectBasePath);
 
         String projectId = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.PROJECT_ID, String.class, "");
-        String configDir = destPath + Constant.SEPARATOR + projectId + ProjectConstants.Common.CONFIG_SUFFIX;
+        String configDir = destPath + Constant.UNIX_FILE_SEPARATOR + projectId + ProjectConstants.Common.CONFIG_SUFFIX;
 
         List<String> excludePaths = new ArrayList<>();
-        if (backupPoint.contains("process_")) {
-            String archiveEngineCacheDir = destPath + Constant.SEPARATOR + repoID;
-            recoveryEngineCache(archiveEngineCacheDir, Constant.PLUGIN_CACHE_PATH + repoID);
+        if (backupPoint.contains(BACKUP_POINT_PROCESS_KEY)) {
+            String archiveEngineCacheDir = destPath + Constant.UNIX_FILE_SEPARATOR + repoID;
+            recoveryEngineCache(archiveEngineCacheDir, PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + repoID);
             recoveryConfig(projectId, configDir);
             excludePaths.add(archiveEngineCacheDir);
         } else {
@@ -156,34 +162,29 @@ public final class ProjectRecovery {
     private void deleteOleCache(String projectBasePath) {
         String projectId = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.PROJECT_ID, String.class, "");
-        deleteDir(Constant.PLUGIN_CACHE_PATH + projectId);
-        deleteDir(Constant.PLUGIN_CACHE_PATH + projectId + ProjectConstants.Common.COMMENT_SUFFIX);
-        deleteDir(Constant.PLUGIN_CACHE_PATH + projectId + ProjectConstants.Common.CONFIG_SUFFIX);
+        deleteDir(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + projectId);
+        deleteDir(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + projectId + ProjectConstants.Common.COMMENT_SUFFIX);
+        deleteDir(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + projectId + ProjectConstants.Common.CONFIG_SUFFIX);
     }
 
     private void recoveryEngineCache(String archiveCacheDir, String engineCacheDir) throws IOException {
-        ServiceLoader<FileService> fileService =
-            ServiceLoader.load(FileService.class, getClass().getClassLoader());
-        fileService.iterator()
-            .next()
-            .copyDir(new File(archiveCacheDir), new File(engineCacheDir));
+        ServiceLoader<FileService> fileService = ServiceLoader.load(FileService.class, getClass().getClassLoader());
+        fileService.iterator().next().copyDir(new File(archiveCacheDir), new File(engineCacheDir));
         deleteDir(archiveCacheDir);
     }
 
     private void recoveryConfig(String projectId, String configDir) throws IOException {
-        ServiceLoader<FileService> fileService =
-            ServiceLoader.load(FileService.class, getClass().getClassLoader());
+        ServiceLoader<FileService> fileService = ServiceLoader.load(FileService.class, getClass().getClassLoader());
 
         fileService.iterator()
             .next()
-            .copyDir(new File(configDir),
-                new File(Constant.PLUGIN_CACHE_PATH + projectId + ProjectConstants.Common.CONFIG_SUFFIX));
+            .copyDir(new File(configDir), new File(
+                PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + projectId + ProjectConstants.Common.CONFIG_SUFFIX));
         deleteDir(configDir);
     }
 
     private void deleteDir(String deleteDirName) {
-        ServiceLoader<FileService> fileService =
-            ServiceLoader.load(FileService.class, getClass().getClassLoader());
+        ServiceLoader<FileService> fileService = ServiceLoader.load(FileService.class, getClass().getClassLoader());
         fileService.iterator().next().delFile(new File(deleteDirName));
     }
 
@@ -195,14 +196,13 @@ public final class ProjectRecovery {
             }
 
             for (String exclude : excludePaths) {
-                if (file.getPath().replace("\\", "/").startsWith(exclude)) {
+                if (FileUtil.unifyToUnixFileSeparator(file.getPath()).startsWith(exclude)) {
                     return false;
                 }
             }
             return true;
         };
-        ServiceLoader<FileService> fileService =
-            ServiceLoader.load(FileService.class, getClass().getClassLoader());
+        ServiceLoader<FileService> fileService = ServiceLoader.load(FileService.class, getClass().getClassLoader());
         fileService.iterator().next().copyDirWithFilter(new File(archivePath), new File(recoveryPath), fileFilter);
     }
 }

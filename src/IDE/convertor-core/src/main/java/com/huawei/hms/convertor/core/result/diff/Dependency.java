@@ -18,14 +18,13 @@ package com.huawei.hms.convertor.core.result.diff;
 
 import com.huawei.hms.convertor.core.result.conversion.ConversionPointDesc;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
-
-/**
- * Function Description
- *
- * @since 2020-02-27
- */
+@Getter
+@Setter
 public final class Dependency {
     private String version;
 
@@ -36,44 +35,4 @@ public final class Dependency {
     private ConversionPointDesc descAuto;
 
     private ConversionPointDesc descManual;
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public String getOriginGoogleName() {
-        return originGoogleName;
-    }
-
-    public void setOriginGoogleName(String originGoogleName) {
-        this.originGoogleName = originGoogleName;
-    }
-
-    public List<String> getAddDependenciesName() {
-        return addDependenciesName;
-    }
-
-    public void setAddDependenciesName(List<String> addDependenciesName) {
-        this.addDependenciesName = addDependenciesName;
-    }
-
-    public ConversionPointDesc getDescAuto() {
-        return descAuto;
-    }
-
-    public void setDescAuto(ConversionPointDesc descAuto) {
-        this.descAuto = descAuto;
-    }
-
-    public ConversionPointDesc getDescManual() {
-        return descManual;
-    }
-
-    public void setDescManual(ConversionPointDesc descManual) {
-        this.descManual = descManual;
-    }
 }

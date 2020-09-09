@@ -18,8 +18,10 @@ package com.huawei.hms.convertor.core.event.handler.project;
 
 import com.huawei.hms.convertor.core.event.handler.AbstractCallbackHandler;
 import com.huawei.hms.convertor.core.project.convert.CodeConvertService;
+import com.huawei.hms.convertor.core.project.convert.GradleSyncService;
 import com.huawei.hms.convertor.core.result.conversion.ConversionCacheManager;
 import com.huawei.hms.convertor.core.result.conversion.ConversionItem;
+import com.huawei.hms.convertor.openapi.ConversionCacheService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -35,15 +37,21 @@ import java.util.ServiceLoader;
 public class ConvertEventHandler extends AbstractCallbackHandler<String, List<ConversionItem>>
     implements GeneralEventHandler {
     private CodeConvertService codeConvertService;
+    private GradleSyncService gradleSyncService;
+    private static final String GRADLE_FILE_EXTENSION = ".gradle";
 
     private String projectPath;
 
     public ConvertEventHandler(String projectPath) {
         ServiceLoader<CodeConvertService> codeConvertServices =
             ServiceLoader.load(CodeConvertService.class, getClass().getClassLoader());
+        ServiceLoader<GradleSyncService> gradleSyncServices =
+            ServiceLoader.load(GradleSyncService.class, getClass().getClassLoader());
+        gradleSyncService = gradleSyncServices.iterator().next();
         codeConvertService = codeConvertServices.iterator().next();
         this.projectPath = projectPath;
         codeConvertService.init(projectPath);
+        gradleSyncService.init(projectPath);
     }
 
     @Override
@@ -54,12 +62,32 @@ public class ConvertEventHandler extends AbstractCallbackHandler<String, List<Co
         }
         String conversionId = (String) data;
         ConversionCacheManager.getInstance().correctCache(projectPath, conversionId, true);
-        ConversionItem conversionItem = ConversionCacheManager.getInstance().getConversion(projectPath, conversionId);
+        ConversionItem conversionItem = ConversionCacheService.getInstance().getConversion(projectPath, conversionId);
         codeConvertService.convert(projectPath, conversionItem);
+        syncGradle(projectPath, conversionItem);
     }
 
     @Override
     public List<ConversionItem> getCallbackMessage() {
         return ConversionCacheManager.getInstance().getCorrectedItems(projectPath);
+    }
+
+    // Determine whether it is necessary to automatically synchronize the project
+    private boolean determineIfNeedSync(String projectPath, ConversionItem conversionItem) {
+        List<ConversionItem> conversionItemList = ConversionCacheService.getInstance().getAllConversions(projectPath);
+        boolean isGradle = conversionItem.getFile().endsWith(GRADLE_FILE_EXTENSION);
+        if (!isGradle) {
+            return false;
+        }
+        boolean isAllConverted = conversionItemList.stream().filter(item -> item.getFile().endsWith(GRADLE_FILE_EXTENSION)).allMatch(item -> item.isConverted());
+        return isAllConverted;
+
+    }
+
+    private void syncGradle(String projectPath, ConversionItem conversionItem) {
+        if (!determineIfNeedSync(projectPath, conversionItem)) {
+            return;
+        }
+        gradleSyncService.sync(projectPath);
     }
 }

@@ -16,11 +16,12 @@
 
 package com.huawei.hms.convertor.util;
 
-import static java.nio.file.Files.walkFileTree;
+import com.huawei.generator.g2x.processor.GeneratorStrategyKind;
+import com.huawei.generator.g2x.processor.XmsPublicUtils;
+
+import lombok.extern.slf4j.Slf4j;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -30,13 +31,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.nio.file.FileVisitResult;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.SimpleFileVisitor;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
@@ -44,15 +44,8 @@ import java.util.regex.Pattern;
  *
  * @since 2017-12-07
  */
+@Slf4j
 public final class FileUtil {
-    private static final Logger LOG = LoggerFactory.getLogger(FileUtil.class);
-
-    private static final String XMS_PATH_FLAG = "src/main/java/org/xms";
-
-    private static final String XMSGH_PATH_FLAG = "src/xmsgh/java/org/xms";
-
-    private static final String XMSG_PATH_FLAG = "src/xmsg/java/org/xms";
-
     /**
      * Validate directory
      *
@@ -69,13 +62,13 @@ public final class FileUtil {
             String canonicalPath = file.getCanonicalPath();
             return canonicalPath.length() < path.length();
         } catch (IOException e) {
-            LOG.warn("get canonical path appear IOException");
+            log.warn("get canonical path appear IOException");
             return true;
         }
     }
 
     public static List<File> findFilesByMask(Pattern pattern, File dir) {
-        if (null == pattern || null == dir) {
+        if (pattern == null || dir == null) {
             return Collections.emptyList();
         }
 
@@ -91,6 +84,7 @@ public final class FileUtil {
                 }
             }
         }
+
         return founds;
     }
 
@@ -99,16 +93,20 @@ public final class FileUtil {
 
         File projectRoot = new File(path);
         File[] files = projectRoot.listFiles();
-        if (null == files) {
+        if (files == null) {
             return new ArrayList<>();
         }
         for (File file : files) {
             if (file.isDirectory()) {
-                String filePath = file.getAbsolutePath();
-                if (pattern.matcher(file.getName()).matches()) {
-                    matchedFolders.add(filePath.replace("\\", "/"));
-                } else {
-                    matchedFolders.addAll(findFoldersByMask(pattern, filePath));
+                try {
+                    String filePath = file.getCanonicalPath();
+                    if (pattern.matcher(file.getName()).matches()) {
+                        matchedFolders.add(FileUtil.unifyToUnixFileSeparator(filePath));
+                    } else {
+                        matchedFolders.addAll(findFoldersByMask(pattern, filePath));
+                    }
+                } catch (IOException e) {
+                    log.error("filePath is error");
                 }
             }
         }
@@ -121,12 +119,12 @@ public final class FileUtil {
 
         File projectRoot = new File(path);
         File[] files = projectRoot.listFiles();
-        if (null == files) {
+        if (files == null) {
             return matchedPaths;
         }
         for (File file : files) {
             if (file.isDirectory()) {
-                String filePath = file.getAbsolutePath().replace("\\", "/");
+                String filePath = FileUtil.unifyToUnixFileSeparator(file.getAbsolutePath());
                 if (pattern.matcher(filePath).matches()) {
                     boolean flag = false;
                     for (String excludePath : excludePaths) {
@@ -148,7 +146,7 @@ public final class FileUtil {
     }
 
     public static String readToString(String fileName, String encoding) throws IOException {
-        if (null == fileName || isInvalidDirectoryPath(fileName)) {
+        if (fileName == null || isInvalidDirectoryPath(fileName)) {
             return "";
         }
 
@@ -165,7 +163,7 @@ public final class FileUtil {
     }
 
     public static String readToFormatString(String fileName, String encoding) throws IOException {
-        if (null == fileName || isInvalidDirectoryPath(fileName)) {
+        if (fileName == null || isInvalidDirectoryPath(fileName)) {
             return "";
         }
 
@@ -188,7 +186,7 @@ public final class FileUtil {
         }
 
         try (BufferedWriter writer =
-            new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filePath), Constant.UTF8))) {
+            new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filePath), StandardCharsets.UTF_8.toString()))) {
             writer.write(fileContent);
             writer.flush();
         }
@@ -197,7 +195,7 @@ public final class FileUtil {
     public static void deleteFiles(File file) {
         if (file.isDirectory()) {
             File[] files = file.listFiles();
-            if (null == files) {
+            if (files == null) {
                 return;
             }
             for (File f : files) {
@@ -207,31 +205,87 @@ public final class FileUtil {
 
         boolean result = file.delete();
         if (!result) {
-            LOG.error("file backup directory failed");
+            log.error("file backup directory failed");
         }
     }
 
-    public static List<String> getXmsPaths(String basePath, boolean multiApk) {
-        List<String> paths = new ArrayList<>();
-        SimpleFileVisitor<Path> finder = new SimpleFileVisitor<Path>() {
-            @Override
-            public FileVisitResult postVisitDirectory(Path dir, IOException exc) {
-                if (!multiApk && dir.endsWith(XMS_PATH_FLAG)) {
-                    paths.add(dir.toString());
-                    return FileVisitResult.SKIP_SUBTREE;
-                } else if (multiApk && (dir.endsWith(XMSGH_PATH_FLAG) || dir.endsWith(XMSG_PATH_FLAG))) {
-                    paths.add(dir.toString());
-                    return FileVisitResult.SKIP_SUBTREE;
-                } else {
-                    return FileVisitResult.CONTINUE;
-                }
-            }
-        };
+    /**
+     * Returns whether the user is outside the trustList path, and other org.xms directories have been added.
+     *
+     * @param basePath project base path
+     * @param kitMap Dependent kit
+     * @param kindList generate kinds
+     * @return Returns whether the user is outside the trustList path
+     */
+    public static List<String> getUserModifiedRoutes(String basePath, Map<String, String> kitMap,
+        List<GeneratorStrategyKind> kindList) {
+        List<String> modifiedRoutes = new ArrayList<>();
         try {
-            walkFileTree(Paths.get(basePath), finder);
+            modifiedRoutes = XmsPublicUtils.getUserModifiedRoutes(basePath, kitMap, kindList);
         } catch (IOException e) {
-            LOG.error(e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
-        return paths;
+        log.info("modifiedRoutes: {}", modifiedRoutes);
+        return modifiedRoutes;
+    }
+
+    /**
+     * Return moduleLocation list
+     *
+     * @param basePath project base path
+     * @return moduleLocation list
+     */
+    public static String[] getSummaryModule(String basePath) {
+        log.info("begin to get summary module of XMSEngine.");
+        try {
+            String[] summaryModule = XmsPublicUtils.getSummaryModule(basePath);
+            log.info("end get summary module in XMSEngine, basePath: {}, summaryModule: {}.", basePath, summaryModule);
+            return summaryModule;
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+        return new String[0];
+    }
+
+    /**
+     * back up last xms adapter code
+     *
+     * @param basePath project path
+     * @param targetPath backup target path
+     */
+    public static void backupXms(String basePath, String targetPath) {
+        try {
+            log.error("backPath: {}, targetPath: {}.", basePath, targetPath);
+            XmsPublicUtils.backupXms(basePath, targetPath);
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    /**
+     * copy file from sourcePath to targetPath
+     * Parameters need to be standardized： directories should be separated with slashes (/).
+     *
+     * @param sourcePath source file path
+     * @param targetPath target file path
+     * @return Whether successful.
+     */
+    public static boolean copyFile(String sourcePath, String targetPath) {
+        File targetFile = new File(targetPath);
+        if (targetFile.exists()) {
+            return true;
+        }
+        try {
+            File sourceFile = new File(sourcePath);
+            Files.copy(sourceFile.toPath(), targetFile.toPath());
+        } catch (Exception e) {
+            log.warn("copy failed.");
+            return false;
+        }
+        return true;
+    }
+
+    public static String unifyToUnixFileSeparator(String path) {
+        return path.replace(Constant.WINDOWS_FILE_SEPARATOR, Constant.UNIX_FILE_SEPARATOR);
     }
 }

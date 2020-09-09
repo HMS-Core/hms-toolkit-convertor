@@ -18,6 +18,7 @@ package com.huawei.hms.convertor.core.result.conversion;
 
 import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
 import com.huawei.hms.convertor.core.event.context.EventType;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.openapi.ConfigCacheService;
 import com.huawei.hms.convertor.openapi.result.Result;
@@ -27,10 +28,12 @@ import com.huawei.hms.convertor.util.FileUtil;
 import com.alibaba.fastjson.JSON;
 
 import lombok.extern.slf4j.Slf4j;
+
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,10 +58,6 @@ public final class ConversionCacheManager {
 
     private ConversionCacheManager() {
         conversionCache = new ConcurrentHashMap<>();
-    }
-
-    public Map<String, ProjectConversionCache> getConversionCache() {
-        return conversionCache;
     }
 
     /**
@@ -132,37 +131,22 @@ public final class ConversionCacheManager {
     /**
      * query Conversions depend on filters
      *
-     * @param projectPath projectPath
-     * @param fileName fileName
-     * @param kitName kitName
-     * @param fixStatus fixStatus
+     * @param conversionItem conversionItem
      * @return list
      */
-    public List<ConversionItem> queryConversions(String projectPath, String fileName, String kitName,
-        boolean fixStatus) {
-        if (!conversionCache.containsKey(projectPath)) {
+    public List<ConversionItem> queryConversions(ConversionItem conversionItem) {
+        if (!conversionCache.containsKey(conversionItem.getFilePath())) {
             return new ArrayList<>();
         }
-        ProjectConversionCache projectConversionCache = conversionCache.get(projectPath);
+        ProjectConversionCache projectConversionCache = conversionCache.get(conversionItem.getFilePath());
         List<ConversionItem> items = new ArrayList<>();
         List<ConversionItem> allItems = projectConversionCache.getConversionItemList();
         allItems.forEach(item -> {
-            if (accept(item, fileName, kitName, fixStatus)) {
+            if (accept(item, conversionItem)) {
                 items.add(item);
             }
         });
         return items;
-    }
-
-    private boolean accept(ConversionItem defectItem, String fileFilter, String kitNameFilter,
-        boolean isShowConverted) {
-        boolean isFileAccept = fileFilter.equals(Constant.ALL) ? true : defectItem.getFile().equals(fileFilter);
-        boolean isKitAccept =
-            kitNameFilter.equals(Constant.ALL) ? true : defectItem.getKitName().contains(kitNameFilter);
-
-        boolean isShowAccept = isShowConverted ? true : (!defectItem.isConverted());
-
-        return isFileAccept && isShowAccept && isKitAccept;
     }
 
     /**
@@ -202,14 +186,18 @@ public final class ConversionCacheManager {
                 return Result.failed("No cache folder");
             }
             String saveFilePath =
-                Paths.get(Constant.PLUGIN_CACHE_PATH, repoID, ProjectConstants.Result.LAST_CONVERSION_JSON).toString();
+                Paths
+                    .get(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH, repoID,
+                        ProjectConstants.Result.LAST_CONVERSION_JSON)
+                    .toString();
             if (FileUtil.isInvalidDirectoryPath(saveFilePath)) {
                 return Result.failed("Invalid directory path");
             }
 
             File saveFile = new File(saveFilePath);
             if (!saveFile.getParentFile().exists()) {
-                log.warn("{} does not exist, maybe not analysis yet.", Constant.PLUGIN_CACHE_PATH + repoID);
+                log.warn("{} does not exist, maybe not analysis yet.",
+                    PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + repoID);
                 return Result.failed("File dir not exist ");
             }
 
@@ -242,8 +230,8 @@ public final class ConversionCacheManager {
     public List<ConversionItem> loadConversions(String projectBasePath) {
         String folderName = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.REPO_ID, String.class, "");
-        String saveFilePath =
-            Constant.PLUGIN_CACHE_PATH + folderName + Constant.SEPARATOR + ProjectConstants.Result.LAST_CONVERSION_JSON;
+        String saveFilePath = PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + folderName + Constant.UNIX_FILE_SEPARATOR
+            + ProjectConstants.Result.LAST_CONVERSION_JSON;
         if (!new File(saveFilePath).exists()) {
             log.info("LastConversion.json doesn't exist");
             return Collections.emptyList();
@@ -251,7 +239,7 @@ public final class ConversionCacheManager {
 
         String lastConversionString;
         try {
-            lastConversionString = FileUtil.readToString(saveFilePath, Constant.UTF8);
+            lastConversionString = FileUtil.readToString(saveFilePath, StandardCharsets.UTF_8.toString());
         } catch (IOException e) {
             log.error(e.getMessage(), e);
             return Collections.emptyList();
@@ -318,4 +306,16 @@ public final class ConversionCacheManager {
         return projectConversionCache.isEdit;
     }
 
+    private boolean accept(ConversionItem defectItem, ConversionItem conversionItem) {
+        boolean isFileAccept = conversionItem.getFile().equals(Constant.ALL) ? true
+            : defectItem.getFile().equals(conversionItem.getFile());
+        boolean isConverotrTypeAccept = conversionItem.getConvertType().equals(Constant.ALL) ? true
+            : defectItem.getConvertType().equals(conversionItem.getConvertType());
+        boolean isKitAccept = conversionItem.getKitName().equals(Constant.ALL) ? true
+            : defectItem.getKitName().contains(conversionItem.getKitName());
+
+        boolean isShowAccept = conversionItem.isConverted() ? true : (!defectItem.isConverted());
+
+        return isFileAccept && isShowAccept && isKitAccept && isConverotrTypeAccept;
+    }
 }

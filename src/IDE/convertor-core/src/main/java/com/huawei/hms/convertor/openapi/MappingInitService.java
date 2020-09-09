@@ -16,7 +16,7 @@
 
 package com.huawei.hms.convertor.openapi;
 
-import com.huawei.hms.convertor.core.kits.KitsMappingInitializr;
+import com.huawei.hms.convertor.core.mapping.MappingInitializer;
 
 /**
  * Mapping initialize service
@@ -42,6 +42,6 @@ public final class MappingInitService {
      * Init kits mappings
      */
     public void init() {
-        KitsMappingInitializr.initialize();
+        MappingInitializer.initialize();
     }
 }

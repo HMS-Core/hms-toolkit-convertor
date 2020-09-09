@@ -17,6 +17,7 @@
 package com.huawei.hms.convertor.core.result.diff;
 
 import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.openapi.ConfigCacheService;
 import com.huawei.hms.convertor.util.Constant;
@@ -32,6 +33,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -47,6 +49,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class XmsDiffCacheManager {
     private static final XmsDiffCacheManager XMS_DIFF_CACHE_MANAGER = new XmsDiffCacheManager();
 
+    private Map<String, XmsDiff> xmsDiffMap = new ConcurrentHashMap<>();
+
     private XmsDiffCacheManager() {
     }
 
@@ -58,8 +62,6 @@ public final class XmsDiffCacheManager {
     public static XmsDiffCacheManager getInstance() {
         return XMS_DIFF_CACHE_MANAGER;
     }
-
-    private Map<String, XmsDiff> xmsDiffMap = new ConcurrentHashMap<>();
 
     /**
      * Set xms diff info
@@ -91,7 +93,10 @@ public final class XmsDiffCacheManager {
             }
 
             String saveFilePath =
-                Paths.get(Constant.PLUGIN_CACHE_PATH, folderName, ProjectConstants.Result.LAST_XMSDIFF_JSON).toString();
+                Paths
+                    .get(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH, folderName,
+                        ProjectConstants.Result.LAST_XMSDIFF_JSON)
+                    .toString();
             if (FileUtil.isInvalidDirectoryPath(saveFilePath)) {
                 log.error("Invalid directory path");
                 return;
@@ -99,7 +104,8 @@ public final class XmsDiffCacheManager {
 
             File saveFile = new File(saveFilePath);
             if (!saveFile.getParentFile().exists()) {
-                log.warn("{} does not exist, maybe not analysis yet.", Constant.PLUGIN_CACHE_PATH + folderName);
+                log.warn("{} does not exist, maybe not analysis yet.",
+                    PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + folderName);
                 return;
             }
             if (saveFile.exists()) {
@@ -130,15 +136,15 @@ public final class XmsDiffCacheManager {
     public XmsDiff loadXmsDiff(String projectBasePath) {
         String folderName = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.REPO_ID, String.class, "");
-        String saveFilePath =
-            Constant.PLUGIN_CACHE_PATH + folderName + Constant.SEPARATOR + ProjectConstants.Result.LAST_XMSDIFF_JSON;
+        String saveFilePath = PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + folderName + Constant.UNIX_FILE_SEPARATOR
+            + ProjectConstants.Result.LAST_XMSDIFF_JSON;
         if (!new File(saveFilePath).exists()) {
             log.info("LastXmsDiff.json doesn't exist");
             return null;
         }
 
         try {
-            String lastXmsDiffString = FileUtil.readToString(saveFilePath, Constant.UTF8);
+            String lastXmsDiffString = FileUtil.readToString(saveFilePath, StandardCharsets.UTF_8.toString());
             XmsDiff newXmsDiff = JSON.parseObject(lastXmsDiffString, XmsDiff.class);
             setXmsDiff(projectBasePath, newXmsDiff);
             log.info("Load summary success");
