@@ -5,6 +5,7 @@ ext {
 
 dependencies {
     compile project(":IDE:convertor-idea")
+    compile project(":IDE:convertor-mapping")
     compile 'ch.qos.logback:logback-classic'
 }
 
