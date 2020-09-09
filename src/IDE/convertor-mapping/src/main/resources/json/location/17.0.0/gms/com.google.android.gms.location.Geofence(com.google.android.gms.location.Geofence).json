@@ -1,0 +1,141 @@
+{
+  "gName": "com.google.android.gms.location.Geofence",
+  "interfaces": [],
+  "dependencyName": "Location",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getRequestId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getUniqueId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.Geofence",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "GEOFENCE_TRANSITION_DWELL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "DWELL_GEOFENCE_CONVERSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "\"Geofence public static final int GEOFENCE_TRANSITION_DWELL = 4\" will be replaced by \"Geofence public static final int DWELL_GEOFENCE_CONVERSION = 4\"",
+      "hName": "com.huawei.hms.location.Geofence",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "GEOFENCE_TRANSITION_ENTER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "ENTER_GEOFENCE_CONVERSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"Geofence public static final int GEOFENCE_TRANSITION_ENTER = 1\" will be replaced by \"Geofence public static final int ENTER_GEOFENCE_CONVERSION = 1\"",
+      "hName": "com.huawei.hms.location.Geofence",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "GEOFENCE_TRANSITION_EXIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "EXIT_GEOFENCE_CONVERSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"Geofence public static final int GEOFENCE_TRANSITION_EXIT = 2\" will be replaced by \"Geofence public static final int EXIT_GEOFENCE_CONVERSION = 2\"",
+      "hName": "com.huawei.hms.location.Geofence",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "NEVER_EXPIRE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "long",
+        "value": "-1L"
+      },
+      "h": {
+        "name": "GEOFENCE_NEVER_EXPIRE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "long",
+        "value": "-1L"
+      },
+      "text": "\"Geofence public static final long NEVER_EXPIRE = -1L\" will be replaced by \"Geofence public static final long GEOFENCE_NEVER_EXPIRE = -1L\"",
+      "hName": "com.huawei.hms.location.Geofence",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.location.Geofence",
+  "kitName": "Location",
+  "status": "matching"
+}

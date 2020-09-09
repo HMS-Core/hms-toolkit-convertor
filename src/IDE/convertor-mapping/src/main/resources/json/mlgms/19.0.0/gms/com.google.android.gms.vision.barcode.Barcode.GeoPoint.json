@@ -1,0 +1,79 @@
+{
+  "gName": "com.google.android.gms.vision.barcode.Barcode.GeoPoint",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "MLgms",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "GeoPoint",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "LocationCoordinate",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.LocationCoordinate",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "lat",
+        "modifiers": [],
+        "type": "double",
+        "value": ""
+      },
+      "h": {
+        "name": "latitude",
+        "modifiers": [],
+        "type": "double",
+        "value": ""
+      },
+      "text": "\"Barcode.GeoPoint public double lat\" will be replaced by \"HmsScan.LocationCoordinate public double latitude\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.LocationCoordinate",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "lng",
+        "modifiers": [],
+        "type": "double",
+        "value": ""
+      },
+      "h": {
+        "name": "longitude",
+        "modifiers": [],
+        "type": "double",
+        "value": ""
+      },
+      "text": "\"Barcode.GeoPoint public double lng\" will be replaced by \"HmsScan.LocationCoordinate public double longitude\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.LocationCoordinate",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan.LocationCoordinate",
+  "kitName": "ML",
+  "status": "matching"
+}

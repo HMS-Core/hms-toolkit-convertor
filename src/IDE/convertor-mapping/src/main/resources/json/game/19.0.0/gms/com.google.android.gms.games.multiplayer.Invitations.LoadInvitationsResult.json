@@ -1,0 +1,37 @@
+{
+  "gName": "com.google.android.gms.games.multiplayer.Invitations.LoadInvitationsResult",
+  "interfaces": [
+    "com.google.android.gms.common.api.Result",
+    "com.google.android.gms.common.api.Releasable"
+  ],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getInvitations",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.multiplayer.InvitationBuffer"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Game",
+  "status": "notSupport"
+}

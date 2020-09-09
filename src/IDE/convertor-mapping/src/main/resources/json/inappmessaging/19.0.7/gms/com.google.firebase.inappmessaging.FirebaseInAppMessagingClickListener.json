@@ -1,0 +1,42 @@
+{
+  "gName": "com.google.firebase.inappmessaging.FirebaseInAppMessagingClickListener",
+  "interfaces": [],
+  "dependencyName": "InAppMessaging",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "messageClicked",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.model.InAppMessage"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.inappmessaging.model.Action"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessagingOnClickListener",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-inapp-0000001051053689#EN-US_TOPIC_0000001051053689__section2512580370"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "InAppMessaging",
+  "status": "complex"
+}

@@ -1,0 +1,179 @@
+{
+  "gName": "com.google.android.gms.vision.Frame",
+  "interfaces": [],
+  "dependencyName": "MLgms",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBitmap",
+        "paramTypes": [],
+        "retType": "android.graphics.Bitmap"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "readBitmap",
+        "paramTypes": [],
+        "retType": "android.graphics.Bitmap"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getGrayscaleImageData",
+        "paramTypes": [],
+        "retType": "java.nio.ByteBuffer"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "acquireGrayByteBuffer",
+        "paramTypes": [],
+        "retType": "java.nio.ByteBuffer"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMetadata",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.vision.Frame.Metadata"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "acquireProperty",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.common.MLFrame.Property"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "ROTATION_0",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "SCREEN_FIRST_QUADRANT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"Frame public static final int ROTATION_0 = 0\" will be replaced by \"MLFrame public static final int SCREEN_FIRST_QUADRANT  = 0\"",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "ROTATION_180",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "SCREEN_THIRD_QUADRANT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"Frame public static final int ROTATION_180 = 2\" will be replaced by \"MLFrame public static final int SCREEN_THIRD_QUADRANT = 2\"",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "ROTATION_270",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "SCREEN_FOURTH_QUADRANT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"Frame public static final int ROTATION_270 = 3\" will be replaced by \"MLFrame public static final int SCREEN_FOURTH_QUADRANT = 3\"",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "ROTATION_90",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "SCREEN_SECOND_QUADRANT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"Frame public static final int ROTATION_90 = 1\" will be replaced by \"MLFrame public static final int SCREEN_SECOND_QUADRANT = 1\"",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.common.MLFrame",
+  "kitName": "ML",
+  "status": "matching"
+}

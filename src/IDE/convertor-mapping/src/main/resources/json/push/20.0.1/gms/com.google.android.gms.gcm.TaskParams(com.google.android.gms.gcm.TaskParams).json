@@ -1,0 +1,112 @@
+{
+  "gName": "com.google.android.gms.gcm.TaskParams",
+  "interfaces": [],
+  "dependencyName": "Push",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "TaskParams",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs.",
+      "hName": "",
+      "url": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "TaskParams",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs.",
+      "hName": "",
+      "url": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "TaskParams",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "android.os.Bundle"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.List<android.net.Uri>"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs.",
+      "hName": "",
+      "url": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getExtras",
+        "paramTypes": [],
+        "retType": "android.os.Bundle"
+      },
+      "text": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs.",
+      "hName": "",
+      "url": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTag",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs.",
+      "hName": "",
+      "url": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "",
+  "kitName": "Push",
+  "status": "notSupport"
+}

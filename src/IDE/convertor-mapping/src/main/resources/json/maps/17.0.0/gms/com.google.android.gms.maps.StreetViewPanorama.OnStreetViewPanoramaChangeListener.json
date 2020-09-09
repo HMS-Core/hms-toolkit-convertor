@@ -1,0 +1,46 @@
+{
+  "gName": "com.google.android.gms.maps.StreetViewPanorama.OnStreetViewPanoramaChangeListener",
+  "interfaces": [],
+  "dependencyName": "Map",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onStreetViewPanoramaChange",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.model.StreetViewPanoramaLocation"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onStreetViewPanoramaChange",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.maps.model.StreetViewPanoramaLocation"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.maps.StreetViewPanorama.OnStreetViewPanoramaChangeListener",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.maps.StreetViewPanorama.OnStreetViewPanoramaChangeListener",
+  "kitName": "Map",
+  "status": "matching"
+}

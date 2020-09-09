@@ -1,0 +1,218 @@
+{
+  "gName": "com.google.android.gms.location.GeofencingRequest",
+  "interfaces": [],
+  "dependencyName": "Location",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getGeofences",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.location.Geofence>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getGeofences",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.location.Geofence>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.GeofenceRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getInitialTrigger",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getInitConversions",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.GeofenceRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.GeofenceRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.GeofenceRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "INITIAL_TRIGGER_DWELL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "DWELL_INIT_CONVERSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "\"GeofencingRequest public static final int INITIAL_TRIGGER_DWELL = 4\" will be replaced by \"GeofenceRequest public static final int DWELL_INIT_CONVERSION = 4\"",
+      "hName": "com.huawei.hms.location.GeofenceRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "INITIAL_TRIGGER_ENTER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "ENTER_INIT_CONVERSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"GeofencingRequest public static final int INITIAL_TRIGGER_ENTER = 1\" will be replaced by \"GeofenceRequest public static final int ENTER_INIT_CONVERSION = 1\"",
+      "hName": "com.huawei.hms.location.GeofenceRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "INITIAL_TRIGGER_EXIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "EXIT_INIT_CONVERSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"GeofencingRequest public static final int INITIAL_TRIGGER_EXIT = 2\" will be replaced by \"GeofenceRequest public static final int EXIT_INIT_CONVERSION = 2\"",
+      "hName": "com.huawei.hms.location.GeofenceRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.location.GeofencingRequest>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.huawei.hms.location.GeofenceRequest>",
+        "value": ""
+      },
+      "text": "\"GeofencingRequest public static final android.os.Parcelable.Creator<com.google.android.gms.location.GeofencingRequest> CREATOR\" will be replaced by \"GeofenceRequest public static final android.os.Parcelable.Creator<com.huawei.hms.location.GeofenceRequest> CREATOR\"",
+      "hName": "com.huawei.hms.location.GeofenceRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.location.GeofenceRequest",
+  "kitName": "Location",
+  "status": "matching"
+}

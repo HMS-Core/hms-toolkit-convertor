@@ -1,0 +1,362 @@
+{
+  "gName": "com.google.android.gms.location.FusedLocationProviderApi",
+  "interfaces": [],
+  "dependencyName": "Location",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "flushLocations",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "This API has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section17393113191816"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLastLocation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "android.location.Location"
+      },
+      "text": "This API has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section17393113191816"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLocationAvailability",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.location.LocationAvailability"
+      },
+      "text": "This API has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section74534032010"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "removeLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "This API has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section12261038161217"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "removeLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.location.LocationListener"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "This API has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section265414010131"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "removeLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.location.LocationCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "This API has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section89668116139"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalStateException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "requestLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.location.LocationRequest"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.location.LocationListener"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "This API has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section265414010131"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "requestLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.location.LocationRequest"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.location.LocationCallback"
+          },
+          {
+            "pos": "3",
+            "type": "android.os.Looper"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "This API has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section42019134101"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "requestLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.location.LocationRequest"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.location.LocationListener"
+          },
+          {
+            "pos": "3",
+            "type": "android.os.Looper"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "This API has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section265414010131"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "requestLocationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.location.LocationRequest"
+          },
+          {
+            "pos": "2",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "This API has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section588514367118"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "setMockLocation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.location.Location"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "This API has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section033434318206"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "setMockMode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "This API has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section1888419922110"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "name": "KEY_LOCATION_CHANGED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.location.LOCATION"
+      },
+      "text": "This constant has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section1552020436213"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Location",
+      "g": {
+        "name": "KEY_MOCK_LOCATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "mockLocation"
+      },
+      "text": "This constant has been discarded. Replace it according to the conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section1552020436213"
+    }
+  ],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Location",
+  "status": "manuallyAdapt"
+}

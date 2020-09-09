@@ -1,0 +1,55 @@
+{
+  "gName": "com.google.firebase.remoteconfig.FirebaseRemoteConfigFetchThrottledException",
+  "interfaces": [],
+  "dependencyName": "RemoteConfig",
+  "superClass": "com.google.firebase.remoteconfig.FirebaseRemoteConfigFetchException",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "RemoteConfig",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getThrottleEndTimeMillis",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getThrottleEndTimeMillis",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.remoteconfig.AGCConfigException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "RemoteConfig",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "FirebaseRemoteConfigFetchThrottledException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "com.huawei.agconnect.remoteconfig.AGCConfigException",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-remote-0000001050157274#EN-US_TOPIC_0000001050157274__section7199122571410"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.remoteconfig.AGCConfigException",
+  "kitName": "RemoteConfig",
+  "status": "complex"
+}

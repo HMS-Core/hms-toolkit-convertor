@@ -1,0 +1,125 @@
+{
+  "gName": "com.google.android.gms.vision.text.Text",
+  "interfaces": [],
+  "dependencyName": "MLgms",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBoundingBox",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBorder",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLText.Text",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getComponents",
+        "paramTypes": [],
+        "retType": "java.util.List<? extends com.google.android.gms.vision.text.Text>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContents",
+        "paramTypes": [],
+        "retType": "java.util.List<? extends com.huawei.hms.mlsdk.text.MLText.Base>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLText.Text",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getCornerPoints",
+        "paramTypes": [],
+        "retType": "android.graphics.Point[]"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getVertexes",
+        "paramTypes": [],
+        "retType": "android.graphics.Point[]"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLText.Text",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getValue",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStringValue",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLText.Text",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLanguage",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.mlsdk.text.MLText.Text",
+  "kitName": "ML",
+  "status": "notSupport"
+}

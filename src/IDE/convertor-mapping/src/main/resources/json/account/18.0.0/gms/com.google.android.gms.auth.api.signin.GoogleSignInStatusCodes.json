@@ -1,0 +1,128 @@
+{
+  "gName": "com.google.android.gms.auth.api.signin.GoogleSignInStatusCodes",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "com.google.android.gms.common.api.CommonStatusCodes",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusCodeString",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getResultDescription",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.result.HuaweiIdAuthResultCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "SIGN_IN_CANCELLED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12501"
+      },
+      "h": {
+        "name": "RESULT_CODE_CANCELLED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"GoogleSignInStatusCodes public static final int SIGN_IN_CANCELLED=12501\" will be replaced by \"HuaweiIdAuthResultCode public static final int RESULT_CODE_CANCELLED\"",
+      "hName": "com.huawei.hms.support.hwid.result.HuaweiIdAuthResultCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "SIGN_IN_CURRENTLY_IN_PROGRESS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12502"
+      },
+      "h": {
+        "name": "RESULT_CODE_EXECUTING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"GoogleSignInStatusCodes public static final int SIGN_IN_CURRENTLY_IN_PROGRESS=12502\" will be replaced by \"HuaweiIdAuthResultCode public static final int RESULT_CODE_EXECUTING\"",
+      "hName": "com.huawei.hms.support.hwid.result.HuaweiIdAuthResultCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "SIGN_IN_FAILED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12500"
+      },
+      "h": {
+        "name": "RESULT_CODE_FAILED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"GoogleSignInStatusCodes public static final int SIGN_IN_FAILED=12500\" will be replaced by \"HuaweiIdAuthResultCode public static final int RESULT_CODE_FAILED\"",
+      "hName": "com.huawei.hms.support.hwid.result.HuaweiIdAuthResultCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.hwid.result.HuaweiIdAuthResultCode",
+  "kitName": "Account",
+  "status": "matching"
+}

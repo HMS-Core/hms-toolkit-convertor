@@ -1,0 +1,50 @@
+{
+  "gName": "com.google.android.gms.tasks.Continuation<TResult, TContinuationResult>",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [
+          "java.lang.Exception"
+        ],
+        "modifiers": [],
+        "name": "then",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.Task<TResult>"
+          }
+        ],
+        "retType": "TContinuationResult"
+      },
+      "h": {
+        "exceptions": [
+          "java.lang.Exception"
+        ],
+        "modifiers": [],
+        "name": "then",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.Task<TResult>"
+          }
+        ],
+        "retType": "TContinuationResult"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.Continuation<TResult, TContinuationResult>",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hmf.tasks.Continuation<TResult, TContinuationResult>",
+  "kitName": "Basement",
+  "status": "matching"
+}

@@ -1,0 +1,106 @@
+{
+  "gName": "com.google.android.gms.maps.Projection",
+  "interfaces": [],
+  "dependencyName": "Map",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "fromScreenLocation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.graphics.Point"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.model.LatLng"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "fromScreenLocation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.graphics.Point"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.model.LatLng"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.maps.Projection",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getVisibleRegion",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.maps.model.VisibleRegion"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getVisibleRegion",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.maps.model.VisibleRegion"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.maps.Projection",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toScreenLocation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.model.LatLng"
+          }
+        ],
+        "retType": "android.graphics.Point"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toScreenLocation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.maps.model.LatLng"
+          }
+        ],
+        "retType": "android.graphics.Point"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.maps.Projection",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.maps.Projection",
+  "kitName": "Map",
+  "status": "matching"
+}

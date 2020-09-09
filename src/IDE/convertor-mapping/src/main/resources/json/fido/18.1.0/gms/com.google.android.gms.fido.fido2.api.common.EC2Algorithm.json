@@ -1,0 +1,139 @@
+{
+  "gName": "com.google.android.gms.fido.fido2.api.common.EC2Algorithm",
+  "interfaces": [
+    "com.google.android.gms.fido.fido2.api.common.Algorithm"
+  ],
+  "dependencyName": "FIDO",
+  "superClass": "java.lang.Enum<com.google.android.gms.fido.fido2.api.common.EC2Algorithm>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAlgoValue",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "encodeToInt",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.fido.fido2.Algorithm",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "ED256",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.EC2Algorithm",
+        "value": ""
+      },
+      "text": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "ED512",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.EC2Algorithm",
+        "value": ""
+      },
+      "text": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "ES256",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.EC2Algorithm",
+        "value": ""
+      },
+      "h": {
+        "name": "ES256",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.Algorithm",
+        "value": ""
+      },
+      "text": "\"EC2Algorithm public static final com.google.android.gms.fido.fido2.api.common.EC2Algorithm ES256\" will be replaced by \"Algorithm com.huawei.hms.support.api.fido.fido2.Algorithm ES256\"",
+      "hName": "com.huawei.hms.support.api.fido.fido2.Algorithm",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "ES384",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.EC2Algorithm",
+        "value": ""
+      },
+      "h": {
+        "name": "ES384",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.Algorithm",
+        "value": ""
+      },
+      "text": "\"EC2Algorithm public static final com.google.android.gms.fido.fido2.api.common.EC2Algorithm ES384\" will be replaced by \"Algorithm com.huawei.hms.support.api.fido.fido2.Algorithm ES384\"",
+      "hName": "com.huawei.hms.support.api.fido.fido2.Algorithm",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "ES512",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.EC2Algorithm",
+        "value": ""
+      },
+      "h": {
+        "name": "ES512",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.Algorithm",
+        "value": ""
+      },
+      "text": "\"EC2Algorithm public static final com.google.android.gms.fido.fido2.api.common.EC2Algorithm ES512\" will be replaced by \"Algorithm com.huawei.hms.support.api.fido.fido2.Algorithm ES512\"",
+      "hName": "com.huawei.hms.support.api.fido.fido2.Algorithm",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "enum",
+  "hName": "com.huawei.hms.support.api.fido.fido2.Algorithm",
+  "kitName": "FIDO",
+  "status": "matching"
+}

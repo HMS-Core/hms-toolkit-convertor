@@ -1,0 +1,35 @@
+{
+  "gName": "com.google.android.gms.awareness.snapshot.PlacesResult",
+  "interfaces": [
+    "com.google.android.gms.common.api.Result"
+  ],
+  "dependencyName": "Awareness",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPlaceLikelihoods",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.location.places.PlaceLikelihood>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.capture.PlacesResult",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Awareness",
+  "status": "notSupport"
+}

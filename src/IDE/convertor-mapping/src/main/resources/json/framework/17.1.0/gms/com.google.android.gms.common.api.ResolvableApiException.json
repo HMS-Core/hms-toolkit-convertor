@@ -1,0 +1,110 @@
+{
+  "gName": "com.google.android.gms.common.api.ResolvableApiException",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "com.google.android.gms.common.api.ApiException",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getResolution",
+        "paramTypes": [],
+        "retType": "android.app.PendingIntent"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getResolution",
+        "paramTypes": [],
+        "retType": "android.app.PendingIntent"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.common.ResolvableApiException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [
+          "android.content.IntentSender.SendIntentException"
+        ],
+        "modifiers": [],
+        "name": "startResolutionForResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [
+          "android.content.IntentSender.SendIntentException"
+        ],
+        "modifiers": [],
+        "name": "startResolutionForResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.common.ResolvableApiException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ResolvableApiException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.Status"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ResolvableApiException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.support.api.client.Status"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.common.ResolvableApiException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.common.ResolvableApiException",
+  "kitName": "Basement",
+  "status": "matching"
+}

@@ -1,0 +1,40 @@
+{
+  "gName": "com.google.android.gms.safetynet.SafetyNetApi",
+  "interfaces": [],
+  "dependencyName": "Safetynet",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "verifyWithRecaptcha",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.safetynet.SafetyNetApi.RecaptchaTokenResult>"
+      },
+      "text": "This API has been discarded. Modify it based on the development guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/userdetect-0000001050154382"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Safetynet",
+  "status": "notSupport"
+}

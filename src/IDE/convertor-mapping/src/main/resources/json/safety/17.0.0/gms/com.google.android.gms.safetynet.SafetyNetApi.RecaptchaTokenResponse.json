@@ -1,0 +1,52 @@
+{
+  "gName": "com.google.android.gms.safetynet.SafetyNetApi.RecaptchaTokenResponse",
+  "interfaces": [],
+  "dependencyName": "Safetynet",
+  "superClass": "com.google.android.gms.common.api.Response",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "RecaptchaTokenResponse",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS does not provide a response instantiation solution. Make modifications based on the development guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/userdetect-0000001050154382"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTokenResult",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getResponseToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.entity.safetydetect.UserDetectResponse",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.entity.safetydetect.UserDetectResponse",
+  "kitName": "Safetynet",
+  "status": "matching"
+}

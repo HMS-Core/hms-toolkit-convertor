@@ -1,0 +1,46 @@
+{
+  "gName": "com.android.billingclient.api.BillingClient.SkuType",
+  "interfaces": [
+    "java.lang.annotation.Annotation"
+  ],
+  "dependencyName": "IAP",
+  "superClass": "",
+  "methods": [],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "name": "INAPP",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "inapp"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.GetBuyIntentReq",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "name": "SUBS",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "subs"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.GetBuyIntentReq",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    }
+  ],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "IAP",
+  "status": "manuallyAdapt"
+}

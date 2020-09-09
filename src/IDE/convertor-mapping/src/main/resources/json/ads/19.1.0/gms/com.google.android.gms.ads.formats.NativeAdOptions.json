@@ -1,0 +1,432 @@
+{
+  "gName": "com.google.android.gms.ads.formats.NativeAdOptions",
+  "interfaces": [],
+  "dependencyName": "Ads",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAdChoicesPlacement",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getChoicesPosition",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getImageOrientation",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getMediaDirection",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getMediaAspectRatio",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getMediaAspect",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getVideoOptions",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.ads.VideoOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getVideoConfiguration",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ads.VideoConfiguration"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "shouldRequestMultipleImages",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isRequestMultiImages",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "shouldReturnUrlsForImageAssets",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isReturnUrlsForImages",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ADCHOICES_BOTTOM_LEFT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "BOTTOM_LEFT",
+        "modifiers": [],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"NativeAdOptions public static final int ADCHOICES_BOTTOM_LEFT = 3\" will be replaced by \"NativeAdConfiguration.ChoicesPosition int BOTTOM_LEFT = 3\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration.ChoicesPosition",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ADCHOICES_BOTTOM_RIGHT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "BOTTOM_RIGHT",
+        "modifiers": [],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"NativeAdOptions public static final int ADCHOICES_BOTTOM_RIGHT = 2\" will be replaced by \"NativeAdConfiguration.ChoicesPosition int BOTTOM_RIGHT = 2\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration.ChoicesPosition",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ADCHOICES_TOP_LEFT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "TOP_LEFT",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"NativeAdOptions public static final int ADCHOICES_TOP_LEFT = 0\" will be replaced by \"NativeAdConfiguration.ChoicesPosition int TOP_LEFT = 0\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration.ChoicesPosition",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ADCHOICES_TOP_RIGHT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TOP_RIGHT",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"NativeAdOptions public static final int ADCHOICES_TOP_RIGHT = 1\" will be replaced by \"NativeAdConfiguration.ChoicesPosition int TOP_RIGHT = 1\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration.ChoicesPosition",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "NATIVE_MEDIA_ASPECT_RATIO_ANY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "ASPECT_ANY",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"NativeAdOptions public static final int NATIVE_MEDIA_ASPECT_RATIO_ANY = 1\" will be replaced by \"NativeAdConfiguration.MediaAspect int ASPECT_ANY = 1\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration.MediaAspect",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "NATIVE_MEDIA_ASPECT_RATIO_LANDSCAPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "ASPECT_LANDSCAPE",
+        "modifiers": [],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"NativeAdOptions public static final int NATIVE_MEDIA_ASPECT_RATIO_LANDSCAPE = 2\" will be replaced by \"NativeAdConfiguration.MediaAspect int ASPECT_LANDSCAPE = 2\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration.MediaAspect",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "NATIVE_MEDIA_ASPECT_RATIO_PORTRAIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "ASPECT_PORTRAIT",
+        "modifiers": [],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"NativeAdOptions public static final int NATIVE_MEDIA_ASPECT_RATIO_PORTRAIT = 3\" will be replaced by \"NativeAdConfiguration.MediaAspect int ASPECT_PORTRAIT = 3\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration.MediaAspect",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "NATIVE_MEDIA_ASPECT_RATIO_SQUARE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "ASPECT_SQUARE",
+        "modifiers": [],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "\"NativeAdOptions public static final int NATIVE_MEDIA_ASPECT_RATIO_SQUARE = 4\" will be replaced by \"NativeAdConfiguration.MediaAspect int ASPECT_SQUARE = 4\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration.MediaAspect",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "NATIVE_MEDIA_ASPECT_RATIO_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "ASPECT_UNKNOWN",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"NativeAdOptions public static final int NATIVE_MEDIA_ASPECT_RATIO_UNKNOWN = 0\" will be replaced by \"NativeAdConfiguration.MediaAspect int ASPECT_UNKNOWN = 0\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration.MediaAspect",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ORIENTATION_ANY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "ANY",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"NativeAdOptions public static final int ORIENTATION_ANY = 0\" will be replaced by \"NativeAdConfiguration.Direction int ANY = 0\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration.Direction",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ORIENTATION_LANDSCAPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "LANDSCAPE",
+        "modifiers": [],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"NativeAdOptions public static final int ORIENTATION_LANDSCAPE = 2\" will be replaced by \"NativeAdConfiguration.Direction int LANDSCAPE = 2\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration.Direction",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ORIENTATION_PORTRAIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "PORTRAIT",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"NativeAdOptions public static final int ORIENTATION_PORTRAIT = 1\" will be replaced by \"NativeAdConfiguration.Direction int PORTRAIT = 1\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration.Direction",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ads.nativead.NativeAdConfiguration",
+  "kitName": "Ads",
+  "status": "improve"
+}

@@ -1,0 +1,322 @@
+{
+  "gName": "com.google.android.gms.fitness.request.DataDeleteRequest",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Health",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "deleteAllData",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "deleteAllData",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "deleteAllSessions",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "deleteAllActivityRecords",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataSources",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.DataSource>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataCollectors",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.hihealth.data.DataCollector>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataTypes",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.DataType>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataTypes",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.hihealth.data.DataType>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getEndTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getEndTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSessions",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.Session>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getActivityRecords",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.hihealth.data.ActivityRecord>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStartTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStartTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.fitness.request.DataDeleteRequest>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.huawei.hms.hihealth.options.DeleteOptions>",
+        "value": ""
+      },
+      "text": "\"DataDeleteRequest public static final android.os.Parcelable.Creator<com.google.android.gms.fitness.request.DataDeleteRequest> CREATOR\" will be replaced by \"DeleteOptions public static final android.os.Parcelable.Creator<com.huawei.hms.hihealth.options.DeleteOptions> CREATOR\"",
+      "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.options.DeleteOptions",
+  "kitName": "Health",
+  "status": "matching"
+}

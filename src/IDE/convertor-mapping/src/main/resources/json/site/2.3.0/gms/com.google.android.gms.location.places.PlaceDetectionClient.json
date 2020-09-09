@@ -1,0 +1,53 @@
+{
+  "gName": "com.google.android.gms.location.places.PlaceDetectionClient",
+  "interfaces": [],
+  "dependencyName": "Site",
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.location.places.PlacesOptions> ",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCurrentPlace",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.location.places.PlaceFilter"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/android-sdk-keyword-search-0000001050156630"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "reportDeviceAtPlace",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.location.places.PlaceReport"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/android-sdk-keyword-search-0000001050156630"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "",
+  "kitName": "Site",
+  "status": "manuallyAdapt"
+}

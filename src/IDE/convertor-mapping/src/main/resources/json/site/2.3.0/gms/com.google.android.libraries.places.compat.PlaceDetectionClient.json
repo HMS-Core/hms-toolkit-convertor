@@ -1,0 +1,53 @@
+{
+  "gName": "com.google.android.libraries.places.compat.PlaceDetectionClient",
+  "interfaces": [],
+  "dependencyName": "Site",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCurrentPlace",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.compat.PlaceFilter"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.compat.PlaceLikelihoodBufferResponse>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-nearbysearchrequest-0000001050154749"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "reportDeviceAtPlace",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.compat.PlaceReport"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-nearbysearchrequest-0000001050154749"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "",
+  "kitName": "Site",
+  "status": "manuallyAdapt"
+}

@@ -1,0 +1,99 @@
+{
+  "gName": "com.google.android.gms.auth.api.signin.GoogleSignInClient",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.auth.api.signin.GoogleSignInOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSignInIntent",
+        "paramTypes": [],
+        "retType": "android.content.Intent"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSignInIntent",
+        "paramTypes": [],
+        "retType": "android.content.Intent"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.service.HuaweiIdAuthService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "revokeAccess",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "cancelAuthorization",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.service.HuaweiIdAuthService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "signOut",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "signOut",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.service.HuaweiIdAuthService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "silentSignIn",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.auth.api.signin.GoogleSignInAccount>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "silentSignIn",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.support.hwid.result.AuthHuaweiId>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.service.HuaweiIdAuthService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.support.hwid.service.HuaweiIdAuthService",
+  "kitName": "Account",
+  "status": "matching"
+}

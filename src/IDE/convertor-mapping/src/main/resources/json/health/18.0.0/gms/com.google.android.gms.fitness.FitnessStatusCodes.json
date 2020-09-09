@@ -1,0 +1,712 @@
+{
+  "gName": "com.google.android.gms.fitness.FitnessStatusCodes",
+  "interfaces": [],
+  "dependencyName": "Health",
+  "superClass": "com.google.android.gms.common.api.CommonStatusCodes",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "FitnessStatusCodes",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "HiHealthStatusCodes",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "AGGREGATION_NOT_SUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5012"
+      },
+      "h": {
+        "name": "POLYMERIZED_NOT_SUPPORTED_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50012"
+      },
+      "text": "\"FitnessStatusCodes public static final int AGGREGATION_NOT_SUPPORTED = 5012\" will be replaced by \"HiHealthStatusCodes public static final int POLYMERIZED_NOT_SUPPORTED_ERROR = 50012\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "API_EXCEPTION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5011"
+      },
+      "h": {
+        "name": "API_EXCEPTION_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50011"
+      },
+      "text": "\"FitnessStatusCodes public static final int API_EXCEPTION = 5011\" will be replaced by \"HiHealthStatusCodes public static final int API_EXCEPTION_ERROR = 50011\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "APP_MISMATCH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5004"
+      },
+      "h": {
+        "name": "APP_MISMATCH_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50004"
+      },
+      "text": "\"FitnessStatusCodes public static final int APP_MISMATCH = 5004\" will be replaced by \"HiHealthStatusCodes public static final int APP_MISMATCH_ERROR = 50004\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "APP_NOT_FIT_ENABLED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5010"
+      },
+      "h": {
+        "name": "APP_NOT_ENABLED_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50010"
+      },
+      "text": "\"FitnessStatusCodes public static final int APP_NOT_FIT_ENABLED = 5010\" will be replaced by \"HiHealthStatusCodes public static final int APP_NOT_ENABLED_ERROR = 50010\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "CONFLICTING_DATA_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5001"
+      },
+      "h": {
+        "name": "DUPLICATED_DATA_TYPE_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50001"
+      },
+      "text": "\"FitnessStatusCodes public static final int CONFLICTING_DATA_TYPE = 5001\" will be replaced by \"HiHealthStatusCodes public static final int DUPLICATED_DATA_TYPE_ERROR = 50001\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "DATASET_TIMESTAMP_INCONSISTENT_WITH_UPDATE_TIME_RANGE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5019"
+      },
+      "h": {
+        "name": "SAMPLE_SET_TIMESTAMP_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50019"
+      },
+      "text": "\"FitnessStatusCodes public static final int DATASET_TIMESTAMP_INCONSISTENT_WITH_UPDATE_TIME_RANGE = 5019\" will be replaced by \"HiHealthStatusCodes public static final int SAMPLE_SET_TIMESTAMP_ERROR = 50019\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "DATA_SOURCE_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5018"
+      },
+      "h": {
+        "name": "NONEXISTENT_DATA_COLLECTOR_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50018"
+      },
+      "text": "\"FitnessStatusCodes public static final int DATA_SOURCE_NOT_FOUND = 5018\" will be replaced by \"HiHealthStatusCodes public static final int NONEXISTENT_DATA_COLLECTOR_ERROR = 50018\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "DATA_TYPE_NOT_ALLOWED_FOR_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5023"
+      },
+      "h": {
+        "name": "UNSUPPORTED_DATA_TYPE_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50023"
+      },
+      "text": "\"FitnessStatusCodes public static final int DATA_TYPE_NOT_ALLOWED_FOR_API = 5023\" will be replaced by \"HiHealthStatusCodes public static final int UNSUPPORTED_DATA_TYPE_ERROR = 50023\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "DATA_TYPE_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5003"
+      },
+      "h": {
+        "name": "NOT_EXIST_DATA_TYPE_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50003"
+      },
+      "text": "\"FitnessStatusCodes public static final int DATA_TYPE_NOT_FOUND = 5003\" will be replaced by \"HiHealthStatusCodes public static final int NOT_EXIST_DATA_TYPE_ERROR = 50003\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "DISABLED_BLUETOOTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5014"
+      },
+      "h": {
+        "name": "BLUETOOTH_FORBIDDEN_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50014"
+      },
+      "text": "\"FitnessStatusCodes public static final int DISABLED_BLUETOOTH = 5014\" will be replaced by \"HiHealthStatusCodes public static final int BLUETOOTH_FORBIDDEN_ERROR = 50014\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "EQUIVALENT_SESSION_ENDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5009"
+      },
+      "h": {
+        "name": "ACTIVITY_RECORD_ENDED_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50009"
+      },
+      "text": "\"FitnessStatusCodes public static final int EQUIVALENT_SESSION_ENDED = 5009\" will be replaced by \"HiHealthStatusCodes public static final int ACTIVITY_RECORD_ENDED_ERROR = 50009\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "INCONSISTENT_DATA_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5002"
+      },
+      "h": {
+        "name": "MISMATCH_DATA_TYPE_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50002"
+      },
+      "text": "\"FitnessStatusCodes public static final int INCONSISTENT_DATA_TYPE = 5002\" will be replaced by \"HiHealthStatusCodes public static final int MISMATCH_DATA_TYPE_ERROR = 50002\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "INCONSISTENT_PACKAGE_NAME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5015"
+      },
+      "h": {
+        "name": "MISMATCH_PACKAGE_NAME_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50015"
+      },
+      "text": "\"FitnessStatusCodes public static final int INCONSISTENT_PACKAGE_NAME = 5015\" will be replaced by \"HiHealthStatusCodes public static final int MISMATCH_PACKAGE_NAME_ERROR = 50015\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "INVALID_DATA_POINT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5021"
+      },
+      "h": {
+        "name": "USELESS_SAMPLE_POINT_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50021"
+      },
+      "text": "\"FitnessStatusCodes public static final int INVALID_DATA_POINT = 5021\" will be replaced by \"HiHealthStatusCodes public static final int USELESS_SAMPLE_POINT_ERROR = 50021\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "INVALID_SESSION_TIMESTAMPS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5020"
+      },
+      "h": {
+        "name": "ACTIVITY_RECORD_TIMESTAMPS_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50020"
+      },
+      "text": "\"FitnessStatusCodes public static final int INVALID_SESSION_TIMESTAMPS = 5020\" will be replaced by \"HiHealthStatusCodes public static final int ACTIVITY_RECORD_TIMESTAMPS_ERROR = 50020\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "INVALID_TIMESTAMP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5022"
+      },
+      "h": {
+        "name": "USELESS_TIMESTAMP_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50022"
+      },
+      "text": "\"FitnessStatusCodes public static final int INVALID_TIMESTAMP = 5022\" will be replaced by \"HiHealthStatusCodes public static final int USELESS_TIMESTAMP_ERROR = 50022\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "MISSING_BLE_PERMISSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5006"
+      },
+      "h": {
+        "name": "NO_BLE_PERMISSION_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50006"
+      },
+      "text": "\"FitnessStatusCodes public static final int MISSING_BLE_PERMISSION = 5006\" will be replaced by \"HiHealthStatusCodes public static final int NO_BLE_PERMISSION_ERROR = 50006\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "NEEDS_OAUTH_PERMISSIONS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5000"
+      },
+      "h": {
+        "name": "NO_AUTHORITY_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50000"
+      },
+      "text": "\"FitnessStatusCodes public static final int NEEDS_OAUTH_PERMISSIONS = 5000\" will be replaced by \"HiHealthStatusCodes public static final int NO_AUTHORITY_ERROR = 50000\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "REQUIRES_APP_WHITELISTING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5024"
+      },
+      "h": {
+        "name": "NEED_APP_TRUSTLIST_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50024"
+      },
+      "text": "\"FitnessStatusCodes public static final int REQUIRES_APP_WHITELISTING = 5024\" will be replaced by \"HiHealthStatusCodes public static final int NEED_APP_TRUSTLIST_ERROR = 50024\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SUCCESS_ALREADY_SUBSCRIBED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-5001"
+      },
+      "h": {
+        "name": "EXISTED_RECORDER_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-50001"
+      },
+      "text": "\"FitnessStatusCodes public static final int SUCCESS_ALREADY_SUBSCRIBED = -5001\" will be replaced by \"HiHealthStatusCodes public static final int EXISTED_RECORDER_ERROR = -50001\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SUCCESS_LISTENER_NOT_REGISTERED_FOR_FITNESS_DATA_UPDATES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-5003"
+      },
+      "h": {
+        "name": "NO_MONITOR_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-50003"
+      },
+      "text": "\"FitnessStatusCodes public static final int SUCCESS_LISTENER_NOT_REGISTERED_FOR_FITNESS_DATA_UPDATES = -5003\" will be replaced by \"HiHealthStatusCodes public static final int NO_MONITOR_ERROR = -50003\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SUCCESS_NO_CLAIMED_DEVICE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-5002"
+      },
+      "h": {
+        "name": "NO_SAVED_DEVICE_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-50002"
+      },
+      "text": "\"FitnessStatusCodes public static final int SUCCESS_NO_CLAIMED_DEVICE = -5002\" will be replaced by \"HiHealthStatusCodes public static final int NO_SAVED_DEVICE_ERROR = -50002\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SUCCESS_NO_DATA_SOURCES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-5000"
+      },
+      "h": {
+        "name": "NO_DATA_COLLECTOR_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-50000"
+      },
+      "text": "\"FitnessStatusCodes public static final int SUCCESS_NO_DATA_SOURCES = -5000\" will be replaced by \"HiHealthStatusCodes public static final int NO_DATA_COLLECTOR_ERROR = -50000\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "TRANSIENT_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5008"
+      },
+      "h": {
+        "name": "TRY_AGAIN_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50008"
+      },
+      "text": "\"FitnessStatusCodes public static final int TRANSIENT_ERROR = 5008\" will be replaced by \"HiHealthStatusCodes public static final int TRY_AGAIN_ERROR = 50008\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "UNKNOWN_AUTH_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5005"
+      },
+      "h": {
+        "name": "UNKNOWN_AUTH_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50005"
+      },
+      "text": "\"FitnessStatusCodes public static final int UNKNOWN_AUTH_ERROR = 5005\" will be replaced by \"HiHealthStatusCodes public static final int UNKNOWN_AUTH_ERROR = 50005\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "UNSUPPORTED_ACCOUNT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5013"
+      },
+      "h": {
+        "name": "UNSUPPORTED_ACCOUNT_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50013"
+      },
+      "text": "\"FitnessStatusCodes public static final int UNSUPPORTED_ACCOUNT = 5013\" will be replaced by \"HiHealthStatusCodes public static final int UNSUPPORTED_ACCOUNT_ERROR = 50013\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "UNSUPPORTED_PLATFORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5007"
+      },
+      "h": {
+        "name": "UNSUPPORTED_PLATFORM_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "50007"
+      },
+      "text": "\"FitnessStatusCodes public static final int UNSUPPORTED_PLATFORM = 5007\" will be replaced by \"HiHealthStatusCodes public static final int UNSUPPORTED_PLATFORM_ERROR = 50007\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.HiHealthStatusCodes",
+  "kitName": "Health",
+  "status": "matching"
+}

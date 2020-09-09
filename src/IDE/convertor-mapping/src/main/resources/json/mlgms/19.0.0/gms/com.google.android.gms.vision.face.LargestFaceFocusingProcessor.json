@@ -1,0 +1,54 @@
+{
+  "gName": "com.google.android.gms.vision.face.LargestFaceFocusingProcessor",
+  "interfaces": [],
+  "dependencyName": "MLgms",
+  "superClass": "com.google.android.gms.vision.FocusingProcessor<com.google.android.gms.vision.face.Face>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "LargestFaceFocusingProcessor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.vision.Detector<com.google.android.gms.vision.face.Face>"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.vision.Tracker<com.google.android.gms.vision.face.Face>"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "MLMaxSizeFaceTransactor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLAnalyzer<com.huawei.hms.mlsdk.face.MLFace>"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.mlsdk.common.MLResultTrailer<com.huawei.hms.mlsdk.face.MLFace>"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLMaxSizeFaceTransactor",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.face.MLMaxSizeFaceTransactor",
+  "kitName": "ML",
+  "status": "matching"
+}

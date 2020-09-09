@@ -1,0 +1,114 @@
+{
+  "gName": "com.google.android.gms.safetynet.SafetyNet",
+  "interfaces": [],
+  "dependencyName": "Safetynet",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.safetynet.SafetyNetClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Contenxt"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.safetydetect.SafetyDetectClient"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.safetydetect.SafetyDetect",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.safetynet.SafetyNetClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.safetydetect.SafetyDetectClient"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.safetydetect.SafetyDetect",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "API",
+        "modifiers": [],
+        "type": "com.google.android.gms.common.api.Api",
+        "value": ""
+      },
+      "text": "This API has been discarded. Modify it based on the development guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dysintegritydevelopment-0000001050156331"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "SafetyNetApi",
+        "modifiers": [],
+        "type": "com.google.android.gms.safetynet.SafetyNetApi",
+        "value": ""
+      },
+      "text": "This API has been discarded. Modify it based on the development guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dysintegritydevelopment-0000001050156331"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.safetydetect.SafetyDetect",
+  "kitName": "Safetynet",
+  "status": "matching"
+}

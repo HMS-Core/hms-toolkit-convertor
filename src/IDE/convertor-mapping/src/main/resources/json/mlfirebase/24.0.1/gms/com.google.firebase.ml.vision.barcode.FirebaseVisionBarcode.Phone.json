@@ -1,0 +1,185 @@
+{
+  "gName": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode.Phone",
+  "interfaces": [],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getNumber",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTelPhoneNumber",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getUseType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_FAX",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "FAX_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"FirebaseVisionBarcode.Phone public static final int TYPE_FAX = 3\" will be replaced by \"HmsScan.TelPhoneNumber public static final int FAX_USE_TYPE = 0\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_HOME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "RESIDENTIAL_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FirebaseVisionBarcode.Phone public static final int TYPE_HOME = 2\" will be replaced by \"HmsScan.TelPhoneNumber public static final int RESIDENTIAL_USE_TYPE = 1\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_MOBILE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "CELLPHONE_NUMBER_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"FirebaseVisionBarcode.Phone public static final int TYPE_MOBILE = 4\" will be replaced by \"HmsScan.TelPhoneNumber public static final int CELLPHONE_NUMBER_USE_TYPE = 2\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "OTHER_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "\"FirebaseVisionBarcode.Phone public static final int TYPE_UNKNOWN = 0\" will be replaced by \"HmsScan.TelPhoneNumber public static final int OTHER_USE_TYPE = -1\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_WORK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "OFFICE_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"FirebaseVisionBarcode.Phone public static final int TYPE_WORK = 1\" will be replaced by \"HmsScan.TelPhoneNumber public static final int OFFICE_USE_TYPE = 3\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+  "kitName": "ML",
+  "status": "matching"
+}

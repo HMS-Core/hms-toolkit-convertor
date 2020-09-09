@@ -1,0 +1,506 @@
+{
+  "gName": "com.google.android.gms.common.SignInButton",
+  "interfaces": [
+    "android.view.View.OnClickListener"
+  ],
+  "dependencyName": "Account",
+  "superClass": "android.widget.FrameLayout",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "onClick",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.view.View"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton.performClick().",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setColorScheme",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setColorPolicy",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton.setColorPolicy(int colorPolicy).",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton.setEnabled(boolean enabled).",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setOnClickListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.view.View.OnClickListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setOnClickListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.view.View.OnClickListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton.setOnClickListener(android.view.View.OnClickListener listener).",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setScopes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.Scope[]"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setSize",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTheme",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton.setTheme(int theme).",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setStyle",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.common.api.Scope[]"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setStyle",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton.setUIMode(int theme, int colorPolicy, int cornerRadiusPx).",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "SignInButton",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "HuaweiIdAuthButton",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton.HuaweiIdAuthButton(android.content.Context context).",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "SignInButton",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.util.AttributeSet"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "HuaweiIdAuthButton",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.util.AttributeSet"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton.HuaweiIdAuthButton(android.content.Context context, android.util.AttributeSet attributeSet).",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "SignInButton",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.util.AttributeSet"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "HuaweiIdAuthButton",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.util.AttributeSet"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton.HuaweiIdAuthButton(android.content.Context context, android.util.AttributeSet attributeSet, int defStyleAttr).",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "COLOR_AUTO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "COLOR_POLICY_BLUE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"SignInButton public static final int COLOR_AUTO = 2\" will be replaced by \"HuaweiIdAuthButton public static final int COLOR_POLICY_BLUE\"",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "COLOR_DARK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "COLOR_POLICY_RED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"SignInButton public static final int COLOR_DARK = 0\" will be replaced by \"HuaweiIdAuthButton public static final int COLOR_POLICY_RED\"",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "COLOR_LIGHT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "COLOR_POLICY_WHITE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"SignInButton public static final int COLOR_LIGHT = 1\" will be replaced by \"HuaweiIdAuthButton public static final int COLOR_POLICY_WHITE\"",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "SIZE_ICON_ONLY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "THEME_NO_TITLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"SignInButton public static final int SIZE_ICON_ONLY = 2\" will be replaced by \"HuaweiIdAuthButton public static final int THEME_NO_TITLE\"",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "name": "SIZE_STANDARD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "SIZE_WIDE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "THEME_FULL_TITLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"SignInButton public static final int SIZE_WIDE = 1\" will be replaced by \"HuaweiIdAuthButton public static final int THEME_FULL_TITLE\"",
+      "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1973732204915"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton",
+  "kitName": "Account",
+  "status": "matching"
+}

@@ -1,0 +1,46 @@
+{
+  "gName": "com.google.android.gms.wallet.WalletObjectsClient",
+  "interfaces": [],
+  "dependencyName": "Wallet",
+  "superClass": "com.google.android.gms.common.api.GoogleApi",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Wallet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "createWalletObjects",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.CreateWalletObjectsRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.wallet.AutoResolvableVoidResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "createWalletPass",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.wallet.CreateWalletPassRequest"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.wallet.AutoResolvableForegroundIntentResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.wallet.WalletPassClient",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.wallet.WalletPassClient",
+  "kitName": "Wallet",
+  "status": "matching"
+}

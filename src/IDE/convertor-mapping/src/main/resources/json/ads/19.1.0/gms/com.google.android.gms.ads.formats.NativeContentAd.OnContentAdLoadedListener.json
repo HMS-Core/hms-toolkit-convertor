@@ -1,0 +1,53 @@
+{
+  "gName": "com.google.android.gms.ads.formats.NativeContentAd.OnContentAdLoadedListener",
+  "interfaces": [],
+  "dependencyName": "Ads",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onContentAdLoaded",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.formats.NativeContentAd"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onNativeAdLoaded",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.ads.nativead.NativeAd"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd.NativeAdLoadedListener",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.ads.nativead.NativeAd.NativeAdLoadedListener",
+  "kitName": "Ads",
+  "status": "improve"
+}

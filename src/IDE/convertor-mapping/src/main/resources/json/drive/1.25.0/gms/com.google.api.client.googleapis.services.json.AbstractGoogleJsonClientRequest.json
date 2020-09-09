@@ -1,0 +1,69 @@
+{
+  "gName": "com.google.api.client.googleapis.services.json.AbstractGoogleJsonClientRequest<T>",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "com.google.api.client.googleapis.services.AbstractGoogleClientRequest<T>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.services.json.AbstractJsonClientRequest<T>",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setRequestHeaders",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.api.client.http.HttpHeaders"
+          }
+        ],
+        "retType": "com.google.api.client.googleapis.services.json.AbstractGoogleJsonClientRequest<T>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setHeaders",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.cloud.base.http.HttpHeaders"
+          }
+        ],
+        "retType": "com.huawei.cloud.base.services.json.AbstractJsonClientRequest<T>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.services.json.AbstractJsonClientRequest<T>",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.cloud.base.services.json.AbstractJsonClientRequest<T>",
+  "kitName": "Drive",
+  "status": "matching"
+}

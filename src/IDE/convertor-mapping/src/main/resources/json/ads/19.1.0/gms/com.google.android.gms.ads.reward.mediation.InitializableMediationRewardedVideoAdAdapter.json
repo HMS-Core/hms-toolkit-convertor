@@ -1,0 +1,46 @@
+{
+  "gName": "com.google.android.gms.ads.reward.mediation.InitializableMediationRewardedVideoAdAdapter",
+  "interfaces": [
+    "com.google.android.gms.ads.reward.mediation.MediationRewardedVideoAdAdapter"
+  ],
+  "dependencyName": "Ads",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "initialize",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.ads.reward.mediation.MediationRewardedVideoAdListener"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.List"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Ads",
+  "status": "notSupport"
+}

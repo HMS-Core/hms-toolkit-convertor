@@ -1,0 +1,218 @@
+{
+  "gName": "com.google.android.gms.fitness.request.SessionInsertRequest",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Health",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ActivityRecordInsertOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAggregateDataPoints",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.DataPoint>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPolymerizedSamplePoints",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.hihealth.data.SamplePoint>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ActivityRecordInsertOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataSets",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.DataSet>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSampleSets",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.hihealth.data.SampleSet>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ActivityRecordInsertOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSession",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.data.Session"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getActivityRecord",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.data.ActivityRecord"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ActivityRecordInsertOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ActivityRecordInsertOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ActivityRecordInsertOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ActivityRecordInsertOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.fitness.request.SessionInsertRequest>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.huawei.hms.hihealth.options.ActivityRecordInsertOptions>",
+        "value": ""
+      },
+      "text": "\"SessionInsertRequest public static final android.os.Parcelable.Creator<com.google.android.gms.fitness.request.SessionInsertRequest> CREATOR\" will be replaced by \"ActivityRecordInsertOptions public static final android.os.Parcelable.Creator<com.huawei.hms.hihealth.options.ActivityRecordInsertOptions> CREATOR\"",
+      "hName": "com.huawei.hms.hihealth.options.ActivityRecordInsertOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.options.ActivityRecordInsertOptions",
+  "kitName": "Health",
+  "status": "matching"
+}

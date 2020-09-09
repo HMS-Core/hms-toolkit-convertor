@@ -1,0 +1,558 @@
+{
+  "gName": "com.google.android.gms.nearby.messages.Messages",
+  "interfaces": [],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPermissionStatus",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "This API has been discarded. A fixed value of true is returned. You can determine how to process API. We recommend that you delete code related to this API. ",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section10694107181420"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "handleIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.MessageListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK overrides Messages.handleIntent with MessageEngine.handleIntent.",
+      "hName": "com.huawei.hms.nearby.message.MessageEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section4168131210166"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "publish",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.Message"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "put",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.message.Message"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.Messages",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "publish",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.Message"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.messages.PublishOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "put",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.message.Message"
+          },
+          {
+            "pos": "2",
+            "type": "com.huawei.hms.nearby.message.PutOption"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.Messages",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "registerStatusCallback",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.StatusCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "registerStatusCallback",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.message.StatusCallback"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.Messages",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "subscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.messages.SubscribeOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "get",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          },
+          {
+            "pos": "2",
+            "type": "com.huawei.hms.nearby.message.GetOption"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.Messages",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "subscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.MessageListener"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.messages.SubscribeOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "get",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.message.MessageHandler"
+          },
+          {
+            "pos": "2",
+            "type": "com.huawei.hms.nearby.message.GetOption"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.Messages",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "subscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.MessageListener"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "get",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.message.MessageHandler"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.Messages",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "subscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "get",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.Messages",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unpublish",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.Message"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unput",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.message.Message"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.Messages",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unregisterStatusCallback",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.StatusCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unregisterStatusCallback",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.message.StatusCallback"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.Messages",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unsubscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unget",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.Messages",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unsubscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.MessageListener"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unget",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.message.MessageHandler"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.Messages",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.nearby.message.Messages",
+  "kitName": "Nearby",
+  "status": "matching"
+}

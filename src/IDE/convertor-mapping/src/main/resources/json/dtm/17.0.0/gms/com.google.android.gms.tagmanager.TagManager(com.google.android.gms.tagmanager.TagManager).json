@@ -1,0 +1,261 @@
+{
+  "gName": "com.google.android.gms.tagmanager.TagManager",
+  "interfaces": [],
+  "dependencyName": "DTM",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "DTM",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "dispatch",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "flush",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.dtm.legacy.TagManager",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "DTM",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataLayer",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tagmanager.DataLayer"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataBundle",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.dtm.legacy.DataBundle"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.dtm.legacy.TagManager",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "DTM",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.tagmanager.TagManager"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.huawei.hms.dtm.legacy.TagManager"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.dtm.legacy.TagManager",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "DTM",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadContainerDefaultOnly",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.tagmanager.ContainerHolder>"
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "DTM",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadContainerDefaultOnly",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "android.os.Handler"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.tagmanager.ContainerHolder>"
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "DTM",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadContainerPreferFresh",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.tagmanager.ContainerHolder>"
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "DTM",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadContainerPreferFresh",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "android.os.Handler"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.tagmanager.ContainerHolder>"
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "DTM",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadContainerPreferNonDefault",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.tagmanager.ContainerHolder>"
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "DTM",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadContainerPreferNonDefault",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "android.os.Handler"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.tagmanager.ContainerHolder>"
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "DTM",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setVerboseLoggingEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.dtm.legacy.TagManager",
+  "kitName": "DTM",
+  "status": "notSupport"
+}

@@ -1,0 +1,301 @@
+{
+  "gName": "com.google.android.gms.nearby.messages.NearbyMessagesStatusCodes",
+  "interfaces": [],
+  "dependencyName": "Nearby",
+  "superClass": "com.google.android.gms.common.api.CommonStatusCodes",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusCodeString",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusCode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "APP_NOT_OPTED_IN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2802"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_APP_UNREGISTERED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8050"
+      },
+      "text": "\"NearbyMessagesStatusCodes public static final  int  APP_NOT_OPTED_IN=2802\" will be replaced by \"StatusCode public static final int STATUS_MESSAGE_APP_UNREGISTERED=8050\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "APP_QUOTA_LIMIT_REACHED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2804"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_APP_QUOTA_LIMITED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8051"
+      },
+      "text": "\"NearbyMessagesStatusCodes public static final  int  APP_QUOTA_LIMIT_REACHED=2804\" will be replaced by \"StatusCode public static final int STATUS_MESSAGE_APP_QUOTA_LIMITED=8051\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "BLE_ADVERTISING_UNSUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2821"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_BLE_BROADCASTING_UNSUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8052"
+      },
+      "text": "\"NearbyMessagesStatusCodes public static final  int  BLE_ADVERTISING_UNSUPPORTED=2821\" will be replaced by \"StatusCode public static final int STATUS_MESSAGE_BLE_BROADCASTING_UNSUPPORTED=8052\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "BLE_SCANNING_UNSUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2822"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_BLE_SCANNING_UNSUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8053"
+      },
+      "text": "\"NearbyMessagesStatusCodes public static final  int  BLE_SCANNING_UNSUPPORTED=2822\" will be replaced by \"StatusCode public static final int STATUS_MESSAGE_BLE_SCANNING_UNSUPPORTED=8053\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "BLUETOOTH_OFF",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2820"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_BLUETOOTH_OFF",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8054"
+      },
+      "text": "\"NearbyMessagesStatusCodes public static final  int  BLUETOOTH_OFF=2820\" will be replaced by \"StatusCode public static final int STATUS_MESSAGE_BLUETOOTH_OFF=8054\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "DISALLOWED_CALLING_CONTEXT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2803"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_WRONG_CONTEXT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8055"
+      },
+      "text": "\"NearbyMessagesStatusCodes public static final  int  DISALLOWED_CALLING_CONTEXT=2803\" will be replaced by \"StatusCode public static final int STATUS_MESSAGE_WRONG_CONTEXT=8055\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "FORBIDDEN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2806"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_NOT_ALLOW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8056"
+      },
+      "text": "\"NearbyMessagesStatusCodes public static final  int  FORBIDDEN=2806\" will be replaced by \"StatusCode public static final int STATUS_MESSAGE_NOT_ALLOW=8056\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MISSING_PERMISSIONS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2807"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_MISSING_PERMISSIONS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8057"
+      },
+      "text": "\"NearbyMessagesStatusCodes public static final  int  MISSING_PERMISSIONS=2807\" will be replaced by \"StatusCode public static final int STATUS_MESSAGE_MISSING_PERMISSIONS=8057\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "NOT_AUTHORIZED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2805"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_AUTH_FAILED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8058"
+      },
+      "text": "\"NearbyMessagesStatusCodes public static final  int  NOT_AUTHORIZED=2805\" will be replaced by \"StatusCode public static final int STATUS_MESSAGE_AUTH_FAILED=8058\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "TOO_MANY_PENDING_INTENTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2801"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_PENDING_INTENTS_LIMITED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8059"
+      },
+      "text": "\"NearbyMessagesStatusCodes public static final  int  TOO_MANY_PENDING_INTENTS=2801\" will be replaced by \"StatusCode public static final int STATUS_MESSAGE_PENDING_INTENTS_LIMITED=8059\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.StatusCode",
+  "kitName": "Nearby",
+  "status": "matching"
+}

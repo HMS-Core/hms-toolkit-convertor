@@ -1,0 +1,50 @@
+{
+  "gName": "com.google.android.gms.games.GamesMetadataClient",
+  "interfaces": [],
+  "dependencyName": "Game",
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.games.Games.GamesOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadGame",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.AnnotatedData<com.google.android.gms.games.Game>>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.GameSummaryClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCurrentGame",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.Game>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLocalGameSummary",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.jos.games.gamesummary.GameSummary>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.GameSummaryClient",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.GameSummaryClient",
+  "kitName": "Game",
+  "status": "matching"
+}

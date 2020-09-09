@@ -1,0 +1,731 @@
+{
+  "gName": "com.google.android.gms.auth.GoogleAuthUtil",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.GooglePlayServicesAvailabilityException",
+          "com.google.android.gms.auth.GoogleAuthException",
+          "java.io.IOException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "clearToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [
+          "com.huawei.hms.support.hwid.common.HuaweiIdAuthException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "deleteAuthInfo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.tools.HuaweiIdAuthTool",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.GoogleAuthException",
+          "java.io.IOException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAccountChangeEvents",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.util.List<com.google.android.gms.auth.AccountChangeEvent>"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.GooglePlayServicesAvailabilityException",
+          "com.google.android.gms.auth.UserRecoverableAuthException",
+          "com.google.android.gms.auth.GoogleAuthException",
+          "java.io.IOException",
+          "java.lang.IllegalStateException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAccountId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [
+          "com.huawei.hms.support.hwid.common.HuaweiIdAuthException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "requestUnionId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.tools.HuaweiIdAuthTool",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.GooglePlayServicesAvailabilityException",
+          "com.google.android.gms.auth.UserRecoverableAuthException",
+          "com.google.android.gms.auth.GoogleAuthException",
+          "java.io.IOException",
+          "java.lang.IllegalStateException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.accounts.Account"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.tools.HuaweiIdAuthTool.requestAccessToken(android.content.Context context, android.accounts.Account huaweiAccount, java.util.List<com.huawei.hms.support.api.entity.auth.Scope> scopeList, android.os.Bundle extendInfo).",
+      "hName": "com.huawei.hms.support.hwid.tools.HuaweiIdAuthTool",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section92662426457"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.UserRecoverableAuthException",
+          "java.io.IOException",
+          "com.google.android.gms.auth.GoogleAuthException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.accounts.Account"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.tools.HuaweiIdAuthTool.requestAccessToken(android.content.Context context, android.accounts.Account huaweiAccount, java.util.List<com.huawei.hms.support.api.entity.auth.Scope> scopeList).",
+      "hName": "com.huawei.hms.support.hwid.tools.HuaweiIdAuthTool",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section92662426457"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.UserRecoverableAuthException",
+          "java.io.IOException",
+          "com.google.android.gms.auth.GoogleAuthException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.tools.HuaweiIdAuthTool.requestAccessToken(android.content.Context context, java.lang.String huaweiAccountName, java.util.List<com.huawei.hms.support.api.entity.auth.Scope> scopeList, android.os.Bundle bundle).",
+      "hName": "com.huawei.hms.support.hwid.tools.HuaweiIdAuthTool",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section92662426457"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.UserRecoverableAuthException",
+          "java.io.IOException",
+          "com.google.android.gms.auth.GoogleAuthException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.tools.HuaweiIdAuthTool.requestAccessToken(android.content.Context context, java.lang.String huaweiAccountName, java.util.List<com.huawei.hms.support.api.entity.auth.Scope> scopeList).",
+      "hName": "com.huawei.hms.support.hwid.tools.HuaweiIdAuthTool",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section92662426457"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.UserRecoverableNotifiedException",
+          "java.io.IOException",
+          "com.google.android.gms.auth.GoogleAuthException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getTokenWithNotification",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "android.os.Bundle"
+          },
+          {
+            "pos": "4",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "5",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.UserRecoverableNotifiedException",
+          "java.io.IOException",
+          "com.google.android.gms.auth.GoogleAuthException",
+          "java.lang.IllegalStateException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getTokenWithNotification",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.accounts.Account"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.UserRecoverableNotifiedException",
+          "java.io.IOException",
+          "com.google.android.gms.auth.GoogleAuthException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getTokenWithNotification",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "android.os.Bundle"
+          },
+          {
+            "pos": "4",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.UserRecoverableNotifiedException",
+          "java.io.IOException",
+          "com.google.android.gms.auth.GoogleAuthException",
+          "java.lang.IllegalStateException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getTokenWithNotification",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.accounts.Account"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "android.os.Bundle"
+          },
+          {
+            "pos": "4",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "5",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.UserRecoverableNotifiedException",
+          "java.io.IOException",
+          "com.google.android.gms.auth.GoogleAuthException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getTokenWithNotification",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.UserRecoverableNotifiedException",
+          "java.io.IOException",
+          "com.google.android.gms.auth.GoogleAuthException",
+          "java.lang.IllegalStateException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getTokenWithNotification",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.accounts.Account"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "android.os.Bundle"
+          },
+          {
+            "pos": "4",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "invalidateToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.GoogleAuthException",
+          "java.io.IOException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "removeAccount",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.accounts.Account"
+          }
+        ],
+        "retType": "android.os.Bundle"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.auth.UserRecoverableNotifiedException",
+          "com.google.android.gms.auth.GoogleAuthException",
+          "java.io.IOException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "requestGoogleAccountsAccess",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "name": "CHANGE_TYPE_ACCOUNT_ADDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "name": "CHANGE_TYPE_ACCOUNT_REMOVED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "name": "CHANGE_TYPE_ACCOUNT_RENAMED_FROM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "name": "CHANGE_TYPE_ACCOUNT_RENAMED_TO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "name": "GOOGLE_ACCOUNT_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "name": "KEY_SUPPRESS_PROGRESS_SCREEN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "suppressProgressScreen"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "name": "WORK_ACCOUNT_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.work"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.hwid.tools.HuaweiIdAuthTool",
+  "kitName": "Account",
+  "status": "notSupport"
+}

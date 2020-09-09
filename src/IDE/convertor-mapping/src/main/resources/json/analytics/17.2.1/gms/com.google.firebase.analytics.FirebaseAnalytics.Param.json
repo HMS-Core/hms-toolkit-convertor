@@ -1,0 +1,1150 @@
+{
+  "gName": "com.google.firebase.analytics.FirebaseAnalytics.Param",
+  "interfaces": [],
+  "dependencyName": "Analytics",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Analytics",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "Param",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ACHIEVEMENT_ID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "achievement_id"
+      },
+      "h": {
+        "name": "ACHIEVEMENTID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$AchievementId"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String ACHIEVEMENT_ID = \"achievement_id\"\" will be replaced by \"HAParamType java.lang.String ACHIEVEMENTID = \"$AchievementId\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ACLID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "aclid"
+      },
+      "h": {
+        "name": "CLICKID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ClickId"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String ACLID = \"aclid\"\" will be replaced by \"HAParamType java.lang.String CLICKID = \"$ClickId\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "AFFILIATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "affiliation"
+      },
+      "h": {
+        "name": "STORENAME",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$StoreName"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String AFFILIATION = \"affiliation\"\" will be replaced by \"HAParamType java.lang.String STORENAME = \"$StoreName\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "CAMPAIGN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "campaign"
+      },
+      "h": {
+        "name": "PROMOTIONNAME",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$PromotionName"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String CAMPAIGN = \"campaign\"\" will be replaced by \"HAParamType java.lang.String PROMOTIONNAME = \"$PromotionName\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "CHARACTER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "character"
+      },
+      "h": {
+        "name": "ROLENAME",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$RoleName"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String CHARACTER = \"character\"\" will be replaced by \"HAParamType java.lang.String ROLENAME = \"$RoleName\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "CHECKOUT_OPTION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "checkout_option"
+      },
+      "h": {
+        "name": "OPTION",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Option"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String CHECKOUT_OPTION = \"checkout_option\"\" will be replaced by \"HAParamType java.lang.String OPTION = \"$Option\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "CHECKOUT_STEP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "checkout_step"
+      },
+      "h": {
+        "name": "STEP",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Step"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String CHECKOUT_STEP = \"checkout_step\"\" will be replaced by \"HAParamType java.lang.String STEP = \"$Step\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "CONTENT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "content"
+      },
+      "h": {
+        "name": "CONTENT",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Content"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String CONTENT = \"content\"\" will be replaced by \"HAParamType java.lang.String CONTENT = \"$Content\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "CONTENT_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "content_type"
+      },
+      "h": {
+        "name": "CONTENTTYPE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ContentType"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String CONTENT_TYPE = \"content_type\"\" will be replaced by \"HAParamType java.lang.String CONTENTTYPE = \"$ContentType\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "COUPON",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "coupon"
+      },
+      "h": {
+        "name": "VOUCHER",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Voucher"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String COUPON = \"coupon\"\" will be replaced by \"HAParamType java.lang.String VOUCHER = \"$Voucher\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "CP1",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "cp1"
+      },
+      "h": {
+        "name": "EXTENDPARAM",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ExtendParam"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String CP1 = \"cp1\"\" will be replaced by \"HAParamType java.lang.String EXTENDPARAM = \"$ExtendParam\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "CREATIVE_NAME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "creative_name"
+      },
+      "h": {
+        "name": "MATERIALNAME",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$MaterialName"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String CREATIVE_NAME = \"creative_name\"\" will be replaced by \"HAParamType java.lang.String MATERIALNAME = \"$MaterialName\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "CREATIVE_SLOT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "creative_slot"
+      },
+      "h": {
+        "name": "MATERIALSLOT",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$MaterialSlot"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String CREATIVE_SLOT = \"creative_slot\"\" will be replaced by \"HAParamType java.lang.String MATERIALSLOT = \"$MaterialSlot\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "CURRENCY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "currency"
+      },
+      "h": {
+        "name": "CURRNAME",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$CurrName"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String CURRENCY = \"currency\"\" will be replaced by \"HAParamType java.lang.String CURRNAME = \"$CurrName\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "DESTINATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "destination"
+      },
+      "h": {
+        "name": "DESTINATION",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Destination"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String DESTINATION = \"destination\"\" will be replaced by \"HAParamType java.lang.String DESTINATION = \"$Destination\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "END_DATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "end_date"
+      },
+      "h": {
+        "name": "ENDDATE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$EndDate"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String END_DATE = \"end_date\"\" will be replaced by \"HAParamType java.lang.String ENDDATE = \"$EndDate\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "EXTEND_SESSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "extend_session"
+      },
+      "text": "HMS Core does not support this event attribute constant. You can determine how to process this constant. You are advised to customize this constant.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "FLIGHT_NUMBER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "flight_number"
+      },
+      "h": {
+        "name": "FLIGHTNO",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$FlightNo"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String FLIGHT_NUMBER = \"flight_number\"\" will be replaced by \"HAParamType java.lang.String FLIGHTNO = \"$FlightNo\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "GROUP_ID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "group_id"
+      },
+      "h": {
+        "name": "USERGROUPID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$UserGroupId"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String GROUP_ID = \"group_id\"\" will be replaced by \"HAParamType java.lang.String USERGROUPID = \"$UserGroupId\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "INDEX",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "index"
+      },
+      "h": {
+        "name": "POSITIONID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$PositionId"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String INDEX = \"index\"\" will be replaced by \"HAParamType java.lang.String POSITIONID = \"$PositionId\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ITEM_BRAND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "item_brand"
+      },
+      "h": {
+        "name": "BRAND",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Brand"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String ITEM_BRAND = \"item_brand\"\" will be replaced by \"HAParamType java.lang.String BRAND = \"$Brand\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ITEM_CATEGORY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "item_category"
+      },
+      "h": {
+        "name": "CATEGORY",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Category"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String ITEM_CATEGORY = \"item_category\"\" will be replaced by \"HAParamType java.lang.String CATEGORY = \"$Category\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ITEM_ID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "item_id"
+      },
+      "h": {
+        "name": "PRODUCTID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ProductId"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String ITEM_ID = \"item_id\"\" will be replaced by \"HAParamType java.lang.String PRODUCTID = \"$ProductId\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ITEM_LIST",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "item_list"
+      },
+      "h": {
+        "name": "PRODUCTLIST",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ProductList"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String ITEM_LIST = \"item_list\"\" will be replaced by \"HAParamType java.lang.String PRODUCTLIST = \"$ProductList\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ITEM_LOCATION_ID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "item_location_id"
+      },
+      "h": {
+        "name": "PLACEID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$PlaceId"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String ITEM_LOCATION_ID = \"item_location_id\"\" will be replaced by \"HAParamType java.lang.String PLACEID = \"$PlaceId\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ITEM_NAME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "item_name"
+      },
+      "h": {
+        "name": "PRODUCTNAME",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ProductName"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String ITEM_NAME = \"item_name\"\" will be replaced by \"HAParamType java.lang.String PRODUCTNAME = \"$ProductName\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ITEM_VARIANT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "item_variant"
+      },
+      "h": {
+        "name": "PRODUCTFEATURE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ProductFeature"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String ITEM_VARIANT = \"item_variant\"\" will be replaced by \"HAParamType java.lang.String PRODUCTFEATURE = \"$ProductFeature\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "LEVEL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "level"
+      },
+      "h": {
+        "name": "LEVELID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$LevelId"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String LEVEL = \"level\"\" will be replaced by \"HAParamType java.lang.String LEVELID = \"$LevelId\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "LEVEL_NAME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "level_name"
+      },
+      "h": {
+        "name": "LEVELNAME",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$LevelName"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String LEVEL_NAME = \"level_name\"\" will be replaced by \"HAParamType java.lang.String LEVELNAME = \"$LevelName\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "LOCATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "location"
+      },
+      "h": {
+        "name": "PLACEID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$PlaceId"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String LOCATION = \"location\"\" will be replaced by \"HAParamType java.lang.String PLACEID = \"$PlaceId\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "MEDIUM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "medium"
+      },
+      "h": {
+        "name": "MEDIUM",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Medium"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String MEDIUM = \"medium\"\" will be replaced by \"HAParamType java.lang.String MEDIUM = \"$Medium\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "METHOD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "method"
+      },
+      "h": {
+        "name": "CHANNEL",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Channel"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String METHOD = \"method\"\" will be replaced by \"HAParamType java.lang.String CHANNEL = \"$Channel\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "NUMBER_OF_NIGHTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "number_of_nights"
+      },
+      "h": {
+        "name": "BOOKINGDAYS",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$BookingDays"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String NUMBER_OF_NIGHTS = \"number_of_nights\"\" will be replaced by \"HAParamType java.lang.String BOOKINGDAYS = \"$BookingDays\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "NUMBER_OF_PASSENGERS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "number_of_passengers"
+      },
+      "h": {
+        "name": "PASSENGERSNUMBER",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$PassengersNumber"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String NUMBER_OF_PASSENGERS = \"number_of_passengers\"\" will be replaced by \"HAParamType java.lang.String PASSENGERSNUMBER = \"$PassengersNumber\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "NUMBER_OF_ROOMS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "number_of_rooms"
+      },
+      "h": {
+        "name": "BOOKINGROOMS",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$BookingRooms"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String NUMBER_OF_ROOMS = \"number_of_rooms\"\" will be replaced by \"HAParamType java.lang.String BOOKINGROOMS = \"$BookingRooms\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ORIGIN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "origin"
+      },
+      "h": {
+        "name": "ORIGINATINGPLACE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$OriginatingPlace"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String ORIGIN = \"origin\"\" will be replaced by \"HAParamType java.lang.String ORIGINATINGPLACE = \"$OriginatingPlace\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "PRICE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "price"
+      },
+      "h": {
+        "name": "PRICE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Price"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String PRICE = \"price\"\" will be replaced by \"HAParamType java.lang.String PRICE = \"$Price\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "QUANTITY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "quantity"
+      },
+      "h": {
+        "name": "QUANTITY",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Quantity"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String QUANTITY = \"quantity\"\" will be replaced by \"HAParamType java.lang.String QUANTITY = \"$Quantity\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SCORE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "score"
+      },
+      "h": {
+        "name": "SCORE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Score"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String SCORE = \"score\"\" will be replaced by \"HAParamType java.lang.String SCORE = \"$Score\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SEARCH_TERM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "search_term"
+      },
+      "h": {
+        "name": "KEYWORDS",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Keywords"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String SEARCH_TERM = \"search_term\"\" will be replaced by \"HAParamType java.lang.String KEYWORDS = \"$Keywords\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SHIPPING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "shipping"
+      },
+      "h": {
+        "name": "SHIPPING",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Shipping"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String SHIPPING = \"shipping\"\" will be replaced by \"HAParamType java.lang.String SHIPPING = \"$Shipping\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SIGN_UP_METHOD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "sign_up_method"
+      },
+      "h": {
+        "name": "CHANNEL",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Channel"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String SIGN_UP_METHOD = \"sign_up_method\"\" will be replaced by \"HAParamType java.lang.String CHANNEL = \"$Channel\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SOURCE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "source"
+      },
+      "h": {
+        "name": "SOURCE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Source"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String SOURCE = \"source\"\" will be replaced by \"HAParamType java.lang.String SOURCE = \"$Source\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "START_DATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "start_date"
+      },
+      "h": {
+        "name": "BEGINDATE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$BeginDate"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String START_DATE = \"start_date\"\" will be replaced by \"HAParamType java.lang.String BEGINDATE = \"$BeginDate\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SUCCESS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "success"
+      },
+      "h": {
+        "name": "RESULT",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Result"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String SUCCESS = \"success\"\" will be replaced by \"HAParamType java.lang.String RESULT = \"$Result\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "TAX",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "tax"
+      },
+      "h": {
+        "name": "TAXFEE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$TaxFee"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String TAX = \"tax\"\" will be replaced by \"HAParamType java.lang.String TAXFEE = \"$TaxFee\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "TERM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "term"
+      },
+      "h": {
+        "name": "KEYWORDS",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Keywords"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String TERM = \"term\"\" will be replaced by \"HAParamType java.lang.String KEYWORDS = \"$Keywords\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "TRANSACTION_ID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "transaction_id"
+      },
+      "h": {
+        "name": "TRANSACTIONID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$TransactionId"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String TRANSACTION_ID = \"transaction_id\"\" will be replaced by \"HAParamType java.lang.String TRANSACTIONID = \"$TransactionId\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "TRAVEL_CLASS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "travel_class"
+      },
+      "h": {
+        "name": "CLASS",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Class"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String TRAVEL_CLASS = \"travel_class\"\" will be replaced by \"HAParamType java.lang.String CLASS = \"$Class\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "VALUE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "value"
+      },
+      "h": {
+        "name": "REVENUE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Revenue"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String VALUE = \"value\"\" will be replaced by \"HAParamType java.lang.String REVENUE = \"$Revenue\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "VIRTUAL_CURRENCY_NAME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "virtual_currency_name"
+      },
+      "h": {
+        "name": "VIRTUALCURRNAME",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$VirtualCurrName"
+      },
+      "text": "\"FirebaseAnalytics.Param public static final java.lang.String VIRTUAL_CURRENCY_NAME = \"virtual_currency_name\"\" will be replaced by \"HAParamType java.lang.String VIRTUALCURRNAME = \"$VirtualCurrName\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.analytics.type.HAParamType",
+  "kitName": "Analytics",
+  "status": "notSupport"
+}

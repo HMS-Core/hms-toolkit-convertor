@@ -1,0 +1,307 @@
+{
+  "gName": "com.google.android.gms.vision.barcode.Barcode.DriverLicense",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "MLgms",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "DriverLicense",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "DriverInfo",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "addressCity",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "city",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String addressCity\" will be replaced by \"HmsScan.DriverInfo public java.lang.String city\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "addressState",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "province",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String addressState\" will be replaced by \"HmsScan.DriverInfo public java.lang.String province\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "addressStreet",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "avenue",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String addressStreet\" will be replaced by \"HmsScan.DriverInfo public java.lang.String avenue\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "addressZip",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "zipCode",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String addressZip\" will be replaced by \"HmsScan.DriverInfo public java.lang.String zipCode\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "birthDate",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "dateOfBirth",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String birthDate\" will be replaced by \"HmsScan.DriverInfo public java.lang.String dateOfBirth\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "documentType",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "certificateType",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String documentType\" will be replaced by \"HmsScan.DriverInfo public java.lang.String certificateType\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "expiryDate",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "dateOfExpire",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String expiryDate\" will be replaced by \"HmsScan.DriverInfo public java.lang.String dateOfExpire\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "firstName",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "givenName",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String firstName\" will be replaced by \"HmsScan.DriverInfo public java.lang.String givenName\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "gender",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "sex",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String gender\" will be replaced by \"HmsScan.DriverInfo public java.lang.String sex\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "issueDate",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "dateOfIssue",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String issueDate\" will be replaced by \"HmsScan.DriverInfo public java.lang.String dateOfIssue\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "issuingCountry",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "countryOfIssue",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String issuingCountry\" will be replaced by \"HmsScan.DriverInfo public java.lang.String countryOfIssue\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "lastName",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "familyName",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String lastName\" will be replaced by \"HmsScan.DriverInfo public java.lang.String familyName\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "licenseNumber",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "certificateNumber",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String licenseNumber\" will be replaced by \"HmsScan.DriverInfo public java.lang.String certificateNumber\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "middleName",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "middleName",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.DriverLicense public java.lang.String middleName\" will be replaced by \"HmsScan.DriverInfo public java.lang.String middleName\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+  "kitName": "ML",
+  "status": "matching"
+}

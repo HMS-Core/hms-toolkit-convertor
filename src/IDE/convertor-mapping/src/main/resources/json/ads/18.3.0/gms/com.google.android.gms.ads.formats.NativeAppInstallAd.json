@@ -1,0 +1,575 @@
+{
+  "gName": "com.google.android.gms.ads.formats.NativeAppInstallAd",
+  "interfaces": [],
+  "dependencyName": "Ads",
+  "superClass": "com.google.android.gms.ads.formats.NativeAd",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "destroy",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "destroy",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getAdChoicesInfo",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.ads.formats.NativeAd.AdChoicesInfo"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getChoicesInfo",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ads.nativead.NativeAd.ChoicesInfo"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBody",
+        "paramTypes": [],
+        "retType": "java.lang.CharSequence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getDescription",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getCallToAction",
+        "paramTypes": [],
+        "retType": "java.lang.CharSequence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getCallToAction",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getExtras",
+        "paramTypes": [],
+        "retType": "android.os.Bundle"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getExtraBundle",
+        "paramTypes": [],
+        "retType": "android.os.Bundle"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getHeadline",
+        "paramTypes": [],
+        "retType": "java.lang.CharSequence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTitle",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getIcon",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.ads.formats.NativeAd.Image"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getIcon",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ads.Image"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getImages",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.ads.formats.NativeAd.Image>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getImages",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.ads.Image>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getMediationAdapterClassName",
+        "paramTypes": [],
+        "retType": "java.lang.CharSequence"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPrice",
+        "paramTypes": [],
+        "retType": "java.lang.CharSequence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPrice",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getStarRating",
+        "paramTypes": [],
+        "retType": "java.lang.Double"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getRating",
+        "paramTypes": [],
+        "retType": "java.lang.Double"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getStore",
+        "paramTypes": [],
+        "retType": "java.lang.CharSequence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getMarket",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getVideoController",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.ads.VideoController"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getVideoOperator",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ads.VideoOperator"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "NativeAppInstallAd",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "NativeAd",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ASSET_ATTRIBUTION_ICON_IMAGE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "2009"
+      },
+      "h": {
+        "name": "ICON",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "3"
+      },
+      "text": "\"NativeAppInstallAd public static final java.lang.String ASSET_ATTRIBUTION_ICON_IMAGE = 2009\" will be replaced by \"NativeAdAssetNames java.lang.String ICON = \"3\"\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdAssetNames",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ASSET_BODY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "2004"
+      },
+      "h": {
+        "name": "DESC",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "4"
+      },
+      "text": "\"NativeAppInstallAd public static final java.lang.String ASSET_BODY = 2004\" will be replaced by \"NativeAdAssetNames java.lang.String DESC = \"4\"\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdAssetNames",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ASSET_CALL_TO_ACTION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "2002"
+      },
+      "h": {
+        "name": "CALL_TO_ACTION",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "2"
+      },
+      "text": "\"NativeAppInstallAd public static final java.lang.String ASSET_CALL_TO_ACTION = 2002\" will be replaced by \"NativeAdAssetNames java.lang.String CALL_TO_ACTION = \"2\"\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdAssetNames",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ASSET_HEADLINE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "2001"
+      },
+      "h": {
+        "name": "TITLE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "1"
+      },
+      "text": "\"NativeAppInstallAd public static final java.lang.String ASSET_HEADLINE = 2001\" will be replaced by \"NativeAdAssetNames java.lang.String TITLE = \"1\"\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdAssetNames",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ASSET_ICON",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "2003"
+      },
+      "h": {
+        "name": "ICON",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "3"
+      },
+      "text": "\"NativeAppInstallAd public static final java.lang.String ASSET_ICON = 2003\" will be replaced by \"NativeAdAssetNames java.lang.String ICON = \"3\"\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdAssetNames",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ASSET_IMAGE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "2007"
+      },
+      "h": {
+        "name": "IMAGE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "8"
+      },
+      "text": "\"NativeAppInstallAd public static final java.lang.String ASSET_IMAGE = 2007\" will be replaced by \"NativeAdAssetNames java.lang.String IMAGE = \"8\"\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdAssetNames",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ASSET_MEDIA_VIDEO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "2011"
+      },
+      "h": {
+        "name": "MEDIA_VIDEO",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "10"
+      },
+      "text": "\"NativeAppInstallAd public static final java.lang.String ASSET_MEDIA_VIDEO = 2011\" will be replaced by \"NativeAdAssetNames java.lang.String MEDIA_VIDEO = \"10\"\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdAssetNames",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ASSET_PRICE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "2006"
+      },
+      "h": {
+        "name": "PRICE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "7"
+      },
+      "text": "\"NativeAppInstallAd public static final java.lang.String ASSET_PRICE = 2006\" will be replaced by \"NativeAdAssetNames java.lang.String PRICE = \"7\"\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdAssetNames",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ASSET_STAR_RATING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "2008"
+      },
+      "h": {
+        "name": "RATING",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "9"
+      },
+      "text": "\"NativeAppInstallAd public static final java.lang.String ASSET_STAR_RATING = 2008\" will be replaced by \"NativeAdAssetNames java.lang.String RATING = \"9\"\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdAssetNames",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ASSET_STORE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "2005"
+      },
+      "h": {
+        "name": "MARKET",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "6"
+      },
+      "text": "\"NativeAppInstallAd public static final java.lang.String ASSET_STORE = 2005\" will be replaced by \"NativeAdAssetNames java.lang.String MARKET = \"6\"\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdAssetNames",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ads.nativead.NativeAd",
+  "kitName": "Ads",
+  "status": "improve"
+}

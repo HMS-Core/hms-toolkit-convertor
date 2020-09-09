@@ -1,0 +1,140 @@
+{
+  "gName": "com.google.android.gms.fitness.result.DataReadResponse",
+  "interfaces": [],
+  "dependencyName": "Health",
+  "superClass": "com.google.android.gms.common.api.Response",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBuckets",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.Bucket>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getGroups",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.hihealth.data.Group>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.result.ReadReply",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataSet",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataSet"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSampleSet",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataType"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SampleSet"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.result.ReadReply",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataSet",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataSet"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSampleSet",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataCollector"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SampleSet"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.result.ReadReply",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataSets",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.DataSet>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSampleSets",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.hihealth.data.SampleSet>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.result.ReadReply",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStatus",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.common.api.Status"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStatus",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.api.client.Status"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.result.ReadReply",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.result.ReadReply",
+  "kitName": "Health",
+  "status": "matching"
+}

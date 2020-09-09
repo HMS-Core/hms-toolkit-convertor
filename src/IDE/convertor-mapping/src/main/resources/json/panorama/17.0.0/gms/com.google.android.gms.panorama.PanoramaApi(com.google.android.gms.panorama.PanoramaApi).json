@@ -1,0 +1,61 @@
+{
+  "gName": "com.google.android.gms.panorama.PanoramaApi",
+  "interfaces": [],
+  "dependencyName": "Panorama",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Panorama",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadPanoramaInfo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.panorama.PanoramaApi.PanoramaResult>"
+      },
+      "text": "Replace the method with loadImageInfo of HUAWEI Panorama Kit.",
+      "hName": "com.huawei.hms.panorama.PanoramaInterface",
+      "url": "https://developer.huawei.com/consumer/en/hms/huawei-panoramakit"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Panorama",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadPanoramaInfoAndGrantAccess",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.panorama.PanoramaApi.PanoramaResult>"
+      },
+      "text": "Replace the method with loadImageInfoWithPermission of HUAWEI Panorama Kit.",
+      "hName": "com.huawei.hms.panorama.PanoramaInterface",
+      "url": "https://developer.huawei.com/consumer/en/hms/huawei-panoramakit"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Panorama",
+  "status": "manuallyAdapt"
+}

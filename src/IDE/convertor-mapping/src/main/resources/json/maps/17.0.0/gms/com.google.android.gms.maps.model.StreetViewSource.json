@@ -1,0 +1,215 @@
+{
+  "gName": "com.google.android.gms.maps.model.StreetViewSource",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Map",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.maps.model.StreetViewSource",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.maps.model.StreetViewSource",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.maps.model.StreetViewSource",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.maps.model.StreetViewSource",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "name": "DEFAULT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.maps.model.StreetViewSource",
+        "value": ""
+      },
+      "h": {
+        "name": "DEFAULT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.maps.model.StreetViewSource",
+        "value": ""
+      },
+      "text": "\"StreetViewSource public static final com.google.android.gms.maps.model.StreetViewSource DEFAULT\" will be replaced by \"StreetViewSource public public static final com.huawei.hms.maps.model.StreetViewSource DEFAULT\"",
+      "hName": "com.huawei.hms.maps.model.StreetViewSource",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "name": "OUTDOOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.maps.model.StreetViewSource",
+        "value": ""
+      },
+      "h": {
+        "name": "OUTDOOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.maps.model.StreetViewSource",
+        "value": ""
+      },
+      "text": "\"StreetViewSource public static final com.google.android.gms.maps.model.StreetViewSource OUTDOOR\" will be replaced by \"StreetViewSource public public static final com.huawei.hms.maps.model.StreetViewSource OUTDOOR\"",
+      "hName": "com.huawei.hms.maps.model.StreetViewSource",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.maps.model.StreetViewSource>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.huawei.hms.maps.modelStreetViewSource>",
+        "value": ""
+      },
+      "text": "\"StreetViewSource public static final android.os.Parcelable.Creator<com.google.android.gms.maps.model.StreetViewSource> CREATOR\" will be replaced by \"StreetViewSource public static final android.os.Parcelable.Creator<com.huawei.hms.maps.modelStreetViewSource> CREATOR\"",
+      "hName": "com.huawei.hms.maps.model.StreetViewSource",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.maps.model.StreetViewSource",
+  "kitName": "Map",
+  "status": "matching"
+}

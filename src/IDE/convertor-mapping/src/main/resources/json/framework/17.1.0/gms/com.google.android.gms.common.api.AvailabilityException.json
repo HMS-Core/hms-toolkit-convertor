@@ -1,0 +1,55 @@
+{
+  "gName": "com.google.android.gms.common.api.AvailabilityException",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "java.lang.Exception",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getConnectionResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApi<? extends com.google.android.gms.common.api.Api.ApiOptions>"
+          }
+        ],
+        "retType": "com.google.android.gms.common.ConnectionResult"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.common.api.AvailabilityException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMessage",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMessage",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.common.api.AvailabilityException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.common.api.AvailabilityException",
+  "kitName": "Basement",
+  "status": "matching"
+}

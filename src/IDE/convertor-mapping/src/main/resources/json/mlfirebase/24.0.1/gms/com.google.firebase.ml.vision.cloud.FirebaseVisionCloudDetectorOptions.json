@@ -1,0 +1,206 @@
+{
+  "gName": "com.google.firebase.ml.vision.cloud.FirebaseVisionCloudDetectorOptions",
+  "interfaces": [],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "builder",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.cloud.FirebaseVisionCloudDetectorOptions.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "create",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzerSetting.Factory"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMaxResults",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLargestNumOfReturns",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getModelType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPatternType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "LATEST_MODEL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "NEWEST_PATTERN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"FirebaseVisionCloudDetectorOptions public static final int LATEST_MODEL = 2\" will be replaced by \"MLRemoteLandmarkAnalyzerSetting public static final int NEWEST_PATTERN = 2\"",
+      "hName": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "STABLE_MODEL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "STEADY_PATTERN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FirebaseVisionCloudDetectorOptions public static final int STABLE_MODEL = 1\" will be replaced by \"MLRemoteLandmarkAnalyzerSetting public static final int STEADY_PATTERN = 1\"",
+      "hName": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "DEFAULT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.firebase.ml.vision.cloud.FirebaseVisionCloudDetectorOptions",
+        "value": ""
+      },
+      "h": {
+        "name": "DEFAULT_SETTINGS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzerSetting",
+        "value": ""
+      },
+      "text": "\"FirebaseVisionCloudDetectorOptions public static final com.google.firebase.ml.vision.cloud.FirebaseVisionCloudDetectorOptions DEFAULT\" will be replaced by \"MLRemoteLandmarkAnalyzerSetting public static final com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzerSetting DEFAULT_SETTINGS\"",
+      "hName": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.landmark.MLRemoteLandmarkAnalyzerSetting",
+  "kitName": "ML",
+  "status": "matching"
+}

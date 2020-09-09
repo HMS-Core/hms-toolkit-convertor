@@ -1,0 +1,173 @@
+{
+  "gName": "com.google.android.gms.vision.barcode.Barcode.WiFi",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "MLgms",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "WiFi",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "WiFiConnectionInfo",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "OPEN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "NO_PASSWORD_MODE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"Barcode.WiFi public static final int OPEN = 1\" will be replaced by \"HmsScan.WiFiConnectionInfo public static final int NO_PASSWORD_MODE_TYPE = 0\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "WEP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "WEP_MODE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"Barcode.WiFi public static final int WEP = 3\" will be replaced by \"HmsScan.WiFiConnectionInfo public static final int WEP_MODE_TYPE = 1\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "WPA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "WPA_MODE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"Barcode.WiFi public static final int WPA = 2\" will be replaced by \"HmsScan.WiFiConnectionInfo public static final int WPA_MODE_TYPE = 2\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "encryptionType",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "h": {
+        "name": "cipherMode",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"Barcode.WiFi public int encryptionType\" will be replaced by \"HmsScan.WiFiConnectionInfo public int cipherMode\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "password",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "password",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.WiFi public java.lang.String password\" will be replaced by \"HmsScan.WiFiConnectionInfo public java.lang.String password\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "ssid",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "ssidNumber",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.WiFi public java.lang.String ssid\" will be replaced by \"HmsScan.WiFiConnectionInfo public java.lang.String ssidNumber\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo",
+  "kitName": "ML",
+  "status": "matching"
+}

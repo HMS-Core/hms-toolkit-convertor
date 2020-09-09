@@ -1,0 +1,142 @@
+{
+  "gName": "com.google.android.gms.location.LocationStatusCodes",
+  "interfaces": [],
+  "dependencyName": "Location",
+  "superClass": "java.lang.Object",
+  "methods": [],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "13"
+      },
+      "text": "\"LocationStatusCodes public static final int ERROR = 1\" will be replaced by \"GeofenceErrorCodes public static final int ERROR = 13\"",
+      "hName": "com.huawei.hms.location.GeofenceErrorCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section1150141722216"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "GEOFENCE_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1000"
+      },
+      "h": {
+        "name": "GEOFENCE_UNAVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10200"
+      },
+      "text": "\"LocationStatusCodes public static final int GEOFENCE_NOT_AVAILABLE = 1000\" will be replaced by \"GeofenceErrorCodes public static final int GEOFENCE_UNAVAILABLE = 10200\"",
+      "hName": "com.huawei.hms.location.GeofenceErrorCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section1150141722216"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "GEOFENCE_TOO_MANY_GEOFENCES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1001"
+      },
+      "h": {
+        "name": "GEOFENCE_NUMBER_OVER_LIMIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10201"
+      },
+      "text": "\"LocationStatusCodes public static final int GEOFENCE_TOO_MANY_GEOFENCES = 1001\" will be replaced by \"GeofenceErrorCodes public static final int GEOFENCE_NUMBER_OVER_LIMIT = 10201\"",
+      "hName": "com.huawei.hms.location.GeofenceErrorCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section1150141722216"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "GEOFENCE_TOO_MANY_PENDING_INTENTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1002"
+      },
+      "h": {
+        "name": "GEOFENCE_PENDINGINTENT_OVER_LIMIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10202"
+      },
+      "text": "\"LocationStatusCodes public static final int GEOFENCE_TOO_MANY_PENDING_INTENTS = 1002\" will be replaced by \"GeofenceErrorCodes public static final int GEOFENCE_PENDINGINTENT_OVER_LIMIT = 10202\"",
+      "hName": "com.huawei.hms.location.GeofenceErrorCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section1150141722216"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "SUCCESS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "SUCCESS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"LocationStatusCodes public static final int SUCCESS = 0\" will be replaced by \"GeofenceErrorCodes public static final int SUCCESS = 0\"",
+      "hName": "com.huawei.hms.location.GeofenceErrorCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/location-conversion-0000001050062209#EN-US_TOPIC_0000001050062209__section1150141722216"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.location.GeofenceErrorCodes",
+  "kitName": "Location",
+  "status": "matching"
+}

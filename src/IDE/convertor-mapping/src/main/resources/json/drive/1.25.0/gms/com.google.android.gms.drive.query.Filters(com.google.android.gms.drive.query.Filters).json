@@ -1,0 +1,390 @@
+{
+  "gName": "com.google.android.gms.drive.query.Filters",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "and",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Iterable<com.google.android.gms.drive.query.Filter>"
+          }
+        ],
+        "retType": "com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "and",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.query.Filter"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.drive.query.Filter..."
+          }
+        ],
+        "retType": "com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "contains",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.metadata.SearchableMetadataField<java.lang.String>"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "eq",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.metadata.CustomPropertyKey"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "eq",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.metadata.SearchableMetadataField<T>"
+          },
+          {
+            "pos": "1",
+            "type": "T"
+          }
+        ],
+        "retType": "<T> com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "greaterThan",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.metadata.SearchableOrderedMetadataField<T>"
+          },
+          {
+            "pos": "1",
+            "type": "T"
+          }
+        ],
+        "retType": "<T extends java.lang.Comparable<T>> com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "greaterThanEquals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.metadata.SearchableOrderedMetadataField<T>"
+          },
+          {
+            "pos": "1",
+            "type": "T"
+          }
+        ],
+        "retType": "<T extends java.lang.Comparable<T>> com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "in",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.metadata.SearchableCollectionMetadataField<T>"
+          },
+          {
+            "pos": "1",
+            "type": "T"
+          }
+        ],
+        "retType": "<T> com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "lessThan",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.metadata.SearchableOrderedMetadataField<T>"
+          },
+          {
+            "pos": "1",
+            "type": "T"
+          }
+        ],
+        "retType": "<T extends java.lang.Comparable<T>> com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "lessThanEquals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.metadata.SearchableOrderedMetadataField<T>"
+          },
+          {
+            "pos": "1",
+            "type": "T"
+          }
+        ],
+        "retType": "<T extends java.lang.Comparable<T>> com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "not",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.query.Filter"
+          }
+        ],
+        "retType": "com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "openedByMe",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "or",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Iterable<com.google.android.gms.drive.query.Filter>"
+          }
+        ],
+        "retType": "com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "or",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.query.Filter"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.drive.query.Filter[]"
+          }
+        ],
+        "retType": "com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "ownedByMe",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "sharedWithMe",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.drive.query.Filter"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Filters",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "",
+  "kitName": "Drive",
+  "status": "notSupport"
+}

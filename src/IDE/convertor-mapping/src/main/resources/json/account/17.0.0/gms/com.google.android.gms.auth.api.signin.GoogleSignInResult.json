@@ -1,0 +1,80 @@
+{
+  "gName": "com.google.android.gms.auth.api.signin.GoogleSignInResult",
+  "interfaces": [
+    "com.google.android.gms.common.api.Result"
+  ],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSignInAccount",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHuaweiId",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.result.HuaweiIdAuthResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStatus",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.common.api.Status"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStatus",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.api.client.Status"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.result.HuaweiIdAuthResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isSuccess",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isSuccess",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.result.HuaweiIdAuthResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.support.hwid.result.HuaweiIdAuthResult",
+  "kitName": "Account",
+  "status": "matching"
+}

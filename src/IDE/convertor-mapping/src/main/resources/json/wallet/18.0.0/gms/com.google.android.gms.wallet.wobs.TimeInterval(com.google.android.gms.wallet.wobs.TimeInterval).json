@@ -1,0 +1,116 @@
+{
+  "gName": "com.google.android.gms.wallet.wobs.TimeInterval",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Wallet",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Wallet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "TimeInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "For details, please refer to the Manual Conversion Guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section139171188206"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Wallet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getEndTimestamp",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Wallet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getStartTimestamp",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Wallet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Wallet",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.wallet.wobs.TimeInterval>",
+        "value": ""
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Wallet",
+  "status": "notSupport"
+}

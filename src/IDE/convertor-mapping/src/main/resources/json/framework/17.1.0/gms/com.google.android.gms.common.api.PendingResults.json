@@ -1,0 +1,147 @@
+{
+  "gName": "com.google.android.gms.common.api.PendingResults",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "canceledPendingResult",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "discardedPendingResult",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.client.PendingResultsCreator",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "canceledPendingResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "R"
+          }
+        ],
+        "retType": "<R extends com.google.android.gms.common.api.Result> com.google.android.gms.common.api.PendingResult<R>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "discardedPendingResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "R"
+          }
+        ],
+        "retType": "<R extends com.huawei.hms.support.api.client.Status> com.huawei.hms.support.api.client.PendingResult<R>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.client.PendingResultsCreator",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "immediatePendingResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "R"
+          }
+        ],
+        "retType": "<R extends com.google.android.gms.common.api.Result> com.google.android.gms.common.api.OptionalPendingResult<R>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "instantPendingResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "R"
+          }
+        ],
+        "retType": "<R extends com.huawei.hms.support.api.client.Status> com.huawei.hms.common.api.OptionalPendingResult<R>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.client.PendingResultsCreator",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "immediatePendingResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.Status"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "instantPendingResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.support.api.client.Status"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.client.PendingResultsCreator",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.client.PendingResultsCreator",
+  "kitName": "Basement",
+  "status": "matching"
+}

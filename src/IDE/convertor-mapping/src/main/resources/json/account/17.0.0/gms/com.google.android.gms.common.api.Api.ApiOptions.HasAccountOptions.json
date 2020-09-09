@@ -1,0 +1,41 @@
+{
+  "gName": "com.google.android.gms.common.api.Api.ApiOptions.HasAccountOptions",
+  "interfaces": [
+    "com.google.android.gms.common.api.Api.ApiOptions.HasOptions",
+    "com.google.android.gms.common.api.Api.ApiOptions.NotRequiredOptions"
+  ],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getAccount",
+        "paramTypes": [],
+        "retType": "android.accounts.Account"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAccount",
+        "paramTypes": [],
+        "retType": "android.accounts.Account"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.hwid.HuaweiAccountOptions.HasAccountOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.support.api.hwid.HuaweiAccountOptions.HasAccountOptions",
+  "kitName": "Account",
+  "status": "matching"
+}

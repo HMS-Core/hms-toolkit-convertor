@@ -1,0 +1,42 @@
+{
+  "gName": "com.google.android.gms.fitness.GoalsApi",
+  "interfaces": [],
+  "dependencyName": "Health",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "readCurrentGoals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.request.GoalsReadRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.fitness.result.GoalsResult>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.TargetsManager",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Health",
+  "status": "notSupport"
+}

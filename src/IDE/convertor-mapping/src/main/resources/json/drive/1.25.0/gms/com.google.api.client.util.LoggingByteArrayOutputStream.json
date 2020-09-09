@@ -1,0 +1,50 @@
+{
+  "gName": "com.google.api.client.util.LoggingByteArrayOutputStream",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "java.io.ByteArrayOutputStream",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "synchronized"
+        ],
+        "name": "write",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "synchronized"
+        ],
+        "name": "write",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.util.LoggingByteArrayOutputStream",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.cloud.base.util.LoggingByteArrayOutputStream",
+  "kitName": "Drive",
+  "status": "matching"
+}

@@ -1,0 +1,202 @@
+{
+  "gName": "com.google.firebase.iid.FirebaseInstanceId",
+  "interfaces": [],
+  "dependencyName": "Push",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [],
+        "retType": "com.google.firebase.iid.FirebaseInstanceId"
+      },
+      "text": "For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.aaid.HmsInstanceId",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/push-conversion-0000001050060304#EN-US_TOPIC_0000001050060304__section167749454350"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.FirebaseApp"
+          }
+        ],
+        "retType": "com.google.firebase.iid.FirebaseInstanceId"
+      },
+      "text": "Use HmsInstanceId.getInstance(Context var0) as replacement.",
+      "hName": "com.huawei.hms.aaid.HmsInstanceId",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/push-conversion-0000001050060304#EN-US_TOPIC_0000001050060304__section167749454350"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getInstanceId",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.iid.InstanceIdResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAAID",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.aaid.entity.AAIDResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.aaid.HmsInstanceId",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.aaid.HmsInstanceId",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634#EN-US_TOPIC_0000001050255634__section14850101211311"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCreationTime",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCreationTime",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.aaid.HmsInstanceId",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634#EN-US_TOPIC_0000001050255634__section333815358311"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "deleteInstanceId",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.aaid.HmsInstanceId",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/push-conversion-0000001050060304#EN-US_TOPIC_0000001050060304__section7335189351"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.aaid.HmsInstanceId",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "getToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.aaid.HmsInstanceId",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/push-conversion-0000001050060304#EN-US_TOPIC_0000001050060304__section7231468364"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "deleteToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.aaid.HmsInstanceId",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/push-conversion-0000001050060304#EN-US_TOPIC_0000001050060304__section19445103243518"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.aaid.HmsInstanceId",
+  "kitName": "Push",
+  "status": "complex"
+}

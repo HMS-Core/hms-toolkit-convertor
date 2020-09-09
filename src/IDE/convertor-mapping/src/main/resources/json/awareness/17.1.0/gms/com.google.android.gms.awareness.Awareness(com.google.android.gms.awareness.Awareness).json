@@ -1,0 +1,206 @@
+{
+  "gName": "com.google.android.gms.awareness.Awareness",
+  "interfaces": [],
+  "dependencyName": "Awareness",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getFenceClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.FenceClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getBarrierClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.BarrierClient"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.Awareness",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getFenceClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.FenceClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getBarrierClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.BarrierClient"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.Awareness",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getSnapshotClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.SnapshotClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getCaptureClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.CaptureClient"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.Awareness",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getSnapshotClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.SnapshotClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getCaptureClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.CaptureClient"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.Awareness",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions>",
+        "value": ""
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.Awareness",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "FenceApi",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.awareness.FenceApi",
+        "value": ""
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion \nGuide.",
+      "hName": "com.huawei.hms.kit.awareness.Awareness",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section04184551281"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "SnapshotApi",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.awareness.SnapshotApi",
+        "value": ""
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion \nGuide.",
+      "hName": "com.huawei.hms.kit.awareness.Awareness",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section04184551281"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.kit.awareness.Awareness",
+  "kitName": "Awareness",
+  "status": "manuallyAdapt"
+}

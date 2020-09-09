@@ -1,0 +1,54 @@
+{
+  "gName": "com.android.billingclient.api.BillingClientStateListener",
+  "interfaces": [],
+  "dependencyName": "IAP",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onBillingServiceDisconnected",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.HMS",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onBillingSetupFinished",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.android.billingclient.api.BillingResult"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.IapClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "IAP",
+  "status": "manuallyAdapt"
+}

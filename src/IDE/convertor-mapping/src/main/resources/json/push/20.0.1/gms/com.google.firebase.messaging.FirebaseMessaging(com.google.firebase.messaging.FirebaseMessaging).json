@@ -1,0 +1,203 @@
+{
+  "gName": "com.google.firebase.messaging.FirebaseMessaging",
+  "interfaces": [],
+  "dependencyName": "Push",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "synchronized"
+        ],
+        "name": "getInstance",
+        "paramTypes": [],
+        "retType": "com.google.firebase.messaging.FirebaseMessaging"
+      },
+      "text": "For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.push.HmsMessaging",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/push-conversion-0000001050060304#EN-US_TOPIC_0000001050060304__section167749454350"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isAutoInitEnabled",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isAutoInitEnabled",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.push.HmsMessaging",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hmsmessaging-0000001050255650#EN-US_TOPIC_0000001050255650__section768215326488"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "send",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.messaging.RemoteMessage"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "send",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.push.RemoteMessage"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.push.HmsMessaging",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setAutoInitEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setAutoInitEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.push.HmsMessaging",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hmsmessaging-0000001050255650#EN-US_TOPIC_0000001050255650__section19198183125511"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "subscribeToTopic",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "subscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.push.HmsMessaging",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hmsmessaging-0000001050255650#EN-US_TOPIC_0000001050255650__section1222313413551"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "unsubscribeFromTopic",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "unsubscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.push.HmsMessaging",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hmsmessaging-0000001050255650#EN-US_TOPIC_0000001050255650__section7598115275611"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Push",
+      "g": {
+        "name": "INSTANCE_ID_SCOPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "FCM"
+      },
+      "h": {
+        "name": "DEFAULT_TOKEN_SCOPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "HCM"
+      },
+      "text": "\"FirebaseMessaging public static final java.lang.String INSTANCE_ID_SCOPE = \"FCM\"\" will be replaced by \"HmsMessaging public static final java.lang.String DEFAULT_TOKEN_SCOPE = \"HCM\";\"",
+      "hName": "com.huawei.hms.push.HmsMessaging",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.push.HmsMessaging",
+  "kitName": "Push",
+  "status": "matching"
+}

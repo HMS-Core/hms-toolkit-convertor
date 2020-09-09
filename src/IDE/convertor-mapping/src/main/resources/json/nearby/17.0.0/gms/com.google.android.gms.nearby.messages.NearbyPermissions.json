@@ -1,0 +1,142 @@
+{
+  "gName": "com.google.android.gms.nearby.messages.NearbyPermissions",
+  "interfaces": [
+    "java.lang.annotation.Annotation"
+  ],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "BLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "PERMISSION_BLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"NearbyPermissions public static final  int  BLE=2\" will be replaced by \"Permission public static final  int  PERMISSION_BLE=1\"",
+      "hName": "com.huawei.hms.nearby.message.Permission",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "BLUETOOTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "h": {
+        "name": "PERMISSION_BLUETOOTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"NearbyPermissions public static final  int  BLUETOOTH=6\" will be replaced by \"Permission public static final  int  PERMISSION_BLUETOOTH=2\"",
+      "hName": "com.huawei.hms.nearby.message.Permission",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "DEFAULT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "h": {
+        "name": "PERMISSION_DEFAULT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"NearbyPermissions public static final  int  DEFAULT=-1\" will be replaced by \"Permission public static final  int  PERMISSION_DEFAULT=0\"",
+      "hName": "com.huawei.hms.nearby.message.Permission",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MICROPHONE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "PERMISSION_MICROPHONE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"NearbyPermissions public static final  int  MICROPHONE=1\" will be replaced by \"Permission public static final  int  PERMISSION_MICROPHONE=3\"",
+      "hName": "com.huawei.hms.nearby.message.Permission",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "NONE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "PERMISSION_NONE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "\"NearbyPermissions public static final  int  NONE=0\" will be replaced by \"Permission public static final  int  PERMISSION_NONE=-1\"",
+      "hName": "com.huawei.hms.nearby.message.Permission",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.nearby.message.Permission",
+  "kitName": "Nearby",
+  "status": "matching"
+}

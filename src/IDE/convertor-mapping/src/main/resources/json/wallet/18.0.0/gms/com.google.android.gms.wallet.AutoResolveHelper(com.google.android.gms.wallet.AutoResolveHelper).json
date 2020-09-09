@@ -1,0 +1,138 @@
+{
+  "gName": "com.google.android.gms.wallet.AutoResolveHelper",
+  "interfaces": [],
+  "dependencyName": "Wallet",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Wallet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusFromIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.Status"
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "com.huawei.hms.wallet.ResolveTaskHelper",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Wallet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "putStatusIntoIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.common.api.Status"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API.",
+      "hName": "com.huawei.hms.wallet.ResolveTaskHelper",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Wallet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "resolveTask",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.Task<TResult>"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "<TResult extends com.google.android.gms.wallet.AutoResolvableResult> void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "excuteTask",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.Task"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "<TResult extends com.huawei.hms.wallet.IResolvableTaskResult> void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.wallet.ResolveTaskHelper",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Wallet",
+      "g": {
+        "name": "RESULT_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "RESULT_FAIL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"AutoResolveHelper public static final int RESULT_ERROR = 1\" will be replaced by \"ResolveTaskHelper public static final int RESULT_FAIL = 1;\"",
+      "hName": "com.huawei.hms.wallet.ResolveTaskHelper",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.wallet.ResolveTaskHelper",
+  "kitName": "Wallet",
+  "status": "matching"
+}

@@ -1,0 +1,74 @@
+{
+  "gName": "com.google.firebase.auth.AuthResult",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Authentication",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getAdditionalUserInfo",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.AdditionalUserInfo"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section197841620152"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getCredential",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.AuthCredential"
+      },
+      "text": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getUser",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.FirebaseUser"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getUser",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.auth.AGConnectUser"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.SignInResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.agconnect.auth.SignInResult",
+  "kitName": "Authentication",
+  "status": "matching"
+}

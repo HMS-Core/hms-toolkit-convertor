@@ -1,0 +1,82 @@
+{
+  "gName": "com.google.android.gms.games.snapshot.Snapshot",
+  "interfaces": [
+    "com.google.android.gms.common.data.Freezable<com.google.android.gms.games.snapshot.Snapshot>",
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSnapshotContents",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotContents"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDetails",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.archive.ArchiveDetails"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.Archive",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isDataValid",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getMetadata",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSummary",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.archive.ArchiveSummary"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.Archive",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.jos.games.archive.Archive",
+  "kitName": "Game",
+  "status": "matching"
+}

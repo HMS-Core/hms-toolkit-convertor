@@ -1,0 +1,317 @@
+{
+  "gName": "com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addExtension",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInOptions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "createParams",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "requestEmail",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setEmail",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "requestId",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setId",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "requestIdToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper.setIdToken().",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section0267715115013"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "requestProfile",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setProfile",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "requestScopes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.Scope"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.common.api.Scope..."
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper.setScopeList(java.util.List<com.huawei.hms.support.api.entity.auth.Scope> scopeList).",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section0267715115013"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "requestServerAuthCode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper.setAuthorizationCode().",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section0267715115013"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "requestServerAuthCode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setAccountName",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setHostedDomain",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "HuaweiIdAuthParamsHelper",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInOptions"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "HuaweiIdAuthParamsHelper",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper",
+  "kitName": "Account",
+  "status": "matching"
+}

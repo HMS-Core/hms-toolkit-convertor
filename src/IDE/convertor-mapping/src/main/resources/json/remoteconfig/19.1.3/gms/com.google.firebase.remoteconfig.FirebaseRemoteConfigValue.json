@@ -1,0 +1,119 @@
+{
+  "gName": "com.google.firebase.remoteconfig.FirebaseRemoteConfigValue",
+  "interfaces": [],
+  "dependencyName": "RemoteConfig",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "RemoteConfig",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalArgumentException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "asBoolean",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-remote-0000001050157274#EN-US_TOPIC_0000001050157274__section259613255144"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "RemoteConfig",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "asByteArray",
+        "paramTypes": [],
+        "retType": "byte[]"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-remote-0000001050157274#EN-US_TOPIC_0000001050157274__section259613255144"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "RemoteConfig",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalArgumentException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "asDouble",
+        "paramTypes": [],
+        "retType": "double"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-remote-0000001050157274#EN-US_TOPIC_0000001050157274__section259613255144"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "RemoteConfig",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalArgumentException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "asLong",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-remote-0000001050157274#EN-US_TOPIC_0000001050157274__section259613255144"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "RemoteConfig",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "asString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-remote-0000001050157274#EN-US_TOPIC_0000001050157274__section259613255144"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "RemoteConfig",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSource",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "com.huawei.agconnect.remoteconfig.AGConnectConfig",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-remote-0000001050157274#EN-US_TOPIC_0000001050157274__section694517111144"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "RemoteConfig",
+  "status": "manuallyAdapt"
+}

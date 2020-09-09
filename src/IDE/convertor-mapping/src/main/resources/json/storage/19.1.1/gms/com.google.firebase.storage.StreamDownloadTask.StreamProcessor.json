@@ -1,0 +1,45 @@
+{
+  "gName": "com.google.firebase.storage.StreamDownloadTask.StreamProcessor",
+  "interfaces": [],
+  "dependencyName": "FirebaseStorage",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "doInBackground",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.storage.StreamDownloadTask.TaskSnapshot"
+          },
+          {
+            "pos": "1",
+            "type": "java.io.InputStream"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StreamDownloadTask.StreamHandler",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "FirebaseStorage",
+  "status": "notSupport"
+}

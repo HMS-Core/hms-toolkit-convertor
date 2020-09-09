@@ -1,0 +1,92 @@
+{
+  "gName": "com.google.android.gms.nearby.connection.Payload.Type",
+  "interfaces": [
+    "java.lang.annotation.Annotation"
+  ],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "BYTES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "BYTES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"Payload.Type public static final  int  BYTES=1\" will be replaced by \"Data.Type public static final int BYTES=2\"",
+      "hName": "com.huawei.hms.nearby.transfer.Data.Type",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "FILE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "FILE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"Payload.Type public static final  int  FILE=2\" will be replaced by \"Data.Type public static final int FILE=1\"",
+      "hName": "com.huawei.hms.nearby.transfer.Data.Type",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STREAM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "STREAM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"Payload.Type public static final  int  STREAM=3\" will be replaced by \"Data.Type public static final int STREAM=3\"",
+      "hName": "com.huawei.hms.nearby.transfer.Data.Type",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.nearby.transfer.Data.Type",
+  "kitName": "Nearby",
+  "status": "matching"
+}

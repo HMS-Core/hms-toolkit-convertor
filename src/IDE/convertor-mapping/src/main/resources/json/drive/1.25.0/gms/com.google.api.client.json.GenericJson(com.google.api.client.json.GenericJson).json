@@ -1,0 +1,56 @@
+{
+  "gName": "com.google.api.client.json.GenericJson",
+  "interfaces": [
+    "java.lang.Cloneable"
+  ],
+  "dependencyName": "Drive",
+  "superClass": "com.google.api.client.util.GenericData",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "set",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.google.api.client.json.GenericJson"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "set",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.huawei.cloud.base.json.GenericJson"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.json.GenericJson",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.cloud.base.json.GenericJson",
+  "kitName": "Drive",
+  "status": "matching"
+}

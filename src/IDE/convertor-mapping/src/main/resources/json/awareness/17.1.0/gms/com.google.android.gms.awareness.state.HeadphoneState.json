@@ -1,0 +1,93 @@
+{
+  "gName": "com.google.android.gms.awareness.state.HeadphoneState",
+  "interfaces": [],
+  "dependencyName": "Awareness",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getState",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getStatus",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.status.HeadsetStatus",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "PLUGGED_IN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "CONNECTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"HeadphoneState public static final int PLUGGED_IN = 1\" will be replaced by \"HeadsetStatus public static final int CONNECTED  = 1\"",
+      "hName": "com.huawei.hms.kit.awareness.status.HeadsetStatus",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "UNPLUGGED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "DISCONNECTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"HeadphoneState public static final int UNPLUGGED = 2\" will be replaced by \"HeadsetStatus public static final int DISCONNECTED = 0\"",
+      "hName": "com.huawei.hms.kit.awareness.status.HeadsetStatus",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.kit.awareness.status.HeadsetStatus",
+  "kitName": "Awareness",
+  "status": "matching"
+}

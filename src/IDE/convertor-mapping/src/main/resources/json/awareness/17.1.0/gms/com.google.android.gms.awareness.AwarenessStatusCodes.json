@@ -1,0 +1,211 @@
+{
+  "gName": "com.google.android.gms.awareness.AwarenessStatusCodes",
+  "interfaces": [],
+  "dependencyName": "Awareness",
+  "superClass": "com.google.android.gms.common.api.CommonStatusCodes",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusCodeString",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "ACL_ACCESS_DENIED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7503"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018371"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "API_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7512"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018371"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "BAD_ACCOUNT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7504"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018371"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "BLUETOOTH_OFF",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7506"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018371"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "FENCE_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7514"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018371"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "INCONSISTENT_ACCOUNT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7510"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018371"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "INCONSISTENT_MODULE_ID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7511"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018371"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "INCONSISTENT_UID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7513"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018371"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "INTERNAL_API_CLIENT_CONNECTION_FAILED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7507"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018371"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "MAX_LIMIT_OF_FENCE_REGISTRATIONS_EXCEEDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7515"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018371"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.kit.awareness.AwarenessStatusCodes",
+  "kitName": "Awareness",
+  "status": "notSupport"
+}

@@ -1,0 +1,250 @@
+{
+  "gName": "com.google.firebase.ml.vision.objects.FirebaseVisionObject",
+  "interfaces": [],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBoundingBox",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBorder",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObject",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getClassificationCategory",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTypeIdentity",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObject",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getClassificationConfidence",
+        "paramTypes": [],
+        "retType": "java.lang.Float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTypePossibility",
+        "paramTypes": [],
+        "retType": "java.lang.Float"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObject",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTrackingId",
+        "paramTypes": [],
+        "retType": "java.lang.Integer"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTracingIdentity",
+        "paramTypes": [],
+        "retType": "java.lang.Integer"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObject",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "CATEGORY_FASHION_GOOD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TYPE_GOODS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FirebaseVisionObject public static final int CATEGORY_FASHION_GOOD = 2\" will be replaced by \"MLObject public static final int TYPE_GOODS = 1\"",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObject",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "CATEGORY_FOOD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "TYPE_FOOD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"FirebaseVisionObject public static final int CATEGORY_FOOD = 3\" will be replaced by \"MLObject public static final int TYPE_FOOD = 2\"",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObject",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "CATEGORY_HOME_GOOD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TYPE_FURNITURE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"FirebaseVisionObject public static final int CATEGORY_HOME_GOOD = 1\" will be replaced by \"MLObject public static final int TYPE_FURNITURE = 3\"",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObject",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "CATEGORY_PLACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "TYPE_PLACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "text": "\"FirebaseVisionObject public static final int CATEGORY_PLACE = 4\" will be replaced by \"MLObject public static final int TYPE_PLACE = 5\"",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObject",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "CATEGORY_PLANT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "h": {
+        "name": "TYPE_PLANT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "\"FirebaseVisionObject public static final int CATEGORY_PLANT = 5\" will be replaced by \"MLObject public static final int TYPE_PLANT = 4\"",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObject",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "CATEGORY_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "TYPE_OTHER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"FirebaseVisionObject public static final int CATEGORY_UNKNOWN = 0\" will be replaced by \"MLObject public static final int TYPE_OTHER = 0\"",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObject",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.objects.MLObject",
+  "kitName": "ML",
+  "status": "matching"
+}

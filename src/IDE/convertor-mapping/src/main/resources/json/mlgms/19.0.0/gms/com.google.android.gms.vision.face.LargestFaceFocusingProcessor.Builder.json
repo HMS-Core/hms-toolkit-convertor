@@ -1,0 +1,108 @@
+{
+  "gName": "com.google.android.gms.vision.face.LargestFaceFocusingProcessor.Builder",
+  "interfaces": [],
+  "dependencyName": "MLgms",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.vision.Detector<com.google.android.gms.vision.face.Face>"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.vision.Tracker<com.google.android.gms.vision.face.Face>"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Creator",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLAnalyzer<com.huawei.hms.mlsdk.face.MLFace>"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.mlsdk.common.MLResultTrailer<com.huawei.hms.mlsdk.face.MLFace>"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLMaxSizeFaceTransactor.Creator",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.vision.face.LargestFaceFocusingProcessor"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "create",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.face.MLMaxSizeFaceTransactor"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLMaxSizeFaceTransactor.Creator",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setMaxGapFrames",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.vision.face.LargestFaceFocusingProcessor.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setMaxFrameLostCount",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.face.MLMaxSizeFaceTransactor.Creator"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLMaxSizeFaceTransactor.Creator",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.face.MLMaxSizeFaceTransactor.Creator",
+  "kitName": "ML",
+  "status": "matching"
+}

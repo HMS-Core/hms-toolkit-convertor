@@ -1,0 +1,40 @@
+{
+  "gName": "com.google.android.gms.panorama.PanoramaApi.PanoramaResult",
+  "interfaces": [
+    "com.google.android.gms.common.api.Result"
+  ],
+  "dependencyName": "Panorama",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Panorama",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getViewerIntent",
+        "paramTypes": [],
+        "retType": "android.content.Intent"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getImageDisplayIntent",
+        "paramTypes": [],
+        "retType": "android.content.Intent"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.panorama.PanoramaInterface.ImageInfoResult",
+      "url": "https://developer.huawei.com/consumer/en/hms/huawei-panoramakit"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.panorama.PanoramaInterface.ImageInfoResult",
+  "kitName": "Panorama",
+  "status": "matching"
+}

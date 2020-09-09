@@ -1,0 +1,77 @@
+{
+  "gName": "com.google.android.gms.awareness.fence.FenceStateMap",
+  "interfaces": [],
+  "dependencyName": "Awareness",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getFenceKeys",
+        "paramTypes": [],
+        "retType": "java.util.Set<java.lang.String>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBarrierLabels",
+        "paramTypes": [],
+        "retType": "java.util.Set<java.lang.String>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BarrierStatusMap",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getFenceState",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.FenceState"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBarrierStatus",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.BarrierStatus"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BarrierStatusMap",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.kit.awareness.barrier.BarrierStatusMap",
+  "kitName": "Awareness",
+  "status": "matching"
+}

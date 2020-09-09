@@ -1,0 +1,52 @@
+{
+  "gName": "com.google.android.gms.nearby.messages.MessagesOptions",
+  "interfaces": [
+    "com.google.android.gms.common.api.Api.ApiOptions.Optional"
+  ],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "private"
+        ],
+        "name": "MessagesOptions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.nearby.messages.MessagesOptions.Builder"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "private"
+        ],
+        "name": "MessageOption",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.nearby.message.MessageOption.Builder"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.MessageOption",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.message.MessageOption",
+  "kitName": "Nearby",
+  "status": "matching"
+}

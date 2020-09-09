@@ -1,0 +1,217 @@
+{
+  "gName": "com.google.api.services.drive.DriveScopes",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "all",
+        "paramTypes": [],
+        "retType": "java.util.Set<java.lang.String>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "all",
+        "paramTypes": [],
+        "retType": "java.util.Set<java.lang.String>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.DriveScopes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "name": "DRIVE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "String",
+        "value": "https://www.googleapis.com/auth/drive"
+      },
+      "h": {
+        "name": "SCOPE_DRIVE",
+        "modifiers": [
+          "static"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.huawei.com/auth/drive"
+      },
+      "text": "\"DriveScopes public static final String DRIVE = \"https://www.googleapis.com/auth/drive\";\" will be replaced by \"DriveScopes public static java.lang.String SCOPE_DRIVE = \"https://www.huawei.com/auth/drive\"\"",
+      "hName": "com.huawei.cloud.services.drive.DriveScopes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "name": "DRIVE_APPDATA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "String",
+        "value": "https://www.googleapis.com/auth/drive.appdata"
+      },
+      "h": {
+        "name": "SCOPE_DRIVE_APPDATA",
+        "modifiers": [
+          "static"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.huawei.com/auth/drive.appdata"
+      },
+      "text": "\"DriveScopes public static final String DRIVE_APPDATA = \"https://www.googleapis.com/auth/drive.appdata\";\" will be replaced by \"DriveScopes public static java.lang.String SCOPE_DRIVE_APPDATA = \"https://www.huawei.com/auth/drive.appdata\"\"",
+      "hName": "com.huawei.cloud.services.drive.DriveScopes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "name": "DRIVE_FILE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "String",
+        "value": "https://www.googleapis.com/auth/drive.file"
+      },
+      "h": {
+        "name": "SCOPE_DRIVE_FILE",
+        "modifiers": [
+          "static"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.huawei.com/auth/drive.file"
+      },
+      "text": "\"DriveScopes public static final String DRIVE_FILE = \"https://www.googleapis.com/auth/drive.file\";\" will be replaced by \"DriveScopes public static java.lang.String SCOPE_DRIVE_FILE = \"https://www.huawei.com/auth/drive.file\"\"",
+      "hName": "com.huawei.cloud.services.drive.DriveScopes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "name": "DRIVE_METADATA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "String",
+        "value": "https://www.googleapis.com/auth/drive.metadata"
+      },
+      "h": {
+        "name": "SCOPE_DRIVE_METADATA",
+        "modifiers": [
+          "static"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.huawei.com/auth/drive.metadata"
+      },
+      "text": "\"DriveScopes public static final String DRIVE_METADATA = \"https://www.googleapis.com/auth/drive.metadata\";\" will be replaced by \"DriveScopes publice static java.lang.String SCOPE_DRIVE_METADATA = \"https://www.huawei.com/auth/drive.metadata\"\"",
+      "hName": "com.huawei.cloud.services.drive.DriveScopes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "name": "DRIVE_METADATA_READONLY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "String",
+        "value": "https://www.googleapis.com/auth/drive.metadata.readonly"
+      },
+      "h": {
+        "name": "SCOPE_DRIVE_METADATA_READONLY",
+        "modifiers": [
+          "static"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.huawei.com/auth/drive.metadata.readonly"
+      },
+      "text": "\"DriveScopes public static final String DRIVE_METADATA_READONLY = \"https://www.googleapis.com/auth/drive.metadata.readonly\";\" will be replaced by \"DriveScopes public static java.lang.String SCOPE_DRIVE_METADATA_READONLY= \"https://www.huawei.com/auth/drive.metadata.readonly\"\"",
+      "hName": "com.huawei.cloud.services.drive.DriveScopes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "name": "DRIVE_PHOTOS_READONLY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "String",
+        "value": "https://www.googleapis.com/auth/drive.photos.readonly"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "name": "DRIVE_READONLY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "String",
+        "value": "https://www.googleapis.com/auth/drive.readonly"
+      },
+      "h": {
+        "name": "SCOPE_DRIVE_READONLY",
+        "modifiers": [
+          "static"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.huawei.com/auth/drive.readonly"
+      },
+      "text": "\"DriveScopes public static final String DRIVE_READONLY = \"https://www.googleapis.com/auth/drive.readonly\";\" will be replaced by \"DriveScopes public static java.lang.String SCOPE_DRIVE_READONLY =  \"https://www.huawei.com/auth/drive.readonly\"\"",
+      "hName": "com.huawei.cloud.services.drive.DriveScopes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "name": "DRIVE_SCRIPTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "String",
+        "value": "https://www.googleapis.com/auth/drive.scripts"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.cloud.services.drive.DriveScopes",
+  "kitName": "Drive",
+  "status": "notSupport"
+}

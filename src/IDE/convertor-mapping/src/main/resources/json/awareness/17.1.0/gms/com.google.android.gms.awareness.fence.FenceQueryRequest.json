@@ -1,0 +1,120 @@
+{
+  "gName": "com.google.android.gms.awareness.fence.FenceQueryRequest",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Awareness",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "all",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.awareness.fence.FenceQueryRequest"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "all",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.kit.awareness.barrier.BarrierQueryRequest"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BarrierQueryRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "forFences",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String..."
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.FenceQueryRequest"
+      },
+      "h": {
+        "exceptions": [
+          "com.huawei.hms.kit.awareness.fence.FenceQueryRequest.NullPointerException",
+          "com.huawei.hms.kit.awareness.fence.FenceQueryRequest.IllegalArgumentException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "forBarriers",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String..."
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.BarrierQueryRequest"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BarrierQueryRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "forFences",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<java.lang.String>"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.FenceQueryRequest"
+      },
+      "h": {
+        "exceptions": [
+          "com.huawei.hms.kit.awareness.fence.FenceQueryRequest.NullPointerException",
+          "com.huawei.hms.kit.awareness.fence.FenceQueryRequest.IllegalArgumentException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "forBarriers",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<java.lang.String>"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.BarrierQueryRequest"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BarrierQueryRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.kit.awareness.barrier.BarrierQueryRequest",
+  "kitName": "Awareness",
+  "status": "matching"
+}

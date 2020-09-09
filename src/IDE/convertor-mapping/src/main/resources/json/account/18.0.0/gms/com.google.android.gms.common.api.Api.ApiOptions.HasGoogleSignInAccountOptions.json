@@ -1,0 +1,40 @@
+{
+  "gName": "com.google.android.gms.common.api.Api.ApiOptions.HasGoogleSignInAccountOptions",
+  "interfaces": [
+    "com.google.android.gms.common.api.Api.ApiOptions.HasOptions"
+  ],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getGoogleSignInAccount",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAuthHuaweiId",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.hwid.HuaweiAccountOptions.HasAuthHuaweiIdOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.support.api.hwid.HuaweiAccountOptions.HasAuthHuaweiIdOptions",
+  "kitName": "Account",
+  "status": "matching"
+}

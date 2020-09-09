@@ -1,0 +1,51 @@
+{
+  "gName": "com.google.api.client.util.base64.BaseNCodec",
+  "interfaces": [
+    "org.apache.commons.codec.BinaryEncoder",
+    "org.apache.commons.codec.BinaryDecoder"
+  ],
+  "dependencyName": "Drive",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "decode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "byte[]"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "decode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "final"
+          }
+        ],
+        "retType": "byte[]"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.util.base64.BaseNCodec",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.cloud.base.util.base64.BaseNCodec",
+  "kitName": "Drive",
+  "status": "matching"
+}

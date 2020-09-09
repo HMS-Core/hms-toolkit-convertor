@@ -1,0 +1,607 @@
+{
+  "gName": "com.google.android.gms.fitness.data.DataPoint",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Health",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "builder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataPoint.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "builder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataCollector"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SamplePoint.Builder"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "create",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataPoint"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "create",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataCollector"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SamplePoint"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "extract",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataPoint"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "extract",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SamplePoint"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDataSource",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.data.DataSource"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataCollector",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.data.DataCollector"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDataType",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.data.DataType"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataType",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.data.DataType"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getEndTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getEndTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getOriginalDataSource",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.data.DataSource"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getRawDataCollector",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.data.DataCollector"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getStartTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStartTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getTimestamp",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSamplingTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getValue",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.Field"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.Value"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFieldValue",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.Field"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.Value"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setFloatValues",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float..."
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataPoint"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setFloatValues",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float[]"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SamplePoint"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setIntValues",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int..."
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataPoint"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setIntValues",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int[]"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SamplePoint"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setTimeInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataPoint"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setTimeInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SamplePoint"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setTimestamp",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataPoint"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setSamplingTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SamplePoint"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.data.SamplePoint",
+  "kitName": "Health",
+  "status": "matching"
+}

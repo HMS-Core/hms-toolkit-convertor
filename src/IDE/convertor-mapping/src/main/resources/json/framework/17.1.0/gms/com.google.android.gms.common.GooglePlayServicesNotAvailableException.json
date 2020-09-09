@@ -1,0 +1,72 @@
+{
+  "gName": "com.google.android.gms.common.GooglePlayServicesNotAvailableException",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "java.lang.Exception",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "GooglePlayServicesNotAvailableException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "HuaweiServicesNotAvailableException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.api.HuaweiServicesNotAvailableException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "errorCode",
+        "modifiers": [
+          "final"
+        ],
+        "type": "int",
+        "value": ""
+      },
+      "h": {
+        "name": "errorCode",
+        "modifiers": [
+          "final"
+        ],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"GooglePlayServicesNotAvailableException public final int errorCode\" will be replaced by \"HuaweiServicesNotAvailableException public final int errorCode\"",
+      "hName": "com.huawei.hms.api.HuaweiServicesNotAvailableException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.api.HuaweiServicesNotAvailableException",
+  "kitName": "Basement",
+  "status": "matching"
+}

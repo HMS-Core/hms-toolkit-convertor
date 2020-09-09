@@ -1,0 +1,793 @@
+{
+  "gName": "com.google.firebase.storage.StorageReference",
+  "interfaces": [
+    "java.lang.Comparable<com.google.firebase.storage.StorageReference>"
+  ],
+  "dependencyName": "FirebaseStorage",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "child",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageReference"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "child",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "String"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageReference"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "compareTo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.storage.StorageReference"
+          }
+        ],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "compareTo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "StorageReference"
+          }
+        ],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "delete",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "delete",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getActiveDownloadTasks",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.firebase.storage.FileDownloadTask>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getActiveDownloadTasks",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.agconnect.cloud.storage.core.DownloadTask>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getActiveUploadTasks",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.firebase.storage.UploadTask>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getActiveUploadTasks",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.agconnect.cloud.storage.core.UploadTask>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBucket",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBucket",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBytes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<byte[]>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBytes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<byte[]>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDownloadUrl",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<android.net.Uri>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDownloadUrl",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<android.net.Uri>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.File"
+          }
+        ],
+        "retType": "com.google.firebase.storage.FileDownloadTask"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.File"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.DownloadTask"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.google.firebase.storage.FileDownloadTask"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.DownloadTask"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMetadata",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.storage.StorageMetadata>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFileMetadata",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.agconnect.cloud.storage.core.FileMetadata>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Agc StorageReference.getName() Method returns a null value for the reference to a folder,please check it",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getParent",
+        "paramTypes": [],
+        "retType": "com.google.firebase.storage.StorageReference"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getParent",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageReference"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPath",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPath",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRoot",
+        "paramTypes": [],
+        "retType": "com.google.firebase.storage.StorageReference"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRoot",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageReference"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStorage",
+        "paramTypes": [],
+        "retType": "com.google.firebase.storage.FirebaseStorage"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStorage",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.cloud.storage.core.AGCStorageManagement"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStream",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.storage.StreamDownloadTask.StreamProcessor"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StreamDownloadTask"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStream",
+        "paramTypes": [],
+        "retType": "com.google.firebase.storage.StreamDownloadTask"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStream",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StreamDownloadTask"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "list",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.storage.ListResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "list",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "String"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.agconnect.cloud.storage.core.ListResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "list",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.storage.ListResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "list",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.agconnect.cloud.storage.core.ListResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "listAll",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.storage.ListResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "listAll",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.agconnect.cloud.storage.core.ListResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putBytes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.storage.StorageMetadata"
+          }
+        ],
+        "retType": "com.google.firebase.storage.UploadTask"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putBytes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.agconnect.cloud.storage.core.FileMetadata"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.UploadTask"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putBytes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "com.google.firebase.storage.UploadTask"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.storage.StorageMetadata"
+          },
+          {
+            "pos": "2",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.google.firebase.storage.UploadTask"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-storage-0000001051133610#EN-US_TOPIC_0000001051133610__section186515311576"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.storage.StorageMetadata"
+          }
+        ],
+        "retType": "com.google.firebase.storage.UploadTask"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-storage-0000001051133610#EN-US_TOPIC_0000001051133610__section7533104685011"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.google.firebase.storage.UploadTask"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-storage-0000001051133610#EN-US_TOPIC_0000001051133610__section1257412110212"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putStream",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.InputStream"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.storage.StorageMetadata"
+          }
+        ],
+        "retType": "com.google.firebase.storage.UploadTask"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putStream",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.InputStream"
+          }
+        ],
+        "retType": "com.google.firebase.storage.UploadTask"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "updateMetadata",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.storage.StorageMetadata"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.storage.StorageMetadata>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "updateFileMetadata",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.cloud.storage.core.FileMetadata"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.agconnect.cloud.storage.core.FileMetadata>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.cloud.storage.core.StorageReference",
+  "kitName": "FirebaseStorage",
+  "status": "matching"
+}

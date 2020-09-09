@@ -1,0 +1,174 @@
+{
+  "gName": "com.google.android.gms.vision.barcode.Barcode.CalendarEvent",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "MLgms",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "CalendarEvent",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "EventInfo",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "description",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "abstractInfo",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarEvent public java.lang.String description\" will be replaced by \"HmsScan.EventInfo public java.lang.String abstractInfo\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "end",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.CalendarDateTime",
+        "value": ""
+      },
+      "h": {
+        "name": "closeTime",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.EventTime",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarEvent public com.google.android.gms.vision.barcode.Barcode.CalendarDateTime end\" will be replaced by \"HmsScan.EventInfo public com.huawei.hms.ml.scan.HmsScan.EventTime closeTime\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "location",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "placeInfo",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarEvent public java.lang.String location\" will be replaced by \"HmsScan.EventInfo public java.lang.String placeInfo\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "organizer",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "sponsor",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarEvent public java.lang.String organizer\" will be replaced by \"HmsScan.EventInfo public java.lang.String sponsor\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "start",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.CalendarDateTime",
+        "value": ""
+      },
+      "h": {
+        "name": "beginTime",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.EventTime",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarEvent public com.google.android.gms.vision.barcode.Barcode.CalendarDateTime start\" will be replaced by \"HmsScan.EventInfo public com.huawei.hms.ml.scan.HmsScan.EventTime beginTime\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "status",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "condition",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarEvent public java.lang.String status\" will be replaced by \"HmsScan.EventInfo public java.lang.String condition\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "summary",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "theme",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarEvent public java.lang.String summary\" will be replaced by \"HmsScan.EventInfo public java.lang.String theme\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventInfo",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan.EventInfo",
+  "kitName": "ML",
+  "status": "matching"
+}

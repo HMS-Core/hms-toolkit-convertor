@@ -1,0 +1,65 @@
+{
+  "gName": "com.google.android.gms.actions.SearchIntents",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "java.lang.Object",
+  "methods": [],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "ACTION_SEARCH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.actions.SEARCH_ACTION"
+      },
+      "h": {
+        "name": "ACTION_SEARCH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.java.lang.String",
+        "value": "com.huawei.hms.actions.SEARCH_ACTION"
+      },
+      "text": "\"SearchIntents public static final java.lang.String ACTION_SEARCH = \"com.google.android.gms.actions.SEARCH_ACTION\"\" will be replaced by \"SearchIntents static final java.lang.java.lang.String ACTION_SEARCH = \"com.huawei.hms.actions.SEARCH_ACTION\"\"",
+      "hName": "com.huawei.hms.actions.SearchIntents",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "EXTRA_QUERY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "query"
+      },
+      "h": {
+        "name": "EXTRA_QUERY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "query"
+      },
+      "text": "\"SearchIntents public static final java.lang.String EXTRA_QUERY = \"query\"\" will be replaced by \"SearchIntents static final java.lang.String EXTRA_QUERY = \"query\"\"",
+      "hName": "com.huawei.hms.actions.SearchIntents",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.actions.SearchIntents",
+  "kitName": "Basement",
+  "status": "matching"
+}

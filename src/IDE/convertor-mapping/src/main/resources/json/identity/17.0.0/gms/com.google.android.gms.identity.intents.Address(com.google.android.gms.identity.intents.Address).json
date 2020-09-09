@@ -1,0 +1,77 @@
+{
+  "gName": "com.google.android.gms.identity.intents.Address",
+  "interfaces": [],
+  "dependencyName": "Identity",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Identity",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "requestUserAddress",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.identity.intents.UserAddressRequest"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Please replace the API with Address.getAddressClient(this).getUserAddress. For details, please refer to section \"Obtaining a User Address\" of the development guide.",
+      "hName": "com.huawei.hms.identity.AddressClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/client-dev-0000001050040485"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Identity",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Address",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Please replace the API with Address.getAddressClient(this).getUserAddress. For details, please refer to section \"Obtaining a User Address\" of the development guide.",
+      "hName": "com.huawei.hms.identity.Address",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/client-dev-0000001050040485"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Identity",
+      "g": {
+        "name": "API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.identity.intents.Address.AddressOptions>",
+        "value": ""
+      },
+      "text": "HMS Core does not support the com.google.android.gms.identity.intents.Address.API attribute. If it is used, delete it manually.",
+      "hName": "com.huawei.hms.identity.AddressOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Identity",
+  "status": "complex"
+}

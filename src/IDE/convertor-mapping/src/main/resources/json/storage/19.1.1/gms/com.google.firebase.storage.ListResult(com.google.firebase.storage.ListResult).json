@@ -1,0 +1,80 @@
+{
+  "gName": "com.google.firebase.storage.ListResult",
+  "interfaces": [],
+  "dependencyName": "FirebaseStorage",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getItems",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.firebase.storage.StorageReference>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFileList",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.agconnect.cloud.storage.core.StorageReference>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.ListResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPageToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPageMarker",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.ListResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPrefixes",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.firebase.storage.StorageReference>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDirList",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.agconnect.cloud.storage.core.StorageReference>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.ListResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.agconnect.cloud.storage.core.ListResult",
+  "kitName": "FirebaseStorage",
+  "status": "matching"
+}

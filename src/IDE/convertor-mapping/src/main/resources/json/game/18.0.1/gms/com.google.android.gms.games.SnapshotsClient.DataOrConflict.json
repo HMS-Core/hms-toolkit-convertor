@@ -1,0 +1,82 @@
+{
+  "gName": "com.google.android.gms.games.SnapshotsClient.DataOrConflict<T>",
+  "interfaces": [],
+  "dependencyName": "Game",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isConflict",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isDifference",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.OperationResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getConflict",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.SnapshotsClient.SnapshotConflict"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDifference",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.archive.OperationResult.Difference"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.OperationResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getData",
+        "paramTypes": [],
+        "retType": "T"
+      },
+      "h": {
+        "exceptions": [
+          "java.lang.IllegalStateException"
+        ],
+        "modifiers": [],
+        "name": "getArchive",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.archive.Archive"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.OperationResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.archive.OperationResult",
+  "kitName": "Game",
+  "status": "matching"
+}

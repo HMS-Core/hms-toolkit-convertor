@@ -1,0 +1,123 @@
+{
+  "gName": "com.google.firebase.dynamiclinks.PendingDynamicLinkData",
+  "interfaces": [],
+  "dependencyName": "DynamicLinks",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "DynamicLinks",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getClickTimestamp",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getClickTimestamp",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.applinking.ResolvedLinkData",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "DynamicLinks",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLink",
+        "paramTypes": [],
+        "retType": "android.net.Uri"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDeepLink",
+        "paramTypes": [],
+        "retType": "android.net.Uri"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.applinking.ResolvedLinkData",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "DynamicLinks",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMinimumAppVersion",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "com.huawei.agconnect.applinking.ResolvedLinkData",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-dyna-0000001050157272#EN-US_TOPIC_0000001050157272__section3694937165219"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "DynamicLinks",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getUpdateAppIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "android.content.Intent"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-dyna-0000001050157272#EN-US_TOPIC_0000001050157272__section1149315361413"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "DynamicLinks",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "PendingDynamicLinkData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          },
+          {
+            "pos": "3",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.applinking.ResolvedLinkData",
+  "kitName": "DynamicLinks",
+  "status": "notSupport"
+}

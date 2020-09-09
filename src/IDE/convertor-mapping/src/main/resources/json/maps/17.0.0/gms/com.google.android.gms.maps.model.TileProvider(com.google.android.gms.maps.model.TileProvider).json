@@ -1,0 +1,88 @@
+{
+  "gName": "com.google.android.gms.maps.model.TileProvider",
+  "interfaces": [],
+  "dependencyName": "Map",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.model.Tile"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.model.Tile"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.maps.model.TileProvider",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "name": "NO_TILE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.maps.model.Tile",
+        "value": ""
+      },
+      "h": {
+        "name": "NO_TILE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.maps.model.Tile",
+        "value": ""
+      },
+      "text": "\"TileProvider public static final com.google.android.gms.maps.model.Tile NO_TILE\" will be replaced by \"TileProvider public static final com.huawei.hms.maps.model.Tile NO_TILE\"",
+      "hName": "com.huawei.hms.maps.model.TileProvider",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.maps.model.TileProvider",
+  "kitName": "Map",
+  "status": "matching"
+}

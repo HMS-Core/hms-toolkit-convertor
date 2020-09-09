@@ -1,0 +1,42 @@
+{
+  "gName": "com.google.android.gms.games.stats.Stats",
+  "interfaces": [],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "loadPlayerStats",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.stats.Stats.LoadPlayerStatsResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.playerstats.GamePlayerStatisticsClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section767517113237"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Game",
+  "status": "manuallyAdapt"
+}

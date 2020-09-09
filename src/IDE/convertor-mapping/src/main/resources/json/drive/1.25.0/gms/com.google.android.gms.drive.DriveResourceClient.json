@@ -1,0 +1,633 @@
+{
+  "gName": "com.google.android.gms.drive.DriveResourceClient",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.drive.Drive.ConnectionlessDriveOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "addChangeListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveResource"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.drive.events.OnChangeListener"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.events.ListenerToken>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "addChangeSubscription",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveResource"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "cancelOpenFileCallback",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.events.ListenerToken"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Boolean>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "commitContents",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveContents"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.drive.MetadataChangeSet"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "commitContents",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveContents"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.drive.MetadataChangeSet"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.drive.ExecutionOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "createContents",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.DriveContents>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "createFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveFolder"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.drive.MetadataChangeSet"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.drive.DriveContents"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.drive.ExecutionOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.DriveFile>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "createFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveFolder"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.drive.MetadataChangeSet"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.drive.DriveContents"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.DriveFile>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "createFolder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveFolder"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.drive.MetadataChangeSet"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.DriveFolder>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "delete",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveResource"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "discardContents",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveContents"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getAppFolder",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.DriveFolder>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getMetadata",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveResource"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.Metadata>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getRootFolder",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.DriveFolder>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "listChildren",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveFolder"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.MetadataBuffer>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "listParents",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveResource"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.MetadataBuffer>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "openFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveFile"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.DriveContents>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "openFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveFile"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.drive.events.OpenFileCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.events.ListenerToken>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "query",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.query.Query"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.MetadataBuffer>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "queryChildren",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveFolder"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.drive.query.Query"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.MetadataBuffer>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "removeChangeListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.events.ListenerToken"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Boolean>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "removeChangeSubscription",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveResource"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "reopenContentsForWrite",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveContents"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.DriveContents>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "setParents",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveResource"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Set<com.google.android.gms.drive.DriveId>"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "trash",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveResource"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "untrash",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveResource"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "updateMetadata",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.drive.DriveResource"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.drive.MetadataChangeSet"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.drive.Metadata>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Drive",
+  "status": "notSupport"
+}

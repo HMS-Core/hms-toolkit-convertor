@@ -1,0 +1,188 @@
+{
+  "gName": "com.google.android.gms.fitness.BleApi",
+  "interfaces": [],
+  "dependencyName": "Health",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "claimBleDevice",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.BleManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section13723162924415"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "claimBleDevice",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.data.BleDevice"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.BleManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section13723162924415"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "listClaimedBleDevices",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.fitness.result.BleDevicesResult>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.BleManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section16111181314711"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startBleScan",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.request.StartBleScanRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.BleManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section20373338153810"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopBleScan",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.request.BleScanCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.BleManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section1888152433918"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unclaimBleDevice",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.BleManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section11348272045181"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unclaimBleDevice",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.data.BleDevice"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.BleManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section11348272045181"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.hihealth.BleManager",
+  "kitName": "Health",
+  "status": "manuallyAdapt"
+}

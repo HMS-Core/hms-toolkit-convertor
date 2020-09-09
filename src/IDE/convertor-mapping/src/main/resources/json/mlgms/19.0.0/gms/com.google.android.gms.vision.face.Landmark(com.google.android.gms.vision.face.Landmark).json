@@ -1,0 +1,360 @@
+{
+  "gName": "com.google.android.gms.vision.face.Landmark",
+  "interfaces": [],
+  "dependencyName": "MLgms",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPosition",
+        "paramTypes": [],
+        "retType": "android.graphics.PointF"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCoordinatePoint",
+        "paramTypes": [],
+        "retType": "android.graphics.PointF"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "BOTTOM_MOUTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "TYPE_BOTTOM_OF_MOUTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"Landmark public static final int BOTTOM_MOUTH = 0\" will be replaced by \"MLFaceKeyPoint public static final int TYPE_BOTTOM_OF_MOUTH = 1\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "LEFT_CHEEK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TYPE_LEFT_CHEEK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"Landmark public static final int LEFT_CHEEK = 1\" will be replaced by \"MLFaceKeyPoint public static final int TYPE_LEFT_CHEEK = 2\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "LEFT_EAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "TYPE_LEFT_EAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"Landmark public static final int LEFT_EAR = 3\" will be replaced by \"MLFaceKeyPoint public static final int TYPE_LEFT_EAR = 3\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "LEFT_EAR_TIP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TYPE_TIP_OF_LEFT_EAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "\"Landmark public static final int LEFT_EAR_TIP = 2\" will be replaced by \"MLFaceKeyPoint public static final int TYPE_TIP_OF_LEFT_EAR = 4\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "LEFT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "TYPE_LEFT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "text": "\"Landmark public static final int LEFT_EYE = 4\" will be replaced by \"MLFaceKeyPoint public static final int TYPE_LEFT_EYE = 5\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "LEFT_MOUTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "h": {
+        "name": "TYPE_LEFT_SIDE_OF_MOUTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "text": "\"Landmark public static final int LEFT_MOUTH = 5\" will be replaced by \"MLFaceKeyPoint public static final int TYPE_LEFT_SIDE_OF_MOUTH= 6\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "NOSE_BASE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "h": {
+        "name": "TYPE_TIP_OF_NOSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "text": "\"Landmark public static final int NOSE_BASE = 6\" will be replaced by \"MLFaceKeyPoint public static final int TYPE_TIP_OF_NOSE = 7\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "RIGHT_CHEEK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "h": {
+        "name": "TYPE_RIGHT_CHEEK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "text": "\"Landmark public static final int RIGHT_CHEEK = 7\" will be replaced by \"MLFaceKeyPoint public static final int TYPE_RIGHT_CHEEK = 8\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "RIGHT_EAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "h": {
+        "name": "TYPE_RIGHT_EAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "text": "\"Landmark public static final int RIGHT_EAR = 9\" will be replaced by \"MLFaceKeyPoint public static final int TYPE_RIGHT_EAR = 9\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "RIGHT_EAR_TIP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "h": {
+        "name": "TYPE_TIP_OF_RIGHT_EAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10"
+      },
+      "text": "\"Landmark public static final int RIGHT_EAR_TIP = 8\" will be replaced by \"MLFaceKeyPoint public static final int TYPE_TIP_OF_RIGHT_EAR = 10\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "RIGHT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10"
+      },
+      "h": {
+        "name": "TYPE_RIGHT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11"
+      },
+      "text": "\"Landmark public static final int RIGHT_EYE = 10\" will be replaced by \"MLFaceKeyPoint public static final int TYPE_RIGHT_EYE = 11\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "RIGHT_MOUTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11"
+      },
+      "h": {
+        "name": "TYPE_RIGHT_SIDE_OF_MOUTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12"
+      },
+      "text": "\"Landmark public static final int RIGHT_MOUTH = 11\" will be replaced by \"MLFaceKeyPoint public static final int TYPE_RIGHT_SIDE_OF_MOUTH = 12\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint",
+  "kitName": "ML",
+  "status": "matching"
+}

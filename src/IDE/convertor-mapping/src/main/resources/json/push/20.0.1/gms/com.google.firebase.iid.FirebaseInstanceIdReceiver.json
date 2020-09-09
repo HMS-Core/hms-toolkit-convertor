@@ -1,0 +1,40 @@
+{
+  "gName": "com.google.firebase.iid.FirebaseInstanceIdReceiver",
+  "interfaces": [],
+  "dependencyName": "Push",
+  "superClass": "androidx.legacy.content.WakefulBroadcastReceiver",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onReceive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Use HmsInstanceId as replacement.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Push",
+  "status": "notSupport"
+}

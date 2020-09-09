@@ -1,0 +1,195 @@
+{
+  "gName": "com.google.android.gms.fido.Fido",
+  "interfaces": [],
+  "dependencyName": "FIDO",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getFido2ApiClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.fido.fido2.Fido2ApiClient"
+      },
+      "text": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getFido2ApiClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.fido.fido2.Fido2ApiClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getFido2Client",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.fido.fido2.Fido2Client"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.fido.fido2.Fido2",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getFido2PrivilegedApiClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.fido.fido2.Fido2PrivilegedApiClient"
+      },
+      "text": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getFido2PrivilegedApiClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.fido.fido2.Fido2PrivilegedApiClient"
+      },
+      "text": "Please convert this method manually according to the guide",
+      "hName": "com.huawei.hms.support.api.fido.fido2.Fido2",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fido2client-0000001050178733-V5"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getU2fApiClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.fido.u2f.U2fApiClient"
+      },
+      "text": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getU2fApiClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.fido.u2f.U2fApiClient"
+      },
+      "text": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "FIDO2_KEY_ERROR_EXTRA",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "FIDO2_ERROR_EXTRA"
+      },
+      "text": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "FIDO2_KEY_RESPONSE_EXTRA",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "FIDO2_RESPONSE_EXTRA"
+      },
+      "text": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "KEY_RESPONSE_EXTRA",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "RESPONSE_EXTRA"
+      },
+      "text": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.fido.fido2.Fido2",
+  "kitName": "FIDO",
+  "status": "notSupport"
+}

@@ -1,0 +1,161 @@
+{
+  "gName": "com.google.firebase.ml.vision.label.FirebaseVisionImageLabeler",
+  "interfaces": [
+    "java.io.Closeable"
+  ],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "close",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "stop",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.classification.MLImageClassificationAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getImageLabelerType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAnalyzerType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.classification.MLImageClassificationAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "processImage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.common.FirebaseVisionImage"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.util.List<com.google.firebase.ml.vision.label.FirebaseVisionImageLabel>>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "asyncAnalyseFrame",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLFrame"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.util.List<com.huawei.hms.mlsdk.classification.MLImageClassification>>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.classification.MLImageClassificationAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "CLOUD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TYPE_REMOTE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FirebaseVisionImageLabeler public static final int CLOUD = 2\" will be replaced by \"MLImageClassificationAnalyzer public static final int TYPE_REMOTE = 1\"",
+      "hName": "com.huawei.hms.mlsdk.classification.MLImageClassificationAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "ON_DEVICE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TYPE_LOCAL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"FirebaseVisionImageLabeler public static final int ON_DEVICE = 1\" will be replaced by \"MLImageClassificationAnalyzer public static final int TYPE_LOCAL = 0\"",
+      "hName": "com.huawei.hms.mlsdk.classification.MLImageClassificationAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "ON_DEVICE_AUTOML",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.classification.MLImageClassificationAnalyzer",
+  "kitName": "ML",
+  "status": "notSupport"
+}

@@ -1,0 +1,1031 @@
+{
+  "gName": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode",
+  "interfaces": [],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBoundingBox",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBorderRect",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCalendarEvent",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode.CalendarEvent"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getEventInfo",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ml.scan.HmsScan.EventInfo"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContactInfo",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode.ContactInfo"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContactDetail",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ml.scan.HmsScan.ContactDetail"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCornerPoints",
+        "paramTypes": [],
+        "retType": "android.graphics.Point[]"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCornerPoints",
+        "paramTypes": [],
+        "retType": "android.graphics.Point[]"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDisplayValue",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getShowResult",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDriverLicense",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode.DriverLicense"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDriverInfo",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ml.scan.HmsScan.DriverInfo"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getEmail",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode.Email"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getEmailContent",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ml.scan.HmsScan.EmailContent"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFormat",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getScanType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getGeoPoint",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode.GeoPoint"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLocationCoordinate",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ml.scan.HmsScan.LocationCoordinate"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPhone",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode.Phone"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTelPhoneNumber",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRawValue",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getOriginalValue",
+        "paramTypes": [],
+        "retType": "String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSms",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode.Sms"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSmsContent",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ml.scan.HmsScan.SmsContent"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getUrl",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode.UrlBookmark"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLinkUrl",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ml.scan.HmsScan.LinkUrl"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getValueType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getScanTypeForm",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getWifi",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode.WiFi"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getWiFiConnectionInfo",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_ALL_FORMATS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "ALL_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_ALL_FORMATS = 0\" will be replaced by \"HmsScan public static final int ALL_SCAN_TYPE = 0\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_AZTEC",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4096"
+      },
+      "h": {
+        "name": "AZTEC_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_AZTEC = 4096\" will be replaced by \"HmsScan public static final int AZTEC_SCAN_TYPE = 2\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_CODABAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "h": {
+        "name": "CODABAR_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4096"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_CODABAR = 8\" will be replaced by \"HmsScan public static final int CODABAR_SCAN_TYPE = 4096\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_CODE_128",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "CODE128_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "64"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_CODE_128 = 1\" will be replaced by \"HmsScan public static final int CODE128_SCAN_TYPE = 64\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_CODE_39",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "CODE39_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "16"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_CODE_39 = 2\" will be replaced by \"HmsScan public static final int CODE39_SCAN_TYPE = 16\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_CODE_93",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "CODE93_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "32"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_CODE_93 = 4\" will be replaced by \"HmsScan public static final int CODE93_SCAN_TYPE = 32\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_DATA_MATRIX",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "16"
+      },
+      "h": {
+        "name": "DATAMATRIX_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_DATA_MATRIX = 16\" will be replaced by \"HmsScan public static final int DATAMATRIX_SCAN_TYPE = 4\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_EAN_13",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "32"
+      },
+      "h": {
+        "name": "EAN13_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "128"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_EAN_13 = 32\" will be replaced by \"HmsScan public static final int EAN13_SCAN_TYPE = 128\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_EAN_8",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "64"
+      },
+      "h": {
+        "name": "EAN8_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "256"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_EAN_8 = 64\" will be replaced by \"HmsScan public static final int EAN8_SCAN_TYPE = 256\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_ITF",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "128"
+      },
+      "h": {
+        "name": "ITF14_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "512"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_ITF = 128\" will be replaced by \"HmsScan public static final int ITF14_SCAN_TYPE = 512\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_PDF417",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2048"
+      },
+      "h": {
+        "name": "PDF417_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_PDF417 = 2048\" will be replaced by \"HmsScan public static final int PDF417_SCAN_TYPE = 8\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_QR_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "256"
+      },
+      "h": {
+        "name": "QRCODE_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_QR_CODE = 256\" will be replaced by \"HmsScan public static final int QRCODE_SCAN_TYPE = 1\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "h": {
+        "name": "FORMAT_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_UNKNOWN = -1\" will be replaced by \"HmsScan public static final int FORMAT_UNKNOWN = -1\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_UPC_A",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "512"
+      },
+      "h": {
+        "name": "UPCCODE_A_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1024"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_UPC_A = 512\" will be replaced by \"HmsScan public static final int UPCCODE_A_SCAN_TYPE = 1024\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "FORMAT_UPC_E",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1024"
+      },
+      "h": {
+        "name": "UPCCODE_E_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2048"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int FORMAT_UPC_E = 1024\" will be replaced by \"HmsScan public static final int UPCCODE_E_SCAN_TYPE = 2048\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_CALENDAR_EVENT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11"
+      },
+      "h": {
+        "name": "EVENT_INFO_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1008"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_CALENDAR_EVENT = 11\" will be replaced by \"HmsScan public static final int EVENT_INFO_FORM = 1008\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_CONTACT_INFO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "CONTACT_DETAIL_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1009"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_CONTACT_INFO = 1\" will be replaced by \"HmsScan public static final int CONTACT_DETAIL_FORM = 1009\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_DRIVER_LICENSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12"
+      },
+      "h": {
+        "name": "DRIVER_INFO_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1010"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_DRIVER_LICENSE = 12\" will be replaced by \"HmsScan public static final int DRIVER_INFO_FORM = 1010\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_EMAIL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "EMAIL_CONTENT_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1002"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_EMAIL = 2\" will be replaced by \"HmsScan public static final int EMAIL_CONTENT_FORM = 1002\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_GEO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10"
+      },
+      "h": {
+        "name": "LOCATION_COORDINATE_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1011"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_GEO = 10\" will be replaced by \"HmsScan public static final int LOCATION_COORDINATE_FORM = 1011\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_ISBN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "ISBN_NUMBER_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1012"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_ISBN = 3\" will be replaced by \"HmsScan public static final int ISBN_NUMBER_FORM = 1012\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_PHONE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "TEL_PHONE_NUMBER_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1003"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_PHONE = 4\" will be replaced by \"HmsScan public static final int TEL_PHONE_NUMBER_FORM = 1003\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_PRODUCT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "h": {
+        "name": "ARTICLE_NUMBER_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1001"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_PRODUCT = 5\" will be replaced by \"HmsScan public static final int ARTICLE_NUMBER_FORM = 1001\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_SMS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "h": {
+        "name": "SMS_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1005"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_SMS = 6\" will be replaced by \"HmsScan public static final int SMS_FORM = 1005\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_TEXT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "h": {
+        "name": "PURE_TEXT_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1004"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_TEXT = 7\" will be replaced by \"HmsScan public static final int PURE_TEXT_FORM = 1004\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "OTHER_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_UNKNOWN = 0\" will be replaced by \"HmsScan public static final int OTHER_FORM = -1\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_URL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "h": {
+        "name": "URL_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1006"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_URL = 8\" will be replaced by \"HmsScan public static final int URL_FORM = 1006\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "TYPE_WIFI",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "h": {
+        "name": "WIFI_CONNECT_INFO_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1007"
+      },
+      "text": "\"FirebaseVisionBarcode public static final int TYPE_WIFI = 9\" will be replaced by \"HmsScan public static final int WIFI_CONNECT_INFO_FORM = 1007\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan",
+  "kitName": "ML",
+  "status": "matching"
+}

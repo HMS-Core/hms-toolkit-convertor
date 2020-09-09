@@ -1,0 +1,155 @@
+{
+  "gName": "com.google.android.gms.location.GeofencingEvent",
+  "interfaces": [],
+  "dependencyName": "Location",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.google.android.gms.location.GeofencingEvent"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getDataFromIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.huawei.hms.location.GeofenceData"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.GeofenceData",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getErrorCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getErrorCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.GeofenceData",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getGeofenceTransition",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getConversion",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.GeofenceData",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTriggeringGeofences",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.location.Geofence>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getConvertingGeofenceList",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.location.Geofence>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.GeofenceData",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTriggeringLocation",
+        "paramTypes": [],
+        "retType": "android.location.Location"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getConvertingLocation",
+        "paramTypes": [],
+        "retType": "android.location.Location"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.GeofenceData",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hasError",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isFailure",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.GeofenceData",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.location.GeofenceData",
+  "kitName": "Location",
+  "status": "matching"
+}

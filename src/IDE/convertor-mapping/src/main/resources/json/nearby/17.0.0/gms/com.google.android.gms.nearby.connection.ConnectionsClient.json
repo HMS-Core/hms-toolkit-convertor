@@ -1,0 +1,310 @@
+{
+  "gName": "com.google.android.gms.nearby.connection.ConnectionsClient",
+  "interfaces": [],
+  "dependencyName": "Nearby",
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "acceptConnection",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.connection.PayloadCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "The HMS Core Nearby SDK provides this API through DiscoveryEngine.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "cancelPayload",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "The HMS Core Nearby SDK provides this API through TransferEngine.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "disconnectFromEndpoint",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK provides this API through DiscoveryEngine.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "rejectConnection",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "The HMS Core Nearby SDK provides this API through DiscoveryEngine.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "requestConnection",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.connection.ConnectionLifecycleCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "The HMS Core Nearby SDK provides this API through DiscoveryEngine.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "sendPayload",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.connection.Payload"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "The HMS Core Nearby SDK provides this API through TransferEngine.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "sendPayload",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List<java.lang.String>"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.connection.Payload"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "The HMS Core Nearby SDK provides this API through TransferEngine.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startAdvertising",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.connection.ConnectionLifecycleCallback"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.nearby.connection.AdvertisingOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "The HMS Core Nearby SDK provides this API through DiscoveryEngine.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startDiscovery",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.connection.EndpointDiscoveryCallback"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.connection.DiscoveryOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "The HMS Core Nearby SDK provides this API through DiscoveryEngine.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopAdvertising",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK provides this API through DiscoveryEngine.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopAllEndpoints",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK provides this API through DiscoveryEngine.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopDiscovery",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK provides this API through DiscoveryEngine.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MAX_BYTES_DATA_SIZE",
+        "modifiers": [
+          "static"
+        ],
+        "type": "int",
+        "value": "32768"
+      },
+      "text": "The HMS Core Nearby SDK provides this attribute through TransferEngine.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Nearby",
+  "status": "complex"
+}

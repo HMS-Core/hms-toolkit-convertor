@@ -1,0 +1,163 @@
+{
+  "gName": "com.google.firebase.ml.custom.FirebaseModelInterpreter",
+  "interfaces": [
+    "java.io.Closeable"
+  ],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "close",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getInputIndex",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Integer>"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [
+          "com.google.firebase.ml.common.FirebaseMLException",
+          "java.lang.IllegalArgumentException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.custom.FirebaseModelInterpreterOptions"
+          }
+        ],
+        "retType": "com.google.firebase.ml.custom.FirebaseModelInterpreter"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getOutputIndex",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Integer>"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isStatsCollectionEnabled",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "run",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.custom.FirebaseModelInputs"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.ml.custom.FirebaseModelInputOutputOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.ml.custom.FirebaseModelOutputs>"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setStatsCollectionEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "ML",
+  "status": "notSupport"
+}
