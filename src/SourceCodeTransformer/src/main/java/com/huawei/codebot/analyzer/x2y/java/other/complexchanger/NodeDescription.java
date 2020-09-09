@@ -27,9 +27,9 @@ public class NodeDescription {
 
     private String nodeContent;
 
-    private int startLine = -1;
-
     private int endLine = -1;
+
+    private int startLine = -1;
 
     /** initialize nodeType */
     public String getNodeType() {
@@ -49,15 +49,6 @@ public class NodeDescription {
         this.nodeContent = nodeContent;
     }
 
-    /** initialize startLine */
-    public int getStartLine() {
-        return startLine;
-    }
-
-    public void setStartLine(int startLine) {
-        this.startLine = startLine;
-    }
-
     /** initialize endLine */
     public int getEndLine() {
         return endLine;
@@ -65,5 +56,14 @@ public class NodeDescription {
 
     public void setEndLine(int endLine) {
         this.endLine = endLine;
+    }
+
+    /** initialize startLine */
+    public int getStartLine() {
+        return startLine;
+    }
+
+    public void setStartLine(int startLine) {
+        this.startLine = startLine;
     }
 }

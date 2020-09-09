@@ -16,6 +16,8 @@
 
 package com.huawei.codebot.analyzer.x2y.xml;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,9 +26,12 @@ import java.util.Map;
  * @since 2020-04-22
  */
 public class XmlJsonPattern {
-    private Map<String, CommonOperation> xmlChangerJsonTargets = null;
-    private Map<LabelType, Map<String, CommonOperation>> xmlChangerCategoryJsonTargets = null;
-    private Map<String, LayoutOperation> layoutOperationJsonTargets = null;
+    private Map<String, CommonOperation> xmlChangerJsonTargets = new HashMap<>();
+    private Map<LabelType, Map<String, CommonOperation>> xmlChangerCategoryJsonTargets = new HashMap<>();
+    private Map<String, LayoutOperation> layoutOperationJsonTargets = new HashMap<>();
+    private Map<String, List<LayoutAtrributeOperation>> layoutAtrributeOperationJsonTargets = new HashMap<>();
+    private Map<String, List<LayoutAtrrValueOperation>> layoutAtrrValueOperationJsonTargets = new HashMap<>();
+    private String specialConversionResourceDesc = null;
 
     public XmlJsonPattern setXmlChangerJsonTargets(Map<String, CommonOperation> xmlChangerJsonTargets) {
         this.xmlChangerJsonTargets = xmlChangerJsonTargets;
@@ -39,20 +44,49 @@ public class XmlJsonPattern {
         return this;
     }
 
-    public void setLayoutOperationJsonTargets(Map<String, LayoutOperation> layoutOperationJsonTargets) {
+    public XmlJsonPattern setLayoutOperationJsonTargets(Map<String, LayoutOperation> layoutOperationJsonTargets) {
         this.layoutOperationJsonTargets = layoutOperationJsonTargets;
+        return this;
     }
 
-    Map<String, CommonOperation> getXmlChangerJsonTargets() {
+    public XmlJsonPattern setLayoutAtrributeOperationJsonTargets(
+            Map<String, List<LayoutAtrributeOperation>> layoutAtrributeOperationJsonTargets) {
+        this.layoutAtrributeOperationJsonTargets = layoutAtrributeOperationJsonTargets;
+        return this;
+    }
+
+    public XmlJsonPattern setLayoutAtrrValueOperationJsonTargets(
+            Map<String, List<LayoutAtrrValueOperation>> layoutAtrrValueOperationJsonTargets) {
+        this.layoutAtrrValueOperationJsonTargets = layoutAtrrValueOperationJsonTargets;
+        return this;
+    }
+
+    public XmlJsonPattern setSpecialConversionResourceDesc(String specialConversionResourceDesc) {
+        this.specialConversionResourceDesc = specialConversionResourceDesc;
+        return this;
+    }
+
+    public Map<String, CommonOperation> getXmlChangerJsonTargets() {
         return xmlChangerJsonTargets;
     }
 
-    Map<LabelType, Map<String, CommonOperation>> getXmlChangerCategoryJsonTargets() {
+    public Map<LabelType, Map<String, CommonOperation>> getXmlChangerCategoryJsonTargets() {
         return xmlChangerCategoryJsonTargets;
     }
 
-    Map<String, LayoutOperation> getLayoutOperationJsonTargets() {
+    public Map<String, LayoutOperation> getLayoutOperationJsonTargets() {
         return layoutOperationJsonTargets;
     }
 
+    public Map<String, List<LayoutAtrributeOperation>> getLayoutAtrributeOperationJsonTargets() {
+        return layoutAtrributeOperationJsonTargets;
+    }
+
+    public Map<String, List<LayoutAtrrValueOperation>> getLayoutAtrrValueOperationJsonTargets() {
+        return layoutAtrrValueOperationJsonTargets;
+    }
+
+    public String getSpecialConversionResourceDesc() {
+        return specialConversionResourceDesc;
+    }
 }

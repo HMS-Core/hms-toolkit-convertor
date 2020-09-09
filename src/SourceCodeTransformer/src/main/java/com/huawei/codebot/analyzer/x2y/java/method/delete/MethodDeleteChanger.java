@@ -16,10 +16,13 @@
 
 package com.huawei.codebot.analyzer.x2y.java.method.delete;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.huawei.codebot.analyzer.x2y.global.commonvisitor.JavaLocalVariablesInMethodVisitor;
 import com.huawei.codebot.analyzer.x2y.global.commonvisitor.KotlinLocalVariablesVisitor;
 import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinFunctionCall;
 import com.huawei.codebot.analyzer.x2y.io.config.ConfigService;
+import com.huawei.codebot.analyzer.x2y.java.AtomicAndroidAppChanger;
 import com.huawei.codebot.analyzer.x2y.java.method.MethodChangePattern;
 import com.huawei.codebot.analyzer.x2y.java.method.MethodMatcher;
 import com.huawei.codebot.codeparsing.java.JavaFile;
@@ -30,17 +33,13 @@ import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
-import com.huawei.codebot.framework.x2y.AndroidAppFixer;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ClassInstanceCreation;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -49,13 +48,13 @@ import java.util.List;
  *
  * @since 2020-04-07
  */
-public class MethodDeleteChanger extends AndroidAppFixer {
-    private static Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+public class MethodDeleteChanger extends AtomicAndroidAppChanger {
+    private static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
 
     /**
      * used to store method delete patterns
      */
-    private HashMap<String, List<MethodChangePattern>> changePatterns;
+    private final HashMap<String, List<MethodChangePattern>> changePatterns;
 
     public MethodDeleteChanger(String fixerType) throws CodeBotRuntimeException {
         ConfigService configService = ConfigService.getInstance(fixerType);
@@ -63,10 +62,12 @@ public class MethodDeleteChanger extends AndroidAppFixer {
     }
 
     @Override
-    protected void generateFixCode(DefectInstance defectWarning) {}
+    protected void generateFixCode(DefectInstance defectWarning) {
+    }
 
     @Override
-    protected void extractFixInstancesForSingleCodeFile(String filePath) {}
+    protected void extractFixInstancesForSingleCodeFile(String filePath) {
+    }
 
     @Override
     public FixerInfo getFixerInfo() {
@@ -86,7 +87,7 @@ public class MethodDeleteChanger extends AndroidAppFixer {
         JavaFile javaFile = codeAnalyzer.extractJavaFileInfo(buggyFilePath);
         javaFile.compilationUnit.accept(
                 new JavaLocalVariablesInMethodVisitor() {
-                    MethodMatcher matcher = new MethodMatcher(changePatterns, this);
+                    final MethodMatcher matcher = new MethodMatcher(changePatterns, this);
 
                     @Override
                     public boolean visit(ClassInstanceCreation node) {
@@ -133,10 +134,11 @@ public class MethodDeleteChanger extends AndroidAppFixer {
                                 String.join(
                                         javaFile.lineBreak,
                                         javaFile.fileLines.subList(startLineNumber - 1, endLineNumber));
-                        String message = deleteMethod.getDesc() == null ? null : gson.toJson(deleteMethod.getDesc());
+                        String message = deleteMethod.getDesc() == null ? null : GSON.toJson(deleteMethod.getDesc());
                         return createWarningDefectInstance(buggyFilePath, startLineNumber, buggyLine, message);
                     }
                 });
+        removeIgnoreBlocks(defectInstances, javaFile.shielder);
         return defectInstances;
     }
 
@@ -155,51 +157,57 @@ public class MethodDeleteChanger extends AndroidAppFixer {
         List<DefectInstance> defectInstances = new ArrayList<>();
         KotlinFile kotlinFile = new KotlinFile(buggyFilePath);
         KotlinLocalVariablesVisitor visitor =
-            new KotlinLocalVariablesVisitor() {
-                private MethodMatcher matcher = new MethodMatcher(changePatterns, this);
+                new KotlinLocalVariablesVisitor() {
+                    private final MethodMatcher matcher = new MethodMatcher(changePatterns, this);
 
-                @Override
-                public Boolean visitPostfixUnaryExpression(KotlinParser.PostfixUnaryExpressionContext ctx) {
-                    if (ctx.postfixUnarySuffix() != null) {
-                        for (int i = 0; i < ctx.postfixUnarySuffix().size(); i++) {
-                            List<KotlinParser.PostfixUnarySuffixContext> currentPostFixUnarySuffixList =
-                                ctx.postfixUnarySuffix().subList(0, i + 1);
-                            if (KotlinFunctionCall.isFunctionCall(currentPostFixUnarySuffixList)) {
-                                KotlinFunctionCall functionCall =
-                                    new KotlinFunctionCall(
-                                        ctx.primaryExpression(), currentPostFixUnarySuffixList);
-                                DeleteMethod targetMethod = (DeleteMethod) matcher.match(functionCall);
-                                if (targetMethod != null) {
-                                    DefectInstance defectInstance =
-                                        createDefectInstance(
-                                            buggyFilePath,
-                                            functionCall.getPrimaryExpressionContext().getStart().getLine(),
-                                            functionCall.getLastPostfixUnarySuffixContext().getStop().getLine(),
-                                            targetMethod);
-                                    if (defectInstance != null) {
-                                        defectInstances.add(defectInstance);
+                    @Override
+                    public Boolean visitPostfixUnaryExpression(KotlinParser.PostfixUnaryExpressionContext ctx) {
+                        if (ctx.postfixUnarySuffix() != null) {
+                            for (int i = 0; i < ctx.postfixUnarySuffix().size(); i++) {
+                                List<KotlinParser.PostfixUnarySuffixContext> currentPostFixUnarySuffixList =
+                                        ctx.postfixUnarySuffix().subList(0, i + 1);
+                                if (KotlinFunctionCall.isFunctionCall(currentPostFixUnarySuffixList)) {
+                                    KotlinFunctionCall functionCall =
+                                            new KotlinFunctionCall(
+                                                    ctx.primaryExpression(), currentPostFixUnarySuffixList);
+                                    DeleteMethod targetMethod = (DeleteMethod) matcher.match(functionCall);
+                                    if (targetMethod != null) {
+                                        DefectInstance defectInstance =
+                                                createDefectInstance(
+                                                        buggyFilePath,
+                                                        functionCall.getPrimaryExpressionContext().getStart().getLine(),
+                                                        functionCall.getLastPostfixUnarySuffixContext().getStop().getLine(),
+                                                        targetMethod);
+                                        if (defectInstance != null) {
+                                            defectInstances.add(defectInstance);
+                                        }
                                     }
                                 }
                             }
                         }
+                        return super.visitPostfixUnaryExpression(ctx);
                     }
-                    return super.visitPostfixUnaryExpression(ctx);
-                }
 
-                /**
-                 * create defectinstance
-                 */
-                private DefectInstance createDefectInstance(
-                    String buggyFilePath, int startLineNumber, int endLineNumber, DeleteMethod deleteMethod) {
-                    String buggyLine =
-                        String.join(
-                            kotlinFile.lineBreak,
-                            kotlinFile.fileLines.subList(startLineNumber - 1, endLineNumber));
-                    String descMessage = deleteMethod.getDesc() == null ? null : gson.toJson(deleteMethod.getDesc());
-                    return createWarningDefectInstance(buggyFilePath, startLineNumber, buggyLine, descMessage);
-                }
-            };
-        kotlinFile.tree.accept(visitor);
+                    /**
+                     * create defectinstance
+                     */
+                    private DefectInstance createDefectInstance(
+                            String buggyFilePath, int startLineNumber, int endLineNumber, DeleteMethod deleteMethod) {
+                        String buggyLine =
+                                String.join(
+                                        kotlinFile.lineBreak,
+                                        kotlinFile.fileLines.subList(startLineNumber - 1, endLineNumber));
+                        String descMessage = deleteMethod.getDesc() == null ? null : GSON.toJson(deleteMethod.getDesc());
+                        return createWarningDefectInstance(buggyFilePath, startLineNumber, buggyLine, descMessage);
+                    }
+                };
+        try {
+            kotlinFile.tree.accept(visitor);
+        } catch (Exception e) {
+            logger.error(buggyFilePath);
+            logger.error(Arrays.toString(e.getStackTrace()));
+        }
+        removeIgnoreBlocks(defectInstances, kotlinFile.shielder);
         return defectInstances;
     }
 }

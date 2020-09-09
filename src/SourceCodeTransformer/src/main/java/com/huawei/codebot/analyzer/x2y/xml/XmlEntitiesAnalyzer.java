@@ -18,6 +18,8 @@ package com.huawei.codebot.analyzer.x2y.xml;
 
 import com.huawei.codebot.analyzer.x2y.global.service.InheritanceService;
 import org.apache.commons.lang3.StringUtils;
+import org.dom4j.Element;
+import org.dom4j.Node;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,147 +37,110 @@ import java.util.regex.Pattern;
 public class XmlEntitiesAnalyzer {
     private List<String> fileContent;
     private List<Integer> labelStartLines = new ArrayList<>();
-    private List<Integer> labelStartLinesEndPosition = new ArrayList<>();
     private List<Integer> labelEndLines = new ArrayList<>();
     private Map<String, XmlEntity> labelContents = new HashMap<>();
-    private Map<String, XmlEntity> startLabelContents = new HashMap<>();
-    private String startLabelSymbol;
-    private String endLabelSymbol;
     private List<String> annotations;
-    private LabelType labelType;
-
-    private Map<String, XmlEntity> componentLabelContents;
+    private List<String> labelList = new ArrayList<>();
 
     public XmlEntitiesAnalyzer(
             List<String> fileContent,
-            List<String> annotations,
-            LabelType labelType,
-            Map<String, XmlEntity> componentLabelContents) {
+            List<String> annotations) {
         this.fileContent = fileContent;
         this.annotations = annotations;
-        this.labelType = labelType;
-        this.startLabelSymbol = "<" + labelType.toString();
-        this.endLabelSymbol = "</" + labelType.toString() + ">";
-        this.componentLabelContents = componentLabelContents;
     }
 
-    private void extractXmlLabelLineNumbers() {
-        String symbol = "";
-        boolean labelFlag = false;
-        int num = -1;
-        for (int i = 0; i < fileContent.size(); i++) {
-            String fileContentLine = fileContent.get(i);
-            if (checkFileContentLine(fileContentLine)) {
-                labelStartLines.add(i);
-                String partialContens = getLineContents(fileContent, i, fileContent.size() - 1);
-                symbol = getServiceSymbolValue(partialContens);
-                num++;
-                labelFlag = true;
+    public void parseXMLEntities(Element root) {
+        List<Node> allNodes = root.content();
+        Node prevNode;
+        Node nextNode;
+        for (int i = 0; i < allNodes.size(); i++) {
+            Node node = allNodes.get(i);
+            int nextIndex = i + 1;
+            if (node instanceof CodeNetText && (nextIndex <= allNodes.size() - 1)) {
+                nextNode = allNodes.get(nextIndex);
+                if (nextNode instanceof CodeNetElement) {
+                    labelStartLines.add(((CodeNetText) node).getLineNumber());
+                }
+            } else if (node instanceof CodeNetElement) {
+                if (!((CodeNetElement) node).content().isEmpty()) {
+                    if ("application".equals(node.getName())) {
+                        if (allNodes.get(nextIndex) instanceof CodeNetText) {
+                            labelEndLines.add(((CodeNetElement) node).getLineNumber());
+                            labelList.add(node.getName());
+                        }
+                        // recursive call parseXMLEntities
+                        parseXMLEntities((CodeNetElement) node);
+                        continue;
+                    }
+                    List<Node> innerNodes = ((CodeNetElement)node).content();
+                    Node n = innerNodes.get(innerNodes.size() - 1);
+                    if (n instanceof CodeNetElement) {
+                        labelEndLines.add(((CodeNetElement) n).getLineNumber());
+                        labelList.add(node.getName());
+                    } else if (n instanceof CodeNetText) {
+                        labelEndLines.add(((CodeNetText) n).getLineNumber());
+                        labelList.add(node.getName());
+                    } else if (n instanceof  CodeNetComment) {
+                        labelEndLines.add(((CodeNetComment) n).getLineNumber());
+                        labelList.add(node.getName());
+                    }
+                } else {
+                    prevNode = allNodes.get(i - 1);
+                    nextNode = allNodes.get(nextIndex);
+                    if (prevNode instanceof CodeNetText && nextNode instanceof CodeNetText) {
+                        // CodeNetElement between two CodeNetTexts
+                        labelEndLines.add(((CodeNetElement) node).getLineNumber());
+                        labelList.add(node.getName());
+                    }
+                }
             }
-            if (!labelFlag || i < labelStartLines.get(num)) {
-                continue;
-            }
-            if ((symbol.equals("nonclosed") && fileContentLine.contains(endLabelSymbol))
-                    || (symbol.equals("closure") && fileContentLine.contains("/>"))) {
-                labelEndLines.add(i);
-                labelFlag = false;
+            // other conditions no need to handle
+        }
+    }
+
+    private void getManifestLabelInfo(Element root) {
+        if (root instanceof CodeNetElement) {
+            labelEndLines.add(((CodeNetElement) root).getLineNumber());
+            labelList.add(root.getName());
+            String target = "<" + root.getName();
+            for (int i = 0; i < fileContent.size(); i++) {
+                if ((fileContent.get(i).contains(target) && (annotations == null))
+                        || (fileContent.get(i).contains(target)
+                        && (annotations != null)
+                        && !annotations.toString().contains(fileContent.get(i)))) {
+                    labelStartLines.add(i + 1);
+                    break;
+                }
             }
         }
     }
 
-    private void extractXmlStartLabelLineNumbers() {
-        boolean labelFlag = false;
-        int num = -1;
-        for (int i = 0; i < fileContent.size(); i++) {
-            String fileContentLine = fileContent.get(i);
-            if (checkFileContentLine(fileContentLine)) {
-                labelStartLines.add(i);
-                num++;
-                labelFlag = true;
-            }
-            if (labelFlag && (i >= labelStartLines.get(num)) && (fileContentLine.contains(">"))) {
-                labelStartLinesEndPosition.add(i);
-                labelFlag = false;
-            }
-        }
-    }
-
-    private boolean checkFileContentLine(String fileContentLine) {
-        return fileContentLine.contains(startLabelSymbol)
-                && (annotations == null || !annotations.toString().contains(fileContentLine));
-    }
-
-    private void extractXmlLabelContent() {
+    private void extractXMLLabelContent() {
         for (int i = 0; i < labelEndLines.size(); i++) {
             int startLine = labelStartLines.get(i);
             int endLine = labelEndLines.get(i);
             StringBuilder content = new StringBuilder();
-            for (int j = 0; j < fileContent.size(); j++) {
-                if (j >= startLine && j <= endLine) {
-                    content.append(fileContent.get(j));
-                }
+            for (int j = startLine - 1; j <= endLine - 1; j++) {
+                content.append(fileContent.get(j));
             }
             XmlEntity xmlEntity = new XmlEntity();
-            xmlEntity.labelName = labelType.toString();
-            xmlEntity.nameIdentifier = getAndroidName(content.toString());
-            xmlEntity.labelStartLine = startLine + 1;
-            xmlEntity.labelEndLine = endLine + 1;
-            xmlEntity.labelContent = content.toString();
-            String key = labelType.toString() + xmlEntity.nameIdentifier;
-            if (isFilteredLabel(xmlEntity, componentLabelContents)) {
-                continue;
+            xmlEntity.setLabelName(labelList.get(i));
+            xmlEntity.setNameIdentifier(getAndroidName(content.toString()));
+            xmlEntity.setLabelStartLine(startLine);
+            xmlEntity.setLabelEndLine(endLine);
+            xmlEntity.setLabelContent(content.toString());
+            String key = labelList.get(i) + xmlEntity.getNameIdentifier();
+            if (!labelContents.containsKey(key)) {
+                labelContents.put(key, xmlEntity);
             }
-            labelContents.put(key, xmlEntity);
         }
     }
 
-    private void extractXmlStartLabelContent() {
-        for (int i = 0; i < labelStartLinesEndPosition.size(); i++) {
-            int startLine = labelStartLines.get(i);
-            int endLine = labelStartLinesEndPosition.get(i);
-            StringBuilder content = new StringBuilder();
-            for (int j = 0; j < fileContent.size(); j++) {
-                if (j >= startLine && j <= endLine) {
-                    content.append(fileContent.get(j));
-                }
-            }
-            XmlEntity xmlEntity = new XmlEntity();
-            xmlEntity.labelName = labelType.toString();
-            xmlEntity.nameIdentifier = getAndroidName(content.toString());
-            xmlEntity.labelStartLine = startLine + 1;
-            xmlEntity.labelStartLinesEndPosition = endLine + 1;
-            xmlEntity.labelContent = content.toString();
-            String key = labelType.toString() + xmlEntity.nameIdentifier;
-            startLabelContents.put(key, xmlEntity);
-        }
-    }
-
-    public Map<String, XmlEntity> getLabelContents() {
-        extractXmlLabelLineNumbers();
-        extractXmlLabelContent();
+    public Map<String, XmlEntity> getLabelContents(Element root) {
+        getManifestLabelInfo(root);
+        parseXMLEntities(root);
+        extractXMLLabelContent();
         return labelContents;
-    }
-
-    Map<String, XmlEntity> getStartLabelContents() {
-        extractXmlStartLabelLineNumbers();
-        extractXmlStartLabelContent();
-        return startLabelContents;
-    }
-
-    private static Boolean isFilteredLabel(XmlEntity xmlEntity, Map<String, XmlEntity> componentLabelContents) {
-        if (componentLabelContents == null) {
-            return false;
-        }
-        for (Entry<String, XmlEntity> componentLabelEntry : componentLabelContents.entrySet()) {
-            XmlEntity labelXmlEntity = componentLabelEntry.getValue();
-            if (labelXmlEntity.labelContent.contains(xmlEntity.labelName)
-                    && labelXmlEntity.labelContent.contains(xmlEntity.nameIdentifier)
-                    && labelXmlEntity.labelStartLine < xmlEntity.labelStartLine
-                    && labelXmlEntity.labelEndLine > xmlEntity.labelEndLine) {
-                return true;
-            }
-        }
-        return false;
     }
 
     private static String getAndroidName(String label) {
@@ -190,7 +155,7 @@ public class XmlEntitiesAnalyzer {
                 lineNumbers.add(i);
             }
         }
-        return subStr.substring(lineNumbers.get(0) + 1, lineNumbers.get(1));
+        return subStr.substring((lineNumbers.get(0) + 1), lineNumbers.get(1));
     }
 
     private static String getLineContents(List<String> fileContents, Integer startIndex, Integer endIndex) {
@@ -203,40 +168,19 @@ public class XmlEntitiesAnalyzer {
         return StringUtils.join(partialContents, "");
     }
 
-    private static String getServiceSymbolValue(String partialContents) {
-        String symbol = null;
-        int symbolPosition = partialContents.indexOf(">");
-        int otherSymbolPosition = partialContents.indexOf("/>");
-        if (symbolPosition != -1 && otherSymbolPosition != -1) {
-            // If partialContents contains both ">" and "/>"
-            if (symbolPosition < otherSymbolPosition) {
-                // If ">" appears before "/>", it's nonclosed
-                symbol = "nonclosed";
-            } else {
-                // If ">" don't appear before "/>", it means closure.
-                symbol = "closure";
-            }
-        } else if (symbolPosition != -1) {
-            // If partialContents just contains ">", it's also nonclosed.
-            symbol = "nonclosed";
-        }
-        return symbol;
-    }
-
     /**
      * Match XML file content by given regex and return a matched list of each file line.
      * <br/>
      * We use this method to find the specific line we need, like an XML annotation.
      *
      * @param fileContent A XML file content.
-     * @param pattern     A pattern we want to match.
-     * @return A list of string that matched the pattern.
+     * @return A list of string that matched the regex.
      */
-    public static List<String> getTargetBasedOnRegex(List<String> fileContent, String pattern) {
+    public static List<String> getXmlCommentLines(List<String> fileContent) {
         String content = getLineContents(fileContent, 0, fileContent.size() - 1);
         List<String> targets = new ArrayList<>();
-        Pattern regex = Pattern.compile(pattern);
-        Matcher matcher = regex.matcher(content);
+        Pattern pattern = Pattern.compile("^<!--[\\s\\S\\n]*?-->$");
+        Matcher matcher = pattern.matcher(content);
         while (matcher.find()) {
             targets.add(matcher.group());
         }
@@ -278,22 +222,22 @@ public class XmlEntitiesAnalyzer {
     /**
      * Traverse {@code node} recursively and put all element into {@code nodeInfo}.
      *
-     * @param node     XML node we want to traverse.
+     * @param node XML node we want to traverse.
      * @param nodeInfo A list used to store all element we get by traversing the {@code node}.
      */
-    static boolean traverseXmlNode(CodeNetElement node, List<XmlEntity> nodeInfo) {
+    public static boolean traverseXmlNode(CodeNetElement node, List<XmlEntity> nodeInfo) {
         boolean effectFlag = false;
         if (node == null) {
             return effectFlag;
         }
         XmlEntity xmlEntity = new XmlEntity();
-        xmlEntity.labelName = node.getName();
-        xmlEntity.nameIdentifier = (node.attribute("name") != null) ? node.attribute("name").getValue() : null;
-        xmlEntity.parentLabelName = (node.getParent() != null) ? node.getParent().getName() : null;
+        xmlEntity.setLabelName(node.getName());
+        xmlEntity.setNameIdentifier(node.attribute("name") != null ? node.attribute("name").getValue() : "");
+        xmlEntity.setParentLabelName(node.getParent() != null ? node.getParent().getName() : "");
         nodeInfo.add(xmlEntity);
-        if (xmlEntity.parentLabelName != null
-                && xmlEntity.parentLabelName.equals("application")
-                && xmlEntity.nameIdentifier != null) {
+        if (StringUtils.isNotEmpty(xmlEntity.getParentLabelName())
+                && "application".equals(xmlEntity.getParentLabelName())
+                && StringUtils.isNotEmpty(xmlEntity.getNameIdentifier())) {
             effectFlag = true;
         }
         List<CodeNetElement> listElement = node.getElements();

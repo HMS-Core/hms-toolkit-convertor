@@ -16,6 +16,8 @@
 
 package com.huawei.codebot.codeparsing.java;
 
+import com.huawei.codebot.codeparsing.CodeFileUtils;
+import com.huawei.codebot.codeparsing.Shielder;
 import com.huawei.codebot.utils.StringUtil;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
@@ -58,6 +60,11 @@ public class JavaFile {
      */
     public CompilationUnit compilationUnit = null;
 
+    /**
+     * ignore code blocks
+     */
+    public Shielder shielder;
+
     JavaFile() {
     }
 
@@ -77,7 +84,6 @@ public class JavaFile {
         this.filePath = filePath;
     }
 
-
     /**
      * @param node A node of the AST of the java file
      * @return the raw text of the node.
@@ -88,24 +94,7 @@ public class JavaFile {
         int endLineNumber = compilationUnit.getLineNumber(node.getStartPosition() + node.getLength());
         int endColumnNumber = compilationUnit.getColumnNumber(node.getStartPosition() + node.getLength());
 
-        if (startLineNumber == endLineNumber) {
-            return fileLines.get(startLineNumber - 1).substring(startColumnNumber, endColumnNumber);
-        }
-
-        List<String> lines = fileLines.subList(startLineNumber, endLineNumber - 1);
-        String startLine = fileLines.get(startLineNumber - 1).substring(startColumnNumber);
-        String endLine = fileLines.get(endLineNumber - 1).substring(0, endColumnNumber);
-
-        StringBuilder buffer = new StringBuilder();
-        buffer.append(startLine);
-        String lineSeparator = StringUtil.getLineBreak(fileContent);
-        buffer.append(lineSeparator);
-        if (!lines.isEmpty()) {
-            buffer.append(String.join(lineSeparator, lines));
-            buffer.append(lineSeparator);
-        }
-        buffer.append(endLine);
-
-        return buffer.toString();
+        return CodeFileUtils.getRawSignature(startLineNumber, startColumnNumber, endLineNumber, endColumnNumber,
+                fileLines, fileContent);
     }
 }

@@ -16,6 +16,10 @@
 
 package com.huawei.codebot.analyzer.x2y.global.bean;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Objects;
+
 /**
  * Data structure of basic information for code fields
  *
@@ -45,10 +49,7 @@ public class FieldInfo extends EntityInfo {
 
     @Override
     public int hashCode() {
-        int result = 17;
-        result = 31 * result + this.getQualifiedName().hashCode();
-        result = 31 * result + this.getType().hashCode();
-        return result;
+        return Objects.hash(this.getQualifiedName(), this.getType());
     }
 
     @Override
@@ -65,8 +66,8 @@ public class FieldInfo extends EntityInfo {
             return false;
         }
 
-        if (fi.getQualifiedName() == null) {
-            return this.getQualifiedName() == null;
+        if (StringUtils.isEmpty(fi.getQualifiedName())) {
+            return StringUtils.isEmpty(this.getQualifiedName());
         }
         return fi.getQualifiedName().equals(this.getQualifiedName());
     }

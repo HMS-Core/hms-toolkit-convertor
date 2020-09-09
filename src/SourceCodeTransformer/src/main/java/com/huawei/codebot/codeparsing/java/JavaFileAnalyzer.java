@@ -16,8 +16,9 @@
 
 package com.huawei.codebot.codeparsing.java;
 
+import com.huawei.codebot.codeparsing.Shielder;
 import com.huawei.codebot.utils.FileUtils;
-import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
@@ -49,15 +50,18 @@ public class JavaFileAnalyzer {
         JavaFile javaFileObj = new JavaFile();
 
         try {
-            codeContent = FileUtils.getFileContent(filePath);
+            if (StringUtils.isNotEmpty(filePath)) {
+                codeContent = FileUtils.getFileContent(filePath);
+            }
         } catch (IOException e) {
-            LOGGER.error(ExceptionUtils.getStackTrace(e));
+            LOGGER.error("An exception occurred during the processing:", e);
         }
         javaFileObj.setFilePath(filePath);
         if (codeContent != null) {
             javaFileObj.fileContent = codeContent;
             javaFileObj.lineBreak = getLineBreak(codeContent);
             javaFileObj.fileLines = FileUtils.cutStringToList(codeContent);
+            javaFileObj.shielder = new Shielder(javaFileObj.fileLines);
             final CompilationUnit cu = generateAST(codeContent);
             javaFileObj.compilationUnit = cu;
             List types = cu.types();

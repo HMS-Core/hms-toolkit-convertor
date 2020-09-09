@@ -17,10 +17,9 @@
 package com.huawei.codebot.analyzer.x2y.global.kotlin;
 
 import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
-
 import com.google.common.collect.Lists;
-
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,14 +56,15 @@ public class KotlinFunctionCall {
      * @return true if postfixUnarySuffixContexts can represent the function call.
      */
     public static boolean isFunctionCall(List<KotlinParser.PostfixUnarySuffixContext> postfixUnarySuffixContexts) {
-        if (postfixUnarySuffixContexts.isEmpty()) {
+        if (CollectionUtils.isEmpty(postfixUnarySuffixContexts)) {
             return false;
         }
 
         for (KotlinParser.PostfixUnarySuffixContext postfixUnarySuffix : postfixUnarySuffixContexts) {
             if (postfixUnarySuffix.navigationSuffix() == null
                     && postfixUnarySuffix.callSuffix() == null
-                    && postfixUnarySuffix.postfixUnaryOperator() == null) {
+                    && postfixUnarySuffix.postfixUnaryOperator() == null
+                    && postfixUnarySuffix.typeArguments() == null) {
                 return false;
             }
         }
@@ -98,7 +98,7 @@ public class KotlinFunctionCall {
             return getPrimaryExpressionContext().simpleIdentifier().getText();
         } else {
             LOGGER.error("primaryExpressionContext.simpleIdentifier() is null. primaryExpressionContext is {}. ",
-                getPrimaryExpressionContext().getText());
+                    getPrimaryExpressionContext().getText());
             StringBuilder sb = new StringBuilder();
             for (KotlinParser.PostfixUnarySuffixContext postfixUnarySuffix : getPostfixUnarySuffixContextList()) {
                 sb.append(postfixUnarySuffix.getText()).append("\t");
@@ -149,7 +149,7 @@ public class KotlinFunctionCall {
         this.primaryExpressionContext = primaryExpressionContext;
     }
 
-    List<KotlinParser.PostfixUnarySuffixContext> getPostfixUnarySuffixContextList() {
+    public List<KotlinParser.PostfixUnarySuffixContext> getPostfixUnarySuffixContextList() {
         return postfixUnarySuffixContextList;
     }
 

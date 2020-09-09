@@ -20,10 +20,12 @@ import com.huawei.codebot.analyzer.x2y.global.bean.TypeInfo;
 import com.huawei.codebot.analyzer.x2y.global.commonvisitor.JavaLocalVariablesInMethodVisitor;
 import com.huawei.codebot.analyzer.x2y.global.commonvisitor.KotlinLocalVariablesVisitor;
 import com.huawei.codebot.analyzer.x2y.global.java.JavaTypeInferencer;
+import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinASTUtils;
 import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinFunctionCall;
+import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinTypeInferencer;
 import com.huawei.codebot.analyzer.x2y.global.service.InheritanceService;
+import com.huawei.codebot.analyzer.x2y.io.config.ConfigService;
 import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
-
 import org.eclipse.jdt.core.dom.ClassInstanceCreation;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.Expression;
@@ -35,6 +37,7 @@ import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * a matcher used to determine how to match a method when we visit AST
@@ -45,11 +48,11 @@ public class MethodMatcher {
     /**
      * a mapping of method qualified name and method change pattern
      */
-    private Map<String, List<MethodChangePattern>> methodName2Patterns;
+    private final Map<String, List<MethodChangePattern>> methodName2Patterns;
     /**
      * a helper that profile a method-related node in AST
      */
-    private MethodCallProfiler profiler;
+    private final MethodCallProfiler profiler;
 
     public MethodMatcher(
             Map<String, List<MethodChangePattern>> methodName2Patterns, JavaLocalVariablesInMethodVisitor visitor) {
@@ -79,6 +82,58 @@ public class MethodMatcher {
     public MethodChangePattern match(MethodInvocation node) {
         MethodCall methodName = profiler.profile(node);
         return match(methodName, node.arguments());
+    }
+
+    /**
+     * match a config pattern for a node, this situation is corresponding to a method override of a import class
+     *
+     * @param ctx a node of KotlinParser.FunctionDeclarationContext
+     * @return methodCall contains simpleName and qualifier
+     */
+    public MethodChangePattern match(KotlinParser.FunctionDeclarationContext ctx) {
+        if (profiler.profile(ctx) == null
+                || profiler.profile(ctx).getSimpleName() == null
+                || profiler.profile(ctx).getQualifier() == null
+                || KotlinASTUtils.getRoot(ctx) == null) {
+            return null;
+        }
+        return matchKotlinOverrideMethod(ctx);
+    }
+
+    private MethodChangePattern matchKotlinOverrideMethod(KotlinParser.FunctionDeclarationContext ctx) {
+        MethodCall methodCall = profiler.profile(ctx);
+        String[] fullType = KotlinTypeInferencer.getFullType(methodCall.getQualifier(),
+                KotlinASTUtils.getPackageName(ctx), KotlinASTUtils.getImportNames(ctx));
+        if (fullType.length == 0) {
+            return null;
+        }
+        String qualifier = fullType[0] + "." + fullType[1];
+        int index = qualifier.indexOf("<");
+        if (index >= 0) {
+            qualifier = qualifier.substring(0, index);
+        }
+        String qualifiedName = qualifier + "." + methodCall.getSimpleName();
+        List<TypeInfo> args = new ArrayList<>();
+        if (ctx.functionValueParameters() != null) {
+            List<KotlinParser.TypeContext> methodParameters = KotlinASTUtils.getMethodParameters(ctx);
+            for (KotlinParser.TypeContext methodParameter : methodParameters) {
+                TypeInfo argType = profiler.kotlinTypeInferencer.getTypeInfo(methodParameter);
+                args.add(argType);
+            }
+        }
+        if (methodName2Patterns.containsKey(qualifiedName)) {
+            List<MethodChangePattern> candidates = methodName2Patterns.get(qualifiedName);
+            return filterKotlinCandidates(candidates, args);
+        }
+        Set<TypeInfo> superClasses = InheritanceService.getAllSuperClassesAndInterfaces(qualifier);
+        for (TypeInfo superClass : superClasses) {
+            qualifiedName = superClass.getQualifiedName() + "." + methodCall.getSimpleName();
+            if (methodName2Patterns.containsKey(qualifiedName)) {
+                List<MethodChangePattern> candidates = methodName2Patterns.get(qualifiedName);
+                return filterKotlinCandidates(candidates, args);
+            }
+        }
+        return null;
     }
 
     /**
@@ -153,52 +208,53 @@ public class MethodMatcher {
      * </ul>
      */
     public MethodChangePattern match(KotlinFunctionCall functionCall) {
-        MethodChangePattern matchedMethod = null;
         MethodCall methodCall = profiler.profile(functionCall);
         if (methodCall == null) {
-            return matchedMethod;
+            return null;
         }
         List<MethodChangePattern> candidates = methodName2Patterns.get(methodCall.getFullName());
         if (candidates == null) {
-            return matchedMethod;
+            return null;
         }
-
-        if (candidates.size() == 1 && !SpecialMethodList.methodList.contains(candidates.get(0).getOldMethodName())) {
+        if (candidates.size() == 1
+                && !ConfigService.getInstance().getSpecialMethodSet().contains(candidates.get(0).getOldMethodName())) {
             return candidates.get(0);
         }
+
+        return match(functionCall, candidates);
+    }
+
+    private MethodChangePattern match(KotlinFunctionCall functionCall, List<MethodChangePattern> candidates) {
+        MethodChangePattern matchedMethod = null;
         List<TypeInfo> argTypes = profiler.kotlinTypeInferencer.getArgTypes(functionCall);
         for (MethodChangePattern candidate : candidates) {
             if (candidate.getParamValues() == null) {
-                String className =
-                        candidate.getOldMethodName().substring(0, candidate.getOldMethodName().lastIndexOf("."));
-                List<TypeInfo> configTypeInfos = new ArrayList<TypeInfo>();
-                if (candidate.getWeakTypes() != null) {
-                    for (String paramType : candidate.getWeakTypes()) {
-                        TypeInfo typeInfo = new TypeInfo();
-                        typeInfo.setQualifiedName(paramType);
-                        configTypeInfos.add(typeInfo);
-                    }
-                } else {
+                String className = candidate
+                        .getOldMethodName().substring(0, candidate.getOldMethodName().lastIndexOf("."));
+                List<TypeInfo> configTypeInfos = new ArrayList<>();
+                if (candidate.getWeakTypes() == null) {
                     matchedMethod = candidate;
                     break;
+                }
+                for (String paramType : candidate.getWeakTypes()) {
+                    TypeInfo typeInfo = new TypeInfo();
+                    typeInfo.setQualifiedName(paramType);
+                    configTypeInfos.add(typeInfo);
                 }
                 if (profiler.kotlinTypeInferencer.typesMatch(argTypes, configTypeInfos, className)) {
                     matchedMethod = candidate;
                     break;
                 }
-            } else {
-                List<KotlinParser.ValueArgumentContext> valueArgumentContexts = new ArrayList<>();
-                if (functionCall.getLastPostfixUnarySuffixContext().callSuffix().valueArguments() != null) {
-                    valueArgumentContexts = functionCall
-                        .getLastPostfixUnarySuffixContext()
-                        .callSuffix()
-                        .valueArguments()
-                        .valueArgument();
-                }
-                if (profiler.kotlinTypeInferencer.argsValueMatch(valueArgumentContexts, candidate.getParamValues())) {
-                    matchedMethod = candidate;
-                    break;
-                }
+                continue;
+            }
+            List<KotlinParser.ValueArgumentContext> valueArgumentContexts = new ArrayList<>();
+            if (functionCall.getLastPostfixUnarySuffixContext().callSuffix().valueArguments() != null) {
+                valueArgumentContexts = functionCall.getLastPostfixUnarySuffixContext()
+                        .callSuffix().valueArguments().valueArgument();
+            }
+            if (profiler.kotlinTypeInferencer.argsValueMatch(valueArgumentContexts, candidate.getParamValues())) {
+                matchedMethod = candidate;
+                break;
             }
         }
         return matchedMethod;
@@ -210,15 +266,15 @@ public class MethodMatcher {
         }
         if (methodName2Patterns.containsKey(methodCall.getFullName())) {
             List<MethodChangePattern> candidates = methodName2Patterns.get(methodCall.getFullName());
-            return filterCandidates(candidates, args);
+            return filterJavaCandidates(candidates, args);
         }
-        List<TypeInfo> superClassAndInterface =
+        Set<TypeInfo> superClassAndInterface =
                 InheritanceService.getAllSuperClassesAndInterfaces(methodCall.getQualifier());
         for (TypeInfo superClass : superClassAndInterface) {
             String fullName = superClass.getQualifiedName() + "." + methodCall.getSimpleName();
             if (methodName2Patterns.containsKey(fullName)) {
                 List<MethodChangePattern> candidates = methodName2Patterns.get(fullName);
-                return filterCandidates(candidates, args);
+                return filterJavaCandidates(candidates, args);
             }
         }
         return null;
@@ -226,57 +282,61 @@ public class MethodMatcher {
 
     private MethodChangePattern matchOverrrideMethod(
             MethodDeclaration node, String simpleName, String classSimpleName) {
-        if (node.getRoot() instanceof CompilationUnit) {
-            String[] fullType = JavaTypeInferencer.getFullType(classSimpleName, (CompilationUnit) node.getRoot());
-            if (fullType.length == 0) {
-                return null;
-            }
-            String qualifier = fullType[0] + "." + fullType[1];
-            int index = qualifier.indexOf("<");
-            if (index >= 0) {
-                qualifier = qualifier.substring(0, index);
-            }
-            String qualifiedName = qualifier + "." + simpleName;
-            List<TypeInfo> args = new ArrayList<>();
-            if (node.parameters() != null) {
-                for (Object obj : node.parameters()) {
-                    if (obj instanceof SingleVariableDeclaration) {
-                        SingleVariableDeclaration varDeclaration = (SingleVariableDeclaration) obj;
-                        TypeInfo argType = JavaTypeInferencer.getTypeInfo(varDeclaration.getType());
-                        args.add(argType);
-                    }
+        String[] fullType = JavaTypeInferencer.getFullType(classSimpleName, (CompilationUnit) node.getRoot());
+        if (fullType.length == 0) {
+            return null;
+        }
+        String qualifier = fullType[0] + "." + fullType[1];
+        int index = qualifier.indexOf("<");
+        if (index >= 0) {
+            qualifier = qualifier.substring(0, index);
+        }
+        String qualifiedName = qualifier + "." + simpleName;
+        List<TypeInfo> args = new ArrayList<>();
+        if (node.parameters() != null) {
+            for (Object obj : node.parameters()) {
+                if (obj instanceof SingleVariableDeclaration) {
+                    SingleVariableDeclaration varDeclaration = (SingleVariableDeclaration) obj;
+                    TypeInfo argType = profiler.javaTypeInferencer.getTypeInfo(varDeclaration.getType());
+                    args.add(argType);
                 }
             }
+        }
+        if (methodName2Patterns.containsKey(qualifiedName)) {
+            List<MethodChangePattern> candidates = methodName2Patterns.get(qualifiedName);
+            return filterJavaCandidates(candidates, args);
+        }
+        Set<TypeInfo> superClasses = InheritanceService.getAllSuperClassesAndInterfaces(qualifier);
+        for (TypeInfo superClass : superClasses) {
+            qualifiedName = superClass.getQualifiedName() + "." + simpleName;
             if (methodName2Patterns.containsKey(qualifiedName)) {
                 List<MethodChangePattern> candidates = methodName2Patterns.get(qualifiedName);
-                return filterCandidates(candidates, args);
-            }
-            List<TypeInfo> superClasses = InheritanceService.getAllSuperClassesAndInterfaces(qualifier);
-            for (TypeInfo superClass : superClasses) {
-                qualifiedName = superClass.getQualifiedName() + "." + simpleName;
-                if (methodName2Patterns.containsKey(qualifiedName)) {
-                    List<MethodChangePattern> candidates = methodName2Patterns.get(qualifiedName);
-                    return filterCandidates(candidates, args);
-                }
+                return filterJavaCandidates(candidates, args);
             }
         }
         return null;
     }
 
-    private MethodChangePattern filterCandidates(List<MethodChangePattern> candidates, List arguments) {
-        if (candidates.size() == 1 && !SpecialMethodList.methodList.contains(candidates.get(0).getOldMethodName())) {
+    private List<TypeInfo> getJavaTypeInfoFromArguments(List arguments) {
+        List<TypeInfo> args = new ArrayList<>();
+        for (Object obj : arguments) {
+            if (obj instanceof Expression) {
+                args.add(profiler.javaTypeInferencer.getExprType((Expression) obj));
+            } else if (obj instanceof TypeInfo) {
+                args.add((TypeInfo) obj);
+            }
+        }
+        return args;
+    }
+
+    private MethodChangePattern filterJavaCandidates(List<MethodChangePattern> candidates, List arguments) {
+        if (candidates.size() == 1 &&
+                !ConfigService.getInstance().getSpecialMethodSet().contains(candidates.get(0).getOldMethodName())) {
             return candidates.get(0);
         }
-
         List<TypeInfo> args = new ArrayList<>();
         if (arguments != null) {
-            for (Object obj : arguments) {
-                if (obj instanceof Expression) {
-                    args.add(profiler.javaTypeInferencer.getExprType((Expression) obj));
-                } else if (obj instanceof TypeInfo) {
-                    args.add((TypeInfo) obj);
-                }
-            }
+            args = getJavaTypeInfoFromArguments(arguments);
         }
         MethodChangePattern matchedMethod = null;
         for (MethodChangePattern candidate : candidates) {
@@ -285,24 +345,64 @@ public class MethodMatcher {
                     matchedMethod = candidate;
                     break;
                 }
+                continue;
+            }
+            String className =
+                    candidate.getOldMethodName().substring(0, candidate.getOldMethodName().lastIndexOf("."));
+            List<TypeInfo> configTypeInfos = new ArrayList<>();
+            if (candidate.getWeakTypes() != null) {
+                for (String paramType : candidate.getWeakTypes()) {
+                    TypeInfo typeInfo = new TypeInfo();
+                    typeInfo.setQualifiedName(paramType);
+                    configTypeInfos.add(typeInfo);
+                }
             } else {
-                String className =
-                        candidate.getOldMethodName().substring(0, candidate.getOldMethodName().lastIndexOf("."));
-                List<TypeInfo> configTypeInfos = new ArrayList<TypeInfo>();
-                if (candidate.getWeakTypes() != null) {
-                    for (String paramType : candidate.getWeakTypes()) {
-                        TypeInfo typeInfo = new TypeInfo();
-                        typeInfo.setQualifiedName(paramType);
-                        configTypeInfos.add(typeInfo);
-                    }
-                } else {
-                    matchedMethod = candidate;
+                matchedMethod = candidate;
+                break;
+            }
+            if (profiler.javaTypeInferencer.typesMatch(args, configTypeInfos, className)) {
+                matchedMethod = candidate;
+                break;
+            }
+        }
+        return matchedMethod;
+    }
+
+    private MethodChangePattern filterKotlinCandidates(List<MethodChangePattern> candidates, List arguments) {
+        if (candidates.size() == 1 && !ConfigService.getInstance().getSpecialMethodSet().contains(candidates.get(0).getOldMethodName())) {
+            return candidates.get(0);
+        }
+        List<TypeInfo> args = new ArrayList<>();
+        if (arguments != null) {
+            for (Object obj : arguments) {
+                args.add((TypeInfo) obj);
+            }
+        }
+        MethodChangePattern matchedMethod = null;
+        for (MethodChangePattern kotlinCandidate : candidates) {
+            if (kotlinCandidate.getParamValues() != null) {
+                if (profiler.kotlinTypeInferencer.argsValueMatch(arguments, kotlinCandidate.getParamValues())) {
+                    matchedMethod = kotlinCandidate;
                     break;
                 }
-                if (profiler.javaTypeInferencer.typesMatch(args, configTypeInfos, className)) {
-                    matchedMethod = candidate;
-                    break;
+                continue;
+            }
+            String className = kotlinCandidate.getOldMethodName().substring(0,
+                    kotlinCandidate.getOldMethodName().lastIndexOf("."));
+            List<TypeInfo> typeInfosList = new ArrayList<>();
+            if (kotlinCandidate.getWeakTypes() != null) {
+                for (String paramString : kotlinCandidate.getWeakTypes()) {
+                    TypeInfo typeInfo = new TypeInfo();
+                    typeInfo.setQualifiedName(paramString);
+                    typeInfosList.add(typeInfo);
                 }
+            } else {
+                matchedMethod = kotlinCandidate;
+                break;
+            }
+            if (profiler.kotlinTypeInferencer.typesMatch(args, typeInfosList, className)) {
+                matchedMethod = kotlinCandidate;
+                break;
             }
         }
         return matchedMethod;

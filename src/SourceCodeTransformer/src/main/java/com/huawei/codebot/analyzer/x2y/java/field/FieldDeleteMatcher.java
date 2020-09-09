@@ -49,7 +49,7 @@ public class FieldDeleteMatcher extends FieldMatcher {
             } else {
                 // if this changePattern set doesn't directly contains this field qualified name, we need to check
                 // whether this field's super type has a shadow field
-                List<TypeInfo> superClassAndInterface = InheritanceService.getAllSuperClassesAndInterfaces(qualifier);
+                Set<TypeInfo> superClassAndInterface = InheritanceService.getAllSuperClassesAndInterfaces(qualifier);
                 for (TypeInfo superClass : superClassAndInterface) {
                     sb.setLength(0);
                     sb.append(superClass.getQualifiedName()).append(".").append(simpleName);

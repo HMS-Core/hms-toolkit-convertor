@@ -17,10 +17,10 @@
 package com.huawei.codebot.entry.codemigrate;
 
 import com.huawei.codebot.analyzer.x2y.global.AnalyzerHub;
+import com.huawei.codebot.analyzer.x2y.global.GlobalSettings;
 import com.huawei.codebot.analyzer.x2y.global.java.ClassMemberAnalyzer;
 import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinClassMemberAnalyzer;
-import com.huawei.codebot.analyzer.x2y.java.G2HAutoChanger;
-import com.huawei.codebot.analyzer.x2y.java.G2XAutoChanger;
+import com.huawei.codebot.analyzer.x2y.java.CompositeChangerFactory;
 import com.huawei.codebot.framework.AnalyzerConst;
 import com.huawei.codebot.framework.DefectFixerType;
 import com.huawei.codebot.framework.FixBotArguments;
@@ -29,33 +29,32 @@ import com.huawei.codebot.framework.api.CodeBotResult;
 import com.huawei.codebot.framework.api.CodeBotResultCode;
 import com.huawei.codebot.framework.dispatch.argparser.CodeMigrateOptions;
 import com.huawei.codebot.framework.exception.CodeBotFileException;
-import com.huawei.codebot.framework.exception.CodeBotParseArgumentException;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.exception.CodeBotWarning;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.utils.FileUtils;
 import com.huawei.codebot.utils.StringUtil;
-
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.keyvalue.MultiKey;
 import org.apache.commons.collections4.map.MultiKeyMap;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
- *     Main entry of this program's process.
+ * Main entry of this program's process.
  * </p>
  * <br/>
  * <p>
- *     Note that this process's output has two stage,
+ * Note that this process's output has two stage,
  *     <ol>
  *         <li>In stage 1, there is a intermediate output directory, usually named 'xxx_fixed'</li>
  *         <li>
@@ -98,6 +97,8 @@ public class MainEntry4CodeMigrate {
         }
         FixBotArguments arguments = parser.getFixBotArguments();
         String repoId = arguments.getRepoId();
+
+        resolveGlobalSettings(arguments);
 
         @SuppressWarnings("unchecked")
         List<String> repoPaths = (List<String>) parser.getParsedAttrs().get(CodeMigrateOptions.REPO_PATH.getOptLower());
@@ -156,21 +157,34 @@ public class MainEntry4CodeMigrate {
             LOGGER.error(ex.getErrorCode().message(), ex);
             return CodeBotResult.failure(ex);
         }
-
         return CodeBotResult.success();
     }
 
-    private static void launchFix(FixBotArguments arguments) throws CodeBotRuntimeException {
-        String fixerType = arguments.getRuleSet();
-        GenericDefectFixer fixer = null;
-        if (fixerType.equals(DefectFixerType.LIBADAPTION.toString())) {
-            fixer = new G2HAutoChanger();
-        } else if (fixerType.equals(DefectFixerType.WISEHUB.toString())) {
-            fixer = new G2XAutoChanger();
-        } else {
-            throw new CodeBotParseArgumentException(
-                    "Fail to create the given defect fixer, please check arguments", new String[] {fixerType}, null);
+    private static void resolveGlobalSettings(FixBotArguments arguments) {
+        if (arguments == null) {
+            return;
         }
+        String optionStr = arguments.getCaller();
+        if (optionStr != null) {
+            List<String> options = Arrays.asList(optionStr.split("#"));
+            if (options.contains("SDK")) {
+                GlobalSettings.setIsSDK(true);
+            }
+            if (options.contains("G")) {
+                GlobalSettings.setIsOnlyG(true);
+            }
+            if (options.contains("H")) {
+                GlobalSettings.setIsOnlyH(true);
+            }
+        }
+
+        if ("wisehub".equals(arguments.getRuleSet())) {
+            GlobalSettings.setIsWiseHub(true);
+        }
+    }
+    private static void launchFix(FixBotArguments arguments) throws CodeBotRuntimeException {
+        DefectFixerType fixerType = DefectFixerType.fromValue(arguments.getRuleSet());
+        GenericDefectFixer fixer = CompositeChangerFactory.newAutoChanger(fixerType, arguments.isOnlyCheck());
 
         // detect and fix
         fixer.fixPatternFolder = Paths.get(arguments.getFixedFilePath(), "fixpatterns").toString();
@@ -181,10 +195,41 @@ public class MainEntry4CodeMigrate {
         GenericDefectFixer c2cChanger = entry.doProcessing(arguments, fixer, null);
 
         for (DefectInstance defectInstance : c2cChanger.defectInstances) {
-            if (defectInstance.buggyLines != null && !defectInstance.buggyLines.isEmpty()
-                && defectInstance.fixedLines != null && !defectInstance.fixedLines.isEmpty()
-                && defectInstance.isFixed) {
-                fixLines(defectInstance);
+            if (defectInstance.buggyLines != null
+                    && !defectInstance.buggyLines.isEmpty()
+                    && defectInstance.fixedLines != null
+                    && !defectInstance.fixedLines.isEmpty()
+                    && defectInstance.isFixed) {
+                for (Object object : defectInstance.buggyLines.entrySet()) {
+                    if (object instanceof MultiKeyMap.Entry) {
+                        MultiKeyMap.Entry en = (MultiKeyMap.Entry) object;
+                        if (en.getKey() instanceof MultiKey) {
+                            MultiKey key = (MultiKey) en.getKey();
+                            String filePath = (String) key.getKey(0);
+                            Integer startLine = (Integer) key.getKey(1);
+                            String value = (String) en.getValue();
+                            if (checkFileExtension(filePath) && value != null) {
+                                try {
+                                    String fileContent = FileUtils.getFileContent(filePath);
+                                    List<String> fileLines = StringUtil.getLines(fileContent);
+                                    String lineBreak = StringUtil.getLineBreak(fileContent);
+                                    String[] lines = value.split(lineBreak);
+                                    StringBuilder sb = new StringBuilder();
+                                    for (int i = startLine - 1; i < startLine - 1 + lines.length; i++) {
+                                        sb.append("// [Modified By HMSConvertor] ")
+                                                .append(fileLines.get(i))
+                                                .append(lineBreak);
+                                    }
+                                    String fixedLine = (String) defectInstance.fixedLines.get(filePath, startLine);
+                                    sb.append(fixedLine);
+                                    defectInstance.fixedLines.put(filePath, startLine, sb.toString());
+                                } catch (IOException e) {
+                                    throw new CodeBotFileException("failed to getFileContent: " + filePath, key, e);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -197,44 +242,10 @@ public class MainEntry4CodeMigrate {
         entry1.doProcessing(arguments, fixer, c2cChanger);
     }
 
-    private static void fixLines(DefectInstance defectInstance) throws CodeBotFileException {
-        for (Object object : defectInstance.buggyLines.entrySet()) {
-            if (object instanceof MultiKeyMap.Entry) {
-                MultiKeyMap.Entry en = (MultiKeyMap.Entry) object;
-                if (en.getKey() instanceof MultiKey) {
-                    fixLine(defectInstance, en);
-                }
-            }
-        }
-    }
-
-    private static void fixLine(DefectInstance defectInstance, Map.Entry en) throws CodeBotFileException {
-        MultiKey key = (MultiKey) en.getKey();
-        String filePath = (String) key.getKey(0);
-        Integer startLine = (Integer) key.getKey(1);
-        String value = (String) en.getValue();
-        if (checkFileExtension(filePath) && value != null) {
-            try {
-                String fileContent = FileUtils.getFileContent((String) filePath);
-                List<String> fileLines = StringUtil.getLines(fileContent);
-                String lineBreak = StringUtil.getLineBreak(fileContent);
-                String[] lines = value.split(lineBreak);
-                StringBuilder sb = new StringBuilder();
-                for (int i = startLine - 1; i < startLine - 1 + lines.length; i++) {
-                    sb.append("// [Modified By HMSConvertor] ")
-                            .append(fileLines.get(i))
-                            .append(lineBreak);
-                }
-                String fixedLine = (String) defectInstance.fixedLines.get(filePath, startLine);
-                sb.append(fixedLine);
-                defectInstance.fixedLines.put(filePath, startLine, sb.toString());
-            } catch (IOException e) {
-                throw new CodeBotFileException("failed to getFileContent: " + filePath, key, e);
-            }
-        }
-    }
-
     private static boolean checkFileExtension(String filePath) {
+        if (StringUtils.isEmpty(filePath)) {
+            return false;
+        }
         for (String extension : extensions) {
             if (filePath.endsWith(extension)) {
                 return true;

@@ -21,7 +21,7 @@ package com.huawei.codebot.analyzer.x2y.java.method.replace;
  *
  * @since 2020-04-13
  */
-class NewParam {
+public class NewParam {
     private String newParamValue;
     private String newParamType;
     private String oldParamIndex;
@@ -29,7 +29,7 @@ class NewParam {
     /**
      * value of this parameter
      */
-    String getNewParamValue() {
+    public String getNewParamValue() {
         return newParamValue;
     }
 
@@ -40,7 +40,7 @@ class NewParam {
     /**
      * type of this parameter
      */
-    String getNewParamType() {
+    public String getNewParamType() {
         return newParamType;
     }
 
@@ -51,7 +51,7 @@ class NewParam {
     /**
      * index of this parameter
      */
-    String getOldParamIndex() {
+    public String getOldParamIndex() {
         return oldParamIndex;
     }
 

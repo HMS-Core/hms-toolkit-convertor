@@ -18,6 +18,7 @@ package com.huawei.codebot.analyzer.x2y.global.bean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Data structure of basic information for classes
@@ -32,7 +33,7 @@ public class ClassInfo extends EntityInfo {
 
     @Override
     public int hashCode() {
-        return this.getQualifiedName().hashCode();
+        return Objects.hash(this.getQualifiedName());
     }
 
     @Override

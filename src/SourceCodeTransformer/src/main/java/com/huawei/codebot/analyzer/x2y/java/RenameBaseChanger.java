@@ -17,26 +17,28 @@
 package com.huawei.codebot.analyzer.x2y.java;
 
 import com.huawei.codebot.framework.ChangeTrace;
-import com.huawei.codebot.framework.lazyfix.LazyFixUtil;
 import com.huawei.codebot.framework.model.DefectInstance;
-import com.huawei.codebot.framework.x2y.AndroidAppFixer;
-
-import org.apache.commons.collections4.map.MultiKeyMap;
+import org.eclipse.jdt.core.ToolFactory;
+import org.eclipse.jdt.core.compiler.IScanner;
+import org.eclipse.jdt.core.compiler.InvalidInputException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
-import java.util.Set;
+
+import static org.eclipse.jdt.core.compiler.ITerminalSymbols.TokenNameEOF;
 
 /**
  * An abstract class for all rename changers. It contains common operation of all rename changers.
  *
  * @since 2020-04-22
  */
-public abstract class RenameBaseChanger extends AndroidAppFixer {
+public abstract class RenameBaseChanger extends AtomicAndroidAppChanger {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RenameBaseChanger.class);
     /**
      * A map of old qualified name and new qualified name.
      */
@@ -45,6 +47,7 @@ public abstract class RenameBaseChanger extends AndroidAppFixer {
      * A map of old qualified name and it's corresponding description.
      */
     public Map<String, Map> fullName2Description = new HashMap<>();
+
 
     /**
      * Update <b>line2Change</b> according to <b>startLineNumber</b>
@@ -106,58 +109,6 @@ public abstract class RenameBaseChanger extends AndroidAppFixer {
         return defectInstanceList;
     }
 
-    @Override
-    protected void mergeDuplicateFixedLines(List<DefectInstance> defectInstances) {
-        ListIterator<DefectInstance> it = defectInstances.listIterator(defectInstances.size());
-        MultiKeyMap map = new MultiKeyMap();
-        MultiKeyMap map2 = new MultiKeyMap();
-        while (it.hasPrevious()) {
-            DefectInstance defectInstance = it.previous();
-            if (LazyFixUtil.isLazyFixDefectInstance(defectInstance)) {
-                continue;
-            }
-            if (map.containsKey(
-                defectInstance.mainBuggyFilePath, defectInstance.mainBuggyLineNumber, defectInstance.status)) {
-                addDefectInstanceMessage(map, map2, defectInstance);
-                it.remove();
-            } else {
-                map.put(defectInstance.mainBuggyFilePath, defectInstance.mainBuggyLineNumber, defectInstance.status,
-                    defectInstance);
-                Set<String> set = new HashSet<>();
-                set.add(defectInstance.message);
-                map2.put(defectInstance.mainBuggyFilePath, defectInstance.mainBuggyLineNumber, defectInstance.status,
-                    set);
-            }
-        }
-    }
-
-    private void addDefectInstanceMessage(MultiKeyMap map, MultiKeyMap map2, DefectInstance defectInstance) {
-        Object object =
-            map2.get(
-                defectInstance.mainBuggyFilePath,
-                defectInstance.mainBuggyLineNumber,
-                defectInstance.status);
-        if (object instanceof HashSet) {
-            Set<String> set = (HashSet<String>) object;
-            if (!set.contains(defectInstance.message)) {
-                Object objectTemp =
-                    map.get(
-                        defectInstance.mainBuggyFilePath,
-                        defectInstance.mainBuggyLineNumber,
-                        defectInstance.status);
-                if (objectTemp instanceof DefectInstance) {
-                    DefectInstance target = (DefectInstance) objectTemp;
-                    if (defectInstance.message != null && target.message == null) {
-                        target.message = defectInstance.message;
-                    } else if (defectInstance.message != null) {
-                        target.message = defectInstance.message + "," + target.message;
-                    }
-                    set.add(defectInstance.message);
-                }
-            }
-        }
-    }
-
     /**
      * Depending on how the {@code originalString} invoked a class member by using different form name, we return a
      * corresponding name and this corresponding name's replacement.
@@ -176,7 +127,7 @@ public abstract class RenameBaseChanger extends AndroidAppFixer {
      */
     protected String[] getExistShortNames(
             final String originalString, final String oldFullName, final String newFullName) {
-        if (originalString.contains(oldFullName)) {
+        if (matchAllToken(originalString, oldFullName)) {
             // The first way --- Qualified name.
             // We return qualified name in a string array like {"old qualified name", "new qualified name"}.
             return new String[] {oldFullName, newFullName};
@@ -189,45 +140,44 @@ public abstract class RenameBaseChanger extends AndroidAppFixer {
         String oldReturnName;
         String newReturnName;
 
-        if (originalString.contains(oldClassName)) {
+        if (matchAllToken(originalString, oldClassName)) {
             // The second way --- Full short name.
             // We return full short name in a string array like {"old full short name", "new full short name"}.
             return new String[] {oldClassName, newClassName};
-        }
-
-        // The third way --- Partial short name.
-        // We should determine how many class this partial short name contains, then return the right partial short
-        // name in a string array like {"old partial short name", "new partial short name"}.
-        int length = 1;
-        // Take the invoked class member.
-        StringBuilder tempMethod = new StringBuilder(splitOldClassName[splitOldClassName.length - 1]);
-        // Determine how many class the raw line invoke contains.
-        for (int i = splitOldClassName.length - 2; i >= 0; i--) {
-            if (originalString.contains(tempMethod)) {
-                length++;
-                tempMethod.insert(0, ".").insert(0, splitOldClassName[i]);
-            } else {
-                break;
-            }
-        }
-        length--;
-        oldReturnName = tempMethod.toString().substring(tempMethod.toString().indexOf(".") + 1);
-
-        // Cut the newFullName to match the oldFullName, this means they have the same number of outer class.
-        if (length >= splitNewClassName.length) {
-            newReturnName = newClassName;
         } else {
-            StringBuilder returnTemp = new StringBuilder();
-            for (int j = splitNewClassName.length - 1; j >= 0; j--) {
-                returnTemp.insert(0, ".").insert(0, splitNewClassName[j]);
-                length--;
-                if (length <= 0) {
+            // The third way --- Partial short name.
+            // We should determine how many class this partial short name contains, then return the right partial short
+            // name in a string array like {"old partial short name", "new partial short name"}.
+            int length = 1;
+            // Take the invoked class member.
+            StringBuilder tempMethod = new StringBuilder(splitOldClassName[splitOldClassName.length - 1]);
+            // Determine how many class the raw line invoke contains.
+            for (int i = splitOldClassName.length - 2; i >= 0; i--) {
+                if (matchAllToken(originalString, tempMethod.toString())) {
+                    length++;
+                    tempMethod.insert(0, ".").insert(0, splitOldClassName[i]);
+                } else {
                     break;
                 }
             }
-            newReturnName = returnTemp.substring(0, returnTemp.length() - 1);
-        }
+            length--;
+            oldReturnName = tempMethod.toString().substring(tempMethod.toString().indexOf(".") + 1);
 
+            // Cut the newFullName to match the oldFullName, this means they have the same number of outer class.
+            if (length >= splitNewClassName.length) {
+                newReturnName = newClassName;
+            } else {
+                StringBuilder returnTemp = new StringBuilder();
+                for (int j = splitNewClassName.length - 1; j >= 0; j--) {
+                    returnTemp.insert(0, ".").insert(0, splitNewClassName[j]);
+                    length--;
+                    if (length <= 0) {
+                        break;
+                    }
+                }
+                newReturnName = returnTemp.substring(0, returnTemp.length() - 1);
+            }
+        }
         return new String[] {oldReturnName, newReturnName};
     }
 
@@ -286,5 +236,49 @@ public abstract class RenameBaseChanger extends AndroidAppFixer {
             return result.toString();
         }
         return qualifiedName;
+    }
+
+    private boolean matchAllToken(final String originalString, final String oldQualifiedName) {
+        List<String> origTokenList = toTokenList(originalString);
+        List<String> oldTokenList = toTokenList(oldQualifiedName);
+
+        int matchTokenIndex = 0;
+        for (int i = origTokenList.size() - 1; i >= 0; i--) {
+            if (oldTokenList.get(oldTokenList.size() - 1).equals(origTokenList.get(i))) {
+                matchTokenIndex = i;
+                break;
+            }
+        }
+
+        List<String> helperOrigTokenList = origTokenList.subList(0, matchTokenIndex + 1);
+        Collections.reverse(oldTokenList);
+        Collections.reverse(helperOrigTokenList);
+
+        if (helperOrigTokenList.size() < oldTokenList.size()) {
+            return false;
+        }
+        for (int i = 0; i < oldTokenList.size(); i++) {
+            if (!oldTokenList.get(i).equals(helperOrigTokenList.get(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private List<String> toTokenList(final String str) {
+        IScanner sc = ToolFactory.createScanner(false, false, false, false);
+        sc.setSource(str.toCharArray());
+
+        List<String> tokenList = new ArrayList<>();
+        try {
+            while (sc.getNextToken() != TokenNameEOF) {
+                tokenList.add(String.valueOf(sc.getRawTokenSource()));
+            }
+        } catch (InvalidInputException e) {
+            LOGGER.error("Error when trans String to TokenList, it shouldn't continue");
+            throw new IllegalStateException(e);
+        }
+        return tokenList;
     }
 }

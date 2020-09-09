@@ -16,6 +16,17 @@
 
 package com.huawei.codebot.analyzer.x2y.java.reflection;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
+import org.eclipse.jdt.core.dom.StringLiteral;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.huawei.codebot.analyzer.x2y.io.config.ConfigService;
 import com.huawei.codebot.analyzer.x2y.java.RenameBaseChanger;
 import com.huawei.codebot.analyzer.x2y.java.visitor.JavaRenameBaseVisitor;
@@ -28,16 +39,6 @@ import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import org.eclipse.jdt.core.dom.StringLiteral;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Used to change reflection.
@@ -111,8 +112,9 @@ public class ReflectRenameChanger extends RenameBaseChanger {
                     @Override
                     public boolean visit(StringLiteral node) {
                         int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
-                        int startColumnNumber = javaFile.compilationUnit.getColumnNumber(node.getStartPosition())
-                            + 1; // + 1 because the left double quotes
+                        int startColumnNumber =
+                                javaFile.compilationUnit.getColumnNumber(node.getStartPosition())
+                                        + 1; // + 1 because the left double quotes
                         int endColumnNumber = startColumnNumber + node.getLength() - 2; // - 2 because the semicolon
                         String buggyLine = javaFile.fileLines.get(startLineNumber - 1);
 
@@ -124,21 +126,19 @@ public class ReflectRenameChanger extends RenameBaseChanger {
                                     || fieldRenamePatterns.containsKey(getStringName)) {
                                 // Reflect auto change
                                 List<String> fixedPatterns = getAutoFixedPatterns(getStringName);
-                                updateChangeTraceForALine(
-                                        this.line2Change,
-                                        buggyLine,
-                                        fixedPatterns.get(0),
-                                        startLineNumber,
-                                        startColumnNumber,
-                                        endColumnNumber,
-                                        fixedPatterns.get(1));
+                                updateChangeTraceForALine(this.line2Change, buggyLine, fixedPatterns.get(0),
+                                        startLineNumber, startColumnNumber, endColumnNumber, fixedPatterns.get(1));
                             } else if (classManualPatterns.containsKey(getStringName)
                                     || fieldManualPatterns.containsKey(getStringName)) {
                                 // Reflect manual delete
                                 String message;
-                                Map desc = classManualPatterns.containsKey(getStringName) ? classManualPatterns.get(
-                                    getStringName) : fieldManualPatterns.get(getStringName);
-                                message = desc == null ? null : gson.toJson(desc);
+                                Map desc;
+                                if (classManualPatterns.containsKey(getStringName)) {
+                                    desc = classManualPatterns.get(getStringName);
+                                } else {
+                                    desc = fieldManualPatterns.get(getStringName);
+                                }
+                                message = desc == null ? "" : gson.toJson(desc);
                                 DefectInstance defectInstance =
                                         createWarningDefectInstance(buggyFilePath, startLineNumber, buggyLine, message);
                                 defectInstances.add(defectInstance);
@@ -147,7 +147,7 @@ public class ReflectRenameChanger extends RenameBaseChanger {
                                 for (String finalPackage : packageManualPatterns.keySet()) {
                                     if (getStringName.startsWith(finalPackage)) {
                                         Map desc = packageManualPatterns.get(finalPackage);
-                                        String message = desc == null ? null : gson.toJson(desc);
+                                        String message = desc == null ? "" : gson.toJson(desc);
                                         DefectInstance defectInstance =
                                                 createWarningDefectInstance(
                                                         buggyFilePath, startLineNumber, buggyLine, message);
@@ -164,6 +164,7 @@ public class ReflectRenameChanger extends RenameBaseChanger {
         List<DefectInstance> defectInstanceList =
                 generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
         defectInstanceList.addAll(visitor.defectInstances);
+        removeIgnoreBlocks(defectInstanceList, javaFile.shielder);
         return defectInstanceList;
     }
 
@@ -179,15 +180,10 @@ public class ReflectRenameChanger extends RenameBaseChanger {
             patternName = fieldRenamePatterns.get(getStringName);
             desc = fieldDescriptions.get(getStringName);
         }
-        String message = desc == null ? null : gson.toJson(desc);
+        String message = desc == null ? "" : gson.toJson(desc);
         getAutoPatterns.add(patternName);
         getAutoPatterns.add(message);
         return getAutoPatterns;
-    }
-
-    @Override
-    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
-        return null;
     }
 
     @Override
@@ -197,62 +193,88 @@ public class ReflectRenameChanger extends RenameBaseChanger {
 
     @Override
     protected List<DefectInstance> detectDefectsInKotlinFile(String buggyFilePath) {
+        if (StringUtils.isEmpty(buggyFilePath)) {
+            return null;
+        }
         KotlinFile kotlinFile = new KotlinFile(buggyFilePath);
-        KotlinRenameBaseVisitor visitor = new KotlinRenameBaseVisitor(kotlinFile, this) {
-            @Override
-            public Boolean visitStringLiteral(KotlinParser.StringLiteralContext ctx) {
-                int startLineNumber = ctx.getStart().getLine();
-                int startColumnNumber =
-                    ctx.getStart().getCharPositionInLine() + 1; // + 1 because the left double quotes
-                int endColumnNumber = ctx.getStop().getCharPositionInLine()
-                    + ctx.getStop().getText().length() - 2; // - 2 because the semicolon
-                String buggyLine = kotlinFile.fileLines.get(startLineNumber - 1);
-                String stringLineTemp = ctx.getText();
-                // Make sure its length longer than ""
-                if (stringLineTemp.length() > 2) {
-                    // Kotlin auto change
-                    String getStringName = stringLineTemp.substring(
-                        1, stringLineTemp.length() - 1); // Remove two double quotes
-                    if (classRenamePatterns.containsKey(getStringName)
-                        || fieldRenamePatterns.containsKey(getStringName)) {
-                        // Kotlin auto change
-                        List<String> fixedPatterns = getAutoFixedPatterns(getStringName);
-                        updateChangeTraceForALine(this.line2Change, buggyLine, fixedPatterns.get(0), startLineNumber,
-                            startColumnNumber, endColumnNumber, fixedPatterns.get(1));
-                    } else if (classManualPatterns.containsKey(getStringName)
-                        || fieldManualPatterns.containsKey(getStringName)) {
-                        // Kotlin manual delete
-                        Map desc = new HashMap();
-                        if (classManualPatterns.containsKey(getStringName)) {
-                            desc = classManualPatterns.get(getStringName);
-                        } else if (fieldManualPatterns.containsKey(getStringName)) {
-                            desc = fieldManualPatterns.get(getStringName);
-                        }
-                        String message = desc == null ? null : gson.toJson(desc);
-                        DefectInstance defectInstance =
-                            createWarningDefectInstance(buggyFilePath, startLineNumber, buggyLine, message);
-                        defectInstances.add(defectInstance);
-                    } else {
-                        // Kotlin Package delete
-                        for (String finalPackage : packageManualPatterns.keySet()) {
-                            if (getStringName.startsWith(finalPackage)) {
-                                Map desc = packageManualPatterns.get(finalPackage);
-                                String message = desc == null ? null : gson.toJson(desc);
-                                DefectInstance defectInstance = createWarningDefectInstance(
-                                    buggyFilePath, startLineNumber, buggyLine, message);
+        KotlinRenameBaseVisitor visitor =
+                new KotlinRenameBaseVisitor(kotlinFile, this) {
+                    @Override
+                    public Boolean visitStringLiteral(KotlinParser.StringLiteralContext ctx) {
+                        int startLineNumber = ctx.getStart().getLine();
+                        int startColumnNumber =
+                                ctx.getStart().getCharPositionInLine() + 1; // + 1 because the left double quotes
+                        int endColumnNumber =
+                                ctx.getStop().getCharPositionInLine()
+                                        + ctx.getStop().getText().length()
+                                        - 2; // - 2 because the semicolon
+                        String buggyLine = kotlinFile.fileLines.get(startLineNumber - 1);
+                        String stringLineTemp = ctx.getText();
+                        // Make sure its length longer than ""
+                        if (stringLineTemp.length() > 2) {
+                            // Kotlin auto change
+                            String getStringName =
+                                    stringLineTemp.substring(
+                                            1, stringLineTemp.length() - 1); // Remove two double quotes
+                            if (classRenamePatterns.containsKey(getStringName)
+                                    || fieldRenamePatterns.containsKey(getStringName)) {
+                                // Kotlin auto change
+                                List<String> fixedPatterns = getAutoFixedPatterns(getStringName);
+                                updateChangeTraceForALine(
+                                        this.line2Change,
+                                        buggyLine,
+                                        fixedPatterns.get(0),
+                                        startLineNumber,
+                                        startColumnNumber,
+                                        endColumnNumber,
+                                        fixedPatterns.get(1));
+                            } else if (classManualPatterns.containsKey(getStringName)
+                                    || fieldManualPatterns.containsKey(getStringName)) {
+                                // Kotlin manual delete
+                                String message;
+                                Map desc = new HashMap();
+                                if (classManualPatterns.containsKey(getStringName)) {
+                                    desc = classManualPatterns.get(getStringName);
+                                } else if (fieldManualPatterns.containsKey(getStringName)) {
+                                    desc = fieldManualPatterns.get(getStringName);
+                                }
+                                message = desc == null ? null : gson.toJson(desc);
+                                DefectInstance defectInstance =
+                                        createWarningDefectInstance(buggyFilePath, startLineNumber, buggyLine, message);
                                 defectInstances.add(defectInstance);
-                                break;
+                            } else {
+                                // Kotlin Package delete
+                                for (String finalPackage : packageManualPatterns.keySet()) {
+                                    if (getStringName.startsWith(finalPackage)) {
+                                        Map desc = packageManualPatterns.get(finalPackage);
+                                        String message = desc == null ? null : gson.toJson(desc);
+                                        DefectInstance defectInstance =
+                                                createWarningDefectInstance(
+                                                        buggyFilePath, startLineNumber, buggyLine, message);
+                                        defectInstances.add(defectInstance);
+                                        break;
+                                    }
+                                }
                             }
                         }
+                        return super.visitStringLiteral(ctx);
                     }
-                }
-                return super.visitStringLiteral(ctx);
-            }
-        };
-        kotlinFile.tree.accept(visitor);
+                };
+        try {
+            kotlinFile.tree.accept(visitor);
+        } catch (Exception e) {
+            logger.error(buggyFilePath);
+            logger.error(Arrays.toString(e.getStackTrace()));
+        }
         List<DefectInstance> defectInstanceList =
-            generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
+                generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
         defectInstanceList.addAll(visitor.defectInstances);
+        removeIgnoreBlocks(defectInstanceList, kotlinFile.shielder);
         return defectInstanceList;
+    }
+
+    @Override
+    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
+        return null;
     }
 }

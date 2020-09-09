@@ -16,6 +16,19 @@
 
 package com.huawei.codebot.analyzer.x2y.java.other.objectequals;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
+import org.eclipse.jdt.core.dom.CastExpression;
+import org.eclipse.jdt.core.dom.Expression;
+import org.eclipse.jdt.core.dom.InfixExpression;
+import org.eclipse.jdt.core.dom.InstanceofExpression;
+import org.eclipse.jdt.core.dom.LambdaExpression;
+import org.eclipse.jdt.core.dom.NullLiteral;
+import org.eclipse.jdt.core.dom.Type;
+
 import com.huawei.codebot.analyzer.x2y.global.bean.TypeInfo;
 import com.huawei.codebot.analyzer.x2y.global.java.JavaTypeInferencer;
 import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinTypeInferencer;
@@ -31,16 +44,6 @@ import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
-import org.eclipse.jdt.core.dom.CastExpression;
-import org.eclipse.jdt.core.dom.Expression;
-import org.eclipse.jdt.core.dom.InfixExpression;
-import org.eclipse.jdt.core.dom.InstanceofExpression;
-import org.eclipse.jdt.core.dom.LambdaExpression;
-import org.eclipse.jdt.core.dom.NullLiteral;
-import org.eclipse.jdt.core.dom.Type;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * A changer used to process some type of ASTNode, now it include
@@ -62,168 +65,134 @@ public class ObjectEqualsChanger extends RenameBaseChanger {
     @Override
     protected List<DefectInstance> detectDefectsInJavaFile(String buggyFilePath) {
         JavaFile javaFile = new JavaFileAnalyzer().extractJavaFileInfo(buggyFilePath);
-        JavaRenameBaseVisitor visitor =
-                new JavaRenameBaseVisitor(javaFile, this) {
-                    JavaTypeInferencer typeInferencer = new JavaTypeInferencer(this);
+        JavaRenameBaseVisitor visitor = new JavaRenameBaseVisitor(javaFile, this) {
+            JavaTypeInferencer typeInferencer = new JavaTypeInferencer(this);
 
-                    @Override
-                    public boolean visit(InfixExpression node) {
-                        int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
-                        int endLineNumber =
-                                javaFile.compilationUnit.getLineNumber(node.getStartPosition() + node.getLength());
-                        int startColumnNumber = javaFile.compilationUnit.getColumnNumber(node.getStartPosition());
-                        int endColumnNumber =
-                                javaFile.compilationUnit.getColumnNumber(node.getStartPosition() + node.getLength());
-                        Expression leftOperand = node.getLeftOperand();
-                        Expression rightOperand = node.getRightOperand();
-                        if (leftOperand instanceof NullLiteral || rightOperand instanceof NullLiteral) {
-                            return super.visit(node);
-                        }
-                        TypeInfo typeInfo = typeInferencer.getExprType(leftOperand);
-                        if (typeInfo != null && renamePatterns.containsKey(typeInfo.getQualifiedName())) {
-                            String buggyLine =
-                                    String.join(
-                                            javaFile.lineBreak,
-                                            javaFile.fileLines.subList(startLineNumber - 1, endLineNumber));
-                            StringBuilder sb = new StringBuilder();
-                            if (node.getOperator() == InfixExpression.Operator.EQUALS) {
-                                sb.append("(")
-                                        .append(javaFile.getRawSignature(leftOperand))
-                                        .append(" == null ? ")
-                                        .append(javaFile.getRawSignature(rightOperand))
-                                        .append(" == null : ")
-                                        .append(javaFile.getRawSignature(leftOperand))
-                                        .append(".isSameAs(")
-                                        .append(javaFile.getRawSignature(rightOperand))
-                                        .append(")")
-                                        .append(")");
-                                Map description = fullName2Description.get(typeInfo.getQualifiedName());
-                                String desc = description == null ? null : gson.toJson(description);
-                                updateChangeTraceForALine(
-                                        line2Change,
-                                        buggyLine,
-                                        sb.toString(),
-                                        startLineNumber,
-                                        startColumnNumber,
-                                        endColumnNumber,
-                                        desc);
+            @Override
+            public boolean visit(InfixExpression node) {
+                int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
+                int endLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition() + node.getLength());
+                int startColumnNumber = javaFile.compilationUnit.getColumnNumber(node.getStartPosition());
+                int endColumnNumber = javaFile.compilationUnit
+                        .getColumnNumber(node.getStartPosition() + node.getLength());
+                Expression leftOperand = node.getLeftOperand();
+                Expression rightOperand = node.getRightOperand();
+                if (leftOperand instanceof NullLiteral || rightOperand instanceof NullLiteral) {
+                    return super.visit(node);
+                }
+                TypeInfo typeInfo = typeInferencer.getExprType(leftOperand);
+                if (typeInfo != null && renamePatterns.containsKey(typeInfo.getQualifiedName())) {
+                    String buggyLine = String.join(javaFile.lineBreak,
+                            javaFile.fileLines.subList(startLineNumber - 1, endLineNumber));
+                    StringBuilder sb = new StringBuilder();
+                    if (node.getOperator() == InfixExpression.Operator.EQUALS) {
+                        sb.append("(").append(javaFile.getRawSignature(leftOperand)).append(" == null ? ")
+                                .append(javaFile.getRawSignature(rightOperand)).append(" == null : ")
+                                .append(javaFile.getRawSignature(leftOperand)).append(".isSameAs(")
+                                .append(javaFile.getRawSignature(rightOperand)).append(")").append(")");
+                        Map description = fullName2Description.get(typeInfo.getQualifiedName());
+                        String desc = description == null ? null : gson.toJson(description);
+                        updateChangeTraceForALine(line2Change, buggyLine, sb.toString(), startLineNumber,
+                                startColumnNumber, endColumnNumber, desc);
 
-                            } else if (node.getOperator() == InfixExpression.Operator.NOT_EQUALS) {
-                                sb.append("(")
-                                        .append(javaFile.getRawSignature(leftOperand))
-                                        .append(" == null ? ")
-                                        .append(javaFile.getRawSignature(rightOperand))
-                                        .append(" != null : !")
-                                        .append(javaFile.getRawSignature(leftOperand))
-                                        .append(".isSameAs(")
-                                        .append(javaFile.getRawSignature(rightOperand))
-                                        .append(")")
-                                        .append(")");
-                                Map description = fullName2Description.get(typeInfo.getQualifiedName());
-                                String desc = description == null ? null : gson.toJson(description);
-                                updateChangeTraceForALine(
-                                        line2Change,
-                                        buggyLine,
-                                        sb.toString(),
-                                        startLineNumber,
-                                        startColumnNumber,
-                                        endColumnNumber,
-                                        desc);
-                            }
-                        }
-                        return super.visit(node);
+                    } else if (node.getOperator() == InfixExpression.Operator.NOT_EQUALS) {
+                        sb.append("(").append(javaFile.getRawSignature(leftOperand)).append(" == null ? ")
+                                .append(javaFile.getRawSignature(rightOperand)).append(" != null : !")
+                                .append(javaFile.getRawSignature(leftOperand)).append(".isSameAs(")
+                                .append(javaFile.getRawSignature(rightOperand)).append(")").append(")");
+                        Map description = fullName2Description.get(typeInfo.getQualifiedName());
+                        String desc = description == null ? null : gson.toJson(description);
+                        updateChangeTraceForALine(line2Change, buggyLine, sb.toString(), startLineNumber,
+                                startColumnNumber, endColumnNumber, desc);
                     }
+                }
+                return super.visit(node);
+            }
 
-                    @Override
-                    public boolean visit(InstanceofExpression node) {
-                        Expression leftOperand = node.getLeftOperand();
-                        Type rightOperand = node.getRightOperand();
-                        TypeInfo typeInfo = JavaTypeInferencer.getTypeInfo(rightOperand);
-                        if (typeInfo != null && renamePatterns.containsKey(typeInfo.getQualifiedName())) {
-                            int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
-                            int endLineNumber =
-                                    javaFile.compilationUnit.getLineNumber(node.getStartPosition() + node.getLength());
-                            int startColumnNumber = javaFile.compilationUnit.getColumnNumber(node.getStartPosition());
-                            int endColumnNumber =
-                                    javaFile.compilationUnit.getColumnNumber(
-                                            node.getStartPosition() + node.getLength());
-                            String buggyLine =
-                                    String.join(
-                                            javaFile.lineBreak,
-                                            javaFile.fileLines.subList(startLineNumber - 1, endLineNumber));
-                            StringBuilder sb = new StringBuilder();
-                            sb.append(javaFile.getRawSignature(rightOperand))
-                                    .append(".isInstance(")
-                                    .append(javaFile.getRawSignature(leftOperand))
-                                    .append(")");
-                            Map description = fullName2Description.get(typeInfo.getQualifiedName());
-                            String desc = description == null ? null : gson.toJson(description);
-                            updateChangeTraceForALine(
-                                    line2Change,
-                                    buggyLine,
-                                    sb.toString(),
-                                    startLineNumber,
-                                    startColumnNumber,
-                                    endColumnNumber,
-                                    desc);
-                        }
-                        return super.visit(node);
-                    }
+            @Override
+            public boolean visit(InstanceofExpression node) {
+                Expression leftOperand = node.getLeftOperand();
+                Type rightOperand = node.getRightOperand();
+                TypeInfo typeInfo = javaTypeInferencer.getTypeInfo(rightOperand);
+                if (typeInfo != null && renamePatterns.containsKey(typeInfo.getQualifiedName())) {
+                    int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
+                    int endLineNumber =
+                            javaFile.compilationUnit.getLineNumber(node.getStartPosition() + node.getLength());
+                    int startColumnNumber = javaFile.compilationUnit.getColumnNumber(node.getStartPosition());
+                    int endColumnNumber =
+                            javaFile.compilationUnit.getColumnNumber(
+                                    node.getStartPosition() + node.getLength());
+                    String buggyLine =
+                            String.join(
+                                    javaFile.lineBreak,
+                                    javaFile.fileLines.subList(startLineNumber - 1, endLineNumber));
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(javaFile.getRawSignature(rightOperand))
+                            .append(".isInstance(")
+                            .append(javaFile.getRawSignature(leftOperand))
+                            .append(")");
+                    Map description = fullName2Description.get(typeInfo.getQualifiedName());
+                    String desc = description == null ? null : gson.toJson(description);
+                    updateChangeTraceForALine(
+                            line2Change,
+                            buggyLine,
+                            sb.toString(),
+                            startLineNumber,
+                            startColumnNumber,
+                            endColumnNumber,
+                            desc);
+                }
+                return super.visit(node);
+            }
 
-                    @Override
-                    public boolean visit(CastExpression node) {
-                        Type type = node.getType();
-                        TypeInfo typeInfo = JavaTypeInferencer.getTypeInfo(type);
-                        if (typeInfo != null
-                                && renamePatterns.containsKey(typeInfo.getQualifiedName())
-                                && !(node.getExpression() instanceof LambdaExpression)) {
-                            int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
-                            int endLineNumber =
-                                    javaFile.compilationUnit.getLineNumber(node.getStartPosition() + node.getLength());
-                            int startColumnNumber = javaFile.compilationUnit.getColumnNumber(node.getStartPosition());
-                            int endColumnNumber = startColumnNumber + node.getLength();
-                            String buggyLine =
-                                    String.join(
-                                            javaFile.lineBreak,
-                                            javaFile.fileLines.subList(startLineNumber - 1, endLineNumber));
-                            StringBuilder sb = new StringBuilder();
-                            sb.append(javaFile.getRawSignature(type))
-                                    .append(".dynamicCast(")
-                                    .append(javaFile.getRawSignature(node.getExpression()))
-                                    .append(")");
-                            Map description = fullName2Description.get(typeInfo.getQualifiedName());
-                            String desc = description == null ? null : gson.toJson(description);
-                            updateChangeTraceForALine(
-                                    line2Change,
-                                    buggyLine,
-                                    sb.toString(),
-                                    startLineNumber,
-                                    startColumnNumber,
-                                    endColumnNumber,
-                                    desc);
-                        }
-                        return super.visit(node);
-                    }
-                };
+            @Override
+            public boolean visit(CastExpression node) {
+                Type type = node.getType();
+                TypeInfo typeInfo = javaTypeInferencer.getTypeInfo(type);
+                if (typeInfo != null
+                        && renamePatterns.containsKey(typeInfo.getQualifiedName())
+                        && !(node.getExpression() instanceof LambdaExpression)) {
+                    int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
+                    int endLineNumber =
+                            javaFile.compilationUnit.getLineNumber(node.getStartPosition() + node.getLength());
+                    int startColumnNumber = javaFile.compilationUnit.getColumnNumber(node.getStartPosition());
+                    int endColumnNumber = startColumnNumber + node.getLength();
+                    String buggyLine =
+                            String.join(
+                                    javaFile.lineBreak,
+                                    javaFile.fileLines.subList(startLineNumber - 1, endLineNumber));
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(javaFile.getRawSignature(type))
+                            .append(".dynamicCast(")
+                            .append(javaFile.getRawSignature(node.getExpression()))
+                            .append(")");
+                    Map description = fullName2Description.get(typeInfo.getQualifiedName());
+                    String desc = description == null ? null : gson.toJson(description);
+                    updateChangeTraceForALine(
+                            line2Change,
+                            buggyLine,
+                            sb.toString(),
+                            startLineNumber,
+                            startColumnNumber,
+                            endColumnNumber,
+                            desc);
+                }
+                return super.visit(node);
+            }
+        };
         javaFile.compilationUnit.accept(visitor);
         List<DefectInstance> defectInstanceList =
                 generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
         defectInstanceList.addAll(visitor.defectInstances);
+        removeIgnoreBlocks(defectInstanceList, javaFile.shielder);
         return defectInstanceList;
     }
 
     @Override
-    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
-    protected List<DefectInstance> detectDefectsInGradleFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
     protected List<DefectInstance> detectDefectsInKotlinFile(String buggyFilePath) {
+        if (StringUtils.isEmpty(buggyFilePath)) {
+            return null;
+        }
         KotlinFile kotlinFile = new KotlinFile(buggyFilePath);
         KotlinRenameBaseVisitor visitor =
                 new KotlinRenameBaseVisitor(kotlinFile, this) {
@@ -253,14 +222,8 @@ public class ObjectEqualsChanger extends RenameBaseChanger {
                                     int endColumnNumber =
                                             ctx.getStop().getCharPositionInLine() + ctx.getStop().getText().length();
                                     String buggyLine = kotlinFile.fileLines.get(startLineNumber - 1);
-                                    updateChangeTraceForALine(
-                                            line2Change,
-                                            buggyLine,
-                                            sb.toString(),
-                                            startLineNumber,
-                                            startColumnNumber,
-                                            endColumnNumber,
-                                            desc);
+                                    updateChangeTraceForALine(line2Change, buggyLine, sb.toString(), startLineNumber,
+                                            startColumnNumber, endColumnNumber, desc);
                                 }
                             } else if (equalList.get(0).EXCL_EQEQ() != null || equalList.get(0).EXCL_EQ() != null) {
                                 List<KotlinParser.ComparisonContext> objectList = ctx.comparison();
@@ -283,38 +246,26 @@ public class ObjectEqualsChanger extends RenameBaseChanger {
                                     int endColumnNumber =
                                             ctx.getStop().getCharPositionInLine() + ctx.getStop().getText().length();
                                     String buggyLine = kotlinFile.fileLines.get(startLineNumber - 1);
-                                    updateChangeTraceForALine(
-                                            line2Change,
-                                            buggyLine,
-                                            sb.toString(),
-                                            startLineNumber,
-                                            startColumnNumber,
-                                            endColumnNumber,
-                                            desc);
+                                    updateChangeTraceForALine(line2Change, buggyLine, sb.toString(), startLineNumber,
+                                            startColumnNumber, endColumnNumber, desc);
                                 }
                             }
                         }
                         return super.visitEquality(ctx);
                     }
                 };
-
-        kotlinFile.tree.accept(visitor);
+        try {
+            kotlinFile.tree.accept(visitor);
+        } catch (Exception e) {
+            logger.error(buggyFilePath);
+            logger.error(Arrays.toString(e.getStackTrace()));
+        }
         List<DefectInstance> defectInstanceList =
                 generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
         defectInstanceList.addAll(visitor.defectInstances);
+        removeIgnoreBlocks(defectInstanceList, kotlinFile.shielder);
         return defectInstanceList;
     }
-
-    @Override
-    public void generateFixCode(DefectInstance defectWarning) {}
-
-    @Override
-    public boolean isFixReasonable(DefectInstance fixedDefect) {
-        return true;
-    }
-
-    @Override
-    public void extractFixInstancesForSingleCodeFile(String filePath) {}
 
     @Override
     public FixerInfo getFixerInfo() {

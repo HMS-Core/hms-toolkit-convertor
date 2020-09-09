@@ -16,17 +16,18 @@
 
 package com.huawei.codebot.analyzer.x2y.java;
 
+import com.huawei.codebot.analyzer.x2y.global.GlobalSettings;
 import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.versionvariable.GradleDependencyChanger;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.versionvariable.GradleGlobalChanger;
 import com.huawei.codebot.analyzer.x2y.java.clazz.delete.ClassDeleteChanger;
 import com.huawei.codebot.analyzer.x2y.java.field.delete.FieldDeleteChanger;
+import com.huawei.codebot.analyzer.x2y.java.g2x.KeyClassDetectChanger;
 import com.huawei.codebot.analyzer.x2y.java.method.delete.MethodDeleteChanger;
 import com.huawei.codebot.framework.AsyncedCompositeDefectFixer;
 import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 
 /**
- * The first changer of {@link G2HAutoChanger}.
- * <br/>
  * The delete change would disturb other type change, so we put it at the first place.
  * <br/>
  * Delete contains three type:
@@ -43,8 +44,8 @@ public class G2HFirstPhaseChanger extends AsyncedCompositeDefectFixer {
     private String fixerType;
 
     public G2HFirstPhaseChanger(String fixerType) {
-        focusedFileExtensions = new String[] {"java", "kt", "gradle", "xml"};
-        defaultIgnoreList = new String[] {".google", ".opensource", ".git"};
+        focusedFileExtensions = new String[]{"java", "kt", "gradle", "xml"};
+        defaultIgnoreList = new String[]{".google", ".opensource", ".git"};
         this.fixerType = fixerType;
     }
 
@@ -53,7 +54,11 @@ public class G2HFirstPhaseChanger extends AsyncedCompositeDefectFixer {
         this.atomicFixers.add(new FieldDeleteChanger(fixerType));
         this.atomicFixers.add(new ClassDeleteChanger(fixerType));
         this.atomicFixers.add(new MethodDeleteChanger(fixerType));
+        this.atomicFixers.add(new GradleGlobalChanger());
         this.atomicFixers.add(new GradleDependencyChanger());
+        if (!GlobalSettings.isIsSDK()) {
+            this.atomicFixers.add(new KeyClassDetectChanger());
+        }
     }
 
     @Override

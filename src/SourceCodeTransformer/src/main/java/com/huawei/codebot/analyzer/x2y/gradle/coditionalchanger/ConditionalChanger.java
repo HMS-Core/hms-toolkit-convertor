@@ -25,7 +25,6 @@ import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.lazyfix.SyncedCompositeDefectFixer;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.utils.FileUtils;
-
 import org.apache.commons.collections4.MapIterator;
 import org.apache.commons.collections4.keyvalue.MultiKey;
 import org.apache.commons.collections4.map.LinkedMap;
@@ -51,7 +50,6 @@ public class ConditionalChanger extends SyncedCompositeDefectFixer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConditionalChanger.class);
 
     private GradleConditionalChanger gradleConditionalChanger;
-
     private XmlConditionalChanger xmlConditionalChanger;
 
     public ConditionalChanger(String fixerType) throws CodeBotRuntimeException {
@@ -59,10 +57,9 @@ public class ConditionalChanger extends SyncedCompositeDefectFixer {
         List<StructGradleXml> configList = configService.getConditionalConfig();
         gradleConditionalChanger = new GradleConditionalChanger(configList);
         xmlConditionalChanger = new XmlConditionalChanger(configList);
-        focusedFileExtensions = new String[] {"xml", "gradle"};
-        defaultIgnoreList = new String[] {
-            ".git", ".svn", ".repo", ".mm", ".google", ".opensource", ".idea", ".gradle"
-        };
+        focusedFileExtensions = new String[]{"xml", "gradle"};
+        defaultIgnoreList = new String[]{".git", ".svn", ".repo", ".mm", ".google", ".opensource",
+                ".idea", ".gradle"};
     }
 
     @Override
@@ -92,7 +89,7 @@ public class ConditionalChanger extends SyncedCompositeDefectFixer {
             fixer.fixPatternFolder = this.fixPatternFolder;
             fixer.directOverride = true;
             fixer.preprocessAndAutoFix(new FixBotArguments(subjectProjectOrModuleName, tempDir, ignoreLists,
-                timestamp, operator, versionNumber));
+                    timestamp, operator, versionNumber));
             mergeDefectInstancesOfNewFixer(fixer);
         }
 
@@ -127,7 +124,7 @@ public class ConditionalChanger extends SyncedCompositeDefectFixer {
 
             // other lines
             iterator = defectInstance.otherLinesUnderFixing.mapIterator();
-            defectInstance.otherLinesUnderFixing = getNewLines(tempDir, iterator);
+            defectInstance.otherLinesUnderFixing = getNewLines(tempDir,iterator);
 
             // fixed lines
             MultiKeyMap newFixedLines = MultiKeyMap.multiKeyMap(new LinkedMap());

@@ -30,12 +30,14 @@ import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ImportDeclaration;
 import org.eclipse.jdt.core.dom.NameQualifiedType;
 import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.QualifiedType;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -85,7 +87,7 @@ public class PackageRenameChanger extends RenameBaseChanger {
                                                 javaFile.fileLines.get(startLineNumber - 1),
                                                 fixedLine);
                                 Map desc = descriptions.get(packageRenamePatternsTemp);
-                                defectInstance.setMessage(desc == null ? null : gson.toJson(desc));
+                                defectInstance.setMessage(desc == null ? "" : gson.toJson(desc));
                                 defectInstances.add(defectInstance);
                                 break;
                             }
@@ -112,6 +114,9 @@ public class PackageRenameChanger extends RenameBaseChanger {
                     }
 
                     private void changeQualifiedName(ASTNode node) {
+                        if (node == null) {
+                            return;
+                        }
                         int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
                         if (packageRenamePatterns.containsKey(node.toString())) {
                             String buggyLine = javaFile.fileLines.get(startLineNumber - 1);
@@ -122,16 +127,16 @@ public class PackageRenameChanger extends RenameBaseChanger {
                                 DefectInstance instance =
                                         createLazyDefectInstance(buggyFilePath, startLineNumber, buggyLine, fixedLine);
                                 Map desc = descriptions.get(originalPackageName);
-                                instance.setMessage(desc == null ? null : gson.toJson(desc));
+                                instance.setMessage(desc == null ? "" : gson.toJson(desc));
                                 defectInstances.add(instance);
                             }
                         }
                     }
                 };
         javaFile.compilationUnit.accept(visitor);
-        List<DefectInstance> defectInstanceList =
-                generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
+        List<DefectInstance> defectInstanceList = generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
         defectInstanceList.addAll(visitor.defectInstances);
+        removeIgnoreBlocks(defectInstanceList, javaFile.shielder);
         return defectInstanceList;
     }
 
@@ -141,12 +146,10 @@ public class PackageRenameChanger extends RenameBaseChanger {
     }
 
     @Override
-    protected List<DefectInstance> detectDefectsInGradleFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
     protected List<DefectInstance> detectDefectsInKotlinFile(String buggyFilePath) {
+        if (StringUtils.isEmpty(buggyFilePath)) {
+            return null;
+        }
         KotlinFile kotlinFile = new KotlinFile(buggyFilePath);
         KotlinRenameBaseVisitor visitor =
                 new KotlinRenameBaseVisitor(kotlinFile, this) {
@@ -162,11 +165,10 @@ public class PackageRenameChanger extends RenameBaseChanger {
                             String fixedLinePatterns = packageRenamePatterns.get(packageName);
                             String fixedLine = buggyLine.replace(importLinePackageName, fixedLinePatterns);
                             if (!fixedLine.equals(buggyLine)) {
-                                DefectInstance packageDefectInstance =
-                                        createLazyDefectInstance(
-                                                kotlinFile.filePath, buggylineNumber, buggyLine, fixedLine);
+                                DefectInstance packageDefectInstance = createLazyDefectInstance(kotlinFile.filePath,
+                                        buggylineNumber, buggyLine, fixedLine);
                                 Map desc = descriptions.get(importLinePackageName);
-                                packageDefectInstance.setMessage(desc == null ? null : gson.toJson(desc));
+                                packageDefectInstance.setMessage(desc == null ? "" : gson.toJson(desc));
                                 defectInstances.add(packageDefectInstance);
                             }
                         }
@@ -175,9 +177,12 @@ public class PackageRenameChanger extends RenameBaseChanger {
 
                     /* * get Package name in Kotlin */
                     String getKotlinPackageName(String importLine) {
+                        String packageNameReturn = ""; // delete last "."
+                        if (StringUtils.isEmpty(importLine)) {
+                            return packageNameReturn;
+                        }
                         String[] args = importLine.split("\\.");
                         StringBuilder packageName = new StringBuilder();
-                        String packageNameReturn = ""; // delete last "."
                         for (String arg : args) {
                             if (!Character.isUpperCase(arg.charAt(0))) {
                                 packageName.append(arg).append(".");
@@ -188,24 +193,18 @@ public class PackageRenameChanger extends RenameBaseChanger {
                         return packageNameReturn;
                     }
                 };
-        kotlinFile.tree.accept(visitor);
-
+        try {
+            kotlinFile.tree.accept(visitor);
+        } catch (Exception e) {
+            logger.error(buggyFilePath);
+            logger.error(Arrays.toString(e.getStackTrace()));
+        }
         List<DefectInstance> defectInstanceList =
                 generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
         defectInstanceList.addAll(visitor.defectInstances);
+        removeIgnoreBlocks(defectInstanceList, kotlinFile.shielder);
         return defectInstanceList;
     }
-
-    @Override
-    public void generateFixCode(DefectInstance defectWarning) {}
-
-    @Override
-    public boolean isFixReasonable(DefectInstance fixedDefect) {
-        return true;
-    }
-
-    @Override
-    public void extractFixInstancesForSingleCodeFile(String filePath) {}
 
     @Override
     public FixerInfo getFixerInfo() {
@@ -216,5 +215,10 @@ public class PackageRenameChanger extends RenameBaseChanger {
             this.info = info;
         }
         return this.info;
+    }
+
+    @Override
+    protected List<DefectInstance> detectDefectsInGradleFile(String buggyFilePath) {
+        return null;
     }
 }

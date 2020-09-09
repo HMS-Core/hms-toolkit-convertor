@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * A bean that represents something common in Java method, Kotlin function and so on.
@@ -36,6 +35,7 @@ public class GenericFunction {
     private String originalSignature;
     private String formalSignature = null;
     private List<GenericVariableDeclaration> inputParams = new ArrayList<GenericVariableDeclaration>();
+
 
     private String returnType;
     private int beginLineNumber;
@@ -52,14 +52,12 @@ public class GenericFunction {
     }
 
     public String getFormalSignature() {
-        if (formalSignature == null) {
+        if (StringUtils.isEmpty(formalSignature)) {
             StringBuilder formalSign = new StringBuilder(this.name + "(");
-
-            String genericVariableDeclarationTypes = inputParams.stream()
-                .map(GenericVariableDeclaration::getType)
-                .collect(Collectors.joining(","));
-            formalSign.append(genericVariableDeclarationTypes);
-
+            for (GenericVariableDeclaration genericVariableDeclaration : inputParams) {
+                formalSign.append(genericVariableDeclaration.type).append(",");
+            }
+            formalSign = new StringBuilder(StringUtils.removeEnd(formalSign.toString(), ","));
             formalSign.append(")");
             this.formalSignature = formalSign.toString();
         }

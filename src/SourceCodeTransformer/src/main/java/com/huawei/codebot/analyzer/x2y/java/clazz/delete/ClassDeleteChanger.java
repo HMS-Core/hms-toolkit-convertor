@@ -21,6 +21,7 @@ import com.google.gson.GsonBuilder;
 import com.huawei.codebot.analyzer.x2y.global.commonvisitor.JavaLocalVariablesInMethodVisitor;
 import com.huawei.codebot.analyzer.x2y.global.commonvisitor.KotlinLocalVariablesVisitor;
 import com.huawei.codebot.analyzer.x2y.io.config.ConfigService;
+import com.huawei.codebot.analyzer.x2y.java.AtomicAndroidAppChanger;
 import com.huawei.codebot.analyzer.x2y.java.clazz.ClassFullNameExtractor;
 import com.huawei.codebot.codeparsing.java.JavaFile;
 import com.huawei.codebot.codeparsing.java.JavaFileAnalyzer;
@@ -30,8 +31,8 @@ import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
-import com.huawei.codebot.framework.x2y.AndroidAppFixer;
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ImportDeclaration;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
@@ -41,19 +42,16 @@ import org.eclipse.jdt.core.dom.QualifiedType;
 import org.eclipse.jdt.core.dom.SimpleName;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * Used to detect ClassDelete
  *
  * @since 2020-04-13
  */
-public class ClassDeleteChanger extends AndroidAppFixer {
+public class ClassDeleteChanger extends AtomicAndroidAppChanger {
     /**
      * Used to store desc of the ClassDelete that needs to be delete
      */
@@ -67,10 +65,24 @@ public class ClassDeleteChanger extends AndroidAppFixer {
     }
 
     @Override
+    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
+        return null;
+    }
+
+    @Override
+    protected List<DefectInstance> detectDefectsInGradleFile(String buggyFilePath) {
+        return null;
+    }
+
+    @Override
     protected List<DefectInstance> detectDefectsInJavaFile(String buggyFilePath) {
+        if (StringUtils.isEmpty(buggyFilePath)) {
+            return null;
+        }
         List<DefectInstance> defectInstances = new ArrayList<>();
         JavaFile javaFile = new JavaFileAnalyzer().extractJavaFileInfo(buggyFilePath);
         JavaLocalVariablesInMethodVisitor visitor = new JavaLocalVariablesInMethodVisitor() {
+
             @Override
             public boolean visit(ImportDeclaration node) {
                 check(node);
@@ -109,58 +121,33 @@ public class ClassDeleteChanger extends AndroidAppFixer {
             }
 
             private void check(ASTNode node) {
+                if (node == null) {
+                    return;
+                }
                 Gson gson = new GsonBuilder().disableHtmlEscaping().create();
                 String classFullName = extractor.extractFullClassName(node);
-                if (className2Description.containsKey(classFullName)) {
-                    Map desc = className2Description.get(classFullName);
-                    String message = desc == null ? null : gson.toJson(desc);
-                    int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
-                    String buggyLine = javaFile.fileLines.get(startLineNumber - 1);
-                    DefectInstance defectInstance =
-                            createWarningDefectInstance(buggyFilePath, startLineNumber, buggyLine, message);
-                    defectInstances.add(defectInstance);
+                if (!className2Description.containsKey(classFullName)) {
+                    return;
                 }
+                Map desc = className2Description.get(classFullName);
+                String message = desc == null ? "" : gson.toJson(desc);
+                int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
+                String buggyLine = javaFile.fileLines.get(startLineNumber - 1);
+                DefectInstance defectInstance =
+                        createWarningDefectInstance(buggyFilePath, startLineNumber, buggyLine, message);
+                defectInstances.add(defectInstance);
             }
         };
         javaFile.compilationUnit.accept(visitor);
+        removeIgnoreBlocks(defectInstances, javaFile.shielder);
         return defectInstances;
     }
 
     @Override
-    protected void mergeDuplicateFixedLines(List<DefectInstance> defectInstances) {
-        ListIterator<DefectInstance> it = defectInstances.listIterator(defectInstances.size());
-        Map<String, Set<Integer>> map = new HashMap<>();
-        Set<Integer> set = null;
-        while (it.hasPrevious()) {
-            DefectInstance defectInstance = it.previous();
-            if (map.containsKey(defectInstance.mainBuggyFilePath)) {
-                set = map.get(defectInstance.mainBuggyFilePath);
-            } else {
-                set = new TreeSet<>();
-                map.put(defectInstance.mainBuggyFilePath, set);
-            }
-            if (set != null) {
-                if (set.contains(defectInstance.mainBuggyLineNumber)) {
-                    it.remove();
-                } else {
-                    set.add(defectInstance.mainBuggyLineNumber);
-                }
-            }
-        }
-    }
-
-    @Override
-    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
-    protected List<DefectInstance> detectDefectsInGradleFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
     protected List<DefectInstance> detectDefectsInKotlinFile(String buggyFilePath) {
+        if (StringUtils.isEmpty(buggyFilePath)) {
+            return null;
+        }
         List<DefectInstance> defectInstances = new ArrayList<>();
         KotlinFile kotlinFile = new KotlinFile(buggyFilePath);
         KotlinLocalVariablesVisitor visitor = new KotlinLocalVariablesVisitor() {
@@ -195,14 +182,20 @@ public class ClassDeleteChanger extends AndroidAppFixer {
                 String classFullName = extractor.extractFullClassName(ctx);
                 if (className2Description.containsKey(classFullName)) {
                     Map desc = className2Description.get(classFullName);
-                    String message = desc == null ? null : gson.toJson(desc);
-                    DefectInstance defectInstance =
-                            createWarningDefectInstance(buggyFilePath, buggyLineNumber, buggyLine, message);
+                    String message = desc == null ? "" : gson.toJson(desc);
+                    DefectInstance defectInstance = createWarningDefectInstance(buggyFilePath, buggyLineNumber,
+                            buggyLine, message);
                     defectInstances.add(defectInstance);
                 }
             }
         };
-        kotlinFile.tree.accept(visitor);
+        try {
+            kotlinFile.tree.accept(visitor);
+        } catch (Exception e) {
+            logger.error(buggyFilePath);
+            logger.error(Arrays.toString(e.getStackTrace()));
+        }
+        removeIgnoreBlocks(defectInstances, kotlinFile.shielder);
         return defectInstances;
     }
 

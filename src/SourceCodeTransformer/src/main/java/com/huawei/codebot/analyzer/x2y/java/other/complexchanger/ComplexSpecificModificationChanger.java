@@ -23,7 +23,6 @@ import com.huawei.codebot.codeparsing.java.JavaFile;
 import com.huawei.codebot.codeparsing.java.JavaFileAnalyzer;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.model.DefectInstance;
-
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.ImportDeclaration;
@@ -61,11 +60,21 @@ public class ComplexSpecificModificationChanger extends SpecificModificationChan
         FixAction addImport = fixActions.get("importDeclaration" + "add" + "import");
         FixAction addJosAppsClient = fixActions.get("functionDeclaration" + "add" + "onCreate");
         List<DefectInstance> defectInstances = new ArrayList<>();
-        List<NodeDescription> nodeDes = new ArrayList<>();
         JavaFileAnalyzer codeAnalyzer = new JavaFileAnalyzer();
         JavaFile javaFile = codeAnalyzer.extractJavaFileInfo(buggyFilePath);
+        List<NodeDescription> nodeDes = new ArrayList<NodeDescription>();
         CompilationUnit cu = javaFile.compilationUnit;
-        setNodeDes(nodeDes, javaFile, cu);
+        for (Object im : cu.imports()) {
+            if (im instanceof ImportDeclaration) {
+                ImportDeclaration imd = (ImportDeclaration) im;
+                NodeDescription nodeDescription = new NodeDescription();
+                nodeDescription.setNodeType("import");
+                nodeDescription.setNodeContent("import " + imd.getName().toString() + ";");
+                nodeDescription.setStartLine(javaFile.compilationUnit.getLineNumber(imd.getStartPosition()));
+                nodeDescription.setEndLine(javaFile.compilationUnit.getLineNumber(imd.getStartPosition() + imd.getLength()));
+                nodeDes.add(nodeDescription);
+            }
+        }
 
         List types = cu.types();
         if (types.get(0) instanceof TypeDeclaration) {
@@ -75,57 +84,57 @@ public class ComplexSpecificModificationChanger extends SpecificModificationChan
                 SimpleName methodName = method.getName();
                 List params = method.parameters();
                 if (isTargetFunctionDeclaration(methodName.toString()) && isTargetFunctionParams(params)) {
-                    method.getBody().accept(new ASTVisitor() {
-                        @Override
-                        public boolean visit(SuperMethodInvocation node) {
-                            if (node.getName().toString().equals("onCreate")) {
-                                if (addJosAppsClient != null) {
-                                    int nodeEndLine = cu.getLineNumber(
-                                        node.getStartPosition() + node.getLength());
-                                    DefectInstance addMethoddefectInstance = createDefectInstance(buggyFilePath,
-                                        -(nodeEndLine + 1), null, addJosAppsClient.getNewContent());
-                                    addMethoddefectInstance.setMessage(addJosAppsClient.getDesc());
-                                    addMethoddefectInstance.isFixed = true;
-                                    defectInstances.add(addMethoddefectInstance);
-                                }
-                                if (addImport != null) {
-                                    DefectInstance addImportdefectInstance = createDefectInstance(buggyFilePath,
-                                        -(nodeDes.get(nodeDes.size() - 1).getEndLine() + 1), null,
-                                        addImport.getNewContent());
-                                    addImportdefectInstance.setMessage(addImport.getDesc());
-                                    addImportdefectInstance.isFixed = true;
-                                    defectInstances.add(addImportdefectInstance);
-                                }
-                            }
-                            return super.visit(node);
-                        }
-                    });
+                    method.getBody()
+                            .accept(
+                                    new ASTVisitor() {
+                                        @Override
+                                        public boolean visit(SuperMethodInvocation node) {
+                                            if ("onCreate".equals(node.getName().toString())) {
+                                                if (addJosAppsClient != null) {
+                                                    int nodeEndLine =
+                                                            cu.getLineNumber(
+                                                                    node.getStartPosition() + node.getLength());
+                                                    DefectInstance addMethoddefectInstance =
+                                                            createDefectInstance(
+                                                                    buggyFilePath,
+                                                                    -(nodeEndLine + 1),
+                                                                    null,
+                                                                    addJosAppsClient.getNewContent());
+                                                    addMethoddefectInstance.setMessage(addJosAppsClient.getDesc());
+                                                    addMethoddefectInstance.isFixed = true;
+                                                    defectInstances.add(addMethoddefectInstance);
+                                                }
+                                                if (addImport != null) {
+                                                    DefectInstance addImportdefectInstance =
+                                                            createDefectInstance(
+                                                                    buggyFilePath,
+                                                                    -(nodeDes.get(nodeDes.size() - 1).getEndLine() + 1),
+                                                                    null,
+                                                                    addImport.getNewContent());
+                                                    addImportdefectInstance.setMessage(addImport.getDesc());
+                                                    addImportdefectInstance.isFixed = true;
+                                                    defectInstances.add(addImportdefectInstance);
+                                                }
+                                            }
+
+                                            return super.visit(node);
+                                        }
+                                    });
                 }
             }
         }
+        removeIgnoreBlocks(defectInstances, javaFile.shielder);
         return defectInstances;
-    }
-
-    private void setNodeDes(List<NodeDescription> nodeDes, JavaFile javaFile, CompilationUnit cu) {
-        for (Object im : cu.imports()) {
-            if (im instanceof ImportDeclaration) {
-                ImportDeclaration imd = (ImportDeclaration) im;
-                NodeDescription nodeDescription = new NodeDescription();
-                nodeDescription.setNodeType("import");
-                nodeDescription.setNodeContent("import " + imd.getName().toString() + ";");
-                nodeDescription.setStartLine(javaFile.compilationUnit.getLineNumber(imd.getStartPosition()));
-                nodeDescription.setEndLine(
-                    javaFile.compilationUnit.getLineNumber(imd.getStartPosition() + imd.getLength()));
-                nodeDes.add(nodeDescription);
-            }
-        }
     }
 
     /**
      * judege target function declaration
+     *
+     * @param funcName target function name
+     * @return determine whether it is target function declaration
      */
     public static Boolean isTargetFunctionDeclaration(String funcName) {
-        if (funcName.equals("onCreate")) {
+        if ("onCreate".equals(funcName)) {
             return true;
         } else {
             return false;
@@ -139,7 +148,7 @@ public class ComplexSpecificModificationChanger extends SpecificModificationChan
         if (params.size() == 1) {
             if (params.get(0) instanceof SingleVariableDeclaration) {
                 SingleVariableDeclaration declarationParam = (SingleVariableDeclaration) params.get(0);
-                if (declarationParam.getType().toString().equals("Bundle")) {
+                if ("Bundle".equals(declarationParam.getType().toString())) {
                     return true;
                 }
             }

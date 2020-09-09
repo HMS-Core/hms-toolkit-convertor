@@ -67,7 +67,7 @@ public class LazyFixChanger extends LazyFixer {
                     }
                 }
                 // If it is a 2 to 1 conversion, one line will be recognized as an empty ""
-                if (finalFixLine.toString().equals("")) {
+                if ("".equals(finalFixLine.toString())) {
                     finalFixLine.append("  ");
                 }
                 // If a conversion is performed and it is proven to start with LineBreak,the first LineBreak is removed

@@ -54,14 +54,14 @@ public class ReplacedMethod extends MethodChangePattern {
     /**
      * @return qualified name of class to which the old method belongs
      */
-    String findClassFromOldMethod() {
+    public String findClassFromOldMethod() {
         return findClassFromMethod(getOldMethodName());
     }
 
     /**
      * @return qualified name of class to which the new method belongs
      */
-    String findClassFromNewMethod() {
+    public String findClassFromNewMethod() {
         return findClassFromMethod(getNewMethodName());
     }
 

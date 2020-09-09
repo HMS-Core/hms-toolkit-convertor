@@ -22,6 +22,7 @@ import com.huawei.codebot.analyzer.x2y.global.service.InheritanceService;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * A matcher used to match field that need to be renamed
@@ -46,7 +47,7 @@ public class FieldRenameMatcher extends FieldMatcher {
                 FieldName newFieldName = new FieldName(newFullName);
                 return new FieldChangePattern(oldFieldName, newFieldName);
             } else {
-                List<TypeInfo> superClassAndInterface = InheritanceService.getAllSuperClassesAndInterfaces(qualifier);
+                Set<TypeInfo> superClassAndInterface = InheritanceService.getAllSuperClassesAndInterfaces(qualifier);
                 for (TypeInfo superClass : superClassAndInterface) {
                     sb.setLength(0);
                     sb.append(superClass.getQualifiedName()).append(".").append(simpleName);

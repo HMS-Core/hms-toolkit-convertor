@@ -16,6 +16,8 @@
 
 package com.huawei.codebot.codeparsing.kotlin;
 
+import com.huawei.codebot.codeparsing.CodeFileUtils;
+import com.huawei.codebot.codeparsing.Shielder;
 import com.huawei.codebot.framework.parser.kotlin.KotlinLexer;
 import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
 import com.huawei.codebot.utils.FileUtils;
@@ -24,7 +26,6 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -70,6 +71,11 @@ public class KotlinFile {
      */
     public ParseTree tree;
 
+    /**
+     * ignore code blocks
+     */
+    public Shielder shielder;
+
     public KotlinFile(String filePath) {
         this.filePath = filePath;
         this.name = filePath.substring(filePath.lastIndexOf("/") + 1, filePath.lastIndexOf("."));
@@ -77,12 +83,13 @@ public class KotlinFile {
             this.fileContent = FileUtils.getFileContent(filePath);
             this.lineBreak = StringUtil.getLineBreak(this.fileContent);
             this.fileLines = FileUtils.cutStringToList(this.fileContent);
+            this.shielder = new Shielder(this.fileLines);
             KotlinLexer kotlinLexer = new KotlinLexer(CharStreams.fromStream(new FileInputStream(filePath)));
             CommonTokenStream commonTokenStream = new CommonTokenStream(kotlinLexer);
             KotlinParser kotlinParser = new KotlinParser(commonTokenStream);
             this.tree = kotlinParser.kotlinFile();
         } catch (IOException e) {
-            LOGGER.error(ExceptionUtils.getStackTrace(e));
+            LOGGER.error("An exception occurred during the processing:", e);
         }
     }
 
@@ -96,24 +103,8 @@ public class KotlinFile {
         int endLineNumber = ctx.getStop().getLine();
         int endColumnNumber = ctx.getStop().getCharPositionInLine() + ctx.getStop().getText().length();
 
-        if (startLineNumber == endLineNumber) {
-            return fileLines.get(startLineNumber - 1).substring(startColumnNumber, endColumnNumber);
-        }
-
-        List<String> lines = fileLines.subList(startLineNumber, endLineNumber - 1);
-        String startLine = fileLines.get(startLineNumber - 1).substring(startColumnNumber);
-        String endLine = fileLines.get(endLineNumber - 1).substring(0, endColumnNumber);
-
-        StringBuilder buffer = new StringBuilder();
-        buffer.append(startLine);
-        String lineSeparator = StringUtil.getLineBreak(fileContent);
-        buffer.append(lineSeparator);
-        if (!lines.isEmpty()) {
-            buffer.append(String.join(lineSeparator, lines));
-            buffer.append(lineSeparator);
-        }
-        buffer.append(endLine);
-        return buffer.toString();
+        return CodeFileUtils.getRawSignature(startLineNumber, startColumnNumber, endLineNumber, endColumnNumber,
+                fileLines, fileContent);
     }
 
     public String getName() {

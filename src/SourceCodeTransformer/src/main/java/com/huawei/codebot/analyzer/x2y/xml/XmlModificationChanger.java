@@ -16,6 +16,7 @@
 
 package com.huawei.codebot.analyzer.x2y.xml;
 
+import com.huawei.codebot.analyzer.x2y.global.GlobalSettings;
 import com.huawei.codebot.analyzer.x2y.io.config.ConfigService;
 import com.huawei.codebot.framework.DefectFixerType;
 import com.huawei.codebot.framework.FixerInfo;
@@ -23,9 +24,12 @@ import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.x2y.AndroidAppFixer;
 import com.huawei.codebot.utils.FileUtils;
-
+import com.huawei.codebot.utils.StringUtil;
 import com.google.common.base.Throwables;
-
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentFactory;
@@ -39,11 +43,12 @@ import org.xml.sax.helpers.LocatorImpl;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
+import java.util.Stack;
 
 /**
  * Changer for XML files. There are usually two type of modification --- CommonOperation and LayoutOperation.
@@ -56,11 +61,28 @@ public class XmlModificationChanger extends AndroidAppFixer {
      * AndroidManifest file path.
      */
     public static final String MANIFEST_PATH = "src" + File.separator + "main" + File.separator + "AndroidManifest.xml";
+
+    /**
+     * RemoteConfig resource node info
+     */
+    private static final String DEFAULTS_MAP_START_NODE = "<defaultsMap>";
+    private static final String DEFAULTS_MAP_END_NODE = "</defaultsMap>";
+    private static final String ENTRY_START_NODE = "<entry>";
+    private static final String ENTRY_END_NODE = "</entry>";
+    private static final String KEY_START_NODE = "<key>";
+    private static final String KEY_END_NODE = "</key>";
+    private static final String VALUE_START_NODE = "<value>";
+    private static final String VALUE_END_NODE = "</value>";
+
     /**
      * General XML file path.
      */
     public static final String XML_PATH =
             "src" + File.separator + "main" + File.separator + "res" + File.separator + "layout";
+    /**
+     * Strings XML file path.
+     */
+    public static final String STRINGS_PATH = "src" + File.separator + "main" + File.separator + "res" + File.separator + "values" + File.separator + "strings.xml";
     /**
      * Pattern for CommonOperation.
      */
@@ -73,6 +95,18 @@ public class XmlModificationChanger extends AndroidAppFixer {
      * Pattern for LayoutOperation.
      */
     protected Map<String, LayoutOperation> layoutOperationJsonTargets = new HashMap<>();
+    /**
+     * Pattern for LayoutAtrributeOperation.
+     */
+    protected Map<String, List<LayoutAtrributeOperation>> layoutAtrributeOperationJsonTargets = new HashMap<>();
+    /**
+     * Pattern for LayoutAtrrValueOperation.
+     */
+    protected Map<String, List<LayoutAtrrValueOperation>> layoutAtrrValueOperationJsonTargets = new HashMap<>();
+    /**
+     * the desc of 'RemoteConfig' resource file conversion
+     */
+    protected String specialConversionResourceDesc;
 
     public XmlModificationChanger(String fixerType) throws CodeBotRuntimeException {
         ConfigService configService = ConfigService.getInstance(fixerType);
@@ -94,6 +128,9 @@ public class XmlModificationChanger extends AndroidAppFixer {
             xmlChangerJsonTargets = xmlJsonPattern.getXmlChangerJsonTargets();
             xmlChangerCategoryJsonTargets = xmlJsonPattern.getXmlChangerCategoryJsonTargets();
             layoutOperationJsonTargets = xmlJsonPattern.getLayoutOperationJsonTargets();
+            layoutAtrributeOperationJsonTargets = xmlJsonPattern.getLayoutAtrributeOperationJsonTargets();
+            layoutAtrrValueOperationJsonTargets = xmlJsonPattern.getLayoutAtrrValueOperationJsonTargets();
+            specialConversionResourceDesc = xmlJsonPattern.getSpecialConversionResourceDesc();
         }
         this.basicFormatAfterFix = true;
     }
@@ -106,7 +143,7 @@ public class XmlModificationChanger extends AndroidAppFixer {
                 List<String> fileContent =
                         FileUtils.getOriginalFileLines(buggyFilePath, FileUtils.detectCharset(buggyFilePath));
                 // XML annotations.
-                List<String> annotations = XmlEntitiesAnalyzer.getTargetBasedOnRegex(fileContent, "<!--(\\s|.)*?-->");
+                List<String> annotations = XmlEntitiesAnalyzer.getXmlCommentLines(fileContent);
 
                 // Get the root node of the XML tree.
                 Locator locator = new LocatorImpl();
@@ -124,32 +161,32 @@ public class XmlModificationChanger extends AndroidAppFixer {
 
                 // Get the original content of each label based on text analysis
                 List<LabelType> analyzedBranchLabels = LabelType.getBranchLabels();
-                Map<String, XmlEntity> allLabelContents = new HashMap<>();
+                List<LabelType> analyzedLeafLabels = LabelType.getLeafLabels();
+                analyzedBranchLabels.addAll(analyzedLeafLabels);
+                XmlEntitiesAnalyzer xmlEntitiesAnalyzer = new XmlEntitiesAnalyzer(fileContent, annotations);
+                Map<String, XmlEntity> allLabelContents = xmlEntitiesAnalyzer.getLabelContents(root);
+
+                // group by each label
                 Map<LabelType, Map<String, XmlEntity>> labelTypeContents = new HashMap<>();
                 for (LabelType labelType : analyzedBranchLabels) {
-                    XmlEntitiesAnalyzer xmlEntitiesAnalyzer =
-                            new XmlEntitiesAnalyzer(fileContent, annotations, labelType, null);
-                    Map<String, XmlEntity> labelContent = xmlEntitiesAnalyzer.getLabelContents();
-                    labelTypeContents.put(labelType, labelContent);
-                    allLabelContents.putAll(labelContent);
+                    Map<String, XmlEntity> currentLabelMap = new HashMap<>();
+                    for (Map.Entry<String, XmlEntity> entry : allLabelContents.entrySet()) {
+                        if (entry.getKey().startsWith(labelType.toString())) {
+                            currentLabelMap.put(entry.getKey(), entry.getValue());
+                        }
+                    }
+                    labelTypeContents.put(labelType, currentLabelMap);
                 }
-
-                List<LabelType> analyzedLeafLabels = LabelType.getLeafLabels();
-                for (LabelType labelType : analyzedLeafLabels) {
-                    XmlEntitiesAnalyzer xmlEntitiesAnalyzer =
-                            new XmlEntitiesAnalyzer(fileContent, annotations, labelType, allLabelContents);
-                    Map<String, XmlEntity> labelContent = xmlEntitiesAnalyzer.getLabelContents();
-                    labelTypeContents.put(labelType, labelContent);
-                    allLabelContents.putAll(labelContent);
-                }
-
+                // handle manifest and application label
                 List<LabelType> specificLabels = LabelType.getPositionLabels();
-
                 Map<LabelType, Map<String, XmlEntity>> specificTypeLabelPositionInfo = new HashMap<>();
                 for (LabelType labelType : specificLabels) {
-                    XmlEntitiesAnalyzer xmlEntitiesAnalyzer =
-                            new XmlEntitiesAnalyzer(fileContent, annotations, labelType, null);
-                    Map<String, XmlEntity> labelStartContent = xmlEntitiesAnalyzer.getStartLabelContents();
+                    Map<String, XmlEntity> labelStartContent = new HashMap<>();
+                    for (Map.Entry<String, XmlEntity> entry : allLabelContents.entrySet()) {
+                        if (entry.getKey().contains(labelType.toString())) {
+                            labelStartContent.put(entry.getKey(), entry.getValue());
+                        }
+                    }
                     specificTypeLabelPositionInfo.put(labelType, labelStartContent);
                 }
                 // Traverse XML tree, do delete and modify operations
@@ -160,13 +197,140 @@ public class XmlModificationChanger extends AndroidAppFixer {
                 return defectInstances;
             } catch (IOException | DocumentException e) {
                 return null;
+            } catch (Exception e) {
+                LOGGER.error("XML File should be format!", e);
+                return null;
+            }
+        } else {
+            boolean otherXmlFlag = true;
+            if (otherXmlFlag && (buggyFilePath.contains(XML_PATH)) || buggyFilePath.contains(STRINGS_PATH)) {
+                generateGenericXmlDefectInstance(buggyFilePath, defectInstances);
+                return defectInstances;
+            } else {
+                // Only for G2H
+                if (StringUtils.isNotEmpty(specialConversionResourceDesc)) {
+                    List<DefectInstance> agcDefectInstances = generateAgcDefectInstance(buggyFilePath);
+                    if (CollectionUtils.isNotEmpty(agcDefectInstances)) {
+                        return agcDefectInstances;
+                    }
+                }
+                return null;
             }
         }
-        if (buggyFilePath.contains(XML_PATH)) {
-            generateGenericXmlDefectInstance(buggyFilePath, defectInstances);
-            return defectInstances;
+    }
+
+    /**
+     * Special handling of AGC resource files
+     *
+     * @param buggyFilePath buggy file path
+     * @return defectInstance list
+     */
+    private List<DefectInstance> generateAgcDefectInstance(String buggyFilePath) {
+        if (StringUtils.isEmpty(buggyFilePath)) {
+            return null;
         }
-        return null;
+        Stack<String> fileStack = new Stack<>();
+        Stack<String> entry = new Stack<>();
+        List<String> resultFileContent = new ArrayList<>();
+        List<DefectInstance> result = new ArrayList<>();
+        int startLine = 0;
+        try {
+            String fileContent = FileUtils.getFileContent(buggyFilePath);
+            List<String> fileContents = FileUtils.getOriginalFileLines(buggyFilePath,
+                    FileUtils.detectCharset(buggyFilePath));
+
+            for (int i = 0; i < fileContents.size(); i++) {
+                if (fileContents.get(i).contains(DEFAULTS_MAP_START_NODE)) {
+                    // Add start defectInstance
+                    resultFileContent
+                            .add(reformatFixedString(fileContents.get(i).replace(DEFAULTS_MAP_START_NODE, "<resources>")));
+                    startLine = i;
+                }
+                if (fileContents.get(i).contains(DEFAULTS_MAP_END_NODE)) {
+                    // Completed the end line of the deleted defectInstance
+                    StringBuffer resultBuffer = new StringBuffer();
+                    StringBuffer fileBuffer = new StringBuffer();
+                    String lineBreak = StringUtil.getLineBreak(fileContent);
+
+                    for (int j = startLine; j < i; j++) {
+                        fileBuffer.append(fileContents.get(j));
+                    }
+                    fileBuffer.append(reformatFixedString(fileContents.get(i)));
+
+                    for (String row : resultFileContent) {
+                        resultBuffer.append(row).append(lineBreak);
+                    }
+                    resultBuffer.append(reformatFixedString(fileContents.get(i).replace(DEFAULTS_MAP_END_NODE, "</resources>")));
+                    // Replace the resource
+                    DefectInstance changeDefectInstance = createDefectInstance(buggyFilePath, startLine + 1,
+                            fileBuffer.toString(), resultBuffer.toString());
+                    changeDefectInstance.setMessage(specialConversionResourceDesc);
+                    result.add(changeDefectInstance);
+                    return result;
+                }
+                if (fileContents.get(i).contains(ENTRY_END_NODE)) {
+                    entry.clear();
+                    String nextRow;
+                    do {
+                        nextRow = fileStack.pop();
+                        entry.push(nextRow);
+                    } while (!fileStack.isEmpty() && !nextRow.contains(ENTRY_START_NODE));
+                    if (CollectionUtils.isEmpty(entry)) {
+                        continue;
+                    }
+                    resultFileContent.add(generateEntry(entry));
+                    continue;
+                }
+                fileStack.push(fileContents.get(i));
+            }
+        } catch (IOException e) {
+            logger.error(Throwables.getStackTraceAsString(e));
+        }
+        return result;
+    }
+
+    private String generateEntry(Stack<String> entry) {
+        List<String> keyNode = new ArrayList<>();
+        List<String> valueNode = new ArrayList<>();
+        String key = "";
+        String value = "";
+        do {
+            String nextRow = entry.pop();
+            if (nextRow.contains(KEY_START_NODE)) {
+                while (!entry.isEmpty() && !nextRow.contains(KEY_END_NODE)) {
+                    keyNode.add(nextRow);
+                    nextRow = entry.pop();
+                }
+                keyNode.add(nextRow);
+                key = getStringFromXml(keyNode, KEY_START_NODE, KEY_END_NODE);
+            } else if (nextRow.contains(VALUE_START_NODE)) {
+                while (!entry.isEmpty() && !nextRow.contains(VALUE_END_NODE)) {
+                    valueNode.add(nextRow);
+                    nextRow = entry.pop();
+                }
+                valueNode.add(nextRow);
+                value = getStringFromXml(valueNode, VALUE_START_NODE, VALUE_END_NODE);
+            }
+
+        } while (!entry.isEmpty());
+        return "    <value key=\"" + key + "\">" + value + "</value>";
+    }
+
+    private String getStringFromXml(List<String> keyNode, String startNode, String endNode) {
+        if (keyNode.size() == 1) {
+            String key = keyNode.get(0);
+            int start = key.indexOf(startNode);
+            int end = key.indexOf(endNode);
+            return key.substring(start + startNode.length(), end).trim();
+        } else {
+            for (int i = 0; i < keyNode.size(); i++) {
+                String key = keyNode.get(i);
+                if (StringUtils.isNotEmpty(key) && !key.contains(startNode) && !key.contains(endNode)) {
+                    return key.trim();
+                }
+            }
+        }
+        return "";
     }
 
     private void generateGenericXmlDefectInstance(String buggyFilePath, List<DefectInstance> defectInstances) {
@@ -176,27 +340,71 @@ public class XmlModificationChanger extends AndroidAppFixer {
         } catch (IOException e) {
             LOGGER.error(Throwables.getStackTraceAsString(e));
         }
-        if (codeContent == null) {
-            return;
-        }
-        List<String> lines = FileUtils.cutStringToList(codeContent);
-        for (Entry<String, LayoutOperation> entry : layoutOperationJsonTargets.entrySet()) {
-            String oldClassName = entry.getKey();
-            String newClassName = entry.getValue().newClassName;
+        if (codeContent != null) {
+            List<String> lines = FileUtils.cutStringToList(codeContent);
             for (int i = 0; i < lines.size(); i++) {
                 String line = lines.get(i);
-                if (line == null || line.trim().startsWith("<!--") || line.trim().endsWith("-->")) {
-                    continue;
+                for (Entry<String, LayoutOperation> entry : layoutOperationJsonTargets.entrySet()) {
+                    String oldClassName = entry.getKey();
+                    String newClassName = entry.getValue().newClassName;
+                    if (line != null && !line.trim().startsWith("<!--") && !line.trim().endsWith("-->")) {
+                        if (line.contains(oldClassName)) {
+                            String fixedLine = line.replace(oldClassName, newClassName);
+                            int startLineNumber = i + 1;
+                            DefectInstance defectInstance = createDefectInstance(buggyFilePath, startLineNumber, line,
+                                    fixedLine);
+                            defectInstance.setMessage(entry.getValue().desc);
+                            defectInstance.isFixed = true;
+                            defectInstances.add(defectInstance);
+                            // Replace signinbutton and signinbutton tag properties according to rules
+                            if (layoutAtrributeOperationJsonTargets.get(oldClassName) != null) {
+                                generateGenericXmlDefectInstanceBySignInButton(buggyFilePath, defectInstances,
+                                        oldClassName, i, lines);
+                            }
+                        }
+                    }
                 }
-                if (line.contains(oldClassName)) {
-                    String fixedLine = line.replace(oldClassName, newClassName);
+            }
+        }
+    }
+
+    private void generateGenericXmlDefectInstanceBySignInButton(String buggyFilePath,
+            List<DefectInstance> defectInstances, String oldClassName, int lineNumber, List<String> lines) {
+        List<LayoutAtrributeOperation> layoutAtrributeOperationList = layoutAtrributeOperationJsonTargets
+                .get(oldClassName);
+        List<LayoutAtrrValueOperation> layoutAtrrValueOperationList = layoutAtrrValueOperationJsonTargets
+                .get(oldClassName);
+        for (int i = lineNumber; i < lines.size(); i++) {
+            String line = lines.get(i);
+            if (line == null || line.trim().startsWith("<!--") || line.trim().endsWith("-->")) {
+                continue;
+            }
+            outterLoop: for (LayoutAtrributeOperation layoutAtrribute : layoutAtrributeOperationList) {
+                for (LayoutAtrrValueOperation layoutAtrrValue : layoutAtrrValueOperationList) {
+                    if (!line.contains(layoutAtrribute.oldAtrributeName)
+                            || !line.contains(layoutAtrrValue.oldAtrrValue)) {
+                        continue;
+                    }
+                    String atrributeNameFixedLine = line.replace(layoutAtrribute.oldAtrributeName,
+                            layoutAtrribute.newAtrributeName);
+                    String atrrValueFixedLine = atrributeNameFixedLine.replace(layoutAtrrValue.oldAtrrValue,
+                            layoutAtrrValue.newAtrrValue);
                     int startLineNumber = i + 1;
-                    DefectInstance defectInstance = createDefectInstance(buggyFilePath, startLineNumber, line,
-                            fixedLine);
-                    defectInstance.setMessage(entry.getValue().desc);
-                    defectInstance.isFixed = true;
-                    defectInstances.add(defectInstance);
+                    DefectInstance atrributeNameDefectInstance = createDefectInstance(buggyFilePath, startLineNumber,
+                            line, atrributeNameFixedLine);
+                    atrributeNameDefectInstance.setMessage(layoutAtrribute.desc);
+                    atrributeNameDefectInstance.isFixed = true;
+                    defectInstances.add(atrributeNameDefectInstance);
+                    DefectInstance atrrValueDefectInstance = createDefectInstance(buggyFilePath, startLineNumber, line,
+                            atrrValueFixedLine);
+                    atrrValueDefectInstance.setMessage(layoutAtrrValue.desc);
+                    atrrValueDefectInstance.isFixed = true;
+                    defectInstances.add(atrrValueDefectInstance);
+                    break outterLoop;
                 }
+            }
+            if (line.trim().endsWith(">")) {
+                break;
             }
         }
     }
@@ -217,23 +425,46 @@ public class XmlModificationChanger extends AndroidAppFixer {
         if (node == null) {
             return;
         }
-        if (node.getParent() != null && node.attribute("name") != null) {
+
+        if (node.getParent() != null) {
             String nodeName = node.getName();
-            String androidName = node.attribute("name").getValue();
-            if (node.getParent().getName().equals(LabelType.MANIFEST.toString())) {
-                if (nodeName.equals(LabelType.USES_PERMISSION.toString())
-                        || nodeName.equals(LabelType.PERMISSION.toString())) {
-                    deleteOperation(buggyFilePath, nodeName, androidName, labelContents, defectInstances);
-                    replaceOperation(buggyFilePath, nodeName, androidName, labelContents, defectInstances);
+            if (node.attribute("name") != null) {
+                String androidName = node.attribute("name").getValue();
+                if (node.getParent().getName().equals(LabelType.MANIFEST.toString())) {
+                    if (nodeName.equals(LabelType.USES_PERMISSION.toString())
+                            || nodeName.equals(LabelType.PERMISSION.toString())) {
+                        deleteOperation(buggyFilePath, nodeName, androidName, labelContents, defectInstances);
+                        replaceOperation(buggyFilePath, nodeName, androidName, labelContents, defectInstances);
+                    }
+                } else if (node.getParent().getName().equals(LabelType.APPLICATION.toString())) {
+                    if (nodeName.equals(LabelType.METADATA.toString())
+                            || nodeName.equals(LabelType.SERVICE.toString())
+                            || nodeName.equals(LabelType.ACTIVITY.toString())
+                            || nodeName.equals(LabelType.PROVIDER.toString())
+                            || nodeName.equals(LabelType.RECEIVER.toString())) {
+                        deleteOperation(buggyFilePath, nodeName, androidName, labelContents, defectInstances);
+                        replaceOperation(buggyFilePath, nodeName, androidName, labelContents, defectInstances);
+                        insertOperation(buggyFilePath, nodeName, androidName, labelContents, defectInstances);
+                    }
                 }
-            } else if (node.getParent().getName().equals(LabelType.APPLICATION.toString())) {
-                if (nodeName.equals(LabelType.METADATA.toString()) || nodeName.equals(LabelType.SERVICE.toString())
-                        || nodeName.equals(LabelType.ACTIVITY.toString())
-                        || nodeName.equals(LabelType.PROVIDER.toString())
-                        || nodeName.equals(LabelType.RECEIVER.toString())) {
-                    deleteOperation(buggyFilePath, nodeName, androidName, labelContents, defectInstances);
-                    replaceOperation(buggyFilePath, nodeName, androidName, labelContents, defectInstances);
-                    insertOperation(buggyFilePath, nodeName, androidName, labelContents, defectInstances);
+            } else if ("application".equals(nodeName)) {
+                if (!GlobalSettings.isHasApplication() && !GlobalSettings.isIsSDK()) {
+                    File xmlFile = new File(buggyFilePath);
+                    if (GlobalSettings.getMainModuleName().equals(xmlFile.getParentFile()
+                            .getParentFile().getParentFile().getName())) {
+                        XmlEntity xmlEntity = labelContents.get("applicationnull");
+                        DefectInstance defectInstance =
+                                createDefectInstance(
+                                        buggyFilePath,
+                                        -(xmlEntity.getLabelStartLine() + 1),
+                                        null,
+                                        "android:name=\".MyApp\"");
+
+                        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+                        defectInstance.setMessage(gson.toJson(getMessage()));
+                        defectInstance.isFixed = true;
+                        defectInstances.add(defectInstance);
+                    }
                 }
             }
         }
@@ -243,6 +474,23 @@ public class XmlModificationChanger extends AndroidAppFixer {
         }
     }
 
+    private Map<String, Object> getMessage() {
+        Map<String, Object> message = new HashMap<>();
+        message.put("fieldName", "");
+        message.put("hmsVersion", "");
+        message.put("dependencyName", "Common");
+        message.put("kit", "Common");
+        message.put("text", "Generate new class MyApp inheriting android.app.Application");
+        message.put("support", true);
+        message.put("url", "");
+        message.put("type", "");
+        message.put("gmsVersion", "");
+        message.put("status", "AUTO");
+        message.put("extraPath", String.join("#",
+                Collections.singleton(GlobalSettings.getAppFilePath())));
+        return message;
+    }
+
     /**
      * Remove {@code content}'s line separator at tail.
      *
@@ -250,7 +498,7 @@ public class XmlModificationChanger extends AndroidAppFixer {
      * @return Formatted string.
      */
     public static String reformatFixedString(String content) {
-        if (content.length() > 1 && content.endsWith("\n")) {
+        if (StringUtils.isNotEmpty(content) && content.length() > 1 && content.endsWith("\n")) {
             return content.substring(0, content.length() - 1);
         } else {
             return content;
@@ -266,24 +514,24 @@ public class XmlModificationChanger extends AndroidAppFixer {
         String key = nodeName + androidName;
         CommonOperation commonOperation = xmlChangerJsonTargets.get(key);
         XmlEntity xmlEntity = labelContents.get(key);
-        if (commonOperation != null && xmlEntity != null && commonOperation.operation.equals("delete")) {
+        if (commonOperation != null && xmlEntity != null && "delete".equals(commonOperation.operation)) {
             DefectInstance defectInstance =
                     createWarningDefectInstance(
                             buggyFilePath,
-                            xmlEntity.labelStartLine,
-                            reformatFixedString(xmlEntity.labelContent),
+                            xmlEntity.getLabelStartLine(),
+                            reformatFixedString(xmlEntity.getLabelContent()),
                             commonOperation.desc);
             defectInstances.add(defectInstance);
         } else if (xmlEntity != null
                 && XmlEntitiesAnalyzer.getJsonTargetKey(nodeName, androidName, xmlChangerJsonTargets) != null) {
             String jsonKey = XmlEntitiesAnalyzer.getJsonTargetKey(nodeName, androidName, xmlChangerJsonTargets);
             CommonOperation newCommonOperation = xmlChangerJsonTargets.get(jsonKey);
-            if (newCommonOperation != null && newCommonOperation.operation.equals("delete")) {
+            if (newCommonOperation != null && "delete".equals(newCommonOperation.operation)) {
                 DefectInstance defectInstance =
                         createWarningDefectInstance(
                                 buggyFilePath,
-                                xmlEntity.labelStartLine,
-                                reformatFixedString(xmlEntity.labelContent),
+                                xmlEntity.getLabelStartLine(),
+                                reformatFixedString(xmlEntity.getLabelContent()),
                                 newCommonOperation.desc);
                 defectInstances.add(defectInstance);
             }
@@ -299,31 +547,32 @@ public class XmlModificationChanger extends AndroidAppFixer {
         String key = nodeName + androidName;
         CommonOperation commonOperation = xmlChangerJsonTargets.get(key);
         XmlEntity xmlEntity = labelContents.get(key);
-        String jsonKey = XmlEntitiesAnalyzer.getJsonTargetKey(nodeName, androidName, xmlChangerJsonTargets);
-        if (xmlEntity == null) {
-            return;
-        }
-        if (commonOperation != null && commonOperation.operation.equals("replace")) {
+        if (commonOperation != null && xmlEntity != null && "replace".equals(commonOperation.operation)) {
             DefectInstance defectInstance;
-            String fixedLineContent;
             if (nodeName.equals(LabelType.METADATA.toString())) {
-                fixedLineContent = reformatFixedString(xmlEntity.labelContent).replace(androidName,
-                        commonOperation.newContent);
+                defectInstance =
+                        createDefectInstance(
+                                buggyFilePath,
+                                xmlEntity.getLabelStartLine(),
+                                reformatFixedString(xmlEntity.getLabelContent()),
+                                reformatFixedString(xmlEntity.getLabelContent())
+                                        .replace(androidName, commonOperation.newContent));
             } else {
-                fixedLineContent = reformatFixedString(commonOperation.newContent);
+                defectInstance =
+                        createDefectInstance(
+                                buggyFilePath,
+                                xmlEntity.getLabelStartLine(),
+                                reformatFixedString(xmlEntity.getLabelContent()),
+                                reformatFixedString(commonOperation.newContent));
             }
-            defectInstance =
-                    createDefectInstance(
-                            buggyFilePath,
-                            xmlEntity.labelStartLine,
-                            reformatFixedString(xmlEntity.labelContent),
-                            fixedLineContent);
             defectInstance.setMessage(commonOperation.desc);
             defectInstance.isFixed = true;
             defectInstances.add(defectInstance);
-        } else if (jsonKey != null) {
+        } else if (xmlEntity != null
+                && XmlEntitiesAnalyzer.getJsonTargetKey(nodeName, androidName, xmlChangerJsonTargets) != null) {
+            String jsonKey = XmlEntitiesAnalyzer.getJsonTargetKey(nodeName, androidName, xmlChangerJsonTargets);
             CommonOperation newCommonOperation = xmlChangerJsonTargets.get(jsonKey);
-            if (newCommonOperation != null && newCommonOperation.operation.equals("replace")) {
+            if (newCommonOperation != null && "replace".equals(newCommonOperation.operation)) {
                 String newContent;
                 if (newCommonOperation.newContent.contains("%subclass")) {
                     newContent = newCommonOperation.newContent.replaceFirst("%subclass", androidName);
@@ -333,8 +582,8 @@ public class XmlModificationChanger extends AndroidAppFixer {
                 DefectInstance defectInstance =
                         createDefectInstance(
                                 buggyFilePath,
-                                xmlEntity.labelStartLine,
-                                reformatFixedString(xmlEntity.labelContent),
+                                xmlEntity.getLabelStartLine(),
+                                reformatFixedString(xmlEntity.getLabelContent()),
                                 newContent);
                 defectInstance.setMessage(newCommonOperation.desc);
                 defectInstance.isFixed = true;
@@ -352,13 +601,13 @@ public class XmlModificationChanger extends AndroidAppFixer {
         String key = nodeName + androidName;
         CommonOperation commonOperation = xmlChangerJsonTargets.get(key);
         XmlEntity xmlEntity = labelContents.get(key);
-        if (commonOperation != null && xmlEntity != null && commonOperation.operation.equals("insert")) {
+        if (commonOperation != null && xmlEntity != null && "insert".equals(commonOperation.operation)) {
             DefectInstance defectInstance =
                     createDefectInstance(
                             buggyFilePath,
-                            -(xmlEntity.labelStartLine),
+                            -(xmlEntity.getLabelStartLine()),
                             null,
-                            reformatFixedString(xmlEntity.labelContent)
+                            reformatFixedString(xmlEntity.getLabelContent())
                                     .replace(androidName, commonOperation.newContent));
             defectInstance.setMessage(commonOperation.desc);
             defectInstance.isFixed = true;
@@ -381,44 +630,43 @@ public class XmlModificationChanger extends AndroidAppFixer {
             StringBuilder addContents = new StringBuilder();
             StringBuilder addHints = new StringBuilder();
             extractAddingContents(jsonTargets, labelNodes, addContents, addHints);
-            if (addContents.length() <= 0) {
-                continue;
-            }
-            if (labelType.equals(LabelType.USES_PERMISSION) || labelType.equals(LabelType.PERMISSION)) {
-                // Add after "manifest" label.
-                XmlEntity headXmlEntity =
-                        XmlModificationChanger.getHead(
-                                specificLabelPositionInfo.get(LabelType.MANIFEST))
-                                .getValue();
-                DefectInstance defectInstance =
-                        createDefectInstance(
-                                buggyFilePath,
-                                -(headXmlEntity.labelStartLinesEndPosition + 1),
-                                null,
-                                addContents.toString());
-                defectInstance.setMessage(addHints.toString());
-                defectInstance.isFixed = true;
-                defectInstances.add(defectInstance);
+            if (addContents.length() > 0) {
+                if (labelType.equals(LabelType.USES_PERMISSION) || labelType.equals(LabelType.PERMISSION)) {
+                    // Add after "manifest" label.
+                    XmlEntity headXmlEntity =
+                            XmlModificationChanger.getHead(
+                                    specificLabelPositionInfo.get(LabelType.MANIFEST))
+                                    .getValue();
+                    DefectInstance defectInstance =
+                            createDefectInstance(
+                                    buggyFilePath,
+                                    -(headXmlEntity.getLabelStartLinesEndPosition() + 1),
+                                    null,
+                                    addContents.toString());
+                    defectInstance.setMessage(addHints.toString());
+                    defectInstance.isFixed = true;
+                    defectInstances.add(defectInstance);
 
-            } else if (labelType.equals(LabelType.METADATA)
-                    || labelType.equals(LabelType.SERVICE)
-                    || labelType.equals(LabelType.ACTIVITY)
-                    || labelType.equals(LabelType.PROVIDER)
-                    || labelType.equals(LabelType.RECEIVER)) {
-                // Add after "application" label.
-                XmlEntity headXmlEntity =
-                        XmlModificationChanger.getHead(
-                                specificLabelPositionInfo.get(LabelType.APPLICATION))
-                                .getValue();
-                DefectInstance defectInstance =
-                        createDefectInstance(
-                                buggyFilePath,
-                                -(headXmlEntity.labelStartLinesEndPosition + 1),
-                                null,
-                                addContents.toString());
-                defectInstance.setMessage(addHints.toString());
-                defectInstance.isFixed = true;
-                defectInstances.add(defectInstance);
+                } else if (labelType.equals(LabelType.METADATA)
+                        || labelType.equals(LabelType.SERVICE)
+                        || labelType.equals(LabelType.ACTIVITY)
+                        || labelType.equals(LabelType.PROVIDER)
+                        || labelType.equals(LabelType.RECEIVER)) {
+                    // Add after "application" label.
+                    XmlEntity headXmlEntity =
+                            XmlModificationChanger.getHead(
+                                    specificLabelPositionInfo.get(LabelType.APPLICATION))
+                                    .getValue();
+                    DefectInstance defectInstance =
+                            createDefectInstance(
+                                    buggyFilePath,
+                                    -(headXmlEntity.getLabelStartLinesEndPosition() + 1),
+                                    null,
+                                    addContents.toString());
+                    defectInstance.setMessage(addHints.toString());
+                    defectInstance.isFixed = true;
+                    defectInstances.add(defectInstance);
+                }
             }
         }
     }
@@ -431,7 +679,7 @@ public class XmlModificationChanger extends AndroidAppFixer {
         for (Entry<String, CommonOperation> entry : jsonTargets.entrySet()) {
             String key = entry.getKey();
             String operation = entry.getValue().operation;
-            if (operation.equals("add") && labelNodes.get(key) == null) {
+            if ("add".equals(operation) && labelNodes.get(key) == null) {
                 addContents.append(entry.getValue().newContent).append(System.lineSeparator());
                 addHints.append(entry.getValue().desc).append(",");
             }

@@ -18,8 +18,8 @@ package com.huawei.codebot.analyzer.x2y.io.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.StructAppDeleteInDependencies;
-import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.StructGradleHeadquarter;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.json.model.StructAppDeleteInDependencies;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.json.model.StructGradleHeadquarter;
 import com.huawei.codebot.analyzer.x2y.java.other.complexchanger.FixAction;
 import com.huawei.codebot.analyzer.x2y.xml.CommonOperation;
 import com.huawei.codebot.analyzer.x2y.xml.LabelType;
@@ -28,6 +28,7 @@ import com.huawei.codebot.framework.AbstractJSONConfig;
 import com.huawei.codebot.framework.DefectFixerType;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.utils.JsonUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -81,9 +82,8 @@ class ComplexChangerJSONConfig extends AbstractJSONConfig {
                     continue;
                 }
                 if (jsonObjectTemp.get("deleteInDependenciesName") instanceof String) {
-                    addTemp.setDeleteClasspathInDependenciesName(jsonObjectTemp.getString("deleteInDependenciesName"));
-                    if (addTemp.getDeleteClasspathInDependenciesName() != null
-                            && !addTemp.getDeleteClasspathInDependenciesName().equals("")) {
+                    addTemp.setDeleteClasspathInDependenciesName((String) jsonObjectTemp.get("deleteInDependenciesName"));
+                    if (StringUtils.isNotEmpty(addTemp.getDeleteClasspathInDependenciesName())) {
                         addTemp.setDesc(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc")));
                         deleteInDependencies.add(addTemp);
                     }
@@ -118,12 +118,9 @@ class ComplexChangerJSONConfig extends AbstractJSONConfig {
                     commonOperationObject.newContent = operationObject.getString("newContent");
                     commonOperationObject.labelName = operationObject.getString("labelName");
                     commonOperationObject.desc = getDescription(operationObject, "desc");
-                    if (commonOperationObject.androidName == null
-                            || commonOperationObject.operation == null
-                            || commonOperationObject.labelName == null
-                            || commonOperationObject.androidName.trim().equals("")
-                            || commonOperationObject.operation.trim().equals("")
-                            || commonOperationObject.labelName.trim().equals("")) {
+                    if (StringUtils.isEmpty(commonOperationObject.androidName)
+                            || StringUtils.isEmpty(commonOperationObject.operation)
+                            || StringUtils.isEmpty(commonOperationObject.labelName)) {
                         continue;
                     }
                     String key = commonOperationObject.labelName + commonOperationObject.androidName;
@@ -159,12 +156,8 @@ class ComplexChangerJSONConfig extends AbstractJSONConfig {
                     fixAction.setNewContent(operationObject.getString("newContent"));
                     fixAction.setFixPosition(operationObject.getString("fixPosition"));
                     fixAction.setDesc(getDescription(operationObject, "desc"));
-                    if (fixAction.getFixType() == null
-                            || fixAction.getOperation() == null
-                            || fixAction.getFixPosition() == null
-                            || fixAction.getFixType().trim().equals("")
-                            || fixAction.getOperation().trim().equals("")
-                            || fixAction.getFixPosition().trim().equals("")) {
+                    if (StringUtils.isEmpty(fixAction.getFixType()) || StringUtils.isEmpty(fixAction.getOperation())
+                            || StringUtils.isEmpty(fixAction.getFixPosition())) {
                         continue;
                     }
                     String key = fixAction.getFixType() + fixAction.getOperation() + fixAction.getFixPosition();

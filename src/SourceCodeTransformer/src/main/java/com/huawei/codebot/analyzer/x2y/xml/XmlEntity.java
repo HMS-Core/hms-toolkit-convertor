@@ -25,31 +25,31 @@ public class XmlEntity {
     /**
      * XML label name.
      */
-    public String labelName = null;
+    private String labelName = null;
     /**
      * An identifier, usually is androidName property of label.
      */
-    public String nameIdentifier = null;
+    private String nameIdentifier = null;
     /**
      * The first line number of start label that this entity represents.
      */
-    public int labelStartLine = -1;
+    private int labelStartLine = -1;
     /**
      * The last line number of start label that this entity represents.
      */
-    public int labelStartLinesEndPosition = -1 ;
+    private int labelStartLinesEndPosition = -1 ;
     /**
      * Line number of close label.
      */
-    public int labelEndLine = -1;
+    private int labelEndLine = -1;
     /**
      * Content of this entity, include label itself.
      */
-    public String labelContent = null;
+    private String labelContent = null;
     /**
      * Parent of this entity.
      */
-    public String parentLabelName = null;
+    private String parentLabelName = null;
 
     public String getLabelContent() {
         return labelContent;

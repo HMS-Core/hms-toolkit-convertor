@@ -18,12 +18,15 @@ package com.huawei.codebot.analyzer.x2y.java.field;
 
 import com.huawei.codebot.analyzer.x2y.global.bean.TypeInfo;
 import com.huawei.codebot.analyzer.x2y.global.commonvisitor.JavaLocalVariablesInMethodVisitor;
+import com.huawei.codebot.analyzer.x2y.global.java.JavaASTUtils;
 import com.huawei.codebot.analyzer.x2y.global.java.JavaTypeInferencer;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.FieldAccess;
 import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.SimpleName;
+import org.eclipse.jdt.core.dom.SuperFieldAccess;
+import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 
 /**
@@ -45,12 +48,19 @@ public abstract class FieldMatcher {
      * @return a {@link FieldChangePattern} instance <b>or</b> {@code null} if did not match
      */
     public FieldChangePattern match(ASTNode node) {
+        // 1. Field access by object ref
         if (node instanceof FieldAccess) {
             return match((FieldAccess) node);
         }
+        // 2. Field access by super keyword
+        if (node instanceof SuperFieldAccess) {
+            return match((SuperFieldAccess) node);
+        }
+        // 3. Field access by qualified name (static field)
         if (node instanceof QualifiedName) {
             return match((QualifiedName) node);
         }
+        // 4. Field access by simple name (static field)
         if (node instanceof SimpleName) {
             return match((SimpleName) node);
         }
@@ -67,6 +77,20 @@ public abstract class FieldMatcher {
         TypeInfo qualifierTypeInfo = javaTypeInferencer.getExprType(node.getExpression());
         if (qualifierTypeInfo != null && qualifierTypeInfo.getQualifiedName() != null) {
             String qualifier = qualifierTypeInfo.getQualifiedName();
+            String simpleName = node.getName().getIdentifier();
+            return getFieldChangePattern(qualifier, simpleName);
+        }
+        return null;
+    }
+
+    private FieldChangePattern match(SuperFieldAccess node) {
+        TypeDeclaration ownerClassDeclaration = JavaASTUtils.getOwnerClassDeclaration(node);
+        if (ownerClassDeclaration == null) {
+            return null;
+        }
+        TypeInfo superClass = JavaASTUtils.getSuperClass(ownerClassDeclaration, null);
+        if (superClass != null && superClass.getQualifiedName() != null) {
+            String qualifier = superClass.getQualifiedName();
             String simpleName = node.getName().getIdentifier();
             return getFieldChangePattern(qualifier, simpleName);
         }

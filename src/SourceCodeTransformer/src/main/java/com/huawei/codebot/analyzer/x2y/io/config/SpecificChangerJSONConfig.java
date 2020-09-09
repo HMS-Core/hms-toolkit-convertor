@@ -24,6 +24,7 @@ import com.huawei.codebot.framework.AbstractJSONConfig;
 import com.huawei.codebot.framework.DefectFixerType;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.utils.JsonUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -94,7 +95,7 @@ class SpecificChangerJSONConfig extends AbstractJSONConfig {
                 if (replaceBuilderLabel.keySet().contains("desc")) {
                     replaceBuilderData.description = getDescription(replaceBuilderLabel, "desc");
                 }
-                if (replaceBuilderData.name == null || replaceBuilderData.name.equals("")) {
+                if (StringUtils.isEmpty(replaceBuilderData.name)) {
                     continue;
                 }
                 replacePatterns.add(replaceBuilderData);
@@ -109,7 +110,7 @@ class SpecificChangerJSONConfig extends AbstractJSONConfig {
         for (int i = 0; i < deleteClasses.length(); i++) {
             if (deleteClasses.get(i) instanceof JSONObject) {
                 JSONObject deleteLabel = (JSONObject) deleteClasses.get(i);
-                if (deleteLabel.getString(name) == null || deleteLabel.getString(name).equals("")) {
+                if (StringUtils.isEmpty(deleteLabel.getString(name))) {
                     continue;
                 }
                 deletePatterns.put(deleteLabel.getString(name), getDescription(deleteLabel, "desc"));

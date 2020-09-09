@@ -20,9 +20,8 @@ import com.huawei.codebot.analyzer.x2y.gradle.coditionalchanger.ConditionalChang
 import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.GradleModificationChanger;
 import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.GradleWarningChanger;
 import com.huawei.codebot.analyzer.x2y.java.clazz.rename.ClassRenameChanger;
-import com.huawei.codebot.analyzer.x2y.java.field.rename.FieldRenameChanger;
 import com.huawei.codebot.analyzer.x2y.java.lazyfix.LazyFixChanger;
-import com.huawei.codebot.analyzer.x2y.java.method.replace.MethodReplaceChanger;
+import com.huawei.codebot.analyzer.x2y.java.member.MemberReplaceChanger;
 import com.huawei.codebot.analyzer.x2y.java.other.complexchanger.ComplexStartupActivityChanger;
 import com.huawei.codebot.analyzer.x2y.java.other.specificchanger.SpecificModificationChanger;
 import com.huawei.codebot.analyzer.x2y.java.pkg.delete.PackageDeleteChanger;
@@ -48,8 +47,7 @@ public class G2HAutoChanger extends BaseAutoChanger {
         this.atomicFixers.add(new GradleModificationChanger(FIXER_TYPE_G2H));
         this.atomicFixers.add(new XmlModificationChanger(FIXER_TYPE_G2H));
         this.atomicFixers.add(new SpecificModificationChanger(FIXER_TYPE_G2H));
-        this.atomicFixers.add(new MethodReplaceChanger(FIXER_TYPE_G2H));
-        this.atomicFixers.add(new FieldRenameChanger(FIXER_TYPE_G2H));
+        this.atomicFixers.add(new MemberReplaceChanger(FIXER_TYPE_G2H));
         this.atomicFixers.add(new ClassRenameChanger(FIXER_TYPE_G2H));
         this.atomicFixers.add(new PackageRenameChanger(FIXER_TYPE_G2H));
         this.atomicFixers.add(new ReflectRenameChanger(FIXER_TYPE_G2H));

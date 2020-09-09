@@ -17,8 +17,10 @@
 package com.huawei.codebot.analyzer.x2y.java.method.replace;
 
 import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinFunctionCall;
+import com.huawei.codebot.analyzer.x2y.global.kotlin.KotlinTypeInferencer;
 import com.huawei.codebot.analyzer.x2y.io.config.ConfigService;
 import com.huawei.codebot.analyzer.x2y.java.RenameBaseChanger;
+import com.huawei.codebot.analyzer.x2y.java.member.MemberReplaceChanger;
 import com.huawei.codebot.analyzer.x2y.java.method.MethodChangePattern;
 import com.huawei.codebot.analyzer.x2y.java.method.MethodMatcher;
 import com.huawei.codebot.analyzer.x2y.java.visitor.JavaRenameBaseVisitor;
@@ -32,7 +34,6 @@ import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
-
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ImportDeclaration;
@@ -42,6 +43,7 @@ import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -51,7 +53,7 @@ import java.util.Map;
  * @since 2020-04-12
  */
 public class MethodReplaceChanger extends RenameBaseChanger {
-    private Map<String, List<MethodChangePattern>> changePatterns;
+    private final Map<String, List<MethodChangePattern>> changePatterns;
 
     public MethodReplaceChanger(String fixerType) throws CodeBotRuntimeException {
         ConfigService configService = ConfigService.getInstance(fixerType);
@@ -65,25 +67,31 @@ public class MethodReplaceChanger extends RenameBaseChanger {
 
         javaFile.compilationUnit.accept(visitor);
         List<DefectInstance> defectInstanceList =
-            generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
+                generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
         defectInstanceList.addAll(visitor.defectInstances);
+        removeIgnoreBlocks(defectInstanceList, javaFile.shielder);
         return defectInstanceList;
     }
 
-    private class MethodReplaceVisitor extends JavaRenameBaseVisitor {
-        private MethodMatcher matcher = new MethodMatcher(changePatterns, this);
+    /**
+     * inner Class MethodReplaceVisitor
+     * create a visitor to traverse all method nodes
+     */
+    public class MethodReplaceVisitor extends JavaRenameBaseVisitor {
+        private final MethodMatcher matcher = new MethodMatcher(changePatterns, this);
 
         protected MethodReplaceVisitor(JavaFile javaFile, RenameBaseChanger changer) {
             super(javaFile, changer);
         }
 
         @Override
-        // record ImportDeclaration as a mapping to determine whether this ImportDeclaration need to
-        // lazyChange
+        // record ImportDeclaration as a mapping to determine whether this ImportDeclaration need to lazyChange
         public boolean visit(ImportDeclaration importNode) {
             String importLine = importNode.getName().toString(); // android.util.Log
             int importLineNumber = javaFile.compilationUnit.getLineNumber(importNode.getStartPosition());
-            importName2LineNumber.put(importLine, importLineNumber);
+            if (!javaFile.shielder.shouldIgnore(importLineNumber)) {
+                importName2LineNumber.put(importLine, importLineNumber);
+            }
             return false;
         }
 
@@ -110,19 +118,19 @@ public class MethodReplaceChanger extends RenameBaseChanger {
             if (name != null) {
                 int startLineNumber = javaFile.compilationUnit.getLineNumber(name.getStartPosition());
                 int endLineNumber =
-                    javaFile.compilationUnit.getLineNumber(name.getStartPosition() + name.getLength());
+                        javaFile.compilationUnit.getLineNumber(name.getStartPosition() + name.getLength());
                 String buggyLine = String.join(javaFile.lineBreak,
-                    javaFile.fileLines.subList(startLineNumber - 1, endLineNumber));
+                        javaFile.fileLines.subList(startLineNumber - 1, endLineNumber));
                 String[] shortNames =
-                    getExistShortNames(
-                        buggyLine, matchedMethod.getOldMethodName(), matchedMethod.getNewMethodName());
+                        getExistShortNames(
+                                buggyLine, matchedMethod.getOldMethodName(), matchedMethod.getNewMethodName());
                 String oldShortName = shortNames[0];
                 String newShortName = shortNames[1];
                 String desc = matchedMethod.getDesc() == null ? null : gson.toJson(matchedMethod.getDesc());
                 if (newShortName.equals(oldShortName) || matchedMethod.getNewMethodName().contains("xms")) {
                     DefectInstance defectInstance =
-                        MethodReplaceChanger.this.createDefectInstance(
-                            javaFile.filePath, startLineNumber, buggyLine, buggyLine);
+                            MethodReplaceChanger.this.createDefectInstance(
+                                    javaFile.filePath, startLineNumber, buggyLine, buggyLine);
                     defectInstance.setMessage(desc);
                     defectInstance.isFixed = false;
                     defectInstance.status = FixStatus.NONEFIX.toString();
@@ -135,98 +143,65 @@ public class MethodReplaceChanger extends RenameBaseChanger {
                 }
                 if (needLazyChange(matchedMethod)) {
                     addLazyChange(
-                        importName2LineNumber, matchedMethod, javaFile.fileLines, javaFile.filePath, desc);
+                            importName2LineNumber, matchedMethod, javaFile.fileLines, javaFile.filePath, desc);
                 }
             }
         }
 
-        private void changeMethodName(
-            SimpleName name,
-            int startLineNumber,
-            String buggyLine,
-            String oldShortName,
-            String newShortName,
-            String desc) {
+        private void changeMethodName(SimpleName name, int startLineNumber, String buggyLine, String oldShortName, String newShortName, String desc) {
             String rawSignature = javaFile.getRawSignature(name);
             int startColumnNumberOfSimpleName;
             if (rawSignature.contains(oldShortName)) { // case: non-static method
                 startColumnNumberOfSimpleName =
-                    javaFile.compilationUnit.getColumnNumber(name.getStartPosition())
-                        + javaFile.getRawSignature(name).lastIndexOf(oldShortName);
+                        javaFile.compilationUnit.getColumnNumber(name.getStartPosition())
+                                + javaFile.getRawSignature(name).lastIndexOf(oldShortName);
                 int endColumnNumberOfSimpleName = startColumnNumberOfSimpleName + oldShortName.length();
-                updateChangeTraceForALine(
-                    line2Change,
-                    buggyLine,
-                    newShortName,
-                    startLineNumber,
-                    startColumnNumberOfSimpleName,
-                    endColumnNumberOfSimpleName,
-                    desc);
+                updateChangeTraceForALine(line2Change, buggyLine, newShortName, startLineNumber,
+                        startColumnNumberOfSimpleName, endColumnNumberOfSimpleName, desc);
             } else { // case: static method
                 for (int index = buggyLine.indexOf(oldShortName);
-                    index >= 0;
-                    index = buggyLine.indexOf(buggyLine, index + 1)) {
+                    index >= 0; index = buggyLine.indexOf(buggyLine, index + 1)) {
                     startColumnNumberOfSimpleName = index;
                     int endColumnNumberOfSimpleName = startColumnNumberOfSimpleName + oldShortName.length();
-                    updateChangeTraceForALine(
-                        line2Change,
-                        buggyLine,
-                        newShortName,
-                        startLineNumber,
-                        startColumnNumberOfSimpleName,
-                        endColumnNumberOfSimpleName,
-                        desc);
+                    updateChangeTraceForALine(line2Change, buggyLine, newShortName, startLineNumber,
+                            startColumnNumberOfSimpleName, endColumnNumberOfSimpleName, desc);
                 }
             }
         }
 
-        private void changeArgs(
-            ReplacedMethod matchedMethod,
-            ASTNode node,
-            String buggyLine,
-            int startLineNumber,
-            String desc) {
+        private void changeArgs(ReplacedMethod matchedMethod, ASTNode node, String buggyLine, int startLineNumber, String desc) {
             List args = getArgs(node);
-            if (args != null) {
-                List<String> newArgList = new ArrayList<>();
-                for (int i = 0; i < matchedMethod.getNewParams().size(); i++) {
-                    NewParam newParam = matchedMethod.getNewParams().get(i);
-                    if (newParam.getNewParamValue() != null) {
-                        newArgList.add(newParam.getNewParamValue());
-                    } else if (newParam.getNewParamType() != null) {
-                        char[] charArray =
-                            newParam.getNewParamType()
-                                .substring(newParam.getNewParamType().lastIndexOf(".") + 1)
-                                .toCharArray();
-                        charArray[0] = Character.toLowerCase(charArray[0]);
-                        newArgList.add(new String(charArray));
-                    } else if (newParam.getOldParamIndex() != null) {
-                        int oldParamIndex = Integer.parseInt(newParam.getOldParamIndex());
-                        if (oldParamIndex < args.size()) {
-                            newArgList.add(args.get(oldParamIndex).toString());
-                        }
-                    } else {
-                        newArgList.add(javaFile.getRawSignature((ASTNode) args.get(i)));
-                    }
-                }
-                String newArgsText = String.join(", ", newArgList);
-                int startColumnNumberOfArgs =
-                    javaFile.compilationUnit.getColumnNumber(node.getStartPosition())
-                        + (((ASTNode) args.get(0)).getStartPosition() - node.getStartPosition());
-                int endColumnNumberOfArgs =
-                    javaFile.compilationUnit.getColumnNumber(node.getStartPosition())
-                        + (((ASTNode) args.get(args.size() - 1)).getStartPosition()
-                        - node.getStartPosition())
-                        + ((ASTNode) args.get(args.size() - 1)).getLength();
-                updateChangeTraceForALine(
-                    line2Change,
-                    buggyLine,
-                    newArgsText,
-                    startLineNumber,
-                    startColumnNumberOfArgs,
-                    endColumnNumberOfArgs,
-                    desc);
+            if (args == null) {
+                return;
             }
+            List<String> newArgList = new ArrayList<>();
+            for (int i = 0; i < matchedMethod.getNewParams().size(); i++) {
+                NewParam newParam = matchedMethod.getNewParams().get(i);
+                if (newParam.getNewParamValue() != null) {
+                    newArgList.add(newParam.getNewParamValue());
+                } else if (newParam.getNewParamType() != null) {
+                    char[] charArray = newParam.getNewParamType()
+                            .substring(newParam.getNewParamType().lastIndexOf(".") + 1).toCharArray();
+                    charArray[0] = Character.toLowerCase(charArray[0]);
+                    newArgList.add(new String(charArray));
+                } else if (newParam.getOldParamIndex() != null) {
+                    int oldParamIndex = Integer.parseInt(newParam.getOldParamIndex());
+                    if (oldParamIndex < args.size()) {
+                        newArgList.add(args.get(oldParamIndex).toString());
+                    }
+                } else {
+                    newArgList.add(javaFile.getRawSignature((ASTNode) args.get(i)));
+                }
+            }
+            String newArgsText = String.join(", ", newArgList);
+            int startColumnNumberOfArgs = javaFile.compilationUnit.getColumnNumber(node.getStartPosition())
+                    + (((ASTNode) args.get(0)).getStartPosition() - node.getStartPosition());
+            int endColumnNumberOfArgs = javaFile.compilationUnit.getColumnNumber(node.getStartPosition())
+                    + (((ASTNode) args.get(args.size() - 1)).getStartPosition()
+                    - node.getStartPosition())
+                    + ((ASTNode) args.get(args.size() - 1)).getLength();
+            updateChangeTraceForALine(line2Change, buggyLine, newArgsText, startLineNumber,
+                    startColumnNumberOfArgs, endColumnNumberOfArgs, desc);
         }
 
         @Override
@@ -240,7 +215,13 @@ public class MethodReplaceChanger extends RenameBaseChanger {
         }
     }
 
-    private List getArgs(ASTNode node) {
+    /**
+     * get node's or super.node's all arguments
+     *
+     * @param node ASTNode
+     * @return node arguments
+     */
+    public List getArgs(ASTNode node) {
         if (node instanceof SuperMethodInvocation) {
             return ((SuperMethodInvocation) node).arguments();
         } else if (node instanceof MethodInvocation) {
@@ -248,6 +229,7 @@ public class MethodReplaceChanger extends RenameBaseChanger {
         }
         return null;
     }
+
 
     private SimpleName getSimpleName(ASTNode node) {
         if (node instanceof SuperMethodInvocation) {
@@ -267,7 +249,7 @@ public class MethodReplaceChanger extends RenameBaseChanger {
      * @param targetMethod a matched MethodNode that need to be Changed
      * @return true if this method's corresponding ImportDeclaration need lazyChange
      */
-    private boolean needLazyChange(ReplacedMethod targetMethod) {
+    public boolean needLazyChange(ReplacedMethod targetMethod) {
         return !targetMethod.findClassFromOldMethod().equals(targetMethod.findClassFromNewMethod());
     }
 
@@ -280,12 +262,7 @@ public class MethodReplaceChanger extends RenameBaseChanger {
      * @param buggyFilePath         to be processed file path
      * @param desc                  method change desc
      */
-    private void addLazyChange(
-        Map<String, Integer> importName2LineNumber,
-        ReplacedMethod matchedMethod,
-        List<String> fileLines,
-        String buggyFilePath,
-        String desc) {
+    public void addLazyChange(Map<String, Integer> importName2LineNumber, ReplacedMethod matchedMethod, List<String> fileLines, String buggyFilePath, String desc) {
         String newImportName = matchedMethod.findClassFromNewMethod();
         String oldImportName = matchedMethod.findClassFromOldMethod();
         if (importName2LineNumber.containsKey(oldImportName)) {
@@ -293,184 +270,227 @@ public class MethodReplaceChanger extends RenameBaseChanger {
             String oldImportLine = fileLines.get(importStartLineNumber - 1);
             String newImportLine = oldImportLine.replace(oldImportName, getOutClassPart(newImportName));
             DefectInstance lazyDefect =
-                createLazyDefectInstance(buggyFilePath, importStartLineNumber, oldImportLine, newImportLine);
+                    createLazyDefectInstance(buggyFilePath, importStartLineNumber, oldImportLine, newImportLine);
             lazyDefect.message = desc;
             defectInstances.add(lazyDefect);
         }
     }
 
     @Override
-    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
-    protected List<DefectInstance> detectDefectsInGradleFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
     protected List<DefectInstance> detectDefectsInKotlinFile(String buggyFilePath) {
         KotlinFile kotlinFile = new KotlinFile(buggyFilePath);
-        KotlinRenameBaseVisitor visitor =
-            new KotlinRenameBaseVisitor(kotlinFile, this) {
-                private MethodMatcher matcher = new MethodMatcher(changePatterns, this);
-
-                @Override
-                // record ImportDeclaration as a mapping to determine whether this ImportDeclaration need to
-                // lazyChange
-                public Boolean visitIdentifier(KotlinParser.IdentifierContext ctx) {
-                    Integer buggyLineNumber = ctx.getStart().getLine(); // line number of ImportDeclaration
-                    String importClassName = ctx.getText(); // android.util.Log
-                    this.importName2LineNumber.put(importClassName, buggyLineNumber);
-                    return super.visitIdentifier(ctx);
-                }
-
-                @Override
-                public Boolean visitPostfixUnaryExpression(KotlinParser.PostfixUnaryExpressionContext ctx) {
-                    if (ctx.postfixUnarySuffix() != null) {
-                        for (int i = 0; i < ctx.postfixUnarySuffix().size(); i++) {
-                            List<KotlinParser.PostfixUnarySuffixContext> currentPostFixUnarySuffixList =
-                                ctx.postfixUnarySuffix().subList(0, i + 1);
-                            if (KotlinFunctionCall.isFunctionCall(currentPostFixUnarySuffixList)) {
-                                KotlinFunctionCall functionCall =
-                                    new KotlinFunctionCall(
-                                        ctx.primaryExpression(), currentPostFixUnarySuffixList);
-                                ReplacedMethod targetMethod = (ReplacedMethod) matcher.match(functionCall);
-                                if (targetMethod != null) {
-                                    changeMethod(functionCall, targetMethod);
-                                }
-                            }
-                        }
-                    }
-                    return super.visitPostfixUnaryExpression(ctx);
-                }
-
-                    private void changeMethod(KotlinFunctionCall functionCall, ReplacedMethod matchedMethod) {
-                        int startLineNumber = functionCall.getPrimaryExpressionContext().getStart().getLine();
-                        int endLineNumber = functionCall.getLastPostfixUnarySuffixContext().getStop().getLine();
-                        String buggyLine = String.join(kotlinFile.lineBreak,
-                                kotlinFile.fileLines.subList(startLineNumber - 1, endLineNumber));
-                        String[] shortNames = getExistShortNames(buggyLine, matchedMethod.getOldMethodName(),
-                                matchedMethod.getNewMethodName());
-                        String oldShortName = shortNames[0];
-                        String newShortName = shortNames[1];
-                        String desc = matchedMethod.getDesc() == null ? null : gson.toJson(matchedMethod.getDesc());
-                        if (newShortName.equals(oldShortName) || matchedMethod.getNewMethodName().contains("xms")) {
-                            DefectInstance defectInstance =
-                                    MethodReplaceChanger.this.createDefectInstance(
-                                            buggyFilePath, startLineNumber, buggyLine, buggyLine);
-                            defectInstance.setMessage(desc);
-                            defectInstance.isFixed = false;
-                            defectInstance.status = FixStatus.NONEFIX.toString();
-                            defectInstances.add(defectInstance);
-                        } else {
-                            changeMethodName(
-                                    functionCall.getFunctionSimpleNameNode(),
-                                    startLineNumber,
-                                    buggyLine,
-                                    oldShortName,
-                                    newShortName,
-                                    desc);
-                        }
-                        if (matchedMethod.getNewParams() != null) {
-                            changeArgs(matchedMethod, functionCall, buggyLine, startLineNumber, desc);
-                        }
-                        if (needLazyChange(matchedMethod)) {
-                            addLazyChange(
-                                    importName2LineNumber, matchedMethod, kotlinFile.fileLines, buggyFilePath, desc);
-                        }
-                    }
-
-                private void changeMethodName(
-                    ParserRuleContext simpleName,
-                    int startLineNumber,
-                    String buggyLine,
-                    String oldShortName,
-                    String newShortName,
-                    String desc) {
-                    int startColumnNumberOfSimpleName;
-                    if (simpleName.getText().contains(oldShortName)) { // case: non-static method
-                        startColumnNumberOfSimpleName =
-                            simpleName.getStart().getCharPositionInLine()
-                                + simpleName.getText().lastIndexOf(oldShortName);
-                        int endColumnNumberOfSimpleName = startColumnNumberOfSimpleName + oldShortName.length();
-                        updateChangeTraceForALine(
-                            line2Change,
-                            buggyLine,
-                            newShortName,
-                            startLineNumber,
-                            startColumnNumberOfSimpleName,
-                            endColumnNumberOfSimpleName,
-                            desc);
-                    } else { // case: static method
-                        for (int index = buggyLine.indexOf(oldShortName);
-                            index >= 0;
-                            index = buggyLine.indexOf(buggyLine, index + 1)) {
-                            startColumnNumberOfSimpleName = index;
-                            int endColumnNumberOfSimpleName = startColumnNumberOfSimpleName + oldShortName.length();
-                            updateChangeTraceForALine(
-                                line2Change,
-                                buggyLine,
-                                newShortName,
-                                startLineNumber,
-                                startColumnNumberOfSimpleName,
-                                endColumnNumberOfSimpleName,
-                                desc);
-                        }
-                    }
-                }
-
-                private void changeArgs(
-                    ReplacedMethod matchedMethod,
-                    KotlinFunctionCall functionCall,
-                    String buggyLine,
-                    int startLineNumber,
-                    String desc) {
-                    List<KotlinParser.ValueArgumentContext> args = getArgs(functionCall);
-                    List<String> newArgList;
-                    if (!args.isEmpty()) {
-                        newArgList = addNewArgList(matchedMethod, args);
-                        String newArgsText = String.join(", ", newArgList);
-                        int startColumnNumberOfArgs =
-                            functionCall.getPrimaryExpressionContext().getStart().getLine()
-                                + (args.get(0).getStart().getStartIndex()
-                                - functionCall.getPrimaryExpressionContext().getStart().getStartIndex());
-                        int endColumnNumberOfArgs =
-                            functionCall.getPrimaryExpressionContext().getStart().getLine()
-                                + (args.get(args.size() - 1).getStart().getStartIndex()
-                                - functionCall.getPrimaryExpressionContext().getStart().getStartIndex())
-                                + args.get(args.size() - 1).getText().length();
-                        updateChangeTraceForALine(
-                            line2Change,
-                            buggyLine,
-                            newArgsText,
-                            startLineNumber,
-                            startColumnNumberOfArgs,
-                            endColumnNumberOfArgs,
-                            desc);
-                    }
-                }
-            };
-
-        kotlinFile.tree.accept(visitor);
+        KotlinReplaceVisitor visitor =
+                new KotlinReplaceVisitor(kotlinFile, this);
+        try {
+            kotlinFile.tree.accept(visitor);
+        } catch (Exception e) {
+            logger.error(buggyFilePath);
+            logger.error(Arrays.toString(e.getStackTrace()));
+        }
         List<DefectInstance> defectInstanceList =
-            generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
+                generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
         defectInstanceList.addAll(visitor.defectInstances);
+        removeIgnoreBlocks(defectInstanceList, kotlinFile.shielder);
         return defectInstanceList;
     }
 
-    private List<String> addNewArgList(ReplacedMethod matchedMethod, List<KotlinParser.ValueArgumentContext> args) {
+    /**
+     * inner class to create a kotlin replacement visitor
+     */
+    public class KotlinReplaceVisitor extends KotlinRenameBaseVisitor {
+        private final MethodMatcher matcher = new MethodMatcher(changePatterns, this);
+
+        public KotlinReplaceVisitor(KotlinFile kotlinFile, RenameBaseChanger changer) {
+            super(kotlinFile, changer);
+        }
+
+        @Override
+        // record ImportDeclaration as a mapping to determine whether this ImportDeclaration need to lazyChange
+        public Boolean visitIdentifier(KotlinParser.IdentifierContext ctx) {
+            int buggyLineNumber = ctx.getStart().getLine();
+            String importClassName = ctx.getText();
+            if (!kotlinFile.shielder.shouldIgnore(buggyLineNumber)) {
+                this.importName2LineNumber.put(importClassName, buggyLineNumber);
+            }
+            return super.visitIdentifier(ctx);
+        }
+
+        @Override
+        public Boolean visitPostfixUnaryExpression(KotlinParser.PostfixUnaryExpressionContext ctx) {
+            if (ctx.postfixUnarySuffix() == null) {
+                return super.visitPostfixUnaryExpression(ctx);
+            }
+            for (int i = 0; i < ctx.postfixUnarySuffix().size(); i++) {
+                List<KotlinParser.PostfixUnarySuffixContext> currentPostFixUnarySuffixList = ctx.postfixUnarySuffix()
+                        .subList(0, i + 1);
+                if (KotlinFunctionCall.isFunctionCall(currentPostFixUnarySuffixList)) {
+                    KotlinFunctionCall functionCall = new KotlinFunctionCall(ctx.primaryExpression(),
+                            currentPostFixUnarySuffixList);
+                    ReplacedMethod targetMethod = (ReplacedMethod) matcher.match(functionCall);
+                    if (targetMethod != null) {
+                        changeMethod(functionCall, targetMethod);
+                    }
+                }
+            }
+            return super.visitPostfixUnaryExpression(ctx);
+        }
+
+        @Override
+        public Boolean visitFunctionDeclaration(KotlinParser.FunctionDeclarationContext ctx) {
+            ReplacedMethod matchedMethod = (ReplacedMethod) matcher.match(ctx);
+            if (matchedMethod != null) {
+                changeFunctionDeclarationMethod(ctx, matchedMethod);
+            }
+            return super.visitFunctionDeclaration(ctx);
+        }
+
+        /**
+         * change kotlin declaration method name
+         *
+         * @param ctx kotlin node
+         * @param matchedMethod matched method
+         */
+        public void changeFunctionDeclarationMethod(
+                KotlinParser.FunctionDeclarationContext ctx, ReplacedMethod matchedMethod) {
+            KotlinParser.SimpleIdentifierContext name = ctx.simpleIdentifier();
+            if (name == null) {
+                return;
+            }
+            int startLineNumber = ctx.getStart().getLine();
+            int endLineNumber = ctx.getStop().getLine();
+            String buggyLine = String.join(kotlinFile.lineBreak,
+                    kotlinFile.fileLines.subList(startLineNumber - 1, endLineNumber));
+            String[] shortNames = getExistShortNames(buggyLine,
+                    matchedMethod.getOldMethodName(), matchedMethod.getNewMethodName());
+            String oldShortName = shortNames[0];
+            String newShortName = shortNames[1];
+            String desc = matchedMethod.getDesc() == null ? null : gson.toJson(matchedMethod.getDesc());
+            if (newShortName.equals(oldShortName) || matchedMethod.getNewMethodName().contains("xms")) {
+                DefectInstance instance = MethodReplaceChanger.this.createDefectInstance(kotlinFile.filePath, startLineNumber, buggyLine, buggyLine);
+                instance.setMessage(desc);
+                instance.isFixed = false;
+                instance.status = FixStatus.NONEFIX.toString();
+                defectInstances.add(instance);
+            } else {
+                changeMethodName(ctx.simpleIdentifier(), startLineNumber, buggyLine, oldShortName, newShortName, desc);
+            }
+            if (needLazyChange(matchedMethod)) {
+                addLazyChange(importName2LineNumber, matchedMethod, kotlinFile.fileLines, kotlinFile.filePath, desc);
+            }
+        }
+
+        /**
+         * kotlin match which word should be changed
+         *
+         * @param functionCall function Call
+         * @param matchedMethod matched Method
+         */
+        public void changeMethod(KotlinFunctionCall functionCall, ReplacedMethod matchedMethod) {
+            int startLineNumber = functionCall.getPrimaryExpressionContext().getStart().getLine();
+            int endLineNumber = functionCall.getLastPostfixUnarySuffixContext().getStop().getLine();
+            String buggyLine = String.join(kotlinFile.lineBreak,
+                    kotlinFile.fileLines.subList(startLineNumber - 1, endLineNumber));
+            String[] shortNames =
+                    getExistShortNames(buggyLine, matchedMethod.getOldMethodName(), matchedMethod.getNewMethodName());
+            String oldShortName = shortNames[0];
+            String newShortName = shortNames[1];
+            String desc = matchedMethod.getDesc() == null ? null : gson.toJson(matchedMethod.getDesc());
+            if (newShortName.equals(oldShortName) || matchedMethod.getNewMethodName().contains("xms")) {
+                DefectInstance defectInstance = MethodReplaceChanger.this.createDefectInstance(
+                        kotlinFile.filePath, startLineNumber, buggyLine, buggyLine);
+                defectInstance.setMessage(desc);
+                defectInstance.isFixed = false;
+                defectInstance.status = FixStatus.NONEFIX.toString();
+                defectInstances.add(defectInstance);
+            } else {
+                changeMethodName(functionCall.getFunctionSimpleNameNode(), startLineNumber,
+                        buggyLine, oldShortName, newShortName, desc);
+            }
+            if (matchedMethod.getNewParams() != null) {
+                changeArgs(matchedMethod, functionCall, buggyLine, startLineNumber, desc);
+            }
+            if (needLazyChange(matchedMethod)) {
+                addLazyChange(importName2LineNumber, matchedMethod, kotlinFile.fileLines, kotlinFile.filePath, desc);
+            }
+        }
+
+        /**
+         * to match the replacement node's name
+         *
+         * @param simpleName node simpleName
+         * @param startLineNumber start line number
+         * @param buggyLine buggy line
+         * @param oldShortName old short name
+         * @param newShortName new short name
+         * @param desc desc
+         */
+        public void changeMethodName(ParserRuleContext simpleName, int startLineNumber, String buggyLine, String oldShortName, String newShortName, String desc) {
+            int startColumnNumberOfSimpleName;
+            if (simpleName.getText().contains(oldShortName)) { // case: non-static method
+                startColumnNumberOfSimpleName = simpleName.getStart().getCharPositionInLine()
+                        + simpleName.getText().lastIndexOf(oldShortName);
+                int endColumnNumberOfSimpleName = startColumnNumberOfSimpleName + oldShortName.length();
+                updateChangeTraceForALine(line2Change, buggyLine, newShortName, startLineNumber,
+                        startColumnNumberOfSimpleName, endColumnNumberOfSimpleName, desc);
+            } else {
+                for (int index = buggyLine.indexOf(oldShortName); index >= 0;
+                    index = buggyLine.indexOf(buggyLine, index + 1)) {
+                    startColumnNumberOfSimpleName = index;
+                    int endColumnNumberOfSimpleName = startColumnNumberOfSimpleName + oldShortName.length();
+                    updateChangeTraceForALine(line2Change, buggyLine, newShortName, startLineNumber,
+                            startColumnNumberOfSimpleName, endColumnNumberOfSimpleName, desc);
+                }
+            }
+        }
+
+        /**
+         * to match which word should be replaced
+         *
+         * @param matchedMethod matched method
+         * @param functionCall function Call
+         * @param buggyLine buggy line
+         * @param startLineNumber start line number
+         * @param desc desc
+         */
+        public void changeArgs(ReplacedMethod matchedMethod, KotlinFunctionCall functionCall,
+                                String buggyLine, int startLineNumber, String desc) {
+            List<KotlinParser.ValueArgumentContext> args = getArgs(functionCall);
+            List<String> newArgList;
+            if (!args.isEmpty()) {
+                newArgList = addNewArgList(matchedMethod, args);
+                String newArgsText = String.join(", ", newArgList);
+                int startColumnNumberOfArgs = functionCall.getPrimaryExpressionContext().getStart().getLine()
+                        + (args.get(0).getStart().getStartIndex()
+                        - functionCall.getPrimaryExpressionContext().getStart().getStartIndex());
+                int endColumnNumberOfArgs = functionCall.getPrimaryExpressionContext().getStart().getLine()
+                        + (args.get(args.size() - 1).getStart().getStartIndex()
+                        - functionCall.getPrimaryExpressionContext().getStart().getStartIndex())
+                        + args.get(args.size() - 1).getText().length();
+                updateChangeTraceForALine(line2Change, buggyLine, newArgsText, startLineNumber,
+                        startColumnNumberOfArgs, endColumnNumberOfArgs, desc);
+            }
+        }
+    }
+
+    /**
+     * if method need add new argument
+     * we can use this method to reset all arguments
+     *
+     * @param matchedMethod matchedMethod
+     * @param args method arguments
+     * @return new arguments list
+     */
+    public List<String> addNewArgList(ReplacedMethod matchedMethod, List<KotlinParser.ValueArgumentContext> args) {
         List<String> newArgList = new ArrayList<>();
         for (int i = 0; i < matchedMethod.getNewParams().size(); i++) {
             NewParam newParam = matchedMethod.getNewParams().get(i);
             if (newParam.getNewParamValue() != null) {
                 newArgList.add(newParam.getNewParamValue());
             } else if (newParam.getNewParamType() != null) {
-                char[] charArray = newParam.getNewParamType()
-                    .substring(newParam.getNewParamType().lastIndexOf(".") + 1).toCharArray();
-                charArray[0] = Character.toLowerCase(charArray[0]);
-                newArgList.add(new String(charArray));
+                char[] chars = newParam.getNewParamType().substring(newParam.getNewParamType()
+                        .lastIndexOf(".") + 1).toCharArray();
+                chars[0] = Character.toLowerCase(chars[0]);
+                newArgList.add(new String(chars));
             } else if (newParam.getOldParamIndex() != null) {
                 int oldParamIndex = Integer.parseInt(newParam.getOldParamIndex());
                 if (oldParamIndex < args.size()) {
@@ -483,21 +503,19 @@ public class MethodReplaceChanger extends RenameBaseChanger {
         return newArgList;
     }
 
-    private List<KotlinParser.ValueArgumentContext> getArgs(KotlinFunctionCall functionCall) {
+    /**
+     * kotlin get all arguments
+     *
+     * @param functionCall ASTNode
+     * @return node's arguments
+     */
+    public List<KotlinParser.ValueArgumentContext> getArgs(KotlinFunctionCall functionCall) {
         List<KotlinParser.ValueArgumentContext> args = new ArrayList<>();
         if (functionCall.getLastPostfixUnarySuffixContext().callSuffix().valueArguments() != null) {
             args = functionCall.getLastPostfixUnarySuffixContext().callSuffix()
-                .valueArguments().valueArgument();
+                    .valueArguments().valueArgument();
         }
         return args;
-    }
-
-    @Override
-    protected void generateFixCode(DefectInstance defectWarning) {
-    }
-
-    @Override
-    protected void extractFixInstancesForSingleCodeFile(String filePath) {
     }
 
     @Override

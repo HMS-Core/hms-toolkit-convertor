@@ -23,12 +23,18 @@ import com.huawei.codebot.analyzer.x2y.global.bean.TypeInfo;
 import com.huawei.codebot.analyzer.x2y.global.service.ClassMemberService;
 import com.huawei.codebot.analyzer.x2y.global.service.InheritanceService;
 import com.huawei.codebot.framework.context.Constant;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * This class is provide type inference service. Language insensitive
@@ -76,57 +82,57 @@ public class TypeInferencer {
         }
     }
 
-
     /**
-     * If a method return a generic type T, the method will infer what T actually is.
+     * If a method return a generic type {@code T} or {@code Class<T>}, the method will infer what T actually is.
+     * <br/>
+     * Note that if return type is nested generic type, we can't infer the inner type param, e.g.:
+     * <pre>
+     *     {@code Set<Map.Entry<K, V>> Map.entrySet();}
+     * </pre>
+     * Map's entrySet method, it's return type is {@code Set<Map.Entry<K, V>>}, we infer the return type as
+     * {@code Set<Map.Entry>}
      *
      * @param returnTypeInfo return type information of a method call
-     * @param ownerTypeInfo the type information of the class which the method belong to
+     * @param ownerTypeInfo  the type information of the class which the method belong to
      * @return the actual type of template type.
      */
     protected TypeInfo getActualType(TypeInfo returnTypeInfo, TypeInfo ownerTypeInfo) {
         if (returnTypeInfo == null || ownerTypeInfo.getGenerics() == null || ownerTypeInfo.getGenerics().isEmpty()) {
             return returnTypeInfo;
         }
-        TypeInfo result = new TypeInfo();
         ClassInfo ownerClassInfo = classInfoMap.get(ownerTypeInfo.getQualifiedName());
         if (ownerClassInfo == null) {
             return returnTypeInfo;
         }
         List<String> typeParameters = ownerClassInfo.getGenerics();
-        if (typeParameters.size() != ownerTypeInfo.getGenerics().size()) {
-            return returnTypeInfo;
-        }
-        for (int i = 0; i < typeParameters.size(); i++) {
-            if (typeParameters.get(i).equals(returnTypeInfo.getQualifiedName())) {
-                result.setQualifiedName(ownerTypeInfo.getGenerics().get(i));
-                return result;
-            }
+        List<String> typeArgs = ownerTypeInfo.getGenerics();
+
+        return resolveGenericOfReturnType(returnTypeInfo, typeParameters, typeArgs);
+    }
+
+    private TypeInfo resolveGenericOfReturnType(TypeInfo retType, List<String> typeParams, List<String> typeArgs) {
+        if (typeParams.size() != typeArgs.size()) {
+            return retType;
         }
 
-        List<TypeInfo> superClassList =
-                InheritanceService.getAllSuperClassesAndInterfaces(ownerTypeInfo.getQualifiedName());
-        for (TypeInfo superClass : superClassList) {
-            ClassInfo supClassInfo = classInfoMap.get(superClass.getQualifiedName());
-            int index = -1;
-            if (supClassInfo != null && supClassInfo.getGenerics() != null) {
-                for (int i = 0; i < supClassInfo.getGenerics().size(); i++) {
-                    if (supClassInfo.getGenerics().get(i).equals(returnTypeInfo.getQualifiedName())) {
-                        index = i;
-                        break;
-                    }
+        TypeInfo resultType = new TypeInfo();
+        int index = Collections.binarySearch(typeParams, retType.getQualifiedName());
+        boolean isRetTypeTypeVariable = index >= 0;
+
+        if (isRetTypeTypeVariable) {
+            resultType.setQualifiedName(typeArgs.get(index));
+        } else {
+            resultType.setQualifiedName(retType.getQualifiedName());
+            List<String> generics = new ArrayList<>(retType.getGenerics());
+            for (String generic : retType.getGenerics()) {
+                int index1 = Collections.binarySearch(typeParams, generic);
+                if (index1 >= 0) {
+                    generics.set(index1, typeArgs.get(index1));
                 }
             }
-            if (index >= 0) {
-                for (int i = 0; i < typeParameters.size(); i++) {
-                    if (typeParameters.get(i).equals(superClass.getGenerics().get(index))) {
-                        result.setQualifiedName(ownerTypeInfo.getGenerics().get(i));
-                        return result;
-                    }
-                }
-            }
+            resultType.setGenerics(generics);
         }
-        return returnTypeInfo;
+        return resultType;
     }
 
     /**
@@ -135,51 +141,83 @@ public class TypeInferencer {
      * @return true if they are matched.
      */
     public boolean typesMatch(List<TypeInfo> argTypes, List<TypeInfo> paramTypes, String className) {
-        if (paramTypes == null || paramTypes.isEmpty()) {
-            return argTypes == null || argTypes.isEmpty();
+        if (argTypes == null ) {
+            LOGGER.warn("'argTypes' should never be null, you'd better to check the type infer of 'argTypes'");
+            return paramTypes == null;
         }
-        ClassInfo classInfo = classInfoMap.get(className);
+        if (paramTypes == null) {
+            LOGGER.warn("'paramType' should never be null, you'd better to check the init of MethodInfoMap");
+            return false;
+        }
+        if (paramTypes.isEmpty()) {
+            return argTypes.isEmpty();
+        }
 
-        if (argTypes.size() >= paramTypes.size()) {
-            if (paramTypes.get(paramTypes.size() - 1).getQualifiedName() != null
-                    && paramTypes.get(paramTypes.size() - 1).getQualifiedName().trim().endsWith("...")) {
-                String qualifiedName = paramTypes.remove(paramTypes.size() - 1).getQualifiedName();
-                if (qualifiedName != null) {
-                    qualifiedName = qualifiedName.substring(0, qualifiedName.lastIndexOf("..."));
-                    for (int i = paramTypes.size(); i < argTypes.size(); i++) {
-                        TypeInfo typeInfo = new TypeInfo();
-                        typeInfo.setQualifiedName(qualifiedName);
-                        paramTypes.add(typeInfo);
-                    }
-                    TypeInfo typeInfo = argTypes.get(argTypes.size() - 1);
-                    if (argTypes.size() == paramTypes.size() && typeInfo != null
-                            && typeInfo.getQualifiedName().endsWith("[]")) {
-                        typeInfo.setQualifiedName(
-                                typeInfo.getQualifiedName().substring(0, typeInfo
-                                        .getQualifiedName().lastIndexOf("[]")));
-                    }
-                }
+        TypeInfo lastParam = paramTypes.get(paramTypes.size() - 1);
+        boolean lastIsVararg =
+                lastParam != null
+                        && lastParam.getQualifiedName() != null
+                        && lastParam.getQualifiedName().trim().endsWith("...");
+        if (lastIsVararg) {
+            int normalArgNum = paramTypes.size() - 1;
+            if (normalArgNum > argTypes.size()) {
+                return false;
             }
+            boolean matchNormal =
+                    matchNormal(
+                            argTypes.subList(0, normalArgNum), paramTypes.subList(0, paramTypes.size() - 1), className
+                    );
+            String varParamQualifiedName = lastParam.getQualifiedName();
+            lastParam.setQualifiedName(varParamQualifiedName.substring(0, varParamQualifiedName.indexOf("...")));
+            boolean matchVararg = matchVararg(argTypes.subList(normalArgNum, argTypes.size()), lastParam);
+            return matchNormal && matchVararg;
+        } else {
+            return matchNormal(argTypes, paramTypes, className);
         }
-
-        return typesMatch0(argTypes, paramTypes, classInfo);
     }
 
-    // Determine whether it has been completely matched successfully
-    private boolean typesMatch0(List<TypeInfo> argTypes, List<TypeInfo> paramTypes, ClassInfo classInfo) {
-        if (argTypes.size() == paramTypes.size()) {
-            for (int i = 0; i < paramTypes.size(); i++) {
-                if (argTypes.get(i) == null || paramTypes.get(i) == null
-                        || argTypes.get(i).getQualifiedName() == null || paramTypes.get(i).getQualifiedName() == null
-                        || (!typeMatches(argTypes.get(i), paramTypes.get(i))
-                        && (classInfo == null || !classInfo.getGenerics().contains(argTypes.get(i).getQualifiedName())))
-                        && paramTypes.get(i).getQualifiedName().contains(".")) {
-                    return false;
-                }
+    private boolean matchNormal(List<TypeInfo> args, List<TypeInfo> params, String className) {
+        if (args.size() != params.size()) {
+            return false;
+        }
+        ClassInfo classInfo = classInfoMap.get(className);
+        for (int i = 0; i < params.size(); i++) {
+            if (args.get(i) == null || params.get(i) == null
+                    || args.get(i).getQualifiedName() == null || params.get(i).getQualifiedName() == null
+                    || (!typeMatches(args.get(i), params.get(i))
+                    && (classInfo == null || !classInfo.getGenerics().contains(args.get(i).getQualifiedName())))
+                    && params.get(i).getQualifiedName().contains(".")) {
+                return false;
             }
+        }
+        return true;
+    }
+
+    private boolean matchVararg(List<TypeInfo> args, TypeInfo varParam) {
+        // No arg also match vararg, i.e. method() match method(String... vararg)
+        if (args.isEmpty()) {
             return true;
         }
-        return false;
+
+        // 'args' maybe an array if size == 1
+        if (args.size() == 1) {
+            TypeInfo typeInfo = args.get(0);
+            if (typeInfo == null || typeInfo.getQualifiedName() == null) {
+                return false;
+            }
+            if (typeInfo.getQualifiedName().endsWith("[]")) {
+                String arrayArgQualifiedName = typeInfo.getQualifiedName();
+                typeInfo.setQualifiedName(arrayArgQualifiedName.substring(0, arrayArgQualifiedName.indexOf("[]")));
+            }
+            return typeMatches(typeInfo, varParam);
+        }
+
+        for (TypeInfo arg : args) {
+            if (!typeMatches(arg, varParam)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -189,12 +227,15 @@ public class TypeInferencer {
      * type1.
      */
     public boolean typeMatches(TypeInfo argType, TypeInfo paramType) {
-        if (argType != null && ("*".equals(argType.getQualifiedName()) || "null".equals(argType.getQualifiedName()))) {
+        if (paramType == null || argType == null) {
+            return false;
+        }
+
+        if ("*".equals(paramType.getQualifiedName()) || "null".equals(argType.getQualifiedName())) {
             return true;
         }
 
-        if (paramType == null || paramType.getQualifiedName() == null || argType == null
-                || argType.getQualifiedName() == null) {
+        if (paramType.getQualifiedName() == null || argType.getQualifiedName() == null) {
             return false;
         }
 
@@ -202,66 +243,73 @@ public class TypeInferencer {
             return true;
         }
 
-        if (paramType.getQualifiedName().equals(Constant.BUILTIN + "." + "long")
-                || (Constant.primitive2Object.get(paramType.getQualifiedName()) != null
-                && Constant.primitive2Object.get(paramType.getQualifiedName()).equals("java.lang.Long"))) {
-            if (argType.getQualifiedName().equals(Constant.BUILTIN + "." + "int")
-                    || (Constant.primitive2Object.get(argType.getQualifiedName()) != null
-                    && Constant.primitive2Object.get(argType.getQualifiedName()).equals("java.lang.Integer"))) {
+        if ("java.lang.CharSequence".equals(paramType.getQualifiedName())) {
+            if ("java.lang.String".equals(argType.getQualifiedName())) {
                 return true;
             }
         }
 
-        return typeMatches0(argType, paramType);
+        if ("java.lang.String".equals(paramType.getQualifiedName())) {
+            if ("kotlin.String".equals(argType.getQualifiedName())) {
+                return true;
+            }
+        }
+
+        return complexTypesMatch(argType, paramType);
     }
 
-    private boolean typeMatches0(TypeInfo argType, TypeInfo paramType) {
-        if (paramType.getQualifiedName().equals(Constant.BUILTIN + "." + "float")
-                || (Constant.primitive2Object.get(paramType.getQualifiedName()) != null
-                && Constant.primitive2Object.get(paramType.getQualifiedName()).equals("java.lang.Float"))) {
-            if (argType.getQualifiedName().equals(Constant.BUILTIN + "." + "int")
-                    || (Constant.primitive2Object.get(argType.getQualifiedName()) != null
-                    && Constant.primitive2Object.get(argType.getQualifiedName()).equals("java.lang.Integer"))) {
+    private boolean complexTypesMatch(TypeInfo argType, TypeInfo paramType) {
+        if (argType == null || paramType == null){
+            return false;
+        }
+        PrimitiveTypeMatcher primitiveTypeMatcher = new PrimitiveTypeMatcher();
+
+        String argTypeName;
+        if (primitiveTypeMatcher.isJavaWrapperType(argType.getQualifiedName())) {
+            argTypeName = primitiveTypeMatcher.getPrimitiveType(argType.getQualifiedName());
+        } else {
+            argTypeName = argType.getQualifiedName();
+        }
+
+        if (primitiveTypeMatcher.isJavaWrapperType(paramType.getQualifiedName())) {
+            String paramTypeName = paramType.getQualifiedName();
+            if (argTypeName.equals(paramTypeName)) {
                 return true;
             }
         }
 
-        if (paramType.getQualifiedName().equals("java.lang.CharSequence")) {
-            if (argType.getQualifiedName().equals("java.lang.String")) {
-                return true;
-            }
+        if (primitiveTypeMatcher.isJavaPrimitiveType(paramType.getQualifiedName())) {
+            String paramTypeName = paramType.getQualifiedName();
+            return primitiveTypeMatcher.primitiveTypeMathch(argTypeName, paramTypeName);
         }
 
-        String primitiveObjectType = Constant.primitive2Object.get(argType.getQualifiedName());
-        if (primitiveObjectType != null && primitiveObjectType.equals(paramType.getQualifiedName())) {
-            return true;
-        }
-
-        List<TypeInfo> allSuperClassesAndInterfaces =
+        Set<TypeInfo> allSuperClassesAndInterfaces =
                 InheritanceService.getAllSuperClassesAndInterfaces(argType.getQualifiedName());
         for (TypeInfo superClass : allSuperClassesAndInterfaces) {
             if (paramType.getQualifiedName().equals(superClass.getQualifiedName())) {
                 return true;
             }
         }
+
         return false;
     }
-
 
     /**
      * Get the return type information of the method call.
      *
      * @param qualifierType qualifier of the method
-     * @param name simple name of the method
-     * @param argTypes type information of arguments of the method
+     * @param name          simple name of the method
+     * @param argTypes      type information of arguments of the method
      * @return the return type of the method call
      */
     public TypeInfo getMethodInvocationReturnType(TypeInfo qualifierType, String name, List<TypeInfo> argTypes) {
-        if (name.equals("toString") && argTypes.isEmpty()) {
+        // 1. A simple check.
+        if ("toString".equals(name) && CollectionUtils.isEmpty(argTypes)) {
             TypeInfo typeInfo = new TypeInfo();
             typeInfo.setQualifiedName("java.lang.String");
             return typeInfo;
         }
+        // 2. Check in symbol table.
         String qualifier = qualifierType.getQualifiedName();
         List<MethodInfo> candidates = methodInfoMap.get(qualifier + "." + name);
         TypeInfo resultType = null;
@@ -280,13 +328,25 @@ public class TypeInferencer {
         }
         if (resultType != null) {
             return getActualType(resultType, qualifierType);
-        } else {
-            List<TypeInfo> allSuperClassesAndInterfaces =
-                    InheritanceService.getAllSuperClassesAndInterfaces(qualifierType.getQualifiedName());
-            for (TypeInfo superClass : allSuperClassesAndInterfaces) {
-                resultType = getMethodInvocationReturnType(superClass, name, argTypes);
-                if (resultType != null) {
-                    return getActualType(resultType, qualifierType);
+        } else { // 3. Check in super types.
+            Set<TypeInfo> directSuperTypes = InheritanceService.getDirectSuperTypes(qualifier);
+            for (TypeInfo superType : directSuperTypes) {
+                // Note that: we need to guarantee the qualifier's superType is not itself,
+                // or there will be a infinite recursive call
+                if (qualifier != null && !qualifier.equals(superType.getQualifiedName())) {
+                    resultType = getMethodInvocationReturnType(superType, name, argTypes);
+                    if (resultType != null) {
+                        return getActualType(resultType, qualifierType);
+                    }
+                } else {
+                    LOGGER.debug(
+                            "Type [{}]'s superType is itself, superTypes [{}]",
+                            qualifier,
+                            directSuperTypes
+                                    .stream()
+                                    .map(TypeInfo::getQualifiedName)
+                                    .collect(Collectors.joining(", "))
+                    );
                 }
             }
         }
@@ -297,6 +357,9 @@ public class TypeInferencer {
      * calculate the full type (package name + class name) of a type
      */
     public static String[] getFullType(String type, String packageName, List<String> imports) {
+        if (StringUtils.isEmpty(type) || StringUtils.isEmpty(packageName)) {
+            return new String[] {};
+        }
         // get main type, delete template type and array type
         String mainType = type;
         String templateType = "";
@@ -352,6 +415,9 @@ public class TypeInferencer {
     }
 
     private static String[] checkImports(List<String> imports, String mainType, String templateType) {
+        if (CollectionUtils.isEmpty(imports)){
+            return new String[]{};
+        }
         for (String importName : imports) {
             boolean match = false;
             String tempType = mainType;
@@ -378,6 +444,9 @@ public class TypeInferencer {
     }
 
     private static String[] checkSamePackage(String packageName, String mainType, String templateType) {
+        if (StringUtils.isEmpty(packageName) || StringUtils.isEmpty(mainType)) {
+            return new String[] {};
+        }
         if (mainType.startsWith(packageName)) {
             int index = mainType.lastIndexOf(".");
             if (index == -1) {
@@ -407,9 +476,21 @@ public class TypeInferencer {
         String packageName;
         String className;
         if (index == mainType.length()) {
-            int index2 = importName.lastIndexOf(".");
-            packageName = importName.substring(0, index2);
-            className = importName.substring(index2 + 1) + templateType;
+            int dotIndex = importName.lastIndexOf(".");
+            // In kotlin, we can import a class without "." when this class is not in a package,
+            // so the dotIndex maybe -1
+            if (dotIndex != -1) {
+                packageName = importName.substring(0, dotIndex);
+            } else {
+                packageName = Constant.DEFAULT;
+                LOGGER.debug(
+                        "[{}] is a simple identifier without a dot('.'), 'mainType' [{}], 'templateType [{}]'",
+                        importName,
+                        mainType,
+                        templateType
+                );
+            }
+            className = importName.substring(dotIndex + 1) + templateType;
         } else {
             packageName = importName;
             mainType = mainType.substring(index + 1);

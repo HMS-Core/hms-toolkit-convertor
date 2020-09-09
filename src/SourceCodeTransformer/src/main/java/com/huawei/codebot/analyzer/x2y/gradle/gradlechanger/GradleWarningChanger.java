@@ -17,6 +17,7 @@
 package com.huawei.codebot.analyzer.x2y.gradle.gradlechanger;
 
 import com.google.common.base.Throwables;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.json.model.StructGradleManual;
 import com.huawei.codebot.analyzer.x2y.io.config.ConfigService;
 import com.huawei.codebot.framework.DefectFixerType;
 import com.huawei.codebot.framework.FixerInfo;
@@ -24,6 +25,7 @@ import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.x2y.AndroidAppFixer;
 import com.huawei.codebot.utils.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.codehaus.groovy.ast.ASTNode;
 import org.codehaus.groovy.ast.builder.AstBuilder;
 import org.codehaus.groovy.control.CompilePhase;
@@ -50,22 +52,14 @@ public class GradleWarningChanger extends AndroidAppFixer {
     }
 
     @Override
-    protected List<DefectInstance> detectDefectsInJavaFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
-    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
     protected List<DefectInstance> detectDefectsInGradleFile(String buggyFilePath) {
+        if (StringUtils.isEmpty(buggyFilePath)) {
+            return null;
+        }
         currentFileDefectInstances = new ArrayList<>();
         if (!buggyFilePath.endsWith("build.gradle")) {
             return currentFileDefectInstances;
         }
-
         try {
             String fileContent = FileUtils.getFileContent(buggyFilePath);
             parseGradleFile(fileContent);
@@ -98,6 +92,16 @@ public class GradleWarningChanger extends AndroidAppFixer {
 
     @Override
     protected void extractFixInstancesForSingleCodeFile(String filePath) {
+    }
+
+    @Override
+    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
+        return null;
+    }
+
+    @Override
+    protected List<DefectInstance> detectDefectsInJavaFile(String buggyFilePath) {
+        return null;
     }
 
     @Override

@@ -16,11 +16,12 @@
 
 package com.huawei.codebot.analyzer.x2y.io.config;
 
-import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.StructGradleManual;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.json.model.StructGradleManual;
 import com.huawei.codebot.framework.AbstractJSONConfig;
 import com.huawei.codebot.framework.DefectFixerType;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.utils.JsonUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -53,7 +54,7 @@ class GradleManualJSONConfig extends AbstractJSONConfig {
                 StructGradleManual addTemp = new StructGradleManual();
                 if (jsonObjectTemp.keySet().contains("nodeName")) {
                     addTemp.setGradleManualName((String) jsonObjectTemp.get("nodeName"));
-                    if (addTemp.getGradleManualName() != null && !addTemp.getGradleManualName().equals("")) {
+                    if (StringUtils.isNotEmpty(addTemp.getGradleManualName())) {
                         addTemp.setDesc(JsonUtil.toMap(jsonObjectTemp.getJSONObject("desc")));
                         listGradleManual.add(addTemp);
                     }

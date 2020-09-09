@@ -29,8 +29,9 @@ public abstract class AbstractAnalyzer implements Observer {
     public void update(Observable observable, Object arg) {
         if (observable instanceof AnalyzerHub && arg == null) {
             postAnalyze((AnalyzerHub) observable);
-        } else if (observable instanceof AnalyzerHub) {
-            analyze((AnalyzerHub) observable, arg);
+        } else if (observable instanceof AnalyzerHub && arg instanceof AnalyzerHub.Context) {
+            analyze((AnalyzerHub) observable,
+                    ((AnalyzerHub.Context) arg).typeInferencer, ((AnalyzerHub.Context) arg).node);
         }
     }
 
@@ -38,9 +39,10 @@ public abstract class AbstractAnalyzer implements Observer {
      * Analyze node
      *
      * @param hub Observable
-     * @param node ASTNode: Kotlin ASTNode or Java ASTNode
+     * @param typeInferencer ASTNode: an inferencer to infer code elements' type.
+     * @param node AstNode
      */
-    public abstract void analyze(AnalyzerHub hub, Object node);
+    public abstract void analyze(AnalyzerHub hub, TypeInferencer typeInferencer, Object node);
 
     /**
      * Called after analysis

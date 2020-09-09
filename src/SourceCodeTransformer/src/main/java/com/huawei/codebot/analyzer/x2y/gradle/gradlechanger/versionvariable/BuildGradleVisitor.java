@@ -16,6 +16,8 @@
 
 package com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.versionvariable;
 
+import com.huawei.codebot.framework.context.Context;
+import org.apache.commons.lang3.StringUtils;
 import org.codehaus.groovy.ast.ASTNode;
 import org.codehaus.groovy.ast.CodeVisitorSupport;
 import org.codehaus.groovy.ast.expr.BinaryExpression;
@@ -57,29 +59,28 @@ public class BuildGradleVisitor extends CodeVisitorSupport {
     public void visitMethodCallExpression(MethodCallExpression call) {
         // get methodName
         String methodName = call.getMethodAsString();
-
         if (methodName == null) {
             LOGGER.error("methodName is null. methodCallExpression is {}", call.getText());
             return;
         }
 
-        if (methodName.equals("repositories")) {
+        if ("repositories".equals(methodName)) {
             // repositories nodes
             enterRepositoriesNode();
-        } else if (methodName.equals("dependencies")) {
+        } else if ("dependencies".equals(methodName)) {
             // dependencies nodes
             enterDependenciesNode();
         } else if (currentVisitedNodeTypes.size() > 0) {
             // Get the parent node type of the current node
             String parentNodeType = currentVisitedNodeTypes.peek();
-            if (parentNodeType.equals("repositories")) {
+            if ("repositories".equals(parentNodeType)) {
                 // If the parent node type is a repository nodes
                 visitRepositoriesChildNode(call);
-            } else if (parentNodeType.equals("dependencies")) {
+            } else if ("dependencies".equals(parentNodeType)) {
                 // If the parent node type is a dependencies nodes
                 visitDependenciesChildNode(call);
             }
-        } else if (methodName.equals("ext") || methodName.equals("project.ext")) {
+        } else if ("ext".equals(methodName) || "project.ext".equals(methodName)) {
             enterExtProjectNode(methodName);
         } else if (getRawContent(call).startsWith("project.ext.set")) {
             String raw = getRawContent(call);
@@ -88,19 +89,22 @@ public class BuildGradleVisitor extends CodeVisitorSupport {
             if (m1.find() && m2.find()) {
                 GradleVersionService.variable_version.put(
                         m1.group(0).replace("\"", "").trim(), m2.group(0).replace("\'", "").trim());
+                if (!GradleVersionService.isVariableVersionChanged()) {
+                    GradleVersionService.setVariableVersionChanged(true);
+                }
             }
         }
         // Traversing child nodes
         super.visitMethodCallExpression(call);
 
         // Leave the node
-        if (methodName.equals("repositories")) {
+        if ("repositories".equals(methodName)) {
             // If the parent node type is a repository nodes
             leaveRepositoriesNode();
-        } else if (methodName.equals("dependencies")) {
+        } else if ("dependencies".equals(methodName)) {
             // If the parent node type is a dependencies nodes
             leaveDependenciesNode();
-        } else if (methodName.equals("ext") || methodName.equals("project.ext")) {
+        } else if ("ext".equals(methodName) || "project.ext".equals(methodName)) {
             leaveExtProjectNode();
         }
     }
@@ -112,17 +116,26 @@ public class BuildGradleVisitor extends CodeVisitorSupport {
         if (leftChildRaw.startsWith("ext.")) {
             GradleVersionService.variable_version.put(
                     leftChildRaw.substring("ext.".length()).trim(), rightChildRaw.trim());
+            if (!GradleVersionService.isVariableVersionChanged()) {
+                GradleVersionService.setVariableVersionChanged(true);
+            }
         } else if (leftChildRaw.startsWith("project.ext[")) {
             Matcher matcher = GradleVersionService.DOUBLE_QUOTES.matcher(leftChildRaw);
             if (matcher.find()) {
                 GradleVersionService.variable_version.put(matcher.group(0).trim()
                         .replace("\"", ""), rightChildRaw.trim());
+                if (!GradleVersionService.isVariableVersionChanged()) {
+                    GradleVersionService.setVariableVersionChanged(true);
+                }
             }
         } else {
             if (currentVisitedNodeTypes.size() > 0) {
                 String parentNodeType = currentVisitedNodeTypes.peek();
-                if (parentNodeType.equals("ext") || parentNodeType.equals("project.ext")) {
+                if ("ext".equals(parentNodeType) || "project.ext".equals(parentNodeType)) {
                     GradleVersionService.variable_version.put(leftChildRaw.trim(), rightChildRaw.trim());
+                    if (!GradleVersionService.isVariableVersionChanged()) {
+                        GradleVersionService.setVariableVersionChanged(true);
+                    }
                 }
             }
         }
@@ -207,7 +220,14 @@ public class BuildGradleVisitor extends CodeVisitorSupport {
             return;
         }
         str = str.replaceAll(" ", "");
+        Context context = Context.getContext();
+        if (context.getContextMap().containsKey(version.trim(), "")) {
+            version = (String) context.getContextMap().get(version.trim(), "");
+        }
         GradleVersionService.package_version.put(str.trim(), version.trim());
+        if (!GradleVersionService.isPackageVersionChanged()) {
+            GradleVersionService.setPackageVersionChanged(true);
+        }
     }
 
     void leaveRepositoriesNode() {
@@ -222,7 +242,10 @@ public class BuildGradleVisitor extends CodeVisitorSupport {
         currentVisitedNodeTypes.pop();
     }
 
-    String getRawContent(ASTNode node) {
+    private String getRawContent(ASTNode node) {
+        if (node == null) {
+            return "";
+        }
         // Get the starting and ending line numbers and column numbers
         int startLineNumber = node.getLineNumber();
         int startColumnNumber = node.getColumnNumber();

@@ -1,0 +1,165 @@
+{
+  "configChangerMapping": [
+    {
+      "configs": [
+        "wisehub-auto-hms"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.java.member.MemberReplaceChanger",
+        "com.huawei.codebot.analyzer.x2y.java.clazz.rename.ClassRenameChanger",
+        "com.huawei.codebot.analyzer.x2y.java.pkg.rename.PackageRenameChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-auto"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.java.method.replace.MethodReplaceChanger",
+        "com.huawei.codebot.analyzer.x2y.java.clazz.rename.ClassRenameChanger",
+        "com.huawei.codebot.analyzer.x2y.java.other.objectequals.ObjectEqualsChanger",
+        "com.huawei.codebot.analyzer.x2y.java.field.access.FieldAccessChanger",
+        "com.huawei.codebot.analyzer.x2y.java.pkg.rename.PackageRenameChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-manual-hms"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.java.G2HFirstPhaseChanger",
+        "com.huawei.codebot.analyzer.x2y.java.pkg.delete.PackageDeleteChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-manual"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.java.G2HFirstPhaseChanger",
+        "com.huawei.codebot.analyzer.x2y.java.pkg.delete.PackageDeleteChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-auto-hms",
+        "wisehub-manual-hms"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.java.reflection.ReflectRenameChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-auto",
+        "wisehub-manual"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.java.reflection.ReflectRenameChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-complex-hms"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.java.other.complexchanger.ComplexStartupActivityChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-complex"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.java.other.complexchanger.ComplexStartupActivityChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-crossfile-hms"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.gradle.coditionalchanger.ConditionalChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-crossfile"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.gradle.coditionalchanger.ConditionalChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-gradle-hms"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.GradleModificationChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-gradle"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.GradleModificationChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-gradle-manual-hms"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.GradleWarningChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-gradle-manual"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.GradleWarningChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-xml-hms"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.xml.XmlModificationChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-xml"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.xml.G2XXmlModificationChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-specific-hms"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.java.other.specificchanger.SpecificModificationChanger"
+      ]
+    },
+    {
+      "configs": [
+        "wisehub-specific"
+      ],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.java.other.specificchanger.SpecificModificationChanger"
+      ]
+    },
+    {
+      "configs": [],
+      "changers": [
+        "com.huawei.codebot.analyzer.x2y.java.g2x.AppFileCheckChanger",
+        "com.huawei.codebot.analyzer.x2y.java.lazyfix.LazyFixChanger"
+      ]
+    }
+  ]
+}

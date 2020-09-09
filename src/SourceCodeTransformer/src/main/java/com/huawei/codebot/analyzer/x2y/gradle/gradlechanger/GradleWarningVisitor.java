@@ -16,11 +16,14 @@
 
 package com.huawei.codebot.analyzer.x2y.gradle.gradlechanger;
 
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.json.model.StructGradleManual;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.huawei.codebot.framework.model.DefectInstance;
 import org.codehaus.groovy.ast.CodeVisitorSupport;
 import org.codehaus.groovy.ast.expr.MethodCallExpression;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Struct Gradle Warning Visitor
@@ -29,6 +32,7 @@ import org.codehaus.groovy.ast.expr.MethodCallExpression;
  * @since 2020-04-01
  */
 public class GradleWarningVisitor extends CodeVisitorSupport {
+    private final static Logger logger = LoggerFactory.getLogger(GradleWarningVisitor.class);
     private static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
     private GradleWarningChanger changer;
 
@@ -39,6 +43,10 @@ public class GradleWarningVisitor extends CodeVisitorSupport {
     @Override
     public void visitMethodCallExpression(MethodCallExpression call) {
         String methodName = call.getMethodAsString();
+        if (methodName == null){
+            logger.error("methodName is null. methodCallExpression is {}", call.getText());
+            return;
+        }
         for (StructGradleManual unit : changer.getGradleManualList()) {
             if (methodName.equals(unit.getGradleManualName())) {
                 warning(unit, call);

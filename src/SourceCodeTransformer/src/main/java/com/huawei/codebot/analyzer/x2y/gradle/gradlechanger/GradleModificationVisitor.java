@@ -16,14 +16,36 @@
 
 package com.huawei.codebot.analyzer.x2y.gradle.gradlechanger;
 
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.json.model.StructAppAddInDependencies;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.json.model.StructAppAddIndirectDependencies;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.json.model.StructAppDeleteInDependencies;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.json.model.StructAppReplace;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.model.G2XLowVersionImplementation;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.model.GradleProjectInfo;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.model.ImplementationDeletion;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.model.ImplementationInsert;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.model.ImplementationReplace;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.model.ImplementationWarning;
+import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.model.LowVersionImplementation;
 import com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.versionvariable.GradleVersionService;
+import com.huawei.codebot.analyzer.x2y.gradle.utils.GradleFileUtils;
+import com.huawei.codebot.framework.context.Context;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.utils.VersionCompareUtil;
-import com.huawei.codebot.utils.StringUtil;
+import org.apache.commons.collections4.keyvalue.MultiKey;
 import org.apache.commons.lang3.StringUtils;
 import org.codehaus.groovy.ast.ASTNode;
 import org.codehaus.groovy.ast.CodeVisitorSupport;
+import org.codehaus.groovy.ast.expr.ArgumentListExpression;
+import org.codehaus.groovy.ast.expr.BinaryExpression;
+import org.codehaus.groovy.ast.expr.ConstantExpression;
+import org.codehaus.groovy.ast.expr.Expression;
+import org.codehaus.groovy.ast.expr.GStringExpression;
 import org.codehaus.groovy.ast.expr.MethodCallExpression;
+import org.codehaus.groovy.ast.expr.PropertyExpression;
+import org.codehaus.groovy.ast.expr.VariableExpression;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,38 +64,106 @@ import java.util.regex.Pattern;
  * @since 2020-04-01
  */
 public class GradleModificationVisitor extends CodeVisitorSupport {
+    private final static Logger logger = LoggerFactory.getLogger(GradleModificationVisitor.class);
+    /**
+     * repository urls
+     */
     Set<String> repositoryUrls;
-    Set<String> implementations;
+
+    /**
+     * implementations in dependencies
+     * tag + libraryName
+     */
+    Map<String, Set<String>> tagLibraryMap;
+
+    /**
+     * classpath in dependencies
+     */
     Set<String> classPaths;
+
+    /**
+     * implementation should be replaced
+     */
     List<ImplementationReplace> implementationReplaces;
+
+    /**
+     * Need to prompt implementation content that is too low in G2H
+     */
     List<LowVersionImplementation> lowVersionImplementations;
+
+    /**
+     * Need to prompt implementation content that is too low in G2X
+     */
     List<G2XLowVersionImplementation> g2xLowVersionImplementations;
+
+    // Implementation content to be inserted
     List<ImplementationInsert> implementationInsertions;
-    Map<String, ImplementationDeletion> implementationDeletions;
+
+    // Implementation content to be removed
+    Map<String, List<ImplementationDeletion>> implementationDeletions;
+
+    // Need to increase indirect dependencies
     Set<StructAppAddIndirectDependencies> indirectDependencies;
-    List<String> applyPlugins = new ArrayList<>();
+
+    // Warning implementation
+    List<ImplementationWarning> implementationWarnings;
+
+    // all apply plugins
+    Map<String, Integer> applyPlugins = new HashMap<>();
+
+    // The currently parsed node type stack
     Stack<String> currentVisitedNodeTypes = new Stack<>();
+
+    // gradle changer
     GradleModificationChanger changer;
+
+    // pattern
     Pattern dependencyPattern = Pattern.compile("\".*\"");
+
+    // pattern
     Pattern dependencyPattern2 = Pattern.compile("'.*'");
+
+    // pattern for "implementation group: 'com.example.android', name: 'app-magic', version: '12.3'"
+    Pattern dependencyPatternForComplete = Pattern.compile("group:.*,.*name:.*,.*version:.*");
+
+    // pattern for whether version continue number and alphabet
+    Pattern versionPattern = Pattern.compile("[a-zA-Z]");
+
+    // Get Project Info
+    private Pattern projectInfoValuePattern = Pattern.compile("(?<=\\()[^\\)]+");
+
+    private Map<String, DefectInstance> specialAddInstances = new HashMap<>();
 
     public GradleModificationVisitor(GradleModificationChanger changer) {
         this.changer = changer;
+        this.initValue();
+    }
+
+    public Map<String, DefectInstance> getSpecialAddInstances() {
+        return specialAddInstances;
     }
 
     @Override
     public void visitMethodCallExpression(MethodCallExpression call) {
         // get method name
         String methodName = call.getMethodAsString();
-
-        if (methodName.equals("repositories")) {
+        if (methodName == null) {
+            logger.error("methodName is null. methodCallExpression is {}", call.getText());
+            return;
+        }
+        if ("allprojects".equalsIgnoreCase(methodName)){
+            changer.setContinueAllProject(true);
+        }
+        cacheProjectInfo(call);
+        if ("repositories".equals(methodName)) {
             // repositories nodes
-            enterRepositoriesNode();
-        } else if (methodName.equals("dependencies")) {
+            this.currentVisitedNodeTypes.push(methodName);
+        } else if ("dependencies".equals(methodName)) {
             // dependencies nodes
-            enterDependenciesNode();
-            if (changer.currentScope.equals("app") && changer.specialAddInDependency.getAddString() != null) {
-                addStringToDependency(call);
+            this.currentVisitedNodeTypes.push(methodName);
+            if (this instanceof IModuleBuildGradleVisitor) {
+                IModuleBuildGradleVisitor visitor = (IModuleBuildGradleVisitor) this;
+                visitor.addImplementationInDependencies(call);
             }
         } else if (isApplyPluginNode(methodName, call)) {
             // apply plugin nodes
@@ -81,12 +171,22 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
         } else if (currentVisitedNodeTypes.size() > 0) {
             // get current parent nodes
             String parentNodeType = currentVisitedNodeTypes.peek();
-            if (parentNodeType.equals("repositories")) {
+            if ("repositories".equals(parentNodeType)) {
                 // If the parent node type is a repository nodes
                 visitRepositoriesChildNode(call);
-            } else if (parentNodeType.equals("dependencies")) {
+            } else if ("dependencies".equals(parentNodeType)) {
                 // If the parent node type is a dependencies nodes
                 visitDependenciesChildNode(call);
+            }
+        }
+        if ("implementation".equalsIgnoreCase(methodName) && changer.specialAddInDependency.getAddString() != null) {
+            String txt = call.getArguments().getText();
+            String specialImplementation = changer.specialAddInDependency.getAddString();
+            specialImplementation = specialImplementation.replaceAll("\'", "").replaceAll("implementation", "")
+                    .replaceAll(" ", "");
+            if (txt.contains(specialImplementation) && specialAddInstances.containsKey(changer.currentFilePath)) {
+                changer.currentFileDefectInstances.remove(specialAddInstances.get(changer.currentFilePath));
+                specialAddInstances.keySet().removeIf(key -> key == changer.currentFilePath);
             }
         }
 
@@ -94,45 +194,39 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
         super.visitMethodCallExpression(call);
 
         // leave this node
-        if (methodName.equals("repositories")) {
+        if ("repositories".equals(methodName)) {
             // If the parent node type is a repository nodes
             leaveRepositoriesNode(call);
         } else {
-            if (methodName.equals("dependencies")) {
+            if ("dependencies".equals(methodName)) {
                 // If the parent node type is a dependencies nodes
                 leaveDependenciesNode(call);
             }
         }
     }
 
-    void addStringToDependency(MethodCallExpression call) {
-        String fixedline = changer.currentFileLines.get(call.getLineNumber() - 1) + changer.currentFileLineBreak
-                + changer.specialAddInDependency.getAddString();
-        DefectInstance defectInstance = changer.createDefectInstance(changer.currentFilePath, call.getLineNumber(),
-                changer.currentFileLines.get(call.getLineNumber() - 1), fixedline);
-        // generate desc
-        defectInstance.message = changer.gson.toJson(changer.specialAddInDependency.getDesc());
-        changer.currentFileDefectInstances.add(defectInstance);
+    /**
+     * The following wording will be parsed into BinaryExpression
+     * "sourceCompatibility = 1.8"
+     *
+     * @param call binary expression
+     */
+    @Override
+    public void visitBinaryExpression(BinaryExpression call) {
+        if (call == null) {
+            return;
+        }
+        cacheProjectInfo(call);
     }
 
-    /**
-     * Operations before entering the repositories node
-     */
-    protected void enterRepositoriesNode() {
-        currentVisitedNodeTypes.push("repositories");
+    protected void initValue() {
         repositoryUrls = new HashSet<>();
-    }
-
-    /**
-     * Operations before entering the dependencies node
-     */
-    protected void enterDependenciesNode() {
-        currentVisitedNodeTypes.push("dependencies");
-        implementations = new HashSet<>();
+        tagLibraryMap = new HashMap<>();
         classPaths = new HashSet<>();
         implementationReplaces = new ArrayList<>();
         lowVersionImplementations = new ArrayList<>();
         implementationDeletions = new HashMap<>();
+        implementationWarnings = new ArrayList<>();
         indirectDependencies = new HashSet<>();
         implementationInsertions = new ArrayList<>();
         g2xLowVersionImplementations = new ArrayList<>();
@@ -144,6 +238,9 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
      * @param node AST node
      */
     protected void visitApplyPluginNode(ASTNode node) {
+        if (node == null) {
+            return;
+        }
         // Get the original string of the node
         String text = getRawContent(node).trim();
 
@@ -161,10 +258,10 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
             int startLineNumber = node.getLineNumber();
             DefectInstance defectInstance = changer.createDefectInstance(changer.currentFilePath, startLineNumber,
                     changer.currentFileLines.get(startLineNumber - 1), "");
-            defectInstance.message = changer.gson.toJson(changer.appDeleteGmsApplyPlugin.get(pluginStr).getDesc());
+            defectInstance.message = GradleModificationChanger.GSON.toJson(changer.appDeleteGmsApplyPlugin.get(pluginStr).getDesc());
             changer.currentFileDefectInstances.add(defectInstance);
         } else {
-            applyPlugins.add(pluginStr);
+            applyPlugins.put(pluginStr, node.getLineNumber());
         }
     }
 
@@ -174,6 +271,9 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
      * @param node AST node
      */
     protected void visitRepositoriesChildNode(ASTNode node) {
+        if (node == null) {
+            return;
+        }
         // Get the original string of the node
         String text = getRawContent(node).trim();
 
@@ -183,7 +283,7 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
             Map desc = changer.projectDeleteClasspathInRepositories.get(text.trim()).getDesc();
             DefectInstance defectInstance =
                     changer.createDefectInstance(changer.currentFilePath, startLineNumber, text, "");
-            defectInstance.message = changer.gson.toJson(desc);
+            defectInstance.message = GradleModificationChanger.GSON.toJson(desc);
             changer.currentFileDefectInstances.add(defectInstance);
         } else {
             if (text.startsWith("maven")) {
@@ -202,14 +302,20 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
      * visit dependencies children nodes，get implementation and classpath
      */
     protected void visitDependenciesChildNode(ASTNode node) {
+        if (node == null) {
+            return;
+        }
         // Get the original string of the node
         String text = getRawContent(node).trim();
         if (text.startsWith("classpath")) {
             // classpath nodes
             visitClasspathNode(text, node);
-        } else {
+        } else if (text.startsWith(GradleFileUtils.DEPENDENCIES_API)
+                || text.startsWith(GradleFileUtils.COMPILE_ONLY)
+                || text.startsWith(GradleFileUtils.RUNTIME_ONLY)
+                || text.startsWith(GradleFileUtils.IMPLEMENTATIONS)) {
             // implementation nodes
-            visitImplementationNode(text, node);
+            visitDependenciesChildNode(text, node);
         }
     }
 
@@ -219,6 +325,9 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
      * @param node AST node
      */
     protected void visitClasspathNode(String text, ASTNode node) {
+        if (node == null) {
+            return;
+        }
         // Get the introduced classpath content
         String str = text;
         int index = text.indexOf("classpath");
@@ -228,23 +337,67 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
         if ((str.startsWith("'") && str.endsWith("'")) || (str.startsWith("\"") && str.endsWith("\""))) {
             str = str.substring(1, str.length() - 1);
         }
-        classPaths.add(str);
+        String nameWithVersion = str;
+        String currentName = "";
+        String currentVersion = "";
 
         // get group id, artifact id，delete version
-        index = str.lastIndexOf(":");
+        index = nameWithVersion.lastIndexOf(":");
         if (index >= 0) {
-            str = str.substring(0, index);
+            currentName = nameWithVersion.substring(0, index);
+            currentVersion = nameWithVersion.substring(index + 1);
         }
-
-        // classpath need to be delete
-        if (changer.projectDeleteClasspathInDependencies.containsKey(str)) {
-            Map desc = changer.projectDeleteClasspathInDependencies.get(str).getDesc();
+        classPaths.add(currentName);
+        if (changer.projectDeleteClasspathInDependencies.containsKey(currentName)) {
+            // classpath need to be delete
+            Map desc = changer.projectDeleteClasspathInDependencies.get(currentName).getDesc();
+            changer.projectDeleteClasspathInDependencies.get(currentName).setVersion(higherVersion(currentVersion, changer.projectDeleteClasspathInDependencies.get(currentName).getVersion()));
             // generate defectInstance
             int startLineNumber = node.getLineNumber();
             DefectInstance defectInstance = changer.createDefectInstance(changer.currentFilePath, startLineNumber,
                     changer.currentFileLines.get(startLineNumber - 1), "");
-            defectInstance.message = changer.gson.toJson(desc);
+            defectInstance.message = GradleModificationChanger.GSON.toJson(desc);
             changer.currentFileDefectInstances.add(defectInstance);
+        }
+    }
+
+    public String higherVersion(String v1, String v2) {
+        if (StringUtils.isEmpty(v2)) {
+            return v1;
+        }
+        if (StringUtils.isEmpty(v1)) {
+            return v2;
+        }
+        if (v1.equals(v2)) {
+            return v1;
+        }
+
+        String[] version1Array = v1.split("[._]");
+        String[] version2Array = v2.split("[._]");
+        int index = 0;
+        int minLen = Math.min(version1Array.length, version2Array.length);
+        long diff = 0;
+
+        while (index < minLen
+                && (diff = Long.parseLong(version1Array[index])
+                - Long.parseLong(version2Array[index])) == 0) {
+            index++;
+        }
+        if (diff == 0) {
+            for (int i = index; i < version1Array.length; i++) {
+                if (Long.parseLong(version1Array[i]) > 0) {
+                    return v1;
+                }
+            }
+
+            for (int i = index; i < version2Array.length; i++) {
+                if (Long.parseLong(version2Array[i]) > 0) {
+                    return v2;
+                }
+            }
+            return v1;
+        } else {
+            return diff > 0 ? v1 : v2;
         }
     }
 
@@ -253,140 +406,247 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
      *
      * @param node AST node
      */
-    protected void visitImplementationNode(String text, ASTNode node) {
-        // Get introduced implementation content
-        Matcher matcher = dependencyPattern.matcher(text);
-        Matcher matcher2 = dependencyPattern2.matcher(text);
-        boolean matcherFind = matcher.find();
-        boolean matcherFind2 = matcher2.find();
-        String str = getStr(matcherFind, matcherFind2, matcher, matcher2, text);
-
-        // get group id, artifact id，delete version
-        implementations.add(str);
-        int index = str.lastIndexOf(":");
-        int startLineNumber = node.getLineNumber();
-        String version = null;
-        if (index >= 0) {
-            version = str.substring(index + 1);
-            str = str.substring(0, index);
+    protected void visitDependenciesChildNode(String text, ASTNode node) {
+        if (node == null) {
+            return;
         }
-        str = str.replaceAll(" ", "");
-
+        MethodCallExpression callExpression = (MethodCallExpression) node;
+        String tagName = callExpression.getMethod().getText();
+        Matcher completeMatcher = dependencyPatternForComplete.matcher(text);
+        String libraryName;
+        String rawTextLineStr = getRawLinesStr(node);
+        // Support ext{}
+        rawTextLineStr = replaceGradleLineByExt(rawTextLineStr);
+        // Support complete format of dependency
+        if (completeMatcher.find()) {
+            String message = completeMatcher.group(0).replaceAll(" ", "").replaceAll(",", "");
+            int groupIndex = message.indexOf("group:");
+            int nameIndex = message.indexOf("name:");
+            int versionIndex = message.indexOf("version:");
+            libraryName = extractDependency(message.substring(groupIndex, nameIndex)) + ":"
+                    + extractDependency(message.substring(nameIndex, versionIndex)) + ":"
+                    + extractDependency(message.substring(versionIndex));
+        } else {
+            libraryName = extractDependency(text);
+        }
+        if (StringUtils.isEmpty(libraryName)) {
+            return;
+        }
+        // get group id, artifact id，delete version
+        if (tagLibraryMap.containsKey(tagName)) {
+            tagLibraryMap.get(tagName).add(libraryName);
+        } else {
+            Set<String> set = new HashSet<>();
+            set.add(libraryName);
+            tagLibraryMap.put(tagName, set);
+        }
+        String version = null;
+        int index = libraryName.lastIndexOf(":");
+        if (index >= 0) {
+            version = libraryName.substring(index + 1);
+            libraryName = libraryName.substring(0, index);
+        }
+        libraryName = libraryName.replaceAll(" ", "");
         // if version is variable
         if (version != null) {
-            version = deleteVersionPrefix(version);
+            // get version info from ASTNode
+            Expression argumentList = callExpression.getArguments();
+            if (!(argumentList instanceof ArgumentListExpression)
+                    || ((ArgumentListExpression) argumentList).getExpressions().isEmpty()) {
+                return;
+            }
+            Expression arg = ((ArgumentListExpression) argumentList).getExpression(0);
+            if (!(arg instanceof GStringExpression)) {
+                updateImplementationContainers(libraryName, version, tagName, rawTextLineStr, node);
+                return;
+            }
+            List<Expression> epList = ((GStringExpression) arg).getValues();
+            if (epList.isEmpty()) {
+                return;
+            }
+            Expression value = epList.get(0);
+            if (value instanceof VariableExpression) {
+                // pattern of "$VARIABLE"
+                version = ((VariableExpression) value).getName();
+            } else if (value instanceof MethodCallExpression) {
+                // pattern of "${project.ext.get('VARIABLE')}
+                Expression methodArguments = ((MethodCallExpression) value).getArguments();
+                if (!(methodArguments instanceof ArgumentListExpression)
+                        || ((ArgumentListExpression) methodArguments).getExpressions().isEmpty()) {
+                    return;
+                }
+                Expression ep = ((ArgumentListExpression) methodArguments).getExpression(0);
+                if (ep instanceof ConstantExpression) {
+                    version = ((ConstantExpression) ep).getValue().toString();
+                }
+            } else if (value instanceof PropertyExpression) {
+                // pattern of "${project.VARIABLE}"
+                Expression property = ((PropertyExpression) value).getProperty();
+                if (property instanceof ConstantExpression) {
+                    version = ((ConstantExpression) property).getValue().toString();
+                }
+            } else if (value instanceof BinaryExpression) {
+                // pattern of "${project.ext['VARIABLE']}"
+                Expression rightExpression = ((BinaryExpression) value).getRightExpression();
+                if (rightExpression instanceof ConstantExpression) {
+                    version = ((ConstantExpression) rightExpression).getValue().toString();
+                }
+            }
+            version = GradleVersionService.getValue(version);
         }
+        updateImplementationContainers(libraryName, version, tagName, rawTextLineStr, node);
+    }
 
-        String rawTextLineStr = getRawLinesStr(node);
-        if (changer.appBuildGradleReplace.containsKey(str)) {
-            changerAddImplementationReplace(str, startLineNumber, version, rawTextLineStr);
+    /**
+     * insert information to lists such as implementationReplaces, implementationInsertions and etc.
+     *
+     * @param libraryName    library name without version
+     * @param version        library version number
+     * @param tagName        tagName
+     * @param rawTextLineStr actual text of current line
+     * @param node           ast node
+     */
+    protected void updateImplementationContainers(String libraryName, String version, String tagName,
+            String rawTextLineStr, ASTNode node) {
+        if (node == null) {
+            return;
+        }
+        if (changer.appBuildGradleReplace.containsKey(libraryName)) {
+            StructAppReplace replace = changer.appBuildGradleReplace.get(libraryName);
+            int startLineNumber = node.getLineNumber();
+            if (checkVersionContinueEnglish(version, replace.getVersion(), tagName, startLineNumber)) {
+                return;
+            }
+            if (VersionCompareUtil.compare(version, replace.getVersion()) == -1) {
+                // Need to be reminded that the version is too low
+                LowVersionImplementation lowVersionImplementation =
+                        new LowVersionImplementation(tagName, startLineNumber, replace);
+                lowVersionImplementations.add(lowVersionImplementation);
+            } else {
+                // Implementation to be replaced
+                ImplementationReplace implementationReplace =
+                        new ImplementationReplace(tagName, startLineNumber, rawTextLineStr, replace);
+                implementationReplaces.add(implementationReplace);
+            }
         }
 
         // Need new implementation
-        if (changer.appAddInDependencies.containsKey(str)) {
-            changerAppAddInDependencies(str, startLineNumber, version, rawTextLineStr);
+        if (changer.appAddInDependencies.containsKey(libraryName)) {
+            StructAppAddInDependencies insert = changer.appAddInDependencies.get(libraryName);
+            int startLineNumber = node.getLineNumber();
+            int endLineNumber = node.getLastLineNumber();
+            if (checkVersionContinueEnglish(version, insert.getVersion(), tagName, startLineNumber)) {
+                return;
+            }
+            if (VersionCompareUtil.compare(version, insert.getVersion()) == -1) {
+                if (isExistInAppAddInDependencies(changer.appAddInDependencies, libraryName)) {
+                    // Need to be deleted
+                    String tempString = insert.getDescAuto().get("kit").toString();
+                    HashMap<String, String> implementationDeletionDesc = new HashMap<>();
+                    implementationDeletionDesc.put("kit", tempString);
+                    implementationDeletionDesc.put("text", "GMS dependencies will be deleted.");
+                    implementationDeletionDesc.put("url", "");
+                    implementationDeletionDesc.put("status", "AUTO");
+                    StructAppDeleteInDependencies deletion = new StructAppDeleteInDependencies();
+                    deletion.setDeleteClasspathInDependenciesName(libraryName);
+                    deletion.setDesc(implementationDeletionDesc);
+                    ImplementationDeletion implementationDeletion =
+                            new ImplementationDeletion(tagName, startLineNumber, rawTextLineStr, deletion);
+                    List<ImplementationDeletion> implementationDeletionList = (implementationDeletions.containsKey(tagName + libraryName)) ? implementationDeletions.get(tagName + libraryName) : new ArrayList();
+                    implementationDeletionList.add(implementationDeletion);
+                    implementationDeletions.put(tagName + libraryName, implementationDeletionList);
+                } else {
+                    // Need to be reminded that the version is too low
+                    G2XLowVersionImplementation lowVersionImplementation =
+                            new G2XLowVersionImplementation(tagName, startLineNumber, insert);
+                    g2xLowVersionImplementations.add(lowVersionImplementation);
+                }
+            } else {
+                ImplementationInsert implementationInsertion =
+                        new ImplementationInsert(tagName, startLineNumber, endLineNumber, rawTextLineStr, insert);
+                implementationInsertions.add(implementationInsertion);
+            }
         }
 
         // Need to increase implementation of indirect dependencies
-        for (Map.Entry<String, StructAppAddIndirectDependencies> entry :
-                changer.appAddIndirectDependencies.entrySet()) {
-            if (str.startsWith(entry.getKey())) {
+        for (Map.Entry<String, StructAppAddIndirectDependencies> entry : changer.appAddIndirectDependencies.entrySet()) {
+            if (libraryName.startsWith(entry.getKey())) {
                 indirectDependencies.add(entry.getValue());
             }
         }
 
         // Implementations to be removed
+        int startLineNumber = node.getLineNumber();
         for (Map.Entry<String, StructAppDeleteInDependencies> entry : changer.appDeleteInDependencies.entrySet()) {
-            if (str.startsWith(entry.getKey())) {
+            if (libraryName.startsWith(entry.getKey())) {
                 ImplementationDeletion deletion =
-                        new ImplementationDeletion(startLineNumber, rawTextLineStr, entry.getValue());
-                implementationDeletions.put(str, deletion);
+                        new ImplementationDeletion(tagName, startLineNumber, rawTextLineStr, entry.getValue());
+                List<ImplementationDeletion> implementationDeletionList = (implementationDeletions.containsKey(tagName + libraryName)) ? implementationDeletions.get(tagName + libraryName) : new ArrayList();
+                implementationDeletionList.add(deletion);
+                implementationDeletions.put(tagName + libraryName, implementationDeletionList);
             }
         }
     }
 
-    private String deleteVersionPrefix(String version) {
-        if (version.startsWith("$")) {
-            if (version.startsWith("${project.ext.get(") || version.startsWith("${project.ext[")
-                    || version.startsWith("${ext.get(") || version.startsWith("${ext[")) {
-                Matcher matcher0 = GradleVersionService.SINGLE_QUOTES.matcher(version);
-                Matcher matcher1 = GradleVersionService.DOUBLE_QUOTES.matcher(version);
-                if (matcher0.find()) {
-                    version = matcher0.group(0).replace("\'", "");
-                } else if (matcher1.find()) {
-                    version = matcher0.group(0).replace("\"", "");
-                }
-                version = GradleVersionService.getValue(version);
-            } else {
-                version = GradleVersionService.getValue(version.substring(1));
+    /**
+     * Check Version Continue English
+     * If continue, add it into implementationWarnings and return true
+     * If not, return false
+     *
+     * @param version version
+     * @param supportVersion support version
+     * @param tagName tag name
+     * @param startLineNumber start line number
+     * @return true if version continue with english
+     */
+    private boolean checkVersionContinueEnglish(String version, String supportVersion, String tagName,
+            int startLineNumber) {
+        if (StringUtils.compareIgnoreCase(version, supportVersion) != 0) {
+            Matcher versionMatcher = versionPattern.matcher(version);
+            if (versionMatcher.find()) {
+                logger.debug("Matched that version continue alphabet. Version : {}", version);
+                implementationWarnings
+                        .add(new ImplementationWarning(tagName, startLineNumber, changer.versionWarnings.getDesc()));
+                return true;
             }
-        } else if (version.startsWith("project.ext.get(")
-                || version.startsWith("project.ext[")
-                || version.startsWith("ext.get(")
-                || version.startsWith("ext[")) {
-            Matcher matcher0 = GradleVersionService.DOUBLE_QUOTES.matcher(version);
-            if (matcher0.find()) {
-                version = matcher0.group(0).replace("\"", "");
-            }
-            version = GradleVersionService.getValue(version);
-        } else if (version.startsWith("project.") || version.startsWith("ext.")) {
-            version = version.substring(version.indexOf(".") + 1);
-            version = GradleVersionService.getValue(version);
         }
-        return version;
+        return false;
     }
 
-    private void changerAppAddInDependencies(String str, int startLineNumber, String version, String rawTextLineStr) {
-        StructAppAddInDependencies insert = changer.appAddInDependencies.get(str);
-        if (VersionCompareUtil.compare(version, insert.getVersion()) == -1) {
-            // Need to be reminded that the version is too low
-            G2XLowVersionImplementation lowVersionImplementation =
-                    new G2XLowVersionImplementation(startLineNumber, insert);
-            g2xLowVersionImplementations.add(lowVersionImplementation);
-        } else {
-            ImplementationInsert implementationInsertion =
-                    new ImplementationInsert(startLineNumber, rawTextLineStr, insert);
-            implementationInsertions.add(implementationInsertion);
-        }
-    }
-
-    void changerAddImplementationReplace(String str, int startLineNumber, String version, String rawTextLineStr) {
-        StructAppReplace replace = changer.appBuildGradleReplace.get(str);
-        if (VersionCompareUtil.compare(version, replace.getVersion()) == -1) {
-            // Need to be reminded that the version is too low
-            LowVersionImplementation lowVersionImplementation =
-                    new LowVersionImplementation(startLineNumber, replace);
-            lowVersionImplementations.add(lowVersionImplementation);
-        } else {
-            // Implementation to be replaced
-            ImplementationReplace implementationReplace =
-                    new ImplementationReplace(startLineNumber, rawTextLineStr, replace);
-            implementationReplaces.add(implementationReplace);
-        }
-    }
-
-    private String getStr(boolean matcherFind, boolean matcherFind2, Matcher matcher, Matcher matcher2, String text) {
-        String str;
+    /**
+     * extract Dependency text by dependencyPattern or dependencyPattern2
+     *
+     * @param text text
+     * @return extract dependency
+     */
+    protected String extractDependency(String text) {
+        // Get introduced implemeantation content
+        String dependencyStr;
+        Matcher matcher = dependencyPattern.matcher(text);
+        Matcher matcher2 = dependencyPattern2.matcher(text);
+        boolean matcherFind = matcher.find();
+        boolean matcherFind2 = matcher2.find();
         if (matcherFind && matcherFind2) {
             String str1 = matcher.group(0);
             String str2 = matcher2.group(0);
             if (text.indexOf(str1) < text.indexOf(str2)) {
-                str = str1;
+                dependencyStr = str1;
             } else {
-                str = str2;
+                dependencyStr = str2;
             }
         } else {
             if (matcherFind && !matcherFind2) {
-                str = matcher.group(0);
+                dependencyStr = matcher.group(0);
             } else {
                 if (!matcherFind && matcherFind2) {
-                    str = matcher2.group(0);
+                    dependencyStr = matcher2.group(0);
                 } else {
                     return "";
                 }
             }
         }
-        return str.substring(1, str.length() - 1);
+        dependencyStr = dependencyStr.substring(1, dependencyStr.length() - 1);
+        return dependencyStr;
     }
 
     /**
@@ -396,52 +656,10 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
      * @return if it is an apply plugin node -> true/false
      */
     protected boolean isApplyPluginNode(String methodName, MethodCallExpression call) {
-        return methodName.equals("apply") && call.getArguments().getText().startsWith("([plugin:");
+        return "apply".equals(methodName) && call.getArguments().getText().startsWith("([plugin:");
     }
 
-    /**
-     * leave repositories nodes
-     *
-     * @param node AST node
-     */
     protected void leaveRepositoriesNode(ASTNode node) {
-        // pop
-        currentVisitedNodeTypes.pop();
-
-        // Skip non-project level gradle files
-        if (!changer.currentScope.equals("project")) {
-            return;
-        }
-
-        // Added URL
-        Set<String> addedUrls = new HashSet<>(changer.projectAddMavenInRepositories.keySet());
-        addedUrls.removeAll(repositoryUrls);
-        if (addedUrls.size() == 0) {
-            return;
-        }
-
-        // Added desc
-        Set<Map> addedDescs = new HashSet<>();
-        for (String url : addedUrls) {
-            addedDescs.add(changer.projectAddMavenInRepositories.get(url).getDesc());
-        }
-
-        // generate defectInstance
-        int endLineNumber = node.getLastLineNumber();
-        String indentStr = StringUtil.getIndent(changer.currentFileLines.get(endLineNumber - 2));
-        StringBuffer addedUrlBuffer = new StringBuffer();
-        for (String addedUrl : addedUrls) {
-            addedUrlBuffer.append(indentStr).append("maven {url '").append(addedUrl)
-                    .append("'}").append(changer.currentFileLineBreak);
-        }
-        String addedUrlStr = addedUrlBuffer.toString();
-        addedUrlStr = addedUrlStr.substring(0, addedUrlStr.length() - changer.currentFileLineBreak.length());
-        DefectInstance defectInstance =
-                changer.createDefectInstance(changer.currentFilePath, -endLineNumber, null, addedUrlStr);
-        // generate desc
-        String message = changer.gson.toJson(addedDescs);
-        defectInstance.message = message.substring(1, message.length() - 1);
-        changer.currentFileDefectInstances.add(defectInstance);
     }
 
     /**
@@ -450,301 +668,12 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
      * @param node AST node
      */
     protected void leaveDependenciesNode(ASTNode node) {
-        // pop
-        currentVisitedNodeTypes.pop();
-
-        if (changer.currentScope.equals("project")) {
-            // add classpath
-            addClasspaths(node);
-        } else {
-            // add implementation
-            addImplementations(node);
-        }
-    }
-
-    /**
-     * add implementation
-     *
-     * @param node AST node
-     */
-    protected void addImplementations(ASTNode node) {
-        removeImplementationDeletionsElements();
-
-        for (ImplementationInsert implementationInsertion : implementationInsertions) {
-            int startLineNumber = implementationInsertion.startLineNumber;
-            String oldStr = implementationInsertion.oldStr;
-            Set<String> insertHmsName = new HashSet<>(implementationInsertion.insertion.getDependencies());
-            insertHmsName.removeAll(implementations);
-            Map desc = implementationInsertion.insertion.getDescAuto();
-            createGradleInsertDefectInstance(insertHmsName, oldStr, startLineNumber, desc);
-        }
-
-        // delete implementation
-        for (ImplementationDeletion deletion : implementationDeletions.values()) {
-            DefectInstance defectInstance = changer.createDefectInstance(
-                    changer.currentFilePath, deletion.startLineNumber, deletion.oldStr, "");
-            defectInstance.message = changer.gson.toJson(deletion.deletion.getDesc());
-            changer.currentFileDefectInstances.add(defectInstance);
-        }
-
-        // aidl add implementation
-        Set<String> addedImplementations = new HashSet<>();
-        Set<Map> addedDesc = new HashSet<>();
-        addImplementation(addedImplementations, addedDesc);
-
-        getWarningDefectInstance(node.getLineNumber());
-
-        // add implementations
-        if (addedImplementations.size() == 0) {
-            return;
-        }
-        int endLineNumber = node.getLastLineNumber();
-        String indentStr = StringUtil.getIndent(changer.currentFileLines.get(endLineNumber - 2));
-        StringBuffer addedImplementationBuffer = new StringBuffer();
-        for (String addedImplementation : addedImplementations) {
-            addedImplementationBuffer
-                    .append(indentStr)
-                    .append("implementation '")
-                    .append(addedImplementation)
-                    .append("'")
-                    .append(changer.currentFileLineBreak);
-        }
-        String addedImplementationStr = addedImplementationBuffer.toString();
-        addedImplementationStr =
-                addedImplementationStr.substring(
-                        0, addedImplementationStr.length() - changer.currentFileLineBreak.length());
-        DefectInstance defectInstance =
-                changer.createDefectInstance(changer.currentFilePath, -endLineNumber, null, addedImplementationStr);
-        defectInstance.message = changer.gson.toJson(addedDesc);
-        defectInstance.message = defectInstance.message.substring(1, defectInstance.message.length() - 1);
-        changer.currentFileDefectInstances.add(defectInstance);
-    }
-
-    private void addImplementation(Set<String> addedImplementations, Set<Map> addedDesc) {
-        for (StructAppAidl structAppAidl : changer.addImplementationsByAidl) {
-            List<String> aidlImplementations = new ArrayList<>(structAppAidl.getAddImplementationInDependencies());
-            aidlImplementations.removeAll(implementations);
-            if (aidlImplementations.size() == 0) {
-                continue;
-            }
-            addedImplementations.addAll(aidlImplementations);
-            if (!addedDesc.contains(structAppAidl.getDesc())) {
-                addedDesc.add(structAppAidl.getDesc());
-            }
-            implementations.addAll(aidlImplementations);
-        }
-
-        // add implementations
-        List<String> addMessageImplementations = new ArrayList<>(changer.appBuildGradleAddMessage.keySet());
-        addMessageImplementations.removeAll(implementations);
-        if (addMessageImplementations.size() > 0) {
-            addedImplementations.addAll(addMessageImplementations);
-            for (String addedImplementation : addMessageImplementations) {
-                Map structDesc = changer.appBuildGradleAddMessage.get(addedImplementation).getDesc();
-                if (!addedDesc.contains(structDesc)) {
-                    addedDesc.add(structDesc);
-                }
-            }
-            implementations.addAll(addMessageImplementations);
-        }
-    }
-
-    private void removeImplementationDeletionsElements() {
-        // Need to prompt implementations that are too old
-        for (LowVersionImplementation implementation : lowVersionImplementations) {
-            DefectInstance defectInstance =
-                    changer.createWarningDefectInstance(changer.currentFilePath, implementation.startLineNumber,
-                            changer.currentFileLines.get(implementation.startLineNumber - 1),
-                            changer.gson.toJson(implementation.replace.getDescManual()));
-            changer.currentFileDefectInstances.add(defectInstance);
-            implementationDeletions.remove(implementation.replace.getOriginGoogleName());
-        }
-
-        // Need to prompt implementations that are too old
-        for (G2XLowVersionImplementation implementation : g2xLowVersionImplementations) {
-            DefectInstance defectInstance =
-                    changer.createWarningDefectInstance(changer.currentFilePath, implementation.startLineNumber,
-                            changer.currentFileLines.get(implementation.startLineNumber - 1),
-                            changer.gson.toJson(implementation.insert.getDescManual()));
-            changer.currentFileDefectInstances.add(defectInstance);
-            implementationDeletions.remove(implementation.insert.getOriginGoogleName());
-        }
-
-        // replace implementations
-        for (ImplementationReplace implementationReplace : implementationReplaces) {
-            int startLineNumber = implementationReplace.startLineNumber;
-            String oldStr = implementationReplace.oldStr;
-            Set<String> replaceHmsName = new HashSet<>(implementationReplace.replace.getReplaceHmsName());
-            replaceHmsName.removeAll(implementations);
-            Map desc = implementationReplace.replace.getDescAuto();
-            DefectInstance defectInstance =
-                    createGradleReplaceImplementationDefectInstance(replaceHmsName, oldStr, startLineNumber, desc);
-            changer.currentFileDefectInstances.add(defectInstance);
-            implementationDeletions.remove(implementationReplace.replace.getOriginGoogleName());
-        }
-    }
-
-    private void getWarningDefectInstance(int startLineNumber) {
-        // New implementation for indirect dependencies
-        Set<String> originalGoogleNames = new HashSet<>();
-        Set<String> dependencies = new HashSet<>();
-        for (StructAppAddIndirectDependencies indirectDependency : indirectDependencies) {
-            boolean flag = true;
-            for (String dependency : indirectDependency.getDependencies()) {
-                for (String implementation : implementations) {
-                    if (implementation.startsWith(dependency)) {
-                        flag = false;
-                        break;
-                    }
-                }
-                if (flag) {
-                    originalGoogleNames.add(indirectDependency.getOriginGoogleName());
-                    dependencies.add(dependency);
-                }
-            }
-        }
-
-        if (originalGoogleNames.size() > 0 && dependencies.size() > 0) {
-            StringBuffer descText = new StringBuffer();
-            descText.append(StringUtil.join(", ", originalGoogleNames))
-                    .append("Not introduced after conversion to HMS corresponding dependency")
-                    .append(StringUtil.join(", ", dependencies))
-                    .append("please introduce as needed");
-            Map<String, Object> desc = new HashMap<>();
-            desc.put("text", descText.toString());
-            desc.put("url", "");
-            desc.put("status", "MANUAL");
-            DefectInstance defectInstance =
-                    changer.createWarningDefectInstance(changer.currentFilePath,
-                            startLineNumber, "", changer.gson.toJson(desc));
-            changer.currentFileDefectInstances.add(defectInstance);
-        }
-    }
-
-    private DefectInstance createGradleReplaceImplementationDefectInstance(Set<String> replaceHmsName,
-            String oldStr, int startLineNumber, Map desc) {
-        DefectInstance defectInstance;
-        if (replaceHmsName.size() > 0) {
-            implementations.addAll(replaceHmsName);
-            StringBuffer replaceBuffer = new StringBuffer();
-            String indentStr = StringUtil.getIndent(oldStr);
-            for (String name : replaceHmsName) {
-                replaceBuffer.append(indentStr).append("implementation '").append(name)
-                        .append("'").append(changer.currentFileLineBreak);
-            }
-            String replaceStr = replaceBuffer.toString();
-            defectInstance = changer.createDefectInstance(changer.currentFilePath, startLineNumber, oldStr,
-                    replaceStr.substring(0, replaceStr.length() - changer.currentFileLineBreak.length()));
-        } else {
-            defectInstance = changer.createDefectInstance(changer.currentFilePath, startLineNumber,
-                    changer.currentFileLines.get(startLineNumber - 1), "");
-        }
-        defectInstance.message = changer.gson.toJson(desc);
-
-        return defectInstance;
-    }
-
-    private void createGradleInsertDefectInstance(Set<String> insertHmsName,
-            String oldStr, int startLineNumber, Map desc) {
-        DefectInstance defectInstance;
-        if (insertHmsName.size() > 0) {
-            implementations.addAll(insertHmsName);
-            StringBuffer insertBuffer = new StringBuffer();
-            String indentStr = StringUtil.getIndent(oldStr);
-            insertBuffer.append(indentStr).append(oldStr).append(changer.currentFileLineBreak);
-            for (String name : insertHmsName) {
-                insertBuffer.append(indentStr).append("implementation '").append(name)
-                        .append("'").append(changer.currentFileLineBreak);
-            }
-            String insertStr = insertBuffer.toString();
-            defectInstance = changer.createDefectInstance(changer.currentFilePath, startLineNumber, oldStr,
-                    insertStr.substring(0, insertStr.length() - changer.currentFileLineBreak.length()));
-            defectInstance.message = changer.gson.toJson(desc);
-            changer.currentFileDefectInstances.add(defectInstance);
-        }
-    }
-
-
-    /**
-     * add classpath
-     *
-     * @param node AST node
-     */
-    protected void addClasspaths(ASTNode node) {
-        // add classpath
-        Set<String> addedClasspaths = new HashSet<String>(changer.projectAddClassPathInDependencies.keySet());
-        addedClasspaths.removeAll(classPaths);
-        if (addedClasspaths.size() == 0) {
-            return;
-        }
-
-        // add desc
-        Set<Map> addedDescs = new HashSet<>();
-        for (String classpath : addedClasspaths) {
-            addedDescs.add(changer.projectAddClassPathInDependencies.get(classpath).getDesc());
-        }
-
-        // generate defectInstance
-        int endLineNumber = node.getLastLineNumber();
-        String indentStr = StringUtil.getIndent(changer.currentFileLines.get(endLineNumber - 2));
-        StringBuffer addedClasspathBuffer = new StringBuffer();
-        for (String addedClasspath : addedClasspaths) {
-            addedClasspathBuffer
-                    .append(indentStr)
-                    .append("classpath '")
-                    .append(addedClasspath)
-                    .append("'")
-                    .append(changer.currentFileLineBreak);
-        }
-        String addedClasspathStr = addedClasspathBuffer.toString();
-        addedClasspathStr =
-                addedClasspathStr.substring(0, addedClasspathStr.length() - changer.currentFileLineBreak.length());
-        DefectInstance defectInstance =
-                changer.createDefectInstance(changer.currentFilePath, -endLineNumber, null, addedClasspathStr);
-        // generate desc
-        String message = changer.gson.toJson(addedDescs);
-        defectInstance.message = message.substring(1, message.length() - 1);
-        changer.currentFileDefectInstances.add(defectInstance);
     }
 
     /**
      * add apply plugin
      */
     public void addApplyPlugins(int endLineNumber) {
-        // skip project build.gradle files
-        if (changer.currentScope.equals("project")) {
-            return;
-        }
-
-        // add apply plugin
-        Set<String> addedApplyPlugins = new HashSet<String>(changer.appAddApplyPlugin.keySet());
-        addedApplyPlugins.removeAll(applyPlugins);
-        if (addedApplyPlugins.size() == 0) {
-            return;
-        }
-
-        // generate defectInstance
-        StringBuffer addedApplyPluginBuffer = new StringBuffer();
-        Set<Map> addedDesc = new HashSet<>();
-        for (String addedApplyPlugin : addedApplyPlugins) {
-            addedApplyPluginBuffer
-                    .append("apply plugin: '")
-                    .append(addedApplyPlugin)
-                    .append("'")
-                    .append(changer.currentFileLineBreak);
-            Map structDesc = changer.appAddApplyPlugin.get(addedApplyPlugin).getDesc();
-            if (!addedDesc.contains(structDesc)) {
-                addedDesc.add(structDesc);
-            }
-        }
-        String addedApplyPluginStr = addedApplyPluginBuffer.toString();
-        addedApplyPluginStr =
-                addedApplyPluginStr.substring(0, addedApplyPluginStr.length() - changer.currentFileLineBreak.length());
-        DefectInstance defectInstance =
-                changer.createDefectInstance(changer.currentFilePath, -endLineNumber - 1, null, addedApplyPluginStr);
-        defectInstance.message = changer.gson.toJson(addedDesc);
-        defectInstance.message = defectInstance.message.substring(1, defectInstance.message.length() - 1);
-        changer.currentFileDefectInstances.add(defectInstance);
     }
 
     /**
@@ -754,13 +683,20 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
      * @return node's origin string
      */
     protected String getRawContent(ASTNode node) {
+        if (node == null) {
+            return "";
+        }
         int startLineNumber = node.getLineNumber();
         int startColumnNumber = node.getColumnNumber();
         int endLineNumber = node.getLastLineNumber();
         int endColumnNumber = node.getLastColumnNumber();
-
+        if (startLineNumber <= 0 || startColumnNumber <= 0 || endLineNumber <= 0 || endColumnNumber <= 0) {
+            return "";
+        }
         if (endLineNumber == startLineNumber) {
             String line = changer.currentFileLines.get(startLineNumber - 1);
+            //Support ext{}
+            line = replaceGradleLineByExt(line);
             line = line.substring(startColumnNumber - 1, endColumnNumber - 1);
             return line;
         } else {
@@ -770,7 +706,7 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
             for (int i = startLineNumber; i < endLineNumber - 1; i++) {
                 sb.append(changer.currentFileLines.get(i)).append(changer.currentFileLineBreak);
             }
-            sb.append(changer.currentFileLines.get(endLineNumber - 1).substring(0, endColumnNumber - 1));
+            sb.append(changer.currentFileLines.get(endLineNumber - 1), 0, endColumnNumber - 1);
             return sb.toString();
         }
     }
@@ -785,74 +721,93 @@ public class GradleModificationVisitor extends CodeVisitorSupport {
                 changer.currentFileLines.subList(startLineNumber - 1, endLineNumber), changer.currentFileLineBreak);
     }
 
-    /**
-     * get implementation to replace
-     */
-    public static class ImplementationReplace {
-        int startLineNumber;
-        String oldStr;
-        StructAppReplace replace;
-
-        public ImplementationReplace(int startLineNumber, String oldStr, StructAppReplace replace) {
-            this.startLineNumber = startLineNumber;
-            this.oldStr = oldStr;
-            this.replace = replace;
+    private void cacheProjectInfo(MethodCallExpression call) {
+        String methodName = call.getMethodAsString();
+        Matcher proInfoMatcher = projectInfoValuePattern.matcher(call.getText());
+        if (proInfoMatcher.find()) {
+            cacheProjectInfo(methodName, proInfoMatcher.group(0));
         }
     }
 
-    /**
-     * deal with low version implementation
-     */
-    public static class LowVersionImplementation {
-        int startLineNumber;
-        StructAppReplace replace;
+    private void cacheProjectInfo(BinaryExpression call) {
+        cacheProjectInfo(call.getLeftExpression().getText(), call.getRightExpression().getText());
+    }
 
-        public LowVersionImplementation(int startLineNumber, StructAppReplace replace) {
-            this.startLineNumber = startLineNumber;
-            this.replace = replace;
+    private void cacheProjectInfo(String key, String value) {
+        Context context = Context.getContext();
+        GradleProjectInfo projectInfo;
+        if (context.getContextMap().containsKey(GradleProjectInfo.class, "")) {
+            projectInfo = (GradleProjectInfo) context.getContextMap().get(GradleProjectInfo.class, "");
+        } else {
+            projectInfo = new GradleProjectInfo();
+            context.getContextMap().put(GradleProjectInfo.class, "", projectInfo);
         }
+        projectInfo.addProjectInfo(key, value);
     }
 
     /**
-     * deal with low version implementation to delete
+     * determine weather exist in app add in dependencies
+     *
+     * @param appAddInDependencies app add in dependency
+     * @param libraryName library name
+     * @return true if exist in app add in dependencies
      */
-    public static class ImplementationDeletion {
-        int startLineNumber;
-        String oldStr;
-        StructAppDeleteInDependencies deletion;
+    private boolean isExistInAppAddInDependencies(Map<String, StructAppAddInDependencies> appAddInDependencies, String libraryName) {
+        for (Map.Entry<String, StructAppAddInDependencies> entry : appAddInDependencies.entrySet()) {
 
-        public ImplementationDeletion(int startLineNumber, String oldStr, StructAppDeleteInDependencies deletion) {
-            this.startLineNumber = startLineNumber;
-            this.oldStr = oldStr;
-            this.deletion = deletion;
+            for (String dependency : entry.getValue().getDependencies()) {
+                if (dependency.contains(libraryName)) {
+                    return true;
+                }
+            }
         }
+        return false;
     }
 
     /**
-     * deal with implementation insert
+     * replace gradle line with ext variable
+     *
+     * @param line gradle line
+     * @return replaced gradle line with ext variable
      */
-    public static class ImplementationInsert {
-        int startLineNumber;
-        String oldStr;
-        StructAppAddInDependencies insertion;
-
-        public ImplementationInsert(int startLineNumber, String oldStr, StructAppAddInDependencies insertion) {
-            this.startLineNumber = startLineNumber;
-            this.oldStr = oldStr;
-            this.insertion = insertion;
+    public String replaceGradleLineByExt(String line) {
+        Context context = Context.getContext();
+        Set keySet = context.getContextMap().keySet();
+        for (Object key : keySet) {
+            String keyStr = ((MultiKey) key).getKey(0).toString();
+            if (line.contains(keyStr)) {
+                String valueStr = context.getContextMap().get(key).toString();
+                line = line.replace(keyStr, valueStr);
+            }
         }
+        return line;
     }
 
     /**
-     * deal with low version implementation in G2X
+     * get the version of dependency
+     * 
+     * @param dependency the dependency
+     * @return the version of dependency
      */
-    public static class G2XLowVersionImplementation {
-        int startLineNumber;
-        StructAppAddInDependencies insert;
-
-        public G2XLowVersionImplementation(int startLineNumber, StructAppAddInDependencies replace) {
-            this.startLineNumber = startLineNumber;
-            this.insert = replace;
+    protected String getVersion(String dependency) {
+        int index = dependency.lastIndexOf(":");
+        if (index >= 0) {
+            return dependency.substring(index + 1);
         }
+        return null;
+    }
+
+    /**
+     * get the libraryName of dependency
+     *
+     * @param dependency the dependency
+     * @return the libraryName of dependency
+     */
+    protected String getLibraryName(String dependency) {
+        int index = dependency.lastIndexOf(":");
+        if (index >= 0) {
+            return dependency.substring(0, index);
+        }
+        return dependency;
     }
 }

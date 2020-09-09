@@ -18,12 +18,18 @@ package com.huawei.codebot.analyzer.x2y.global.service;
 
 import com.huawei.codebot.analyzer.x2y.global.bean.ClassInfo;
 import com.huawei.codebot.analyzer.x2y.global.bean.TypeInfo;
+import com.google.common.collect.Sets;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -33,6 +39,7 @@ import java.util.Set;
  * @since 2019-07-14
  */
 public class InheritanceService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(InheritanceService.class);
     private Map<String, ClassInfo> classInfoMap;
     private List<TypeInfo> superClasses = new ArrayList<>();
     private List<TypeInfo> superInterfaces = new ArrayList<>();
@@ -88,7 +95,7 @@ public class InheritanceService {
      */
     public List<TypeInfo> getSuperClasses(String className) {
         if (className == null) {
-            return new ArrayList<TypeInfo>();
+            return new ArrayList<>();
         }
         if (superClasses.size() != 0) {
             superClasses.clear();
@@ -124,15 +131,19 @@ public class InheritanceService {
         return superInterfaces;
     }
 
+
     private List<TypeInfo> getDirectSuperInterface(String name) {
         if (classInfoMap == null || classInfoMap.get(name) == null) {
-            return new ArrayList<>();
+            return Collections.emptyList();
         }
         return classInfoMap.get(name).getInterfaces();
     }
 
     private void analyzeSuperInterfaces(String name) {
         List<TypeInfo> directSuperInterfaces = getDirectSuperInterface(name);
+        if (directSuperInterfaces == null || directSuperInterfaces.size() == 0) {
+            return;
+        }
         for (TypeInfo currentInterface : directSuperInterfaces) {
             try {
                 if (!visitedIdentifier.contains(currentInterface.getQualifiedName())) {
@@ -149,7 +160,7 @@ public class InheritanceService {
                     analyzeSuperInterfaces(currentInterface.getQualifiedName());
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                LOGGER.error("Fail to analyze super interface", e);
             }
         }
     }
@@ -165,11 +176,14 @@ public class InheritanceService {
 
     /**
      * Get all the parent classes in the class and return TypeInfo
+     *
+     * @param derivedClass A qualified class name.
+     * @return All super types (include direct and non-direct) of 'deriveClass'.
      */
-    public static List<TypeInfo> getAllSuperClassesAndInterfaces(String derivedClass) {
+    public static Set<TypeInfo> getAllSuperClassesAndInterfaces(String derivedClass) {
         InheritanceService inheritanceAnalyzer = new InheritanceService();
         List<TypeInfo> superClassList = inheritanceAnalyzer.getSuperClasses(derivedClass);
-        List<TypeInfo> allSuperClassesAndInterfaces = new ArrayList<>(superClassList);
+        Set<TypeInfo> allSuperClassesAndInterfaces = new LinkedHashSet<>(superClassList);
         for (TypeInfo typeInfo : superClassList) {
             InheritanceService inheritance = new InheritanceService();
             allSuperClassesAndInterfaces.addAll(inheritance.getSuperClasses(typeInfo.getQualifiedName()));
@@ -177,6 +191,38 @@ public class InheritanceService {
         }
         List<TypeInfo> interfaceList = inheritanceAnalyzer.getSuperInterfaces(derivedClass);
         allSuperClassesAndInterfaces.addAll(interfaceList);
+
+        if (derivedClass != null && !Objects.equals("java.lang.Object", derivedClass)) {
+            TypeInfo objectClass = new TypeInfo();
+            objectClass.setQualifiedName("java.lang.Object");
+            allSuperClassesAndInterfaces.add(objectClass);
+        }
         return allSuperClassesAndInterfaces;
+    }
+
+    /**
+     * Get all direct super types of 'qualifiedName'.
+     * Direct super types include super class and interface that appear at class declaration.
+     *
+     * @param qualifiedName A class qualified name.
+     * @return A set of super types of this class 'qualifiedName'.
+     */
+    public static Set<TypeInfo> getDirectSuperTypes(String qualifiedName) {
+        Set<TypeInfo> superTypes = Sets.newLinkedHashSet();
+        InheritanceService inheritanceService = new InheritanceService();
+        TypeInfo superClass = inheritanceService.getDirectSuperClass(qualifiedName);
+        if (superClass != null) {
+            superTypes.add(superClass);
+        } else {
+            // If this class do not have a direct super class, java.lang.Object is this class's super class.
+            if (qualifiedName != null && !Objects.equals("java.lang.Object", qualifiedName)) {
+                TypeInfo objectClass = new TypeInfo();
+                objectClass.setQualifiedName("java.lang.Object");
+                superTypes.add(objectClass);
+            }
+        }
+        List<TypeInfo> superInterfaces = inheritanceService.getDirectSuperInterface(qualifiedName);
+        superTypes.addAll(superInterfaces);
+        return superTypes;
     }
 }

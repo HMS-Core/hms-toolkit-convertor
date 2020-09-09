@@ -19,6 +19,7 @@ package com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.versionvariable;
 import com.huawei.codebot.framework.DefectFixerType;
 import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.model.DefectInstance;
+import com.huawei.codebot.framework.utils.VersionCompareUtil;
 import com.huawei.codebot.framework.x2y.AndroidAppFixer;
 import com.huawei.codebot.utils.FileUtils;
 import com.huawei.codebot.utils.StringUtil;
@@ -29,9 +30,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+
+import static com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.versionvariable.GradleVersionService.package_version;
+import static com.huawei.codebot.analyzer.x2y.gradle.gradlechanger.versionvariable.GradleVersionService.variable_version;
 
 /**
  * build gradle visitor
@@ -49,17 +54,22 @@ public class GradleDependencyChanger extends AndroidAppFixer {
     /**
      * repository urls
      */
-    public Set<String> repositoryUrls = new HashSet<>();
+    public Set<String> repositoryUrls;
 
     /**
      * implementations in dependencies nodes
      */
-    public Set<String> implementations = new HashSet<>();
+    public Set<String> implementations;
 
     /**
      * classpath in dependencies nodes
      */
-    public Set<String> classPaths = new HashSet<>();
+    public Set<String> classPaths;
+
+    /**
+     * version mapping information
+     */
+    public Map<String, String> versionInfo = new HashMap<>();
 
     @Override
     protected List<DefectInstance> detectDefectsInJavaFile(String buggyFilePath) {
@@ -86,6 +96,17 @@ public class GradleDependencyChanger extends AndroidAppFixer {
             currentFileLineBreak = StringUtil.getLineBreak(fileContent);
             parseGradleFile(fileContent);
         }
+        // filling versionInfo according to package_version and variable_version
+        if (GradleVersionService.isPackageVersionChanged()) {
+            // if the current build.gradle cause changes to implementation part, we check every item.
+            mergeVersionInfo(package_version);
+            // reset the flag before parse next file
+            GradleVersionService.setPackageVersionChanged(false);
+        }
+        if (GradleVersionService.isVariableVersionChanged()) {
+            mergeVersionInfo(variable_version);
+            GradleVersionService.setVariableVersionChanged(false);
+        }
         return null;
     }
 
@@ -108,11 +129,29 @@ public class GradleDependencyChanger extends AndroidAppFixer {
     }
 
     @Override
-    protected void generateFixCode(DefectInstance defectWarning) {
+    public void extractFixInstancesForSingleCodeFile(String buildFilePath) {
     }
 
     @Override
-    public void extractFixInstancesForSingleCodeFile(String buildFilePath) {
+    protected void generateFixCode(DefectInstance defectWarning) {
+    }
+    
+    private void mergeVersionInfo(Map<String, String> targetVersion) {
+        for (Map.Entry<String, String> entry : targetVersion.entrySet()) {
+            if (!versionInfo.containsKey(entry.getKey())) {
+                if (entry.getKey().startsWith("com.google.android.gms")
+                    || entry.getKey().startsWith("com.google.firebase")) {
+                    versionInfo.put(entry.getKey(), entry.getValue());
+                }
+            } else {
+                // update versionInfo map according to the higher version number
+                String existVersion = versionInfo.get(entry.getKey());
+                String currentVersion = entry.getValue();
+                if (VersionCompareUtil.compare(existVersion, currentVersion) == -1) {
+                    versionInfo.replace(entry.getKey(), currentVersion);
+                }
+            }
+        }
     }
 
     @Override

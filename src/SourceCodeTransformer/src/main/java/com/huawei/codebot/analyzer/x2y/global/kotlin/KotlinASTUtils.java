@@ -17,17 +17,18 @@
 package com.huawei.codebot.analyzer.x2y.global.kotlin;
 
 import com.google.common.collect.Lists;
-import com.huawei.codebot.analyzer.x2y.global.TypeInferencer;
-import com.huawei.codebot.analyzer.x2y.global.bean.TypeInfo;
-import com.huawei.codebot.framework.context.Constant;
-import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.huawei.codebot.analyzer.x2y.global.TypeInferencer;
+import com.huawei.codebot.analyzer.x2y.global.bean.TypeInfo;
+import com.huawei.codebot.framework.context.Constant;
+import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Includes some common methods about resolving AST.
@@ -69,7 +70,11 @@ public class KotlinASTUtils {
         return importNames;
     }
 
-    private static KotlinParser.KotlinFileContext getRoot(ParserRuleContext node) {
+    /**
+     * @param node a node of ParserRuleContext.
+     * @return its owner class name list if there are.
+     */
+    public static KotlinParser.KotlinFileContext getRoot(ParserRuleContext node) {
         if (node instanceof KotlinParser.KotlinFileContext) {
             return (KotlinParser.KotlinFileContext) node;
         }
@@ -121,6 +126,23 @@ public class KotlinASTUtils {
         }
         return result;
     }
+
+    /**
+     * @param methodDeclaration a node of KotlinParser.FunctionDeclarationContext.
+     * @return its owner method name list if there are.
+     */
+    public static List<KotlinParser.TypeContext> getMethodParameters(KotlinParser.FunctionDeclarationContext methodDeclaration) {
+        List<KotlinParser.TypeContext> result = new ArrayList<>();
+        KotlinParser.FunctionValueParametersContext parametersContext = methodDeclaration.functionValueParameters();
+        if (parametersContext.functionValueParameter() != null) {
+            for (KotlinParser.FunctionValueParameterContext context : parametersContext.functionValueParameter()) {
+                KotlinParser.TypeContext typeContext = context.parameter().type();
+                result.add(typeContext);
+            }
+        }
+        return result;
+    }
+
 
     private static List<String> getGenericNames(String names, String packageName, List<String> importNames,
                                                 List<String> currentGenerics) {
@@ -318,5 +340,21 @@ public class KotlinASTUtils {
             }
         }
         return null;
+    }
+
+    /**
+     * Check if the {@code primaryExpressionContext} and {@code postfixUnarySuffixContexts} is a array access expr.
+     *
+     * @param primaryExpressionContext   PrimaryExpression.
+     * @param postfixUnarySuffixContexts PostfixUnarySuffixes.
+     * @return true if this node is a ArrayAccess
+     */
+    public static boolean isArrayAccess(KotlinParser.PrimaryExpressionContext primaryExpressionContext,
+                                        List<KotlinParser.PostfixUnarySuffixContext> postfixUnarySuffixContexts) {
+        if (Objects.isNull(primaryExpressionContext) || (Objects.isNull(postfixUnarySuffixContexts))) {
+            return false;
+        }
+        int size = postfixUnarySuffixContexts.size();
+        return size >= 1 && postfixUnarySuffixContexts.get(size - 1).indexingSuffix() != null;
     }
 }

@@ -34,7 +34,7 @@ import com.huawei.codebot.framework.FixerInfo;
 import com.huawei.codebot.framework.exception.CodeBotRuntimeException;
 import com.huawei.codebot.framework.model.DefectInstance;
 import com.huawei.codebot.framework.parser.kotlin.KotlinParser;
-
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
 import org.eclipse.jdt.core.dom.NameQualifiedType;
@@ -42,6 +42,7 @@ import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.QualifiedType;
 import org.eclipse.jdt.core.dom.SimpleName;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -57,151 +58,145 @@ public class ClassRenameChanger extends RenameBaseChanger {
         this.fullName2Description = configService.getClassRenameDescriptions();
     }
 
+
     @Override
     protected List<DefectInstance> detectDefectsInJavaFile(String buggyFilePath) {
         JavaFile javaFile = new JavaFileAnalyzer().extractJavaFileInfo(buggyFilePath);
         JavaRenameBaseVisitor visitor = new JavaRenameBaseVisitor(javaFile, this) {
-            private ClassFullNameExtractor extractor = new ClassFullNameExtractor();
+                    private ClassFullNameExtractor extractor = new ClassFullNameExtractor();
 
-            @Override
-            public boolean visit(QualifiedType node) {
-                return checkAndChangeFullName(node);
-            }
-
-            @Override
-            public boolean visit(NameQualifiedType node) {
-                return checkAndChangeFullName(node);
-            }
-
-            @Override
-            public boolean visit(QualifiedName node) {
-                return checkAndChangeFullName(node);
-            }
-
-            @Override
-            public boolean visit(SimpleName node) {
-                String oldClassFullName = extractor.extractFullClassName(node);
-                if (renamePatterns.containsKey(oldClassFullName)) {
-                    String newClassFullName = renamePatterns.get(oldClassFullName);
-                    Map description = fullName2Description.get(oldClassFullName);
-                    String desc = description == null ? null : gson.toJson(description);
-                    int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
-                    String buggyLine = javaFile.fileLines.get(startLineNumber - 1);
-                    String replacement = getExistShortNames(buggyLine, oldClassFullName, newClassFullName)[1];
-                    changeSimpleName(node, desc, replacement);
-                    if (importName2LineNumber.containsKey(oldClassFullName)) {
-                        changeIterator.addLazyDefectInstanceToImportList(
-                            oldClassFullName, getOutClassPart(newClassFullName), desc);
+                    @Override
+                    public boolean visit(QualifiedType node) {
+                        return checkAndChangeFullName(node);
                     }
-                }
-                return super.visit(node);
-            }
 
-            @Override
-            // Annotation changed
-            public boolean visit(MarkerAnnotation node) {
-                String oldClassFullName = node.getTypeName().toString();
-                if (renamePatterns.containsKey(oldClassFullName)) {
-                    int startLineNumber =
-                        javaFile.compilationUnit.getLineNumber(node.getTypeName().getStartPosition());
-                    int startColumnNumber =
-                        javaFile.compilationUnit.getColumnNumber(node.getTypeName().getStartPosition());
-                    int endColumnNumber =
-                        javaFile.compilationUnit.getColumnNumber(
-                            node.getTypeName().getStartPosition() + node.getTypeName().getLength());
-                    addChangeToLine(oldClassFullName, startLineNumber, startColumnNumber, endColumnNumber);
-                    if (importName2LineNumber.containsKey(oldClassFullName)) {
-                        String replacement = renamePatterns.get(oldClassFullName);
-                        Map description = fullName2Description.get(oldClassFullName);
-                        String desc = description == null ? null : gson.toJson(description);
-                        changeIterator.addLazyDefectInstanceToImportList(oldClassFullName, replacement, desc);
+                    @Override
+                    public boolean visit(NameQualifiedType node) {
+                        return checkAndChangeFullName(node);
                     }
-                    return false;
-                } else {
-                    return super.visit(node);
-                }
-            }
 
-            private boolean checkAndChangeFullName(ASTNode node) {
-                String oldClassFullName;
-                if (renamePatterns.containsKey(node.toString())) {
-                    oldClassFullName = node.toString();
-                } else {
-                    oldClassFullName = extractor.extractFullClassName(node);
-                }
-                if (renamePatterns.containsKey(oldClassFullName)) {
-                    int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
-                    int startColumnNumber = javaFile.compilationUnit.getColumnNumber(node.getStartPosition());
-                    int endColumnNumber =
-                        javaFile.compilationUnit.getColumnNumber(
-                            node.getStartPosition() + node.getLength());
-                    addChangeToLine(oldClassFullName, startLineNumber, startColumnNumber, endColumnNumber);
-                    String newClassFullName = renamePatterns.get(oldClassFullName);
-                    Map description = fullName2Description.get(oldClassFullName);
-                    String desc = description == null ? null : gson.toJson(description);
-                    if (importName2LineNumber.containsKey(oldClassFullName)) {
-                        changeIterator.addLazyDefectInstanceToImportList(
-                            oldClassFullName, getOutClassPart(newClassFullName), desc);
-                    } else if (importName2LineNumber.containsKey(getOutClassPart(oldClassFullName))) {
-                        changeIterator.addLazyDefectInstanceToImportList(
-                            getOutClassPart(oldClassFullName), getOutClassPart(newClassFullName), desc);
+                    @Override
+                    public boolean visit(QualifiedName node) {
+                        return checkAndChangeFullName(node);
                     }
-                    return false;
-                }
-                return true;
-            }
 
-            private void addChangeToLine(
-                String oldClassFullName, int startLineNumber, int startColumnNumber, int endColumnNumber) {
-                String buggyLine = javaFile.fileLines.get(startLineNumber - 1);
-                String newClassFullName = renamePatterns.get(oldClassFullName);
-                String[] replacementString = getExistShortNames(buggyLine, oldClassFullName, newClassFullName);
-                String replacement = replacementString[1];
-                Map desc = fullName2Description.get(oldClassFullName);
-                if (replacement.equals(oldClassFullName)) {
-                    DefectInstance defectInstance =
-                        createDefectInstance(buggyFilePath, startLineNumber, buggyLine, buggyLine);
-                    defectInstance.setMessage(desc == null ? null : gson.toJson(desc));
-                    defectInstance.isFixed = false;
-                    defectInstance.status = FixStatus.NONEFIX.toString();
-                    defectInstances.add(defectInstance);
-                } else {
-                    ChangeTrace changeTrace;
-                    if (this.line2Change.containsKey(startLineNumber)) {
-                        changeTrace = this.line2Change.get(startLineNumber);
-                    } else {
-                        changeTrace = new ChangeTrace(buggyLine);
-                        this.line2Change.put(startLineNumber, changeTrace);
+                    @Override
+                    public boolean visit(SimpleName node) {
+                        String oldClassFullName = extractor.extractFullClassName(node);
+                        if (renamePatterns.containsKey(oldClassFullName)) {
+                            String newClassFullName = renamePatterns.get(oldClassFullName);
+                            Map description = fullName2Description.get(oldClassFullName);
+                            String desc = description == null ? null : gson.toJson(description);
+                            int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
+                            String buggyLine = javaFile.fileLines.get(startLineNumber - 1);
+                            String replacement = getExistShortNames(buggyLine,oldClassFullName,newClassFullName)[1];
+                            changeSimpleName(node, desc, replacement);
+                            if (importName2LineNumber.containsKey(oldClassFullName)) {
+                                changeIterator.addLazyDefectInstanceToImportList(
+                                        oldClassFullName, getOutClassPart(newClassFullName), desc);
+                            }
+                        }
+                        return super.visit(node);
                     }
-                    changeTrace.addChange(startColumnNumber, endColumnNumber, replacement);
-                    changeTrace.addDesc(desc == null ? null : gson.toJson(desc));
-                }
-            }
-        };
+
+                    @Override
+                    // Annotation changed
+                    public boolean visit(MarkerAnnotation node) {
+                        String oldClassFullName = node.getTypeName().toString();
+                        if (renamePatterns.containsKey(oldClassFullName)) {
+                            int startLineNumber =
+                                    javaFile.compilationUnit.getLineNumber(node.getTypeName().getStartPosition());
+                            int startColumnNumber =
+                                    javaFile.compilationUnit.getColumnNumber(node.getTypeName().getStartPosition());
+                            int endColumnNumber =
+                                    javaFile.compilationUnit.getColumnNumber(
+                                            node.getTypeName().getStartPosition() + node.getTypeName().getLength());
+                            addChangeToLine(oldClassFullName, startLineNumber, startColumnNumber, endColumnNumber);
+                            if (importName2LineNumber.containsKey(oldClassFullName)) {
+                                String replacement = renamePatterns.get(oldClassFullName);
+                                Map description = fullName2Description.get(oldClassFullName);
+                                String desc = description == null ? null : gson.toJson(description);
+                                changeIterator.addLazyDefectInstanceToImportList(oldClassFullName, replacement, desc);
+                            }
+                            return false;
+                        } else {
+                            return super.visit(node);
+                        }
+                    }
+
+                    private boolean checkAndChangeFullName(ASTNode node) {
+                        String oldClassFullName;
+                        if (renamePatterns.containsKey(node.toString())) {
+                            oldClassFullName = node.toString();
+                        } else {
+                            oldClassFullName = extractor.extractFullClassName(node);
+                        }
+                        if (renamePatterns.containsKey(oldClassFullName)) {
+                            int startLineNumber = javaFile.compilationUnit.getLineNumber(node.getStartPosition());
+                            int startColumnNumber = javaFile.compilationUnit.getColumnNumber(node.getStartPosition());
+                            int endColumnNumber =
+                                    javaFile.compilationUnit.getColumnNumber(
+                                            node.getStartPosition() + node.getLength());
+                            addChangeToLine(oldClassFullName, startLineNumber, startColumnNumber, endColumnNumber);
+                            String newClassFullName = renamePatterns.get(oldClassFullName);
+                            Map description = fullName2Description.get(oldClassFullName);
+                            String desc = description == null ? null : gson.toJson(description);
+                            if (importName2LineNumber.containsKey(oldClassFullName)) {
+                                changeIterator.addLazyDefectInstanceToImportList(
+                                        oldClassFullName, getOutClassPart(newClassFullName), desc);
+                            } else if (importName2LineNumber.containsKey(getOutClassPart(oldClassFullName))) {
+                                changeIterator.addLazyDefectInstanceToImportList(
+                                        getOutClassPart(oldClassFullName), getOutClassPart(newClassFullName), desc);
+                            }
+                            return false;
+                        }
+                        return true;
+                    }
+
+                    private void addChangeToLine(
+                            String oldClassFullName, int startLineNumber, int startColumnNumber, int endColumnNumber) {
+                        String buggyLine = javaFile.fileLines.get(startLineNumber - 1);
+                        String newClassFullName = renamePatterns.get(oldClassFullName);
+                        String[] replacementString = getExistShortNames(buggyLine, oldClassFullName, newClassFullName);
+                        String oldName = replacementString[0];
+                        String replacement = replacementString[1];
+                        Map desc = fullName2Description.get(oldClassFullName);
+                        if (replacement.equals(oldClassFullName) || oldName.equals(replacement)) {
+                            DefectInstance defectInstance =
+                                    createDefectInstance(buggyFilePath, startLineNumber, buggyLine, buggyLine);
+                            defectInstance.setMessage(desc == null ? "" : gson.toJson(desc));
+                            defectInstance.isFixed = false;
+                            defectInstance.status = FixStatus.NONEFIX.toString();
+                            defectInstances.add(defectInstance);
+                        } else {
+                            ChangeTrace changeTrace;
+                            if (this.line2Change.containsKey(startLineNumber)) {
+                                changeTrace = this.line2Change.get(startLineNumber);
+                            } else {
+                                changeTrace = new ChangeTrace(buggyLine);
+                                this.line2Change.put(startLineNumber, changeTrace);
+                            }
+                            changeTrace.addChange(startColumnNumber, endColumnNumber, replacement);
+                            changeTrace.addDesc(desc == null ? "" : gson.toJson(desc));
+                        }
+                    }
+                };
         javaFile.compilationUnit.accept(visitor);
         List<DefectInstance> defectInstanceList =
-            generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
+                generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
         defectInstanceList.addAll(visitor.defectInstances);
+        removeIgnoreBlocks(defectInstanceList, javaFile.shielder);
         return defectInstanceList;
     }
 
     @Override
-    protected List<DefectInstance> detectDefectsInXMLFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
-    protected List<DefectInstance> detectDefectsInGradleFile(String buggyFilePath) {
-        return null;
-    }
-
-    @Override
     protected List<DefectInstance> detectDefectsInKotlinFile(String buggyFilePath) {
+        if (StringUtils.isEmpty(buggyFilePath)) {
+            return null;
+        }
         KotlinFile kotlinFile = new KotlinFile(buggyFilePath);
         KotlinRenameBaseVisitor visitor = new KotlinRenameBaseVisitor(kotlinFile, this) {
-
             ClassFullNameExtractor extractor = new ClassFullNameExtractor();
-
             private KotlinTypeInferencer inferencer = new KotlinTypeInferencer(this);
 
             @Override
@@ -220,7 +215,7 @@ public class ClassRenameChanger extends RenameBaseChanger {
                     int startLineNumber = ctx.getStart().getLine();
                     int startColumnNumber = ctx.getStart().getCharPositionInLine();
                     int endColumnNumber =
-                        ctx.getStop().getCharPositionInLine() + ctx.getStop().getText().length();
+                            ctx.getStop().getCharPositionInLine() + ctx.getStop().getText().length();
                     String buggyLine = kotlinFile.fileLines.get(startLineNumber - 1);
                     String newClassFullName = renamePatterns.get(oldClassFullName);
                     String replacement = getShortName(newClassFullName);
@@ -228,20 +223,14 @@ public class ClassRenameChanger extends RenameBaseChanger {
                     String desc = description == null ? null : gson.toJson(description);
                     if (replacement.equals(ctx.getText())) {
                         DefectInstance defectInstance =
-                            createDefectInstance(buggyFilePath, startLineNumber, buggyLine, buggyLine);
-                        defectInstance.setMessage(desc == null ? null : gson.toJson(desc));
+                                createDefectInstance(buggyFilePath, startLineNumber, buggyLine, buggyLine);
+                        defectInstance.setMessage(desc);
                         defectInstance.isFixed = false;
                         defectInstance.status = FixStatus.NONEFIX.toString();
                         defectInstances.add(defectInstance);
                     } else {
-                        updateChangeTraceForALine(
-                            this.line2Change,
-                            buggyLine,
-                            replacement,
-                            startLineNumber,
-                            startColumnNumber,
-                            endColumnNumber,
-                            desc);
+                        updateChangeTraceForALine(this.line2Change, buggyLine, replacement, startLineNumber,
+                                startColumnNumber, endColumnNumber, desc);
                     }
                 }
                 return false;
@@ -255,27 +244,19 @@ public class ClassRenameChanger extends RenameBaseChanger {
                     for (int i = 0; i < ctx.postfixUnarySuffix().size(); i++) {
                         ctxLength += ctx.postfixUnarySuffix().get(i).getText().length();
                         List<KotlinParser.PostfixUnarySuffixContext> currentPostFixUnarySuffixList =
-                            ctx.postfixUnarySuffix().subList(0, i + 1);
+                                ctx.postfixUnarySuffix().subList(0, i + 1);
                         if (KotlinASTUtils.isFieldAccess(currentPostFixUnarySuffixList)) {
-                            TypeInfo typeInfo =
-                                inferencer.getQualifierType(
-                                    ctx.primaryExpression(), currentPostFixUnarySuffixList);
+                            TypeInfo typeInfo = inferencer.getQualifierType(ctx.primaryExpression(),
+                                    currentPostFixUnarySuffixList);
                             if (typeInfo != null
-                                && currentPostFixUnarySuffixList
-                                .get(currentPostFixUnarySuffixList.size() - 1)
-                                .navigationSuffix()
-                                .simpleIdentifier()
-                                != null) {
-                                String oldFullName =
-                                    typeInfo.getQualifiedName()
-                                        + "."
-                                        + currentPostFixUnarySuffixList
-                                        .get(currentPostFixUnarySuffixList.size() - 1)
-                                        .navigationSuffix()
-                                        .simpleIdentifier()
-                                        .getText();
+                                    && currentPostFixUnarySuffixList.get(currentPostFixUnarySuffixList.size() - 1)
+                                            .navigationSuffix().simpleIdentifier() != null) {
+                                String oldFullName = typeInfo.getQualifiedName() + "."
+                                        + currentPostFixUnarySuffixList.get(currentPostFixUnarySuffixList.size() - 1)
+                                                .navigationSuffix().simpleIdentifier().getText();
                                 if (renamePatterns.containsKey(oldFullName)) {
                                     String newFullName = renamePatterns.get(oldFullName);
+                                    String oldShortName = getShortName(oldFullName);
                                     String newShortName = getShortName(newFullName);
                                     int startLineNumber = ctx.getStart().getLine();
                                     int startColumnNumber = ctx.getStart().getCharPositionInLine();
@@ -283,34 +264,28 @@ public class ClassRenameChanger extends RenameBaseChanger {
                                     String buggyLine = kotlinFile.fileLines.get(startLineNumber - 1);
                                     Map description = fullName2Description.get(oldFullName);
                                     String desc = description == null ? null : gson.toJson(description);
-                                    if (newShortName.equals(ctx.getText())) {
-                                        DefectInstance defectInstance =
-                                            createDefectInstance(
-                                                buggyFilePath, startLineNumber, buggyLine, buggyLine);
-                                        defectInstance.setMessage(desc == null ? null : gson.toJson(desc));
+                                    if (newShortName.equals(ctx.getText()) || newShortName.equals(oldShortName)) {
+                                        DefectInstance defectInstance = createDefectInstance(buggyFilePath,
+                                                startLineNumber, buggyLine, buggyLine);
+                                        defectInstance.setMessage(desc);
                                         defectInstance.isFixed = false;
                                         defectInstance.status = FixStatus.NONEFIX.toString();
                                         defectInstances.add(defectInstance);
                                     } else {
                                         updateChangeTraceForALine(
-                                            this.line2Change,
-                                            buggyLine,
-                                            newShortName,
-                                            startLineNumber,
-                                            startColumnNumber,
-                                            endColumnNumber,
-                                            desc);
+                                                this.line2Change, buggyLine, newShortName, startLineNumber,
+                                                startColumnNumber, endColumnNumber, desc);
                                         isChange = true;
                                     }
                                     if (importName2LineNumber.containsKey(oldFullName)) {
                                         changeIterator.addLazyDefectInstanceToImportList(
-                                            oldFullName, getOutClassPart(newFullName), desc);
+                                                oldFullName, getOutClassPart(newFullName), desc);
                                     } else if (importName2LineNumber.containsKey(
-                                        getOutClassPart(oldFullName))) {
+                                            getOutClassPart(oldFullName))) {
                                         changeIterator.addLazyDefectInstanceToImportList(
-                                            getOutClassPart(oldFullName),
-                                            getOutClassPart(newFullName),
-                                            desc);
+                                                getOutClassPart(oldFullName),
+                                                getOutClassPart(newFullName),
+                                                desc);
                                     }
                                 }
                             }
@@ -323,24 +298,22 @@ public class ClassRenameChanger extends RenameBaseChanger {
                 return super.visitPostfixUnaryExpression(ctx);
             }
         };
-        kotlinFile.tree.accept(visitor);
+        try {
+            kotlinFile.tree.accept(visitor);
+        } catch (Exception e) {
+            logger.error(buggyFilePath);
+            logger.error(Arrays.toString(e.getStackTrace()));
+        }
         List<DefectInstance> defectInstanceList =
-            generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
+                generateDefectInstancesFromChangeTrace(buggyFilePath, visitor.line2Change);
         defectInstanceList.addAll(visitor.defectInstances);
+        removeIgnoreBlocks(defectInstanceList, kotlinFile.shielder);
         return defectInstanceList;
-    }
-
-    @Override
-    public void generateFixCode(DefectInstance defectWarning) {
     }
 
     @Override
     public boolean isFixReasonable(DefectInstance fixedDefect) {
         return true;
-    }
-
-    @Override
-    public void extractFixInstancesForSingleCodeFile(String filePath) {
     }
 
     @Override

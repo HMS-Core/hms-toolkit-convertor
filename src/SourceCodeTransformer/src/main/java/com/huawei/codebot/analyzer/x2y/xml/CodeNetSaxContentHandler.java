@@ -29,11 +29,11 @@ import org.xml.sax.Locator;
 public class CodeNetSaxContentHandler extends SAXContentHandler {
     private CodeNetDocumentLocator docFactory = null;
 
-    CodeNetSaxContentHandler(DocumentFactory docFactory, ElementHandler elementHandler) {
+    public CodeNetSaxContentHandler(DocumentFactory docFactory, ElementHandler elementHandler) {
         super(docFactory, elementHandler);
     }
 
-    void setDocFactory(CodeNetDocumentLocator codeNetDocumentLocator) {
+    public void setDocFactory(CodeNetDocumentLocator codeNetDocumentLocator) {
         this.docFactory = codeNetDocumentLocator;
     }
 

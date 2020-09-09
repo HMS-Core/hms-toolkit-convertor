@@ -16,25 +16,46 @@
 
 package com.huawei.codebot.analyzer.x2y.gradle.coditionalchanger;
 
+import com.huawei.codebot.analyzer.x2y.gradle.utils.GradleFileUtils;
 import org.codehaus.groovy.ast.ASTNode;
 import org.codehaus.groovy.ast.CodeVisitorSupport;
 import org.codehaus.groovy.ast.expr.MethodCallExpression;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class GradleXMLVisitor extends CodeVisitorSupport {
-    private Set<String> implementations;
-    private Map<String, ImplementationDeletion> implementationDeletions = new HashMap<>();
-    private Stack<String> currentVisitedNodeTypes = new Stack<>();
-    private GradleConditionalChanger changer;
-    private Pattern dependencyPattern = Pattern.compile("\".*\"");
-    private Pattern dependencyPattern2 = Pattern.compile("'.*'");
+public class GradleXMLVisitor extends CodeVisitorSupport {
+    private final static Logger logger = LoggerFactory.getLogger(GradleXMLVisitor.class);
+    // Repository urls
+    Set<String> repositoryUrls;
+    // Implementations of dependencies node
+    Set<String> implementations;
+    // Implementations of classpath node
+    Set<String> classPaths;
+
+    // Implementation need to be delete
+    Map<String, ImplementationDeletion> implementationDeletions = new HashMap<>();
+
+    // All applyPlugins
+    List<String> applyPlugins = new ArrayList<>();
+    // The currently parsed node type stack
+    Stack<String> currentVisitedNodeTypes = new Stack<>();
+
+    // Gradle changer
+    GradleConditionalChanger changer;
+    // Pattern
+    Pattern dependencyPattern = Pattern.compile("\".*\"");
+    // Pattern
+    Pattern dependencyPattern2 = Pattern.compile("'.*'");
 
     public GradleXMLVisitor(GradleConditionalChanger changer) {
         this.changer = changer;
@@ -48,11 +69,9 @@ class GradleXMLVisitor extends CodeVisitorSupport {
         if (startLineNumber <= 0 || startColumnNumber <= 0 || endLineNumber <= 0 || endColumnNumber <= 0) {
             return "";
         }
-
         if (endLineNumber == startLineNumber) {
-            String line = changer.currentFileLines.get(startLineNumber - 1);
-            line = line.substring(startColumnNumber - 1, endColumnNumber - 1);
-            return line;
+            return changer.currentFileLines.get(startLineNumber - 1).substring(startColumnNumber - 1,
+                    endColumnNumber - 1);
         } else {
             StringBuffer sb = new StringBuffer();
             sb.append(changer.currentFileLines.get(startLineNumber - 1)
@@ -69,7 +88,7 @@ class GradleXMLVisitor extends CodeVisitorSupport {
         // Get the original string of the node
         String text = getRawContent(node).trim();
         if (!text.startsWith("classpath")) {
-            // implementation nodes
+            // Implementation nodes
             visitImplementationNode(text);
         }
     }
@@ -109,16 +128,24 @@ class GradleXMLVisitor extends CodeVisitorSupport {
     @Override
     public void visitMethodCallExpression(MethodCallExpression call) {
         String methodName = call.getMethodAsString();
-        if (methodName.equals("dependencies")) {
+        if (methodName == null){
+            logger.error("methodName is null. methodCallExpression is {}", call.getText());
+            return;
+        }
+        if ("repositories".equals(methodName)) {
+            // Repositories node
+        } else if ("dependencies".equals(methodName)) {
+            // Dependencies node
             enterDependenciesNode();
         } else if (currentVisitedNodeTypes.size() > 0) {
             String parentNodeType = currentVisitedNodeTypes.peek();
-            if (parentNodeType.equals("dependencies")) {
+            if ("dependencies".equals(parentNodeType)) {
                 visitDependenciesChildNode(call);
             }
         }
+
         super.visitMethodCallExpression(call);
-        if (methodName.equals("dependencies")) {
+        if ("dependencies".equals(methodName)) {
             leaveDependenciesNode(call);
         }
     }
@@ -138,7 +165,9 @@ class GradleXMLVisitor extends CodeVisitorSupport {
      */
     protected void leaveDependenciesNode(ASTNode node) {
         currentVisitedNodeTypes.pop();
-        if (!changer.currentScope.equals("project")) {
+
+        if (changer.currentScope.equals(GradleFileUtils.PROJECT_BUILD_GRADLE)) {
+        } else {
             addImplementations(node);
         }
     }

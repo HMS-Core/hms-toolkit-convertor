@@ -39,6 +39,8 @@ public class GradleVersionService {
     static Map<String, String> package_version = new HashMap<>();
     static Map<String, String> variable_version = new HashMap<>();
 
+    private static boolean packageVersionChanged = false;
+    private static boolean variableVersionChanged = false;
     /**
      * getValue from variable_version
      */
@@ -48,4 +50,29 @@ public class GradleVersionService {
 
     public GradleVersionService() {
     }
+
+    public static boolean isPackageVersionChanged() {
+        return packageVersionChanged;
+    }
+
+    public static void setPackageVersionChanged(boolean changed) {
+        packageVersionChanged = changed;
+    }
+
+    public static boolean isVariableVersionChanged() {
+        return variableVersionChanged;
+    }
+
+    public static void setVariableVersionChanged(boolean changed) {
+        variableVersionChanged = changed;
+    }
+
+    /**
+     * initial version-info containers
+     */
+    public static void initAllVersionInfo() {
+        package_version.clear();
+        variable_version.clear();
+    }
+
 }
