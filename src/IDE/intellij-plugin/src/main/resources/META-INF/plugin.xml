@@ -2,7 +2,7 @@
   ~ Copyright (c) Huawei Technologies Co., Ltd. 2019-2020. All rights reserved.
   -->
 
-<idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude">
+<idea-plugin>
     <id>com.huawei.hms.convertor</id>
     <name>HMSConvertor</name>
     <version>2.0.0</version>
@@ -17,11 +17,11 @@
     </p>
     <br/>
     <p>
-    HMS Convertor功能可以实现GMS（Google Mobile Services）和 HMS （Huawei Mobile Services）的高效转化，帮助开发者将基于GMS的应用框架转换为基于HMS的应用框架，快速集成HMS开放能力。
+    HMS Convertor provides efficient conversion from GMS to HMS, and help developer convert GMS app to HMS app, and integrates with HMS quickly.
     </p>
     <p>
-    详细介绍：<a href='https://developer.huawei.com/consumer/cn/doc/3141906'>
-    https://developer.huawei.com/consumer/cn/doc/3141906</a>
+    Detailed introduction: <a href='https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/convertor-0000001050147221'>
+    https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/convertor-0000001050147221</a>
     </p>
     ]]></description>
 
@@ -34,19 +34,20 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <projectService serviceInterface="com.huawei.hms.convertor.idea.setting.HmsConvertorSettings"
-                        serviceImplementation="com.huawei.hms.convertor.idea.setting.HmsConvertorSettings" />
+            serviceImplementation="com.huawei.hms.convertor.idea.setting.HmsConvertorSettings" />
 
         <projectConfigurable instance="com.intellij.application.options.editor.AutoImportOptionsConfigurable"
-                             id="editor.preferences.import"
-                             parentId="preferences.editor"
-                             key="auto.import" bundle="messages.ApplicationBundle"
-                             groupWeight="1"/>
+            id="editor.preferences.import" parentId="preferences.editor" key="auto.import"
+            bundle="messages.ApplicationBundle" groupWeight="1" />
 
         <diff.DiffTool implementation="com.huawei.hms.convertor.idea.ui.result.difftool.HmsConvertorDiffTool" />
 
         <toolWindow id="HMS Convertor" anchor="bottom"
-                    factoryClass="com.huawei.hms.convertor.idea.ui.result.HmsConvertorToolWindowFactory"
-                    icon="/icons/convertor.png"/>
+            factoryClass="com.huawei.hms.convertor.idea.ui.result.HmsConvertorToolWindowFactory"
+            icon="/icons/convertor.png" />
+
+        <toolWindow canCloseContents="false" anchor="right" id="HMS API Helper"
+            factoryClass="com.huawei.hms.convertor.idea.ui.javadoc.JavaDocToolWindowFactory"></toolWindow>
 
         <postStartupActivity implementation="com.huawei.hms.convertor.idea.startup.HmsStartupActivity" />
     </extensions>
@@ -54,35 +55,37 @@
     <actions>
         <group id="HuaWei.HMSToolKit" text="H_MS" description="HuaWei HMS ToolKit">
             <add-to-group group-id="MainMenu" anchor="after" relative-to-action="ToolsMenu" />
-            <group id="HMSConvertor" text="HMS Convertor" description="HMS Convertor" popup="true" icon="/icons/convertor.png">
-                <action id="HMSConvertor.Inspect"
-                        class="com.huawei.hms.convertor.idea.ui.actions.HmsConvertorAction"
-                        text="New Conversion"
-                        description="New Conversion..."
-                        icon="/icons/inspect.png">
+            <add-to-group group-id="EditorPopupMenu" anchor="first" />
+            <group id="HMSConvertor" text="HMS Convertor" description="HMS Convertor" popup="true"
+                icon="/icons/convertor.png">
+                <action id="HMSConvertor.Inspect" class="com.huawei.hms.convertor.idea.ui.actions.HmsConvertorAction"
+                    text="New Conversion" description="New Conversion(Ctrl+Alt+k)" icon="/icons/inspect.png">
+                    <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt k"
+                        remove="false"></keyboard-shortcut>
+                    <add-to-group group-id="MainToolBar" anchor="last" />
                 </action>
 
-                <action id="HMSConvertor.openLast"
-                        class="com.huawei.hms.convertor.idea.ui.actions.OpenLastAction"
-                        text="Open Last Conversion"
-                        description="Open last Conversion"
-                        icon="/icons/open_last.png">
+                <action id="HMSConvertor.openLast" class="com.huawei.hms.convertor.idea.ui.actions.OpenLastAction"
+                    text="Open Last Conversion" description="Open last Conversion" icon="/icons/open_last.png">
+                    <add-to-group group-id="MainToolBar" anchor="last" />
                 </action>
 
-                <action id="HMSConvertor.saveAll"
-                        class="com.huawei.hms.convertor.idea.ui.actions.SaveAllAction"
-                        text="Save All"
-                        description="Save project and converison list"
-                        icon="/icons/saveall_light.png">
+                <action id="HMSConvertor.saveAll" class="com.huawei.hms.convertor.idea.ui.actions.SaveAllAction"
+                    text="Save All" description="Save project and converison list" icon="/icons/saveall_light.png">
+                    <add-to-group group-id="MainToolBar" anchor="last" />
                 </action>
 
-                <action id="HMSConvertor.restore"
-                        class="com.huawei.hms.convertor.idea.ui.actions.RecoveryAction"
-                        text="Restore Project"
-                        description="One-key restore the project"
-                        icon="/icons/recovery.png">
+                <action id="HMSConvertor.restore" class="com.huawei.hms.convertor.idea.ui.actions.RecoveryAction"
+                    text="Restore Project" description="One-key restore the project" icon="/icons/recovery.png">
+                    <add-to-group group-id="MainToolBar" anchor="last" />
                 </action>
             </group>
         </group>
+        <action id="HMSToolKit.ShowLog" class="com.huawei.hms.convertor.idea.ui.actions.ShowLogAction"
+                description="log"/>
+        <action id="ShowJavaDocActionId" class="com.huawei.hms.convertor.idea.ui.javadoc.ShowJavaDocAction"
+            text="HMS API Helper">
+            <add-to-group group-id="EditorPopupMenu" anchor="first" />
+        </action>
     </actions>
 </idea-plugin>
