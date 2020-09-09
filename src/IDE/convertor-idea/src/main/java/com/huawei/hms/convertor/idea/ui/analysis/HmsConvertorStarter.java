@@ -16,15 +16,20 @@
 
 package com.huawei.hms.convertor.idea.ui.analysis;
 
-import com.huawei.generator.g2x.processor.GeneratorResult;
 import com.huawei.hms.convertor.core.bi.enumration.CancelableViewEnum;
 import com.huawei.hms.convertor.core.bi.enumration.OperationViewEnum;
 import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
+import com.huawei.hms.convertor.core.engine.fixbot.model.FixbotAnalysisParams;
 import com.huawei.hms.convertor.core.engine.fixbot.model.RoutePolicy;
+import com.huawei.hms.convertor.core.engine.fixbot.util.FixbotConstants;
 import com.huawei.hms.convertor.core.engine.fixbot.util.FixbotParams;
-import com.huawei.hms.convertor.core.engine.xms.XmsConstants;
+import com.huawei.hms.convertor.core.mapping.DependencyApiMetadataGenerator;
+import com.huawei.hms.convertor.core.mapping.GradleMappingGenerator;
+import com.huawei.hms.convertor.core.mapping.JavaMappingGenerator;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.base.FileService;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
+import com.huawei.hms.convertor.core.result.diff.Strategy;
 import com.huawei.hms.convertor.core.result.summary.SummaryCacheManager;
 import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
 import com.huawei.hms.convertor.idea.ui.common.BalloonNotifications;
@@ -41,11 +46,14 @@ import com.huawei.hms.convertor.openapi.BIReportService;
 import com.huawei.hms.convertor.openapi.ConfigCacheService;
 import com.huawei.hms.convertor.openapi.ConversionCacheService;
 import com.huawei.hms.convertor.openapi.FixbotAnalyzeService;
+import com.huawei.hms.convertor.openapi.ProgressService;
 import com.huawei.hms.convertor.openapi.ProjectArchiveService;
-import com.huawei.hms.convertor.openapi.XmsGenerateService;
+import com.huawei.hms.convertor.openapi.SummaryCacheService;
 import com.huawei.hms.convertor.util.Constant;
+import com.huawei.hms.convertor.util.FileUtil;
 
 import com.alibaba.fastjson.JSONException;
+import com.huawei.hms.convertor.utils.XMSUtils;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.progress.PerformInBackgroundOption;
@@ -58,14 +66,21 @@ import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.impl.ToolWindowImpl;
 import com.intellij.util.TimeoutUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
+import org.apache.commons.io.FileUtils;
 import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.NoSuchFileException;
-import java.util.ArrayList;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.ServiceLoader;
 
@@ -74,14 +89,11 @@ import java.util.ServiceLoader;
  *
  * @since 2019-06-10
  */
+@Slf4j
 public final class HmsConvertorStarter {
-    private static final Logger LOG = LoggerFactory.getLogger(HmsConvertorStarter.class);
+    private static final int ASYNC_START_SLEEP_MILLIS = 10;
 
-    private static final String WISEHUB_AUTO_FILE_NAME = "/wisehub-auto.json";
-
-    private static final String WISEHUB_MANUAL_FILE_NAME = "/wisehub-manual.json";
-
-    private static final int ASYNC_START_SLEEPTIME = 10;
+    private static final int OOM_ERROR_CODE = 2;
 
     private Project project;
 
@@ -95,15 +107,21 @@ public final class HmsConvertorStarter {
 
     private int fontSize;
 
+    private int fixbotExitValue;
+
+    private String projectType;
+
     public HmsConvertorStarter(@NotNull Project project, RoutePolicy routePolicy, int fontSize) {
         this.project = project;
         this.routePolicy = routePolicy;
         this.fontSize = fontSize;
 
         configCacheService = ConfigCacheService.getInstance();
+        projectType = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.PROJECT_TYPE,
+            String.class, "");
         inspectPath = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.INSPECT_PATH,
             String.class, "");
-        inspectFolder = inspectPath.substring(inspectPath.lastIndexOf(Constant.SEPARATOR) + 1);
+        inspectFolder = inspectPath.substring(inspectPath.lastIndexOf(Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
     }
 
     /**
@@ -112,7 +130,7 @@ public final class HmsConvertorStarter {
     public void start() {
         ToolWindow toolWindow = ToolWindowUtil.getToolWindow(project, UIConstants.ToolWindow.TOOL_WINDOW_ID);
         if (toolWindow == null) {
-            LOG.warn("Can not get HMS convertor tool window!");
+            log.warn("Can not get HMS convertor tool window!");
             BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("no_tool_window"), project,
                 Constant.PLUGIN_NAME, true);
             return;
@@ -134,17 +152,97 @@ public final class HmsConvertorStarter {
         task.queue();
     }
 
+    public boolean inspectSource(String pluginPackagePath, boolean isCommentEnable, ProgressIndicator indicator,
+        Strategy strategy) {
+        String repoID = ConfigCacheService.getInstance()
+            .getProjectConfig(project.getBasePath(), ConfigKeyConstants.PROJECT_ID, String.class, "");
+        ServiceLoader.load(FileService.class, HmsConvertorStarter.class.getClassLoader())
+            .iterator()
+            .next()
+            .preProcess(repoID);
+        // Configure Engine Startup Parameters.
+        FixbotAnalysisParams fixbotAnalysisParams = FixbotAnalysisParams.builder()
+            .repoId(repoID)
+            .pluginPackagePath(pluginPackagePath)
+            .repoPath(inspectPath)
+            .strategy(strategy)
+            .projectBasePath(project.getBasePath())
+            .routePolicy(routePolicy)
+            .configCacheService(configCacheService)
+            .projectType(projectType)
+            .build();
+        FixbotParams fixbotParams = FixbotAnalyzeService.getInstance().buildFixbotAnalysisParams(fixbotAnalysisParams);
+
+        log.info("generate defect files begin");
+
+        ProgressService progressService = new ProgressService();
+        RefreshProgressTask refreshProgressTask =
+            new RefreshProgressTask(progressService, indicator, project.getBasePath());
+
+        fixbotExitValue =
+            FixbotAnalyzeService.getInstance().executeFixbot(fixbotParams, progressService, project.getBasePath());
+        if (fixbotExitValue != 0) {
+            fixbotErrorProcessor();
+            refreshProgressTask.shutdown();
+            return false;
+        }
+        refreshProgressTask.shutdown();
+
+        if (progressService.isCancel()) {
+            indicator.checkCanceled();
+        }
+
+        log.info("generate defect files end");
+        LocalFileSystem.getInstance().refresh(false);
+        if (isCommentEnable) {
+            repoID += ProjectConstants.Common.COMMENT_SUFFIX;
+            ConfigCacheService.getInstance()
+                .updateProjectConfig(project.getBasePath(), ConfigKeyConstants.REPO_ID, repoID);
+        }
+        String type = ConfigCacheService.getInstance()
+            .getProjectConfig(project.getBasePath(), ConfigKeyConstants.PROJECT_TYPE, String.class, "");
+        log.info("repoID = {}, isCommentEnable = {}, type = {}", repoID, isCommentEnable, type);
+
+        // Parse engine result file.
+        return FixbotAnalyzeService.getInstance()
+            .parseFixbotResult(project.getBasePath(), GrsServiceProvider.getGrsAllianceDomain(), routePolicy, type,
+                fontSize);
+    }
+
+    private void fixbotErrorProcessor() {
+        String vmOptionsConfigFilePath =
+            Paths.get(PluginConstant.PluginDataDir.CONFIG_CACHE_PATH, FixbotConstants.CUSTOM_VMOPTIONS_FILENAME)
+                .toString();
+
+        File vmOptionsConfigFile = new File(vmOptionsConfigFilePath);
+        if (!vmOptionsConfigFile.exists()) {
+            try {
+                FileUtils.touch(vmOptionsConfigFile);
+                try (OutputStream os = FileUtils.openOutputStream(vmOptionsConfigFile);
+                    PrintWriter vmConfigWriter = new PrintWriter(new OutputStreamWriter(os, StandardCharsets.UTF_8))) {
+                    vmConfigWriter.println(FixbotConstants.DEFAULT_MAX_HEAP_MEMORY_SIZE);
+                }
+            } catch (IOException e) {
+                log.warn(
+                    "The vm options config file {} created failed, please create the file and modify the memory size manually",
+                    vmOptionsConfigFilePath);
+            }
+        } else {
+            log.info("The vm options config file {} is already exists", vmOptionsConfigFilePath);
+        }
+    }
+
     private void asyncStart(ProgressIndicator indicator) {
         indicator.setIndeterminate(true);
         if (VersionUtil.getIdeBaselineVersion() < VersionUtil.BASELINE_VERSION_191) {
-            TimeoutUtil.sleep(ASYNC_START_SLEEPTIME);
+            TimeoutUtil.sleep(ASYNC_START_SLEEP_MILLIS);
         }
-        LOG.info("Start analysis, Name = {}, projectPath = {}, inspectPath = {}, inspectFolder = {}, routePolicy = {}",
+        log.info("Start analysis, Name: {}, projectPath: {}, inspectPath: {}, inspectFolder: {}, routePolicy: {}",
             project.getName(), project.getBasePath(), inspectPath, inspectFolder, routePolicy);
 
         Optional<HmsConvertorToolWindow> hmsConvertorToolWindow = HmsConvertorUtil.getHmsConvertorToolWindow(project);
         if (!hmsConvertorToolWindow.isPresent()) {
-            LOG.warn("HMS convertor tool window is null!");
+            log.warn("HMS convertor tool window is null!");
             BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("no_tool_window"), project,
                 Constant.PLUGIN_NAME, true);
             return;
@@ -153,15 +251,14 @@ public final class HmsConvertorStarter {
         try {
             HmsConvertorState.set(project, HmsConvertorState.RUNNING);
             indicator.setText("Analyzing " + inspectFolder + "... Please wait.");
-            indicator.setText2(HmsConvertorBundle.message("indicater_analyze_notice2"));
+            indicator.setText2(HmsConvertorBundle.message("indicator_analyze_notice2"));
 
             TimeUtil.getInstance().getStartTime();
             startEngineAnalysis(indicator, hmsConvertorToolWindow.get());
-            LOG.info("Analyze finished! Elapsed time: {}", TimeUtil.getInstance().getElapsedTime());
+            log.info("Analyze finished! Elapsed time: {}", TimeUtil.getInstance().getElapsedTime());
 
             // BI report action: trace source info
             BIReportService.getInstance().traceSourceInfo(project.getBasePath());
-
             // BI report action: trace analyze time cost, analyze ends.
             Long timeCost =
                 System.currentTimeMillis() - BIInfoManager.getInstance().getAnalyzeBeginTime(project.getBasePath());
@@ -170,14 +267,27 @@ public final class HmsConvertorStarter {
                     String.valueOf(timeCost), BIReportService.getInstance().getJvmXmx(project.getBasePath()));
             BIInfoManager.getInstance().clearData(project.getBasePath());
         } catch (ProcessCanceledException ignore) {
+            // pre-analyse backgroup task canceled
+            // so need to clear export cache
+            SummaryCacheService.getInstance().clearAnalyseResultCache4Export(project.getBasePath());
+            // and need to clear conversion toolWindow cache
             ConversionCacheService.getInstance().clearConversions(project.getBasePath());
-            SummaryCacheManager.getInstance().clearKit2Methods(project.getBasePath());
-            LOG.warn(ignore.getMessage(), ignore);
+            SummaryCacheService.getInstance().clearAnalyseResultCache4ConversionToolWindow(project.getBasePath());
+            // and need to clear summary toolWindow cache
+            SummaryCacheService.getInstance().clearAnalyseResultCache4SummaryResult(project.getBasePath());
+            log.warn(ignore.getMessage(), ignore);
 
             // bi report action: trace cancel operation.
             BIReportService.getInstance().traceCancelListener(project.getBasePath(), CancelableViewEnum.FIRST_ANALYZE);
+
+            BalloonNotifications.showSuccessNotification(HmsConvertorBundle.message("pre_analyse_task_cancel_success"),
+                project, Constant.PLUGIN_NAME, true);
         } catch (NoSuchFileException | JSONException e) {
-            LOG.warn("file not found error");
+            log.warn(e.getMessage(), e);
+            BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("analyze_error"), project,
+                Constant.PLUGIN_NAME, true);
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
             BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("analyze_error"), project,
                 Constant.PLUGIN_NAME, true);
         } finally {
@@ -187,8 +297,15 @@ public final class HmsConvertorStarter {
 
     private void startEngineAnalysis(@NotNull ProgressIndicator indicator, HmsConvertorToolWindow toolWindow)
         throws NoSuchFileException {
+        if (indicator == null) {
+            BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("analyze_error"), project,
+                Constant.PLUGIN_NAME, true);
+            return;
+        }
+        indicator.setFraction(ProgressService.ProgressStage.START_ANALYSIS.getFraction());
+
         String repoID = inspectFolder + "." + inspectPath.hashCode();
-        LOG.info("repoID = {}", repoID);
+        log.info("repoID: {}", repoID);
         ConfigCacheService.getInstance().updateProjectConfig(project.getBasePath(), ConfigKeyConstants.REPO_ID, repoID);
         ConfigCacheService.getInstance()
             .updateProjectConfig(project.getBasePath(), ConfigKeyConstants.INSPECT_FOLDER, inspectFolder);
@@ -201,153 +318,80 @@ public final class HmsConvertorStarter {
         toolWindow.getSummaryToolWindow().asyncClearData();
         toolWindow.getSourceConvertorToolWindow().asyncClearData();
         toolWindow.getXmsDiffWindow().refreshData(null);
+        indicator.checkCanceled();
+        indicator.setFraction(ProgressService.ProgressStage.CLEAR_DATA.getFraction());
 
         if (!ProjectArchiveService.backupProject(project.getBasePath())) {
             BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("backup_failed"), project,
                 Constant.PLUGIN_NAME, true);
         }
+        indicator.checkCanceled();
+        indicator.setFraction(ProgressService.ProgressStage.BACKUP.getFraction());
+
         if (!ClientUtil.getPluginPackagePath().isPresent()) {
             throw new NoSuchFileException(HmsConvertorBundle.message("no_engine_found"));
         }
         String pluginPackagePath = ClientUtil.getPluginPackagePath().get();
-        pluginPackagePath = pluginPackagePath.replace("\\", "/");
+        pluginPackagePath = FileUtil.unifyToUnixFileSeparator(pluginPackagePath);
 
-        // Check whether the xms configuration file needs to be generated.
-        generateXmsConfigFiles(pluginPackagePath);
-
-        if (!inspectSource(pluginPackagePath, configCacheService.getProjectConfig(project.getBasePath(),
-            ConfigKeyConstants.COMMENT, Boolean.class, false))) {
-            BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("engine_analysis_error"), project,
+        FixbotParams fixbotPreAnalysisParams = FixbotAnalyzeService.getInstance()
+            .buildFixbotPreAnalysisParams(repoID, inspectPath, configCacheService, project.getBasePath());
+        Optional<Map<String, String>> dependencyVersionMap =
+            FixbotAnalyzeService.getInstance().preAnalysis4DependencyVersion(fixbotPreAnalysisParams);
+        if (!dependencyVersionMap.isPresent()) {
+            BalloonNotifications.showErrorNotification(
+                HmsConvertorBundle.message("pre_analyse_task_for_dependency_version_fail"), project,
                 Constant.PLUGIN_NAME, true);
             return;
         }
-        while (true) {
-            indicator.checkCanceled();
-            break;
+        XMSUtils.specializedProcess(dependencyVersionMap.get());
+        SummaryCacheManager.getInstance().setDependencyVersion(project.getBasePath(), dependencyVersionMap.get());
+
+        boolean isGenerateDependencyApiMetadataSuccess =
+            new DependencyApiMetadataGenerator().generate(pluginPackagePath, dependencyVersionMap.get());
+        if (!isGenerateDependencyApiMetadataSuccess) {
+            BalloonNotifications.showErrorNotification(
+                HmsConvertorBundle.message("dependency_api_metadata_generate_task_fail"), project, Constant.PLUGIN_NAME,
+                true);
+            return;
         }
+
+        boolean isGenerateGradleMappingSuccess =
+            new GradleMappingGenerator().generate(pluginPackagePath, dependencyVersionMap.get());
+        if (!isGenerateGradleMappingSuccess) {
+            BalloonNotifications.showErrorNotification(HmsConvertorBundle.message("gradle_mapping_generate_task_fail"),
+                project, Constant.PLUGIN_NAME, true);
+            return;
+        }
+
+        boolean isGenerateJavaMappingSuccess =
+            new JavaMappingGenerator().generate(pluginPackagePath, dependencyVersionMap.get());
+        if (!isGenerateJavaMappingSuccess) {
+            BalloonNotifications.showErrorNotification(HmsConvertorBundle.message("java_mapping_generate_task_fail"),
+                project, Constant.PLUGIN_NAME, true);
+        }
+
+        if (!inspectSource(pluginPackagePath, configCacheService.getProjectConfig(project.getBasePath(),
+            ConfigKeyConstants.COMMENT, Boolean.class, false), indicator, new Strategy())) {
+            log.info("The fixbotExitValue is {}", fixbotExitValue);
+            String message = HmsConvertorBundle.message("engine_analysis_error");
+            if (fixbotExitValue == OOM_ERROR_CODE) {
+                String vmOptionsConfigFilePath =
+                    Paths.get(PluginConstant.PluginDataDir.CONFIG_CACHE_PATH, FixbotConstants.CUSTOM_VMOPTIONS_FILENAME)
+                        .toString();
+                message =
+                    "Out of memory Error in fixbot analysis, change the memory size in file " + vmOptionsConfigFilePath;
+            }
+            BalloonNotifications.showWarnNotification(message, project, Constant.PLUGIN_NAME, true);
+            return;
+        }
+
+        indicator.checkCanceled();
+        indicator.setFraction(ProgressService.ProgressStage.FINISHED.getFraction());
 
         ApplicationManager.getApplication().invokeLater(() -> {
             PolicySettingDialog policySettingDialog = new PolicySettingDialog(project);
             policySettingDialog.show();
         }, ModalityState.defaultModalityState());
-    }
-
-    public boolean inspectSource(String pluginPackagePath, boolean isCommentEnable) {
-        String repoID = ConfigCacheService.getInstance()
-            .getProjectConfig(project.getBasePath(), ConfigKeyConstants.PROJECT_ID, String.class, "");
-        ServiceLoader.load(FileService.class, HmsConvertorStarter.class.getClassLoader())
-            .iterator()
-            .next()
-            .preProcess(repoID);
-
-        // Configure Engine Startup Parameters.
-        FixbotParams fixbotParams = getArguments(pluginPackagePath, repoID, inspectPath);
-
-        LOG.info("generate defect files begin");
-        if (FixbotAnalyzeService.getInstance().executeFixbot(fixbotParams) != 0) {
-            return false;
-        }
-        LOG.info("generate defect files end");
-        LocalFileSystem.getInstance().refresh(false);
-
-        if (isCommentEnable) {
-            repoID += ProjectConstants.Common.COMMENT_SUFFIX;
-            ConfigCacheService.getInstance()
-                .updateProjectConfig(project.getBasePath(), ConfigKeyConstants.REPO_ID, repoID);
-        }
-        String type = ConfigCacheService.getInstance()
-            .getProjectConfig(project.getBasePath(), ConfigKeyConstants.PROJECT_TYPE, String.class, "");
-        LOG.info("repoID = {}, commentEnable = {}, type = {}", repoID, isCommentEnable, type);
-
-        // Parse engine result file.
-        FixbotAnalyzeService.getInstance()
-            .parseFixbotResult(project.getBasePath(), GrsServiceProvider.getGrsAllianceDomain(), routePolicy, type,
-                fontSize);
-        return true;
-    }
-
-    private void generateXmsConfigFiles(final String pluginPackagePath) {
-        String pluginJarPath = System.getProperty(XmsConstants.KEY_XMS_JAR);
-        String outPath = pluginPackagePath + "/lib/config";
-        String wisehubAutoPath = outPath + WISEHUB_AUTO_FILE_NAME;
-        String wisehubManualPath = outPath + WISEHUB_MANUAL_FILE_NAME;
-        File wisehubAutoMapping = new File(wisehubAutoPath);
-        File wisehubManualMapping = new File(wisehubManualPath);
-        if (wisehubAutoMapping.exists() && wisehubManualMapping.exists()) {
-            LOG.warn("XmsConfigFiles exist");
-            return;
-        }
-
-        GeneratorResult generateXmsResult =
-            XmsGenerateService.generateXmsConfig(pluginJarPath, outPath, Constant.PLUGIN_LOG_PATH);
-        if (generateXmsResult.getKey() != 0) {
-            LOG.warn("Error during generate xms config files, error type = {}", generateXmsResult.getMessage());
-            BalloonNotifications.showWarnNotification(
-                "Error during generate xms config files, error type = " + generateXmsResult.getMessage(), project,
-                Constant.PLUGIN_NAME, true);
-        }
-    }
-
-    private FixbotParams getArguments(String pluginPackagePath, String repoID, String repoPath) {
-        FixbotParams fixbotParams = new FixbotParams();
-        String pluginJarPath = pluginPackagePath + "/lib";
-        String configPath = ClientUtil.getPluginPackagePath().get().replace("\\", "/") + "/lib/config";
-
-        fixbotParams.setEnginePath(pluginJarPath);
-        fixbotParams.initJvmOpt();
-        BIReportService.getInstance().setJvmXmx(project.getBasePath(), fixbotParams.getJvmOpt());
-        fixbotParams.setMappingPath(configPath);
-        fixbotParams.setCacheDirectory(repoID);
-        fixbotParams.setInspectPath(repoPath);
-        fixbotParams.setFixPath((Constant.PLUGIN_CACHE_PATH + repoID).replace("\\", "/"));
-
-        if (routePolicy.equals(RoutePolicy.G_AND_H)) {
-            fixbotParams.setPolicy("wisehub");
-        } else {
-            fixbotParams.setPolicy("libadaption");
-        }
-
-        List<String> excludePaths = configCacheService.getProjectConfig(project.getBasePath(),
-            ConfigKeyConstants.EXCLUDE_PATH, List.class, new ArrayList());
-        excludePaths.remove("Common");
-        List<String> arguments = new ArrayList<>();
-        if (!excludePaths.isEmpty()) {
-            for (String excludePath : excludePaths) {
-                arguments.add(excludePath.replace("\\", "/"));
-            }
-        }
-
-        List<String> xmsAdapterPathList = configCacheService.getProjectConfig(project.getBasePath(),
-            ConfigKeyConstants.XMS_PATH, List.class, new ArrayList());
-        if (!xmsAdapterPathList.isEmpty()) {
-            for (String path : xmsAdapterPathList) {
-                arguments.add(path.replace("\\", "/") + "/org/xms");
-            }
-        }
-
-        List<String> xms4GAdapterPaths = configCacheService.getProjectConfig(project.getBasePath(),
-            ConfigKeyConstants.XMS_MULTI_PATH, List.class, new ArrayList());
-        if (!xms4GAdapterPaths.isEmpty()) {
-            for (String path : xms4GAdapterPaths) {
-                arguments.add(path.replace("\\", "/"));
-            }
-        }
-        String xmsModulePath = configCacheService.getProjectConfig(project.getBasePath(),
-            ConfigKeyConstants.INSPECT_PATH, String.class, "");
-
-        if (!xmsModulePath.isEmpty()) {
-            File xmsFile = new File(xmsModulePath.replace("\\", "/") + "/xmsadapter");
-            if (xmsFile.exists()) {
-                arguments.add(xmsModulePath.replace("\\", "/") + "/xmsadapter/src");
-                arguments.add(xmsModulePath.replace("\\", "/") + "/xmsadapter/build");
-                arguments.add(xmsModulePath.replace("\\", "/") + "/xmsadapter/libs");
-                if (routePolicy.equals(RoutePolicy.G_TO_H)) {
-                    arguments.add(xmsModulePath.replace("\\", "/") + "/xmsadapter/build.gradle");
-                }
-            }
-        }
-
-        fixbotParams.setExcludedPaths(arguments);
-        return fixbotParams;
     }
 }

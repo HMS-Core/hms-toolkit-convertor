@@ -21,11 +21,13 @@ import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
 import com.intellij.util.ui.ListTableModel;
 
 /**
- * Result record table model class.
+ * Result table model
  *
  * @since 2019-06-12
  */
 public class ResultTableModel extends ListTableModel<DefectItem> {
+    private static final long serialVersionUID = 6311825832879098805L;
+
     /**
      * Number column index
      */
@@ -62,9 +64,14 @@ public class ResultTableModel extends ListTableModel<DefectItem> {
     public static final int DESCRIPTION_COLUMN_INDEX = 6;
 
     /**
+     * Reference column index
+     */
+    public static final int REFERENCE_COLUMN_INDEX = 7;
+
+    /**
      * Confirm column index
      */
-    public static final int CONFIRM_COLUMN_INDEX = 7;
+    public static final int CONFIRM_COLUMN_INDEX = 8;
 
     /**
      * Number column title
@@ -102,6 +109,11 @@ public class ResultTableModel extends ListTableModel<DefectItem> {
     public static final String DESCRIPTION_COLUMN_TITLE = HmsConvertorBundle.message("description");
 
     /**
+     * Reference column title
+     */
+    public static final String REFERENCE_COLUMN_TITLE = HmsConvertorBundle.message("reference");
+
+    /**
      * Confirm column title
      */
     public static final String CONFIRM_COLUMN_TITLE = "";
@@ -114,6 +126,7 @@ public class ResultTableModel extends ListTableModel<DefectItem> {
             new ResultColumnInfo(CONVERT_TYPE_COLUMN_TITLE, CONVERT_TYPE_COLUMN_INDEX),
             new ResultColumnInfo(DEFECT_CONTENT_COLUMN_TITLE, DEFECT_CONTENT_COLUMN_INDEX),
             new ResultColumnInfo(DESCRIPTION_COLUMN_TITLE, DESCRIPTION_COLUMN_INDEX),
+            new ResultColumnInfo(REFERENCE_COLUMN_TITLE, REFERENCE_COLUMN_INDEX),
             new ResultConfirmColumnInfo(CONFIRM_COLUMN_TITLE));
     }
 

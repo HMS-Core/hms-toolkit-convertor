@@ -16,10 +16,7 @@
 
 package com.huawei.hms.convertor.idea.listener;
 
-import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
 import com.huawei.hms.convertor.idea.util.HmsConvertorUtil;
-import com.huawei.hms.convertor.idea.xmsevent.XmsEventConsumer;
-import com.huawei.hms.convertor.idea.xmsevent.XmsManager;
 import com.huawei.hms.convertor.openapi.BIReportService;
 import com.huawei.hms.convertor.openapi.ConfigCacheService;
 import com.huawei.hms.convertor.openapi.ConversionCacheService;
@@ -31,9 +28,6 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManagerListener;
 
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Convertor startup activity
@@ -67,7 +61,6 @@ public class HmsLifecycleListenerImpl implements ProjectManagerListener {
         });
 
         try {
-            saveLeftXmsEvent();
             ConfigCacheService.getInstance().clearProjectConfig(project.getBasePath());
 
             // clear bi report service instance.
@@ -77,60 +70,6 @@ public class HmsLifecycleListenerImpl implements ProjectManagerListener {
         }
 
         EventService.getInstance().shutdownProjectEventContext(project.getBasePath());
-    }
-
-    private void saveLeftXmsEvent() {
-        List<String> leftXmsEevnt = new ArrayList<>();
-        XmsManager.getInstance().getConsumer(project.getBasePath()).ifPresent(consumer -> {
-            if (!consumer.isRunning()) {
-                log.info("XmsEventConsumer isn't running, no left xms event");
-                return;
-            }
-
-            log.info("XmsEventConsumer getStatus {}", consumer.getStatus());
-            if (consumer.getStatus() == XmsEventConsumer.CONSUMER_IDLE) {
-                saveXmsEventWhenIdle(consumer, leftXmsEevnt);
-            } else {
-                saveXmsEventWhenGenerating(consumer, leftXmsEevnt);
-            }
-
-            XmsManager.getInstance().removePipeline(project);
-
-            log.info("left {} xms event", leftXmsEevnt.size());
-            if (!leftXmsEevnt.isEmpty()) {
-                ConfigCacheService.getInstance()
-                    .updateProjectConfig(project.getBasePath(), ConfigKeyConstants.XMS_EVENT_QUEUE, leftXmsEevnt);
-            }
-        });
-    }
-
-    private void saveXmsEventWhenIdle(XmsEventConsumer consumer, List<String> leftXmsEevnt) {
-        XmsManager.getInstance().getQueue(project.getBasePath()).ifPresent(queue -> {
-            if (consumer.isRunning()) {
-                consumer.shutdown();
-            }
-
-            if (queue == null || queue.getSize() == 0) {
-                log.info("No left xms event");
-            } else {
-                queue.getXmsEvents().forEach(event -> {
-                    leftXmsEevnt.add(event.getHmsKitItemsStirng());
-                });
-            }
-        });
-    }
-
-    private void saveXmsEventWhenGenerating(XmsEventConsumer consumer, List<String> leftXmsEevnt) {
-        XmsManager.getInstance().getQueue(project.getBasePath()).ifPresent(queue -> {
-            if (consumer.isRunning()) {
-                leftXmsEevnt.add(consumer.getEventStr());
-                consumer.shutdown();
-            }
-
-            queue.getXmsEvents().forEach(event -> {
-                leftXmsEevnt.add(event.getHmsKitItemsStirng());
-            });
-        });
     }
 
     @Override

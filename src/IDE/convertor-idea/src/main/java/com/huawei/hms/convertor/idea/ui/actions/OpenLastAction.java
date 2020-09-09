@@ -21,6 +21,7 @@ import static com.huawei.hms.convertor.idea.ui.actions.HmsConvertorAction.saveCo
 import com.huawei.hms.convertor.core.bi.enumration.CancelableViewEnum;
 import com.huawei.hms.convertor.core.bi.enumration.MenuEnum;
 import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
 import com.huawei.hms.convertor.idea.ui.common.BalloonNotifications;
@@ -44,11 +45,10 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 
-import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
@@ -59,9 +59,8 @@ import java.util.List;
  *
  * @since 2019/12/7
  */
+@Slf4j
 public class OpenLastAction extends AnAction {
-    private static final Logger LOG = LoggerFactory.getLogger(OpenLastAction.class);
-
     public static void openLastConversion(Project project) {
         try {
             if (!HmsConvertorUtil.getHmsConvertorToolWindow(project).isPresent()) {
@@ -81,7 +80,8 @@ public class OpenLastAction extends AnAction {
                 logWarnMessage("no_analyze_result");
                 throw new NoSuchFileException(HmsConvertorBundle.message("no_last_conversion"));
             }
-            final String resultPath = Constant.PLUGIN_CACHE_PATH.replace("\\", "/") + repoID;
+            final String resultPath =
+                FileUtil.unifyToUnixFileSeparator(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH) + repoID;
             if (Files.notExists(Paths.get(resultPath, ProjectConstants.Result.LAST_SUMMARY_JSON))
                 || Files.notExists(Paths.get(resultPath, ProjectConstants.Result.LAST_CONVERSION_JSON))) {
                 logWarnMessage("no_analyze_result");
@@ -90,7 +90,7 @@ public class OpenLastAction extends AnAction {
 
             if (!checkSavedFiles(repoID, project, configCacheService.getProjectConfig(project.getBasePath(),
                 ConfigKeyConstants.COMMENT, Boolean.class, false))) {
-                LOG.info("No record saved");
+                log.info("No record saved");
                 return;
             }
 
@@ -103,22 +103,52 @@ public class OpenLastAction extends AnAction {
             showSuccessNotice(configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.COMMENT,
                 Boolean.class, false), project);
         } catch (IOException e) {
-            LOG.warn("Error during {}", e.getMessage(), e);
+            log.warn("Error during {}.", e.getMessage(), e);
             BalloonNotifications.showWarnNotification(e.getMessage(), project, Constant.PLUGIN_NAME, true);
         }
     }
 
+    @Override
+    public void actionPerformed(AnActionEvent anActionEvent) {
+        final Project project = anActionEvent.getProject();
+        if (project == null) {
+            return;
+        }
+
+        if (PrivacyStatementChecker.isNotAgreed(project)) {
+            // bi report action: trace cancel operation.
+            BIReportService.getInstance().traceCancelListener(project.getBasePath(), CancelableViewEnum.PRIVACY);
+            return;
+        }
+        // bi report action: menu click.
+        BIReportService.getInstance().traceMenuSelection(project.getBasePath(), MenuEnum.OPEN_LAST);
+
+        if ((!project.isInitialized()) || (project.isDisposed()) || (!project.isOpen())) {
+            return;
+        }
+
+        // Save the data before loading the previous scanning result
+        // to avoid misoperations during conversion.
+        saveConversionAndSummary(project);
+        openLastConversion(project);
+    }
+
+    @Override
+    public void update(AnActionEvent e) {
+        ActionUtil.updateAction(e, IconUtil.OPEN_LAST);
+    }
+
     private static void logWarnMessage(String msg) {
-        LOG.warn("Open last convert result: {}", HmsConvertorBundle.message(msg));
+        log.warn("Open last convert result: {}.", HmsConvertorBundle.message(msg));
     }
 
     private static boolean checkSavedFiles(String repoID, Project project, boolean isCommentMode) throws IOException {
-        String convertSaveFilePath =
-            Constant.PLUGIN_CACHE_PATH + repoID + Constant.SEPARATOR + ProjectConstants.Result.LAST_CONVERSION_JSON;
-        String lastConversionString = FileUtil.readToString(convertSaveFilePath, Constant.UTF8);
-        String summarySaveFilePath =
-            Constant.PLUGIN_CACHE_PATH + repoID + Constant.SEPARATOR + ProjectConstants.Result.LAST_SUMMARY_JSON;
-        String lastSummaryString = FileUtil.readToString(summarySaveFilePath, Constant.UTF8);
+        String convertSaveFilePath = PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + repoID
+            + Constant.UNIX_FILE_SEPARATOR + ProjectConstants.Result.LAST_CONVERSION_JSON;
+        String lastConversionString = FileUtil.readToString(convertSaveFilePath, StandardCharsets.UTF_8.toString());
+        String summarySaveFilePath = PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + repoID
+            + Constant.UNIX_FILE_SEPARATOR + ProjectConstants.Result.LAST_SUMMARY_JSON;
+        String lastSummaryString = FileUtil.readToString(summarySaveFilePath, StandardCharsets.UTF_8.toString());
         List<DefectItem> defectItemList = JSON.parseArray(lastConversionString, DefectItem.class);
         JSONObject jsonObject = JSON.parseObject(lastSummaryString);
         if (defectItemList == null || jsonObject == null || (defectItemList.isEmpty() && jsonObject.isEmpty())) {
@@ -141,36 +171,5 @@ public class OpenLastAction extends AnAction {
             BalloonNotifications.showSuccessNotification(HmsConvertorBundle.message("last_conversion_success"), project,
                 Constant.PLUGIN_NAME, true);
         }
-    }
-
-    @Override
-    public void actionPerformed(AnActionEvent anActionEvent) {
-        final Project project = anActionEvent.getProject();
-        if (project == null) {
-            return;
-        }
-
-        if (PrivacyStatementChecker.isNotAgreed()) {
-            // bi report action: trace cancel operation.
-            BIReportService.getInstance().traceCancelListener(project.getBasePath(), CancelableViewEnum.PRIVACY);
-            return;
-        }
-
-        // bi report action: menu click.
-        BIReportService.getInstance().traceMenuSelection(project.getBasePath(), MenuEnum.OPEN_LAST);
-
-        if ((!project.isInitialized()) || (project.isDisposed()) || (!project.isOpen())) {
-            return;
-        }
-
-        // Save the data before loading the previous scanning result
-        // to avoid misoperations during conversion.
-        saveConversionAndSummary(project);
-        openLastConversion(project);
-    }
-
-    @Override
-    public void update(AnActionEvent e) {
-        ActionUtil.updateAction(e, IconUtil.OPEN_LAST);
     }
 }

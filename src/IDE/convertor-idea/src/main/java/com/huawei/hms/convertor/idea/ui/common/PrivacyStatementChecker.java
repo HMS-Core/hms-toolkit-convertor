@@ -18,45 +18,48 @@ package com.huawei.hms.convertor.idea.ui.common;
 
 import com.huawei.hms.convertor.idea.util.PlatformReflectInvoker;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.intellij.openapi.project.Project;
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Objects;
 
 /**
- * Privacy statement verification
+ * Privacy statement checker
  *
  * @since 2020-01-02
  */
+@Slf4j
 public final class PrivacyStatementChecker {
-    private static final Logger LOGGER = LoggerFactory.getLogger(PrivacyStatementChecker.class);
+    private static final String API_CLASS = "com.huawei.hms.common.util.CommonUtils";
 
-    private static final String API_CLASS = "com.huawei.hms.common.hiai.ui.HuaweiTip";
-
-    private static final String API_METHOD = "isAgreePrivacy";
+    private static final String API_METHOD = "checkAgreementStatus";
 
     /**
-     * Privacy statement detection
+     * Check if user does not agree with privacy statement
      *
-     * @return If the subscriber does not agree with the privacy statement ,return {@code false};
-     *      Otherwise return {@code true}
+     * @return If user does not agree with privacy statement, return {@code true};
+     *         otherwise return {@code false}
+     * @param project Project
      */
-    public static boolean isNotAgreed() {
-        PlatformReflectInvoker.InvokeResult result = PlatformReflectInvoker.invokeStaticMethod(API_CLASS, API_METHOD);
+    public static boolean isNotAgreed(Project project) {
+        PlatformReflectInvoker.InvokeResult result = PlatformReflectInvoker.invokeStaticMethod(API_CLASS, API_METHOD,
+            new Class<?>[] {Project.class}, new Object[] {project});
 
         // The platform SDK is not found. The privacy statement check is skipped by default.
-        if (result.isSdkLost()) {
+        if (result.isSdkNotFound()) {
             return false;
         }
 
-        // Failed to invoke the platform interface. the value returned of privacy statement is not agreed.
+        // Failed to invoke the platform interface. The privacy statement check is not agreed.
         Object returnValue = result.getReturnValue();
         if (Objects.isNull(returnValue)) {
             return true;
         }
 
+        // The platform interface invokes error. The privacy statement check is not agreed.
         if (!(returnValue instanceof Boolean)) {
-            LOGGER.error("Unexpected return value, type error");
+            log.error("Unexpected return value, type error");
             return true;
         }
 

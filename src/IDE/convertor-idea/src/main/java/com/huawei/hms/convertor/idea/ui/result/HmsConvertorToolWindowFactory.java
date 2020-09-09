@@ -37,6 +37,7 @@ public class HmsConvertorToolWindowFactory implements ToolWindowFactory, DumbAwa
         if (toolWindow == null) {
             return;
         }
+
         final ContentManager contentManager = toolWindow.getContentManager();
         final HmsConvertorToolWindow hmsConvertorToolWindow = new HmsConvertorToolWindow(project);
         final Content content = contentManager.getFactory().createContent(hmsConvertorToolWindow, null, false);

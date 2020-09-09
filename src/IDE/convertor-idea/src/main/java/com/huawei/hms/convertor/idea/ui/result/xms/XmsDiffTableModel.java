@@ -36,11 +36,12 @@ public class XmsDiffTableModel extends ListTableModel<XmsDiffItem> {
 
     public static final String STATUS_COLUMN_TITLE = "Status";
 
-    private static ColumnInfo[] columnInfos = {new XmsDiffTableColumnInfo(NEW_FILE_COLUMN_TITLE, NEW_FILE_COLUMN_INDEX),
-        new XmsDiffTableColumnInfo(OLD_FILE_COLUMN_TITLE, OLD_FILE_COLUMN_INDEX),
-        new XmsDiffTableColumnInfo(STATUS_COLUMN_TITLE, STATUS_COLUMN_INDEX)};
+    private static final ColumnInfo[] COLUMN_INFOS =
+        {new XmsDiffTableColumnInfo(NEW_FILE_COLUMN_TITLE, NEW_FILE_COLUMN_INDEX),
+            new XmsDiffTableColumnInfo(OLD_FILE_COLUMN_TITLE, OLD_FILE_COLUMN_INDEX),
+            new XmsDiffTableColumnInfo(STATUS_COLUMN_TITLE, STATUS_COLUMN_INDEX)};
 
     public XmsDiffTableModel() {
-        super(columnInfos, new ArrayList<>(), STATUS_COLUMN_INDEX, SortOrder.ASCENDING);
+        super(COLUMN_INFOS, new ArrayList<>(), STATUS_COLUMN_INDEX, SortOrder.ASCENDING);
     }
 }

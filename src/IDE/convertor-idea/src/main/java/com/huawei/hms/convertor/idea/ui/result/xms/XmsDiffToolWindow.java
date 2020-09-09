@@ -60,6 +60,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -79,6 +80,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 @Slf4j
 public class XmsDiffToolWindow extends SimpleToolWindowPanel implements Disposable, ActionListener {
+    private static final long serialVersionUID = 1080747450758566096L;
+
     private static final String BACKUP_FILE_PREFIX = "Backup file: ";
 
     private static final String CURRENT_FILE_PREFIX = "Current file: ";
@@ -92,8 +95,6 @@ public class XmsDiffToolWindow extends SimpleToolWindowPanel implements Disposab
     private JComboBox statusComboBox;
 
     private JPanel tablePanel;
-
-    private JLabel statusTextLable;
 
     private JPanel rightPanel;
 
@@ -119,8 +120,6 @@ public class XmsDiffToolWindow extends SimpleToolWindowPanel implements Disposab
 
     private XmsDiff xmsDiff;
 
-    private String repoID;
-
     private XmsDiffActionAdapter oldXmsDiffAction;
 
     private XmsDiffActionAdapter newXmsDiffAction;
@@ -131,6 +130,60 @@ public class XmsDiffToolWindow extends SimpleToolWindowPanel implements Disposab
         xmsDiff = diff;
         initView();
         refreshData(xmsDiff);
+    }
+
+    public void refreshData(XmsDiff diff) {
+        ApplicationManager.getApplication().invokeAndWait(() -> {
+            xmsDiff = diff;
+            XmsDiffCacheService.getInstance().setXmsDiff(project.getBasePath(), xmsDiff);
+            xmsDiffItems = new ArrayList<>();
+            showWmsDiffItems = new ArrayList<>();
+
+            if (xmsDiff == null) {
+                noDifferent.setVisible(true);
+                rightPanel.setVisible(false);
+                HmsConvertorUtil.getHmsConvertorToolWindow(project).ifPresent(hmsConvertorToolWindow -> {
+                    hmsConvertorToolWindow.setXmsDiffVisible(false);
+                });
+                return;
+            }
+
+            HmsConvertorUtil.getHmsConvertorToolWindow(project).ifPresent(hmsConvertorToolWindow -> {
+                hmsConvertorToolWindow.setXmsDiffVisible(true);
+            });
+            noDifferent.setVisible(false);
+            rightPanel.setVisible(true);
+            xmsDiff.setOldXMSLocation(FileUtil.unifyToUnixFileSeparator(xmsDiff.getOldXMSLocation()));
+            xmsDiff.setNewXMSLocation(FileUtil.unifyToUnixFileSeparator(xmsDiff.getNewXMSLocation()));
+
+            setShowDataWithDiff(xmsDiff);
+            statusComboBox.removeActionListener(this);
+            statusComboBox.removeAllItems();
+            setStatusComboBox(statusComboBox, xmsDiff);
+            statusComboBox.addActionListener(this);
+        }, ModalityState.defaultModalityState());
+    }
+
+    @Override
+    public void dispose() {
+    }
+
+    public JPanel getRootPanel() {
+        return rootPanel;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        doSelectActions();
+    }
+
+    public void loadXmsDiff() {
+        XmsDiff newXmsDiff = XmsDiffCacheService.getInstance().loadXmsDiff(project.getBasePath());
+        if (newXmsDiff != null) {
+            refreshData(newXmsDiff);
+        } else {
+            refreshData(null);
+        }
     }
 
     private static void mergeChangedFileList(List<XmsDiffItem> diffItems, XmsDiff diff) {
@@ -211,14 +264,16 @@ public class XmsDiffToolWindow extends SimpleToolWindowPanel implements Disposab
         }
 
         String newFileName;
-        if (newFilePath.contains(Constant.SEPARATOR)) {
-            newFileName = CURRENT_FILE_PREFIX + newFilePath.substring(newFilePath.lastIndexOf(Constant.SEPARATOR) + 1);
+        if (newFilePath.contains(Constant.UNIX_FILE_SEPARATOR)) {
+            newFileName =
+                CURRENT_FILE_PREFIX + newFilePath.substring(newFilePath.lastIndexOf(Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
         } else {
             newFileName = CURRENT_FILE_PREFIX + newFilePath;
         }
         String oldFileName;
-        if (oldFilePath.contains(Constant.SEPARATOR)) {
-            oldFileName = BACKUP_FILE_PREFIX + oldFilePath.substring(oldFilePath.lastIndexOf(Constant.SEPARATOR) + 1);
+        if (oldFilePath.contains(Constant.UNIX_FILE_SEPARATOR)) {
+            oldFileName =
+                BACKUP_FILE_PREFIX + oldFilePath.substring(oldFilePath.lastIndexOf(Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
         } else {
             oldFileName = BACKUP_FILE_PREFIX + oldFilePath;
         }
@@ -235,10 +290,10 @@ public class XmsDiffToolWindow extends SimpleToolWindowPanel implements Disposab
         try {
             DiffContent emptyFileContent = DiffContentFactory.getInstance().create("");
             final DiffContent fileContent =
-                DiffContentFactory.getInstance().create(FileUtil.readToFormatString(filePath, Constant.UTF8));
+                DiffContentFactory.getInstance().create(FileUtil.readToFormatString(filePath, StandardCharsets.UTF_8.toString()));
             String fileName;
-            if (filePath.contains(Constant.SEPARATOR)) {
-                fileName = filePath.substring(filePath.lastIndexOf(Constant.SEPARATOR) + 1);
+            if (filePath.contains(Constant.UNIX_FILE_SEPARATOR)) {
+                fileName = filePath.substring(filePath.lastIndexOf(Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
             } else {
                 fileName = filePath;
             }
@@ -310,42 +365,10 @@ public class XmsDiffToolWindow extends SimpleToolWindowPanel implements Disposab
         });
     }
 
-    public void refreshData(XmsDiff diff) {
-        ApplicationManager.getApplication().invokeAndWait(() -> {
-            xmsDiff = diff;
-            XmsDiffCacheService.getInstance().setXmsDiff(project.getBasePath(), xmsDiff);
-            xmsDiffItems = new ArrayList<>();
-            showWmsDiffItems = new ArrayList<>();
-
-            if (xmsDiff == null) {
-                noDifferent.setVisible(true);
-                rightPanel.setVisible(false);
-                HmsConvertorUtil.getHmsConvertorToolWindow(project).ifPresent(hmsConvertorToolWindow -> {
-                    hmsConvertorToolWindow.setXmsDiffVisible(false);
-                });
-                return;
-            }
-
-            HmsConvertorUtil.getHmsConvertorToolWindow(project).ifPresent(hmsConvertorToolWindow -> {
-                hmsConvertorToolWindow.setXmsDiffVisible(true);
-            });
-            noDifferent.setVisible(false);
-            rightPanel.setVisible(true);
-            xmsDiff.setOldXMSLocation(xmsDiff.getOldXMSLocation().replace("\\", "/"));
-            xmsDiff.setNewXMSLocation(xmsDiff.getNewXMSLocation().replace("\\", "/"));
-
-            setShowDataWithDiff(xmsDiff);
-            statusComboBox.removeActionListener(this);
-            statusComboBox.removeAllItems();
-            setStatusComboBox(statusComboBox, xmsDiff);
-            statusComboBox.addActionListener(this);
-        }, ModalityState.defaultModalityState());
-    }
-
     private void doSelectActions() {
         showWmsDiffItems.clear();
         String status = statusComboBox.getSelectedItem().toString();
-        String[] statusValidates = getValidates(status);
+        String[] statusValidates = getValidates(ALL_STATUS_VALIDATE, status);
         String filterText =
             StringUtil.isEmpty(filterField.getText()) ? "" : StringUtils.lowerCase(filterField.getText());
         for (XmsDiffItem item : xmsDiffItems) {
@@ -361,13 +384,14 @@ public class XmsDiffToolWindow extends SimpleToolWindowPanel implements Disposab
         xmsDiffTableModel.setItems(showWmsDiffItems);
     }
 
-    private String[] getValidates(String choice) {
-        for (String validate : XmsDiffToolWindow.ALL_STATUS_VALIDATE) {
-            if (validate.equals(choice)) {
-                return new String[] {validate};
+    private String[] getValidates(String[] validates, String choice) {
+        for (int i = 0; i < validates.length; i++) {
+            if (validates[i].equals(choice)) {
+                String[] result = {validates[i]};
+                return result;
             }
         }
-        return XmsDiffToolWindow.ALL_STATUS_VALIDATE;
+        return validates;
     }
 
     private boolean isInValidates(String[] validates, String choice) {
@@ -434,28 +458,6 @@ public class XmsDiffToolWindow extends SimpleToolWindowPanel implements Disposab
                 }
             }
         });
-    }
-
-    @Override
-    public void dispose() {
-    }
-
-    public JPanel getRootPanel() {
-        return rootPanel;
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent actionEvent) {
-        doSelectActions();
-    }
-
-    public void loadXmsDiff() {
-        XmsDiff newXmsDiff = XmsDiffCacheService.getInstance().loadXmsDiff(project.getBasePath());
-        if (newXmsDiff != null) {
-            refreshData(newXmsDiff);
-        } else {
-            refreshData(null);
-        }
     }
 
     private static class XmsDiffTableCellRenderer extends DefaultTableCellRenderer {

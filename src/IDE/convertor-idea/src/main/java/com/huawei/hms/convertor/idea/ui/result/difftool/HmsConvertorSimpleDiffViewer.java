@@ -26,7 +26,6 @@ import com.intellij.diff.util.DiffUtil;
 
 import org.jetbrains.annotations.CalledInAwt;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Hms Convertor Simple Diff Viewer
@@ -37,7 +36,7 @@ public class HmsConvertorSimpleDiffViewer extends SimpleDiffViewer {
     @NotNull
     private DefectItem myDefectItem;
 
-    public HmsConvertorSimpleDiffViewer(@Nullable DiffContext context, @NotNull DiffRequest request) {
+    public HmsConvertorSimpleDiffViewer(@NotNull DiffContext context, @NotNull DiffRequest request) {
         super(context, request);
         if (null != request) {
             myDefectItem = request.getUserData(HmsConvertorDiffUserDataKeys.DEFECT);
@@ -47,11 +46,11 @@ public class HmsConvertorSimpleDiffViewer extends SimpleDiffViewer {
     @Override
     @CalledInAwt
     protected boolean doScrollToChange(@NotNull DiffUserDataKeysEx.ScrollToPolicy scrollToPolicy) {
-        doScrollToChange(myDefectItem);
+        doScrollToChange(myDefectItem, false);
         return true;
     }
 
-    private void doScrollToChange(DefectItem defectItem) {
+    private void doScrollToChange(DefectItem defectItem, final boolean animated) {
         int defectStartLine = Math.abs(defectItem.getDefectStartLine());
         int defectEndLine = Math.abs(defectItem.getDefectEndLine());
         defectStartLine = defectStartLine > 0 ? (defectStartLine - 1) : 0;
@@ -66,7 +65,7 @@ public class HmsConvertorSimpleDiffViewer extends SimpleDiffViewer {
         DiffUtil.moveCaret(getEditor2(), fixStartLine);
 
         getSyncScrollSupport().makeVisible(getCurrentSide(), defectStartLine, defectEndLine, fixStartLine, fixEndLine,
-            false);
+            animated);
     }
 
 }

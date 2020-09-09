@@ -37,55 +37,18 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 
 /**
- * Result record column
+ * Result column info
  *
  * @since 2019-06-12
  */
 public class ResultColumnInfo extends ColumnInfo<DefectItem, String> {
     private int columnIndex;
 
-    private int[] columnWidth = {60, -1, 80, 110, 110, -1, -1};
+    private int[] columnWidth = {60, -1, 80, 110, 110, -1, -1, 80};
 
-    ResultColumnInfo(String columnTitle, int columnIndex) {
+    public ResultColumnInfo(String columnTitle, int columnIndex) {
         super(columnTitle);
         this.columnIndex = columnIndex;
-    }
-
-    /**
-     * Get column value
-     *
-     * @param defectItem the table row item
-     * @param colIndex the table column index
-     * @return string type value, the table cell value
-     */
-    private String getValue(DefectItem defectItem, int colIndex) {
-        switch (colIndex) {
-            case ResultTableModel.LINE_COLUMN_INDEX:
-                return String.valueOf(defectItem.getDefectStartLine()).replace("-", "") + "-"
-                    + String.valueOf(defectItem.getDefectEndLine()).replace("-", "");
-
-            case ResultTableModel.FILE_COLUMN_INDEX:
-                return defectItem.getFile();
-
-            case ResultTableModel.KIT_NAME_COLUMN_INDEX:
-                if (defectItem.getKitName().startsWith("[")) {
-                    return defectItem.getKitName().substring(1, defectItem.getKitName().length() - 1);
-                } else {
-                    return defectItem.getKitName();
-                }
-
-            case ResultTableModel.CONVERT_TYPE_COLUMN_INDEX:
-                return defectItem.getConvertType();
-
-            case ResultTableModel.DEFECT_CONTENT_COLUMN_INDEX:
-                return defectItem.getDefectContent().trim();
-
-            case ResultTableModel.DESCRIPTION_COLUMN_INDEX:
-                return defectItem.getMergedDescription();
-
-            default:
-                return "";
-        }
     }
 
     @Nullable
@@ -133,6 +96,46 @@ public class ResultColumnInfo extends ColumnInfo<DefectItem, String> {
         return renderer;
     }
 
+    /**
+     * Get column value
+     *
+     * @param defectItem the table row item
+     * @param columnIndex the table column index
+     * @return string type value, the table cell value
+     */
+    private static String getValue(DefectItem defectItem, int columnIndex) {
+        switch (columnIndex) {
+            case ResultTableModel.LINE_COLUMN_INDEX:
+                return String.valueOf(defectItem.getDefectStartLine()).replace("-", "") + "-"
+                    + String.valueOf(defectItem.getDefectEndLine()).replace("-", "");
+
+            case ResultTableModel.FILE_COLUMN_INDEX:
+                return defectItem.getFile();
+
+            case ResultTableModel.KIT_NAME_COLUMN_INDEX:
+                if (defectItem.getKitName().startsWith("[")) {
+                    return defectItem.getKitName().substring(1, defectItem.getKitName().length() - 1);
+                } else {
+                    return defectItem.getKitName();
+                }
+
+            case ResultTableModel.CONVERT_TYPE_COLUMN_INDEX:
+                return defectItem.getConvertType();
+
+            case ResultTableModel.DEFECT_CONTENT_COLUMN_INDEX:
+                return defectItem.getDefectContent().trim();
+
+            case ResultTableModel.DESCRIPTION_COLUMN_INDEX:
+                return defectItem.getMergedDescription();
+
+            case ResultTableModel.REFERENCE_COLUMN_INDEX:
+                return defectItem.getDetail();
+
+            default:
+                return "";
+        }
+    }
+
     private static class DefectComparator implements Comparator<DefectItem>, Serializable {
         private static final long serialVersionUID = -6953084591915057226L;
 
@@ -169,7 +172,7 @@ public class ResultColumnInfo extends ColumnInfo<DefectItem, String> {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
             int row, int column) {
-            // Restore Default Status
+            // Restore default status
             super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             table.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             if ((ResultTableModel.FILE_COLUMN_INDEX == column)

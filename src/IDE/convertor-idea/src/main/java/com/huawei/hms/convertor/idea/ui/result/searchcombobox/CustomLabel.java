@@ -16,6 +16,7 @@
 
 package com.huawei.hms.convertor.idea.ui.result.searchcombobox;
 
+import com.huawei.hms.convertor.idea.ui.common.UIConstants;
 import com.intellij.util.ui.UIUtil;
 
 import java.awt.Color;
@@ -33,16 +34,16 @@ public class CustomLabel extends JLabel {
     @Override
     public Color getBackground() {
         if (UIUtil.isUnderDarcula()) {
-            return new Color(59, 63, 68);
+            return new Color(UIConstants.JavaLabel.BackgroundDarculaColorEnum.R.getValue(), UIConstants.JavaLabel.BackgroundDarculaColorEnum.G.getValue(), UIConstants.JavaLabel.BackgroundDarculaColorEnum.B.getValue());
         } else {
-            return new Color(204, 228, 247);
+            return new Color(UIConstants.JavaLabel.BackgroundColorEnum.R.getValue(), UIConstants.JavaLabel.BackgroundColorEnum.G.getValue(), UIConstants.JavaLabel.BackgroundColorEnum.B.getValue());
         }
     }
 
     @Override
     public Color getForeground() {
         if (UIUtil.isUnderDarcula()) {
-            return new Color(186, 186, 161);
+            return new Color(UIConstants.JavaLabel.ForeGroundColorEnum.R.getValue(), UIConstants.JavaLabel.ForeGroundColorEnum.G.getValue(), UIConstants.JavaLabel.ForeGroundColorEnum.B.getValue());
         } else {
             return super.getForeground();
         }
@@ -51,9 +52,9 @@ public class CustomLabel extends JLabel {
     @Override
     public Border getBorder() {
         if (UIUtil.isUnderDarcula()) {
-            return BorderFactory.createLineBorder(new Color(61, 97, 133), 2);
+            return BorderFactory.createLineBorder(new Color(UIConstants.JavaLabel.BorderColorEnum.R.getValue(), UIConstants.JavaLabel.BorderColorEnum.G.getValue(), UIConstants.JavaLabel.BorderColorEnum.B.getValue()), UIConstants.JavaLabel.BorderColorEnum.THICKNESS.getValue());
         } else {
-            return BorderFactory.createLineBorder(new Color(61, 97, 133));
+            return BorderFactory.createLineBorder(new Color(UIConstants.JavaLabel.BorderColorEnum.R.getValue(), UIConstants.JavaLabel.BorderColorEnum.G.getValue(), UIConstants.JavaLabel.BorderColorEnum.B.getValue()));
         }
     }
 }

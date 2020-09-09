@@ -46,6 +46,12 @@ public class XmsDiffTableColumnInfo extends ColumnInfo<XmsDiffItem, String> {
         return columnWidth[columnIndex];
     }
 
+    @Nullable
+    @Override
+    public Comparator<XmsDiffItem> getComparator() {
+        return new XmsDiffComparator(columnIndex);
+    }
+
     /**
      * Get column value
      *
@@ -53,7 +59,7 @@ public class XmsDiffTableColumnInfo extends ColumnInfo<XmsDiffItem, String> {
      * @param columnIndex the column index
      * @return the column value
      */
-    public String getValue(XmsDiffItem xmsDiffItem, int columnIndex) {
+    private String getValue(XmsDiffItem xmsDiffItem, int columnIndex) {
         switch (columnIndex) {
             case XmsDiffTableModel.NEW_FILE_COLUMN_INDEX:
                 return xmsDiffItem.getShowNewFileName();
@@ -67,12 +73,6 @@ public class XmsDiffTableColumnInfo extends ColumnInfo<XmsDiffItem, String> {
             default:
                 return "";
         }
-    }
-
-    @Nullable
-    @Override
-    public Comparator<XmsDiffItem> getComparator() {
-        return new XmsDiffComparator(columnIndex);
     }
 
     private static class XmsDiffComparator implements Comparator<XmsDiffItem>, Serializable {

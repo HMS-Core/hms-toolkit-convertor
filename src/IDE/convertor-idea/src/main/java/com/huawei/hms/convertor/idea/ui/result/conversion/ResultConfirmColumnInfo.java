@@ -33,7 +33,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 
 /**
- * Result Confirmation Convert Column
+ * Result confirm column info
  *
  * @since 2019-06-25
  */
@@ -82,7 +82,7 @@ public class ResultConfirmColumnInfo extends ColumnInfo<DefectItem, Icon> {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
             int row, int column) {
-            // Restore Default Status
+            // Restore default status
             super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             table.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             return this;

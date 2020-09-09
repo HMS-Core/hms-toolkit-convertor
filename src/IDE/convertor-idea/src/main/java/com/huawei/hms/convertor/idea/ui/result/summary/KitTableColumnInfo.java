@@ -51,15 +51,21 @@ public class KitTableColumnInfo extends ColumnInfo<KitItem, String> {
         return getValue(kitItem, columnIndex);
     }
 
+    @Nullable
+    @Override
+    public Comparator<KitItem> getComparator() {
+        return new KitComparator(columnIndex);
+    }
+
     /**
      * Get column value
      *
      * @param kitItem a kit item in a row
-     * @param index the column index
+     * @param columnIndex the column index
      * @return the column value
      */
-    private String getValue(KitItem kitItem, int index) {
-        switch (index) {
+    private String getValue(KitItem kitItem, int columnIndex) {
+        switch (columnIndex) {
             case KitTableModel.NUM_COLUMN_INDEX:
                 return String.valueOf(kitItem.getId());
 
@@ -77,18 +83,12 @@ public class KitTableColumnInfo extends ColumnInfo<KitItem, String> {
         }
     }
 
-    @Nullable
-    @Override
-    public Comparator<KitItem> getComparator() {
-        return new KitComparator(columnIndex);
-    }
-
     private static class KitComparator implements Comparator<KitItem>, Serializable {
         private static final long serialVersionUID = -6953084591915057225L;
 
         private int columnIndex;
 
-        KitComparator(int columnIndex) {
+        public KitComparator(int columnIndex) {
             this.columnIndex = columnIndex;
         }
 

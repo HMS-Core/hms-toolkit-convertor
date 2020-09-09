@@ -19,13 +19,17 @@ package com.huawei.hms.convertor.idea.ui.result.conversion;
 import com.huawei.codebot.framework.FixStatus;
 import com.huawei.hms.convertor.core.result.conversion.ConversionItem;
 import com.huawei.hms.convertor.core.result.conversion.ConversionPointDesc;
+import com.huawei.hms.convertor.idea.util.StringUtil;
+import com.huawei.hms.convertor.util.PropertyUtil;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Defect item bean class
@@ -36,6 +40,22 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 public final class DefectItem {
+    private static final String KIT_URL_PREFIX = "/consumer/en";
+
+    private static final Map<String, String> KIT_URL_MAP = new HashMap<>();
+
+    static {
+        String separator = ",";
+        String[] kitAndUrlList = PropertyUtil.readProperty("kit_and_url").split(separator);
+
+        for (String kitAndUrl : kitAndUrlList) {
+            String kitAndUrlStr = kitAndUrl.trim();
+            if (!StringUtil.isEmpty(kitAndUrlStr)) {
+                KIT_URL_MAP.put(kitAndUrlStr.split(":")[0], kitAndUrlStr.split(":")[1]);
+            }
+        }
+    }
+
     private String conversionId;
 
     private String filePath;
@@ -76,26 +96,58 @@ public final class DefectItem {
 
     private boolean enable;
 
+    private String detail;
+
+    private String url;
+
     public DefectItem(ConversionItem item) {
-        this.setConversionId(item.getConversionId());
-        this.setFilePath(item.getFilePath());
-        this.setApplied(item.isApplied());
-        this.setFile(item.getFile());
-        this.setDefectStartLine(item.getDefectStartLine());
-        this.setDefectEndLine(item.getDefectEndLine());
-        this.setDefectContent(item.getDefectContent());
-        this.setFixStartLine(item.getFixStartLine());
-        this.setFixEndLine(item.getFixEndLine());
-        this.setFixContent(item.getFixContent());
-        this.setFixStatus(item.getFixStatus());
-        this.getDescriptions().addAll(item.getDescriptions());
-        this.setMergedDescription(item.getMergedDescription());
-        this.setConvertType(item.getConvertType());
-        this.setKitName(item.getKitName());
-        this.setConfirmed(false);
-        this.setConverted(item.isConverted());
-        this.setFileTailConvert(item.isFileTailConvert());
-        this.setNewModule(item.isNewModule());
-        this.enable = true;
+        setConversionId(item.getConversionId());
+        setFilePath(item.getFilePath());
+        setApplied(item.isApplied());
+        setFile(item.getFile());
+        setDefectStartLine(item.getDefectStartLine());
+        setDefectEndLine(item.getDefectEndLine());
+        setDefectContent(item.getDefectContent());
+        setFixStartLine(item.getFixStartLine());
+        setFixEndLine(item.getFixEndLine());
+        setFixContent(item.getFixContent());
+        setFixStatus(item.getFixStatus());
+        getDescriptions().addAll(item.getDescriptions());
+        setMergedDescription(item.getMergedDescription());
+        setConvertType(item.getConvertType());
+        setKitName(item.getKitName());
+        setConfirmed(false);
+        setConverted(item.isConverted());
+        setFileTailConvert(item.isFileTailConvert());
+        setNewModule(item.isNewModule());
+        enable = true;
+        setDetail("<html><u><font color=\"#1895fc\">Detail</font></u></html>");
+        constructDetailUrl(item.getDescriptions(), item.getKitName());
+    }
+
+    /**
+     * Set the Detail link to the url in the Description of ConversionPointDesc if not empty, and then escape the
+     * following function. Otherwise set the Detail link to the kit introduction website and escape the following
+     * function. If no specific introduction site found, the Detail link is not visible.
+     *
+     * @param descriptions descriptions in item
+     * @param kitName kitName in item
+     */
+    private void constructDetailUrl(List<ConversionPointDesc> descriptions, String kitName) {
+        for (ConversionPointDesc description : descriptions) {
+            String urlInDesc = description.getUrl();
+            if (!StringUtil.isEmpty(urlInDesc)) {
+                setUrl(urlInDesc);
+                return;
+            }
+        }
+
+        String name = kitName.substring(1, kitName.length() - 1).split(",")[0];
+        if (KIT_URL_MAP.containsKey(name)) {
+            setUrl(KIT_URL_PREFIX + KIT_URL_MAP.get(name));
+            return;
+        }
+
+        setDetail("");
     }
 }

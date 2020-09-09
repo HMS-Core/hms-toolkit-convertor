@@ -17,12 +17,12 @@
 package com.huawei.hms.convertor.idea.util;
 
 /**
- * StringUtil
+ * String util
  *
  * @since 2017-05-25
  */
 public final class StringUtil {
     public static boolean isEmpty(String text) {
-        return null == text || text.trim().length() == 0;
+        return text == null || text.trim().length() == 0;
     }
 }

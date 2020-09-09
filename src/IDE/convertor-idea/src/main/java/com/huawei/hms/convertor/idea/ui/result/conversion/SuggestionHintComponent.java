@@ -60,10 +60,10 @@ import com.intellij.ui.awt.RelativePoint;
 import com.intellij.util.Alarm;
 import com.intellij.util.ui.UIUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -94,9 +94,8 @@ import javax.swing.event.PopupMenuListener;
  *
  * @since 2019-07-01
  */
+@Slf4j
 public class SuggestionHintComponent implements Disposable, ScrollAwareHint {
-    private static final Logger LOG = LoggerFactory.getLogger(SuggestionHintComponent.class);
-
     private static final int PRIORITY_VALUE = -10;
 
     private static final int PREFERRED_BORDER_SIZE = 6;
@@ -104,6 +103,12 @@ public class SuggestionHintComponent implements Disposable, ScrollAwareHint {
     private static final int MINIMUM_BORDER_SIZE = 4;
 
     private static final int TIME_DELAY = 500;
+
+    private static final int REALPOINT_INDEX = 4;
+
+    private static final int YSHIFT_INDEX = 3;
+
+    private static final int WRAP_LENGTH = 120;
 
     private static final Border INACTIVE_BORDER_PREFERRED = BorderFactory.createEmptyBorder(PREFERRED_BORDER_SIZE,
         PREFERRED_BORDER_SIZE, PREFERRED_BORDER_SIZE, PREFERRED_BORDER_SIZE);
@@ -172,22 +177,6 @@ public class SuggestionHintComponent implements Disposable, ScrollAwareHint {
         EditorUtil.disposeWithEditor(contentEditor, this);
     }
 
-    private static Border createActiveBorder() {
-        return BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(getBorderColor(), 1),
-            BorderFactory.createEmptyBorder(PREFERRED_BORDER_SIZE - 1, PREFERRED_BORDER_SIZE - 1,
-                PREFERRED_BORDER_SIZE - 1, PREFERRED_BORDER_SIZE - 1));
-    }
-
-    private static Border createActiveBorderSmall() {
-        return BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(getBorderColor(), 1),
-            BorderFactory.createEmptyBorder(MINIMUM_BORDER_SIZE - 1, MINIMUM_BORDER_SIZE - 1, MINIMUM_BORDER_SIZE - 1,
-                MINIMUM_BORDER_SIZE - 1));
-    }
-
-    private static Color getBorderColor() {
-        return EditorColorsManager.getInstance().getGlobalScheme().getColor(EditorColors.SELECTED_TEARLINE_COLOR);
-    }
-
     public static SuggestionHintComponent showSuggestionHint(@NotNull Project project, @NotNull Editor editor,
         boolean showExpanded, DefectItem defectItem) {
         ApplicationManager.getApplication().assertIsDispatchThread();
@@ -200,31 +189,11 @@ public class SuggestionHintComponent implements Disposable, ScrollAwareHint {
 
         ApplicationManager.getApplication().invokeLater(() -> {
             if (!editor.isDisposed() && editor.getComponent().isShowing()) {
-                LOG.info("show popup menu");
+                log.info("show popup menu");
                 component.showPopup(false);
             }
         }, project.getDisposed());
         return component;
-    }
-
-    private static boolean canPlaceBulbOnTheSameLine(Editor editor) {
-        if (ApplicationManager.getApplication().isUnitTestMode() || editor.isOneLineMode()) {
-            return false;
-        }
-        if (Registry.is("always.show.intention.above.current.line", false)) {
-            return false;
-        }
-        final int offset = editor.getCaretModel().getOffset();
-        final VisualPosition pos = editor.offsetToVisualPosition(offset);
-        int line = pos.line;
-
-        final int firstNonSpaceColumnOnTheLine = EditorActionUtil.findFirstNonSpaceColumnOnTheLine(editor, line);
-        if (firstNonSpaceColumnOnTheLine == -1) {
-            return false;
-        }
-        final Point point = editor.visualPositionToXY(new VisualPosition(line, firstNonSpaceColumnOnTheLine));
-        return point.x > IconUtil.REAL_INTENTION_BULB.getIconWidth()
-            + (editor.isOneLineMode() ? MINIMUM_BORDER_SIZE : PREFERRED_BORDER_SIZE) * 2;
     }
 
     @Override
@@ -248,6 +217,42 @@ public class SuggestionHintComponent implements Disposable, ScrollAwareHint {
     @Override
     public void editorScrolled() {
         closePopup();
+    }
+
+    private static Border createActiveBorder() {
+        return BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(getBorderColor(), 1),
+            BorderFactory.createEmptyBorder(PREFERRED_BORDER_SIZE - 1, PREFERRED_BORDER_SIZE - 1,
+                PREFERRED_BORDER_SIZE - 1, PREFERRED_BORDER_SIZE - 1));
+    }
+
+    private static Border createActiveBorderSmall() {
+        return BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(getBorderColor(), 1),
+            BorderFactory.createEmptyBorder(MINIMUM_BORDER_SIZE - 1, MINIMUM_BORDER_SIZE - 1, MINIMUM_BORDER_SIZE - 1,
+                MINIMUM_BORDER_SIZE - 1));
+    }
+
+    private static Color getBorderColor() {
+        return EditorColorsManager.getInstance().getGlobalScheme().getColor(EditorColors.SELECTED_TEARLINE_COLOR);
+    }
+
+    private static boolean canPlaceBulbOnTheSameLine(Editor editor) {
+        if (ApplicationManager.getApplication().isUnitTestMode() || editor.isOneLineMode()) {
+            return false;
+        }
+        if (Registry.is("always.show.intention.above.current.line", false)) {
+            return false;
+        }
+        final int offset = editor.getCaretModel().getOffset();
+        final VisualPosition pos = editor.offsetToVisualPosition(offset);
+        int line = pos.line;
+
+        final int firstNonSpaceColumnOnTheLine = EditorActionUtil.findFirstNonSpaceColumnOnTheLine(editor, line);
+        if (firstNonSpaceColumnOnTheLine == -1) {
+            return false;
+        }
+        final Point point = editor.visualPositionToXY(new VisualPosition(line, firstNonSpaceColumnOnTheLine));
+        return point.x > IconUtil.REAL_INTENTION_BULB.getIconWidth()
+            + (editor.isOneLineMode() ? MINIMUM_BORDER_SIZE : PREFERRED_BORDER_SIZE) * 2;
     }
 
     private void recreate() {
@@ -279,7 +284,7 @@ public class SuggestionHintComponent implements Disposable, ScrollAwareHint {
 
         final Point position = editor.visualPositionToXY(new VisualPosition(line, 0));
         if (!editor.getComponent().isDisplayable()) {
-            LOG.warn("Editor is not displayable!");
+            log.warn("Editor is not displayable!");
         }
 
         final boolean oneLineEditor = editor.isOneLineMode();
@@ -297,7 +302,7 @@ public class SuggestionHintComponent implements Disposable, ScrollAwareHint {
                 }
             }
 
-            realPoint = new Point(-(IconUtil.REAL_INTENTION_BULB.getIconWidth() / 2) - 4,
+            realPoint = new Point(-(IconUtil.REAL_INTENTION_BULB.getIconWidth() / 2) - REALPOINT_INDEX,
                 -(IconUtil.REAL_INTENTION_BULB.getIconHeight() / 2));
         } else {
             Rectangle visibleArea = editor.getScrollingModel().getVisibleArea();
@@ -309,11 +314,11 @@ public class SuggestionHintComponent implements Disposable, ScrollAwareHint {
             int yShift = -(PREFERRED_BORDER_SIZE + IconUtil.REAL_INTENTION_BULB.getIconHeight());
             if (canPlaceBulbOnTheSameLine(editor)) {
                 yShift = -(PREFERRED_BORDER_SIZE
-                    + (IconUtil.REAL_INTENTION_BULB.getIconHeight() - editor.getLineHeight()) / 2 + 3);
+                    + (IconUtil.REAL_INTENTION_BULB.getIconHeight() - editor.getLineHeight()) / 2 + YSHIFT_INDEX);
             } else if (position.y < visibleArea.y + editor.getLineHeight()) {
                 yShift = editor.getLineHeight() - PREFERRED_BORDER_SIZE;
             } else {
-                LOG.debug("do whatever");
+                log.debug("do whatever");
             }
 
             final int xShift = IconUtil.REAL_INTENTION_BULB.getIconWidth();
@@ -348,7 +353,7 @@ public class SuggestionHintComponent implements Disposable, ScrollAwareHint {
     }
 
     private void hide() {
-        LOG.info("hide popup menu");
+        log.info("hide popup menu");
         Disposer.dispose(this);
     }
 
@@ -526,7 +531,7 @@ public class SuggestionHintComponent implements Disposable, ScrollAwareHint {
 
         @Override
         public String getTextFor(ConversionPointDesc value) {
-            final String descText = wrapComment(value.getText(), 120);
+            final String descText = wrapComment(value.getText(), WRAP_LENGTH);
             return StringUtil.isEmptyOrSpaces(descText) ? "" : descText.trim();
         }
 

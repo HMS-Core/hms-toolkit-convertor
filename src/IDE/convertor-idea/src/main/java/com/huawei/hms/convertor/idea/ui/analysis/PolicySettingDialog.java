@@ -16,10 +16,10 @@
 
 package com.huawei.hms.convertor.idea.ui.analysis;
 
-import static com.huawei.hms.convertor.idea.ui.analysis.HmsConvertorXmsGenerater.inferenceGAndHOrMultiApk;
-
 import com.huawei.generator.g2x.po.summary.Diff;
+import com.huawei.generator.g2x.processor.GeneratorStrategyKind;
 import com.huawei.hms.convertor.core.bi.bean.FunctionSelectionBean;
+import com.huawei.hms.convertor.core.bi.enumration.AnalyseExportEnum;
 import com.huawei.hms.convertor.core.bi.enumration.CancelableViewEnum;
 import com.huawei.hms.convertor.core.bi.enumration.ConversionHelpEnum;
 import com.huawei.hms.convertor.core.bi.enumration.ConversionStrategyEnum;
@@ -29,7 +29,10 @@ import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
 import com.huawei.hms.convertor.core.engine.fixbot.model.RoutePolicy;
 import com.huawei.hms.convertor.core.engine.xms.XmsConstants;
 import com.huawei.hms.convertor.core.kits.KitsConstants;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
+import com.huawei.hms.convertor.core.result.diff.Strategy;
+import com.huawei.hms.convertor.core.result.diff.UpdatedXmsService;
 import com.huawei.hms.convertor.core.result.diff.XmsDiff;
 import com.huawei.hms.convertor.core.result.summary.SummaryCacheManager;
 import com.huawei.hms.convertor.core.result.summary.SummaryConstants;
@@ -37,6 +40,7 @@ import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
 import com.huawei.hms.convertor.idea.ui.common.BalloonNotifications;
 import com.huawei.hms.convertor.idea.ui.common.HmsConvertorState;
 import com.huawei.hms.convertor.idea.ui.common.UIConstants;
+import com.huawei.hms.convertor.idea.util.AnalyseResultExportUtil;
 import com.huawei.hms.convertor.idea.util.ClientUtil;
 import com.huawei.hms.convertor.idea.util.HmsConvertorUtil;
 import com.huawei.hms.convertor.idea.util.IconUtil;
@@ -44,6 +48,7 @@ import com.huawei.hms.convertor.idea.util.TimeUtil;
 import com.huawei.hms.convertor.openapi.BIReportService;
 import com.huawei.hms.convertor.openapi.ConfigCacheService;
 import com.huawei.hms.convertor.openapi.ConversionCacheService;
+import com.huawei.hms.convertor.openapi.ProgressService;
 import com.huawei.hms.convertor.openapi.SummaryCacheService;
 import com.huawei.hms.convertor.openapi.XmsDiffCacheService;
 import com.huawei.hms.convertor.openapi.XmsGenerateService;
@@ -52,6 +57,7 @@ import com.huawei.hms.convertor.util.FileUtil;
 import com.huawei.hms.convertor.util.KitUtil;
 
 import com.intellij.ide.BrowserUtil;
+import com.intellij.ide.actions.ShowFilePathAction;
 import com.intellij.ide.ui.UISettings;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.ActionPlaces;
@@ -63,6 +69,7 @@ import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.fileEditor.OpenFileDescriptor;
 import com.intellij.openapi.progress.PerformInBackgroundOption;
+import com.intellij.openapi.progress.ProcessCanceledException;
 import com.intellij.openapi.progress.ProgressIndicator;
 import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.project.Project;
@@ -76,11 +83,11 @@ import com.intellij.ui.PopupHandler;
 import com.intellij.util.ImageLoader;
 import com.intellij.util.ui.UIUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -98,9 +105,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -112,6 +119,7 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
@@ -120,12 +128,15 @@ import javax.swing.SwingUtilities;
  *
  * @since 2020-04-29
  */
+@Slf4j
 public class PolicySettingDialog extends DialogWrapper {
-    private static final Logger LOG = LoggerFactory.getLogger(PolicySettingDialog.class);
-
     private static final Pattern XMS_PATH_PATTERN = Pattern.compile("(.)*\\/src\\/main\\/java$");
 
-    private static final Pattern G_PATH_PATTERN = Pattern.compile("(.)*\\/src$");
+    private static final Pattern GH_PATH_PATTERN = Pattern.compile("(.)*\\/src$");
+
+    private static final String XMS_PATH_SELECTED = "/xmsadapter/src";
+
+    private static final String XMS_PATH = "/xmsadapter/src/main/java";
 
     private static final String SPACE_FOR_TABLE = " ";
 
@@ -187,11 +198,21 @@ public class PolicySettingDialog extends DialogWrapper {
 
     private static final int PANEL_MIN_WIDTH_FS_20 = 1140;
 
+    private static final String SUPPORT_JDK_COMPILE_VERSION_STRING = "1.8";
+
     private static final int PANEL_PREFER_HEIGHT_FS_20 = 810;
 
     private static final int PANEL_MIN_HEIGHT_FS_20 = 804;
 
+    private static final int LENGTH_0 = 0;
+
+    private static final int LENGTH_1 = 1;
+
+    private static final int LENGTH_2 = 2;
+
     private String type;
+
+    private String compileVersion;
 
     private JPanel contentPane;
 
@@ -204,6 +225,8 @@ public class PolicySettingDialog extends DialogWrapper {
     private JLabel analysisLabel;
 
     private JLabel detailsLabel;
+
+    private JLabel exportAnalyseResultLabel;
 
     private JLabel policySelectLabel;
 
@@ -293,6 +316,8 @@ public class PolicySettingDialog extends DialogWrapper {
 
     private JCheckBox checkBoxG;
 
+    private JCheckBox checkBoxH;
+
     private JLabel noticeLabel;
 
     private JLabel firstNoticeLabel;
@@ -325,6 +350,8 @@ public class PolicySettingDialog extends DialogWrapper {
 
     private Action previousAction;
 
+    private Action showLogAction;
+
     private ConfigCacheService configCacheService;
 
     private Map<String, String> showData;
@@ -342,13 +369,22 @@ public class PolicySettingDialog extends DialogWrapper {
         this.project = project;
         showData = SummaryCacheService.getInstance().getShowData(project.getBasePath());
         configCacheService = ConfigCacheService.getInstance();
+
+        String inspectPath = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.INSPECT_PATH,
+            String.class, "");
+        inspectFolder = StringUtils.substring(inspectPath, inspectPath.lastIndexOf(Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
+        if (StringUtils.isEmpty(inspectFolder)) {
+            log.warn("inspect folder is empty.");
+            BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("start_error"), project,
+                Constant.PLUGIN_NAME, true);
+            return;
+        }
+
         previousAction = new PreviousAction(this);
         previousAction.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_P);
-        String inspectPath = configCacheService.getProjectConfig(project.getBasePath(),
-            ConfigKeyConstants.INSPECT_PATH, String.class, "");
-        allianceDomain = configCacheService.getProjectConfig(project.getBasePath(),
-            ConfigKeyConstants.ALLIANCE_DOMAIN, String.class, "");
-        inspectFolder = inspectPath.substring(inspectPath.lastIndexOf(Constant.SEPARATOR) + 1);
+        showLogAction = new ShowLogDialogAction();
+        allianceDomain = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.ALLIANCE_DOMAIN,
+            String.class, "");
         commentEnable = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.COMMENT,
             Boolean.class, false);
 
@@ -360,19 +396,21 @@ public class PolicySettingDialog extends DialogWrapper {
         adjsutTableSize();
     }
 
-    public static Set<String> getGaddHKitWhiteList() {
-        Set<String> supportKitInfo = XmsGenerateService.supportKitInfo();
-        return supportKitInfo;
+    public static Set<String> getGaddHKitTrustList() {
+        Set<String> supportKitInfos = XmsGenerateService.supportKitInfo();
+        return supportKitInfos;
     }
 
     @Override
     public void init() {
         super.init();
         setTitle(Constant.PLUGIN_NAME);
-        getWindow().setIconImage(ImageLoader.loadFromResource("/icons/convertor.png"));
+        getWindow().setIconImage(ImageLoader.loadFromResource(UIConstants.Dialog.WINDOW_ICON_RESOURCE));
 
         noticeLabel.setText(HmsConvertorBundle.message("notice_title"));
-        firstNoticeLabel.setText(HmsConvertorBundle.message("notice_first"));
+
+        setJdkVersionNotification();
+
         secondNoticeLabel.setText(HmsConvertorBundle.message("notice_second"));
         thirdNoticeLabel.setText(HmsConvertorBundle.message("notice_third"));
         fourthNoticeLabel.setText("");
@@ -397,6 +435,7 @@ public class PolicySettingDialog extends DialogWrapper {
             andHmsGFRadioButton.setVisible(false);
             xmsPathTextField.setVisible(false);
             checkBoxG.setVisible(false);
+            checkBoxH.setVisible(false);
             xmsTittlePanel.setVisible(false);
         }
 
@@ -409,6 +448,7 @@ public class PolicySettingDialog extends DialogWrapper {
         step1Label.setIcon(IconUtil.STEP_1_FINISH);
         step2Label.setIcon(IconUtil.RUNNING);
         checkBoxG.setText(HmsConvertorBundle.message("only_g"));
+        checkBoxH.setText(HmsConvertorBundle.message("only_h"));
         ButtonGroup policyButtonGroup = new ButtonGroup();
         policyButtonGroup.add(toHmsRadioButton);
         policyButtonGroup.add(andHmsHFRadioButton);
@@ -424,6 +464,196 @@ public class PolicySettingDialog extends DialogWrapper {
         andHmsHFRadioButton.setSelected(true);
 
         initShowData();
+    }
+
+    @Override
+    public Action getHelpAction() {
+        Action helpAction = super.getHelpAction();
+        helpAction.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_H);
+        helpAction.putValue(Action.NAME, HmsConvertorBundle.message("help"));
+        return helpAction;
+    }
+
+    @Override
+    public Action[] createActions() {
+        return new Action[] {showLogAction, previousAction, getCancelAction(), getOKAction(), getHelpAction()};
+    }
+
+    @Override
+    public Action getOKAction() {
+        Action okAction = super.getOKAction();
+        okAction.putValue(Action.NAME, HmsConvertorBundle.message("Analysis_n"));
+        okAction.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_N);
+        return okAction;
+    }
+
+    @Override
+    public Action getCancelAction() {
+        Action cancelAction = super.getCancelAction();
+        cancelAction.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_C);
+        cancelAction.putValue(Action.NAME, HmsConvertorBundle.message("cancel_c"));
+        return cancelAction;
+    }
+
+    @Override
+    public void doHelpAction() {
+        // bi report action: click help link.
+        BIReportService.getInstance().traceHelpClick(project.getBasePath(), ConversionHelpEnum.PRE_ANALYZE);
+
+        ApplicationManager.getApplication().invokeLater(() -> {
+            BrowserUtil.browse(allianceDomain + HmsConvertorBundle.message("policy_url"));
+        }, ModalityState.any());
+    }
+
+    @Override
+    public void doOKAction() {
+        // Note: generate strategy by user's last convertion from config; default: multiApk = false, hFirst = true
+        boolean multiApk = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.MULTI_APK,
+            boolean.class, false);
+        boolean hFirst = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.HMS_FIRST,
+            boolean.class, true);
+        boolean onlyH =
+            configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.ONLY_H, boolean.class, false);
+        Strategy strategy = new Strategy();
+        strategy.setHmsFirst(hFirst);
+        strategy.setOnlyG(multiApk);
+        strategy.setOnlyH(onlyH);
+        List<GeneratorStrategyKind> generatorStrategyKinds = UpdatedXmsService.getStrategyKindList(strategy);
+        Map<String, String> kitMap =
+            UpdatedXmsService.getKitMap(SummaryCacheService.getInstance().getAllDependency(project.getBasePath()));
+        List<String> modifiedRoutes =
+            FileUtil.getUserModifiedRoutes(project.getBasePath(), kitMap, generatorStrategyKinds);
+        if (!modifiedRoutes.isEmpty()) {
+            Messages.showWarningDialog(project,
+                constructMultiNotice(HmsConvertorBundle.message("multi_xms_adapter_notice"), modifiedRoutes),
+                Constant.PLUGIN_NAME);
+            return;
+        }
+
+        boolean convertedByOldSetting = configCacheService.getProjectConfig(project.getBasePath(),
+            ConfigKeyConstants.CONVERTED_BY_OLD_SETTING, boolean.class, false);
+        if (convertedByOldSetting) {
+            RoutePolicy routePolicy = configCacheService.getProjectConfig(project.getBasePath(),
+                ConfigKeyConstants.ROUTE_POLICY, RoutePolicy.class, RoutePolicy.UNKNOWN);
+            updateConfigForOld(project, routePolicy);
+            configCacheService.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.HMS_FIRST,
+                getGAndHStartegy());
+        }
+
+        if (!checkHasConvertibleKit(SummaryCacheService.getInstance().getAllKits(project.getBasePath()))) {
+            Messages.showWarningDialog(project, HmsConvertorBundle.message("no_convertible_notice"), "Warning");
+            return;
+        }
+
+        // If the user changes the policy, reset the related configuration
+        // and the xms adapter layer.
+        if (cancelByChangePolicy()) {
+            // bi report action: trace cancel operation.
+            BIReportService.getInstance().traceCancelListener(project.getBasePath(), CancelableViewEnum.POLICY_CHANGE);
+            return;
+        }
+
+        // bi trace analyze time cost: analyze begins.
+        BIInfoManager.getInstance().setAnalyzeBeginTime(project.getBasePath(), System.currentTimeMillis());
+
+        // before analyse backgroup task start, so need to clear export cache
+        SummaryCacheService.getInstance().clearAnalyseResultCache4Export(project.getBasePath());
+
+        Task task = new Task.Backgroundable(project, Constant.PLUGIN_NAME, true, PerformInBackgroundOption.DEAF) {
+            @Override
+            public void run(@NotNull ProgressIndicator progressIndicator) {
+                asyncInspectAndGenerateAdapter(progressIndicator);
+                // Remove the old policy flag.
+                configCacheService.deleteProjectConfig(project.getBasePath(),
+                    ConfigKeyConstants.CONVERTED_BY_OLD_SETTING);
+            }
+        };
+        task.queue();
+        super.doOKAction();
+    }
+
+    @Override
+    public void doCancelAction() {
+        // bi report action: trace cancel operation.
+        BIReportService.getInstance().traceCancelListener(project.getBasePath(), CancelableViewEnum.PRE_ANALYZE);
+
+        HmsConvertorUtil.getHmsConvertorToolWindow(project).ifPresent(hmsConvertorToolWindow -> {
+            hmsConvertorToolWindow.getSummaryToolWindow()
+                .refreshData(SummaryCacheService.getInstance().getKit2FixbotMethodsMap(project.getBasePath()),
+                    SummaryCacheManager.getInstance().getKitStatisticsResults(project.getBasePath()));
+            hmsConvertorToolWindow.showTabbedPane(UIConstants.ToolWindow.TAB_SUMMARY_INDEX);
+        });
+
+        // analyse dialog canceled
+        // so need to clear export cache
+        SummaryCacheService.getInstance().clearAnalyseResultCache4Export(project.getBasePath());
+        // and need to clear conversion toolWindow cache
+        ConversionCacheService.getInstance().clearConversions(project.getBasePath());
+        SummaryCacheService.getInstance().clearAnalyseResultCache4ConversionToolWindow(project.getBasePath());
+        // and need to clear summary toolWindow cache
+        SummaryCacheService.getInstance().clearAnalyseResultCache4SummaryResult(project.getBasePath());
+        super.doCancelAction();
+    }
+
+    private void setJdkVersionNotification() {
+        String ideSdkVersion = System.getProperty("java.version");
+        compileVersion = showData.get(SummaryConstants.JDK_COMPILE_VERSION);
+        log.info("ide jdk version {}, app jdk version {}", ideSdkVersion, compileVersion);
+
+        if (StringUtil.isEmpty(compileVersion)) {
+            if (compareVersion(ideSdkVersion, SUPPORT_JDK_COMPILE_VERSION_STRING) == -1) {
+                firstNoticeLabel.setText(HmsConvertorBundle.message("notice_first"));
+            } else {
+                firstNoticeLabel.setVisible(false);
+                notice1Label.setVisible(false);
+            }
+            return;
+        }
+
+        if (compileVersion.startsWith("JavaVersion")) {
+            String[] compileVersionList = compileVersion.split("_");
+            String appVersion = compileVersionList[compileVersionList.length - 2] + "."
+                + compileVersionList[compileVersionList.length - 1];
+            if (compareVersion(appVersion, SUPPORT_JDK_COMPILE_VERSION_STRING) == -1) {
+                firstNoticeLabel.setText(HmsConvertorBundle.message("notice_first"));
+            } else {
+                firstNoticeLabel.setVisible(false);
+                notice1Label.setVisible(false);
+            }
+            return;
+        }
+
+        if (compareVersion(compileVersion, SUPPORT_JDK_COMPILE_VERSION_STRING) == -1) {
+            firstNoticeLabel.setText(HmsConvertorBundle.message("notice_first"));
+        } else {
+            firstNoticeLabel.setVisible(false);
+            notice1Label.setVisible(false);
+        }
+    }
+
+    /**
+     * @param version1 Variables for comparison
+     * @param version2 Variables for comparison
+     * @return version1 > version2 return 1; version1 < version2 return -1; version1 == version2 return 0;
+     */
+    private int compareVersion(String version1, String version2) {
+        if (version1.equals(version2)) {
+            return 0;
+        }
+        String[] version1Array = version1.split("[._]");
+        String[] version2Array = version2.split("[._]");
+        int index = 0;
+        int minLen = Math.min(version1Array.length, version2Array.length);
+        long diff = -1;
+        try {
+            while (index < minLen
+                && (diff = Long.parseLong(version1Array[index]) - Long.parseLong(version2Array[index])) == 0) {
+                index++;
+            }
+        } catch (NumberFormatException e) {
+            log.error("unable to parse jdk compile version", e);
+        }
+        return diff >= 0 ? 1 : -1;
     }
 
     private void adjsutTableSize() {
@@ -462,7 +692,7 @@ public class PolicySettingDialog extends DialogWrapper {
             int line = Integer.parseInt(showData.get(SummaryConstants.NOT_SUPPORT_VERSION_LINE));
             noticeHeight = POLICY_NOTICE_MARGIN + fontSize + (POLICY_NOTICE_FS_MARGIN + fontSize) * line;
         }
-        LOG.info("fontSize = {} noticeHeight = {}", fontSize, noticeHeight);
+        log.info("fontSize: {} noticeHeight: {}", fontSize, noticeHeight);
         if (fontSize < 14) {
             contentPane
                 .setPreferredSize(new Dimension(PANEL_PREFER_WIDTH_FS_12, PANEL_PREFER_HEIGHT_FS_12 + noticeHeight));
@@ -484,15 +714,22 @@ public class PolicySettingDialog extends DialogWrapper {
                 .setPreferredSize(new Dimension(PANEL_PREFER_WIDTH_FS_20, PANEL_PREFER_HEIGHT_FS_20 + noticeHeight));
             contentPane.setMinimumSize(new Dimension(PANEL_MIN_WIDTH_FS_20, PANEL_MIN_HEIGHT_FS_20 + noticeHeight));
         }
+
+        initExportAnalyseResultLabel();
+    }
+
+    private void initExportAnalyseResultLabel() {
+        exportAnalyseResultLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        exportAnalyseResultLabel.setText(HmsConvertorBundle.message("policy_setting_export_analyse_result"));
     }
 
     private void setXmsPath() {
         String folder = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.INSPECT_PATH,
             String.class, "");
-        if (checkBoxG.isSelected()) {
-            setXmsPath(folder + "/xmsadapter/src");
+        if (checkBoxG.isSelected() || checkBoxH.isSelected()) {
+            setXmsPath(folder + XMS_PATH_SELECTED);
         } else {
-            setXmsPath(folder + "/xmsadapter/src/main/java");
+            setXmsPath(folder + XMS_PATH);
         }
     }
 
@@ -512,20 +749,20 @@ public class PolicySettingDialog extends DialogWrapper {
             notice2Label.setIcon(IconUtil.POINT_ITEM_LIGHT);
             notice3Label.setIcon(IconUtil.POINT_ITEM_LIGHT);
             notice4Label.setIcon(IconUtil.POINT_ITEM_LIGHT);
-            borderColor = new Color(122, 138, 153);
-            titleColor = new Color(183, 185, 188);
-            row1Color = new Color(71, 76, 83);
-            otherRowColor = new Color(71, 76, 83);
+            borderColor = new Color(UIConstants.Dialog.PolicySetting.BorderColorEnum.R.getValue(), UIConstants.Dialog.PolicySetting.BorderColorEnum.G.getValue(), UIConstants.Dialog.PolicySetting.BorderColorEnum.B.getValue());
+            titleColor = new Color(UIConstants.Dialog.PolicySetting.TitleColorDarculaEnum.R.getValue(), UIConstants.Dialog.PolicySetting.TitleColorDarculaEnum.G.getValue(), UIConstants.Dialog.PolicySetting.TitleColorDarculaEnum.B.getValue());
+            row1Color = new Color(UIConstants.Dialog.PolicySetting.Row1ColorDarculaEnum.R.getValue(), UIConstants.Dialog.PolicySetting.Row1ColorDarculaEnum.G.getValue(), UIConstants.Dialog.PolicySetting.Row1ColorDarculaEnum.B.getValue());
+            otherRowColor = new Color(UIConstants.Dialog.PolicySetting.OtherRowColorDarculaEnum.R.getValue(), UIConstants.Dialog.PolicySetting.OtherRowColorDarculaEnum.G.getValue(), UIConstants.Dialog.PolicySetting.OtherRowColorDarculaEnum.B.getValue());
         } else {
             lineLabel.setIcon(IconUtil.GUIDE_LINE_GRAY);
             notice1Label.setIcon(IconUtil.POINT_ITEM_DARK);
             notice2Label.setIcon(IconUtil.POINT_ITEM_DARK);
             notice3Label.setIcon(IconUtil.POINT_ITEM_DARK);
             notice4Label.setIcon(IconUtil.POINT_ITEM_DARK);
-            borderColor = new Color(122, 138, 153);
-            titleColor = new Color(49, 51, 53);
-            row1Color = new Color(212, 212, 212);
-            otherRowColor = new Color(221, 221, 221);
+            borderColor = new Color(UIConstants.Dialog.PolicySetting.BorderColorEnum.R.getValue(), UIConstants.Dialog.PolicySetting.BorderColorEnum.G.getValue(), UIConstants.Dialog.PolicySetting.BorderColorEnum.B.getValue());
+            titleColor = new Color(UIConstants.Dialog.PolicySetting.TitleColorEnum.R.getValue(), UIConstants.Dialog.PolicySetting.TitleColorEnum.G.getValue(), UIConstants.Dialog.PolicySetting.TitleColorEnum.B.getValue());
+            row1Color = new Color(UIConstants.Dialog.PolicySetting.Row1ColorEnum.R.getValue(), UIConstants.Dialog.PolicySetting.Row1ColorEnum.G.getValue(), UIConstants.Dialog.PolicySetting.Row1ColorEnum.B.getValue());
+            otherRowColor = new Color(UIConstants.Dialog.PolicySetting.OtherRowColorEnum.R.getValue(), UIConstants.Dialog.PolicySetting.OtherRowColorEnum.G.getValue(), UIConstants.Dialog.PolicySetting.OtherRowColorEnum.B.getValue());
         }
         tableManagerPanel.setBorder(BorderFactory.createLineBorder(borderColor));
         detailsLabel.setForeground(JBColor.BLUE);
@@ -556,6 +793,12 @@ public class PolicySettingDialog extends DialogWrapper {
         row5_1Panel.setBackground(otherRowColor);
         row5_2Panel.setBackground(otherRowColor);
         row5_3Panel.setBackground(otherRowColor);
+
+        setExportAnalyseResultLabelColor();
+    }
+
+    private void setExportAnalyseResultLabelColor() {
+        exportAnalyseResultLabel.setForeground(JBColor.BLUE);
     }
 
     private void initShowData() {
@@ -567,7 +810,7 @@ public class PolicySettingDialog extends DialogWrapper {
         setXmsPath();
         setVisible(xmsPaths);
         RoutePolicy routePolicy = RoutePolicy.G_AND_H;
-        LOG.info("init: routePolicy = {}, routePriority = HMS First, xmsPaths = {}", routePolicy,
+        log.info("init, routePolicy: {}, routePriority: HMS First, xmsPaths: {}.", routePolicy,
             StringUtil.join(xmsPaths.toArray(new String[0]), ","));
 
         initTableData();
@@ -625,8 +868,13 @@ public class PolicySettingDialog extends DialogWrapper {
         pathHelpLabel.addMouseListener(new Browse(allianceDomain, HelpLinkType.XMS_PATH));
 
         checkBoxG.addActionListener(event -> {
-            showInfo();
-            setXmsPathEnabled4G();
+            showGInfo();
+            setXmsPathEnabled4GorH();
+        });
+
+        checkBoxH.addActionListener(event -> {
+            showHInfo();
+            setXmsPathEnabled4GorH();
         });
 
         APILabel.addMouseListener(new Browse(allianceDomain, HelpLinkType.NOT_SUPPORT_API));
@@ -637,8 +885,9 @@ public class PolicySettingDialog extends DialogWrapper {
             public void mouseClicked(MouseEvent e) {
                 if (SwingUtilities.isLeftMouseButton(e) && (e.getClickCount() == MOUSE_SINGLE_CLICK)) {
                     SummaryDialog summaryDialog = new SummaryDialog(project);
-                    summaryDialog.refreshData(SummaryCacheService.getInstance().getKit2Methods(project.getBasePath()),
-                        SummaryCacheService.getInstance().getAllKits(project.getBasePath()));
+                    summaryDialog.refreshData(
+                        SummaryCacheService.getInstance().getKit2FixbotMethodsMap(project.getBasePath()),
+                        SummaryCacheManager.getInstance().getKitStatisticsResults(project.getBasePath()));
                     summaryDialog.show();
                 }
             }
@@ -662,12 +911,12 @@ public class PolicySettingDialog extends DialogWrapper {
             if (type.equals(ProjectConstants.Type.SDK)) {
                 setXmsPathVisible();
             } else {
-                setXmsPathEnabled4G();
+                setXmsPathEnabled4GorH();
             }
         });
 
         andHmsGFRadioButton.addItemListener(event -> {
-            setXmsPathEnabled4G();
+            setXmsPathEnabled4GorH();
         });
 
         addUrl(firstNoticeLabel, "notice_1_url", HmsConvertorBundle.message("notice_first"));
@@ -687,6 +936,35 @@ public class PolicySettingDialog extends DialogWrapper {
                 super.mouseClicked(e);
             }
         });
+
+        addExportAnalyseResultLabelListener();
+    }
+
+    private void addExportAnalyseResultLabelListener() {
+        exportAnalyseResultLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (SwingUtilities.isLeftMouseButton(e) && (e.getClickCount() == MOUSE_SINGLE_CLICK)) {
+                    BIReportService.getInstance()
+                        .traceExportClick(project.getBasePath(), AnalyseExportEnum.PRE_ANALYZE);
+
+                    ApplicationManager.getApplication().invokeAndWait(() -> {
+                        exportAnalyseResult();
+                    }, ModalityState.defaultModalityState());
+                }
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                exportAnalyseResultLabel.setText(
+                    "<html><u>" + HmsConvertorBundle.message("policy_setting_export_analyse_result") + "</u></html>");
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                exportAnalyseResultLabel.setText(HmsConvertorBundle.message("policy_setting_export_analyse_result"));
+            }
+        });
     }
 
     private void setXmsPathVisible() {
@@ -694,6 +972,7 @@ public class PolicySettingDialog extends DialogWrapper {
         xmsPathLabel.setVisible(false);
         xmsPathTextField.setVisible(false);
         checkBoxG.setVisible(false);
+        checkBoxH.setVisible(false);
     }
 
     private void addUrl(JLabel label, String url, String string) {
@@ -748,7 +1027,7 @@ public class PolicySettingDialog extends DialogWrapper {
         }
     }
 
-    private void showInfo() {
+    private void showGInfo() {
         if (checkBoxG.isSelected()) {
             Messages.showDialog(project,
                 HmsConvertorBundle.message("OnlyG_constraint") + " <a href=\"" + allianceDomain
@@ -757,16 +1036,27 @@ public class PolicySettingDialog extends DialogWrapper {
         }
     }
 
+    private void showHInfo() {
+        if (checkBoxH.isSelected()) {
+            Messages.showDialog(project,
+                HmsConvertorBundle.message("OnlyH_constraint") + " <a href=\"" + allianceDomain
+                    + HmsConvertorBundle.message("OnlyH_constraint2"),
+                UIConstants.Dialog.TITLE_WARNING, new String[] {"OK"}, Messages.OK, Messages.getInformationIcon());
+        }
+    }
+
     private void setXmsPathEnabled() {
-        final boolean isToHms = toHmsRadioButton.isSelected();
+        boolean isToHms = toHmsRadioButton.isSelected();
 
         xmsPathLabel.setEnabled(!isToHms);
         xmsPathTextField.setEnabled(!isToHms);
         checkBoxG.setEnabled(!isToHms);
+        checkBoxH.setEnabled(!isToHms);
     }
 
-    private void setXmsPathEnabled4G() {
-        final boolean isOnlyG = checkBoxG.isSelected();
+    private void setXmsPathEnabled4GorH() {
+        boolean isOnlyG = checkBoxG.isSelected();
+        boolean isOnlyH = checkBoxH.isSelected();
         String inspectPath = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.INSPECT_PATH,
             String.class, "");
         List<String> excludePaths = configCacheService.getProjectConfig(project.getBasePath(),
@@ -775,11 +1065,11 @@ public class PolicySettingDialog extends DialogWrapper {
         if (!getXmsPath().isEmpty()) {
             return;
         }
-        if (isOnlyG) {
+        if (isOnlyG || isOnlyH) {
             if (getXmsPath().isEmpty()) {
-                List<String> xms4GPaths = FileUtil.findPathsByMask(G_PATH_PATTERN, inspectPath, excludePaths);
-                if (xms4GPaths.size() == 1) {
-                    setXmsPath(xms4GPaths.get(0));
+                List<String> xms4GorHPaths = FileUtil.findPathsByMask(GH_PATH_PATTERN, inspectPath, excludePaths);
+                if (xms4GorHPaths.size() == 1) {
+                    setXmsPath(xms4GorHPaths.get(0));
                 } else {
                     setXmsPath("");
                 }
@@ -797,113 +1087,51 @@ public class PolicySettingDialog extends DialogWrapper {
     @Nullable
     @Override
     protected JComponent createCenterPanel() {
-        return contentPane;
+        JScrollPane jScrollPane = new JScrollPane(contentPane);
+        jScrollPane.setBorder(null);
+        return jScrollPane;
     }
 
+    @Nullable
     @Override
-    public Action getHelpAction() {
-        Action helpAction = super.getHelpAction();
-        helpAction.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_H);
-        helpAction.putValue(Action.NAME, HmsConvertorBundle.message("help"));
-        return helpAction;
+    protected JComponent createSouthPanel() {
+        final JPanel southPanel = (JPanel) super.createSouthPanel();
+        JScrollPane jScrollPane = new JScrollPane(southPanel);
+        jScrollPane.setBorder(null);
+        return jScrollPane;
     }
 
-    @Override
-    public Action[] createActions() {
-        return new Action[] {previousAction, getCancelAction(), getOKAction(), getHelpAction()};
-    }
-
-    @Override
-    public Action getOKAction() {
-        Action okAction = super.getOKAction();
-        okAction.putValue(Action.NAME, HmsConvertorBundle.message("Analysis_n"));
-        okAction.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_N);
-        return okAction;
-    }
-
-    @Override
-    public Action getCancelAction() {
-        Action cancelAction = super.getCancelAction();
-        cancelAction.putValue(Action.MNEMONIC_KEY, KeyEvent.VK_C);
-        cancelAction.putValue(Action.NAME, HmsConvertorBundle.message("cancel_c"));
-        return cancelAction;
-    }
-
-    @Override
-    public void doHelpAction() {
-        // bi report action: click help link.
-        BIReportService.getInstance().traceHelpClick(project.getBasePath(), ConversionHelpEnum.PRE_ANALYZE);
-
-        ApplicationManager.getApplication().invokeLater(() -> {
-            BrowserUtil.browse(allianceDomain + HmsConvertorBundle.message("policy_url"));
-        }, ModalityState.any());
-    }
-
-    @Override
-    public void doOKAction() {
-        // Detect xms adapter in current project.
-        List<String> gAndHXmsPaths = FileUtil.getXmsPaths(project.getBasePath(), false);
-        List<String> multiApkXmsPaths = FileUtil.getXmsPaths(project.getBasePath(), true);
-        if (!toHmsRadioButton.isSelected() && gAndHXmsPaths.size() > 1 || multiApkXmsPaths.size() > 2) {
-            Messages.showWarningDialog(project,
-                constructMultiNotice(HmsConvertorBundle.message("multi_xms_adapter_notice"), gAndHXmsPaths,
-                    multiApkXmsPaths),
-                Constant.PLUGIN_NAME);
-            return;
+    /**
+     * just adapt to old version
+     */
+    private void updateConfigForOld(Project project, RoutePolicy oldRoutePolicy) {
+        ConfigCacheService configCache = ConfigCacheService.getInstance();
+        String[] files = FileUtil.getSummaryModule(project.getBasePath());
+        RoutePolicy routePolicy = oldRoutePolicy;
+        switch (files.length) {
+            case LENGTH_2:
+                routePolicy = RoutePolicy.G_AND_H;
+                configCache.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.MULTI_APK, true);
+                break;
+            case LENGTH_1:
+                routePolicy = RoutePolicy.G_AND_H;
+                configCache.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.MULTI_APK, false);
+                break;
+            case LENGTH_0:
+                routePolicy = RoutePolicy.G_TO_H;
+                break;
+            default:
+                log.warn("project have more than one converted paths");
         }
-
-        // If the current project contains old configurations,
-        // infer the previous policy options.
-        boolean convertedByOldSetting = configCacheService.getProjectConfig(project.getBasePath(),
-            ConfigKeyConstants.CONVERTED_BY_OLD_SETTING, boolean.class, false);
-        if (convertedByOldSetting) {
-            RoutePolicy routePolicy = configCacheService.getProjectConfig(project.getBasePath(),
-                ConfigKeyConstants.ROUTE_POLICY, RoutePolicy.class, RoutePolicy.UNKNOWN);
-            inferenceGAndHOrMultiApk(project, routePolicy);
-            configCacheService.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.HMS_FIRST,
-                getGAndHStartegy());
-        }
-
-        if (!checkHasConvertibleKit(SummaryCacheService.getInstance().getAllKits(project.getBasePath()))) {
-            Messages.showWarningDialog(project, HmsConvertorBundle.message("no_convertible_notice"), "Warning");
-            return;
-        }
-
-        // If the user changes the policy, reset the related configuration
-        // and the xms adapter layer.
-        if (cancelByChangePolicy()) {
-            // bi report action: trace cancel operation.
-            BIReportService.getInstance().traceCancelListener(project.getBasePath(), CancelableViewEnum.POLICY_CHANGE);
-            return;
-        }
-
-        // bi trace analyze time cost: analyze begins.
-        BIInfoManager.getInstance().setAnalyzeBeginTime(project.getBasePath(), System.currentTimeMillis());
-
-        final Task task = new Task.Backgroundable(project, Constant.PLUGIN_NAME, true, PerformInBackgroundOption.DEAF) {
-            @Override
-            public void run(@NotNull ProgressIndicator progressIndicator) {
-                asyncInspectAndGenerateAdapter(progressIndicator);
-                // Remove the old policy flag.
-                configCacheService.deleteProjectConfig(project.getBasePath(),
-                    ConfigKeyConstants.CONVERTED_BY_OLD_SETTING);
-            }
-        };
-        task.queue();
-        super.doOKAction();
+        configCache.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.ROUTE_POLICY, routePolicy);
     }
 
-    private String constructMultiNotice(String head, List<String> gAndHXmsPaths, List<String> multiApkXmsPaths) {
+    private String constructMultiNotice(String head, List<String> modifiedRoutes) {
         StringBuffer sb = new StringBuffer();
         sb.append(UIConstants.Html.HTML_HEAD).append(head).append(UIConstants.Html.BR);
-        if (gAndHXmsPaths != null) {
-            for (String gAndHXmsPath : gAndHXmsPaths) {
-                sb.append(UIConstants.Html.SPACE).append(" - ").append(gAndHXmsPath).append(UIConstants.Html.BR);
-            }
-        }
-        if (multiApkXmsPaths != null) {
-            for (String multiApkXmsPath : multiApkXmsPaths) {
-                sb.append(UIConstants.Html.SPACE).append(" - ").append(multiApkXmsPath).append(UIConstants.Html.BR);
+        if (modifiedRoutes != null) {
+            for (String modifiedRoute : modifiedRoutes) {
+                sb.append(UIConstants.Html.SPACE).append(" - ").append(modifiedRoute).append(UIConstants.Html.BR);
             }
         }
         sb.append(UIConstants.Html.HTML_END);
@@ -947,7 +1175,7 @@ public class PolicySettingDialog extends DialogWrapper {
     }
 
     private boolean addHmsSupportCheck(List<String> allScanndKits) {
-        Set<String> addHmsSupportKits = getGaddHKitWhiteList();
+        Set<String> addHmsSupportKits = getGaddHKitTrustList();
         if (addHmsSupportKits == null || addHmsSupportKits.size() == 0) {
             return false;
         }
@@ -970,37 +1198,51 @@ public class PolicySettingDialog extends DialogWrapper {
             boolean.class, false);
         boolean oldIsMultiApk = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.MULTI_APK,
             boolean.class, false);
+        boolean oldIsOnlyH =
+            configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.ONLY_H, boolean.class, false);
         if (oldRoutePolicy == RoutePolicy.G_TO_H) {
-            if (!toHmsRadioButton.isSelected()) {
-                int decide = Messages.showDialog(project, HmsConvertorBundle.message("tohmspolicy_change_notice"),
-                    Constant.PLUGIN_NAME, new String[] {"Continue", "Cancel"}, Messages.NO,
-                    Messages.getInformationIcon());
-                if (decide == Messages.NO || decide == -1) {
-                    return true;
-                } else {
-                    return false;
-                }
+            if (toHmsRadioButton.isSelected()) {
+                return false;
+            }
+            int decide = Messages.showDialog(project, HmsConvertorBundle.message("tohmspolicy_change_notice"),
+                Constant.PLUGIN_NAME, new String[] {"Continue", "Cancel"}, Messages.NO, Messages.getInformationIcon());
+            if (decide == Messages.NO || decide == -1) {
+                return true;
+            } else {
+                return false;
             }
         }
 
-        if (oldRoutePolicy == RoutePolicy.G_AND_H) {
-            RoutePolicy newRoutePolicy = toHmsRadioButton.isSelected() ? RoutePolicy.G_TO_H : RoutePolicy.G_AND_H;
-            boolean newHGStrategy = getGAndHStartegy();
-            boolean newIsMultiApk = checkBoxG.isSelected();
-            StringBuilder oldPolicy = new StringBuilder();
-            if (oldIsMultiApk) {
-                oldPolicy = (oldHGStrategy == true) ? oldPolicy.append("Multi APK (HMS API First)")
-                    : oldPolicy.append("Multi APK (GMS API First)");
-            } else {
-                oldPolicy = (oldHGStrategy == true) ? oldPolicy.append("Add HMS API (HMS API First)")
-                    : oldPolicy.append("Add HMS API (GMS API First)");
-            }
-            if (newRoutePolicy == RoutePolicy.G_TO_H || oldHGStrategy != newHGStrategy
-                || oldIsMultiApk != newIsMultiApk) {
-                return showAndHMSPolicyChangeNotice(oldPolicy.toString());
-            }
+        if (oldRoutePolicy != RoutePolicy.G_AND_H) {
+            return false;
+        }
+        RoutePolicy newRoutePolicy = toHmsRadioButton.isSelected() ? RoutePolicy.G_TO_H : RoutePolicy.G_AND_H;
+        boolean newHGStrategy = getGAndHStartegy();
+        boolean newIsMultiApk = checkBoxG.isSelected();
+        boolean newIsOnlyH = checkBoxH.isSelected();
+        if (newRoutePolicy == RoutePolicy.G_TO_H || oldHGStrategy != newHGStrategy || oldIsMultiApk != newIsMultiApk
+            || oldIsOnlyH != newIsOnlyH) {
+            return showAndHMSPolicyChangeNotice(getOldPolicy(oldHGStrategy, oldIsMultiApk, oldIsOnlyH));
         }
         return false;
+    }
+
+    private String getOldPolicy(boolean oldHGStrategy, boolean oldIsMultiApk, boolean oldIsOnlyH) {
+        StringBuilder oldPolicy = new StringBuilder();
+        if (oldIsMultiApk && !oldIsOnlyH) {
+            oldPolicy = oldHGStrategy ? oldPolicy.append("Multi APK (HMS API First & GMS SDK)")
+                : oldPolicy.append("Multi APK (GMS API First & GMS SDK)");
+        } else if (oldIsOnlyH && !oldIsMultiApk) {
+            oldPolicy = oldHGStrategy ? oldPolicy.append("Multi APK (HMS API First & HMS SDK)")
+                : oldPolicy.append("Multi APK (GMS API First & HMS SDK)");
+        } else if (oldIsMultiApk && oldIsOnlyH) {
+            oldPolicy = oldHGStrategy ? oldPolicy.append("Multi APK (HMS API First & GMS SDK & HMS SDK)")
+                : oldPolicy.append("Multi APK (GMS API First & GMS SDK & HMS SDK)");
+        } else {
+            oldPolicy = oldHGStrategy ? oldPolicy.append("Add HMS API (HMS API First)")
+                : oldPolicy.append("Add HMS API (GMS API First)");
+        }
+        return oldPolicy.toString();
     }
 
     private boolean showAndHMSPolicyChangeNotice(String oldPolicy) {
@@ -1019,49 +1261,17 @@ public class PolicySettingDialog extends DialogWrapper {
         configCacheService.deleteProjectConfig(project.getBasePath(), ConfigKeyConstants.ROUTE_POLICY);
         configCacheService.deleteProjectConfig(project.getBasePath(), ConfigKeyConstants.HMS_FIRST);
         configCacheService.deleteProjectConfig(project.getBasePath(), ConfigKeyConstants.MULTI_APK);
-        deleteNewModule();
-        deleteOldXmsCode();
+        configCacheService.deleteProjectConfig(project.getBasePath(), ConfigKeyConstants.ONLY_H);
+        deleteModule();
         configCacheService.deleteProjectConfig(project.getBasePath(), ConfigKeyConstants.XMS_PATH);
         configCacheService.deleteProjectConfig(project.getBasePath(), ConfigKeyConstants.XMS_MULTI_PATH);
         configCacheService.deleteProjectConfig(project.getBasePath(), ConfigKeyConstants.NEW_MODULE);
         String repoID = ConfigCacheService.getInstance()
             .getProjectConfig(project.getBasePath(), ConfigKeyConstants.REPO_ID, String.class, "");
-        String saveFilePath = Constant.PLUGIN_CACHE_PATH + repoID + "/" + ProjectConstants.Result.LAST_XMSDIFF_JSON;
+        String saveFilePath = PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + repoID + Constant.UNIX_FILE_SEPARATOR
+            + ProjectConstants.Result.LAST_XMSDIFF_JSON;
         com.intellij.openapi.util.io.FileUtil.delete(new File(saveFilePath));
         LocalFileSystem.getInstance().refresh(true);
-    }
-
-    private void deleteOldXmsCode() {
-        boolean convertedByOldSetting = configCacheService.getProjectConfig(project.getBasePath(),
-            ConfigKeyConstants.CONVERTED_BY_OLD_SETTING, boolean.class, false);
-        if (!convertedByOldSetting) {
-            return;
-        }
-
-        List<String> gAndHXmsPaths = FileUtil.getXmsPaths(project.getBasePath(), false);
-        List<String> multiApkXmsPaths = FileUtil.getXmsPaths(project.getBasePath(), true);
-        for (int i = 0; i < gAndHXmsPaths.size(); i++) {
-            String path = gAndHXmsPaths.get(i);
-            com.intellij.openapi.util.io.FileUtil.delete(new File(path));
-        }
-        for (int i = 0; i < multiApkXmsPaths.size(); i++) {
-            String path = multiApkXmsPaths.get(i);
-            com.intellij.openapi.util.io.FileUtil
-                .delete(new File(path.substring(0, path.length() - "/java/org/xms".length())));
-        }
-    }
-
-    @Override
-    public void doCancelAction() {
-        // bi report action: trace cancel operation.
-        BIReportService.getInstance().traceCancelListener(project.getBasePath(), CancelableViewEnum.PRE_ANALYZE);
-        HmsConvertorUtil.getHmsConvertorToolWindow(project).ifPresent(hmsConvertorToolWindow -> {
-            hmsConvertorToolWindow.getSummaryToolWindow()
-                .refreshData(SummaryCacheService.getInstance().getKit2Methods(project.getBasePath()));
-            hmsConvertorToolWindow.showTabbedPane(UIConstants.ToolWindow.TAB_SUMMARY_INDEX);
-        });
-        ConversionCacheService.getInstance().addConversions(project.getBasePath(), Collections.EMPTY_LIST, false);
-        super.doCancelAction();
     }
 
     private void asyncInspectAndGenerateAdapter(ProgressIndicator indicator) {
@@ -1070,28 +1280,34 @@ public class PolicySettingDialog extends DialogWrapper {
                 Constant.PLUGIN_NAME, true);
             return;
         }
-        indicator.setIndeterminate(true);
+        indicator.setIndeterminate(false);
+        RoutePolicy routePolicy = getRoutePolicy();
         try {
+            indicator.checkCanceled();
+            indicator.setFraction(ProgressService.ProgressStage.START_ANALYSIS.getFraction());
+
             hmsConvertorXmsGenerater = new HmsConvertorXmsGenerater(project);
             HmsConvertorState.set(project, HmsConvertorState.RUNNING);
-            RoutePolicy routePolicy = getRoutePolicy();
-            LOG.info("Start to second analyze and generate xms adapter. routePolicy = {}", routePolicy);
+            log.info("Start to second analyze and generate xms adapter. routePolicy: {}.", routePolicy);
             TimeUtil.getInstance().getStartTime();
 
+            indicator.checkCanceled();
+            indicator.setFraction(ProgressService.ProgressStage.NEW_XMS_GENERATOR.getFraction());
             // Generate an XMS adapter for current project.
+            Strategy strategy = new Strategy();
             if (routePolicy.equals(RoutePolicy.G_AND_H)) {
                 indicator.setText("Generating an XMS adapter for " + inspectFolder + "...");
-                indicator.setText2(HmsConvertorBundle.message("indicater_generate_notice2"));
+                indicator.setText2(HmsConvertorBundle.message("indicator_generate_notice2"));
+                strategy.setHmsFirst(getGAndHStartegy());
+                strategy.setOnlyG(checkBoxG.isSelected());
+                strategy.setOnlyH(checkBoxH.isSelected());
                 boolean success = hmsConvertorXmsGenerater.generateNewModule(
-                    SummaryCacheService.getInstance().getAllDependency(project.getBasePath()), getGAndHStartegy(),
-                    checkBoxG.isSelected());
-                if (!success || indicator.isCanceled()) {
-                    if (indicator.isCanceled()) {
-                        // bi report action: trace cancel operation.
-                        BIReportService.getInstance()
-                            .traceCancelListener(project.getBasePath(), CancelableViewEnum.SECOND_ANALYZE);
-                    }
+                    SummaryCacheService.getInstance().getAllDependency(project.getBasePath()), strategy);
 
+                indicator.checkCanceled();
+                indicator.setFraction(ProgressService.ProgressStage.GENERATED_NEW_MODULE.getFraction());
+
+                if (!success) {
                     clearCacheByCancel();
                     deleteOldPolicyContent();
                     return;
@@ -1102,35 +1318,31 @@ public class PolicySettingDialog extends DialogWrapper {
             // and generate related conversion list.
             if (routePolicy.equals(RoutePolicy.G_AND_H)) {
                 indicator.setText("Analyzing " + inspectFolder + "... Please wait.");
-                indicator.setText2(HmsConvertorBundle.message("indicater_analyze_notice2"));
+                indicator.setText2(HmsConvertorBundle.message("indicator_analyze_notice2"));
                 if (!ClientUtil.getPluginPackagePath().isPresent()) {
                     throw new NoSuchFileException(HmsConvertorBundle.message("no_engine_found"));
                 }
                 String pluginPackagePath = ClientUtil.getPluginPackagePath().get();
-                pluginPackagePath = pluginPackagePath.replace("\\", "/");
+                pluginPackagePath = FileUtil.unifyToUnixFileSeparator(pluginPackagePath);
                 HmsConvertorStarter starter =
                     new HmsConvertorStarter(project, routePolicy, UISettings.getInstance().getFontSize());
-                if (!starter.inspectSource(pluginPackagePath, commentEnable)) {
+                if (!starter.inspectSource(pluginPackagePath, commentEnable, indicator, strategy)) {
                     BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("engine_analysis_error"),
                         project, Constant.PLUGIN_NAME, true);
                     return;
                 }
             }
-            if (indicator.isCanceled()) {
-                // bi report action: trace cancel operation.
-                BIReportService.getInstance()
-                    .traceCancelListener(project.getBasePath(), CancelableViewEnum.SECOND_ANALYZE);
-                if (routePolicy == RoutePolicy.G_AND_H) {
-                    clearCacheByCancel();
-                    deleteOldPolicyContent();
-                }
-                return;
-            }
+
+            indicator.checkCanceled();
+            indicator.setFraction(ProgressService.ProgressStage.FINISHED.getFraction());
+
             configCacheService.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.ROUTE_POLICY, routePolicy);
             configCacheService.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.HMS_FIRST,
                 getGAndHStartegy());
             configCacheService.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.MULTI_APK,
                 checkBoxG.isSelected());
+            configCacheService.updateProjectConfig(project.getBasePath(), ConfigKeyConstants.ONLY_H,
+                checkBoxH.isSelected());
 
             // bi report action: trace function selection.
             traceFunctionSelection(project.getBasePath());
@@ -1141,7 +1353,8 @@ public class PolicySettingDialog extends DialogWrapper {
             // Refresh data in the tool windows.
             HmsConvertorUtil.getHmsConvertorToolWindow(project).ifPresent(hmsConvertorToolWindow -> {
                 hmsConvertorToolWindow.getSummaryToolWindow()
-                    .refreshData(SummaryCacheService.getInstance().getKit2Methods(project.getBasePath()));
+                    .refreshData(SummaryCacheService.getInstance().getKit2FixbotMethodsMap(project.getBasePath()),
+                        SummaryCacheManager.getInstance().getKitStatisticsResults(project.getBasePath()));
                 hmsConvertorToolWindow.getSourceConvertorToolWindow()
                     .refreshData(ConversionCacheService.getInstance().getAllConversions(project.getBasePath()));
                 hmsConvertorToolWindow.showTabbedPane(UIConstants.ToolWindow.TAB_CONVERSION_INDEX);
@@ -1152,7 +1365,7 @@ public class PolicySettingDialog extends DialogWrapper {
             });
 
             showXmsDiff(hmsConvertorXmsGenerater.getDiff());
-            LOG.info("Second analyze finished! Elapsed time: {}", TimeUtil.getInstance().getElapsedTime());
+            log.info("Second analyze finished! Elapsed time: {}.", TimeUtil.getInstance().getElapsedTime());
 
             // bi report action: trace analyze time cost, analyze ends.
             Long timeCost =
@@ -1169,12 +1382,22 @@ public class PolicySettingDialog extends DialogWrapper {
             ConfigCacheService.getInstance()
                 .updateProjectConfig(project.getBasePath(), ConfigKeyConstants.NEW_CONVERSION_BEGIN_TIME,
                     BIReportService.getInstance().getNewConversionBeginTime(project.getBasePath()));
+        } catch (ProcessCanceledException e) {
+            // bi report action: trace cancel operation.
+            BIReportService.getInstance().traceCancelListener(project.getBasePath(), CancelableViewEnum.SECOND_ANALYZE);
+            BalloonNotifications.showSuccessNotification(HmsConvertorBundle.message("analyse_task_cancel_success"),
+                project, Constant.PLUGIN_NAME, true);
+            if (routePolicy.equals(RoutePolicy.G_AND_H)) {
+                clearCacheByCancel();
+                deleteOldPolicyContent();
+            }
+            log.warn(e.getMessage(), e);
         } catch (IOException e) {
-            LOG.warn(e.getMessage(), e);
+            log.warn(e.getMessage(), e);
             BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("analyze_error"), project,
                 Constant.PLUGIN_NAME, true);
         } catch (Exception e) {
-            LOG.error(e.getMessage(), e);
+            log.error(e.getMessage(), e);
             BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("analyze_error"), project,
                 Constant.PLUGIN_NAME, true);
         } finally {
@@ -1193,6 +1416,7 @@ public class PolicySettingDialog extends DialogWrapper {
             configCacheService.getProjectConfig(basePath, ConfigKeyConstants.HMS_FIRST, boolean.class, false);
         boolean variantApk =
             configCacheService.getProjectConfig(basePath, ConfigKeyConstants.MULTI_APK, boolean.class, false);
+        boolean onlyH = configCacheService.getProjectConfig(basePath, ConfigKeyConstants.ONLY_H, boolean.class, false);
         String strategy;
         if (projectType.equals(ProjectConstants.Type.APP)) {
             strategy = routePolicy.equals(RoutePolicy.G_TO_H) ? ConversionStrategyEnum.HMS.getValue()
@@ -1208,6 +1432,7 @@ public class PolicySettingDialog extends DialogWrapper {
             .commentMode(commentMode)
             .strategy(strategy)
             .variantApk(variantApk)
+            .onlyH(onlyH)
             .build();
         BIReportService.getInstance().traceFunctionSelection(project.getBasePath(), data);
     }
@@ -1215,7 +1440,7 @@ public class PolicySettingDialog extends DialogWrapper {
     private void openReadme() {
         ApplicationManager.getApplication().invokeAndWait(() -> {
             String xmsAdapterPath = project.getBasePath() + XmsConstants.XMS_ADAPTER;
-            String defectFile = xmsAdapterPath.replace("\\", "/") + XmsConstants.README_FILE;
+            String defectFile = FileUtil.unifyToUnixFileSeparator(xmsAdapterPath) + XmsConstants.README_FILE;
             File file = new File(defectFile);
             if (file.exists()) {
                 VirtualFile virtualFile = LocalFileSystem.getInstance().refreshAndFindFileByIoFile(file);
@@ -1225,14 +1450,42 @@ public class PolicySettingDialog extends DialogWrapper {
         }, ModalityState.defaultModalityState());
     }
 
+    private void exportAnalyseResult() {
+        Optional<String> analyseFilePath;
+        try {
+            analyseFilePath = AnalyseResultExportUtil.exportPdf(project.getBasePath());
+        } catch (Exception e) {
+            log.error("export analyseResult fail, projectBasePath: {}.", project.getBasePath());
+            BalloonNotifications.showWarnNotification(
+                HmsConvertorBundle.message("policy_setting_export_analyse_result_error"), project, Constant.PLUGIN_NAME,
+                true);
+            return;
+        }
+        if (!analyseFilePath.isPresent()) {
+            log.error("export analyseResult fail.");
+            BalloonNotifications.showWarnNotification(
+                HmsConvertorBundle.message("policy_setting_export_analyse_result_error"), project, Constant.PLUGIN_NAME,
+                true);
+            return;
+        }
+
+        File analyseResultFile = new File(analyseFilePath.get());
+        ShowFilePathAction.openFile(analyseResultFile);
+    }
+
+    private void openLogDirectory() {
+        File logDir = new File(PluginConstant.PluginDataDir.PLUGIN_LOG_PATH);
+        ShowFilePathAction.openDirectory(logDir);
+    }
+
     private void showXmsDiff(Diff diff) {
         if (diff == null) {
-            LOG.info("Empty diff");
+            log.info("Empty diff");
             HmsConvertorUtil.getHmsConvertorToolWindow(project).ifPresent(hmsConvertorToolWindow -> {
                 hmsConvertorToolWindow.getXmsDiffWindow().refreshData(null);
             });
         } else {
-            LOG.info("Have diff");
+            log.info("Have diff");
             HmsConvertorUtil.getHmsConvertorToolWindow(project).ifPresent(hmsConvertorToolWindow -> {
                 hmsConvertorToolWindow.getXmsDiffWindow().refreshData(new XmsDiff(diff));
                 XmsDiffCacheService.getInstance().saveXmsDiff(project.getBasePath());
@@ -1249,7 +1502,7 @@ public class PolicySettingDialog extends DialogWrapper {
         boolean isNewModule = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.NEW_MODULE,
             boolean.class, false);
         if (isNewModule && routePolicy.equals(RoutePolicy.G_TO_H)) {
-            deleteNewModule();
+            deleteModule();
         }
     }
 
@@ -1260,16 +1513,19 @@ public class PolicySettingDialog extends DialogWrapper {
         return false;
     }
 
-    private void deleteNewModule() {
+    private void deleteModule() {
         configCacheService.deleteProjectConfig(project.getBasePath(), ConfigKeyConstants.NEW_MODULE);
-        String modulePath = configCacheService.getProjectConfig(project.getBasePath(), ConfigKeyConstants.INSPECT_PATH,
-            String.class, "") + XmsConstants.XMS_ADAPTER;
-        FileUtil.deleteFiles(new File(modulePath));
+        String[] modulePaths = FileUtil.getSummaryModule(project.getBasePath());
+        if (null != modulePaths) {
+            for (String modulePath : modulePaths) {
+                FileUtil.deleteFiles(new File(modulePath));
+            }
+        }
         LocalFileSystem.getInstance().refresh(true);
     }
 
     private String getXmsPath() {
-        return xmsPathTextField.getText().replace("\\", "/");
+        return FileUtil.unifyToUnixFileSeparator(xmsPathTextField.getText());
     }
 
     private void setXmsPath(String xmsPath) {
@@ -1285,8 +1541,12 @@ public class PolicySettingDialog extends DialogWrapper {
     }
 
     private void clearCacheByCancel() {
+        // analyse backgroup task canceled
+        // so need to clear conversion toolWindow cache
         ConversionCacheService.getInstance().clearConversions(project.getBasePath());
-        SummaryCacheManager.getInstance().clearKit2Methods(project.getBasePath());
+        SummaryCacheService.getInstance().clearAnalyseResultCache4ConversionToolWindow(project.getBasePath());
+        // and need to clear summary toolWindow cache
+        SummaryCacheService.getInstance().clearAnalyseResultCache4SummaryResult(project.getBasePath());
     }
 
     private class Browse extends MouseAdapter {
@@ -1327,7 +1587,7 @@ public class PolicySettingDialog extends DialogWrapper {
     }
 
     private class CopyAction extends AnAction {
-        CopyAction() {
+        public CopyAction() {
             super("Copy");
         }
 
@@ -1357,6 +1617,20 @@ public class PolicySettingDialog extends DialogWrapper {
                 ConfigKeyConstants.INSPECT_PATH, String.class, "");
             HmsConvertorStartDialog dialog = new HmsConvertorStartDialog(project, inspectPath);
             dialog.show();
+        }
+    }
+
+    public class ShowLogDialogAction extends DialogWrapperAction {
+
+        private static final long serialVersionUID = -5089548625097162040L;
+
+        ShowLogDialogAction() {
+            super(HmsConvertorBundle.message("show_log_s"));
+        }
+
+        @Override
+        protected void doAction(ActionEvent e) {
+            openLogDirectory();
         }
     }
 }

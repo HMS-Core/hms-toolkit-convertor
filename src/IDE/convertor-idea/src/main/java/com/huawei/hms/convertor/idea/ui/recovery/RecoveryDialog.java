@@ -34,6 +34,7 @@ import com.huawei.hms.convertor.openapi.ConfigCacheService;
 import com.huawei.hms.convertor.openapi.EventService;
 import com.huawei.hms.convertor.openapi.result.Result;
 import com.huawei.hms.convertor.util.Constant;
+import com.huawei.hms.convertor.util.FileUtil;
 
 import com.intellij.ide.BrowserUtil;
 import com.intellij.openapi.application.ApplicationManager;
@@ -108,10 +109,10 @@ public class RecoveryDialog extends DialogWrapper {
 
     private String inspectPath;
 
-    public RecoveryDialog(@Nullable Project project) {
+    public RecoveryDialog(@NotNull Project project) {
         super(project);
         this.project = project;
-        if (null == project) {
+        if (project == null) {
             return;
         }
         configCacheService = ConfigCacheService.getInstance();
@@ -121,15 +122,6 @@ public class RecoveryDialog extends DialogWrapper {
             String.class, "");
 
         init();
-    }
-
-    private static boolean checkArchive(String fileName, String inspectFolder) {
-        String regexOriginalArchive = "^" + inspectFolder + "(.)(\\d+)(.zip)";
-        String regexProcessArchive = "^" + inspectFolder + "(.)(\\d+)(.)(\\D+)(.G).(H.process_)(\\d+)(%.zip)";
-        if (fileName.matches(regexOriginalArchive) || fileName.matches(regexProcessArchive)) {
-            return true;
-        }
-        return false;
     }
 
     @Override
@@ -150,37 +142,6 @@ public class RecoveryDialog extends DialogWrapper {
         browseRecoveryPathButton.setMnemonic(KeyEvent.VK_R);
         initData();
         addListener();
-    }
-
-    private void initData() {
-        setBackupPath(backupPath);
-        setRecoveryPath(inspectPath);
-
-        if (!StringUtil.isEmpty(backupPath) && new File(backupPath).exists()) {
-            setBackupPoints(backupPath, inspectPath);
-        }
-        log.info("initData: backupPath = {}, recovery path = {}", backupPath, inspectPath);
-    }
-
-    private void addListener() {
-        browseBackupPathButton.addActionListener(actionEvent -> {
-            String backup = browseSingleFolder(HmsConvertorBundle.message("select_backup_path"));
-            if (StringUtil.isEmpty(backup)) {
-                return;
-            }
-
-            setBackupPath(backup);
-            setBackupPoints(backup, inspectPath);
-        });
-
-        browseRecoveryPathButton.addActionListener(actionEvent -> {
-            String recoveryPath = browseSingleFolder(HmsConvertorBundle.message("select_recovery_path"));
-            if (StringUtil.isEmpty(recoveryPath)) {
-                return;
-            }
-
-            setRecoveryPath(recoveryPath);
-        });
     }
 
     @Override
@@ -256,6 +217,71 @@ public class RecoveryDialog extends DialogWrapper {
         super.doOKAction();
     }
 
+    @Nullable
+    @Override
+    public ValidationInfo doValidate() {
+        if (StringUtil.isEmpty(getBackupPath())) {
+            return new ValidationInfo(HmsConvertorBundle.message("no_backup_path"));
+        }
+
+        if (StringUtil.isEmpty(getSelectedBackupPoint())) {
+            return new ValidationInfo(HmsConvertorBundle.message("no_backup_point"));
+        }
+
+        if (StringUtil.isEmpty(getRecoveryPath())) {
+            return new ValidationInfo(HmsConvertorBundle.message("no_recovery_path"));
+        }
+
+        return null;
+    }
+
+    @Override
+    public void doCancelAction() {
+        // bi trace cancel operation: restore project view.
+        BIReportService.getInstance().traceCancelListener(project.getBasePath(), CancelableViewEnum.RESTORE_PROJECT);
+        super.doCancelAction();
+    }
+
+    private static boolean checkArchive(String fileName, String inspectFolder) {
+        String regexOriginalArchive = "^" + inspectFolder + "(.)(\\d+)(.zip)";
+        String regexProcessArchive = "^" + inspectFolder + "(.)(\\d+)(.)(\\D+)(.G).(H.process_)(\\d+)(%.zip)";
+        if (fileName.matches(regexOriginalArchive) || fileName.matches(regexProcessArchive)) {
+            return true;
+        }
+        return false;
+    }
+
+    private void initData() {
+        setBackupPath(backupPath);
+        setRecoveryPath(inspectPath);
+
+        if (!StringUtil.isEmpty(backupPath) && new File(backupPath).exists()) {
+            setBackupPoints(backupPath, inspectPath);
+        }
+        log.info("initData: backupPath: {}, recovery path: {}.", backupPath, inspectPath);
+    }
+
+    private void addListener() {
+        browseBackupPathButton.addActionListener(actionEvent -> {
+            String backup = browseSingleFolder(HmsConvertorBundle.message("select_backup_path"));
+            if (StringUtil.isEmpty(backup)) {
+                return;
+            }
+
+            setBackupPath(backup);
+            setBackupPoints(backup, inspectPath);
+        });
+
+        browseRecoveryPathButton.addActionListener(actionEvent -> {
+            String recoveryPath = browseSingleFolder(HmsConvertorBundle.message("select_recovery_path"));
+            if (StringUtil.isEmpty(recoveryPath)) {
+                return;
+            }
+
+            setRecoveryPath(recoveryPath);
+        });
+    }
+
     private void recoveryProject(ProgressIndicator indicator) {
         if (indicator == null) {
             BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("recovery_error"), project,
@@ -282,7 +308,7 @@ public class RecoveryDialog extends DialogWrapper {
                             BalloonNotifications.showSuccessNotification(successMessage, project, Constant.PLUGIN_NAME,
                                 true);
                         } else {
-                            log.error("Recovery failed: {}", message.getMessage());
+                            log.error("Recovery failed: {}.", message.getMessage());
                             BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("recovery_error"),
                                 project, Constant.PLUGIN_NAME, true);
                         }
@@ -320,24 +346,6 @@ public class RecoveryDialog extends DialogWrapper {
 
     @Nullable
     @Override
-    public ValidationInfo doValidate() {
-        if (StringUtil.isEmpty(getBackupPath())) {
-            return new ValidationInfo(HmsConvertorBundle.message("no_backup_path"));
-        }
-
-        if (StringUtil.isEmpty(getSelectedBackupPoint())) {
-            return new ValidationInfo(HmsConvertorBundle.message("no_backup_point"));
-        }
-
-        if (StringUtil.isEmpty(getRecoveryPath())) {
-            return new ValidationInfo(HmsConvertorBundle.message("no_recovery_path"));
-        }
-
-        return null;
-    }
-
-    @Nullable
-    @Override
     protected JComponent createCenterPanel() {
         return rootPanel;
     }
@@ -349,10 +357,10 @@ public class RecoveryDialog extends DialogWrapper {
         descriptor.setShowFileSystemRoots(true);
 
         VirtualFile singleFolder = FileChooser.chooseFile(descriptor, project, null);
-        if (null == singleFolder) {
+        if (singleFolder == null) {
             return "";
         }
-        return singleFolder.getPath().replace("\\", "/");
+        return FileUtil.unifyToUnixFileSeparator(singleFolder.getPath());
     }
 
     private String getBackupPath() {
@@ -374,8 +382,8 @@ public class RecoveryDialog extends DialogWrapper {
 
         File backupDir = new File(backupPath);
         File[] backupPoints = backupDir.listFiles();
-        final String inspectFolder = inspectPath.substring(inspectPath.lastIndexOf(Constant.SEPARATOR) + 1);
-        if (null == backupPoints) {
+        final String inspectFolder = inspectPath.substring(inspectPath.lastIndexOf(Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
+        if (backupPoints == null) {
             log.error("backupPoints is null");
             return;
         }
@@ -406,12 +414,4 @@ public class RecoveryDialog extends DialogWrapper {
     private void setRecoveryPath(String recoveryPath) {
         recoveryPathTextField.setText(recoveryPath);
     }
-
-    @Override
-    public void doCancelAction() {
-        // bi trace cancel operation: restore project view.
-        BIReportService.getInstance().traceCancelListener(project.getBasePath(), CancelableViewEnum.RESTORE_PROJECT);
-        super.doCancelAction();
-    }
-
 }

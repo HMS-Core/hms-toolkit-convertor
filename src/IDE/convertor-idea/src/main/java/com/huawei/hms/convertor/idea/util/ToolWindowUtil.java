@@ -16,14 +16,23 @@
 
 package com.huawei.hms.convertor.idea.util;
 
+import com.huawei.hms.convertor.idea.ui.common.UIConstants;
+import com.huawei.hms.convertor.idea.ui.javadoc.ApiDetailToolWindow;
+
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowManager;
+import com.intellij.ui.content.Content;
+import com.intellij.ui.content.ContentManager;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
+
+import javax.swing.JComponent;
 
 /**
  * @since 2018-05-28
@@ -43,5 +52,25 @@ public final class ToolWindowUtil {
                 toolWindow.show(null);
             }
         }, ModalityState.any());
+    }
+
+    public static Optional<ApiDetailToolWindow> getApiDetailToolWindow(@NotNull Project project) {
+        final ToolWindow toolWindow = ToolWindowUtil.getToolWindow(project,
+            UIConstants.JavaDocToolWindow.JAVADOC_TOOL_WINDOW_ID);
+        if (toolWindow == null) {
+            return Optional.empty();
+        }
+
+        Content[] contents = toolWindow.getContentManager().getContents();
+        if (contents.length == 0) {
+            ContentManager contentManager = toolWindow.getContentManager();
+            contentManager.addContent(
+                toolWindow.getContentManager().getFactory().createContent(new ApiDetailToolWindow(project), null, false));
+            contents = toolWindow.getContentManager().getContents();
+        }
+
+        final JComponent component = contents[0].getComponent();
+        return (component instanceof ApiDetailToolWindow) ? Optional.of((ApiDetailToolWindow) component)
+            : Optional.empty();
     }
 }

@@ -17,6 +17,7 @@
 package com.huawei.hms.convertor.idea.ui.result;
 
 import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
+import com.huawei.hms.convertor.idea.ui.common.UIConstants;
 import com.huawei.hms.convertor.idea.ui.result.conversion.SourceConvertorToolWindow;
 import com.huawei.hms.convertor.idea.ui.result.summary.SummaryToolWindow;
 import com.huawei.hms.convertor.idea.ui.result.xms.XmsDiffToolWindow;
@@ -64,21 +65,6 @@ public class HmsConvertorToolWindow extends SimpleToolWindowPanel implements Dis
     public void dispose() {
     }
 
-    public void init() {
-        rootPanel.setLayout(new BorderLayout());
-
-        summaryToolWindow = new SummaryToolWindow(project);
-        tabbedPane.add(HmsConvertorBundle.message("summary"), summaryToolWindow.getRootPanel());
-
-        sourceConvertorToolWindow = new SourceConvertorToolWindow(project);
-        tabbedPane.add(HmsConvertorBundle.message("conversion"), sourceConvertorToolWindow.getRootPanel());
-
-        xmsDiffWindow = new XmsDiffToolWindow(project, null);
-
-        rootPanel.add(tabbedPane, BorderLayout.CENTER);
-        setContent(rootPanel);
-    }
-
     public void showTabbedPane(int toolWindowIndex) {
         tabbedPane.setSelectedIndex(toolWindowIndex);
     }
@@ -97,13 +83,28 @@ public class HmsConvertorToolWindow extends SimpleToolWindowPanel implements Dis
 
     public void setXmsDiffVisible(boolean visible) {
         if (visible) {
-            if (tabbedPane.getTabCount() < 3) {
+            if (tabbedPane.getTabCount() < UIConstants.ToolWindow.HmsConvertor.TABBED_PANE_COUNT_LIMIT) {
                 tabbedPane.add(HmsConvertorBundle.message("versiondiff"), xmsDiffWindow.getRootPanel());
             }
         } else {
-            if (tabbedPane.getTabCount() == 3) {
-                tabbedPane.removeTabAt(2);
+            if (tabbedPane.getTabCount() == UIConstants.ToolWindow.HmsConvertor.TABBED_PANE_COUNT_LIMIT) {
+                tabbedPane.removeTabAt(UIConstants.ToolWindow.HmsConvertor.TABBED_PANE_MAX_INDEX);
             }
         }
+    }
+
+    private void init() {
+        rootPanel.setLayout(new BorderLayout());
+
+        summaryToolWindow = new SummaryToolWindow(project);
+        tabbedPane.add(HmsConvertorBundle.message("summary"), summaryToolWindow.getRootPanel());
+
+        sourceConvertorToolWindow = new SourceConvertorToolWindow(project);
+        tabbedPane.add(HmsConvertorBundle.message("conversion"), sourceConvertorToolWindow.getRootPanel());
+
+        xmsDiffWindow = new XmsDiffToolWindow(project, null);
+
+        rootPanel.add(tabbedPane, BorderLayout.CENTER);
+        setContent(rootPanel);
     }
 }

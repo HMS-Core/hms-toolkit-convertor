@@ -19,25 +19,22 @@ package com.huawei.hms.convertor.idea.util;
 import com.huawei.hms.convertor.idea.i18n.HmsConvertorBundle;
 import com.huawei.hms.convertor.idea.ui.common.BalloonNotifications;
 import com.huawei.hms.convertor.util.Constant;
+import com.huawei.hms.convertor.util.PropertyUtil;
 
 import com.intellij.openapi.util.text.StringUtil;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 /**
- * GRS Service Provider
+ * GRS service provider
  *
  * @since 2020-01-15
  */
+@Slf4j
 public final class GrsServiceProvider {
-    private static final Logger LOGGER = LoggerFactory.getLogger(GrsServiceProvider.class);
-
     private static final String GET_COUNTRY_CODE_CLASS = "com.huawei.hms.common.util.CommonUtils";
 
     private static final String GET_COUNTRY_CODE_METHOD = "getCountryRegion";
@@ -60,37 +57,34 @@ public final class GrsServiceProvider {
     private static final String GRS_ALLIANCE_KEY = "alliance";
 
     /**
-     * Privacy statement detection
+     * Get alliance domain from GRS
      *
-     * @return If you do not agree to the privacy statement, then return{@code false}；else，return{@code true}
+     * @return Alliance domain which GRS provides, or default alliance domain.
      */
     public static String getGrsAllianceDomain() {
         String countryCode = getCountryCode();
-        LOGGER.info("Country code: {}", countryCode);
+        log.info("Country code: {}", countryCode);
         String[] grsUrls = getGrsUrls();
-        LOGGER.info("GRS urls: {}", Arrays.toString(grsUrls));
-        List<Object> parameters = new ArrayList<>();
+        log.info("GRS urls: {}", Arrays.toString(grsUrls));
+        Object[] parameters = new Object[] {GRS_ALLIANCE_SERVICE_NAME, GRS_ALLIANCE_KEY, countryCode, grsUrls};
         PlatformReflectInvoker.InvokeResult result = null;
-        parameters.add(GRS_ALLIANCE_SERVICE_NAME);
-        parameters.add(GRS_ALLIANCE_KEY);
-        parameters.add(countryCode);
-        parameters.add(grsUrls);
         try {
             result = PlatformReflectInvoker.invokeMethod(GET_ALLIANCE_CLASS, GET_ALLIANCE_METHOD,
                 GET_ALLIANCE_METHOD_PARAMETER_TYPES, parameters);
         } catch (PlatformReflectInvoker.NetworkTimeoutException e) {
+            log.warn("Get alliance domain from GRS failed, exception: {}.", e.getMessage());
             BalloonNotifications.showWarnNotification(HmsConvertorBundle.message("grs_failed"), null,
                 Constant.PLUGIN_NAME, true);
         }
 
-        // Platform SDK not found or platform interface returns abnormal, get default configuration
-        if (null == result) {
-            LOGGER.error("SDK[com.huawei.hmstoolkit:common] not found or return unexpected value");
+        // Get default alliance domain if GRS failed
+        if (result == null) {
+            log.error("SDK[com.huawei.hmstoolkit:common] not found or return unexpected value");
             return getDefaultAllianceDomain();
         }
         Object returnValue = result.getReturnValue();
-        if (result.isSdkLost() || Objects.isNull(returnValue) || !(returnValue instanceof String)) {
-            LOGGER.error("SDK[com.huawei.hmstoolkit:common] not found or return unexpected value");
+        if (result.isSdkNotFound() || Objects.isNull(returnValue) || !(returnValue instanceof String)) {
+            log.error("SDK[com.huawei.hmstoolkit:common] not found or return unexpected value");
             return getDefaultAllianceDomain();
         }
 
@@ -99,17 +93,17 @@ public final class GrsServiceProvider {
     }
 
     private static String getDefaultAllianceDomain() {
-        return HmsConvertorBundle.message("default_alliance_domain");
+        return PropertyUtil.readProperty("default_alliance_domain");
     }
 
     private static String getCountryCode() {
         PlatformReflectInvoker.InvokeResult result =
             PlatformReflectInvoker.invokeStaticMethod(GET_COUNTRY_CODE_CLASS, GET_COUNTRY_CODE_METHOD);
 
-        // Platform SDK not found or platform interface returns abnormal, get default configuration
+        // Get default country code if GRS failed
         Object returnValue = result.getReturnValue();
-        if (result.isSdkLost() || Objects.isNull(returnValue) || !(returnValue instanceof String)) {
-            LOGGER.error("SDK[com.huawei.hmstoolkit:common] not found or return unexpected value");
+        if (result.isSdkNotFound() || Objects.isNull(returnValue) || !(returnValue instanceof String)) {
+            log.error("SDK[com.huawei.hmstoolkit:common] not found or return unexpected value");
             return "";
         }
 
@@ -120,10 +114,10 @@ public final class GrsServiceProvider {
         PlatformReflectInvoker.InvokeResult result =
             PlatformReflectInvoker.invokeStaticMethod(GET_GRS_URL_CLASS, GET_GRS_URL_METHOD);
 
-        // Platform SDK not found or platform interface returns abnormal, get default configuration
+        // Get default url if GRS failed
         Object returnValue = result.getReturnValue();
-        if (result.isSdkLost() || Objects.isNull(returnValue) || !(returnValue instanceof String[])) {
-            LOGGER.error("SDK[com.huawei.hmstoolkit:common] not found or return unexpected value");
+        if (result.isSdkNotFound() || Objects.isNull(returnValue) || !(returnValue instanceof String[])) {
+            log.error("SDK[com.huawei.hmstoolkit:common] not found or return unexpected value");
             return getDefaultGrsUrls();
         }
 
@@ -134,10 +128,10 @@ public final class GrsServiceProvider {
         PlatformReflectInvoker.InvokeResult result =
             PlatformReflectInvoker.invokeMethod(GET_DEFAULT_GRS_URL_CLASS, GET_GRS_URL_METHOD);
 
-        // Platform SDK not found or platform interface returns abnormal, get default configuration
+        // Get default url if GRS failed
         Object returnValue = result.getReturnValue();
-        if (result.isSdkLost() || Objects.isNull(returnValue) || !(returnValue instanceof String[])) {
-            LOGGER.error("SDK[com.huawei.hmstoolkit:common-grs] not found or return unexpected value");
+        if (result.isSdkNotFound() || Objects.isNull(returnValue) || !(returnValue instanceof String[])) {
+            log.error("SDK[com.huawei.hmstoolkit:common-grs] not found or return unexpected value");
             return new String[] {};
         }
 

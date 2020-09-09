@@ -24,7 +24,6 @@ import com.intellij.diff.requests.DiffRequest;
 import com.intellij.diff.tools.simple.SimpleDiffTool;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
 import java.util.List;
@@ -53,8 +52,8 @@ public class HmsConvertorDiffTool implements FrameDiffTool, SuppressiveDiffTool 
     }
 
     @Override
-    public boolean canShow(@NotNull DiffContext diffContext, @Nullable DiffRequest diffRequest) {
-        if (null == diffRequest || null == diffRequest.getUserData(HmsConvertorDiffUserDataKeys.DEFECT)) {
+    public boolean canShow(@NotNull DiffContext diffContext, @NotNull DiffRequest diffRequest) {
+        if (diffRequest == null || diffRequest.getUserData(HmsConvertorDiffUserDataKeys.DEFECT) == null) {
             return false;
         }
         return true;
