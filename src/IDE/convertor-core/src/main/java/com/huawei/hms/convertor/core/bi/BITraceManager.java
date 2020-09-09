@@ -88,10 +88,10 @@ public final class BITraceManager {
      * cache jvm option Xmx value
      *
      * @param projectPath project path
-     * @param jvmOpt jvm Options
+     * @param jvmOpts jvm Options
      */
-    public void setJvmXmx(String projectPath, List<String> jvmOpt) {
-        getTraceServiceInstance(projectPath).setJvmXmx(jvmOpt);
+    public void setJvmXmx(String projectPath, List<String> jvmOpts) {
+        getTraceServiceInstance(projectPath).setJvmXmx(jvmOpts);
     }
 
     /**

@@ -48,6 +48,11 @@ public class FunctionSelectionBean extends BaseBIData {
     private boolean variantApk;
 
     /**
+     * Indicates whether to use only HMS SDK.
+     */
+    private boolean onlyH;
+
+    /**
      * Indicates whether to use third party library scan function.
      */
     private boolean thirdPartyLibrary;

@@ -73,11 +73,6 @@ public enum ConversionHelpEnum {
     PRE_ANALYZE_SDK_VERSION("preAnalyzeSdkVersion"),
 
     /**
-     * PreAnalyze view - Variant Function question mark help
-     */
-    PRE_ANALYZE_VARIANT("preAnalyzeVariant"),
-
-    /**
      * PreAnalyze view - UnSupport dependency Check
      */
     PRE_ANALYZE_NOT_SUPPORT_DEPENDENCY("preAnalyzeUnSupportDependency"),
@@ -85,12 +80,7 @@ public enum ConversionHelpEnum {
     /**
      * Restore project view - help in right bottom corner.
      */
-    RESTORE_PROJECT("restoreProject"),
-
-    /**
-     * Pre analyze view - third-party library detail help.
-     */
-    PRE_ANALYZE_THIRD_PARTY_LIBRARY("preAnalyzeThirdPartyLibrary");
+    RESTORE_PROJECT("restoreProject");
 
     private String value;
 

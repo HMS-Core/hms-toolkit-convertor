@@ -109,6 +109,7 @@ final class ProjectEventListener {
             } catch (RuntimeException e) {
                 log.error("Handle event failed", e);
             }
+
             result = eventQueue.consume(EventType.EDIT_EVENT);
         }
     }
@@ -126,6 +127,7 @@ final class ProjectEventListener {
      */
     void shutdown() {
         isRunning = false;
+
         eventExecutor.shutdown();
     }
 }

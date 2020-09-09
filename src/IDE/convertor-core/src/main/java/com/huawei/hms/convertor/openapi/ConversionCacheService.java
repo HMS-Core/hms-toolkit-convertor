@@ -16,8 +16,6 @@
 
 package com.huawei.hms.convertor.openapi;
 
-import com.huawei.hms.convertor.core.event.context.EventType;
-import com.huawei.hms.convertor.core.result.conversion.ChangedCode;
 import com.huawei.hms.convertor.core.result.conversion.ConversionCacheManager;
 import com.huawei.hms.convertor.core.result.conversion.ConversionItem;
 import com.huawei.hms.convertor.openapi.result.Result;
@@ -59,6 +57,17 @@ public final class ConversionCacheService {
     }
 
     /**
+     * get conversion by defectId
+     *
+     * @param projectPath projectPath
+     * @param defectId defectId
+     * @return item
+     */
+    public ConversionItem getConversion(String projectPath, String defectId) {
+        return ConversionCacheManager.getInstance().getConversion(projectPath, defectId);
+    }
+
+    /**
      * get all conversions
      *
      * @param projectPath projectPath
@@ -71,22 +80,17 @@ public final class ConversionCacheService {
     /**
      * query Conversions depend on filters
      *
-     * @param projectPath projectPath
-     * @param fileName fileName
-     * @param kitName kitName
-     * @param fixStatus fixStatus
+     * @param conversionItem conversionItem
      * @return list
      */
-    public List<ConversionItem> queryConversions(String projectPath, String fileName, String kitName,
-        boolean fixStatus) {
-        return ConversionCacheManager.getInstance().queryConversions(projectPath, fileName, kitName, fixStatus);
+    public List<ConversionItem> queryConversions(ConversionItem conversionItem) {
+        return ConversionCacheManager.getInstance().queryConversions(conversionItem);
     }
 
     /**
      * clear cache
      *
      * @param projectPath projectPath
-     * @param isClearPersistentFile isClearPersistentFile
      * @return ok
      */
     public Result clearConversions(String projectPath) {

@@ -8,9 +8,13 @@ jar {
 }
 
 dependencies {
+    compile project(":IDE:convertor-mapping")
+
     compile 'com.alibaba:fastjson'
+    compile 'org.apache.pdfbox:pdfbox'
     compile project(":SourceCodeTransformer")
     compile project(":XMSEngine")
+
     compileOnly 'com.google.guava:guava'
     compileOnly "org.slf4j:slf4j-api"
     compileOnly "org.apache.commons:commons-lang3"

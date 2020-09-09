@@ -20,6 +20,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -44,5 +45,16 @@ public final class ExecutorServiceBuilder {
         ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat(threadNameFormat).build();
         return new ThreadPoolExecutor(THREAD_POOL_SIZE, THREAD_POOL_SIZE, 0L, TimeUnit.MILLISECONDS,
             new LinkedBlockingQueue<>(THREAD_QUEUE_CAPACITY), threadFactory);
+    }
+
+    /**
+     * New single scheduled thread executor
+     *
+     * @param threadNameFormat Thread name format
+     * @return scheduled thread executor
+     */
+    public static ScheduledThreadPoolExecutor newScheduledThreadPoolExecutor(String threadNameFormat) {
+        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat(threadNameFormat).build();
+        return new ScheduledThreadPoolExecutor(THREAD_POOL_SIZE, threadFactory);
     }
 }

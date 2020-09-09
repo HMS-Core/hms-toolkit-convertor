@@ -57,10 +57,22 @@ public enum BIActionEnum {
      */
     HELP_CLICK("helpClick"),
 
+    EXPORT_CLICK("exportClick"),
+
     /**
      * Trace analysis time cost.
      */
-    TIME_ANALYZE_COST("timeAnalyzeCost");
+    TIME_ANALYZE_COST("timeAnalyzeCost"),
+
+    /**
+     * Trace java doc selection.
+     */
+    JAVADOC_SELECTION("javadocSelection"),
+
+    /**
+     * Trace java doc selection.
+     */
+    JAVADOC_SEARCH("javadocSearch");
 
     private String value;
 

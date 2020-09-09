@@ -20,13 +20,13 @@ import com.huawei.generator.g2x.po.summary.Diff;
 import com.huawei.generator.g2x.processor.GenerateSummary;
 import com.huawei.generator.g2x.processor.GeneratorResult;
 import com.huawei.generator.g2x.processor.GeneratorStrategyKind;
-import com.huawei.generator.g2x.processor.ProcessorUtils;
 import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
 import com.huawei.hms.convertor.core.engine.xms.XmsConstants;
 import com.huawei.hms.convertor.core.project.backup.ProjectBackup;
 import com.huawei.hms.convertor.core.project.base.FileService;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.openapi.ConfigCacheService;
+import com.huawei.hms.convertor.openapi.SummaryCacheService;
 import com.huawei.hms.convertor.openapi.XmsGenerateService;
 import com.huawei.hms.convertor.util.Constant;
 import com.huawei.hms.convertor.util.FileUtil;
@@ -58,8 +58,6 @@ public final class UpdatedXmsService {
 
     private String pluginJarPath;
 
-    private boolean isFirst;
-
     private Diff diff;
 
     private FileService platformService;
@@ -83,17 +81,9 @@ public final class UpdatedXmsService {
         return diff;
     }
 
-    public boolean generateXms(String configFilePath, String basePath, List<String> allDependency, boolean hmsFirst,
-        boolean onlyG) {
-        List<String> allKit = allDependency;
-        Map<String, String> kitMap = new HashMap<>();
-        Set<String> supportKitInfo = XmsGenerateService.supportKitInfo();
-        allKit.forEach(kit -> {
-            if (supportKitInfo.contains(kit)) {
-                kitMap.put(kit, XmsConstants.XMS_KIT_ADD);
-            }
-        });
-
+    public boolean generateXms(String configFilePath, String basePath, List<String> allDependencies,
+        Strategy strategy) {
+        Map<String, String> kitMap = getKitMap(allDependencies);
         Map<String, Set<String>> allKit2Dependency = new HashMap<>();
         try {
             allKit2Dependency = HmsConvertorUtil.parseGradle(configFilePath);
@@ -101,38 +91,30 @@ public final class UpdatedXmsService {
             log.error("parseGradle json failed", e);
         }
 
-        List<GeneratorStrategyKind> strategyKindList = new ArrayList<>();
+        List<GeneratorStrategyKind> strategyKindList = getStrategyKindList(strategy);
         boolean isThirdSDK = false;
         String type = configCacheService.getProjectConfig(basePath, ConfigKeyConstants.PROJECT_TYPE, String.class, "");
         if (type.equals(ProjectConstants.Type.SDK)) {
             isThirdSDK = true;
         }
-        if (hmsFirst) {
-            strategyKindList.add(GeneratorStrategyKind.HOrG);
-        } else {
-            strategyKindList.add(GeneratorStrategyKind.GOrH);
-        }
-        if (onlyG) {
-            strategyKindList.add(GeneratorStrategyKind.G);
-        }
 
         log.info("start to createModule");
 
         String backupPath = backupOldXms(basePath);
-        if (isFirst) {
-            backupPath = null;
-        }
         String projectPath =
             configCacheService.getProjectConfig(basePath, ConfigKeyConstants.INSPECT_PATH, String.class, "");
-        ProcessorUtils processorUtils = new ProcessorUtils.Builder().setPluginPath(pluginJarPath)
-            .setBackPath(backupPath)
-            .setTargetPath(projectPath)
-            .setKitMap(kitMap)
-            .setAllDepMap(allKit2Dependency)
-            .setStrategyKindList(strategyKindList)
-            .setThirdSDK(isThirdSDK)
-            .build();
-        GenerateSummary generateSummary = XmsGenerateService.create(processorUtils);
+        Map<String, String> dependencyVersionMap = SummaryCacheService.getInstance().getDependencyVersion(basePath);
+        boolean useClassloader = SummaryCacheService.getInstance().getGlobalSetting(basePath).isNeedClassloader();
+        log.info(
+            "create xms code, pluginJarPath: {}, backupPath: {}, projectPath: {} "
+                + " kitMap: {}, allKit2Dependency: {}, strategykindList: {}, isThirdSdk: {}, dependencyVersionMap: {}, "
+                + "useClassloader: {}.",
+            pluginJarPath, backupPath, projectPath, kitMap, allKit2Dependency, strategyKindList, isThirdSDK,
+            dependencyVersionMap, useClassloader);
+
+        GenerateSummary generateSummary = XmsGenerateService.create(pluginJarPath, backupPath, projectPath, kitMap,
+            allKit2Dependency, strategyKindList, isThirdSDK, dependencyVersionMap, useClassloader);
+
         GeneratorResult generatorResult = generateSummary.getResult();
         if (generatorResult.getKey() != 0) {
             return false;
@@ -142,81 +124,60 @@ public final class UpdatedXmsService {
         return true;
     }
 
-    public String backupOldXms(String basePath) {
-        ServiceLoader<FileService> platformServices =
-            ServiceLoader.load(FileService.class, ProjectBackup.class.getClassLoader());
-        platformService = platformServices.iterator().next();
+    public static List<GeneratorStrategyKind> getStrategyKindList(Strategy strategy) {
+        List<GeneratorStrategyKind> strategyKindList = new ArrayList<>();
+        if (strategy.isHmsFirst()) {
+            strategyKindList.add(GeneratorStrategyKind.HOrG);
+        } else {
+            strategyKindList.add(GeneratorStrategyKind.GOrH);
+        }
+        if (strategy.isOnlyG()) {
+            strategyKindList.add(GeneratorStrategyKind.G);
+        }
+        if (strategy.isOnlyH()) {
+            strategyKindList.add(GeneratorStrategyKind.H);
+        }
+        return strategyKindList;
+    }
+
+    public static Map<String, String> getKitMap(List<String> allDependencies) {
+        List<String> allKit = allDependencies;
+        Map<String, String> kitMap = new HashMap<>();
+        Set<String> supportKitInfos = XmsGenerateService.supportKitInfo();
+        allKit.forEach(kit -> {
+            if (supportKitInfos.contains(kit)) {
+                kitMap.put(kit, XmsConstants.XMS_KIT_ADD);
+            }
+        });
+        return kitMap;
+    }
+
+    /**
+     * backup xmsadapter module, return backup path.
+     * if there are no xmsadapter modules to backup, do nothing and return null;
+     *
+     * @param basePath projectPath
+     * @return backup path
+     */
+    private String backupOldXms(String basePath) {
+        String[] xmsModules = FileUtil.getSummaryModule(basePath);
+        if (xmsModules == null || xmsModules.length == 0) {
+            return null;
+        }
         // xmsadapter exist
         String timestamp = LocalDateTime.now().format(Constant.BASIC_ISO_DATETIME);
         String backup = configCacheService.getProjectConfig(basePath, ConfigKeyConstants.BACK_PATH, String.class, "");
         String xmsBackupFolder =
             configCacheService.getProjectConfig(basePath, ConfigKeyConstants.INSPECT_FOLDER, String.class, "")
                 + ProjectConstants.Common.BACKUP_SUFFIX + "." + timestamp;
-        String fromPath =
-            configCacheService.getProjectConfig(basePath, ConfigKeyConstants.INSPECT_PATH, String.class, "")
-                + XmsConstants.XMS_ADAPTER;
         String configPath = Paths.get(backup, xmsBackupFolder).toString();
 
-        platformService.delFile(new File(configPath + XmsConstants.XMS_ADAPTER));
-        File xmsAdapterFile = new File(fromPath);
-        if (xmsAdapterFile.exists()) {
-            backupXms(configPath + XmsConstants.XMS_ADAPTER, fromPath, "");
-            return configPath + XmsConstants.XMS_ADAPTER;
-        }
-        boolean isBackup = getOldXmsPath(basePath, configPath);
-
-        if (isBackup) {
-            return configPath + XmsConstants.XMS_ADAPTER;
-        }
-        return null;
+        ServiceLoader<FileService> platformServices =
+            ServiceLoader.load(FileService.class, ProjectBackup.class.getClassLoader());
+        platformService = platformServices.iterator().next();
+        platformService.delFile(new File(configPath));
+        FileUtil.backupXms(basePath, configPath);
+        return configPath;
     }
 
-    private boolean getOldXmsPath(String basePath, String xmsBackupFolder) {
-        boolean settingUpdate = configCacheService.getProjectConfig(basePath,
-            ConfigKeyConstants.CONVERTED_BY_OLD_SETTING, boolean.class, false);
-        List<String> xmsAdaptorPathList = FileUtil.getXmsPaths(basePath, false);
-        List<String> xms4GAdaptorPathList = FileUtil.getXmsPaths(basePath, true);
-        if (xmsAdaptorPathList.isEmpty() && xms4GAdaptorPathList.isEmpty() && !settingUpdate) {
-            isFirst = true;
-            return false;
-        }
-
-        if (xmsAdaptorPathList.size() == 1) {
-            String xmsPath = xmsAdaptorPathList.get(0).substring(0, xmsAdaptorPathList.get(0).length() - 4);
-            backupXms(xmsBackupFolder, xmsPath, "/xmsadapter/src/main/java/org");
-            return true;
-        }
-
-        if (xms4GAdaptorPathList.size() == 2) {
-            platformService.createDirectory(new File(xmsBackupFolder + "/xmsadapter/src"));
-            String xmsPath = "";
-            String xms = "/java/org/xms";
-            if (xms4GAdaptorPathList.get(0).replace("\\", "/").endsWith("/xmsgh/java/org/xms")) {
-                xmsPath = xms4GAdaptorPathList.get(0).substring(0, xms4GAdaptorPathList.get(0).length() - xms.length());
-                backupXms(xmsBackupFolder, xmsPath, "/xmsadapter/src/xmsgh");
-                xmsPath = xms4GAdaptorPathList.get(1).substring(0, xms4GAdaptorPathList.get(1).length() - xms.length());
-                backupXms(xmsBackupFolder, xmsPath, "/xmsadapter/src/xmsg");
-            } else {
-                xmsPath = xms4GAdaptorPathList.get(0).substring(0, xms4GAdaptorPathList.get(0).length() - xms.length());
-                backupXms(xmsBackupFolder, xmsPath, "/xmsadapter/src/xmsg");
-                xmsPath = xms4GAdaptorPathList.get(1).substring(0, xms4GAdaptorPathList.get(1).length() - xms.length());
-                backupXms(xmsBackupFolder, xmsPath, "/xmsadapter/src/xmsgh");
-            }
-            return true;
-        }
-        return false;
-    }
-
-    private void backupXms(String xmsBackupFolder, String xmsPath, String suffix) {
-        File xmsadapter = new File(xmsPath);
-        try {
-            if (xmsadapter.exists()) {
-                isFirst = false;
-                platformService.copyDir(xmsadapter, new File(xmsBackupFolder + suffix));
-                platformService.delFile(xmsadapter);
-            }
-        } catch (IOException e) {
-            log.info("backupXms failed!");
-        }
-    }
 }

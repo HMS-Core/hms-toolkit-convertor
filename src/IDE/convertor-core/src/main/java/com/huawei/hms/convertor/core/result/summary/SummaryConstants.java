@@ -53,4 +53,6 @@ public interface SummaryConstants {
     String SUPPORT_MANUAL_COUNT_ADDHMS = "support manual count add hms";
 
     String SUPPORT_RATE_ADDHMS = "support rate add hms";
+
+    String JDK_COMPILE_VERSION = "support jdk compile version";
 }

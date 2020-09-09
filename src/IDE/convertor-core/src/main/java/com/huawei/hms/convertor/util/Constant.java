@@ -26,19 +26,25 @@ import java.time.format.DateTimeFormatter;
 public final class Constant {
     public static final String PLUGIN_NAME = "HMS Convertor";
 
-    public static final String GBK = "GBK";
-    public static final String UTF8 = "UTF-8";
     public static final String LINE_SEPARATOR = "\n";
-    public static final String SEPARATOR = "/";
+
+    public static final String WINDOWS_FILE_SEPARATOR = "\\";
+
+    public static final String UNIX_FILE_SEPARATOR = "/";
+
+    public static final char UNIX_FILE_SEPARATOR_IN_CHAR = '/';
 
     public static final DateTimeFormatter BASIC_ISO_DATETIME = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 
+    public static final DateTimeFormatter READABLE_DATETIME = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+
     public static final String EXTENSION_ZIP = ".zip";
+
     public static final String NA = "N/A";
+
     public static final String ALL = "All...";
+
     public static final int FIRST_INDEX = 0;
 
-    public static final String CONFIG_CACHE_PATH = System.getProperty("user.home") + "/.hmstoolkit/convertor/config/";
-    public static final String PLUGIN_CACHE_PATH = System.getProperty("user.home") + "/.hmstoolkit/convertor/";
-    public static final String PLUGIN_LOG_PATH = System.getProperty("user.home") + "/.hmstoolkit/logs";
+    public static final String FILTER_HINT = "Please enter a keyword";
 }

@@ -19,7 +19,6 @@ package com.huawei.hms.convertor.core.project.base;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Platform service interface
@@ -59,18 +58,4 @@ public interface FileService {
      * @param file file
      */
     void delFile(File file);
-
-    /**
-     * delete files by a list of path
-     *
-     * @param paths list of path
-     */
-    void delFilesByPath(List<String> paths);
-
-    /**
-     * create dir use intellij interface
-     *
-     * @param file file
-     */
-    void createDirectory(File file);
 }

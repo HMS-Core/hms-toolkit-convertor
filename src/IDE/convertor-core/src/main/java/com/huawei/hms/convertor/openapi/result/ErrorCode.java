@@ -35,25 +35,14 @@ public enum ErrorCode {
     /**
      * Execute failed
      */
-    FAILURE(1, "Execute failed");
-
-    private final long code;
-
-    private final String message;
+    FAILURE(1, "Execute failed"),
 
     /**
-     * Parse {@code ErrorCode} from code
-     *
-     * @param code Error code
-     * @return {@code ErrorCode}
+     * Fixbot execute failed caused by OOM
      */
-    public static ErrorCode fromCode(long code) {
-        ErrorCode[] errorCodes = ErrorCode.values();
-        for (ErrorCode errorCode : errorCodes) {
-            if (errorCode.getCode() == code) {
-                return errorCode;
-            }
-        }
-        return SUCCESS;
-    }
+    OOM(2, "OutOfMemoryError");
+
+    private final int code;
+
+    private final String message;
 }

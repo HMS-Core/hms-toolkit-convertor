@@ -18,6 +18,7 @@ package com.huawei.hms.convertor.core.project.backup;
 
 import com.huawei.hms.convertor.core.config.ConfigKeyConstants;
 import com.huawei.hms.convertor.core.engine.fixbot.model.RoutePolicy;
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.base.FileService;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.core.result.conversion.ConversionItem;
@@ -37,6 +38,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -55,6 +57,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class ProjectBackup {
     private static final ProjectBackup PROJECT_BACKUP = new ProjectBackup();
 
+    private static final String REPOID_COMMENT_KEYWORD = "-comment";
+
+    private static final String FILEPATH_DOT = ".";
+
+    private static final String BACKUP_FOLDER_GTOH_INFIX = "G2H.process_";
+
+    private static final String BACKUP_FOLDER_INFIX = "G&H.process_";
+
+    private static final String BACKUP_DIRECTORY_REPORT_SUFFIX = ".comment.";
+
+    private static final String BACKUP_DIRECTORY_SUFFIX = ".normal.";
+
     private Result result;
 
     private ProjectBackup() {
@@ -72,12 +86,13 @@ public final class ProjectBackup {
     public boolean autoBackup(String projectBasePath) {
         String sourceCodePath = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.INSPECT_PATH, String.class, "");
-        String projectBaseFolder = sourceCodePath.substring(sourceCodePath.lastIndexOf(Constant.SEPARATOR) + 1);
+        String projectBaseFolder =
+            sourceCodePath.substring(sourceCodePath.lastIndexOf(Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
 
         String backupFolderName = projectBaseFolder + "." + LocalDateTime.now().format(Constant.BASIC_ISO_DATETIME);
         String backupPath = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.BACK_PATH, String.class, "");
-        backupPath = backupPath + File.separator + backupFolderName;
+        backupPath = backupPath + Constant.UNIX_FILE_SEPARATOR + backupFolderName;
         // Create backup folder.
         if (!createBackupDir(backupPath)) {
             return false;
@@ -96,7 +111,7 @@ public final class ProjectBackup {
 
         ZipUtil.compress(backupPath, backupPath);
         deleteDir(backupPath);
-        log.info("Make a backup:{} fromPath = {}, toPath = {}", backupFolderName, sourceCodePath, backupPath);
+        log.info("Make a backup: {} fromPath: {}, toPath: {}", backupFolderName, sourceCodePath, backupPath);
         return true;
     }
 
@@ -109,7 +124,7 @@ public final class ProjectBackup {
 
         try {
             backupFolder = constructPackageName(projectBasePath);
-            backupPath = backupPath + File.separator + backupFolder;
+            backupPath = backupPath + Constant.UNIX_FILE_SEPARATOR + backupFolder;
 
             if (!createBackupDir(backupPath)) {
                 result = Result.failed("Failed to create backup folder");
@@ -132,17 +147,17 @@ public final class ProjectBackup {
         ZipUtil.compress(backupPath, backupPath);
         deleteDir(backupPath);
         result = Result.ok(backupFolder);
-        log.info("Make a backup: fromPath = {}, toPath = {}", sourceCodePath, backupPath);
+        log.info("Make a backup: fromPath: {}, toPath: {}", sourceCodePath, backupPath);
     }
 
     private static String constructPackageName(String projectBasePath) throws IOException {
         String timestamp = LocalDateTime.now().format(Constant.BASIC_ISO_DATETIME);
         String repoID = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.REPO_ID, String.class, "");
-        String summaryPath =
-            Constant.PLUGIN_CACHE_PATH + repoID + File.separator + ProjectConstants.Result.LAST_SUMMARY_JSON;
-        String conversionPath =
-            Constant.PLUGIN_CACHE_PATH + repoID + File.separator + ProjectConstants.Result.LAST_CONVERSION_JSON;
+        String summaryPath = PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + repoID + Constant.UNIX_FILE_SEPARATOR
+            + ProjectConstants.Result.LAST_SUMMARY_JSON;
+        String conversionPath = PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + repoID + Constant.UNIX_FILE_SEPARATOR
+            + ProjectConstants.Result.LAST_CONVERSION_JSON;
         String process = getProcess(summaryPath, conversionPath);
 
         String projectBaseFolder = ConfigCacheService.getInstance()
@@ -150,27 +165,23 @@ public final class ProjectBackup {
         RoutePolicy routePolicy = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.ROUTE_POLICY, RoutePolicy.class, RoutePolicy.G_AND_H);
         String backupFolder = "";
-        if (repoID.contains("-comment")) {
-            String backupDir = projectBaseFolder + "." + timestamp + ".comment.";
-            if (routePolicy == RoutePolicy.G_TO_H) {
-                backupFolder = backupDir + "G2H.process_" + process;
-            } else {
-                backupFolder = backupDir + "G&H.process_" + process;
-            }
+        String backupDir;
+        if (repoID.contains(REPOID_COMMENT_KEYWORD)) {
+            backupDir = projectBaseFolder + FILEPATH_DOT + timestamp + BACKUP_DIRECTORY_REPORT_SUFFIX;
         } else {
-            String backupDir = projectBaseFolder + "." + timestamp + ".normal.";
-            if (routePolicy == RoutePolicy.G_TO_H) {
-                backupFolder = backupDir + "G2H.process_" + process;
-            } else {
-                backupFolder = backupDir + "G&H.process_" + process;
-            }
+            backupDir = projectBaseFolder + FILEPATH_DOT + timestamp + BACKUP_DIRECTORY_SUFFIX;
+        }
+        if (routePolicy == RoutePolicy.G_TO_H) {
+            backupFolder = backupDir + BACKUP_FOLDER_GTOH_INFIX + process;
+        } else {
+            backupFolder = backupDir + BACKUP_FOLDER_INFIX + process;
         }
         return backupFolder;
     }
 
     private static String getProcess(String summaryPath, String conversionPath) throws IOException {
-        String lastSummaryString = FileUtil.readToString(summaryPath, Constant.UTF8);
-        String lastConversionString = FileUtil.readToString(conversionPath, Constant.UTF8);
+        String lastSummaryString = FileUtil.readToString(summaryPath, StandardCharsets.UTF_8.toString());
+        String lastConversionString = FileUtil.readToString(conversionPath, StandardCharsets.UTF_8.toString());
         List<ConversionItem> defectItemList = JSON.parseArray(lastConversionString, ConversionItem.class);
 
         JSONObject jsonObject = JSON.parseObject(lastSummaryString);
@@ -202,7 +213,7 @@ public final class ProjectBackup {
             }
 
             for (String exclude : excludePaths) {
-                if (file.getPath().replace("\\", "/").startsWith(exclude)) {
+                if (FileUtil.unifyToUnixFileSeparator(file.getPath()).startsWith(exclude)) {
                     isDirAccepted = false;
                     break;
                 }
@@ -210,23 +221,22 @@ public final class ProjectBackup {
             return isDirAccepted;
         };
 
-        ServiceLoader<FileService> fileService =
-            ServiceLoader.load(FileService.class, getClass().getClassLoader());
+        ServiceLoader<FileService> fileService = ServiceLoader.load(FileService.class, getClass().getClassLoader());
         fileService.iterator().next().copyDirWithFilter(new File(fromPath), new File(toPath), fileFilter);
     }
 
     private void backupConfig(String projectBasePath, String backupPath) throws IOException {
         String projectId = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.PROJECT_ID, String.class, "");
-        String configPath = Constant.PLUGIN_CACHE_PATH + projectId + ProjectConstants.Common.CONFIG_SUFFIX;
+        String configPath =
+            PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + projectId + ProjectConstants.Common.CONFIG_SUFFIX;
         File configFile = new File(configPath);
         if (configFile.exists() && configFile.isDirectory()) {
-            ServiceLoader<FileService> fileService =
-                ServiceLoader.load(FileService.class, getClass().getClassLoader());
+            ServiceLoader<FileService> fileService = ServiceLoader.load(FileService.class, getClass().getClassLoader());
             fileService.iterator()
                 .next()
-                .copyDir(new File(configPath),
-                    new File(backupPath + File.separator + projectId + ProjectConstants.Common.CONFIG_SUFFIX));
+                .copyDir(new File(configPath), new File(
+                    backupPath + Constant.UNIX_FILE_SEPARATOR + projectId + ProjectConstants.Common.CONFIG_SUFFIX));
         }
     }
 
@@ -234,26 +244,24 @@ public final class ProjectBackup {
         backupConfig(projectBasePath, backupPath);
         String repoID = ConfigCacheService.getInstance()
             .getProjectConfig(projectBasePath, ConfigKeyConstants.REPO_ID, String.class, "");
-        ServiceLoader<FileService> fileService =
-            ServiceLoader.load(FileService.class, getClass().getClassLoader());
+        ServiceLoader<FileService> fileService = ServiceLoader.load(FileService.class, getClass().getClassLoader());
         fileService.iterator()
             .next()
-            .copyDir(new File(Constant.PLUGIN_CACHE_PATH + repoID),
-                new File(backupPath + File.separator + repoID));
+            .copyDir(new File(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + repoID),
+                new File(backupPath + Constant.UNIX_FILE_SEPARATOR + repoID));
     }
 
     private boolean createBackupDir(String backupDirName) {
         File backupDir = new File(backupDirName);
         if (!backupDir.mkdirs()) {
-            log.error("Failed to create backup folder, path = {}", backupDirName);
+            log.error("Failed to create backup folder, path: {}", backupDirName);
             return false;
         }
         return true;
     }
 
     private void deleteDir(String deleteDirName) {
-        ServiceLoader<FileService> fileService =
-            ServiceLoader.load(FileService.class, getClass().getClassLoader());
+        ServiceLoader<FileService> fileService = ServiceLoader.load(FileService.class, getClass().getClassLoader());
         fileService.iterator().next().delFile(new File(deleteDirName));
     }
 }

@@ -16,22 +16,28 @@
 
 package com.huawei.hms.convertor.core.engine.fixbot;
 
-import com.alibaba.fastjson.JSONException;
 import com.huawei.codebot.framework.FixStatus;
 import com.huawei.codebot.framework.dispatch.model.DefectFile;
 import com.huawei.codebot.framework.model.DefectBlock;
+import com.huawei.hms.convertor.core.bi.enumration.DescriptionTypeEnum;
 import com.huawei.hms.convertor.core.engine.fixbot.model.RoutePolicy;
+import com.huawei.hms.convertor.core.engine.fixbot.model.api.ApiKey;
 import com.huawei.hms.convertor.core.engine.fixbot.util.FixbotConstants;
 import com.huawei.hms.convertor.core.kits.KitsConstants;
-import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.core.result.conversion.ConversionItem;
 import com.huawei.hms.convertor.core.result.conversion.ConversionPointDesc;
 import com.huawei.hms.convertor.core.result.conversion.ConvertType;
 import com.huawei.hms.convertor.util.Constant;
+import com.huawei.hms.convertor.util.FileUtil;
 import com.huawei.hms.convertor.util.KitUtil;
+
+import com.alibaba.fastjson.JSONException;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;
@@ -43,10 +49,12 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.UUID;
 import java.util.stream.Collector;
@@ -63,67 +71,106 @@ import java.util.stream.Collectors;
 public final class ConversionGenerator {
     private static final String PERMISSION_FILE_PATH = "xmsadapter/README.md";
 
+    private static final String ADAPTER_BUILD_PATH = "xmsadapter/build.gradle";
+
     private static final String PERMISSION_CONTENT = "add uses-permissions";
 
     private static final String PERMISSION_HELP = "Please add uses-permissions into \"AndroidManifest.xml\" of "
         + "your application module. Check section 3 of Readme file in xmsadapter module for more details.";
 
-    private static final String INIT_DEFECT_CONTENT = "GlobalEnvSetting.init()";
-
-    private static final String INIT_HELP = "Notice: invoke GlobalEnvSetting.init() to initialize GMS and HMS "
-        + "environment variables for Add HMS API policy.";
-
     private static final String ORIGINAL_DIR = "original";
 
     private static final int ORIGINAL_DIR_LEN = ORIGINAL_DIR.length();
 
+    private static final String DESCRIPTION_SUFFIX = "; ";
+
+    private static final String DELIMITER_TEXT = "Please add relevant package:";
+
+    private static final int CLASS_DESCRIPTIONS_MIN_SIZE = 2;
+
     private FixbotResultParser fixbotResultParser;
 
-    private RoutePolicy routePolicy;
+    /**
+     * Kit not included: Common, Other, Unsupport Kit
+     */
+    private Map<ApiKey, Integer> methodKey2FileCountMap;
 
-    private Map<String, List<ConversionPointDesc>> id2DescriptionsMap;
+    /**
+     * Kit not included: Common, Other, Unsupport Kit
+     */
+    private Map<ApiKey, Integer> methodKey2BlockCountMap;
 
-    private String type;
+    /**
+     * Kit not included: Common, Other, Unsupport Kit
+     */
+    private Map<ApiKey, Integer> classKey2FileCountMap;
 
-    private String resultFilePath;
+    /**
+     * Kit not included: Common, Other, Unsupport Kit
+     */
+    private Map<ApiKey, Integer> classKey2BlockCountMap;
 
-    private String projectBasePath;
+    /**
+     * Kit not included: Common, Other, Unsupport Kit
+     */
+    private Map<ApiKey, Integer> fieldKey2FileCountMap;
+
+    /**
+     * Kit not included: Common, Other, Unsupport Kit
+     */
+    private Map<ApiKey, Integer> fieldKey2BlockCountMap;
 
     public ConversionGenerator(FixbotResultParser fixbotResultParser) {
         this.fixbotResultParser = fixbotResultParser;
-        this.routePolicy = fixbotResultParser.getRoutePolicy();
-        this.id2DescriptionsMap = fixbotResultParser.getId2DescriptionsMap();
-        this.type = fixbotResultParser.getType();
-        this.resultFilePath = fixbotResultParser.getResultPath();
-        this.projectBasePath = fixbotResultParser.getProjectBasePath();
+        methodKey2FileCountMap = new HashMap<>();
+        methodKey2BlockCountMap = new HashMap<>();
+        classKey2FileCountMap = new HashMap<>();
+        classKey2BlockCountMap = new HashMap<>();
+        fieldKey2FileCountMap = new HashMap<>();
+        fieldKey2BlockCountMap = new HashMap<>();
     }
 
     public List<ConversionItem> extractConverisons() throws JSONException {
         List<ConversionItem> autoConversionList = new ArrayList<>();
         List<ConversionItem> manualConversionList = new ArrayList<>();
-
-        final int resultFilePathLen = resultFilePath.length();
+        Map<ApiKey, Set<String>> methodKey2FileIdSetMap = new HashMap<>();
+        Map<ApiKey, Set<String>> methodKey2BlockIdSetMap = new HashMap<>();
+        Map<ApiKey, Set<String>> classKey2FileIdSetMap = new HashMap<>();
+        Map<ApiKey, Set<String>> classKey2BlockIdSetMap = new HashMap<>();
+        Map<ApiKey, Set<String>> fieldKey2FileIdSetMap = new HashMap<>();
+        Map<ApiKey, Set<String>> fieldKey2BlockIdSetMap = new HashMap<>();
+        final int resultFilePathLen = fixbotResultParser.getResultPath().length();
 
         List<DefectFile> defectFiles = fixbotResultParser.getDefectFiles();
-        if (defectFiles == null) {
-            log.warn("The defect files list is null");
+        if (CollectionUtils.isEmpty(defectFiles)) {
+            log.warn("The defect files are empty.");
             return Collections.emptyList();
         }
 
         for (DefectFile defectFile : defectFiles) {
-            final String originalFilePath = defectFile.getFilePath().replace("\\", "/");
+            final String originalFilePath = FileUtil.unifyToUnixFileSeparator(defectFile.getFilePath());
             final String fileRelativePath = originalFilePath.substring(resultFilePathLen + 1 + ORIGINAL_DIR_LEN + 1);
-            for (DefectBlock fixedBlock : defectFile.getAutoFixedBlocks()) {
+            final String fixFilePath = fixbotResultParser.getResultPath() + Constant.UNIX_FILE_SEPARATOR
+                + FixbotConstants.FIXBOT_DIR + Constant.UNIX_FILE_SEPARATOR + fileRelativePath;
+            String fileId = defectFile.getId();
+            // only need to traverse autoFixedBlocks, because manualFixedBlocks is deprecated
+            for (DefectBlock defectBlock : defectFile.getAutoFixedBlocks()) {
                 ConversionItem conversionItem = new ConversionItem();
-                List<ConversionPointDesc> descriptions = id2DescriptionsMap.get(fixedBlock.getId());
+                String blockId = defectBlock.getId();
+                List<ConversionPointDesc> descriptions = fixbotResultParser.getBlockId2DescriptionsMap().get(blockId);
 
                 // Extract 'Kit Name' for the conversion item.
                 HashSet<String> kitSet = new HashSet<>();
-                final String fixFilePath = resultFilePath + Constant.SEPARATOR + FixbotConstants.FIXBOT_DIR
-                        + Constant.SEPARATOR + fileRelativePath;
                 descriptions.forEach(description -> {
-                    if (description.getKit() != null && KitUtil.supportKitToH(description.getKit())) {
-                        kitSet.add(description.getKit());
+                    String kit = description.getKit();
+                    if (kit != null && KitUtil.supportKitToH(description.getKit())) {
+                        kitSet.add(kit);
+                        buildApiKey2FileIdAndBlockIdMap(kit, description.getMethodName(), fileId, blockId,
+                            methodKey2FileIdSetMap, methodKey2BlockIdSetMap);
+                        buildApiKey2FileIdAndBlockIdMap(kit, description.getClassName(), fileId, blockId,
+                            classKey2FileIdSetMap, classKey2BlockIdSetMap);
+                        buildApiKey2FileIdAndBlockIdMap(kit, description.getFieldName(), fileId, blockId,
+                            fieldKey2FileIdSetMap, fieldKey2BlockIdSetMap);
                     }
                 });
                 if (kitSet.isEmpty()) {
@@ -142,37 +189,42 @@ public final class ConversionGenerator {
                 conversionItem.setConversionId(UUID.randomUUID().toString());
 
                 // Extract the core information about the conversion for the conversion item.
-                constructConvertedContent(originalFilePath, fixFilePath, fixedBlock, conversionItem);
+                constructConvertedContent(originalFilePath, fixFilePath, defectBlock, conversionItem);
 
                 // Extract the description for the conversion item.
                 constructDescription(autoConversionList, manualConversionList, conversionItem, descriptions);
             }
         }
 
+        countApiKey2FileAndBlockMap(methodKey2FileIdSetMap, methodKey2BlockIdSetMap, methodKey2FileCountMap,
+            methodKey2BlockCountMap);
+        countApiKey2FileAndBlockMap(classKey2FileIdSetMap, classKey2BlockIdSetMap, classKey2FileCountMap,
+            classKey2BlockCountMap);
+        countApiKey2FileAndBlockMap(fieldKey2FileIdSetMap, fieldKey2BlockIdSetMap, fieldKey2FileCountMap,
+            fieldKey2BlockCountMap);
+        log.info(
+            "methodKey2FileCountMap size: {}, methodKey2BlockCountMap size: {}, classKey2FileCountMap size: {}, classKey2BlockCountMap size: {}, fieldKey2FileCountMap size: {}, fieldKey2BlockCountMap size: {}.",
+            methodKey2FileCountMap.size(), methodKey2BlockCountMap.size(), classKey2FileCountMap.size(),
+            classKey2BlockCountMap.size(), fieldKey2FileCountMap.size(), fieldKey2BlockCountMap.size());
+
         // When the policy is Add HMS API, the conversion list needs to be customized.
-        if (routePolicy == RoutePolicy.G_AND_H) {
+        if (fixbotResultParser.getRoutePolicy() == RoutePolicy.G_AND_H) {
             // Add the manual conversion item that describes how to add uses-permissions.
             ConversionItem permissionItem = createPermissionItem();
             manualConversionList.add(permissionItem);
 
             // Filter all conversions about "xmsadapter/build.gradle" file.
-            autoConversionList.removeIf(item -> item.getFile().contains("xmsadapter/build.gradle"));
-            manualConversionList.removeIf(item -> item.getFile().contains("xmsadapter/build.gradle"));
+            autoConversionList.removeIf(item -> item.getFile().contains(ADAPTER_BUILD_PATH));
+            manualConversionList.removeIf(item -> item.getFile().contains(ADAPTER_BUILD_PATH));
         }
 
         // Sort and merge conversion list.
         List<ConversionItem> conversionItems = sortAndMergeList(autoConversionList, manualConversionList);
-
-        // Add the manual conversion item that describes how to init xms adapter in the Add HMS API (App) policy.
-        if (routePolicy == RoutePolicy.G_AND_H && ProjectConstants.Type.APP.equals(type)) {
-            ConversionItem lastItem = createInitItem();
-            conversionItems.add(lastItem);
-        }
         return conversionItems;
     }
 
-    private void constructConvertedContent(
-        String originalFilePath, String fixFilePath, DefectBlock fixedBlock, ConversionItem conversionItem) {
+    private void constructConvertedContent(String originalFilePath, String fixFilePath, DefectBlock fixedBlock,
+        ConversionItem conversionItem) {
         // Set the start and end line number.
         conversionItem.setDefectStartLine(fixedBlock.getDefectBlockStartLine());
         conversionItem.setDefectEndLine(fixedBlock.getDefectBlockEndLine());
@@ -190,8 +242,7 @@ public final class ConversionGenerator {
             conversionItem.setDefectContent("");
         } else {
             conversionItem.setDefectContent(
-                readDocument(
-                    originalFilePath, conversionItem.getDefectStartLine(), conversionItem.getDefectEndLine()));
+                readDocument(originalFilePath, conversionItem.getDefectStartLine(), conversionItem.getDefectEndLine()));
         }
 
         /*
@@ -222,7 +273,7 @@ public final class ConversionGenerator {
 
             return StringUtils.join(lines, Constant.LINE_SEPARATOR);
         } catch (IOException e) {
-            log.error("Get file content error: " + e.getMessage(), e);
+            log.error("Get file content error: {}.", e.getMessage(), e);
             return "";
         }
     }
@@ -263,8 +314,8 @@ public final class ConversionGenerator {
             }
             addDelimiter(text, newDescription);
         }
-        if (newDescription.subSequence(newDescription.length() - 2, newDescription.length()).equals("; ")) {
-            newDescription.delete(newDescription.length() - 2, newDescription.length());
+        if (newDescription.subSequence(newDescription.length() - DESCRIPTION_SUFFIX.length(), newDescription.length()).equals(DESCRIPTION_SUFFIX)) {
+            newDescription.delete(newDescription.length() - DESCRIPTION_SUFFIX.length(), newDescription.length());
         }
         newDescription.append("</html>");
 
@@ -302,7 +353,7 @@ public final class ConversionGenerator {
     }
 
     private void addDelimiter(String text, StringBuilder stringBuilder) {
-        if (text.equals("Please add relevant package:")) {
+        if (text.equals(DELIMITER_TEXT)) {
             stringBuilder.append(" ");
         } else {
             stringBuilder.append("; ");
@@ -316,7 +367,7 @@ public final class ConversionGenerator {
      * @param descriptions description list
      */
     private void filterClassDescriptions(List<ConversionPointDesc> descriptions) {
-        if (descriptions.isEmpty() || descriptions.size() < 2) {
+        if (descriptions.isEmpty() || descriptions.size() < CLASS_DESCRIPTIONS_MIN_SIZE) {
             return;
         }
 
@@ -325,7 +376,7 @@ public final class ConversionGenerator {
             if (description.getType() == null) {
                 continue;
             }
-            if (description.getType().equals("class") && !description.isSupport()) {
+            if (description.getType().equals(DescriptionTypeEnum.CLASS.getValue()) && !description.isSupport()) {
                 flag = true;
                 break;
             }
@@ -337,7 +388,7 @@ public final class ConversionGenerator {
                 if (description.getType() == null) {
                     continue;
                 }
-                if ((description.getType().equals("method") || description.getType().equals("field"))
+                if ((description.getType().equals(DescriptionTypeEnum.METHOD.getValue()) || description.getType().equals(DescriptionTypeEnum.FIELD.getValue()))
                     && description.isSupport()) {
                     filterEnabled = true;
                     break;
@@ -347,20 +398,22 @@ public final class ConversionGenerator {
 
         if (filterEnabled) {
             descriptions
-                .removeIf(item -> item.getType() != null && item.getType().equals("class") && !item.isSupport());
+                .removeIf(item -> item.getType() != null && item.getType().equals(DescriptionTypeEnum.CLASS.getValue()) && !item.isSupport());
         }
     }
 
-    private List<ConversionItem> sortAndMergeList(
-        List<ConversionItem> autoConvertList, List<ConversionItem> manualConvertList) {
+    private List<ConversionItem> sortAndMergeList(List<ConversionItem> autoConvertList,
+        List<ConversionItem> manualConvertList) {
         int autoConvertCount;
+        int manualConvertCount;
         List<ConversionItem> normalAutoList = getAutoOrDummyDefectItemList(autoConvertList, ConvertType.AUTO);
         List<ConversionItem> dummyAutoList = getAutoOrDummyDefectItemList(autoConvertList, ConvertType.DUMMY);
 
         // Sort normal auto conversion list.
-        Map<String, List<ConversionItem>> file2NormalAutoListMap = normalAutoList.stream()
-            .filter(defectItem -> defectItem.getFixStatus().equals(FixStatus.AUTOFIX))
-            .collect(Collectors.groupingBy(ConversionItem::getFile, toSortedList()));
+        Map<String,
+            List<ConversionItem>> file2NormalAutoListMap = normalAutoList.stream()
+                .filter(defectItem -> defectItem.getFixStatus().equals(FixStatus.AUTOFIX))
+                .collect(Collectors.groupingBy(ConversionItem::getFile, toSortedList()));
         TreeMap<String, List<ConversionItem>> file2AutoNormalListTreeMap = new TreeMap<>(file2NormalAutoListMap);
         List<ConversionItem> conversionItems = new ArrayList<>();
         for (Iterator ite = file2AutoNormalListTreeMap.keySet().iterator(); ite.hasNext();) {
@@ -369,9 +422,10 @@ public final class ConversionGenerator {
         }
 
         // Sort dummy auto conversion list.
-        Map<String, List<ConversionItem>> file2DummyAutoListMap = dummyAutoList.stream()
-            .filter(defectItem -> defectItem.getFixStatus().equals(FixStatus.AUTOFIX))
-            .collect(Collectors.groupingBy(ConversionItem::getFile, toSortedList()));
+        Map<String,
+            List<ConversionItem>> file2DummyAutoListMap = dummyAutoList.stream()
+                .filter(defectItem -> defectItem.getFixStatus().equals(FixStatus.AUTOFIX))
+                .collect(Collectors.groupingBy(ConversionItem::getFile, toSortedList()));
         TreeMap<String, List<ConversionItem>> file2AutoDummyListTreeMap = new TreeMap<>(file2DummyAutoListMap);
         for (Iterator ite = file2AutoDummyListTreeMap.keySet().iterator(); ite.hasNext();) {
             String file = ite.next().toString();
@@ -388,11 +442,10 @@ public final class ConversionGenerator {
             conversionItems.addAll(file2ManualListTreeMap.get(file));
         }
         final int totalCount = conversionItems.size();
-        int manualConvertCount;
         manualConvertCount = totalCount - autoConvertCount;
 
-        log.info("autoConvertCount = {}, manualConvertCount = {}, totalCount = {}",
-            autoConvertCount, manualConvertCount, totalCount);
+        log.info("autoConvertCount: {}, manualConvertCount: {}, totalCount: {}", autoConvertCount, manualConvertCount,
+            totalCount);
         return conversionItems;
     }
 
@@ -427,21 +480,7 @@ public final class ConversionGenerator {
                 .collect(Collectors.toList()));
     }
 
-    private ConversionItem createInitItem() {
-        return createConversionItem(true);
-    }
-
     private ConversionItem createPermissionItem() {
-        return createConversionItem(false);
-    }
-
-    /**
-     * Generate a customized conversion item.
-     *
-     * @param isInit init flag
-     * @return the customized conversion item
-     */
-    private ConversionItem createConversionItem(boolean isInit) {
         ConversionItem item = new ConversionItem();
         item.setConversionId(UUID.randomUUID().toString());
         item.setDefectEndLine(1);
@@ -451,29 +490,44 @@ public final class ConversionGenerator {
         item.setConvertType(ConvertType.MANUAL);
         item.setFixStatus(FixStatus.AUTOFIX);
         item.setFileTailConvert(false);
+        item.setFile(PERMISSION_FILE_PATH);
+        item.setDefectContent(PERMISSION_CONTENT);
+        item.setMergedDescription(PERMISSION_HELP);
+
         List<String> kits = new ArrayList<>();
         kits.add(KitsConstants.COMMON);
         item.setKitName(kits.toString());
+
         ConversionPointDesc description = new ConversionPointDesc();
         description.setStatus(ConvertType.MANUAL);
         description.setSupport(false);
         description.setKit(KitsConstants.COMMON);
         description.setUrl("");
-        if (isInit) {
-            item.setFile(Constant.NA);
-            item.setDefectContent(INIT_DEFECT_CONTENT);
-            description.setText(INIT_HELP);
-            item.setMergedDescription(INIT_HELP);
-        } else {
-            String filePath = PERMISSION_FILE_PATH;
-            item.setFile(filePath);
-            item.setDefectContent(PERMISSION_CONTENT);
-            description.setText(PERMISSION_HELP);
-            item.setMergedDescription(PERMISSION_HELP);
-        }
-        List<ConversionPointDesc> desps = new ArrayList<>();
-        desps.add(description);
-        item.setDescriptions(desps);
+        description.setText(PERMISSION_HELP);
+        List<ConversionPointDesc> descriptions = new ArrayList<>();
+        descriptions.add(description);
+        item.setDescriptions(descriptions);
         return item;
+    }
+
+    private void buildApiKey2FileIdAndBlockIdMap(String kit, String oldNameInDesc, String fileId, String blockId,
+        Map<ApiKey, Set<String>> apiKey2FileIdSetMap, Map<ApiKey, Set<String>> apiKey2BlockIdMap) {
+        if (kit.equals(KitsConstants.COMMON) || kit.equals(KitsConstants.OTHER) || StringUtils.isEmpty(oldNameInDesc)) {
+            return;
+        }
+
+        // trim GMS name in desc
+        ApiKey apiKey = ApiKey.builder().kit(kit).oldNameInDesc(oldNameInDesc.trim()).build();
+        apiKey2FileIdSetMap.putIfAbsent(apiKey, new HashSet<>());
+        apiKey2FileIdSetMap.get(apiKey).add(fileId);
+        apiKey2BlockIdMap.putIfAbsent(apiKey, new HashSet<>());
+        apiKey2BlockIdMap.get(apiKey).add(blockId);
+    }
+
+    private void countApiKey2FileAndBlockMap(Map<ApiKey, Set<String>> apiKey2FileIdSetMap,
+        Map<ApiKey, Set<String>> apiKey2BlockIdMap, Map<ApiKey, Integer> apiKey2FileCountMap,
+        Map<ApiKey, Integer> apiKey2BlockCountMap) {
+        apiKey2FileIdSetMap.forEach((apiKey, fileIdSet) -> apiKey2FileCountMap.put(apiKey, fileIdSet.size()));
+        apiKey2BlockIdMap.forEach((apiKey, blockIdSet) -> apiKey2BlockCountMap.put(apiKey, blockIdSet.size()));
     }
 }

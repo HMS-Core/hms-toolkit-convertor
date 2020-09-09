@@ -80,21 +80,6 @@ public final class ProjectEventHandler {
     }
 
     /**
-     * Get specified event handler
-     *
-     * @param type Event type
-     * @return Event handler
-     */
-    private EventHandler getEventHandler(EventType type) {
-        if (!handlerMap.containsKey(type)) {
-            throw new ProjectEventHandler.HandlerNotFoundException(
-                "Event handler not found. Event type: " + type.getName());
-        }
-
-        return handlerMap.get(type);
-    }
-
-    /**
      * Clear event handler
      */
     public void shutdown() {
@@ -129,17 +114,6 @@ public final class ProjectEventHandler {
         }
     }
 
-    private <T> void handleEvent(EventHandler eventHandler, String projectPath, T data) {
-        checkOrWaitGeneralEventResume();
-
-        if (eventHandler instanceof GeneralEventHandler) {
-            ((GeneralEventHandler) eventHandler).handleEvent(projectPath, data);
-        } else {
-            throw new UnsupportedOperationException(
-                "Unsupported event handler: " + eventHandler.getClass().getSimpleName());
-        }
-    }
-
     /**
      * Handle event
      *
@@ -168,6 +142,46 @@ public final class ProjectEventHandler {
         }
     }
 
+    /**
+     * Suspend to handle general event
+     */
+    public void suspendGeneralEvent() {
+        isGeneralEventSuspended.set(true);
+    }
+
+    /**
+     * Resume to handle general event
+     */
+    public void resumeGeneralEvent() {
+        isGeneralEventSuspended.set(false);
+    }
+
+    /**
+     * Get specified event handler
+     *
+     * @param type Event type
+     * @return Event handler
+     */
+    private EventHandler getEventHandler(EventType type) {
+        if (!handlerMap.containsKey(type)) {
+            throw new ProjectEventHandler.HandlerNotFoundException(
+                "Event handler not found. Event type: " + type.getName());
+        }
+
+        return handlerMap.get(type);
+    }
+
+    private <T> void handleEvent(EventHandler eventHandler, String projectPath, T data) {
+        checkOrWaitGeneralEventResume();
+
+        if (eventHandler instanceof GeneralEventHandler) {
+            ((GeneralEventHandler) eventHandler).handleEvent(projectPath, data);
+        } else {
+            throw new UnsupportedOperationException(
+                "Unsupported event handler: " + eventHandler.getClass().getSimpleName());
+        }
+    }
+
     private void executeCallback(CallbackExecuteHandler handler, ProjectEvent event) {
         // Async execute callback
         eventExecutor.execute(() -> handler.executeCallback(event));
@@ -183,20 +197,6 @@ public final class ProjectEventHandler {
                 log.error("Wait for finishing all edit-events in the queue error", e);
             }
         }
-    }
-
-    /**
-     * Suspend to handle general event
-     */
-    public void suspendGeneralEvent() {
-        isGeneralEventSuspended.set(true);
-    }
-
-    /**
-     * Resume to handle general event
-     */
-    public void resumeGeneralEvent() {
-        isGeneralEventSuspended.set(false);
     }
 
     private static class HandlerNotFoundException extends RuntimeException {

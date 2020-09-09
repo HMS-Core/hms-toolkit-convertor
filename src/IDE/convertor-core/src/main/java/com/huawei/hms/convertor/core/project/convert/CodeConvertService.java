@@ -20,7 +20,7 @@ import com.huawei.hms.convertor.core.result.conversion.ConversionItem;
 import com.huawei.hms.convertor.openapi.result.Result;
 
 /**
- * Encapsulating the transcoding Interface
+ * Code convert service
  *
  * @since 2020-02-11
  */

@@ -16,9 +16,9 @@
 
 package com.huawei.hms.convertor.util;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.apache.commons.io.FileUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -33,81 +33,153 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
+@Slf4j
 public final class ZipUtil {
-    private static final Logger LOG = LoggerFactory.getLogger(ZipUtil.class);
-
     private static final int BUFFER = 512;
 
     /**
-     * Compressed file
+     * Compress
      *
-     * @param dirPath Compress the source file path.
-     * @param fileName Compressed target file path
+     * @param dirPath Source file path.
+     * @param fileName Target file path.
      **/
     public static void compress(String dirPath, String fileName) {
-        String zipFileName = fileName + Constant.EXTENSION_ZIP; // Adding the file name extension
+        String zipFileName = fileName + Constant.EXTENSION_ZIP;
 
         File dirFile = FileUtils.getFile(dirPath);
         List<File> fileList = getAllFile(dirFile);
 
-        ZipEntry zipEntry = null;
+        ZipEntry zipEntry;
 
         try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(zipFileName))) {
             byte[] buffer = new byte[BUFFER];
             for (File file : fileList) {
-                if (file.isFile()) { // if there is file,Compress it
-                    dealEntry(dirPath, file, zos, buffer);
-                } else { // Write to the zip entry.
-                    zipEntry = new ZipEntry(getRelativePath(dirPath, file) + Constant.SEPARATOR);
+                Optional<String> relativePath = getRelativePath(dirPath, file);
+                if (!relativePath.isPresent()) {
+                    log.error("relative path max level exceed, fileName: {}.", file.getName());
+                    return;
+                }
+
+                if (file.isFile()) {
+                    dealEntry(relativePath.get(), file, zos, buffer);
+                } else {
+                    zipEntry = new ZipEntry(relativePath.get() + Constant.UNIX_FILE_SEPARATOR);
                     zos.putNextEntry(zipEntry);
                 }
             }
         } catch (FileNotFoundException e) {
-            LOG.error("File not found when compress file");
+            log.error("File not found when compress file", e);
         } catch (IOException e) {
-            LOG.error("Exception occur when compress file", e);
+            log.error("Exception occur when compress file", e);
         }
     }
 
-    private static void dealEntry(String dirPath, File file, ZipOutputStream zos, byte[] buffer) {
-        ZipEntry zipEntry = new ZipEntry(getRelativePath(dirPath, file));
+    private static void dealEntry(String relativePath, File file, ZipOutputStream zos, byte[] buffer) {
+        ZipEntry zipEntry = new ZipEntry(relativePath);
         zipEntry.setSize(file.length());
         zipEntry.setTime(file.lastModified());
 
         try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
             zos.putNextEntry(zipEntry);
-            int readLength = 0; // Indicates the length of the read data.
+            int readLength;
             while ((readLength = is.read(buffer, 0, BUFFER)) != -1) {
                 zos.write(buffer, 0, readLength);
             }
         } catch (FileNotFoundException e) {
-            LOG.error("File not found when deal with entry");
+            log.error("File not found when deal with entry", e);
         } catch (IOException e) {
-            LOG.error("Exception occur when deal with entry", e);
+            log.error("Exception occur when deal with entry", e);
         }
     }
 
     /**
-     * unzip
+     * Decompress
      */
     public static void decompress(String zipFileName, String destPath) {
         try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFileName))) {
             dealWithDecompressEntry(zis, destPath);
         } catch (FileNotFoundException e) {
-            LOG.error("File not found when decompress");
+            log.error("File not found when decompress", e);
         } catch (IOException e) {
-            LOG.error("Exception occur when decompress", e);
+            log.error("Exception occur when decompress", e);
+        }
+    }
+
+    /**
+     * Obtain all files in the source file path.
+     *
+     * @param dirFile Compress path.
+     */
+    public static List<File> getAllFile(File dirFile) {
+        List<File> fileList = new ArrayList<>();
+
+        File[] files = dirFile.listFiles();
+        if (files == null) {
+            return fileList;
+        }
+        for (File file : files) {
+            if (file.isFile()) {
+                fileList.add(file);
+            } else {
+                File[] fileArray = file.listFiles();
+                if (fileArray == null) {
+                    continue;
+                }
+                if (fileArray.length != 0) {
+                    fileList.addAll(getAllFile(file));
+                } else {
+                    fileList.add(file);
+                }
+            }
+        }
+        return fileList;
+    }
+
+    /**
+     * Create file.
+     *
+     * @param destPath Destination path.
+     * @param fileName Relative path of the decompressed file.
+     */
+    public static File createFile(String destPath, String fileName) {
+        String[] dirs = fileName.split(Constant.UNIX_FILE_SEPARATOR);
+        File file = FileUtils.getFile(destPath);
+
+        if (dirs.length > 1) {
+            for (int i = 0; i < dirs.length - 1; i++) {
+                file = FileUtils.getFile(file, dirs[i]);
+            }
+
+            if (!file.exists()) {
+                boolean result = file.mkdirs();
+                if (!result) {
+                    log.error("mkdirs failed");
+                }
+            }
+
+            file = FileUtils.getFile(file, dirs[dirs.length - 1]);
+            return file;
+        } else {
+            if (!file.exists()) {
+                boolean result = file.mkdirs();
+                if (!result) {
+                    log.error("mkdirs failed");
+                }
+            }
+            file = FileUtils.getFile(file, dirs[0]);
+            return file;
         }
     }
 
     private static void dealWithDecompressEntry(ZipInputStream zis, String destPath) {
-        ZipEntry zipEntry = null;
+        ZipEntry zipEntry;
         byte[] buffer = new byte[BUFFER];
-        int readLength = 0; // Indicates the length of the read data.
+        int readLength;
         try {
             while ((zipEntry = zis.getNextEntry()) != null) {
                 if (zipEntry.isDirectory()) {
@@ -124,103 +196,44 @@ public final class ZipUtil {
                         os.write(buffer, 0, readLength);
                     }
                 } catch (IOException e) {
-                    LOG.error("Exception occur when deal with create file", e);
+                    log.error("Exception occur when deal with create file", e);
                 }
             }
         } catch (IOException e) {
-            LOG.error("Exception occur when deal with decompressEntry", e);
+            log.error("Exception occur when deal with decompressEntry", e);
         }
     }
 
     /**
-     * Obtains all files in the source file path.
+     * Obtain the relative path.
      *
-     * @param dirFile Compress the source file path.
+     * @param dirPath Source file path.
+     * @param tarFile Compress file.
      */
-    public static List<File> getAllFile(File dirFile) {
-        List<File> fileList = new ArrayList<>();
-
-        File[] files = dirFile.listFiles();
-        if (null == files) {
-            return fileList;
-        }
-        for (File file : files) {
-            if (file.isFile()) {
-                fileList.add(file);
-            } else {
-                File[] fileArray = file.listFiles();
-                if (null == fileArray) {
-                    continue;
-                }
-                if (fileArray.length != 0) {
-                    fileList.addAll(getAllFile(file)); // Add the recursive file to the fileList.
-                } else { // Empty directory
-                    fileList.add(file);
-                }
-            }
-        }
-        return fileList;
-    }
-
-    /**
-     * Obtaining the relative path
-     *
-     * @param dirPath Source File Path
-     * @param tarFile Prepare a single file to be compressed.
-     */
-    private static String getRelativePath(String dirPath, File tarFile) {
+    private static Optional<String> getRelativePath(String dirPath, File tarFile) {
         File dirFile = FileUtils.getFile(dirPath);
         File file = tarFile;
         String relativePath = file.getName();
 
-        while (true) {
+        int pathMaxLevel = Integer.parseInt(PropertyUtil.readProperty("relative_path_max_level"));
+        int currentLevel = 0;
+        while (currentLevel < pathMaxLevel) {
             file = file.getParentFile();
+            currentLevel++;
             if (file == null) {
                 break;
             }
             if (file.equals(dirFile)) {
                 break;
             } else {
-                relativePath = file.getName() + Constant.SEPARATOR + relativePath;
+                relativePath = file.getName() + Constant.UNIX_FILE_SEPARATOR + relativePath;
             }
         }
-        return relativePath;
-    }
-
-    /**
-     * Create file.
-     *
-     * @param destPath Destination Path
-     * @param fileName Relative path of the decompressed file.
-     */
-    public static File createFile(String destPath, String fileName) {
-        String[] dirs = fileName.split(Constant.SEPARATOR); // Break down the directories of each level of file names.
-        File file = FileUtils.getFile(destPath);
-
-        if (dirs.length > 1) { // The file has an upper-level directory.
-            for (int i = 0; i < dirs.length - 1; i++) {
-                // Create file objects one by one to know the upper-level directory of the file.
-                file = FileUtils.getFile(file, dirs[i]);
-            }
-
-            if (!file.exists()) {
-                boolean result = file.mkdirs(); // If the directory corresponding to the file does not exist, create it.
-                if (!result) {
-                    LOG.error("mkdirs failed");
-                }
-            }
-
-            file = FileUtils.getFile(file, dirs[dirs.length - 1]); // create file
-            return file;
-        } else {
-            if (!file.exists()) { // If the target directory does not exist, create it.
-                boolean result = file.mkdirs();
-                if (!result) {
-                    LOG.error("mkdirs failed");
-                }
-            }
-            file = FileUtils.getFile(file, dirs[0]); // Create file.
-            return file;
+        if (currentLevel >= pathMaxLevel) {
+            log.error("relative path max level exceed, fileName: {}.", tarFile.getName());
+            return Optional.empty();
         }
+
+        return Optional.of(relativePath);
     }
 }

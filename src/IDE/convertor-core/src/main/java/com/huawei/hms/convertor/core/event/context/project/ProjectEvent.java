@@ -18,13 +18,13 @@ package com.huawei.hms.convertor.core.event.context.project;
 
 import com.huawei.hms.convertor.core.event.context.Event;
 import com.huawei.hms.convertor.core.event.context.EventType;
+import com.huawei.hms.convertor.util.Constant;
 
 import lombok.Getter;
 import lombok.ToString;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.File;
 import java.util.function.Consumer;
 
 /**
@@ -36,24 +36,23 @@ import java.util.function.Consumer;
  */
 @Getter
 @ToString(callSuper = true)
-public class ProjectEvent<D, M>extends Event<D, M> {
+public class ProjectEvent<D, M> extends Event<D, M> {
     private String projectPath;
+
     private String projectName;
 
     private ProjectEvent(EventType type, Consumer<M> callback, String projectPath) {
         super(type, null, callback);
         this.projectPath = projectPath;
+
         initProjectName();
     }
 
     private ProjectEvent(EventType type, D data, Consumer<M> callback, String projectPath) {
         super(type, data, callback);
         this.projectPath = projectPath;
-        initProjectName();
-    }
 
-    private void initProjectName() {
-        projectName = StringUtils.substring(projectPath, StringUtils.lastIndexOf(projectPath, File.separator) + 1);
+        initProjectName();
     }
 
     /**
@@ -92,5 +91,10 @@ public class ProjectEvent<D, M>extends Event<D, M> {
      */
     boolean isEditEvent() {
         return getType() == EventType.EDIT_EVENT;
+    }
+
+    private void initProjectName() {
+        projectName =
+            StringUtils.substring(projectPath, StringUtils.lastIndexOf(projectPath, Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
     }
 }

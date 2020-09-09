@@ -59,7 +59,8 @@ public final class ProjectEventContext {
      */
     public ProjectEventContext(String projectPath) {
         this.projectPath = projectPath;
-        projectName = StringUtils.substring(projectPath, StringUtils.lastIndexOf(projectPath, Constant.SEPARATOR) + 1);
+        projectName = StringUtils.substring(projectPath, StringUtils.lastIndexOf(projectPath, Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
+
         projectEventQueue = new ProjectEventQueue();
         projectEventHandler = new ProjectEventHandler(projectName);
         projectEventListener = new ProjectEventListener(projectName, projectEventQueue, projectEventHandler);

@@ -16,6 +16,7 @@
 
 package com.huawei.hms.convertor.core.config;
 
+import com.huawei.hms.convertor.core.plugin.PluginConstant;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
 import com.huawei.hms.convertor.openapi.result.Result;
 import com.huawei.hms.convertor.util.Constant;
@@ -49,6 +50,18 @@ public final class ProjectConfigCache {
 
     private static final String FILE_JSON_NAME = "configuration.json";
 
+    private static final String ROUTE_POLICY_KEY = "routePolicy";
+
+    private static final String ROUTE_POLICY_G_TO_H = "G_TO_H";
+
+    private static final String BACKUP_PATH_KEY = "backupPath";
+
+    private static final String XMS_ADAPTOR_KEY = "xmsAdaptorPath";
+
+    private static final String XMS4_ADAPTOR_KEY = "xms4GAdaptorPathList";
+
+    private static final String BACKUP_PATH_EXCEPTION = "..";
+
     private Map<String, String> projectConfigs = new HashMap<>();
 
     private String repoId = "";
@@ -69,7 +82,8 @@ public final class ProjectConfigCache {
      * @param <T> Value type
      */
     public <T> Result updateConfig(String name, T value) {
-        String configPath = Constant.PLUGIN_CACHE_PATH + repoId + ProjectConstants.Common.CONFIG_SUFFIX;
+        String configPath =
+            PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + repoId + ProjectConstants.Common.CONFIG_SUFFIX;
 
         if (projectConfigs.containsKey(name)) {
             projectConfigs.remove(name);
@@ -93,7 +107,8 @@ public final class ProjectConfigCache {
     public Result deleteConfig(String name) {
         String repoID =
             projectConfigs.get(ConfigKeyConstants.REPO_ID).replace(ProjectConstants.Common.COMMENT_SUFFIX, "");
-        String configPath = Constant.PLUGIN_CACHE_PATH + repoID + ProjectConstants.Common.CONFIG_SUFFIX;
+        String configPath =
+            PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + repoID + ProjectConstants.Common.CONFIG_SUFFIX;
         if (projectConfigs.containsKey(name)) {
             projectConfigs.remove(name);
         } else {
@@ -121,6 +136,7 @@ public final class ProjectConfigCache {
             if (clazz == String.class) {
                 return clazz.cast(value.toString());
             }
+
             return JSONObject.parseObject(value.toString(), clazz);
         } else {
             return defaultValue;
@@ -134,7 +150,7 @@ public final class ProjectConfigCache {
      * @return Load result
      */
     public Result loadConfig(String projectPath) {
-        String projectName = projectPath.substring(projectPath.lastIndexOf(Constant.SEPARATOR) + 1);
+        String projectName = projectPath.substring(projectPath.lastIndexOf(Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
         repoId = projectName + "." + projectPath.hashCode();
 
         loadConfig();
@@ -146,11 +162,38 @@ public final class ProjectConfigCache {
         return Result.ok();
     }
 
+    public void updateSetting(String projectPath, Map<String, String> localConfig) {
+        File file = new File(projectPath + OLD_CONFIG_FILE_PATH);
+        boolean result = file.delete();
+        if (!result) {
+            log.error("delete file failed");
+        }
+        deletePath(localConfig);
+        dealBackupPath(localConfig);
+        String folder = projectPath.substring(projectPath.lastIndexOf(Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
+        repoId = folder + "." + projectPath.hashCode();
+        localConfig.put(ConfigKeyConstants.PROJECT_ID, repoId);
+        localConfig.put(ConfigKeyConstants.CONVERTED_BY_OLD_SETTING, Boolean.TRUE.toString());
+        String path = PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH + repoId + ProjectConstants.Common.CONFIG_SUFFIX;
+
+        setProjectConfigs(localConfig);
+        Object configJson = JSONArray.toJSON(localConfig);
+        JsonUtil.createJsonFile(configJson.toString(), path, FILE_NAME);
+    }
+
+    /**
+     * clear map
+     */
+    public void clearConfig() {
+        projectConfigs.clear();
+    }
+
     private void loadConfig() {
         String configFileFolder = repoId + ProjectConstants.Common.CONFIG_SUFFIX;
-        String configFilePath = Paths.get(Constant.PLUGIN_CACHE_PATH, configFileFolder, FILE_JSON_NAME).toString();
+        String configFilePath =
+            Paths.get(PluginConstant.PluginDataDir.PLUGIN_CACHE_PATH, configFileFolder, FILE_JSON_NAME).toString();
         if (!new File(configFilePath).exists()) {
-            log.info("No config file generated! path = {}", configFilePath);
+            log.info("No config file generated! path: {}", configFilePath);
             return;
         }
         try {
@@ -164,49 +207,23 @@ public final class ProjectConfigCache {
         }
     }
 
-    public void updateSetting(String projectPath, Map<String, String> localConfig) {
-        File file = new File(projectPath + OLD_CONFIG_FILE_PATH);
-        boolean result = file.delete();
-        if (!result) {
-            log.error("delete file failed");
-        }
-        deletePath(localConfig);
-        dealBackupPath(localConfig);
-        String folder = projectPath.substring(projectPath.lastIndexOf(Constant.SEPARATOR) + 1);
-        repoId = folder + "." + projectPath.hashCode();
-        localConfig.put(ConfigKeyConstants.PROJECT_ID, repoId);
-        localConfig.put(ConfigKeyConstants.CONVERTED_BY_OLD_SETTING, "true");
-        String path = Constant.PLUGIN_CACHE_PATH + repoId + ProjectConstants.Common.CONFIG_SUFFIX;
-
-        setProjectConfigs(localConfig);
-        Object configJson = JSONArray.toJSON(localConfig);
-        JsonUtil.createJsonFile(configJson.toString(), path, FILE_NAME);
-    }
-
     /**
      * delete path when policy is g2h
      *
      * @param localConfig all config
      */
     private void deletePath(Map<String, String> localConfig) {
-        if (!localConfig.isEmpty() && localConfig.containsKey("routePolicy")
-            && localConfig.get("routePolicy").equals("G_TO_H")) {
-            localConfig.remove("xmsAdaptorPath");
-            localConfig.remove("xms4GAdaptorPathList");
+        if (!localConfig.isEmpty() && localConfig.containsKey(ROUTE_POLICY_KEY)
+            && localConfig.get(ROUTE_POLICY_KEY).equals(ROUTE_POLICY_G_TO_H)) {
+            localConfig.remove(XMS_ADAPTOR_KEY);
+            localConfig.remove(XMS4_ADAPTOR_KEY);
         }
     }
 
     private void dealBackupPath(Map<String, String> localConfig) {
-        if (!localConfig.isEmpty() && localConfig.containsKey("backupPath")
-            && localConfig.get("backupPath").contains("..")) {
-            localConfig.remove("backupPath");
+        if (!localConfig.isEmpty() && localConfig.containsKey(BACKUP_PATH_KEY)
+            && localConfig.get(BACKUP_PATH_KEY).contains(BACKUP_PATH_EXCEPTION)) {
+            localConfig.remove(BACKUP_PATH_KEY);
         }
-    }
-
-    /**
-     * clear map
-     */
-    public void clearConfig() {
-        projectConfigs.clear();
     }
 }

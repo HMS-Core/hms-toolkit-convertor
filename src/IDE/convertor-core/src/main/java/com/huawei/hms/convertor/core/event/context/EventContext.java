@@ -60,6 +60,7 @@ public final class EventContext {
         if (!contexts.containsKey(projectPath)) {
             return Result.failed("Project event context not found");
         }
+
         ProjectEventContext projectEventContext = contexts.get(projectPath);
         return projectEventContext.pushEvent(event);
     }
@@ -74,8 +75,10 @@ public final class EventContext {
             log.warn("Project[{}] event context had been started", projectPath);
             return;
         }
+
         ProjectEventContext projectEventContext = new ProjectEventContext(projectPath);
         contexts.put(projectPath, projectEventContext);
+
         projectEventContext.startup();
     }
 
@@ -89,6 +92,7 @@ public final class EventContext {
             log.warn("Project[{}] event context had been stopped", projectPath);
             return;
         }
+
         ProjectEventContext projectEventContext = contexts.get(projectPath);
         projectEventContext.shutdown();
         contexts.remove(projectPath);

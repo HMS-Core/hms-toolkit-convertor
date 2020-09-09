@@ -25,15 +25,14 @@ import com.huawei.hms.convertor.core.bi.bean.KitInfoBean;
 import com.huawei.hms.convertor.core.bi.bean.SourceInfoBean;
 import com.huawei.hms.convertor.core.bi.enumration.BIActionEnum;
 import com.huawei.hms.convertor.core.bi.enumration.ConversionStatusEnum;
-import com.huawei.hms.convertor.core.engine.fixbot.model.MethodItem;
+import com.huawei.hms.convertor.core.engine.fixbot.model.api.FixbotApiInfo;
 import com.huawei.hms.convertor.core.kits.KitsConstants;
 import com.huawei.hms.convertor.core.project.base.ProjectConstants;
-import com.huawei.hms.convertor.core.result.conversion.ConversionCacheManager;
 import com.huawei.hms.convertor.core.result.conversion.ConversionItem;
 import com.huawei.hms.convertor.core.result.conversion.ConvertType;
-import com.huawei.hms.convertor.core.result.summary.SummaryCacheManager;
 import com.huawei.hms.convertor.core.result.summary.SummaryConstants;
 import com.huawei.hms.convertor.openapi.ConversionCacheService;
+import com.huawei.hms.convertor.openapi.SummaryCacheService;
 import com.huawei.hms.convertor.util.Constant;
 
 import lombok.Getter;
@@ -78,18 +77,15 @@ public class BITraceService {
         if (data == null || projectPath == null) {
             return;
         }
-        BIDataBean biDataBean = BIDataBean.builder()
-            .action(action.getValue())
-            .timeStamp(getTimeStamp())
-            .detail(data.toString())
-            .build();
+        BIDataBean biDataBean =
+            BIDataBean.builder().action(action.getValue()).timeStamp(getTimeStamp()).detail(data.toString()).build();
 
         invokeBISdk(action.getValue(), biDataBean.toString(), getProjectName());
     }
 
     SourceInfoBean getSourceInfo() {
-        Map<String, String> detailData = SummaryCacheManager.getInstance().getShowData(projectPath);
-        if (null == detailData) {
+        Map<String, String> detailData = SummaryCacheService.getInstance().getShowData(projectPath);
+        if (detailData == null) {
             return null;
         }
         String autoConvertNumG2H = detailData.get(SummaryConstants.SUPPORT_AUTO_COUNT_TOHMS);
@@ -99,14 +95,15 @@ public class BITraceService {
         String manualConvertNumGH = detailData.get(SummaryConstants.SUPPORT_MANUAL_COUNT_ADDHMS);
         String autoConvertRateGH = detailData.get(SummaryConstants.SUPPORT_RATE_ADDHMS);
 
-        TreeMap<String, List<MethodItem>> kitMethods = SummaryCacheManager.getInstance().getKit2Methods(projectPath);
-        int totalNum = kitMethods.values().size();
+        TreeMap<String, List<FixbotApiInfo>> kit2FixbotMethodsMap =
+            SummaryCacheService.getInstance().getKit2FixbotMethodsMap(projectPath);
+        int totalNum = kit2FixbotMethodsMap.values().size();
         List<ApiBean> notSupportApiList = new ArrayList<>();
         List<KitInfoBean> kitInfoBeanList = new ArrayList<>();
 
-        Set<Map.Entry<String, List<MethodItem>>> entrySet = kitMethods.entrySet();
+        Set<Map.Entry<String, List<FixbotApiInfo>>> entrySet = kit2FixbotMethodsMap.entrySet();
 
-        for (Map.Entry<String, List<MethodItem>> entry : entrySet) {
+        for (Map.Entry<String, List<FixbotApiInfo>> entry : entrySet) {
             int autoConvert = 0;
             int manualConvert = 0;
             int notSupport = 0;
@@ -115,10 +112,10 @@ public class BITraceService {
                 continue;
             }
 
-            for (MethodItem method : entry.getValue()) {
+            for (FixbotApiInfo method : entry.getValue()) {
                 if (!method.isSupport()) {
                     notSupportApiList
-                        .add(ApiBean.builder().apiName(method.getMethodName()).kit(entry.getKey()).build());
+                        .add(ApiBean.builder().apiName(method.getOldNameInDesc()).kit(entry.getKey()).build());
                     notSupport++;
                 }
 
@@ -169,7 +166,7 @@ public class BITraceService {
 
         int notSupportApiNum = notSupportApiList.size();
 
-        List<ConversionItem> conversionItemList = ConversionCacheManager.getInstance().getAllConversions(projectPath);
+        List<ConversionItem> conversionItemList = ConversionCacheService.getInstance().getAllConversions(projectPath);
         long invokeNum = conversionItemList.stream().filter(it -> isApiConversionItem(it.getKitName())).count();
         ApiInfoBean apiInfoBean = ApiInfoBean.builder()
             .autoConversionNumG2H(autoConvertNumG2H)
@@ -201,8 +198,7 @@ public class BITraceService {
         long apiAutoConversionNum = 0;
         long commonConversionNum = 0;
         long commonAutoConversionNum = 0;
-        List<ConversionItem> conversionItemList =
-            ConversionCacheService.getInstance().getAllConversions(projectPath);
+        List<ConversionItem> conversionItemList = ConversionCacheService.getInstance().getAllConversions(projectPath);
         for (ConversionItem item : conversionItemList) {
             String kitNames = item.getKitName();
             if (kitNames.contains(KitsConstants.COMMON)) {
@@ -235,8 +231,8 @@ public class BITraceService {
         return String.valueOf(System.currentTimeMillis());
     }
 
-    void setJvmXmx(List<String> jvmOpt) {
-        for (String opt : jvmOpt) {
+    void setJvmXmx(List<String> jvmOpts) {
+        for (String opt : jvmOpts) {
             if (opt.contains(BIConstants.JVM_OPT_XMX)) {
                 jvmXmx = opt.substring(BIConstants.JVM_XMX_VALUE_START_INDEX);
             }
@@ -248,7 +244,8 @@ public class BITraceService {
             Class biClass = Class.forName(BIConstants.BI_SDK_CLASS_NAME);
             Class<?>[] methodParameterTypes = new Class<?>[] {String.class, String.class, String.class, String.class};
             Method biMethod = biClass.getDeclaredMethod(BIConstants.BI_SDK_METHOD_NAME, methodParameterTypes);
-            biMethod.invoke(null, action, detail, projectName, BIConstants.BI_SERVICE_ID);
+            Object[] parameters = new Object[] {action, detail, projectName, BIConstants.BI_SERVICE_ID};
+            biMethod.invoke(null, parameters);
         } catch (ClassNotFoundException | NoSuchMethodException e) {
             log.debug("invoke method failed");
         } catch (IllegalAccessException | InvocationTargetException e) {
@@ -257,6 +254,6 @@ public class BITraceService {
     }
 
     private String getProjectName() {
-        return projectPath.substring(projectPath.lastIndexOf(Constant.SEPARATOR) + 1);
+        return projectPath.substring(projectPath.lastIndexOf(Constant.UNIX_FILE_SEPARATOR_IN_CHAR) + 1);
     }
 }

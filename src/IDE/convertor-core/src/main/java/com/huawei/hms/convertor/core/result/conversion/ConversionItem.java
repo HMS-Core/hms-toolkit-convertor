@@ -34,7 +34,9 @@ public final class ConversionItem {
     private String filePath;
 
     /**
-     *  whether the conversion result is applied. ：{@code true} - Converted ，{@code false} - Restored
+     * Whether the conversion item is applied.
+     * {@code true} - Converted
+     * {@code false} - Reverted
      */
     private boolean applied;
 

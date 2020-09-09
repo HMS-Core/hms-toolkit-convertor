@@ -28,7 +28,7 @@ import lombok.Getter;
 @Getter
 public class CancelListenerBean extends BaseBIData {
     /**
-     * Select the page for canceling or exiting.
+     * View for canceling or exiting.
      */
     private String view;
 }

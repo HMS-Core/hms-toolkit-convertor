@@ -147,7 +147,7 @@
         {
             "androidName": "com.google.firebase.messaging.FirebaseMessagingService",
             "operation": "replace",
-            "newContent": "<service android:name=\"%subclass\" \n android:exported=\"true\" \n android:permission=\"${applicationId}.permission.PROCESS_PUSH_MSG\" \n android:process=\":HmsMessageService\">\n  <intent-filter>\n   <action android:name=\"com.huawei.push.action.MESSAGING_EVENT\"/>\n  <action android:name=\"com.google.firebase.MESSAGING_EVENT\" />\n  </intent-filter>\n</service>\n <service android:name=\"com.huawei.hms.support.api.push.service.HmsMsgService\" \n android:enabled=\"true\" \n android:exported=\"true\" \n  android:process=\":pushservice\">\n  <intent-filter>\n   <action android:name=\"com.huawei.push.msg.NOTIFY_MSG\"/>\n <action android:name=\"com.huawei.push.msg.PASSBY_MSG\"/>\n  </intent-filter>\n</service>",
+            "newContent": "<service android:name=\"%subclass\" \n android:exported=\"true\" \n android:permission=\"${applicationId}.permission.PROCESS_PUSH_MSG\" \n android:process=\":HmsMessageService\">\n  <intent-filter>\n   <action android:name=\"com.huawei.push.action.MESSAGING_EVENT\"/>\n  </intent-filter>\n</service>",
             "labelName": "service",
             "desc": {
                 "kit":"Push",
@@ -200,7 +200,7 @@
             "desc":{
                 "kit":"ML",
                 "text":"This meta-data will be replaced by push_kit_auto_init_enabled.",
-                "url":"https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/push-basic-capability#automatic_initialization",
+                "url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/android-client-dev-0000001050042041#EN-US_TOPIC_0000001050042041__section13546121751811",
                 "status": "Manual"
             }
         }
@@ -245,7 +245,7 @@
             "desc":{
                 "kit":"Ads",
                 "text":"com.google.android.gms.ads.AdView should be replaced by com.huawei.hms.ads.banner.BannerView; adUnitId should be replaced by adId; adSize should be replaced by bannerSize.",
-                "url":"https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-guide-banner",
+                "url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-banner-0000001050066915",
                 "status": "Manual"
             },
             "comment":"Ads"
@@ -256,7 +256,7 @@
             "desc":{
                 "kit":"Ads",
                 "text":"com.google.android.gms.ads.doubleclick.PublisherAdView should be replaced by com.huawei.hms.ads.banner.BannerView; adUnitId should be replaced by adId; adSize should be replaced by bannerSize.",
-                "url":"https://developer.huawei.com/consumer/en/doc/development/HMS-Guides/ads-sdk-guide-banner",
+                "url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-banner-0000001050066915",
                 "status": "Manual"
             },
             "comment":"Ads"
@@ -360,5 +360,119 @@
             },
             "comment":"Ads"
         }
+    ],
+	"SpecialConversionResourceDesc": {
+        "desc": {
+            "kit": "RemoteConfig",
+            "text": "RemoteConfig and AGC have different configuration file formats, so it need to be converted.",
+            "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-remote-0000001050157274#EN-US_TOPIC_0000001050157274__section18611325111319",
+            "status": "Auto"
+        }
+    },
+    "layoutAtrrValueOperation": [
+        {
+            "oldClassName": "com.google.android.gms.common.SignInButton",
+            "oldAtrributeName": "buttonSize",
+            "oldAtrrValue": "standard",
+            "newAtrrValue": "",
+            "desc": {
+                "kit": "Account",
+                "text": "The value 'standard' is not supported, please delete it.",
+                "url": "",
+                "status": "Manuel"
+            },
+            "comment": "Account"
+        },
+        {
+            "oldClassName": "com.google.android.gms.common.SignInButton",
+            "oldAtrributeName": "buttonSize",
+            "oldAtrrValue": "wide",
+            "newAtrrValue": "hwid_button_theme_full_title",
+            "desc": {
+                "kit": "Account",
+                "text": "The value 'wide' will be replaced by 'hwid_button_theme_full_title'.",
+                "url": "",
+                "status": "Auto"
+            },
+            "comment": "Account"
+        },
+        {
+            "oldClassName": "com.google.android.gms.common.SignInButton",
+            "oldAtrributeName": "buttonSize",
+            "oldAtrrValue": "icon_only",
+            "newAtrrValue": "hwid_button_theme_no_title",
+            "desc": {
+                "kit": "Account",
+                "text": "The value 'icon_only' will be replaced by 'hwid_button_theme_no_title'.",
+                "url": "",
+                "status": "Auto"
+            },
+            "comment": "Account"
+        },
+        {
+            "oldClassName": "com.google.android.gms.common.SignInButton",
+            "oldAtrributeName": "colorScheme",
+            "oldAtrrValue": "dark",
+            "newAtrrValue": "hwid_color_policy_red",
+            "desc": {
+                "kit": "Account",
+                "text": "The value 'dark' will be replaced by 'hwid_color_policy_red'.",
+                "url": "",
+                "status": "Auto"
+            },
+            "comment": "Account"
+        },
+        {
+            "oldClassName": "com.google.android.gms.common.SignInButton",
+            "oldAtrributeName": "colorScheme",
+            "oldAtrrValue": "light",
+            "newAtrrValue": "hwid_color_policy_white",
+            "desc": {
+                "kit": "Account",
+                "text": "The value 'light' will be replaced by 'hwid_color_policy_white'.",
+                "url": "",
+                "status": "Auto"
+            },
+            "comment": "Account"
+        },
+        {
+            "oldClassName": "com.google.android.gms.common.SignInButton",
+            "oldAtrributeName": "colorScheme",
+            "oldAtrrValue": "auto",
+            "newAtrrValue": "hwid_color_policy_blue",
+            "desc": {
+                "kit": "Account",
+                "text": "The value 'auto' will be replaced by 'hwid_color_policy_blue'.",
+                "url": "",
+                "status": "Auto"
+            },
+            "comment": "Account"
+        }
+    ],
+    "layoutAtrributeOperation": [
+    {
+        "oldClassName": "com.google.android.gms.common.SignInButton",
+        "oldAtrributeName": "buttonSize",
+        "newAtrributeName": "hwid_button_theme",
+        "desc": {
+            "kit": "Account",
+            "text": "The attribute 'buttonSize' will be replaced by 'hwid_button_theme'.",
+            "url": "",
+            "status": "Auto"
+        },
+        "comment": "Account"
+    },
+    {
+        "oldClassName": "com.google.android.gms.common.SignInButton",
+        "oldAtrributeName": "colorScheme",
+        "newAtrributeName": "hwid_color_policy",
+        "desc": {
+            "kit": "Account",
+            "text": "The attribute 'colorScheme' will be replaced by 'hwid_color_policy'.",
+            "url": "",
+            "status": "Auto"
+        },
+        "comment": "Account"
+    }
     ]
 }

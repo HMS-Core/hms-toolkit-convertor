@@ -34,6 +34,10 @@ public final class ConfigCacheManager {
 
     private Map<String, ProjectConfigCache> configs;
 
+    private ConfigCacheManager() {
+        configs = new HashMap<>();
+    }
+
     /**
      * Get singleton instance of {@code ConfigCacheManager}
      *
@@ -41,10 +45,6 @@ public final class ConfigCacheManager {
      */
     public static ConfigCacheManager getInstance() {
         return CACHE_SERVICE;
-    }
-
-    private ConfigCacheManager() {
-        configs = new HashMap<>();
     }
 
     /**

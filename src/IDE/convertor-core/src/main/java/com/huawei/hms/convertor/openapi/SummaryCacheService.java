@@ -16,7 +16,9 @@
 
 package com.huawei.hms.convertor.openapi;
 
-import com.huawei.hms.convertor.core.engine.fixbot.model.MethodItem;
+import com.huawei.hms.convertor.core.engine.fixbot.model.XmsSetting;
+import com.huawei.hms.convertor.core.engine.fixbot.model.api.FixbotApiInfo;
+import com.huawei.hms.convertor.core.engine.fixbot.model.project.ProjectStatisticsResult;
 import com.huawei.hms.convertor.core.result.summary.SummaryCacheManager;
 
 import java.util.List;
@@ -58,14 +60,35 @@ public final class SummaryCacheService {
      * @param projectBasePath project base path
      * @return kit-method items
      */
-    public TreeMap<String, List<MethodItem>> loadSummary(String projectBasePath) {
+    public TreeMap<String, List<FixbotApiInfo>> loadSummary(String projectBasePath) {
         return SummaryCacheManager.getInstance().loadSummary(projectBasePath);
+    }
+
+    /**
+     * except projectStatisticsResultMap, because conversion toolWindow need to use it
+     *
+     * @param projectBasePath project base path
+     * @see #clearAnalyseResultCache4ConversionToolWindow(String)
+     */
+    public void clearAnalyseResultCache4Export(String projectBasePath) {
+        SummaryCacheManager.getInstance().clearKit2MethodAnalyseResultsMap(projectBasePath);
+        SummaryCacheManager.getInstance().clearKit2ClassAnalyseResultsMap(projectBasePath);
+        SummaryCacheManager.getInstance().clearKit2FieldAnalyseResultsMap(projectBasePath);
+    }
+
+    public void clearAnalyseResultCache4ConversionToolWindow(String projectBasePath) {
+        SummaryCacheManager.getInstance().clearProjectStatisticsResultMap(projectBasePath);
+    }
+
+    public void clearAnalyseResultCache4SummaryResult(String projectBasePath) {
+        SummaryCacheManager.getInstance().clearKit2FixbotMethodsMap(projectBasePath);
+        SummaryCacheManager.getInstance().clearKitStatisticsResultsMap(projectBasePath);
     }
 
     /**
      * Get kits name list
      *
-     * @param projectBasePath  project base path
+     * @param projectBasePath project base path
      * @return kit name list
      */
     public List<String> getAllKits(String projectBasePath) {
@@ -75,17 +98,21 @@ public final class SummaryCacheService {
     /**
      * Get dependency list
      *
-     * @param projectBasePath  project base path
+     * @param projectBasePath project base path
      * @return dependency list
      */
     public List<String> getAllDependency(String projectBasePath) {
         return SummaryCacheManager.getInstance().getAllDependencies(projectBasePath);
     }
 
+    public Map<String, String> getDependencyVersion(String projectBasePath) {
+        return SummaryCacheManager.getInstance().getDependencyVersion(projectBasePath);
+    }
+
     /**
      * Get detail summary data
      *
-     * @param projectBasePath  project base path
+     * @param projectBasePath project base path
      * @return detail data map
      */
     public Map<String, String> getShowData(String projectBasePath) {
@@ -95,10 +122,18 @@ public final class SummaryCacheService {
     /**
      * Get kit - methods map
      *
-     * @param projectBasePath  project base path
+     * @param projectBasePath project base path
      * @return kit - methods
      */
-    public TreeMap<String, List<MethodItem>> getKit2Methods(String projectBasePath) {
-        return SummaryCacheManager.getInstance().getKit2Methods(projectBasePath);
+    public TreeMap<String, List<FixbotApiInfo>> getKit2FixbotMethodsMap(String projectBasePath) {
+        return SummaryCacheManager.getInstance().getKit2FixbotMethodsMap(projectBasePath);
+    }
+
+    public ProjectStatisticsResult getProjectStatisticsResult(String projectBasePath) {
+        return SummaryCacheManager.getInstance().getProjectStatisticsResult(projectBasePath);
+    }
+
+    public XmsSetting getGlobalSetting(String projectBasePath) {
+        return SummaryCacheManager.getInstance().getXmsSettingMap(projectBasePath);
     }
 }

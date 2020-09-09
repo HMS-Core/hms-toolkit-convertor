@@ -26,38 +26,37 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.NoSuchFileException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Function Description
- *
- * @since 2020-03-23
- */
 public final class HmsConvertorUtil {
+    private static final String APP_BUILD_GRADLE = "AppBuildGradle";
+
+    private static final String ADD_INDEPENDENCY = "addInDependencies";
+
     public static Map<String, Set<String>> parseGradle(String configPath) throws IOException {
         Map<String, Set<String>> kit2Dependency = new HashMap<>();
         JSONObject gradle = getResultList(configPath);
-        Object appBuildGradle = gradle.get("AppBuildGradle");
+        Object appBuildGradle = gradle.get(APP_BUILD_GRADLE);
         Map<String, Object> map = JSON.parseObject(appBuildGradle.toString(), Map.class);
-        Object addInDependencies = map.get("addInDependencies");
+        Object addInDependencies = map.get(ADD_INDEPENDENCY);
         List<Object> dependencies = JSON.parseObject(addInDependencies.toString(), List.class);
         for (Object dependency : dependencies) {
             Dependency de = JSON.parseObject(dependency.toString(), Dependency.class);
             List<String> dependencyNames = de.getAddDependenciesName();
             String originGoogleName = de.getOriginGoogleName();
-            String g = originGoogleName + ":" + de.getVersion();
+            String gName = originGoogleName + ":" + de.getVersion();
             ConversionPointDesc desc = de.getDescAuto();
             if (kit2Dependency.containsKey(desc.getKit())) {
-                kit2Dependency.get(desc.getKit()).add(g);
+                kit2Dependency.get(desc.getKit()).add(gName);
             } else {
                 Set<String> dependencySet = new HashSet<>();
-                dependencySet.add(g);
+                dependencySet.add(gName);
                 dependencySet.addAll(dependencyNames);
                 if (desc.getKit().equals(KitsConstants.ML)) {
                     if (originGoogleName.equals(KitsConstants.ML_GMS_NAME)
@@ -77,21 +76,15 @@ public final class HmsConvertorUtil {
             }
             kit2Dependency.get(desc.getKit()).addAll(dependencyNames);
         }
-        // ML special
-        List<String> mlList = new ArrayList<>();
-        mlList.add("com.google.firebase:firebase-ml-natural-language:21.0.2");
-        mlList.add("com.google.firebase:firebase-ml-natural-language-translate-model:20.0.5");
-        mlList.add("com.google.firebase:firebase-ml-model-interpreter:22.0.1");
-        kit2Dependency.get(KitsConstants.ML_FIREBASE).addAll(mlList);
         return kit2Dependency;
     }
 
     public static <T> JSONObject getResultList(String resultFilePath) throws IOException, JSONException {
-        if (null == resultFilePath || !new File(resultFilePath).exists()) {
+        if (resultFilePath == null || !new File(resultFilePath).exists()) {
             throw new NoSuchFileException("No result file generated! resultFilePath = " + resultFilePath);
         }
 
-        String resultString = FileUtil.readToString(resultFilePath, Constant.GBK);
+        String resultString = FileUtil.readToString(resultFilePath, StandardCharsets.UTF_8.toString());
         JSONObject wiseHubs = JSON.parseObject(resultString);
         return wiseHubs;
     }

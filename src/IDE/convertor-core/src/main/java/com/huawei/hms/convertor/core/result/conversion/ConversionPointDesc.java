@@ -31,12 +31,15 @@ public final class ConversionPointDesc {
     private String gmsVersion;
     private String hmsVersion;
     private String methodName;
+    private String className;
+    private String fieldName;
     private String version;
     private String status;
     private boolean support;
     private boolean isUpdate;
     private String dependencyName;
     private String type;
+    private String extraPath;
     private boolean sdk;
 
     public ConversionPointDesc() {}

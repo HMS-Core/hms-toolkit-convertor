@@ -16,17 +16,17 @@
 
 package com.huawei.hms.convertor.util;
 
-import com.huawei.hms.convertor.core.engine.fixbot.util.FirebaseWhitelist;
-import com.huawei.hms.convertor.core.engine.fixbot.util.GMSWhitelist;
+import com.huawei.hms.convertor.core.engine.fixbot.util.FirebaseTrustList;
+import com.huawei.hms.convertor.core.engine.fixbot.util.GMSTrustList;
 
 public final class KitUtil {
     public static boolean supportKitToH(String name) {
-        for (GMSWhitelist gms : GMSWhitelist.values()) {
+        for (GMSTrustList gms : GMSTrustList.values()) {
             if (gms.getName().equals(name)) {
                 return true;
             }
         }
-        for (FirebaseWhitelist firebase : FirebaseWhitelist.values()) {
+        for (FirebaseTrustList firebase : FirebaseTrustList.values()) {
             if (firebase.getName().equals(name)) {
                 return true;
             }
