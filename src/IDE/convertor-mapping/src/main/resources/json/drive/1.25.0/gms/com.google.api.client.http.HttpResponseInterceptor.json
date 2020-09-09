@@ -1,0 +1,50 @@
+{
+  "gName": "com.google.api.client.http.HttpResponseInterceptor",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "interceptResponse",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.api.client.http.HttpResponse"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "interceptResponse",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.cloud.base.http.HttpResponse"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.http.HttpResponseInterceptor",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.cloud.base.http.HttpResponseInterceptor",
+  "kitName": "Drive",
+  "status": "matching"
+}

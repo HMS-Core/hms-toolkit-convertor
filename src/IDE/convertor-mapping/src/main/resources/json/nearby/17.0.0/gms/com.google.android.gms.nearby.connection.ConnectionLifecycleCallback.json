@@ -1,0 +1,159 @@
+{
+  "gName": "com.google.android.gms.nearby.connection.ConnectionLifecycleCallback",
+  "interfaces": [],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onConnectionInitiated",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.connection.ConnectionInfo"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onEstablish",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.discovery.ConnectInfo"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.discovery.ConnectCallback",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onConnectionResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.connection.ConnectionResolution"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.discovery.ConnectResult"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.discovery.ConnectCallback",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onDisconnected",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onDisconnected",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.discovery.ConnectCallback",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ConnectionLifecycleCallback",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ConnectCallback",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.discovery.ConnectCallback",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.discovery.ConnectCallback",
+  "kitName": "Nearby",
+  "status": "matching"
+}

@@ -1,0 +1,144 @@
+{
+  "gName": "com.google.android.gms.fitness.service.FitnessSensorService",
+  "interfaces": [],
+  "dependencyName": "Health",
+  "superClass": "android.app.Service",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onBind",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "android.os.IBinder"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onCreate",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onFindDataSources",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List<com.google.android.gms.fitness.data.DataType>"
+          }
+        ],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.DataSource>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onRegister",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.service.FitnessSensorServiceRequest"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onUnregister",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "FitnessSensorService",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SERVICE_INTERFACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.fitness.service.FitnessSensorService"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Health",
+  "status": "notSupport"
+}

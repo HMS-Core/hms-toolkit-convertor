@@ -1,0 +1,204 @@
+{
+  "gName": "com.google.android.gms.vision.barcode.Barcode.Phone",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "MLgms",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Phone",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "TelPhoneNumber",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "FAX",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "FAX_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"Barcode.Phone public static final int FAX = 3\" will be replaced by \"HmsScan.TelPhoneNumber public static final int FAX_USE_TYPE = 0\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "HOME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "RESIDENTIAL_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"Barcode.Phone public static final int HOME = 2\" will be replaced by \"HmsScan.TelPhoneNumber public static final int RESIDENTIAL_USE_TYPE = 1\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "MOBILE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "CELLPHONE_NUMBER_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"Barcode.Phone public static final int MOBILE = 4\" will be replaced by \"HmsScan.TelPhoneNumber public static final int CELLPHONE_NUMBER_USE_TYPE = 2\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "OTHER_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "\"Barcode.Phone public static final int UNKNOWN = 0\" will be replaced by \"HmsScan.TelPhoneNumber public static final int OTHER_USE_TYPE = -1\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "WORK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "OFFICE_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"Barcode.Phone public static final int WORK = 1\" will be replaced by \"HmsScan.TelPhoneNumber public static final int OFFICE_USE_TYPE = 3\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "type",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "h": {
+        "name": "useType",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"Barcode.Phone public int type\" will be replaced by \"HmsScan.TelPhoneNumber public int useType\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "number",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "telPhoneNumber",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.Phone public java.lang.String number\" will be replaced by \"HmsScan.TelPhoneNumber public java.lang.String telPhoneNumber\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+  "kitName": "ML",
+  "status": "matching"
+}

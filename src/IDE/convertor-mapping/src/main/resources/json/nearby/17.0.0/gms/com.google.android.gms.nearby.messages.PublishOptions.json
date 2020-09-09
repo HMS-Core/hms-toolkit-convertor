@@ -1,0 +1,89 @@
+{
+  "gName": "com.google.android.gms.nearby.messages.PublishOptions",
+  "interfaces": [],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCallback",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.nearby.messages.PublishCallback"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCallback",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.nearby.message.PutCallback"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.PutOption",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getStrategy",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.nearby.messages.Strategy"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPolicy",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.nearby.message.Policy"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.PutOption",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "DEFAULT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.nearby.messages.PublishOptions",
+        "value": ""
+      },
+      "h": {
+        "name": "DEFAULT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.nearby.message.PutOption",
+        "value": ""
+      },
+      "text": "\"PublishOptions public static final com.google.android.gms.nearby.messages.PublishOptions DEFAULT\" will be replaced by \"PutOption public static final com.huawei.hms.nearby.message.PutOption DEFAULT\"",
+      "hName": "com.huawei.hms.nearby.message.PutOption",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.message.PutOption",
+  "kitName": "Nearby",
+  "status": "matching"
+}

@@ -1,0 +1,125 @@
+{
+  "gName": "com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "FIDO",
+  "superClass": "java.lang.Enum<com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference>",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "DIRECT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference",
+        "value": ""
+      },
+      "h": {
+        "name": "DIRECT",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference",
+        "value": ""
+      },
+      "text": "\"AttestationConveyancePreference public static final com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference DIRECT\" will be replaced by \"AttestationConveyancePreference com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference DIRECT\"",
+      "hName": "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "INDIRECT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference",
+        "value": ""
+      },
+      "h": {
+        "name": "INDIRECT",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference",
+        "value": ""
+      },
+      "text": "\"AttestationConveyancePreference public static final com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference INDIRECT\" will be replaced by \"AttestationConveyancePreference com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference INDIRECT\"",
+      "hName": "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "NONE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference",
+        "value": ""
+      },
+      "h": {
+        "name": "NONE",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference",
+        "value": ""
+      },
+      "text": "\"AttestationConveyancePreference public static final com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference NONE\" will be replaced by \"AttestationConveyancePreference com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference NONE\"",
+      "hName": "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator",
+        "value": ""
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "enum",
+  "hName": "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference",
+  "kitName": "FIDO",
+  "status": "complex"
+}

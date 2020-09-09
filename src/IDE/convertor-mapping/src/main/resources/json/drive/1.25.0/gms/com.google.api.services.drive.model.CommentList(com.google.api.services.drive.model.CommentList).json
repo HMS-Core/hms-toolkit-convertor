@@ -1,0 +1,256 @@
+{
+  "gName": "com.google.api.services.drive.model.CommentList",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "com.google.api.client.json.GenericJson",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "CommentList",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "CommentList",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.CommentList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.lang.CloneNotSupportedException"
+        ],
+        "modifiers": [],
+        "name": "clone",
+        "paramTypes": [],
+        "retType": "com.google.api.services.drive.model.CommentList"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "clone",
+        "paramTypes": [],
+        "retType": "com.huawei.cloud.services.drive.model.CommentList"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.CommentList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getComments",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.api.services.drive.model.Comment>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getComments",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.cloud.services.drive.model.Comment>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.CommentList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getKind",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCategory",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.CommentList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getNextPageToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getNextCursor",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.CommentList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "set",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.CommentList"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "set",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "CommentList"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.CommentList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setComments",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.CommentList"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setComments",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List<com.huawei.cloud.services.drive.model.Comment>"
+          }
+        ],
+        "retType": "CommentList"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.CommentList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setKind",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.CommentList"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCategory",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "CommentList"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.CommentList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setNextPageToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.CommentList"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setNextCursor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "CommentList"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.CommentList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.cloud.services.drive.model.CommentList",
+  "kitName": "Drive",
+  "status": "matching"
+}

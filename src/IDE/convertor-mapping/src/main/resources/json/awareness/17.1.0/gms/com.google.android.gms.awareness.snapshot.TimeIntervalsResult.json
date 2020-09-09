@@ -1,0 +1,35 @@
+{
+  "gName": "com.google.android.gms.awareness.snapshot.TimeIntervalsResult",
+  "interfaces": [
+    "com.google.android.gms.common.api.Result"
+  ],
+  "dependencyName": "Awareness",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTimeIntervals",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.awareness.state.TimeIntervals"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion \nGuide.",
+      "hName": "com.huawei.hms.kit.awareness.capture.TimeCategoriesResponse",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section252617493717"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Awareness",
+  "status": "manuallyAdapt"
+}

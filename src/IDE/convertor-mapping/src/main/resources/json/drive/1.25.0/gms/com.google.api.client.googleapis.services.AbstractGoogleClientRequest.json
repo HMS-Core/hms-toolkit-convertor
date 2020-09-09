@@ -1,0 +1,48 @@
+{
+  "gName": "com.google.api.client.googleapis.services.AbstractGoogleClientRequest<T>",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "com.google.api.client.util.GenericData",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDisableGZipContent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.api.client.googleapis.services.AbstractGoogleClientRequest<T>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDisableGZip",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.base.services.AbstractClientRequest<T>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.services.AbstractClientRequest<T>",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.cloud.base.services.AbstractClientRequest<T>",
+  "kitName": "Drive",
+  "status": "matching"
+}

@@ -1,0 +1,603 @@
+{
+  "gName": "com.google.android.gms.nearby.connection.ConnectionsStatusCodes",
+  "interfaces": [],
+  "dependencyName": "Nearby",
+  "superClass": "com.google.android.gms.common.api.CommonStatusCodes",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusCodeString",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusCode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "API_CONNECTION_FAILED_ALREADY_IN_USE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8050"
+      },
+      "h": {
+        "name": "STATUS_API_OCCUPIED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8013"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  API_CONNECTION_FAILED_ALREADY_IN_USE=8050\" will be replaced by \"StatusCode public static final int STATUS_API_OCCUPIED=8013\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MISSING_PERMISSION_ACCESS_COARSE_LOCATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8034"
+      },
+      "h": {
+        "name": "STATUS_MISSING_PERMISSION_ACCESS_COARSE_LOCATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8014"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  MISSING_PERMISSION_ACCESS_COARSE_LOCATION=8034\" will be replaced by \"StatusCode public static final int STATUS_MISSING_PERMISSION_ACCESS_COARSE_LOCATION=8014\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MISSING_PERMISSION_ACCESS_WIFI_STATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8032"
+      },
+      "h": {
+        "name": "STATUS_MISSING_PERMISSION_ACCESS_WIFI_STATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8015"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  MISSING_PERMISSION_ACCESS_WIFI_STATE=8032\" will be replaced by \"StatusCode public static final int STATUS_MISSING_PERMISSION_ACCESS_WIFI_STATE=8015\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MISSING_PERMISSION_BLUETOOTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8030"
+      },
+      "h": {
+        "name": "STATUS_MISSING_PERMISSION_BLUETOOTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8016"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  MISSING_PERMISSION_BLUETOOTH=8030\" will be replaced by \"StatusCode public static final int STATUS_MISSING_PERMISSION_BLUETOOTH=8016\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MISSING_PERMISSION_BLUETOOTH_ADMIN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8031"
+      },
+      "h": {
+        "name": "STATUS_MISSING_PERMISSION_BLUETOOTH_ADMIN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8017"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  MISSING_PERMISSION_BLUETOOTH_ADMIN=8031\" will be replaced by \"StatusCode public static final int STATUS_MISSING_PERMISSION_BLUETOOTH_ADMIN=8017\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MISSING_PERMISSION_CHANGE_WIFI_STATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8033"
+      },
+      "h": {
+        "name": "STATUS_MISSING_PERMISSION_CHANGE_WIFI_STATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8018"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  MISSING_PERMISSION_CHANGE_WIFI_STATE=8033\" will be replaced by \"StatusCode public static final int STATUS_MISSING_PERMISSION_CHANGE_WIFI_STATE=8018\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MISSING_PERMISSION_RECORD_AUDIO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8035"
+      },
+      "h": {
+        "name": "STATUS_MISSING_PERMISSION_RECORD_AUDIO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8019"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  MISSING_PERMISSION_RECORD_AUDIO=8035\" will be replaced by \"StatusCode public static final int STATUS_MISSING_PERMISSION_RECORD_AUDIO=8019\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MISSING_SETTING_LOCATION_MUST_BE_ON",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8025"
+      },
+      "h": {
+        "name": "STATUS_MISSING_SETTING_LOCATION_ON",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8020"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  MISSING_SETTING_LOCATION_MUST_BE_ON=8025\" will be replaced by \"StatusCode public static final int STATUS_MISSING_SETTING_LOCATION_ON=8020\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_ALREADY_ADVERTISING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8001"
+      },
+      "h": {
+        "name": "STATUS_ALREADY_BROADCASTING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8005"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  STATUS_ALREADY_ADVERTISING=8001\" will be replaced by \"StatusCode public static final int STATUS_ALREADY_BROADCASTING=8005\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_ALREADY_CONNECTED_TO_ENDPOINT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8003"
+      },
+      "h": {
+        "name": "STATUS_ALREADY_CONNECTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8006"
+      },
+      "text": "\"ConnectionsStatusCodes public static final int STATUS_ALREADY_CONNECTED_TO_ENDPOINT = 8003\" will be replaced by \"StatusCode public static final int STATUS_ALREADY_CONNECTED=8006\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_ALREADY_DISCOVERING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8002"
+      },
+      "h": {
+        "name": "STATUS_ALREADY_SCANNING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8007"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  STATUS_ALREADY_DISCOVERING=8002\" will be replaced by \"StatusCode public static final int STATUS_ALREADY_SCANNING=8007\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_ALREADY_HAVE_ACTIVE_STRATEGY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8008"
+      },
+      "h": {
+        "name": "STATUS_POLICY_CONFLICT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8008"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  STATUS_ALREADY_HAVE_ACTIVE_STRATEGY=8008\" will be replaced by \"StatusCode public static final  int  STATUS_POLICY_CONFLICT=8008\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_BLUETOOTH_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8007"
+      },
+      "h": {
+        "name": "STATUS_BLUETOOTH_OPERATION_FAILED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8009"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  STATUS_BLUETOOTH_ERROR=8007\" will be replaced by \"StatusCode public static final int STATUS_BLUETOOTH_OPERATION_FAILED=8009\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_CONNECTION_REJECTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8004"
+      },
+      "h": {
+        "name": "STATUS_CONNECT_REJECTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8010"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  STATUS_CONNECTION_REJECTED=8004\" will be replaced by \"StatusCode public static final int STATUS_CONNECT_REJECTED=8010\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_ENDPOINT_IO_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8012"
+      },
+      "h": {
+        "name": "STATUS_CONNECT_IO_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8011"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  STATUS_ENDPOINT_IO_ERROR=8012\" will be replaced by \"StatusCode public static final int STATUS_CONNECT_IO_ERROR=8011\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_ENDPOINT_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8011"
+      },
+      "h": {
+        "name": "STATUS_ENDPOINT_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8012"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  STATUS_ENDPOINT_UNKNOWN=8011\" will be replaced by \"StatusCode public static final int STATUS_ENDPOINT_UNKNOWN=8012\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "13"
+      },
+      "h": {
+        "name": "STATUS_FAILURE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  STATUS_ERROR=13\" will be replaced by \"StatusCode public static final  int STATUS_FAILURE=-1\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_NETWORK_NOT_CONNECTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8000"
+      },
+      "h": {
+        "name": "STATUS_NO_NETWORK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8002"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  STATUS_NETWORK_NOT_CONNECTED=8000\" will be replaced by \"StatusCode public static final  int STATUS_NO_NETWORK=8002\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_NOT_CONNECTED_TO_ENDPOINT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8005"
+      },
+      "h": {
+        "name": "STATUS_NOT_CONNECTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8003"
+      },
+      "text": "\"ConnectionsStatusCodes public static final int STATUS_NOT_CONNECTED_TO_ENDPOINT = 8005\" will be replaced by \"StatusCode public static final  int STATUS_NOT_CONNECTED=8003\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_OK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "STATUS_SUCCESS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  STATUS_OK=0\" will be replaced by \"StatusCode public static final  int STATUS_SUCCESS=0\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_OUT_OF_ORDER_API_CALL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8009"
+      },
+      "h": {
+        "name": "STATUS_API_DISORDER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8001"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  STATUS_OUT_OF_ORDER_API_CALL=8009\" will be replaced by \"StatusCode public static final  int STATUS_API_DISORDER=8001\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "STATUS_PAYLOAD_IO_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8013"
+      },
+      "h": {
+        "name": "STATUS_TRANSFER_IO_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8004"
+      },
+      "text": "\"ConnectionsStatusCodes public static final  int  STATUS_PAYLOAD_IO_ERROR=8013\" will be replaced by \"StatusCode public static final  int STATUS_TRANSFER_IO_ERROR=8004\"",
+      "hName": "com.huawei.hms.nearby.StatusCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.StatusCode",
+  "kitName": "Nearby",
+  "status": "matching"
+}

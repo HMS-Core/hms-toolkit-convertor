@@ -1,0 +1,50 @@
+{
+  "gName": "com.google.android.gms.location.places.PlaceLikelihood",
+  "interfaces": [
+    "com.google.android.gms.common.api.Result",
+    "com.google.android.gms.common.data.Freezable<com.google.android.gms.location.places.PlaceLikelihood>"
+  ],
+  "dependencyName": "Site",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLikelihood",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/android-sdk-keyword-search-0000001050156630"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPlace",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.location.places.Place"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/android-sdk-keyword-search-0000001050156630"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Site",
+  "status": "manuallyAdapt"
+}

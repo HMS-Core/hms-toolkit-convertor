@@ -1,0 +1,52 @@
+{
+  "gName": "com.google.android.gms.auth.api.signin.RevocationBoundService",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "android.app.Service",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "onBind",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "android.os.IBinder"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "RevocationBoundService",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Account",
+  "status": "notSupport"
+}

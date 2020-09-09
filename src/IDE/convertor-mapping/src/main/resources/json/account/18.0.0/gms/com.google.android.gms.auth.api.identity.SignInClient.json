@@ -1,0 +1,77 @@
+{
+  "gName": "com.google.android.gms.auth.api.identity.SignInClient",
+  "interfaces": [
+    "com.google.android.gms.common.api.HasApiKey<com.google.android.gms.auth.api.identity.SignInOptions>"
+  ],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "beginSignIn",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.auth.api.identity.BeginSignInRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.auth.api.identity.BeginSignInResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.common.api.ApiException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSignInCredentialFromIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.identity.SignInCredential"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "signOut",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Account",
+  "status": "notSupport"
+}

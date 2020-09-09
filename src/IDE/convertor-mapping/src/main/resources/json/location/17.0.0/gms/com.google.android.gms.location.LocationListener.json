@@ -1,0 +1,36 @@
+{
+  "gName": "com.google.android.gms.location.LocationListener",
+  "interfaces": [],
+  "dependencyName": "Location",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onLocationChanged",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.location.Location"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Location",
+  "status": "notSupport"
+}

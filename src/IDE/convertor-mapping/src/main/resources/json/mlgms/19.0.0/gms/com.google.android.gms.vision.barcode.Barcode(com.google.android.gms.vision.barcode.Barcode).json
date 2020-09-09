@@ -1,0 +1,955 @@
+{
+  "gName": "com.google.android.gms.vision.barcode.Barcode",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "MLgms",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBoundingBox",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBorderRect",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "ALL_FORMATS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "ALL_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"Barcode public static final int ALL_FORMATS = 0\" will be replaced by \"HmsScan public static final int ALL_SCAN_TYPE = 0\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "AZTEC",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4096"
+      },
+      "h": {
+        "name": "AZTEC_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"Barcode public static final int AZTEC = 4096\" will be replaced by \"HmsScan public static final int AZTEC_SCAN_TYPE = 2\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "CALENDAR_EVENT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11"
+      },
+      "h": {
+        "name": "EVENT_INFO_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1008"
+      },
+      "text": "\"Barcode public static final int CALENDAR_EVENT = 11\" will be replaced by \"HmsScan public static final int EVENT_INFO_FORM = 1008\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "CODABAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "h": {
+        "name": "CODABAR_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4096"
+      },
+      "text": "\"Barcode public static final int CODABAR = 8\" will be replaced by \"HmsScan public static final int CODABAR_SCAN_TYPE = 4096\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "CODE_128",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "CODE128_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "64"
+      },
+      "text": "\"Barcode public static final int CODE_128 = 1\" will be replaced by \"HmsScan public static final int CODE128_SCAN_TYPE = 64\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "CODE_39",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "CODE39_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "16"
+      },
+      "text": "\"Barcode public static final int CODE_39 = 2\" will be replaced by \"HmsScan public static final int CODE39_SCAN_TYPE = 16\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "CODE_93",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "CODE93_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "32"
+      },
+      "text": "\"Barcode public static final int CODE_93 = 4\" will be replaced by \"HmsScan public static final int CODE93_SCAN_TYPE = 32\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "CONTACT_INFO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "CONTACT_DETAIL_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1009"
+      },
+      "text": "\"Barcode public static final int CONTACT_INFO = 1\" will be replaced by \"HmsScan public static final int CONTACT_DETAIL_FORM = 1009\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "DATA_MATRIX",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "16"
+      },
+      "h": {
+        "name": "DATAMATRIX_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "\"Barcode public static final int DATA_MATRIX = 16\" will be replaced by \"HmsScan public static final int DATAMATRIX_SCAN_TYPE = 4\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "DRIVER_LICENSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12"
+      },
+      "h": {
+        "name": "DRIVER_INFO_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1010"
+      },
+      "text": "\"Barcode public static final int DRIVER_LICENSE = 12\" will be replaced by \"HmsScan public static final int DRIVER_INFO_FORM = 1010\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "EAN_13",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "32"
+      },
+      "h": {
+        "name": "EAN13_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "128"
+      },
+      "text": "\"Barcode public static final int EAN_13 = 32\" will be replaced by \"HmsScan public static final int EAN13_SCAN_TYPE = 128\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "EAN_8",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "64"
+      },
+      "h": {
+        "name": "EAN8_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "256"
+      },
+      "text": "\"Barcode public static final int EAN_8 = 64\" will be replaced by \"HmsScan public static final int EAN8_SCAN_TYPE = 256\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "EMAIL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "EMAIL_CONTENT_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1002"
+      },
+      "text": "\"Barcode public static final int EMAIL = 2\" will be replaced by \"HmsScan public static final int EMAIL_CONTENT_FORM = 1002\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "GEO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10"
+      },
+      "h": {
+        "name": "LOCATION_COORDINATE_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1011"
+      },
+      "text": "\"Barcode public static final int GEO = 10\" will be replaced by \"HmsScan public static final int LOCATION_COORDINATE_FORM = 1011\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "ISBN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "ISBN_NUMBER_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1012"
+      },
+      "text": "\"Barcode public static final int ISBN = 3\" will be replaced by \"HmsScan public static final int ISBN_NUMBER_FORM = 1012\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "ITF",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "128"
+      },
+      "h": {
+        "name": "ITF14_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "512"
+      },
+      "text": "\"Barcode public static final int ITF = 128\" will be replaced by \"HmsScan public static final int ITF14_SCAN_TYPE = 512\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "PDF417",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2048"
+      },
+      "h": {
+        "name": "PDF417_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "text": "\"Barcode public static final int PDF417 = 2048\" will be replaced by \"HmsScan public static final int PDF417_SCAN_TYPE = 8\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "PHONE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "TEL_PHONE_NUMBER_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1003"
+      },
+      "text": "\"Barcode public static final int PHONE = 4\" will be replaced by \"HmsScan public static final int TEL_PHONE_NUMBER_FORM = 1003\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "PRODUCT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "h": {
+        "name": "ARTICLE_NUMBER_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1001"
+      },
+      "text": "\"Barcode public static final int PRODUCT = 5\" will be replaced by \"HmsScan public static final int ARTICLE_NUMBER_FORM = 1001\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "QR_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "256"
+      },
+      "h": {
+        "name": "QRCODE_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"Barcode public static final int QR_CODE = 256\" will be replaced by \"HmsScan public static final int QRCODE_SCAN_TYPE = 1\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "SMS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "h": {
+        "name": "SMS_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1005"
+      },
+      "text": "\"Barcode public static final int SMS = 6\" will be replaced by \"HmsScan public static final int SMS_FORM = 1005\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "TEXT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "h": {
+        "name": "PURE_TEXT_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1004"
+      },
+      "text": "\"Barcode public static final int TEXT = 7\" will be replaced by \"HmsScan public static final int PURE_TEXT_FORM = 1004\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "UPC_A",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "512"
+      },
+      "h": {
+        "name": "UPCCODE_A_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1024"
+      },
+      "text": "\"Barcode public static final int UPC_A = 512\" will be replaced by \"HmsScan public static final int UPCCODE_A_SCAN_TYPE = 1024\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "UPC_E",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1024"
+      },
+      "h": {
+        "name": "UPCCODE_E_SCAN_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2048"
+      },
+      "text": "\"Barcode public static final int UPC_E = 1024\" will be replaced by \"HmsScan public static final int UPCCODE_E_SCAN_TYPE = 2048\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "URL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "h": {
+        "name": "URL_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1006"
+      },
+      "text": "\"Barcode public static final int URL = 8\" will be replaced by \"HmsScan public static final int URL_FORM = 1006\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "WIFI",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "h": {
+        "name": "WIFI_CONNECT_INFO_FORM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1007"
+      },
+      "text": "\"Barcode public static final int WIFI = 9\" will be replaced by \"HmsScan public static final int WIFI_CONNECT_INFO_FORM = 1007\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "calendarEvent",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.CalendarEvent",
+        "value": ""
+      },
+      "h": {
+        "name": "eventInfo",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.EventInfo",
+        "value": ""
+      },
+      "text": "\"Barcode public com.google.android.gms.vision.barcode.Barcode.CalendarEvent calendarEvent\" will be replaced by \"HmsScan public com.huawei.hms.ml.scan.HmsScan.EventInfo eventInfo\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "contactInfo",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.ContactInfo",
+        "value": ""
+      },
+      "h": {
+        "name": "contactDetail",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.ContactDetail",
+        "value": ""
+      },
+      "text": "\"Barcode public com.google.android.gms.vision.barcode.Barcode.ContactInfo contactInfo\" will be replaced by \"HmsScan public com.huawei.hms.ml.scan.HmsScan.ContactDetail contactDetail\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "cornerPoints",
+        "modifiers": [],
+        "type": "android.graphics.Point[]",
+        "value": ""
+      },
+      "h": {
+        "name": "cornerPoints",
+        "modifiers": [],
+        "type": "android.graphics.Point[]",
+        "value": ""
+      },
+      "text": "\"Barcode public android.graphics.Point[] cornerPoints\" will be replaced by \"HmsScan public android.graphics.Point[] cornerPoints\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "displayValue",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "showResult",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode public java.lang.String displayValue\" will be replaced by \"HmsScan public java.lang.String showResult\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "driverLicense",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.DriverLicense",
+        "value": ""
+      },
+      "h": {
+        "name": "driverInfo",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.DriverInfo",
+        "value": ""
+      },
+      "text": "\"Barcode public com.google.android.gms.vision.barcode.Barcode.DriverLicense driverLicense\" will be replaced by \"HmsScan public com.huawei.hms.ml.scan.HmsScan.DriverInfo driverInfo\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "email",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.Email",
+        "value": ""
+      },
+      "h": {
+        "name": "emailContent",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.EmailContent",
+        "value": ""
+      },
+      "text": "\"Barcode public com.google.android.gms.vision.barcode.Barcode.Email email\" will be replaced by \"HmsScan public com.huawei.hms.ml.scan.HmsScan.EmailContent emailContent\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "format",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "h": {
+        "name": "scanType",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"Barcode public int format\" will be replaced by \"HmsScan public int scanType\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "geoPoint",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.GeoPoint",
+        "value": ""
+      },
+      "h": {
+        "name": "locationCoordinate",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.LocationCoordinate",
+        "value": ""
+      },
+      "text": "\"Barcode public com.google.android.gms.vision.barcode.Barcode.GeoPoint geoPoint\" will be replaced by \"HmsScan public com.huawei.hms.ml.scan.HmsScan.LocationCoordinate locationCoordinate\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "phone",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.Phone",
+        "value": ""
+      },
+      "h": {
+        "name": "telPhoneNumber",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber",
+        "value": ""
+      },
+      "text": "\"Barcode public com.google.android.gms.vision.barcode.Barcode.Phone phone\" will be replaced by \"HmsScan public com.huawei.hms.ml.scan.HmsScan.TelPhoneNumber telPhoneNumber\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "rawValue",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "originalValue",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode public java.lang.String rawValue\" will be replaced by \"HmsScan public java.lang.String originalValue\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "sms",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.Sms",
+        "value": ""
+      },
+      "h": {
+        "name": "smsContent",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.SmsContent",
+        "value": ""
+      },
+      "text": "\"Barcode public com.google.android.gms.vision.barcode.Barcode.Sms sms\" will be replaced by \"HmsScan public com.huawei.hms.ml.scan.HmsScan.SmsContent smsContent\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "url",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.UrlBookmark",
+        "value": ""
+      },
+      "h": {
+        "name": "linkUrl",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.LinkUrl",
+        "value": ""
+      },
+      "text": "\"Barcode public com.google.android.gms.vision.barcode.Barcode.UrlBookmark url\" will be replaced by \"HmsScan public com.huawei.hms.ml.scan.HmsScan.LinkUrl linkUrl\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "valueFormat",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "h": {
+        "name": "scanTypeForm",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"Barcode public int valueFormat\" will be replaced by \"HmsScan public int scanTypeForm\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "wifi",
+        "modifiers": [],
+        "type": "com.google.android.gms.vision.barcode.Barcode.WiFi",
+        "value": ""
+      },
+      "h": {
+        "name": "wifiConnectionInfo",
+        "modifiers": [],
+        "type": "com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo",
+        "value": ""
+      },
+      "text": "\"Barcode public com.google.android.gms.vision.barcode.Barcode.WiFi wifi\" will be replaced by \"HmsScan public com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo wifiConnectionInfo\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan",
+  "kitName": "ML",
+  "status": "matching"
+}

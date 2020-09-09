@@ -1,0 +1,186 @@
+{
+  "gName": "com.google.android.gms.fitness.SensorsClient",
+  "interfaces": [],
+  "dependencyName": "Health",
+  "superClass": "com.google.android.gms.common.api.GoogleApi",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "add",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.request.SensorRequest"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.request.OnDataPointListener"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "register",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.options.SensorOptions"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.hihealth.options.OnSamplePointListener"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.SensorsController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "add",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.request.SensorRequest"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "register",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.options.SensorOptions"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.SensorsController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "findDataSources",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.request.DataSourcesRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.util.List<com.google.android.gms.fitness.data.DataSource>>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataCollectors",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.options.DataCollectorsOptions"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.util.List<com.huawei.hms.hihealth.data.DataCollector>>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.SensorsController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "remove",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "unregister",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.SensorsController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "remove",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.request.OnDataPointListener"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Boolean>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "unregister",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.options.OnSamplePointListener"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Boolean>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.SensorsController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.SensorsController",
+  "kitName": "Health",
+  "status": "matching"
+}

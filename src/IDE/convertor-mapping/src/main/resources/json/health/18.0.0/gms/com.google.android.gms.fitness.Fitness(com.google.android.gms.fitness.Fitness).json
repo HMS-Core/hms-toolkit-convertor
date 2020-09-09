@@ -1,0 +1,1269 @@
+{
+  "gName": "com.google.android.gms.fitness.Fitness",
+  "interfaces": [],
+  "dependencyName": "Health",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getBleClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.BleClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getBleController",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.BleController"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getBleClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.BleClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getBleController",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.BleController"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getConfigClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.ConfigClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getSettingController",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.SettingController"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getConfigClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.ConfigClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getSettingController",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.SettingController"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getEndTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getEndTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getGoalsClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.GoalsClient"
+      },
+      "text": "HMS Core does not support this api in the current version.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getGoalsClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.GoalsClient"
+      },
+      "text": "HMS Core does not support this api in the current version.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getHistoryClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.HistoryClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getDataController",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.DataController"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getHistoryClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.HistoryClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getDataController",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.DataController"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getRecordingClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.RecordingClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAutoRecorderController",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.AutoRecorderController"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getRecordingClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.RecordingClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAutoRecorderController",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.AutoRecorderController"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getSensorsClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.SensorsClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getSensorsController",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.SensorsController"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getSensorsClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.SensorsClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getSensorsController",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.SensorsController"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getSessionsClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.SessionsClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getActivityRecordsController",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.ActivityRecordsController"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getSessionsClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.SessionsClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getActivityRecordsController",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.ActivityRecordsController"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStartTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStartTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "ACTION_TRACK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "vnd.google.fitness.TRACK"
+      },
+      "h": {
+        "name": "ACTION_TRACK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "vnd.huawei.hihealth.TRACK"
+      },
+      "text": "\"Fitness public static final java.lang.String ACTION_TRACK = vnd.google.fitness.TRACK\" will be replaced by \"HuaweiHiHealth public static final java.lang.String ACTION_TRACK = vnd.huawei.hihealth.TRACK\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "ACTION_VIEW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "vnd.google.fitness.VIEW"
+      },
+      "h": {
+        "name": "ACTION_VIEW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "vnd.huawei.hihealth.VIEW"
+      },
+      "text": "\"Fitness public static final java.lang.String ACTION_VIEW = vnd.google.fitness.VIEW\" will be replaced by \"HuaweiHiHealth public static final java.lang.String ACTION_VIEW = vnd.huawei.hihealth.VIEW\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "ACTION_VIEW_GOAL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "vnd.google.fitness.VIEW_GOAL"
+      },
+      "h": {
+        "name": "ACTION_VIEW_GOAL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "vnd.huawei.hihealth.VIEW_GOAL"
+      },
+      "text": "\"Fitness public static final java.lang.String ACTION_VIEW_GOAL = vnd.google.fitness.VIEW_GOAL\" will be replaced by \"HuaweiHiHealth public static final java.lang.String ACTION_VIEW_GOAL = vnd.huawei.hihealth.VIEW_GOAL\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "EXTRA_END_TIME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "vnd.google.fitness.end_time"
+      },
+      "h": {
+        "name": "EXTRA_END_TIME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "vnd.huawei.hihealth.end_time"
+      },
+      "text": "\"Fitness public static final java.lang.String EXTRA_END_TIME = vnd.google.fitness.end_time\" will be replaced by \"HuaweiHiHealth public static final java.lang.String EXTRA_END_TIME = vnd.huawei.hihealth.end_time\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "EXTRA_START_TIME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "vnd.google.fitness.start_time"
+      },
+      "h": {
+        "name": "EXTRA_START_TIME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "vnd.huawei.hihealth.start_time"
+      },
+      "text": "\"Fitness public static final java.lang.String EXTRA_START_TIME = vnd.google.fitness.start_time\" will be replaced by \"HuaweiHiHealth public static final java.lang.String EXTRA_START_TIME = vnd.huawei.hihealth.start_time\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "name": "API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.Void",
+        "value": ""
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "BLE_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "h": {
+        "name": "BLE_MANAGER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.api.Api<com.huawei.hms.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "text": "\"Fitness public static final com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions> BLE_API\" will be replaced by \"HuaweiHiHealth public static final com.huawei.hms.api.Api<com.huawei.hms.api.Api.ApiOptions.NoOptions> BLE_MANAGER\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "BleApi",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.BleApi",
+        "value": ""
+      },
+      "h": {
+        "name": "BLEMANAGER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.BleManager",
+        "value": ""
+      },
+      "text": "\"Fitness public static final com.google.android.gms.fitness.BleApi BleApi\" will be replaced by \"HuaweiHiHealth public static final com.huawei.hms.hihealth.BleManager BLEMANAGER\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "CONFIG_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "h": {
+        "name": "SETTING_MANAGER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.api.Api<com.huawei.hms.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "text": "\"Fitness public static final com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>  CONFIG_API\" will be replaced by \"HuaweiHiHealth public static final com.huawei.hms.api.Api<com.huawei.hms.api.Api.ApiOptions.NoOptions> SETTING_MANAGER\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "ConfigApi",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.ConfigApi",
+        "value": ""
+      },
+      "h": {
+        "name": "SETTINGMANAGER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.SettingManager",
+        "value": ""
+      },
+      "text": "\"Fitness public static final com.google.android.gms.fitness.ConfigApi ConfigApi\" will be replaced by \"HuaweiHiHealth public static final com.huawei.hms.hihealth.SettingManager SETTINGMANAGER\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "name": "GOALS_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "text": "HMS Core does not support this api in the current version.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "name": "GoalsApi",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.GoalsApi",
+        "value": ""
+      },
+      "text": "HMS Core does not support this api in the current version.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "HISTORY_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "h": {
+        "name": "DATA_MANAGER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.api.Api<com.huawei.hms.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "text": "\"Fitness public static final com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions> HISTORY_API\" will be replaced by \"HuaweiHiHealth public static final com.huawei.hms.api.Api<com.huawei.hms.api.Api.ApiOptions.NoOptions> DATA_MANAGER\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "HistoryApi",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.HistoryApi",
+        "value": ""
+      },
+      "h": {
+        "name": "DATAMANAGER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.DataManager",
+        "value": ""
+      },
+      "text": "\"Fitness public static final com.google.android.gms.fitness.HistoryApi HistoryApi\" will be replaced by \"HuaweiHiHealth public static final com.huawei.hms.hihealth.DataManager DATAMANAGER\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "RECORDING_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "h": {
+        "name": "AUTORECORDER_MANAGER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.api.Api<com.huawei.hms.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "text": "\"Fitness public static final com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions> RECORDING_API\" will be replaced by \"HuaweiHiHealth public static final com.huawei.hms.api.Api<com.huawei.hms.api.Api.ApiOptions.NoOptions> AUTORECORDER_MANAGER\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "RecordingApi",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.RecordingApi",
+        "value": ""
+      },
+      "h": {
+        "name": "AUTORECORDERMANAGER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.AutoRecorderManager",
+        "value": ""
+      },
+      "text": "\"Fitness public static final com.google.android.gms.fitness.RecordingApi RecordingApi\" will be replaced by \"HuaweiHiHealth public static final com.huawei.hms.hihealth.AutoRecorderManager AUTORECORDERMANAGER\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SCOPE_ACTIVITY_READ",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Scope",
+        "value": ""
+      },
+      "text": "The code using the GMS attribute SCOPE_ACTIVITY_READ needs to be executed for five times in HMS Core, requiring a corresponding attribute for each time.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section137231629244159"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SCOPE_ACTIVITY_READ_WRITE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Scope",
+        "value": ""
+      },
+      "text": "The code using the GMS attribute SCOPE_ACTIVITY_READ_WRITE needs to be executed for five times in HMS Core, requiring a corresponding attribute for each time.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section12200135133420"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SCOPE_BODY_READ",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Scope",
+        "value": ""
+      },
+      "text": "The code using the GMS attribute SCOPE_BODY_READ needs to be executed for four times in HMS Core, requiring a corresponding attribute for each time.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section1311583213617"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SCOPE_BODY_READ_WRITE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Scope",
+        "value": ""
+      },
+      "text": "The code using the GMS attribute SCOPE_BODY_READ_WRITE needs to be executed for four times in HMS Core, requiring a corresponding attribute for each time.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section134353498365"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SCOPE_LOCATION_READ",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Scope",
+        "value": ""
+      },
+      "text": "The code using the GMS attribute SCOPE_LOCATION_READ needs to be executed for three times in HMS Core, requiring a corresponding attribute for each time.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section335633316374"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SCOPE_LOCATION_READ_WRITE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Scope",
+        "value": ""
+      },
+      "text": "The code using the GMS attribute SCOPE_LOCATION_READ_WRITE needs to be executed for three times in HMS Core, requiring a corresponding attribute for each time.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section164418259386"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SCOPE_NUTRITION_READ",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Scope",
+        "value": ""
+      },
+      "text": "The code using the GMS attribute SCOPE_NUTRITION_READ needs to be replaced with SCOPE_HEALTHKIT_NUTRITION_READ",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section11348272045185"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SCOPE_NUTRITION_READ_WRITE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Scope",
+        "value": ""
+      },
+      "text": "The code using the GMS attribute SCOPE_NUTRITION_READ_WRITE needs to be replaced with SCOPE_HEALTHKIT_NUTRITION_BOTH",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section11348272045186"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SENSORS_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "h": {
+        "name": "SENSORS_MANAGER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.api.Api<com.huawei.hms.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "text": "\"Fitness public static final com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions> SENSORS_API\" will be replaced by \"HuaweiHiHealth public static final com.huawei.hms.api.Api<com.huawei.hms.api.Api.ApiOptions.NoOptions> SENSORS_MANAGER\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SESSIONS_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "h": {
+        "name": "ACTIVITY_RECORD_MANAGER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.api.Api<com.huawei.hms.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "text": "\"Fitness public static final com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions> SESSIONS_API\" will be replaced by \"HuaweiHiHealth public static final com.huawei.hms.api.Api<com.huawei.hms.api.Api.ApiOptions.NoOptions> ACTIVITY_RECORD_MANAGER\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SensorsApi",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.SensorsApi",
+        "value": ""
+      },
+      "h": {
+        "name": "SENSORSMANAGER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.SensorsManager",
+        "value": ""
+      },
+      "text": "\"Fitness public static final com.google.android.gms.fitness.SensorsApi SensorsApi\" will be replaced by \"HuaweiHiHealth public static final com.huawei.hms.hihealth.SensorsManager SENSORSMANAGER\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "SessionsApi",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fitness.SessionsApi",
+        "value": ""
+      },
+      "h": {
+        "name": "ACTIVITYRECORDSMANAGER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.hihealth.ActivityRecordsManager",
+        "value": ""
+      },
+      "text": "\"Fitness public static final com.google.android.gms.fitness.SessionsApi SessionsApi\" will be replaced by \"HuaweiHiHealth public static final com.huawei.hms.hihealth.ActivityRecordsManager ACTIVITYRECORDSMANAGER\"",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+  "kitName": "Health",
+  "status": "matching"
+}

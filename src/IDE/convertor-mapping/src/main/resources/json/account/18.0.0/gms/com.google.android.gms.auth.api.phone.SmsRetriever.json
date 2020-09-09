@@ -1,0 +1,183 @@
+{
+  "gName": "com.google.android.gms.auth.api.phone.SmsRetriever",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.phone.SmsRetrieverClient"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.sms.ReadSmsManager.start(android.app.Activity activity).",
+      "hName": "com.huawei.hms.support.sms.ReadSmsManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1988818275503"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.phone.SmsRetrieverClient"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.sms.ReadSmsManager.start(android.content.Context context).",
+      "hName": "com.huawei.hms.support.sms.ReadSmsManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1988818275503"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "name": "EXTRA_CONSENT_INTENT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.auth.api.phone.EXTRA_CONSENT_INTENT"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "name": "EXTRA_SIM_SUBSCRIPTION_ID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.auth.api.phone.EXTRA_SIM_SUBSCRIPTION_ID"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "EXTRA_SMS_MESSAGE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.auth.api.phone.EXTRA_SMS_MESSAGE"
+      },
+      "h": {
+        "name": "EXTRA_SMS_MESSAGE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"SmsRetriever public static final java.lang.String EXTRA_SMS_MESSAGE=\"com.google.android.gms.auth.api.phone.EXTRA_SMS_MESSAGE\"\" will be replaced by \"ReadSmsConstant public static final java.lang.String EXTRA_SMS_MESSAGE\"",
+      "hName": "com.huawei.hms.support.sms.common.ReadSmsConstant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "EXTRA_STATUS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.auth.api.phone.EXTRA_STATUS"
+      },
+      "h": {
+        "name": "EXTRA_STATUS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"SmsRetriever public static final java.lang.String EXTRA_STATUS = com.google.android.gms.auth.api.phone.EXTRA_STATUS\" will be replaced by \"ReadSmsConstant public static final java.lang.String EXTRA_STATUS\"",
+      "hName": "com.huawei.hms.support.sms.common.ReadSmsConstant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "name": "SEND_PERMISSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.auth.api.phone.permission.SEND"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "SMS_RETRIEVED_ACTION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.auth.api.phone.SMS_RETRIEVED"
+      },
+      "h": {
+        "name": "READ_SMS_BROADCAST_ACTION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"SmsRetriever public static final java.lang.String SMS_RETRIEVED_ACTION = com.google.android.gms.auth.api.phone.SMS_RETRIEVED\" will be replaced by \"ReadSmsConstant public static final java.lang.String READ_SMS_BROADCAST_ACTION\"",
+      "hName": "com.huawei.hms.support.sms.common.ReadSmsConstant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.sms.common.ReadSmsConstant",
+  "kitName": "Account",
+  "status": "matching"
+}

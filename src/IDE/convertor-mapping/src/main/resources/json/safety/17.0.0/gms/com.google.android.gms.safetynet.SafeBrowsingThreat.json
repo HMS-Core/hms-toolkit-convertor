@@ -1,0 +1,87 @@
+{
+  "gName": "com.google.android.gms.safetynet.SafeBrowsingThreat",
+  "interfaces": [],
+  "dependencyName": "Safetynet",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getThreatType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getUrlCheckResult",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.entity.safetydetect.UrlCheckThreat",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "TYPE_POTENTIALLY_HARMFUL_APPLICATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "MALWARE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"SafeBrowsingThreat public static final int TYPE_POTENTIALLY_HARMFUL_APPLICATION = 4\" will be replaced by \"UrlCheckThreat public static final int MALWARE = 1\"",
+      "hName": "com.huawei.hms.support.api.entity.safetydetect.UrlCheckThreat",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "TYPE_SOCIAL_ENGINEERING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "h": {
+        "name": "PHISHING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"SafeBrowsingThreat public static final int TYPE_SOCIAL_ENGINEERING = 5\" will be replaced by \"UrlCheckThreat public static final int PHISHING = 3\"",
+      "hName": "com.huawei.hms.support.api.entity.safetydetect.UrlCheckThreat",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.entity.safetydetect.UrlCheckThreat",
+  "kitName": "Safetynet",
+  "status": "matching"
+}

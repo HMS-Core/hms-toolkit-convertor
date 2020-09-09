@@ -1,0 +1,305 @@
+{
+  "gName": "com.google.android.gms.awareness.state.Weather",
+  "interfaces": [],
+  "dependencyName": "Awareness",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getConditions",
+        "paramTypes": [],
+        "retType": "int[]"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getDewPoint",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "float"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getFeelsLikeTemperature",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "float"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getHumidity",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTemperature",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "float"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "CELSIUS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "CONDITION_CLEAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "CONDITION_CLOUDY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "CONDITION_FOGGY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "CONDITION_HAZY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "CONDITION_ICY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "CONDITION_RAINY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "CONDITION_SNOWY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "CONDITION_STORMY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "CONDITION_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "CONDITION_WINDY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "FAHRENHEIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.kit.awareness.status.Weather",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section22951691387"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Awareness",
+  "status": "notSupport"
+}

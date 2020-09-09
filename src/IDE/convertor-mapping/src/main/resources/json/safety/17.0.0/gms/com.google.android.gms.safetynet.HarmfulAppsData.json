@@ -1,0 +1,84 @@
+{
+  "gName": "com.google.android.gms.safetynet.HarmfulAppsData",
+  "interfaces": [],
+  "dependencyName": "Safetynet",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "This method is not implemented in HMS. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "apkCategory",
+        "modifiers": [
+          "final"
+        ],
+        "type": "int",
+        "value": ""
+      },
+      "text": "Replace apkCategory in the Google API with getApkCategory() in the HMS API based on the manual conversion guide.",
+      "hName": "com.huawei.hms.support.api.entity.safetydetect.MaliciousAppsData",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/safety-conversion-0000001050060316#EN-US_TOPIC_0000001050060316__section1269312185419"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "apkPackageName",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "Replace apkCategory in the Google API with getApkPackageName() in the HMS API based on the manual conversion guide.",
+      "hName": "com.huawei.hms.support.api.entity.safetydetect.MaliciousAppsData",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/safety-conversion-0000001050060316#EN-US_TOPIC_0000001050060316__section1269312185419"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "apkSha256",
+        "modifiers": [
+          "final"
+        ],
+        "type": "byte[]",
+        "value": ""
+      },
+      "text": "Replace apkCategory in the Google API with getApkSha256() in the HMS API based on the manual conversion guide.",
+      "hName": "com.huawei.hms.support.api.entity.safetydetect.MaliciousAppsData",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/safety-conversion-0000001050060316#EN-US_TOPIC_0000001050060316__section1269312185419"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "",
+  "kitName": "Safetynet",
+  "status": "notSupport"
+}

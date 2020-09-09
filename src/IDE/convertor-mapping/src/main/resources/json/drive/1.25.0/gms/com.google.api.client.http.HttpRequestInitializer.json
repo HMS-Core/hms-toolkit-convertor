@@ -1,0 +1,50 @@
+{
+  "gName": "com.google.api.client.http.HttpRequestInitializer",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "initialize",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.api.client.http.HttpRequest"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "initialize",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.cloud.base.http.HttpRequest"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.http.HttpRequestInitializer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.cloud.base.http.HttpRequestInitializer",
+  "kitName": "Drive",
+  "status": "matching"
+}

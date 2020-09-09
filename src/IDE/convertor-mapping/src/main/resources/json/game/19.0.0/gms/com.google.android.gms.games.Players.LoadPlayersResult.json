@@ -1,0 +1,37 @@
+{
+  "gName": "com.google.android.gms.games.Players.LoadPlayersResult",
+  "interfaces": [
+    "com.google.android.gms.common.api.Releasable",
+    "com.google.android.gms.common.api.Result"
+  ],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPlayers",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.PlayerBuffer"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Game",
+  "status": "notSupport"
+}

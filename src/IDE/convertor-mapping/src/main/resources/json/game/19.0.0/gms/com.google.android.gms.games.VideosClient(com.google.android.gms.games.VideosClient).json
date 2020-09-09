@@ -1,0 +1,193 @@
+{
+  "gName": "com.google.android.gms.games.VideosClient",
+  "interfaces": [],
+  "dependencyName": "Game",
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.games.Games.GamesOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCaptureOverlayIntent",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<android.content.Intent>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCaptureState",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.video.CaptureState>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCaptureCapabilities",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.video.VideoCapabilities>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isCaptureAvailable",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Boolean>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isCaptureSupported",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Boolean>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "unregisterOnCaptureOverlayStateChangedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.VideosClient.OnCaptureOverlayStateListener"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Boolean>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "registerOnCaptureOverlayStateChangedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.VideosClient.OnCaptureOverlayStateListener"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "name": "CAPTURE_OVERLAY_STATE_CAPTURE_STARTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "name": "CAPTURE_OVERLAY_STATE_CAPTURE_STOPPED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "name": "CAPTURE_OVERLAY_STATE_DISMISSED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "name": "CAPTURE_OVERLAY_STATE_SHOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "",
+  "kitName": "Game",
+  "status": "notSupport"
+}

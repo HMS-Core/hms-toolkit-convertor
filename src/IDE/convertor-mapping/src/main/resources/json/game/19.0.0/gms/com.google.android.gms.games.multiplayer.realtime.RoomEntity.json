@@ -1,0 +1,463 @@
+{
+  "gName": "com.google.android.gms.games.multiplayer.realtime.RoomEntity",
+  "interfaces": [
+    "android.os.Parcelable",
+    "com.google.android.gms.games.multiplayer.realtime.Room"
+  ],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "shouldDowngrade",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "name": "canUnparcelSafely",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected",
+          "static"
+        ],
+        "name": "getUnparcelClientVersion",
+        "paramTypes": [],
+        "retType": "java.lang.Integer"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAutoMatchCriteria",
+        "paramTypes": [],
+        "retType": "android.os.Bundle"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isDataValid",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getParticipant",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.games.multiplayer.Participant"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "freeze",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.multiplayer.realtime.Room"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAutoMatchWaitEstimateSeconds",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getParticipantStatus",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getStatus",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getVariant",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCreatorId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDescription",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getParticipantId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getRoomId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCreationTimestamp",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDescription",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.database.CharArrayBuffer"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setShouldDowngrade",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getParticipants",
+        "paramTypes": [],
+        "retType": "java.util.ArrayList<com.google.android.gms.games.multiplayer.Participant>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getParticipantIds",
+        "paramTypes": [],
+        "retType": "java.util.ArrayList<java.lang.String>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<RoomEntity>",
+        "value": ""
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Game",
+  "status": "notSupport"
+}

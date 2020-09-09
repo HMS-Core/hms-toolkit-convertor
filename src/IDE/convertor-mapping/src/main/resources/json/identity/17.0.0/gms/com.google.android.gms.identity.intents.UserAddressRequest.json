@@ -1,0 +1,89 @@
+{
+  "gName": "com.google.android.gms.identity.intents.UserAddressRequest",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Identity",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Identity",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "newBuilder",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.identity.intents.UserAddressRequest.Builder"
+      },
+      "text": "HMS Core does not support the com.google.android.gms.identity.intents.UserAddressRequest.newBuilder() method. If it is called, delete it manually.",
+      "hName": "com.huawei.hms.identity.entity.UserAddressRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Identity",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support the com.google.android.gms.identity.intents.UserAddressRequest.writeToParcel(android.os.Parcel,int) method. If it is called, delete it manually.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Identity",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "describeContents",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not support the com.google.android.gms.identity.intents.UserAddressRequest.describeContents() method. If it is called, delete it manually.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Identity",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.identity.intents.UserAddressRequest>",
+        "value": ""
+      },
+      "text": "HMS Core does not support the com.google.android.gms.identity.intents.UserAddressRequest.CREATOR attribute. If it is used, delete it manually.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Identity",
+  "status": "notSupport"
+}

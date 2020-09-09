@@ -1,0 +1,453 @@
+{
+  "gName": "com.google.api.services.drive.Drive.Files",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Files",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Files",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Files",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "copy",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.api.services.drive.model.File"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Files.Copy"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "copy",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.cloud.services.drive.model.File"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Files.Copy"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Files",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "create",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.api.services.drive.model.File"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Files.Create"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "create",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.cloud.services.drive.model.File"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Files.Create"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Files",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "create",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.api.services.drive.model.File"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.api.client.http.AbstractInputStreamContent"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Files.Create"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "create",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.cloud.services.drive.model.File"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.cloud.base.http.AbstractInputStreamContent"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Files.Create"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Files",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "delete",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Files.Delete"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "delete",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Files.Delete"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Files",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "emptyTrash",
+        "paramTypes": [],
+        "retType": "com.google.api.services.drive.Drive.Files.EmptyTrash"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "emptyRecycle",
+        "paramTypes": [],
+        "retType": "com.huawei.cloud.services.drive.Drive.Files.EmptyRecycle"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Files",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "export",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Files.Export"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "The app does not need to generate an ID nor fill in the ID parameter in a request. The ID is generated by the server, instead. Please remove the corresponding code.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "get",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Files.Get"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "get",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Files.Get"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Files",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "list",
+        "paramTypes": [],
+        "retType": "com.google.api.services.drive.Drive.Files.List"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "list",
+        "paramTypes": [],
+        "retType": "com.huawei.cloud.services.drive.Drive.Files.List"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Files",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "update",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.api.services.drive.model.File"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Files.Update"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "update",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.cloud.services.drive.model.File"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Files.Update"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Files",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "update",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.api.services.drive.model.File"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.api.client.http.AbstractInputStreamContent"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Files.Update"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "update",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.cloud.services.drive.model.File"
+          },
+          {
+            "pos": "2",
+            "type": "com.huawei.cloud.base.http.AbstractInputStreamContent"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Files.Update"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Files",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "watch",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.api.services.drive.model.Channel"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Files.Watch"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "subscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.cloud.services.drive.model.Channel"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Files.Subscribe"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Files",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.cloud.services.drive.Drive.Files",
+  "kitName": "Drive",
+  "status": "matching"
+}

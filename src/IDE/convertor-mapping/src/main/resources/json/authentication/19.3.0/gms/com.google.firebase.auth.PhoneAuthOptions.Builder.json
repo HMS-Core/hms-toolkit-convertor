@@ -1,0 +1,246 @@
+{
+  "gName": "com.google.firebase.auth.PhoneAuthOptions.Builder",
+  "interfaces": [],
+  "dependencyName": "Authentication",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.FirebaseAuth"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setPhoneNumber",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setMultiFactorHint",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.PhoneMultiFactorInfo"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setTimeout",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Long"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setCallbacks",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setActivity",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setExecutor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setForceResendingToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setMultiFactorSession",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.MultiFactorSession"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "requireSmsValidation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Authentication",
+  "status": "dummy"
+}

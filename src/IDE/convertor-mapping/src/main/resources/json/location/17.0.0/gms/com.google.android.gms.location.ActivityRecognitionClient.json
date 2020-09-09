@@ -1,0 +1,217 @@
+{
+  "gName": "com.google.android.gms.location.ActivityRecognitionClient",
+  "interfaces": [],
+  "dependencyName": "Location",
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeActivityTransitionUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "deleteActivityConversionUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.ActivityIdentificationService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeActivityUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "deleteActivityIdentificationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.ActivityIdentificationService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "requestActivityTransitionUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.location.ActivityTransitionRequest"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "createActivityConversionUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.location.ActivityConversionRequest"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.ActivityIdentificationService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "requestActivityUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "createActivityIdentificationUpdates",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.ActivityIdentificationService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ActivityRecognitionClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ActivityIdentificationService",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.ActivityIdentificationService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ActivityRecognitionClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ActivityIdentificationService",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.ActivityIdentificationService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.location.ActivityIdentificationService",
+  "kitName": "Location",
+  "status": "matching"
+}

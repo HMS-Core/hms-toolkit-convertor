@@ -1,0 +1,545 @@
+{
+  "gName": "com.google.android.gms.ads.AdRequest",
+  "interfaces": [],
+  "dependencyName": "Ads",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getBirthday",
+        "paramTypes": [],
+        "retType": "java.util.Date"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getContentUrl",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTargetingContentUrl",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.AdParam",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCustomEventExtrasBundle",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T extends com.google.android.gms.ads.mediation.customevent.CustomEvent> android.os.Bundle"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getGender",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getGender",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.AdParam",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getKeywords",
+        "paramTypes": [],
+        "retType": "java.util.Set<java.lang.String>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getKeywords",
+        "paramTypes": [],
+        "retType": "java.util.Set<java.lang.String>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.AdParam",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getLocation",
+        "paramTypes": [],
+        "retType": "android.location.Location"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getNetworkExtrasBundle",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T extends com.google.android.gms.ads.mediation.MediationExtrasReceiver> android.os.Bundle"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isTestDevice",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getNetworkExtras",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T extends com.google.android.gms.ads.mediation.NetworkExtras> T"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "DEVICE_ID_EMULATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "B3EEABB8EE11C2BE770B684D95219ECB"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ERROR_CODE_INTERNAL_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "INNER",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"AdRequest public static final int ERROR_CODE_INTERNAL_ERROR = 0\" will be replaced by \"AdParam.ErrorCode int INNER = 0\"",
+      "hName": "com.huawei.hms.ads.AdParam.ErrorCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ERROR_CODE_INVALID_REQUEST",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "INVALID_REQUEST",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"AdRequest public static final int ERROR_CODE_INVALID_REQUEST = 1\" will be replaced by \"AdParam.ErrorCode int INVALID_REQUEST = 1\"",
+      "hName": "com.huawei.hms.ads.AdParam.ErrorCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ERROR_CODE_NETWORK_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "NETWORK_ERROR",
+        "modifiers": [],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"AdRequest public static final int ERROR_CODE_NETWORK_ERROR = 2\" will be replaced by \"AdParam.ErrorCode int NETWORK_ERROR = 2\"",
+      "hName": "com.huawei.hms.ads.AdParam.ErrorCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ERROR_CODE_NO_FILL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "NO_AD",
+        "modifiers": [],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"AdRequest public static final int ERROR_CODE_NO_FILL = 3\" will be replaced by \"AdParam.ErrorCode int NO_AD = 3\"",
+      "hName": "com.huawei.hms.ads.AdParam.ErrorCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "GENDER_FEMALE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "FEMALE",
+        "modifiers": [],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"AdRequest public static final int GENDER_FEMALE = 2\" will be replaced by \"Gender int FEMALE = 2\"",
+      "hName": "com.huawei.hms.ads.Gender",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "GENDER_MALE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "MALE",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"AdRequest public static final int GENDER_MALE = 1\" will be replaced by \"Gender int MALE = 1\"",
+      "hName": "com.huawei.hms.ads.Gender",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "GENDER_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "UNKNOWN",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"AdRequest public static final int GENDER_UNKNOWN = 0\" will be replaced by \"Gender int UNKNOWN = 0\"",
+      "hName": "com.huawei.hms.ads.Gender",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_G",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "G"
+      },
+      "h": {
+        "name": "AD_CONTENT_CLASSIFICATION_W",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "W"
+      },
+      "text": "\"AdRequest public static final java.lang.String MAX_AD_CONTENT_RATING_G = G\" will be replaced by \"ContentClassification java.lang.String AD_CONTENT_CLASSIFICATION_W = \"W\"\"",
+      "hName": "com.huawei.hms.ads.ContentClassification",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_MA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "MA"
+      },
+      "h": {
+        "name": "AD_CONTENT_CLASSIFICATION_A",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "A"
+      },
+      "text": "\"AdRequest public static final java.lang.String MAX_AD_CONTENT_RATING_MA = MA\" will be replaced by \"ContentClassification java.lang.String AD_CONTENT_CLASSIFICATION_A = \"A\"\"",
+      "hName": "com.huawei.hms.ads.ContentClassification",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_PG",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "PG"
+      },
+      "h": {
+        "name": "AD_CONTENT_CLASSIFICATION_PI",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "PI"
+      },
+      "text": "\"AdRequest public static final java.lang.String MAX_AD_CONTENT_RATING_PG = PG\" will be replaced by \"ContentClassification java.lang.String AD_CONTENT_CLASSIFICATION_PI = \"PI\"\"",
+      "hName": "com.huawei.hms.ads.ContentClassification",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_T",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "T"
+      },
+      "h": {
+        "name": "AD_CONTENT_CLASSIFICATION_J",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "J"
+      },
+      "text": "\"AdRequest public static final java.lang.String MAX_AD_CONTENT_RATING_T = T\" will be replaced by \"ContentClassification java.lang.String AD_CONTENT_CLASSIFICATION_J = \"J\"\"",
+      "hName": "com.huawei.hms.ads.ContentClassification",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "MAX_CONTENT_URL_LENGTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "512"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "TAG_FOR_CHILD_PROTECTION_FALSE",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"AdRequest public static final int TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE = 0\" will be replaced by \"TagForChild int TAG_FOR_CHILD_PROTECTION_FALSE = 0\"",
+      "hName": "com.huawei.hms.ads.TagForChild",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TAG_FOR_CHILD_PROTECTION_TRUE",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"AdRequest public static final int TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE = 1\" will be replaced by \"TagForChild int TAG_FOR_CHILD_PROTECTION_TRUE = 1\"",
+      "hName": "com.huawei.hms.ads.TagForChild",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "h": {
+        "name": "TAG_FOR_CHILD_PROTECTION_UNSPECIFIED",
+        "modifiers": [],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "\"AdRequest public static final int TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED = -1\" will be replaced by \"TagForChild int TAG_FOR_CHILD_PROTECTION_UNSPECIFIED = -1\"",
+      "hName": "com.huawei.hms.ads.TagForChild",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ads.AdParam",
+  "kitName": "Ads",
+  "status": "notSupport"
+}

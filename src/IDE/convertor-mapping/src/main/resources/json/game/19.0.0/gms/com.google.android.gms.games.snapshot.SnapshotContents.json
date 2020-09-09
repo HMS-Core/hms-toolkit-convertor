@@ -1,0 +1,160 @@
+{
+  "gName": "com.google.android.gms.games.snapshot.SnapshotContents",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getParcelFileDescriptor",
+        "paramTypes": [],
+        "retType": "android.os.ParcelFileDescriptor"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isClosed",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "modifyBytes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "byte[]"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          },
+          {
+            "pos": "3",
+            "type": "int"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "update",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "byte[]"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          },
+          {
+            "pos": "3",
+            "type": "int"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveDetails",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "writeBytes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveDetails",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "readFully",
+        "paramTypes": [],
+        "retType": "byte[]"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "get",
+        "paramTypes": [],
+        "retType": "byte[]"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveDetails",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.jos.games.archive.ArchiveDetails",
+  "kitName": "Game",
+  "status": "matching"
+}

@@ -1,0 +1,72 @@
+{
+  "gName": "com.google.android.gms.ads.mediation.MediationInterstitialAdapter",
+  "interfaces": [
+    "com.google.android.gms.ads.mediation.MediationAdapter"
+  ],
+  "dependencyName": "Ads",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "requestInterstitialAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.ads.mediation.MediationInterstitialListener"
+          },
+          {
+            "pos": "2",
+            "type": "android.os.Bundle"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.ads.mediation.MediationAdRequest"
+          },
+          {
+            "pos": "4",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "showInterstitial",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Ads",
+  "status": "notSupport"
+}

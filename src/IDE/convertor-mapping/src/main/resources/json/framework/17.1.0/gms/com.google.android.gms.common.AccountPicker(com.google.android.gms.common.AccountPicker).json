@@ -1,0 +1,87 @@
+{
+  "gName": "com.google.android.gms.common.AccountPicker",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "newChooseAccountIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.AccountPicker.AccountChooserOptions"
+          }
+        ],
+        "retType": "android.content.Intent"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "newChooseAccountIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.accounts.Account"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.ArrayList"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String[]"
+          },
+          {
+            "pos": "3",
+            "type": "boolean"
+          },
+          {
+            "pos": "4",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "5",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "6",
+            "type": "java.lang.String[]"
+          },
+          {
+            "pos": "7",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "android.content.Intent"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Basement",
+  "status": "notSupport"
+}

@@ -1,0 +1,385 @@
+{
+  "gName": "com.google.android.gms.vision.face.Contour",
+  "interfaces": [],
+  "dependencyName": "MLgms",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPositions",
+        "paramTypes": [],
+        "retType": "android.graphics.PointF[]"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCoordinatePoints",
+        "paramTypes": [],
+        "retType": "android.graphics.PointF[]"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFaceShapeType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "FACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TYPE_FACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"Contour public static final int FACE = 1\" will be replaced by \"MLFaceShape public static final int TYPE_FACE = 1\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "LEFT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "h": {
+        "name": "TYPE_LEFT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"Contour public static final int LEFT_EYE = 6\" will be replaced by \"MLFaceShape public static final int TYPE_LEFT_EYE = 2\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "LEFT_EYEBROW_BOTTOM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "TYPE_BOTTOM_OF_LEFT_EYEBROW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "\"Contour public static final int LEFT_EYEBROW_BOTTOM = 3\" will be replaced by \"MLFaceShape public static final int TYPE_BOTTOM_OF_LEFT_EYEBROW = 4\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "LEFT_EYEBROW_TOP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TYPE_TOP_OF_LEFT_EYEBROW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "text": "\"Contour public static final int LEFT_EYEBROW_TOP = 2\" will be replaced by \"MLFaceShape public static final int TYPE_TOP_OF_LEFT_EYEBROW = 6\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "LOWER_LIP_BOTTOM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11"
+      },
+      "h": {
+        "name": "TYPE_BOTTOM_OF_LOWER_LIP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "text": "\"Contour public static final int LOWER_LIP_BOTTOM = 11\" will be replaced by \"MLFaceShape public static final int TYPE_BOTTOM_OF_LOWER_LIP = 8\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "LOWER_LIP_TOP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10"
+      },
+      "h": {
+        "name": "TYPE_TOP_OF_LOWER_LIP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "text": "\"Contour public static final int LOWER_LIP_TOP = 10\" will be replaced by \"MLFaceShape public static final int TYPE_TOP_OF_LOWER_LIP = 9\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "NOSE_BOTTOM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "13"
+      },
+      "h": {
+        "name": "TYPE_BOTTOM_OF_NOSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12"
+      },
+      "text": "\"Contour public static final int NOSE_BOTTOM = 13\" will be replaced by \"MLFaceShape public static final int TYPE_BOTTOM_OF_NOSE = 12\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "NOSE_BRIDGE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12"
+      },
+      "h": {
+        "name": "TYPE_BRIDGE_OF_NOSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "13"
+      },
+      "text": "\"Contour public static final int NOSE_BRIDGE = 12\" will be replaced by \"MLFaceShape public static final int TYPE_BRIDGE_OF_NOSE = 13\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "RIGHT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "h": {
+        "name": "TYPE_RIGHT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"Contour public static final int RIGHT_EYE = 7\" will be replaced by \"MLFaceShape public static final int TYPE_RIGHT_EYE = 3\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "RIGHT_EYEBROW_BOTTOM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "h": {
+        "name": "TYPE_BOTTOM_OF_RIGHT_EYEBROW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "text": "\"Contour public static final int RIGHT_EYEBROW_BOTTOM = 5\" will be replaced by \"MLFaceShape public static final int TYPE_BOTTOM_OF_RIGHT_EYEBROW = 5\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "RIGHT_EYEBROW_TOP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "TYPE_TOP_OF_RIGHT_EYEBROW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "text": "\"Contour public static final int RIGHT_EYEBROW_TOP = 4\" will be replaced by \"MLFaceShape public static final int TYPE_TOP_OF_RIGHT_EYEBROW = 7\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "UPPER_LIP_BOTTOM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "h": {
+        "name": "TYPE_BOTTOM_OF_UPPER_LIP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10"
+      },
+      "text": "\"Contour public static final int UPPER_LIP_BOTTOM = 9\" will be replaced by \"MLFaceShape public static final int TYPE_BOTTOM_OF_UPPER_LIP = 10\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "UPPER_LIP_TOP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "h": {
+        "name": "TYPE_TOP_OF_UPPER_LIP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11"
+      },
+      "text": "\"Contour public static final int UPPER_LIP_TOP = 8\" will be replaced by \"MLFaceShape public static final int TYPE_TOP_OF_UPPER_LIP = 11\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.face.MLFaceShape",
+  "kitName": "ML",
+  "status": "matching"
+}

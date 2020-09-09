@@ -1,0 +1,451 @@
+{
+  "gName": "com.google.firebase.storage.StorageException",
+  "interfaces": [],
+  "dependencyName": "FirebaseStorage",
+  "superClass": "com.google.firebase.FirebaseException",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromErrorStatus",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.Status"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageException"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Throwable"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageException"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Throwable"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageException"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromExceptionAndHttpCode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Throwable"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageException"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Throwable"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageException"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "synchronized"
+        ],
+        "name": "getCause",
+        "paramTypes": [],
+        "retType": "java.lang.Throwable"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCause",
+        "paramTypes": [],
+        "retType": "java.lang.Throwable"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getErrorCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getErrorCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHttpResultCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHttpCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIsRecoverableException",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "overRetryTimes",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "name": "ERROR_BUCKET_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13011"
+      },
+      "h": {
+        "name": "ERROR_BUCKET_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11003"
+      },
+      "text": "\"StorageException public static final int ERROR_BUCKET_NOT_FOUND = -13011\" will be replaced by \"StorageException public static final int ERROR_BUCKET_NOT_FOUND = 11003\"",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "name": "ERROR_CANCELED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13040"
+      },
+      "h": {
+        "name": "ERROR_CANCELED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11010"
+      },
+      "text": "\"StorageException public static final int ERROR_CANCELED = -13040\" will be replaced by \"StorageException public static final int ERROR_CANCELED = 11010\"",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "name": "ERROR_INVALID_CHECKSUM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13031"
+      },
+      "h": {
+        "name": "ERROR_INVALID_HASH_VERIFY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11009"
+      },
+      "text": "\"StorageException public static final int ERROR_INVALID_CHECKSUM = -13031\" will be replaced by \"StorageException public static  final int ERROR_INVALID_HASH_VERIFY = 11009\"",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "name": "ERROR_NOT_AUTHENTICATED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13020"
+      },
+      "h": {
+        "name": "ERROR_NOT_AUTHENTICATED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11006"
+      },
+      "text": "\"StorageException public static final int ERROR_NOT_AUTHENTICATED = -13020\" will be replaced by \"StorageException public static  final int ERROR_NOT_AUTHENTICATED = 11006\"",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "name": "ERROR_NOT_AUTHORIZED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13021"
+      },
+      "h": {
+        "name": "ERROR_NOT_PERMISSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11007"
+      },
+      "text": "\"StorageException public static final int ERROR_NOT_AUTHORIZED = -13021\" will be replaced by \"StorageException public static final int ERROR_NOT_PERMISSION = 11007\"",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "name": "ERROR_OBJECT_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13010"
+      },
+      "h": {
+        "name": "ERROR_OBJECT_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11004"
+      },
+      "text": "\"StorageException public static final int ERROR_OBJECT_NOT_FOUND = -13010\" will be replaced by \"StorageException public static final int ERROR_OBJECT_NOT_FOUND = 11004\"",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "name": "ERROR_PROJECT_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13012"
+      },
+      "h": {
+        "name": "ERROR_PROJECT_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11002"
+      },
+      "text": "\"StorageException public static final int ERROR_PROJECT_NOT_FOUND = -13012\" will be replaced by \"StorageException public static final int ERROR_PROJECT_NOT_FOUND = 11002\"",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "name": "ERROR_QUOTA_EXCEEDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13013"
+      },
+      "h": {
+        "name": "ERROR_QUOTA_EXCEEDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11005"
+      },
+      "text": "\"StorageException public static final int ERROR_QUOTA_EXCEEDED = -13013\" will be replaced by \"StorageException public static final int ERROR_QUOTA_EXCEEDED = 11005\"",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "name": "ERROR_RETRY_LIMIT_EXCEEDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13030"
+      },
+      "h": {
+        "name": "ERROR_OPERATION_FREQUENT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11008"
+      },
+      "text": "\"StorageException public static final int ERROR_RETRY_LIMIT_EXCEEDED = -13030\" will be replaced by \"StorageException public static final int ERROR_OPERATION_FREQUENT = 11008\"",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "name": "ERROR_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13000"
+      },
+      "h": {
+        "name": "ERROR_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11001"
+      },
+      "text": "\"StorageException public static final int ERROR_UNKNOWN = -13000\" will be replaced by \"StorageException public static final int ERROR_UNKNOWN = 11001\"",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.cloud.storage.core.StorageException",
+  "kitName": "FirebaseStorage",
+  "status": "matching"
+}

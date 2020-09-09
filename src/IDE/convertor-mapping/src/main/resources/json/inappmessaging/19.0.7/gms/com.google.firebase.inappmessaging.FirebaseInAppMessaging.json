@@ -1,0 +1,360 @@
+{
+  "gName": "com.google.firebase.inappmessaging.FirebaseInAppMessaging",
+  "interfaces": [],
+  "dependencyName": "InAppMessaging",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addClickListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingClickListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessaging",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-inapp-0000001051053689#EN-US_TOPIC_0000001051053689__section844615451366"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addClickListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingClickListener"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.Executor"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addDisplayErrorListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayErrorListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addDisplayErrorListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayErrorListener"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.Executor"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addImpressionListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingImpressionListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "addOnDisplayListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.appmessaging.AGConnectAppMessagingOnDisplayListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessaging",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addImpressionListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingImpressionListener"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.Executor"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "areMessagesSuppressed",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessaging",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-inapp-0000001051053689#EN-US_TOPIC_0000001051053689__section72091201166"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [],
+        "retType": "com.google.firebase.inappmessaging.FirebaseInAppMessaging"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "synchronized",
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.appmessaging.AGConnectAppMessaging"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessaging",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isAutomaticDataCollectionEnabled",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isFetchMessageEnable",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessaging",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeClickListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingClickListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessaging",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-inapp-0000001051053689#EN-US_TOPIC_0000001051053689__section0105156113917"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeDisplayErrorListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayErrorListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeImpressionListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingImpressionListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "addOnDisplayListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "null"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessaging",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setAutomaticDataCollectionEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "setFetchMessageEnable",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessaging",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setMessageDisplayComponent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplay"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessaging",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-inapp-0000001051053689#EN-US_TOPIC_0000001051053689__section75761327725"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "InAppMessaging",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setMessagesSuppressed",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessaging",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-inapp-0000001051053689#EN-US_TOPIC_0000001051053689__section47591944324"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessaging",
+  "kitName": "InAppMessaging",
+  "status": "complex"
+}

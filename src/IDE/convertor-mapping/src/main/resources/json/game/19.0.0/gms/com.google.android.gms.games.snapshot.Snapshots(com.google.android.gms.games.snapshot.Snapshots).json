@@ -1,0 +1,508 @@
+{
+  "gName": "com.google.android.gms.games.snapshot.Snapshots",
+  "interfaces": [],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSelectSnapshotIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "boolean"
+          },
+          {
+            "pos": "3",
+            "type": "boolean"
+          },
+          {
+            "pos": "4",
+            "type": "int"
+          }
+        ],
+        "retType": "android.content.Intent"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.ArchivesClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section24534282108"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "commitAndClose",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.games.snapshot.Snapshot"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.games.snapshot.SnapshotMetadataChange"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.snapshot.Snapshots.CommitSnapshotResult>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "delete",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.snapshot.Snapshots.DeleteSnapshotResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.ArchivesClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section854414521648"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "load",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.snapshot.Snapshots.LoadSnapshotsResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.ArchivesClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section831103992514"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "open",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.snapshot.Snapshots.OpenSnapshotResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.ArchivesClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section13791343182318"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "open",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.snapshot.Snapshots.OpenSnapshotResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.ArchivesClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section15789121102418"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "open",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.snapshot.Snapshots.OpenSnapshotResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.ArchivesClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section209883192241"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "open",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "boolean"
+          },
+          {
+            "pos": "3",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.snapshot.Snapshots.OpenSnapshotResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.ArchivesClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section136643373247"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "resolveConflict",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.games.snapshot.Snapshot"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.snapshot.Snapshots.OpenSnapshotResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.ArchivesClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section04909274267"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "resolveConflict",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.games.snapshot.SnapshotMetadataChange"
+          },
+          {
+            "pos": "4",
+            "type": "com.google.android.gms.games.snapshot.SnapshotContents"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.snapshot.Snapshots.OpenSnapshotResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.ArchivesClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section192461051182619"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSnapshotFromBundle",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.ArchivesClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section1971718510119"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getMaxCoverImageSize",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.ArchivesClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section3888312599"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getMaxDataSize",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.ArchivesClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section207583661015"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "discardAndClose",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.games.snapshot.Snapshot"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "name": "DISPLAY_LIMIT_NONE",
+        "modifiers": [],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveConstants",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "name": "RESOLUTION_POLICY_HIGHEST_PROGRESS",
+        "modifiers": [],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveConstants",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "name": "RESOLUTION_POLICY_LAST_KNOWN_GOOD",
+        "modifiers": [],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "name": "RESOLUTION_POLICY_LONGEST_PLAYTIME",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveConstants",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "name": "RESOLUTION_POLICY_MANUAL",
+        "modifiers": [],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveConstants",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "name": "RESOLUTION_POLICY_MOST_RECENTLY_MODIFIED",
+        "modifiers": [],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveConstants",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "name": "EXTRA_SNAPSHOT_METADATA",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.games.SNAPSHOT_METADATA"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveConstants",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "name": "EXTRA_SNAPSHOT_NEW",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.games.SNAPSHOT_NEW"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveConstants",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Game",
+  "status": "complex"
+}

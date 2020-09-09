@@ -1,0 +1,143 @@
+{
+  "gName": "com.google.firebase.ml.vision.document.FirebaseVisionDocumentText.Paragraph",
+  "interfaces": [],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBoundingBox",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBorder",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Section",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getConfidence",
+        "paramTypes": [],
+        "retType": "java.lang.Float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPossibility",
+        "paramTypes": [],
+        "retType": "java.lang.Float"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Section",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRecognizedBreak",
+        "paramTypes": [],
+        "retType": "com.google.firebase.ml.vision.document.FirebaseVisionDocumentText.RecognizedBreak"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getInterval",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.document.MLDocument.Interval"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Section",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRecognizedLanguages",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.firebase.ml.vision.text.RecognizedLanguage>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLanguageList",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.mlsdk.text.TextLanguage>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Section",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getText",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStringValue",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Section",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getWords",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.firebase.ml.vision.document.FirebaseVisionDocumentText.Word>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getWordList",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.mlsdk.document.MLDocument.Word>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Section",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.document.MLDocument.Section",
+  "kitName": "ML",
+  "status": "matching"
+}

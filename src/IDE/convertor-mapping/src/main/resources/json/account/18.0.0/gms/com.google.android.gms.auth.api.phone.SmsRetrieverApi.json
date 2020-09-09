@@ -1,0 +1,52 @@
+{
+  "gName": "com.google.android.gms.auth.api.phone.SmsRetrieverApi",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startSmsRetriever",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startSmsUserConsent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Account",
+  "status": "notSupport"
+}

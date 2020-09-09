@@ -1,0 +1,299 @@
+{
+  "gName": "com.google.android.gms.nearby.connection.Payload",
+  "interfaces": [],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "asBytes",
+        "paramTypes": [],
+        "retType": "byte[]"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "asBytes",
+        "paramTypes": [],
+        "retType": "byte[]"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.transfer.Data",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "asFile",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.nearby.connection.Payload.File"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "asFile",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.nearby.transfer.Data.File"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.transfer.Data",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "asStream",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.nearby.connection.Payload.Stream"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "asStream",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.nearby.transfer.Data.Stream"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.transfer.Data",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromBytes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.connection.Payload"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromBytes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.transfer.Data"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.transfer.Data",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.ParcelFileDescriptor"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.connection.Payload"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.ParcelFileDescriptor"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.transfer.Data"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.transfer.Data",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [
+          "java.io.FileNotFoundException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.File"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.connection.Payload"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.FileNotFoundException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromFile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.File"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.transfer.Data"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.transfer.Data",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromStream",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.ParcelFileDescriptor"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.connection.Payload"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromStream",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.ParcelFileDescriptor"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.transfer.Data"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.transfer.Data",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromStream",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.InputStream"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.connection.Payload"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromStream",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.InputStream"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.transfer.Data"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.transfer.Data",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.transfer.Data",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.transfer.Data",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.transfer.Data",
+  "kitName": "Nearby",
+  "status": "matching"
+}

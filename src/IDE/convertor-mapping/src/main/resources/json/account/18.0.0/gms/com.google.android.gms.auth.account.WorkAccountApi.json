@@ -1,0 +1,115 @@
+{
+  "gName": "com.google.android.gms.auth.account.WorkAccountApi",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "addWorkAccount",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.auth.account.WorkAccountApi.AddAccountResult>"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "removeWorkAccount",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.accounts.Account"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Result>"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "setWorkAuthenticatorEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "setWorkAuthenticatorEnabledWithResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Result>"
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Account",
+  "status": "dummy"
+}

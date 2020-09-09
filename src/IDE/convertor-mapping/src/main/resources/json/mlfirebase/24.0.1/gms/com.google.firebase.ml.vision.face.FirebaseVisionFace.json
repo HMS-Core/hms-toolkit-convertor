@@ -1,0 +1,287 @@
+{
+  "gName": "com.google.firebase.ml.vision.face.FirebaseVisionFace",
+  "interfaces": [],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBoundingBox",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBorder",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFace",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContour",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.face.FirebaseVisionFaceContour"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFaceShape",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.face.MLFaceShape"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFace",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHeadEulerAngleY",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRotationAngleY",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFace",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHeadEulerAngleZ",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRotationAngleZ",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFace",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLandmark",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFaceKeyPoint",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFace",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLeftEyeOpenProbability",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "opennessOfLeftEye",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFace",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRightEyeOpenProbability",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "opennessOfRightEye",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFace",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSmilingProbability",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "possibilityOfSmiling",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFace",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTrackingId",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTracingIdentity",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFace",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFace",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "INVALID_ID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "com.huawei.hms.mlsdk.face.MLFace",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "UNCOMPUTED_PROBABILITY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "float",
+        "value": "-1.0F"
+      },
+      "h": {
+        "name": "UNANALYZED_POSSIBILITY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "float",
+        "value": "-1.0F"
+      },
+      "text": "\"FirebaseVisionFace public static final float UNCOMPUTED_PROBABILITY = -1.0F\" will be replaced by \"MLFace public static final float UNANALYZED_POSSIBILITY = -1.0F\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFace",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.face.MLFace",
+  "kitName": "ML",
+  "status": "matching"
+}

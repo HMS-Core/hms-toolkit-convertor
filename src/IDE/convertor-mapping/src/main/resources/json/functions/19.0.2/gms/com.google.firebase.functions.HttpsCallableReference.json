@@ -1,0 +1,166 @@
+{
+  "gName": "com.google.firebase.functions.HttpsCallableReference",
+  "interfaces": [],
+  "dependencyName": "Functions",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Functions",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "call",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.functions.HttpsCallableResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "call",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.agconnect.function.FunctionResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.function.FunctionCallable",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Functions",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "call",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.functions.HttpsCallableResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "call",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.agconnect.function.FunctionResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.function.FunctionCallable",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Functions",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTimeout",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTimeout",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.function.FunctionCallable",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Functions",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTimeout",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTimeout",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.function.FunctionCallable",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Functions",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "withTimeout",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.google.firebase.functions.HttpsCallableReference"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "clone",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.huawei.agconnect.function.FunctionCallable"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.function.FunctionCallable",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.function.FunctionCallable",
+  "kitName": "Functions",
+  "status": "matching"
+}

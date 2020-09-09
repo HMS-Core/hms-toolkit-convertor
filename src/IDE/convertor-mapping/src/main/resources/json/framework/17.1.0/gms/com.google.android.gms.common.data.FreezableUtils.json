@@ -1,0 +1,136 @@
+{
+  "gName": "com.google.android.gms.common.data.FreezableUtils",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "freeze",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "E[]"
+          }
+        ],
+        "retType": "<T, E extends com.google.android.gms.common.data.Freezable<T>> java.util.ArrayList<T>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "freeze",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "E[]"
+          }
+        ],
+        "retType": "<T, E extends com.huawei.hms.common.data.Freezable<T>> java.util.ArrayList<T>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.common.data.FreezableUtils",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "freeze",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.ArrayList<E>"
+          }
+        ],
+        "retType": "<T, E extends com.google.android.gms.common.data.Freezable<T>> java.util.ArrayList<T>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "freeze",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.ArrayList<E>"
+          }
+        ],
+        "retType": "<T, E extends com.huawei.hms.common.data.Freezable<T>> java.util.ArrayList<T>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.common.data.FreezableUtils",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "freezeIterable",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Iterable<E>"
+          }
+        ],
+        "retType": "<T, E extends com.google.android.gms.common.data.Freezable<T>> java.util.ArrayList<T>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "freezeIterable",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Iterable<E>"
+          }
+        ],
+        "retType": "<T, E extends com.huawei.hms.common.data.Freezable<T>> java.util.ArrayList<T>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.common.data.FreezableUtils",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "FreezableUtils",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.common.data.FreezableUtils",
+  "kitName": "Basement",
+  "status": "notSupport"
+}

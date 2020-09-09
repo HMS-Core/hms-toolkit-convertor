@@ -1,0 +1,189 @@
+{
+  "gName": "com.google.android.gms.gcm.GcmTaskService",
+  "interfaces": [],
+  "dependencyName": "Push",
+  "superClass": "android.app.Service",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "GcmTaskService",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onBind",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "android.os.IBinder"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onCreate",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onDestroy",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onInitializeTasks",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onRunTask",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.gcm.TaskParams"
+          }
+        ],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onStartCommand",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "name": "SERVICE_PERMISSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+      },
+      "text": "Use WorkManager provided by Google as replacement. The method is in the AndroidX library and does not depend on Google APIs.",
+      "hName": "",
+      "url": "https://developer.android.com/topic/libraries/architecture/workmanager/migrating-gcm"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "name": "SERVICE_ACTION_EXECUTE_TASK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.gcm.ACTION_TASK_READY"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "name": "SERVICE_ACTION_INITIALIZE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.gcm.SERVICE_ACTION_INITIALIZE"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Push",
+  "status": "notSupport"
+}

@@ -1,0 +1,150 @@
+{
+  "gName": "com.google.android.gms.games.Games.GamesOptions",
+  "interfaces": [
+    "com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension",
+    "com.google.android.gms.common.api.Api.ApiOptions.HasGoogleSignInAccountOptions",
+    "com.google.android.gms.common.api.Api.ApiOptions.Optional"
+  ],
+  "dependencyName": "Game",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.GameOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.GameOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "builder",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.Games.GamesOptions.Builder"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getGoogleSignInAccount",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getExtensionType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getImpliedScopes",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.common.api.Scope>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toBundle",
+        "paramTypes": [],
+        "retType": "android.os.Bundle"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.GameOptions",
+  "kitName": "Game",
+  "status": "notSupport"
+}

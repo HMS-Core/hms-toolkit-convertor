@@ -1,0 +1,477 @@
+{
+  "gName": "com.google.android.gms.games.event.EventEntity",
+  "interfaces": [
+    "android.os.Parcelable",
+    "com.google.android.gms.games.event.Event"
+  ],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "EventEntity",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.event.Event"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getIconImageUri",
+        "paramTypes": [],
+        "retType": "android.net.Uri"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getThumbnailUri",
+        "paramTypes": [],
+        "retType": "android.net.Uri"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isDataValid",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isVisible",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isVisible",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "freeze",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.event.Event"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getPlayer",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.Player"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getGamePlayer",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.player.Player"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDescription",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDescription",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getEventId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getEventId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getFormattedValue",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLocaleValue",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getIconImageUrl",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getValue",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getValue",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDescription",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.database.CharArrayBuffer"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getFormattedValue",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.database.CharArrayBuffer"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getName",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.database.CharArrayBuffer"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.games.event.EventEntity>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [],
+        "type": "android.os.Parcelable.Creator",
+        "value": ""
+      },
+      "text": "\"EventEntity public static final android.os.Parcelable.Creator<com.google.android.gms.games.event.EventEntity> CREATOR\" will be replaced by \"Event public android.os.Parcelable.Creator CREATOR\"",
+      "hName": "com.huawei.hms.jos.games.event.Event",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.event.Event",
+  "kitName": "Game",
+  "status": "matching"
+}

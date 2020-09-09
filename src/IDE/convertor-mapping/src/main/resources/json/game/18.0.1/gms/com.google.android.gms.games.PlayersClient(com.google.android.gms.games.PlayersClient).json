@@ -1,0 +1,191 @@
+{
+  "gName": "com.google.android.gms.games.PlayersClient",
+  "interfaces": [],
+  "dependencyName": "Game",
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.games.Games.GamesOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCompareProfileIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.Player"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<android.content.Intent>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPlayerSearchIntent",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<android.content.Intent>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadPlayer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.AnnotatedData<com.google.android.gms.games.Player>>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadPlayer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.AnnotatedData<com.google.android.gms.games.Player>>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadMoreRecentlyPlayedWithPlayers",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.AnnotatedData<com.google.android.gms.games.PlayerBuffer>>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadRecentlyPlayedWithPlayers",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.AnnotatedData<com.google.android.gms.games.PlayerBuffer>>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCurrentPlayer",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.Player>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCurrentPlayer",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.jos.games.player.Player>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.PlayersClient",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCurrentPlayerId",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.String>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCachePlayerId",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.String>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.PlayersClient",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "name": "EXTRA_PLAYER_SEARCH_RESULTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "player_search_results"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.PlayersClient",
+  "kitName": "Game",
+  "status": "notSupport"
+}

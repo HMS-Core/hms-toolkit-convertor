@@ -1,0 +1,52 @@
+{
+  "gName": "com.google.android.gms.safetynet.SafetyNetApi.SafeBrowsingResponse",
+  "interfaces": [],
+  "dependencyName": "Safetynet",
+  "superClass": "com.google.android.gms.common.api.Response",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "SafeBrowsingResponse",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS does not provide a response instantiation solution. Make modifications based on the development guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/urlcheck-0000001050156333"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDetectedThreats",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.safetynet.SafeBrowsingThreat>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getUrlCheckResponse",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.support.api.entity.safetydetect.UrlCheckThreat>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.entity.safetydetect.UrlCheckResponse",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.entity.safetydetect.UrlCheckResponse",
+  "kitName": "Safetynet",
+  "status": "matching"
+}

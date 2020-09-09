@@ -1,0 +1,218 @@
+{
+  "gName": "com.google.android.gms.fitness.FitnessOptions",
+  "interfaces": [
+    "com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension"
+  ],
+  "dependencyName": "Health",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "builder",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.FitnessOptions.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "builder",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.HiHealthOptions.Builder"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HiHealthOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HiHealthOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getExtensionType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getExtendedParamType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HiHealthOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getImpliedScopes",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.common.api.Scope>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getExtendedScopes",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.support.api.entity.auth.Scope>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HiHealthOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HiHealthOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toBundle",
+        "paramTypes": [],
+        "retType": "android.os.Bundle"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getExtendedBundle",
+        "paramTypes": [],
+        "retType": "android.os.Bundle"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.HiHealthOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "ACCESS_READ",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "ACCESS_READ",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"FitnessOptions public static final int ACCESS_READ = 0\" will be replaced by \"HiHealthOptions public static final int ACCESS_READ = 0\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "ACCESS_WRITE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "ACCESS_WRITE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FitnessOptions public static final int ACCESS_WRITE = 1\" will be replaced by \"HiHealthOptions public static final int ACCESS_WRITE = 1\"",
+      "hName": "com.huawei.hms.hihealth.HiHealthOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.HiHealthOptions",
+  "kitName": "Health",
+  "status": "matching"
+}

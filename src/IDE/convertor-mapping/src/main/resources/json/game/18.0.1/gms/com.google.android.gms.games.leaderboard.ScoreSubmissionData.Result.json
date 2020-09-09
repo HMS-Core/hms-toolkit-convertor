@@ -1,0 +1,182 @@
+{
+  "gName": "com.google.android.gms.games.leaderboard.ScoreSubmissionData.Result",
+  "interfaces": [],
+  "dependencyName": "Game",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Result",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "boolean"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Result",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "boolean"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.ScoreSubmissionInfo.Result",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "newBest",
+        "modifiers": [
+          "final"
+        ],
+        "type": "boolean",
+        "value": ""
+      },
+      "h": {
+        "name": "isBest",
+        "modifiers": [
+          "final"
+        ],
+        "type": "boolean",
+        "value": ""
+      },
+      "text": "\"ScoreSubmissionData.Result public final boolean newBest\" will be replaced by \"ScoreSubmissionInfo.Result public final boolean isBest\"",
+      "hName": "com.huawei.hms.jos.games.ranking.ScoreSubmissionInfo.Result",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "formattedScore",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "displayScore",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"ScoreSubmissionData.Result public final java.lang.String formattedScore\" will be replaced by \"ScoreSubmissionInfo.Result public final java.lang.String displayScore\"",
+      "hName": "com.huawei.hms.jos.games.ranking.ScoreSubmissionInfo.Result",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "scoreTag",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "scoreTips",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"ScoreSubmissionData.Result public final java.lang.String scoreTag\" will be replaced by \"ScoreSubmissionInfo.Result public final java.lang.String scoreTips\"",
+      "hName": "com.huawei.hms.jos.games.ranking.ScoreSubmissionInfo.Result",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "rawScore",
+        "modifiers": [
+          "final"
+        ],
+        "type": "long",
+        "value": ""
+      },
+      "h": {
+        "name": "playerRawScore",
+        "modifiers": [
+          "final"
+        ],
+        "type": "long",
+        "value": ""
+      },
+      "text": "\"ScoreSubmissionData.Result public final long rawScore\" will be replaced by \"ScoreSubmissionInfo.Result public final long playerRawScore\"",
+      "hName": "com.huawei.hms.jos.games.ranking.ScoreSubmissionInfo.Result",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.ranking.ScoreSubmissionInfo.Result",
+  "kitName": "Game",
+  "status": "matching"
+}

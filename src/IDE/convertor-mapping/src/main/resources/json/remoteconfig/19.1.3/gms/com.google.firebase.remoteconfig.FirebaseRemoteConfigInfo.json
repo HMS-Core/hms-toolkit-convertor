@@ -1,0 +1,65 @@
+{
+  "gName": "com.google.firebase.remoteconfig.FirebaseRemoteConfigInfo",
+  "interfaces": [],
+  "dependencyName": "RemoteConfig",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "RemoteConfig",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getConfigSettings",
+        "paramTypes": [],
+        "retType": "com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "RemoteConfig",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getFetchTimeMillis",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "RemoteConfig",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLastFetchStatus",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "RemoteConfig",
+  "status": "dummy"
+}

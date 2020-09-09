@@ -1,0 +1,471 @@
+{
+  "gName": "com.google.android.gms.games.snapshot.SnapshotMetadataEntity",
+  "interfaces": [
+    "android.os.Parcelable",
+    "com.google.android.gms.games.snapshot.SnapshotMetadata"
+  ],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCoverImageUri",
+        "paramTypes": [],
+        "retType": "android.net.Uri"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hasChangePending",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isDataValid",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getGame",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.Game"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getGameSummary",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.gamesummary.GameSummary"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getOwner",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.Player"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getGamePlayer",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.player.Player"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "freeze",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCoverImageAspectRatio",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getThumbnailRatio",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDescription",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDescInfo",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDeviceName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getSnapshotId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getUniqueName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFileName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getLastModifiedTimestamp",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRecentUpdateTime",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getPlayedTime",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getActiveTime",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getProgressValue",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCurrentProgress",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDescription",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.database.CharArrayBuffer"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.games.snapshot.SnapshotMetadataEntity>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [],
+        "type": "android.os.Parcelable.Creator",
+        "value": ""
+      },
+      "text": "\"SnapshotMetadataEntity public static final android.os.Parcelable.Creator<com.google.android.gms.games.snapshot.SnapshotMetadataEntity> CREATOR\" will be replaced by \"ArchiveSummary public android.os.Parcelable.Creator CREATOR\"",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.archive.ArchiveSummary",
+  "kitName": "Game",
+  "status": "matching"
+}

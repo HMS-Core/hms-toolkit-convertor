@@ -1,0 +1,108 @@
+{
+  "gName": "com.google.android.gms.auth.api.phone.SmsCodeRetriever",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAutofillClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.phone.SmsCodeAutofillClient"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAutofillClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.phone.SmsCodeAutofillClient"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "name": "EXTRA_SMS_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.auth.api.phone.EXTRA_SMS_CODE"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "name": "EXTRA_STATUS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.auth.api.phone.EXTRA_STATUS"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "name": "SMS_CODE_RETRIEVED_ACTION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.auth.api.phone.SMS_CODE_RETRIEVED"
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Account",
+  "status": "notSupport"
+}

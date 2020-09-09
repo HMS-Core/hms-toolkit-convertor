@@ -1,0 +1,1416 @@
+{
+  "gName": "com.google.api.services.drive.model.File.Capabilities",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "com.google.api.client.json.GenericJson",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Capabilities",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Capabilities",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.lang.CloneNotSupportedException"
+        ],
+        "modifiers": [],
+        "name": "clone",
+        "paramTypes": [],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [
+          "java.lang.CloneNotSupportedException"
+        ],
+        "modifiers": [],
+        "name": "clone",
+        "paramTypes": [],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanAddChildren",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAddChildNodePermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanChangeCopyRequiresWriterPermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getWriterHasCopyPermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanChangeViewersCanCopyContent",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanComment",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCommentPermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanCopy",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCopyPermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanDelete",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDeletePermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanDeleteChildren",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDeleteChildNodePermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanDownload",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDownloadPermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanEdit",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getEditPermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanListChildren",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getListChildNodePermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanModifyContent",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getEditContentPermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanMoveChildrenOutOfDrive",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanMoveChildrenOutOfTeamDrive",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanMoveChildrenWithinDrive",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanMoveChildrenWithinTeamDrive",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanMoveItemIntoTeamDrive",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanMoveItemOutOfDrive",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanMoveItemOutOfTeamDrive",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanMoveItemWithinDrive",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanMoveItemWithinTeamDrive",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanMoveTeamDriveItem",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanReadDrive",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanReadRevisions",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getReadHistoryVersionPermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanReadTeamDrive",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanRemoveChildren",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRemoveChildNodePermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanRename",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRenameFilePermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanShare",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getShareFilePermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanTrash",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRecyclePermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanTrashChildren",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRecycleChildNodePermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCanUntrash",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getUnrecyclePermission",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "set",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "set",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanAddChildren",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setAddChildNodePermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanChangeCopyRequiresWriterPermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setWriterHasCopyPermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanChangeViewersCanCopyContent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanComment",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCommentPermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanCopy",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCopyPermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanDelete",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDeletePermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanDeleteChildren",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDeleteChildNodePermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanDownload",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDownloadPermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanEdit",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setEditPermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanListChildren",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setListChildNodePermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanModifyContent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setEditContentPermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanMoveChildrenOutOfDrive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanMoveChildrenOutOfTeamDrive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanMoveChildrenWithinDrive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanMoveChildrenWithinTeamDrive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanMoveItemIntoTeamDrive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanMoveItemOutOfDrive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanMoveItemOutOfTeamDrive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanMoveItemWithinDrive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanMoveItemWithinTeamDrive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanMoveTeamDriveItem",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanReadDrive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanReadRevisions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setReadHistoryVersionPermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanReadTeamDrive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanRemoveChildren",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setRemoveChildNodePermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanRename",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setRenameFilePermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanShare",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setShareFilePermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanTrash",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setRecyclePermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanTrashChildren",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setRecycleChildNodePermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCanUntrash",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.Capabilities"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setUnrecyclePermission",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.Capabilities"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.cloud.services.drive.model.File.Capabilities",
+  "kitName": "Drive",
+  "status": "matching"
+}

@@ -1,0 +1,55 @@
+{
+  "gName": "com.google.android.gms.auth.api.phone.SmsCodeAutofillClient",
+  "interfaces": [
+    "com.google.android.gms.common.api.HasApiKey<O extends com.google.android.gms.common.api.ApiOptions.NoOptions>"
+  ],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "checkPermissionState",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<Integer>"
+      }
+    },
+    {
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "hasOngoingSmsRequest",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<Boolean>"
+      }
+    },
+    {
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startSmsCodeRetriever",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<Void>"
+      }
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Account",
+  "status": ""
+}

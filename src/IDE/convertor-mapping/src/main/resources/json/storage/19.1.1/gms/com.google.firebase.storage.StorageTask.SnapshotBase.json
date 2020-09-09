@@ -1,0 +1,99 @@
+{
+  "gName": "com.google.firebase.storage.StorageTask.SnapshotBase",
+  "interfaces": [],
+  "dependencyName": "FirebaseStorage",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getError",
+        "paramTypes": [],
+        "retType": "java.lang.Exception"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getError",
+        "paramTypes": [],
+        "retType": "java.lang.Exception"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageTask.TimePointStateBase",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStorage",
+        "paramTypes": [],
+        "retType": "com.google.firebase.storage.StorageReference"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStorage",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageReference"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageTask.TimePointStateBase",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTask",
+        "paramTypes": [],
+        "retType": "com.google.firebase.storage.StorageTask"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTask",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageTask.TimePointStateBase",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FirebaseStorage",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "SnapshotBase",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Exception"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "HMS Core does not provide this API from com.google.firebase.storage.StorageTask.SnapshotBase. You can ignore it.",
+      "hName": "com.huawei.agconnect.cloud.storage.core.StorageTask.TimePointStateBase",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.agconnect.cloud.storage.core.StorageTask.TimePointStateBase",
+  "kitName": "FirebaseStorage",
+  "status": "notSupport"
+}

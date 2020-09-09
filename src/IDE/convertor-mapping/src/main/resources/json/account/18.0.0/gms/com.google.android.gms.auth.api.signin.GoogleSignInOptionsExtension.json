@@ -1,0 +1,84 @@
+{
+  "gName": "com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getExtensionType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getExtendedParamType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthExtendedParams",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getImpliedScopes",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.common.api.Scope>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getExtendedScopes",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.support.api.entity.auth.Scope>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthExtendedParams",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "toBundle",
+        "paramTypes": [],
+        "retType": "android.os.Bundle"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getExtendedBundle",
+        "paramTypes": [],
+        "retType": "android.os.Bundle"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthExtendedParams",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthExtendedParams",
+  "kitName": "Account",
+  "status": "matching"
+}

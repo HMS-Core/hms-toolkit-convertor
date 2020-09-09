@@ -1,0 +1,128 @@
+{
+  "gName": "com.google.android.gms.location.GeofenceStatusCodes",
+  "interfaces": [],
+  "dependencyName": "Location",
+  "superClass": "com.google.android.gms.common.api.CommonStatusCodes",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusCodeString",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getErrorMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.GeofenceErrorCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "GEOFENCE_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1000"
+      },
+      "h": {
+        "name": "GEOFENCE_UNAVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10200"
+      },
+      "text": "\"GeofenceStatusCodes public static final int GEOFENCE_NOT_AVAILABLE = 1000\" will be replaced by \"GeofenceErrorCodes public static final int GEOFENCE_UNAVAILABLE = 10200\"",
+      "hName": "com.huawei.hms.location.GeofenceErrorCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "GEOFENCE_TOO_MANY_GEOFENCES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1001"
+      },
+      "h": {
+        "name": "GEOFENCE_NUMBER_OVER_LIMIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10201"
+      },
+      "text": "\"GeofenceStatusCodes public static final int GEOFENCE_TOO_MANY_GEOFENCES = 1001\" will be replaced by \"GeofenceErrorCodes public static final int GEOFENCE_NUMBER_OVER_LIMIT = 10201\"",
+      "hName": "com.huawei.hms.location.GeofenceErrorCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "GEOFENCE_TOO_MANY_PENDING_INTENTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1002"
+      },
+      "h": {
+        "name": "GEOFENCE_PENDINGINTENT_OVER_LIMIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10202"
+      },
+      "text": "\"GeofenceStatusCodes public static final int GEOFENCE_TOO_MANY_PENDING_INTENTS = 1002\" will be replaced by \"GeofenceErrorCodes public static final int GEOFENCE_PENDINGINTENT_OVER_LIMIT = 10202\"",
+      "hName": "com.huawei.hms.location.GeofenceErrorCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.location.GeofenceErrorCodes",
+  "kitName": "Location",
+  "status": "matching"
+}

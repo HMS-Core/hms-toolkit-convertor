@@ -1,0 +1,79 @@
+{
+  "gName": "com.google.android.gms.vision.barcode.Barcode.Sms",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "MLgms",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Sms",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "SmsContent",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.SmsContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "message",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "msgContent",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.Sms public java.lang.String message\" will be replaced by \"HmsScan.SmsContent public java.lang.String msgContent\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.SmsContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "phoneNumber",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "destPhoneNumber",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.Sms public java.lang.String phoneNumber\" will be replaced by \"HmsScan.SmsContent public java.lang.String destPhoneNumber\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.SmsContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan.SmsContent",
+  "kitName": "ML",
+  "status": "matching"
+}

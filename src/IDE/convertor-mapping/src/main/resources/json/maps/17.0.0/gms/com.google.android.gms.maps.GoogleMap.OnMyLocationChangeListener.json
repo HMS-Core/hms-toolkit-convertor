@@ -1,0 +1,34 @@
+{
+  "gName": "com.google.android.gms.maps.GoogleMap.OnMyLocationChangeListener",
+  "interfaces": [],
+  "dependencyName": "Map",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onMyLocationChange",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.location.Location"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the \"HuaweiMap.setOnMyLocationListener()\" section in the manual conversion guide.",
+      "hName": "com.huawei.hms.maps.HuaweiMap.OnMyLocationChangeListener",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/map-conversion-0000001050062227"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Map",
+  "status": "manuallyAdapt"
+}

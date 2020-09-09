@@ -1,0 +1,52 @@
+{
+  "gName": "com.google.android.gms.safetynet.SafetyNetApi.AttestationResponse",
+  "interfaces": [],
+  "dependencyName": "Safetynet",
+  "superClass": "com.google.android.gms.common.api.Response",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "AttestationResponse",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS does not provide a response instantiation solution. Make modifications based on the development guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/dysintegritydevelopment-0000001050156331"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getJwsResult",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getResult",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.entity.safetydetect.SysIntegrityResp",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.entity.safetydetect.SysIntegrityResp",
+  "kitName": "Safetynet",
+  "status": "matching"
+}

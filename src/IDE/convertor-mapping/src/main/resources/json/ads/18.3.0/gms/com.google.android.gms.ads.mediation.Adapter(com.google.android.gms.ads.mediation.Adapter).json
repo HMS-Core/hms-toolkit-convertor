@@ -1,0 +1,186 @@
+{
+  "gName": "com.google.android.gms.ads.mediation.Adapter",
+  "interfaces": [
+    "com.google.android.gms.ads.mediation.MediationExtrasReceiver"
+  ],
+  "dependencyName": "Ads",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSDKVersionInfo",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.ads.mediation.VersionInfo"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getVersionInfo",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.ads.mediation.VersionInfo"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "initialize",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.ads.mediation.InitializationCompleteCallback"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.List<com.google.android.gms.ads.mediation.MediationConfiguration>"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadBannerAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.mediation.MediationBannerAdConfiguration"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.ads.mediation.MediationAdLoadCallback<com.google.android.gms.ads.mediation.MediationBannerAd, com.google.android.gms.ads.mediation.MediationBannerAdCallback>"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadInterstitialAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.mediation.MediationInterstitialAdConfiguration"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.ads.mediation.MediationAdLoadCallback<com.google.android.gms.ads.mediation.MediationInterstitialAd, com.google.android.gms.ads.mediation.MediationInterstitialAdCallback>"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadNativeAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.mediation.MediationNativeAdConfiguration"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.ads.mediation.MediationAdLoadCallback<com.google.android.gms.ads.mediation.UnifiedNativeAdMapper, com.google.android.gms.ads.mediation.MediationNativeAdCallback>"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadRewardedAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.mediation.MediationRewardedAdConfiguration"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.ads.mediation.MediationAdLoadCallback<com.google.android.gms.ads.mediation.MediationRewardedAd, com.google.android.gms.ads.mediation.MediationRewardedAdCallback>"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Adapter",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Ads",
+  "status": "notSupport"
+}

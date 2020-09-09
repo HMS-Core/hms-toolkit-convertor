@@ -1,0 +1,308 @@
+{
+  "gName": "com.google.android.gms.nearby.Nearby",
+  "interfaces": [],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getConnectionsClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.connection.ConnectionsClient"
+      },
+      "text": "The HMS Core Nearby SDK provides device discovery and transfer APIs through DiscoveryEngine and TransferEngine.",
+      "hName": "com.huawei.hms.nearby.Nearby",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section181208329151"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getConnectionsClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.connection.ConnectionsClient"
+      },
+      "text": "The HMS Core Nearby SDK provides device discovery and transfer APIs through DiscoveryEngine and TransferEngine.",
+      "hName": "com.huawei.hms.nearby.Nearby",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section181208329151"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessagesClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.MessagesOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.messages.MessagesClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessageEngine",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.message.MessageOption"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.message.MessageEngine"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.Nearby",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessagesClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.messages.MessagesClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessageEngine",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.message.MessageEngine"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.Nearby",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessagesClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.MessagesOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.messages.MessagesClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessageEngine",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.message.MessageOption"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.message.MessageEngine"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.Nearby",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessagesClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.messages.MessagesClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessageEngine",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.message.MessageEngine"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.Nearby",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "CONNECTIONS_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "text": "The The HMS Core Nearby SDK Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.Nearby",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section181208329151"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "Connections",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.nearby.connection.Connections",
+        "value": ""
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.Nearby",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section181208329151"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MESSAGES_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.nearby.messages.MessagesOptions>",
+        "value": ""
+      },
+      "h": {
+        "name": "MESSAGES_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.api.Api<com.huawei.hms.nearby.message.MessagesOptions>",
+        "value": ""
+      },
+      "text": "\"Nearby public static final com.google.android.gms.common.api.Api<com.google.android.gms.nearby.messages.MessagesOptions> MESSAGES_API\" will be replaced by \"Nearby public static final com.huawei.hms.api.Api<com.huawei.hms.nearby.message.MessagesOptions> MESSAGES_API\"",
+      "hName": "com.huawei.hms.nearby.Nearby",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "Messages",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.nearby.messages.Messages",
+        "value": ""
+      },
+      "h": {
+        "name": "MESSAGES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.nearby.message.Messages",
+        "value": ""
+      },
+      "text": "\"Nearby public static final com.google.android.gms.nearby.messages.Messages Messages\" will be replaced by \"Nearby public static final com.huawei.hms.nearby.message.Messages MESSAGES\"",
+      "hName": "com.huawei.hms.nearby.Nearby",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.Nearby",
+  "kitName": "Nearby",
+  "status": "matching"
+}

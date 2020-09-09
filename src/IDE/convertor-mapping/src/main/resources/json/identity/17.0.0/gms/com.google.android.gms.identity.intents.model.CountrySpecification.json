@@ -1,0 +1,90 @@
+{
+  "gName": "com.google.android.gms.identity.intents.model.CountrySpecification",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Identity",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Identity",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCountryCode",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not support the com.google.android.gms.identity.intents.model.CountrySpecification.getCountryCode() method. If it is called, delete it manually.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Identity",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support the com.google.android.gms.identity.intents.model.CountrySpecification.writeToParcel(android.os.Parcel,int) method. If it is called, delete it manually.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Identity",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "CountrySpecification",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "HMS Core does not support the com.google.android.gms.identity.intents.model.CountrySpecification.CountrySpecification(java.lang.String countryCode) method. If it is called, delete it manually.",
+      "hName": "com.huawei.hms.identity.entity.CountrySpecification",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Identity",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.identity.intents.model.CountrySpecification>",
+        "value": ""
+      },
+      "text": "HMS Core does not support the com.google.android.gms.identity.intents.model.CountrySpecification.CREATOR attribute. If it is called, delete it manually.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "",
+  "kitName": "Identity",
+  "status": "notSupport"
+}

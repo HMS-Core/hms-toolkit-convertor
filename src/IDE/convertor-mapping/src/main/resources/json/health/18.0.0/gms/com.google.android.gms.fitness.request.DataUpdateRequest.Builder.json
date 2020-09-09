@@ -1,0 +1,137 @@
+{
+  "gName": "com.google.android.gms.fitness.request.DataUpdateRequest.Builder",
+  "interfaces": [],
+  "dependencyName": "Health",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.request.DataUpdateRequest"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.options.UpdateOptions"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.UpdateOptions.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDataSet",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSet"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.request.DataUpdateRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setSampleSet",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.SampleSet"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.options.UpdateOptions.Builder"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.UpdateOptions.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTimeInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.request.DataUpdateRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTimeInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.options.UpdateOptions.Builder"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.UpdateOptions.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.UpdateOptions.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.options.UpdateOptions.Builder",
+  "kitName": "Health",
+  "status": "matching"
+}

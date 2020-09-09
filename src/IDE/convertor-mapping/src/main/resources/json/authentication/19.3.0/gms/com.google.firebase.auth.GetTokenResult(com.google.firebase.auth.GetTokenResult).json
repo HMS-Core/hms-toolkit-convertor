@@ -1,0 +1,113 @@
+{
+  "gName": "com.google.firebase.auth.GetTokenResult",
+  "interfaces": [],
+  "dependencyName": "Authentication",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAuthTimestamp",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "com.huawei.agconnect.auth.AGConnectUserExtra",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section96326316489"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getClaims",
+        "paramTypes": [],
+        "retType": "java.util.Map<java.lang.String, java.lang.Object>"
+      },
+      "text": "Only Firebase supports this method. For AGC, retain or delete this method as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getExpirationTimestamp",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getExpirePeriod",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Only Firebase supports this method. For AGC, retain or delete this method as needed.",
+      "hName": "com.huawei.agconnect.auth.TokenResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIssuedAtTimestamp",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Only Firebase supports this method. For AGC, retain or delete this method as needed.",
+      "hName": "com.huawei.agconnect.core.service.auth.Token",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSignInProvider",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section11414931133412"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.TokenResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.auth.TokenResult",
+  "kitName": "Authentication",
+  "status": "matching"
+}

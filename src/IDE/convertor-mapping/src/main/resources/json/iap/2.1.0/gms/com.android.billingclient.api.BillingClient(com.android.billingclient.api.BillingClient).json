@@ -1,0 +1,326 @@
+{
+  "gName": "com.android.billingclient.api.BillingClient",
+  "interfaces": [],
+  "dependencyName": "IAP",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "acknowledgePurchase",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.android.billingclient.api.AcknowledgePurchaseParams"
+          },
+          {
+            "pos": "1",
+            "type": "com.android.billingclient.api.AcknowledgePurchaseResponseListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.IapClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "consumeAsync",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.android.billingclient.api.ConsumeParams"
+          },
+          {
+            "pos": "1",
+            "type": "com.android.billingclient.api.ConsumeResponseListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.IapClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "endConnection",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.HMS",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isFeatureSupported",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "BillingResult"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.IapClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isReady",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.HMS",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "launchBillingFlow",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.android.billingclient.api.BillingFlowParams"
+          }
+        ],
+        "retType": "BillingResult"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.IapClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "launchPriceChangeConfirmationFlow",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.android.billingclient.api.PriceChangeFlowParams"
+          },
+          {
+            "pos": "2",
+            "type": "com.android.billingclient.api.PriceChangeConfirmationListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.IapClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "loadRewardedSku",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.android.billingclient.api.RewardLoadParams"
+          },
+          {
+            "pos": "1",
+            "type": "com.android.billingclient.api.RewardResponseListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.IapClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "newBuilder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "Builder"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.Iap",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "queryPurchaseHistoryAsync",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.android.billingclient.api.PurchaseHistoryResponseListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.IapClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "queryPurchases",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "PurchasesResult"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.IapClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "querySkuDetailsAsync",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.android.billingclient.api.SkuDetailsParams"
+          },
+          {
+            "pos": "1",
+            "type": "com.android.billingclient.api.SkuDetailsResponseListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.IapClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startConnection",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.android.billingclient.api.BillingClientStateListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.HMS",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "IAP",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "BillingClient",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore IAP Api.",
+      "hName": "com.huawei.hms.support.api.iap.Iap",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/introduction-0000001050033062"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "IAP",
+  "status": "manuallyAdapt"
+}

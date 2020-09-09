@@ -1,0 +1,50 @@
+{
+  "gName": "com.google.api.client.googleapis.media.MediaHttpDownloaderProgressListener",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "progressChanged",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.api.client.googleapis.media.MediaHttpDownloader"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "progressChanged",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.cloud.base.media.MediaHttpDownloader"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.media.MediaHttpDownloaderProgressListener",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.cloud.base.media.MediaHttpDownloaderProgressListener",
+  "kitName": "Drive",
+  "status": "matching"
+}

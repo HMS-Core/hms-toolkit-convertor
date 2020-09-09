@@ -1,0 +1,77 @@
+{
+  "gName": "com.google.android.gms.awareness.state.TimeIntervals",
+  "interfaces": [],
+  "dependencyName": "Awareness",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTimeIntervals",
+        "paramTypes": [],
+        "retType": "int[]"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTimeCategories",
+        "paramTypes": [],
+        "retType": "int[]"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.status.TimeCategories",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "hasTimeInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isTimeCategory",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.status.TimeCategories",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.kit.awareness.status.TimeCategories",
+  "kitName": "Awareness",
+  "status": "matching"
+}

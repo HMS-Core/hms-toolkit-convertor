@@ -1,0 +1,79 @@
+{
+  "gName": "com.google.android.gms.security.ProviderInstaller.ProviderInstallListener",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onProviderInstallFailed",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onFailed",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.security.SecComponentInstallWizard.SecComponentInstallWizardListener",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/base-conversion-0000001050062325#EN-US_TOPIC_0000001050062325__section10119162175913"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onProviderInstalled",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onSuccess",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.security.SecComponentInstallWizard.SecComponentInstallWizardListener",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/base-conversion-0000001050062325#EN-US_TOPIC_0000001050062325__section3627194745819"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.security.SecComponentInstallWizard.SecComponentInstallWizardListener",
+  "kitName": "Basement",
+  "status": "matching"
+}

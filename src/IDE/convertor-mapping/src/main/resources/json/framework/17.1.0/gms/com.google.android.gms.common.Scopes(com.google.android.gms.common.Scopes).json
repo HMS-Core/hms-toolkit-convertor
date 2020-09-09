@@ -1,0 +1,289 @@
+{
+  "gName": "com.google.android.gms.common.Scopes",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "java.lang.Object",
+  "methods": [],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "APP_STATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/appstate"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "CLOUD_SAVE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/datastoremobile"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "DRIVE_APPFOLDER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/drive.appdata"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "DRIVE_FILE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/drive.file"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "EMAIL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "email"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "FITNESS_ACTIVITY_READ",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/fitness.activity.read"
+      },
+      "text": "The code using the GMS attribute SCOPE_ACTIVITY_READ needs to be executed for five times in HMS Core, requiring a corresponding attribute for each time.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section54559445334"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "FITNESS_ACTIVITY_READ_WRITE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/fitness.activity.write"
+      },
+      "text": "The code using the GMS attribute SCOPE_ACTIVITY_READ_WRITE needs to be executed for five times in HMS Core, requiring a corresponding attribute for each time.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section12200135133420"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "FITNESS_BODY_READ",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/fitness.body.read"
+      },
+      "text": "The code using the GMS attribute SCOPE_BODY_READ needs to be executed for four times in HMS Core, requiring a corresponding attribute for each time.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section1311583213617"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "FITNESS_BODY_READ_WRITE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/fitness.body.write"
+      },
+      "text": "The code using the GMS attribute SCOPE_BODY_READ_WRITE needs to be executed for four times in HMS Core, requiring a corresponding attribute for each time.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section134353498365"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "FITNESS_LOCATION_READ",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/fitness.location.read"
+      },
+      "text": "The code using the GMS attribute SCOPE_LOCATION_READ needs to be executed for three times in HMS Core, requiring a corresponding attribute for each time.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section335633316374"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "FITNESS_LOCATION_READ_WRITE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/fitness.location.write"
+      },
+      "text": "The code using the GMS attribute SCOPE_LOCATION_READ_WRITE needs to be executed for three times in HMS Core, requiring a corresponding attribute for each time.",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section164418259386"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "FITNESS_NUTRITION_READ",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/fitness.nutrition.read"
+      },
+      "text": "The code using the GMS attribute SCOPE_NUTRITION_READ needs to be replaced with SCOPE_HEALTHKIT_NUTRITION_READ",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section138351451114310"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "FITNESS_NUTRITION_READ_WRITE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/fitness.nutrition.write"
+      },
+      "text": "The code using the GMS attribute SCOPE_NUTRITION_READ_WRITE needs to be replaced with SCOPE_HEALTHKIT_NUTRITION_BOTH",
+      "hName": "com.huawei.hms.hihealth.HuaweiHiHealth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section728828184415"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "GAMES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/games"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "PLUS_LOGIN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/plus.login"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "PLUS_ME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "https://www.googleapis.com/auth/plus.me"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "PROFILE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "profile"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Basement",
+  "status": "notSupport"
+}

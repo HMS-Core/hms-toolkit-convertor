@@ -1,0 +1,53 @@
+{
+  "gName": "com.google.android.gms.fido.fido2.Fido2PrivilegedApiClient",
+  "interfaces": [],
+  "dependencyName": "FIDO",
+  "superClass": "com.google.android.gms.common.api.GoogleApi",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRegisterIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fido.fido2.api.common.BrowserPublicKeyCredentialCreationOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.fido.fido2.Fido2PendingIntent>"
+      },
+      "text": "Please convert this method manually according to the guide",
+      "hName": "com.huawei.hms.support.api.fido.fido2.Fido2Client",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fido2client-0000001050178733-V5"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSignIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fido.fido2.api.common.BrowserPublicKeyCredentialRequestOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.fido.fido2.Fido2PendingIntent>"
+      },
+      "text": "Please convert this method manually according to the guide",
+      "hName": "com.huawei.hms.support.api.fido.fido2.Fido2Client",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fido2client-0000001050178733-V5"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "",
+  "kitName": "FIDO",
+  "status": "manuallyAdapt"
+}

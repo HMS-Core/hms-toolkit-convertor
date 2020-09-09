@@ -1,0 +1,160 @@
+{
+  "gName": "com.google.android.gms.maps.model.UrlTileProvider",
+  "interfaces": [
+    "com.google.android.gms.maps.model.TileProvider"
+  ],
+  "dependencyName": "Map",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getTile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.maps.model.Tile"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getTile",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.maps.model.Tile"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.maps.model.UrlTileProvider",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTileUrl",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "java.net.URL"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTileUrl",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "java.net.URL"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.maps.model.UrlTileProvider",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "UrlTileProvider",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "UrlTileProvider",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.maps.model.UrlTileProvider",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.maps.model.UrlTileProvider",
+  "kitName": "Map",
+  "status": "matching"
+}

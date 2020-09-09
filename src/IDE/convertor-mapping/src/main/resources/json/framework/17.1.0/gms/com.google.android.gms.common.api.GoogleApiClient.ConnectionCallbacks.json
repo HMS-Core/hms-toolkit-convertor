@@ -1,0 +1,116 @@
+{
+  "gName": "com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onConnected",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/base-conversion-0000001050062325#EN-US_TOPIC_0000001050062325__section176379327582"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onConnectionSuspended",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onConnectionSuspended",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "CAUSE_NETWORK_LOST",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "CAUSE_NETWORK_LOST",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"GoogleApiClient.ConnectionCallbacks public static final int CAUSE_NETWORK_LOST = 2\" will be replaced by \"HuaweiApiClient.ConnectionCallbacks public static final int CAUSE_NETWORK_LOST = 2\"",
+      "hName": "com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "CAUSE_SERVICE_DISCONNECTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "CAUSE_SERVICE_DISCONNECTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"GoogleApiClient.ConnectionCallbacks public static final int CAUSE_SERVICE_DISCONNECTED = 1\" will be replaced by \"HuaweiApiClient.ConnectionCallbacks public static final int CAUSE_SERVICE_DISCONNECTED = 1\"",
+      "hName": "com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks",
+  "kitName": "Basement",
+  "status": "matching"
+}

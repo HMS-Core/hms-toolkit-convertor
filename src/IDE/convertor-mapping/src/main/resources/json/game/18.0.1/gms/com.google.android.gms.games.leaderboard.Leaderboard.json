@@ -1,0 +1,218 @@
+{
+  "gName": "com.google.android.gms.games.leaderboard.Leaderboard",
+  "interfaces": [
+    "com.google.android.gms.common.data.Freezable<com.google.android.gms.games.leaderboard.Leaderboard>"
+  ],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getIconImageUri",
+        "paramTypes": [],
+        "retType": "android.net.Uri"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRankingImageUri",
+        "paramTypes": [],
+        "retType": "android.net.Uri"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.Ranking",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getScoreOrder",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRankingScoreOrder",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.Ranking",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getDisplayName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRankingDisplayName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.Ranking",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLeaderboardId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getRankingId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.Ranking",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getVariants",
+        "paramTypes": [],
+        "retType": "java.util.ArrayList<com.google.android.gms.games.leaderboard.LeaderboardVariant>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRankingVariants",
+        "paramTypes": [],
+        "retType": "java.util.ArrayList<com.huawei.hms.jos.games.ranking.RankingVariant>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.Ranking",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getDisplayName",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.database.CharArrayBuffer"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "com.huawei.hms.jos.games.ranking.Ranking",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isDataValid",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "SCORE_ORDER_LARGER_IS_BETTER",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "SCORE_VALUE_HIGH_BETTER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"Leaderboard public int SCORE_ORDER_LARGER_IS_BETTER = 1\" will be replaced by \"Ranking public static final  int SCORE_VALUE_HIGH_BETTER = 1\"",
+      "hName": "com.huawei.hms.jos.games.ranking.Ranking",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "SCORE_ORDER_SMALLER_IS_BETTER",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "SCORE_VALUE_SMALL_BETTER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"Leaderboard public int SCORE_ORDER_SMALLER_IS_BETTER = 0\" will be replaced by \"Ranking public static final  int SCORE_VALUE_SMALL_BETTER = 0\"",
+      "hName": "com.huawei.hms.jos.games.ranking.Ranking",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.jos.games.ranking.Ranking",
+  "kitName": "Game",
+  "status": "notSupport"
+}

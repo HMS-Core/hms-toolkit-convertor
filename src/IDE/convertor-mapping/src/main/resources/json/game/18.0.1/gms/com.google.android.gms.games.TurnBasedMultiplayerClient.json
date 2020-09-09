@@ -1,0 +1,529 @@
+{
+  "gName": "com.google.android.gms.games.TurnBasedMultiplayerClient",
+  "interfaces": [],
+  "dependencyName": "Game",
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.games.Games.GamesOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getInboxIntent",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<android.content.Intent>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSelectOpponentsIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<android.content.Intent>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSelectOpponentsIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<android.content.Intent>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadMatchesByStatus",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int[]"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.AnnotatedData<com.google.android.gms.games.multiplayer.turnbased.LoadMatchesResponse>>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadMatchesByStatus",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int[]"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.AnnotatedData<com.google.android.gms.games.multiplayer.turnbased.LoadMatchesResponse>>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadMatch",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.AnnotatedData<com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch>>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "acceptInvitation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "createMatch",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatchConfig"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "finishMatch",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "finishMatch",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "byte[]"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.games.multiplayer.ParticipantResult..."
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "finishMatch",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "byte[]"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.List<com.google.android.gms.games.multiplayer.ParticipantResult>"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "rematch",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "takeTurn",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "byte[]"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "takeTurn",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "byte[]"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.games.multiplayer.ParticipantResult..."
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "takeTurn",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "byte[]"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "java.util.List<com.google.android.gms.games.multiplayer.ParticipantResult>"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "unregisterTurnBasedMatchUpdateCallback",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatchUpdateCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Boolean>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMaxMatchDataSize",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Integer>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "cancelMatch",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.String>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "declineInvitation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "dismissInvitation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "dismissMatch",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "leaveMatch",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "leaveMatchDuringTurn",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "registerTurnBasedMatchUpdateCallback",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatchUpdateCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this API. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "",
+  "kitName": "Game",
+  "status": "notSupport"
+}

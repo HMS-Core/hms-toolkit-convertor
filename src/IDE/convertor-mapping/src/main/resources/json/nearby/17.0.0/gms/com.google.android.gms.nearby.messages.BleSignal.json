@@ -1,0 +1,91 @@
+{
+  "gName": "com.google.android.gms.nearby.messages.BleSignal",
+  "interfaces": [],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getRssi",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getRssi",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.discovery.BleSignal",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTxPower",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTxPower",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.discovery.BleSignal",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "UNKNOWN_TX_POWER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-2147483648"
+      },
+      "h": {
+        "name": "BLE_UNKNOWN_TX_POWER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0x80000000"
+      },
+      "text": "\"BleSignal public static final int UNKNOWN_TX_POWER=-2147483648;\" will be replaced by \"BleSignal public static final int BLE_UNKNOWN_TX_POWER=0x80000000\"",
+      "hName": "com.huawei.hms.nearby.discovery.BleSignal",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.nearby.discovery.BleSignal",
+  "kitName": "Nearby",
+  "status": "matching"
+}

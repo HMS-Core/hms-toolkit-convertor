@@ -1,0 +1,116 @@
+{
+  "gName": "com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks",
+  "interfaces": [],
+  "dependencyName": "Authentication",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onCodeAutoRetrievalTimeOut",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onCodeSent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onVerificationCompleted",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.PhoneAuthCredential"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onVerificationFailed",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.FirebaseException"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "OnVerificationStateChangedCallbacks",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "com.huawei.agconnect.auth.VerifyCodeSettings.OnVerifyCodeCallBack",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Authentication",
+  "status": "dummy"
+}

@@ -1,0 +1,256 @@
+{
+  "gName": "com.google.api.services.drive.model.RevisionList",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "com.google.api.client.json.GenericJson",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "RevisionList",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "HistoryVersionList",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.HistoryVersionList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.lang.CloneNotSupportedException"
+        ],
+        "modifiers": [],
+        "name": "clone",
+        "paramTypes": [],
+        "retType": "com.google.api.services.drive.model.RevisionList"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "clone",
+        "paramTypes": [],
+        "retType": "com.huawei.cloud.services.drive.model.HistoryVersionList"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.HistoryVersionList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getKind",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCategory",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.HistoryVersionList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getNextPageToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getNextCursor",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.HistoryVersionList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRevisions",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.api.services.drive.model.Revision>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHistoryVersions",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.cloud.services.drive.model.HistoryVersion>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.HistoryVersionList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "set",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.RevisionList"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "set",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.HistoryVersionList"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.HistoryVersionList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setKind",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.RevisionList"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCategory",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.HistoryVersionList"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.HistoryVersionList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setNextPageToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.RevisionList"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setNextCursor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.HistoryVersionList"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.HistoryVersionList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setRevisions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.RevisionList"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setHistoryVersions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List<com.huawei.cloud.services.drive.model.HistoryVersion>"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.HistoryVersionList"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.HistoryVersionList",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.cloud.services.drive.model.HistoryVersionList",
+  "kitName": "Drive",
+  "status": "matching"
+}

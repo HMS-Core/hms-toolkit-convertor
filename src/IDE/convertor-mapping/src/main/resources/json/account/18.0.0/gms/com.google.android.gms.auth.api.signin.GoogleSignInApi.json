@@ -1,0 +1,202 @@
+{
+  "gName": "com.google.android.gms.auth.api.signin.GoogleSignInApi",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSignInIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "android.content.Intent"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSignInIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          }
+        ],
+        "retType": "android.content.Intent"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.service.HuaweiIdAuthAPIService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSignInResultFromIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInResult"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "parseHuaweiIdFromIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.huawei.hms.support.hwid.result.HuaweiIdAuthResult"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.service.HuaweiIdAuthAPIService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "revokeAccess",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "cancelAuthorization",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.service.HuaweiIdAuthAPIService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "signOut",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "signOut",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          }
+        ],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.service.HuaweiIdAuthAPIService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "silentSignIn",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.OptionalPendingResult<com.google.android.gms.auth.api.signin.GoogleSignInResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "silentSignIn",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient"
+          }
+        ],
+        "retType": "com.huawei.hms.common.api.OptionalPendingResult<com.huawei.hms.support.hwid.result.HuaweiIdAuthResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.service.HuaweiIdAuthAPIService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "EXTRA_SIGN_IN_ACCOUNT",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "signInAccount"
+      },
+      "h": {
+        "name": "EXTRA_AUTH_HUAWEI_ID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"GoogleSignInApi java.lang.String EXTRA_SIGN_IN_ACCOUNT=\"signInAccount\"\" will be replaced by \"HuaweiIdAuthAPIService java.lang.String EXTRA_AUTH_HUAWEI_ID\"",
+      "hName": "com.huawei.hms.support.hwid.service.HuaweiIdAuthAPIService",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.support.hwid.service.HuaweiIdAuthAPIService",
+  "kitName": "Account",
+  "status": "matching"
+}

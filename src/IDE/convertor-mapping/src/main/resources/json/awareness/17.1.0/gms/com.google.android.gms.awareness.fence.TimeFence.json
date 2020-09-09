@@ -1,0 +1,1060 @@
+{
+  "gName": "com.google.android.gms.awareness.fence.TimeFence",
+  "interfaces": [],
+  "dependencyName": "Awareness",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "aroundTimeInstant",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [
+          "com.huawei.hms.kit.awareness.fence.AwarenessFence.IllegalStateException",
+          "com.huawei.hms.kit.awareness.fence.AwarenessFence.IllegalArgumentException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "inSunriseOrSunsetPeriod",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "inDailyInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.TimeZone"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "duringPeriodOfDay",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.TimeZone"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "newParams": ["TimeBarrier.FRIDAY_CODE"],
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "synchronized"
+        ],
+        "name": "inFridayInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.TimeZone"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "duringPeriodOfWeek",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "TimeBarrier.FRIDAY_CODE"
+          },
+          {
+            "pos": "1",
+            "type": "TimeZone"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          },
+          {
+            "pos": "3",
+            "type": "long"
+          }
+        ],
+        "retType": "AwarenessBarrier"
+      },
+      "oldIndex": ["0","1","2"],
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "inInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "duringTimePeriod",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "inIntervalOfDay",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.TimeZone"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          },
+          {
+            "pos": "3",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "duringPeriodOfWeek",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.TimeZone"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          },
+          {
+            "pos": "3",
+            "type": "long"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "newParams": ["TimeBarrier.MONDAY_CODE"],
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "inMondayInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.TimeZone"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "duringPeriodOfWeek",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "TimeBarrier.MONDAY_CODE"
+          },
+          {
+            "pos": "1",
+            "type": "TimeZone"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          },
+          {
+            "pos": "3",
+            "type": "long"
+          }
+        ],
+        "retType": "AwarenessBarrier"
+      },
+      "oldIndex": ["0","1","2"],
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "newParams": ["TimeBarrier.SATURDAY_CODE"],
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "inSaturdayInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.TimeZone"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "duringPeriodOfWeek",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "TimeBarrier.SATURDAY_CODE"
+          },
+          {
+            "pos": "1",
+            "type": "TimeZone"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          },
+          {
+            "pos": "3",
+            "type": "long"
+          }
+        ],
+        "retType": "AwarenessBarrier"
+      },
+      "oldIndex": ["0","1","2"],
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "newParams": ["TimeBarrier.SUNDAY_CODE"],
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "inSundayInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.TimeZone"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "duringPeriodOfWeek",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "TimeBarrier.SUNDAY_CODE"
+          },
+          {
+            "pos": "1",
+            "type": "TimeZone"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          },
+          {
+            "pos": "3",
+            "type": "long"
+          }
+        ],
+        "retType": "AwarenessBarrier"
+      },
+      "oldIndex": ["0","1","2"],
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "newParams": ["TimeBarrier.THURSDAY_CODE"],
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "inThursdayInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.TimeZone"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "duringPeriodOfWeek",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "TimeBarrier.THURSDAY_CODE"
+          },
+          {
+            "pos": "1",
+            "type": "TimeZone"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          },
+          {
+            "pos": "3",
+            "type": "long"
+          }
+        ],
+        "retType": "AwarenessBarrier"
+      },
+      "oldIndex": ["0","1","2"],
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "inTimeInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "inTimeCategory",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "newParams": ["TimeBarrier.TUESDAY_CODE"],
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "inTuesdayInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.TimeZone"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "duringPeriodOfWeek",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "TimeBarrier.TUESDAY_CODE"
+          },
+          {
+            "pos": "1",
+            "type": "TimeZone"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          },
+          {
+            "pos": "3",
+            "type": "long"
+          }
+        ],
+        "retType": "AwarenessBarrier"
+      },
+      "oldIndex": ["0","1","2"],
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "newParams": ["TimeBarrier.WEDNESDAY_CODE"],
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "inWednesdayInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.TimeZone"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "duringPeriodOfWeek",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "TimeBarrier.WEDNESDAY_CODE"
+          },
+          {
+            "pos": "1",
+            "type": "TimeZone"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          },
+          {
+            "pos": "3",
+            "type": "long"
+          }
+        ],
+        "retType": "AwarenessBarrier"
+      },
+      "oldIndex": ["0","1","2"],
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "DAY_OF_WEEK_FRIDAY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "h": {
+        "name": "FRIDAY_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "text": "\"TimeFence public static final int DAY_OF_WEEK_FRIDAY = 6\" will be replaced by \"TimeBarrier public static final int FRIDAY_CODE = 6\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "DAY_OF_WEEK_MONDAY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "MONDAY_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"TimeFence public static final int DAY_OF_WEEK_MONDAY = 2\" will be replaced by \"TimeBarrier public static final int MONDAY_CODE = 2\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "DAY_OF_WEEK_SATURDAY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "h": {
+        "name": "SATURDAY_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "text": "\"TimeFence public static final int DAY_OF_WEEK_SATURDAY = 7\" will be replaced by \"TimeBarrier public static final int SATURDAY_CODE = 7\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "DAY_OF_WEEK_SUNDAY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "SUNDAY_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"TimeFence public static final int DAY_OF_WEEK_SUNDAY = 1\" will be replaced by \"TimeBarrier public static final int SUNDAY_CODE = 1\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "DAY_OF_WEEK_THURSDAY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "h": {
+        "name": "THURSDAY_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "text": "\"TimeFence public static final int DAY_OF_WEEK_THURSDAY = 5\" will be replaced by \"TimeBarrier public static final int THURSDAY_CODE = 5\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "DAY_OF_WEEK_TUESDAY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "TUESDAY_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"TimeFence public static final int DAY_OF_WEEK_TUESDAY = 3\" will be replaced by \"TimeBarrier public static final int TUESDAY_CODE = 3\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "DAY_OF_WEEK_WEDNESDAY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "WEDNESDAY_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "\"TimeFence public static final int DAY_OF_WEEK_WEDNESDAY = 4\" will be replaced by \"TimeBarrier public static final int WEDNESDAY_CODE = 4\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "TIME_INSTANT_SUNRISE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "SUNRISE_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"TimeFence public static final int TIME_INSTANT_SUNRISE = 1\" will be replaced by \"TimeBarrier public static final int SUNRISE_CODE = 0\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "TIME_INSTANT_SUNSET",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "SUNSET_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"TimeFence public static final int TIME_INSTANT_SUNSET = 2\" will be replaced by \"TimeBarrier public static final int SUNSET_CODE = 1\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "TIME_INTERVAL_AFTERNOON",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "h": {
+        "name": "TIME_CATEGORY_AFTERNOON",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"TimeFence public static final int TIME_INTERVAL_AFTERNOON = 5\" will be replaced by \"TimeBarrier public static final int TIME_CATEGORY_AFTERNOON = 2\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "TIME_INTERVAL_EVENING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "h": {
+        "name": "TIME_CATEGORY_EVENING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"TimeFence public static final int TIME_INTERVAL_EVENING = 6\" will be replaced by \"TimeBarrier public static final int TIME_CATEGORY_EVENING = 3\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "TIME_INTERVAL_HOLIDAY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "TIME_CATEGORY_HOLIDAY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "text": "\"TimeFence public static final int TIME_INTERVAL_HOLIDAY = 3\" will be replaced by \"TimeBarrier public static final int TIME_CATEGORY_HOLIDAY = 5\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "TIME_INTERVAL_MORNING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "TIME_CATEGORY_MORNING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"TimeFence public static final int TIME_INTERVAL_MORNING = 4\" will be replaced by \"TimeBarrier public static final int TIME_CATEGORY_MORNING = 1\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "TIME_INTERVAL_NIGHT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "h": {
+        "name": "TIME_CATEGORY_NIGHT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "\"TimeFence public static final int TIME_INTERVAL_NIGHT = 7\" will be replaced by \"TimeBarrier public static final int TIME_CATEGORY_NIGHT = 4\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "TIME_INTERVAL_WEEKDAY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TIME_CATEGORY_WEEKDAY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "text": "\"TimeFence public static final int TIME_INTERVAL_WEEKDAY = 1\" will be replaced by \"TimeBarrier public static final int TIME_CATEGORY_WEEKDAY = 6\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "TIME_INTERVAL_WEEKEND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TIME_CATEGORY_WEEKEND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "text": "\"TimeFence public static final int TIME_INTERVAL_WEEKEND = 2\" will be replaced by \"TimeBarrier public static final int TIME_CATEGORY_WEEKEND = 7\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.kit.awareness.barrier.TimeBarrier",
+  "kitName": "Awareness",
+  "status": "matching"
+}

@@ -1,0 +1,83 @@
+{
+  "gName": "com.google.android.gms.fido.fido2.Fido2PendingIntent",
+  "interfaces": [],
+  "dependencyName": "FIDO",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "hasPendingIntent",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "canLaunch",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.fido.fido2.Fido2Intent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [
+          "android.content.IntentSender.SendIntentException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "launchPendingIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "launchFido2Activity",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.fido.fido2.Fido2Intent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.support.api.fido.fido2.Fido2Intent",
+  "kitName": "FIDO",
+  "status": "matching"
+}

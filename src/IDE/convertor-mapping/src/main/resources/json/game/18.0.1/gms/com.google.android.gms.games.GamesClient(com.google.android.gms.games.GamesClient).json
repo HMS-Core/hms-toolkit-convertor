@@ -1,0 +1,128 @@
+{
+  "gName": "com.google.android.gms.games.GamesClient",
+  "interfaces": [],
+  "dependencyName": "Game",
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.games.Games.GamesOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSettingsIntent",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<android.content.Intent>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getActivationHint",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<android.os.Bundle>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAppId",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.String>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAppId",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.String>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.GamesClient",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCurrentAccountName",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.String>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setGravityForPopups",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPopupsPosition",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.GamesClient",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setViewForPopups",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.view.View"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.GamesClient",
+  "kitName": "Game",
+  "status": "notSupport"
+}

@@ -1,0 +1,88 @@
+{
+  "gName": "com.google.firebase.auth.TwitterAuthProvider",
+  "interfaces": [],
+  "dependencyName": "Authentication",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getCredential",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.auth.AuthCredential"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "credentialWithToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.agconnect.auth.AGConnectAuthCredential"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.TwitterAuthProvider",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "name": "PROVIDER_ID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "twitter.com"
+      },
+      "text": "The AppGallery Connect SDK does not support this field currently,delete this field or delimit this field yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Authentication",
+      "g": {
+        "name": "TWITTER_SIGN_IN_METHOD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "twitter.com"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section1686442164315"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.auth.TwitterAuthProvider",
+  "kitName": "Authentication",
+  "status": "complex"
+}

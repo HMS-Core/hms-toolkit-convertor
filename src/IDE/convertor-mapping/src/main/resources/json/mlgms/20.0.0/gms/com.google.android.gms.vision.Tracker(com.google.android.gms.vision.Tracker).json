@@ -1,0 +1,166 @@
+{
+  "gName": "com.google.android.gms.vision.Tracker<T>",
+  "interfaces": [],
+  "dependencyName": "MLgms",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Tracker",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "MLResultTrailer",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLResultTrailer<T>",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onDone",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "completeCallback",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLResultTrailer<T>",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onMissing",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.vision.Detector.Detections<T>"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "lostCallback",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLAnalyzer.Result<T>"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLResultTrailer<T>",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onNewItem",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "T"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "objectCreateCallback",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "T"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLResultTrailer<T>",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onUpdate",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.vision.Detector.Detections<T>"
+          },
+          {
+            "pos": "1",
+            "type": "T"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "objectUpdateCallback",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLAnalyzer.Result<T>"
+          },
+          {
+            "pos": "1",
+            "type": "T"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLResultTrailer<T>",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.common.MLResultTrailer<T>",
+  "kitName": "ML",
+  "status": "matching"
+}

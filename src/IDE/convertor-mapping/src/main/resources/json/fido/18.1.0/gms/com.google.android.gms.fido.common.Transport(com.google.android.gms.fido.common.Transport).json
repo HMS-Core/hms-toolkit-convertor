@@ -1,0 +1,141 @@
+{
+  "gName": "com.google.android.gms.fido.common.Transport",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "FIDO",
+  "superClass": "java.lang.Enum<com.google.android.gms.fido.common.Transport>",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "BLUETOOTH_CLASSIC",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.common.Transport",
+        "value": ""
+      },
+      "text": "HMS Core does not provide this API from com.google.firebase.storage.CancellableTask. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "BLUETOOTH_LOW_ENERGY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.common.Transport",
+        "value": ""
+      },
+      "h": {
+        "name": "BLE",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport",
+        "value": ""
+      },
+      "text": "\"Transport public static final com.google.android.gms.fido.common.Transport BLUETOOTH_LOW_ENERGY\" will be replaced by \"AuthenticatorTransport com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport BLE\"",
+      "hName": "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "NFC",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.common.Transport",
+        "value": ""
+      },
+      "h": {
+        "name": "NFC",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport",
+        "value": ""
+      },
+      "text": "\"Transport public static final com.google.android.gms.fido.common.Transport NFC\" will be replaced by \"AuthenticatorTransport com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport NFC\"",
+      "hName": "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "USB",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.common.Transport",
+        "value": ""
+      },
+      "h": {
+        "name": "USB",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport",
+        "value": ""
+      },
+      "text": "\"Transport public static final com.google.android.gms.fido.common.Transport USB\" will be replaced by \"AuthenticatorTransport com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport USB\"",
+      "hName": "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator",
+        "value": ""
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "enum",
+  "hName": "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport",
+  "kitName": "FIDO",
+  "status": "complex"
+}

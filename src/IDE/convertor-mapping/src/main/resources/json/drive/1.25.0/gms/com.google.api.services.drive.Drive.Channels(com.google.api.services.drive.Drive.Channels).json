@@ -1,0 +1,71 @@
+{
+  "gName": "com.google.api.services.drive.Drive.Channels",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Channels",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Channels",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Channels",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "stop",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.api.services.drive.model.Channel"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Channels.Stop"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "stop",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.cloud.services.drive.model.Channel"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Channels.Stop"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Channels",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.cloud.services.drive.Drive.Channels",
+  "kitName": "Drive",
+  "status": "matching"
+}

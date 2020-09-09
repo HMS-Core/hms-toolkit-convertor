@@ -1,0 +1,166 @@
+{
+  "gName": "com.google.android.gms.ads.formats.NativeAd",
+  "interfaces": [],
+  "dependencyName": "Ads",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "performClick",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "triggerClick",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "recordImpression",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "recordImpressionEvent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "reportTouchEvent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "recordTouchEvent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "NativeAd",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "NativeAd",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAd",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ASSET_ADCHOICES_CONTAINER_VIEW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "1098"
+      },
+      "h": {
+        "name": "CHOICES_CONTAINER",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "11"
+      },
+      "text": "\"NativeAd public static final java.lang.String ASSET_ADCHOICES_CONTAINER_VIEW = 1098\" will be replaced by \"NativeAdAssetNames java.lang.String CHOICES_CONTAINER = \"11\"\"",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdAssetNames",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ads.nativead.NativeAd",
+  "kitName": "Ads",
+  "status": "improve"
+}

@@ -1,0 +1,65 @@
+{
+  "gName": "com.google.firebase.dynamiclinks.ShortDynamicLink",
+  "interfaces": [],
+  "dependencyName": "DynamicLinks",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "DynamicLinks",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPreviewLink",
+        "paramTypes": [],
+        "retType": "android.net.Uri"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "com.huawei.agconnect.applinking.ShortAppLinking",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-dyna-0000001050157272#EN-US_TOPIC_0000001050157272__section6921542115010"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "DynamicLinks",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getShortLink",
+        "paramTypes": [],
+        "retType": "android.net.Uri"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "com.huawei.agconnect.applinking.ShortAppLinking",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-dyna-0000001050157272#EN-US_TOPIC_0000001050157272__section64844495113"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "DynamicLinks",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getWarnings",
+        "paramTypes": [],
+        "retType": "java.util.List<? extends com.google.firebase.dynamiclinks.ShortDynamicLink.Warning>"
+      },
+      "text": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "DynamicLinks",
+  "status": "notSupport"
+}

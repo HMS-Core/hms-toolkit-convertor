@@ -1,0 +1,54 @@
+{
+  "gName": "com.google.firebase.iid.InstanceIdResult",
+  "interfaces": [],
+  "dependencyName": "Push",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.aaid.entity.AAIDResult",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634#EN-US_TOPIC_0000001050255634__section14850101211311"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Push",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Use HmsInstanceId.getToken(String var1, String var2) as replacement.",
+      "hName": "com.huawei.hms.aaid.HmsInstanceIdEx",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/hms-instanceid-0000001050255634#EN-US_TOPIC_0000001050255634__section1796315281618"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.aaid.entity.AAIDResult",
+  "kitName": "Push",
+  "status": "notSupport"
+}

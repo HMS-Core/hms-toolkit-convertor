@@ -1,0 +1,409 @@
+{
+  "gName": "com.google.android.gms.games.leaderboard.LeaderboardVariant",
+  "interfaces": [
+    "com.google.android.gms.common.data.Freezable<com.google.android.gms.games.leaderboard.LeaderboardVariant>"
+  ],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "hasPlayerInfo",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hasPlayerInfo",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getCollection",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTimeSpan",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getDisplayPlayerRank",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDisplayRanking",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getDisplayPlayerScore",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPlayerDisplayScore",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPlayerScoreTag",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPlayerScoreTips",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getNumScores",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRankTotalScoreNum",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPlayerRank",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPlayerRank",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getRawPlayerScore",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPlayerRawScore",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isDataValid",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "name": "COLLECTION_PUBLIC",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "name": "COLLECTION_SOCIAL",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "NUM_SCORES_UNKNOWN",
+        "modifiers": [],
+        "type": "int",
+        "value": "-1"
+      },
+      "h": {
+        "name": "NUM_SCORES_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "\"LeaderboardVariant public int NUM_SCORES_UNKNOWN = -1\" will be replaced by \"RankingVariant public static final int NUM_SCORES_UNKNOWN = -1\"",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "NUM_TIME_SPANS",
+        "modifiers": [],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "NUM_TIME_DIMENSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"LeaderboardVariant public int NUM_TIME_SPANS = 3\" will be replaced by \"RankingVariant public static final int NUM_TIME_DIMENSION = 0\"",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "PLAYER_RANK_UNKNOWN",
+        "modifiers": [],
+        "type": "int",
+        "value": "-1"
+      },
+      "h": {
+        "name": "PLAYER_RANK_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-2"
+      },
+      "text": "\"LeaderboardVariant public int PLAYER_RANK_UNKNOWN = -1\" will be replaced by \"RankingVariant public static final int PLAYER_RANK_UNKNOWN = -2\"",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "PLAYER_SCORE_UNKNOWN",
+        "modifiers": [],
+        "type": "int",
+        "value": "-1"
+      },
+      "h": {
+        "name": "PLAYER_SCORE_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-3"
+      },
+      "text": "\"LeaderboardVariant public int PLAYER_SCORE_UNKNOWN = -1\" will be replaced by \"RankingVariant public static final int PLAYER_SCORE_UNKNOWN = -3\"",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "TIME_SPAN_ALL_TIME",
+        "modifiers": [],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TIME_DIMENSION_ALL_TIME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"LeaderboardVariant public int TIME_SPAN_ALL_TIME = 2\" will be replaced by \"RankingVariant public static final int TIME_DIMENSION_ALL_TIME = 2\"",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "TIME_SPAN_DAILY",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "TIME_DIMENSION_DAILY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"LeaderboardVariant public int TIME_SPAN_DAILY = 0\" will be replaced by \"RankingVariant public static final int TIME_DIMENSION_DAILY = 0\"",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "name": "TIME_SPAN_WEEKLY",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TIME_DIMENSION_WEEKLY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"LeaderboardVariant public int TIME_SPAN_WEEKLY = 1\" will be replaced by \"RankingVariant public static final int TIME_DIMENSION_WEEKLY = 1\"",
+      "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.jos.games.ranking.RankingVariant",
+  "kitName": "Game",
+  "status": "notSupport"
+}

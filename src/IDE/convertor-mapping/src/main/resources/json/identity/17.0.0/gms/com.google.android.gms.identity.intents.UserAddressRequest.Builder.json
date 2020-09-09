@@ -1,0 +1,74 @@
+{
+  "gName": "com.google.android.gms.identity.intents.UserAddressRequest.Builder",
+  "interfaces": [],
+  "dependencyName": "Identity",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Identity",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addAllowedCountrySpecification",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.identity.intents.model.CountrySpecification"
+          }
+        ],
+        "retType": "com.google.android.gms.identity.intents.UserAddressRequest.Builder"
+      },
+      "text": "HMS Core does not support the com.google.android.gms.identity.intents.UserAddressRequest.newBuilder().addAllowedCountrySpecification(CountrySpecification) method. If it is called, delete it manually.",
+      "hName": "com.huawei.hms.identity.entity.UserAddressRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Identity",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addAllowedCountrySpecifications",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.google.android.gms.identity.intents.model.CountrySpecification>"
+          }
+        ],
+        "retType": "com.google.android.gms.identity.intents.UserAddressRequest.Builder"
+      },
+      "text": "HMS Core does not support the com.google.android.gms.identity.intents.UserAddressRequest.newBuilder().addAllowedCountrySpecifications(java.util.Collection) method. If it is called, delete it manually.",
+      "hName": "com.huawei.hms.identity.entity.UserAddressRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Identity",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.identity.intents.UserAddressRequest"
+      },
+      "text": "HMS Core does not support the com.google.android.gms.identity.intents.UserAddressRequest.Builder.build() method. Use the new UserAddressRequest() method instead.",
+      "hName": "com.huawei.hms.identity.entity.UserAddressRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Identity",
+  "status": "complex"
+}

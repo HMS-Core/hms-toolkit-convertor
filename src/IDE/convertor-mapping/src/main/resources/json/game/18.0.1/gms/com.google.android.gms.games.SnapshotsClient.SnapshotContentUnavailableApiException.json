@@ -1,0 +1,48 @@
+{
+  "gName": "com.google.android.gms.games.SnapshotsClient.SnapshotContentUnavailableApiException",
+  "interfaces": [],
+  "dependencyName": "Game",
+  "superClass": "com.google.android.gms.common.api.ApiException",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSnapshotMetadata",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "name": "metadata",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "type": "com.google.android.gms.games.snapshot.SnapshotMetadata",
+        "value": ""
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Game",
+  "status": "notSupport"
+}

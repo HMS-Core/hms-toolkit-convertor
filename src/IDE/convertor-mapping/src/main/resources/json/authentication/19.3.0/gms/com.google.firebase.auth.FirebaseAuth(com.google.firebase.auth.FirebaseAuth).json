@@ -1,0 +1,708 @@
+{
+  "gName": "com.google.firebase.auth.FirebaseAuth",
+  "interfaces": [],
+  "dependencyName": "Authentication",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addAuthStateListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.FirebaseAuth.AuthStateListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "addTokenListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.core.service.auth.OnTokenListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.AGConnectAuth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addIdTokenListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.FirebaseAuth.IdTokenListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "addTokenListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.core.service.auth.OnTokenListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.AGConnectAuth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "applyActionCode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "checkActionCode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.auth.ActionCodeResult>"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "confirmPasswordReset",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section1230510381168"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "createUserWithEmailAndPassword",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.auth.AuthResult>"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "com.huawei.agconnect.auth.AGConnectAuth",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section26309379261"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "fetchSignInMethodsForEmail",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.auth.SignInMethodQueryResult>"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getApp",
+        "paramTypes": [],
+        "retType": "com.google.firebase.FirebaseApp"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCurrentUser",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.FirebaseUser"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCurrentUser",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.auth.AGConnectUser"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.AGConnectAuth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFirebaseAuthSettings",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.FirebaseAuthSettings"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.FirebaseAuth"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.auth.AGConnectAuth"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.AGConnectAuth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.FirebaseApp"
+          }
+        ],
+        "retType": "com.google.firebase.auth.FirebaseAuth"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section1638620194315"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLanguageCode",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPendingAuthResult",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.auth.AuthResult>"
+      },
+      "text": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isSignInWithEmailLink",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeAuthStateListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.FirebaseAuth.AuthStateListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "removeTokenListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.core.service.auth.OnTokenListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.AGConnectAuth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeIdTokenListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.FirebaseAuth.IdTokenListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "removeTokenListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.core.service.auth.OnTokenListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.AGConnectAuth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "sendPasswordResetEmail",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.auth.ActionCodeSettings"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section78318414175"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "sendPasswordResetEmail",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section617413011712"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "sendSignInLinkToEmail",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.auth.ActionCodeSettings"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section1320310405159"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setFirebaseUIVersion",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setLanguageCode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "signInAnonymously",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.auth.AuthResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "signInAnonymously",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.agconnect.auth.SignInResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.AGConnectAuth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "signInWithCredential",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.AuthCredential"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.auth.AuthResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "signIn",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.auth.AGConnectAuthCredential"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.agconnect.auth.SignInResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.AGConnectAuth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "signInWithCustomToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.auth.AuthResult>"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section361075314407"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "signInWithEmailAndPassword",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.auth.AuthResult>"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section20262161411422"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "signInWithEmailLink",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.auth.AuthResult>"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section1566191520165"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "signOut",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "signOut",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.AGConnectAuth",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "startActivityForSignInWithProvider",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.auth.FederatedAuthProvider"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.auth.AuthResult>"
+      },
+      "text": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "updateCurrentUser",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.FirebaseUser"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "useAppLanguage",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "verifyPasswordResetCode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.String>"
+      },
+      "text": "Only Firebase supports this method. For AGC, delete this method or implement this method yourself as needed.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.auth.AGConnectAuth",
+  "kitName": "Authentication",
+  "status": "dummy"
+}

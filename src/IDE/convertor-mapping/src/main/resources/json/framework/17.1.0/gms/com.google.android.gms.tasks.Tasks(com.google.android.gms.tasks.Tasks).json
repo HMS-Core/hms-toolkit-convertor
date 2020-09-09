@@ -1,0 +1,486 @@
+{
+  "gName": "com.google.android.gms.tasks.Tasks",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [
+          "java.util.concurrent.ExecutionException",
+          "java.lang.InterruptedException",
+          "java.util.concurrent.TimeoutException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "await",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.Task<TResult>"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "<TResult> TResult"
+      },
+      "h": {
+        "exceptions": [
+          "java.util.concurrent.ExecutionException",
+          "java.lang.InterruptedException",
+          "java.util.concurrent.TimeoutException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "await",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.Task<TResult>"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "<TResult> TResult"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [
+          "java.util.concurrent.ExecutionException",
+          "java.lang.InterruptedException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "await",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.Task<TResult>"
+          }
+        ],
+        "retType": "<TResult> TResult"
+      },
+      "h": {
+        "exceptions": [
+          "java.util.concurrent.ExecutionException",
+          "java.lang.InterruptedException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "await",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.Task<TResult>"
+          }
+        ],
+        "retType": "<TResult> TResult"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "call",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Callable<TResult>"
+          }
+        ],
+        "retType": "<TResult> com.google.android.gms.tasks.Task<TResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/base-conversion-0000001050062325#EN-US_TOPIC_0000001050062325__section115115217552"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "call",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.Callable<TResult>"
+          }
+        ],
+        "retType": "<TResult> com.google.android.gms.tasks.Task<TResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "callInBackground",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.Callable<TResult>"
+          }
+        ],
+        "retType": "<TResult> com.huawei.hmf.tasks.Task<TResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "forCanceled",
+        "paramTypes": [],
+        "retType": "<TResult> com.google.android.gms.tasks.Task<TResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromCanceled",
+        "paramTypes": [],
+        "retType": "<TResult> com.huawei.hmf.tasks.Task<TResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "forException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Exception"
+          }
+        ],
+        "retType": "<TResult> com.google.android.gms.tasks.Task<TResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Exception"
+          }
+        ],
+        "retType": "<TResult> com.huawei.hmf.tasks.Task<TResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "forResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "TResult"
+          }
+        ],
+        "retType": "<TResult> com.google.android.gms.tasks.Task<TResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "TResult"
+          }
+        ],
+        "retType": "<TResult> com.huawei.hmf.tasks.Task<TResult>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "whenAll",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.Task<?>..."
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "join",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.Task<?>..."
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "whenAll",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<? extends com.google.android.gms.tasks.Task<?>>"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "join",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<? extends com.huawei.hmf.tasks.Task<?>>"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.util.List<java.lang.Void>>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "whenAllComplete",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.Task<?>..."
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.util.List<com.google.android.gms.tasks.Task<?>>>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "allOf",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.Task<?>..."
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.util.List<com.huawei.hmf.tasks.Task<?>>>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "whenAllComplete",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<? extends com.google.android.gms.tasks.Task<?>>"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.util.List<com.google.android.gms.tasks.Task<?>>>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "allOf",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<? extends com.huawei.hmf.tasks.Task<?>>"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.util.List<com.huawei.hmf.tasks.Task<?>>>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "whenAllSuccess",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.Task<?>..."
+          }
+        ],
+        "retType": "<TResult>  com.google.android.gms.tasks.Task<java.util.List<TResult>>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "successOf",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<? extends com.huawei.hmf.tasks.Task<TResult>>"
+          }
+        ],
+        "retType": "<TResult> com.huawei.hmf.tasks.Task<java.util.List<TResult>>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "whenAllSuccess",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection"
+          }
+        ],
+        "retType": "<TResult> com.google.android.gms.tasks.Task<java.util.List<TResult>>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "successOf",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.Task<?>..."
+          }
+        ],
+        "retType": "<TResult> com.huawei.hmf.tasks.Task<java.util.List<TResult>>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.Tasks",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hmf.tasks.Tasks",
+  "kitName": "Basement",
+  "status": "matching"
+}

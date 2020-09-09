@@ -1,0 +1,40 @@
+{
+  "gName": "com.google.api.client.http.FileContent",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "com.google.api.client.http.AbstractInputStreamContent",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "getLength",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLength",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.http.FileContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.cloud.base.http.FileContent",
+  "kitName": "Drive",
+  "status": "matching"
+}

@@ -1,0 +1,210 @@
+{
+  "gName": "com.google.firebase.ml.vision.document.FirebaseVisionDocumentText.RecognizedBreak",
+  "interfaces": [],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDetectedBreakType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIntervalType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Interval",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIsPrefix",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isTextFollowed",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Interval",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "EOL_SURE_SPACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "NEW_LINE_CHARACTER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "text": "\"FirebaseVisionDocumentText.RecognizedBreak public static final int EOL_SURE_SPACE = 3\" will be replaced by \"MLDocument.Interval public static final int NEW_LINE_CHARACTER = 8\"",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Interval",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "HYPHEN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "END_OF_LINE_HYPHEN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "text": "\"FirebaseVisionDocumentText.RecognizedBreak public static final int HYPHEN = 4\" will be replaced by \"MLDocument.Interval public static final int END_OF_LINE_HYPHEN = 9\"",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Interval",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "LINE_BREAK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "h": {
+        "name": "SESSION_INTERVAL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10"
+      },
+      "text": "\"FirebaseVisionDocumentText.RecognizedBreak public static final int LINE_BREAK = 5\" will be replaced by \"MLDocument.Interval public static final int SESSION_INTERVAL = 10\"",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Interval",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "SPACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "SPACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "text": "\"FirebaseVisionDocumentText.RecognizedBreak public static final int SPACE = 1\" will be replaced by \"MLDocument.Interval public static final int SPACE = 6\"",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Interval",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "SURE_SPACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "WIDE_SPACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "text": "\"FirebaseVisionDocumentText.RecognizedBreak public static final int SURE_SPACE = 2\" will be replaced by \"MLDocument.Interval public static final int WIDE_SPACE = 7\"",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Interval",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "OTHER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "text": "\"FirebaseVisionDocumentText.RecognizedBreak public static final int UNKNOWN = 0\" will be replaced by \"MLDocument.Interval public static final int OTHER = 5\"",
+      "hName": "com.huawei.hms.mlsdk.document.MLDocument.Interval",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.document.MLDocument.Interval",
+  "kitName": "ML",
+  "status": "matching"
+}

@@ -1,0 +1,58 @@
+{
+  "gName": "com.google.api.client.util.store.AbstractDataStoreFactory",
+  "interfaces": [
+    "com.google.api.client.util.store.DataStoreFactory"
+  ],
+  "dependencyName": "Drive",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDataStore",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "<V extends java.io.Serializable> com.google.api.client.util.store.DataStore<V>"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDataStore",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "<V extends java.io.Serializable> com.huawei.cloud.base.util.store.DataStore<V>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.util.store.AbstractDataStoreFactory",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.cloud.base.util.store.AbstractDataStoreFactory",
+  "kitName": "Drive",
+  "status": "matching"
+}

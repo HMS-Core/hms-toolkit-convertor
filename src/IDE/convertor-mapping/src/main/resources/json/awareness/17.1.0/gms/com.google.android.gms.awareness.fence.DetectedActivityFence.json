@@ -1,0 +1,298 @@
+{
+  "gName": "com.google.android.gms.awareness.fence.DetectedActivityFence",
+  "interfaces": [],
+  "dependencyName": "Awareness",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "during",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int..."
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "keeping",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int..."
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BehaviorBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "starting",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int..."
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "beginning",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int..."
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BehaviorBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "stopping",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int..."
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "ending",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int..."
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BehaviorBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "IN_VEHICLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "BEHAVIOR_IN_VEHICLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"DetectedActivityFence public static final int IN_VEHICLE = 0\" will be replaced by \"BehaviorBarrier public static final int BEHAVIOR_IN_VEHICLE = 0\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BehaviorBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "ON_BICYCLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "BEHAVIOR_ON_BICYCLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"DetectedActivityFence public static final int ON_BICYCLE = 1\" will be replaced by \"BehaviorBarrier public static final int BEHAVIOR_ON_BICYCLE = 1\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BehaviorBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "ON_FOOT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "BEHAVIOR_ON_FOOT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"DetectedActivityFence public static final int ON_FOOT = 2\" will be replaced by \"BehaviorBarrier public static final int BEHAVIOR_ON_FOOT = 2\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BehaviorBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "RUNNING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "h": {
+        "name": "BEHAVIOR_RUNNING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "text": "\"DetectedActivityFence public static final int RUNNING = 8\" will be replaced by \"BehaviorBarrier public static final int BEHAVIOR_RUNNING = 8\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BehaviorBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "STILL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "BEHAVIOR_STILL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"DetectedActivityFence public static final int STILL = 3\" will be replaced by \"BehaviorBarrier public static final int BEHAVIOR_STILL = 3\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BehaviorBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "BEHAVIOR_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "\"DetectedActivityFence public static final int UNKNOWN = 4\" will be replaced by \"BehaviorBarrier public static final int BEHAVIOR_UNKNOWN = 4\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BehaviorBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Awareness",
+      "g": {
+        "name": "WALKING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "h": {
+        "name": "BEHAVIOR_WALKING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "text": "\"DetectedActivityFence public static final int WALKING = 7\" will be replaced by \"BehaviorBarrier public static final int BEHAVIOR_WALKING = 7\"",
+      "hName": "com.huawei.hms.kit.awareness.barrier.BehaviorBarrier",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.kit.awareness.barrier.BehaviorBarrier",
+  "kitName": "Awareness",
+  "status": "matching"
+}

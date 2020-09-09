@@ -1,0 +1,199 @@
+{
+  "gName": "com.google.android.gms.auth.api.signin.GoogleSignInOptions",
+  "interfaces": [
+    "com.google.android.gms.common.api.Api.ApiOptions.Optional",
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getScopeArray",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.common.api.Scope[]"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.request.HuaweiIdAuthParams.getRequestScopeList().",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section10184135916494"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.auth.api.signin.GoogleSignInOptions>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.huawei.hms.support.hwid.request.HuaweiIdAuthParams>",
+        "value": ""
+      },
+      "text": "\"GoogleSignInOptions public static final android.os.Parcelable.Creator<com.google.android.gms.auth.api.signin.GoogleSignInOptions> CREATOR\" will be replaced by \"HuaweiIdAuthParams public static final android.os.Parcelable.Creator<com.huawei.hms.support.hwid.request.HuaweiIdAuthParams> CREATOR\"",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "DEFAULT_GAMES_SIGN_IN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.auth.api.signin.GoogleSignInOptions",
+        "value": ""
+      },
+      "h": {
+        "name": "DEFAULT_AUTH_REQUEST_PARAM_GAME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams",
+        "value": ""
+      },
+      "text": "\"GoogleSignInOptions public static final com.google.android.gms.auth.api.signin.GoogleSignInOptions DEFAULT_GAMES_SIGN_IN\" will be replaced by \"HuaweiIdAuthParams public static final com.huawei.hms.support.hwid.request.HuaweiIdAuthParams DEFAULT_AUTH_REQUEST_PARAM_GAME\"",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "DEFAULT_SIGN_IN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.auth.api.signin.GoogleSignInOptions",
+        "value": ""
+      },
+      "h": {
+        "name": "DEFAULT_AUTH_REQUEST_PARAM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams",
+        "value": ""
+      },
+      "text": "\"GoogleSignInOptions public static final com.google.android.gms.auth.api.signin.GoogleSignInOptions DEFAULT_SIGN_IN\" will be replaced by \"HuaweiIdAuthParams public static final com.huawei.hms.support.hwid.request.HuaweiIdAuthParams DEFAULT_AUTH_REQUEST_PARAM\"",
+      "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams",
+  "kitName": "Account",
+  "status": "matching"
+}

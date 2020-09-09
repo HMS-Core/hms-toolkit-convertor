@@ -1,0 +1,76 @@
+{
+  "gName": "com.google.android.gms.ads.formats.PublisherAdViewOptions",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Ads",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAppEventListener",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.ads.doubleclick.AppEventListener"
+      },
+      "text": "HMS Core does not provide this method. You are advised to replace it with NativeAd.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-native-0000001050064968"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getManualImpressionsEnabled",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not provide this method. You are advised to replace it with NativeAd.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/publisher-service-native-0000001050064968"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Ads",
+  "status": "notSupport"
+}

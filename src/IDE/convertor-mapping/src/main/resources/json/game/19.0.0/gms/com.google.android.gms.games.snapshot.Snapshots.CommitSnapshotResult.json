@@ -1,0 +1,50 @@
+{
+  "gName": "com.google.android.gms.games.snapshot.Snapshots.CommitSnapshotResult",
+  "interfaces": [
+    "com.google.android.gms.common.api.Result"
+  ],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSnapshotMetadata",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.archive.Archive",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStatus",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.common.api.Status"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Game",
+  "status": "notSupport"
+}

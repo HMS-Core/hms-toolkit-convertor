@@ -1,0 +1,101 @@
+{
+  "gName": "com.google.android.libraries.places.api.net.PlacesClient",
+  "interfaces": [],
+  "dependencyName": "Site",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "fetchPhoto",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.api.net.FetchPhotoRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.api.net.FetchPhotoResponse>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-nearbysearchrequest-0000001050154749"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "fetchPlace",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.api.net.FetchPlaceRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.api.net.FetchPlaceResponse>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-nearbysearchrequest-0000001050154749"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "findAutocompletePredictions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.api.net.FindAutocompletePredictionsResponse>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-nearbysearchrequest-0000001050154749"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "findCurrentPlace",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.api.net.FindCurrentPlaceRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.api.net.FindCurrentPlaceResponse>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-nearbysearchrequest-0000001050154749"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Site",
+  "status": "manuallyAdapt"
+}

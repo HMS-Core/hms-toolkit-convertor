@@ -1,0 +1,41 @@
+{
+  "gName": "com.google.firebase.ml.custom.FirebaseModelOutputs",
+  "interfaces": [],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalArgumentException",
+          "java.lang.ClassCastException"
+        ],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getOutput",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "<T extends java.lang.Object> T"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "ML",
+  "status": "notSupport"
+}

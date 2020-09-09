@@ -1,0 +1,176 @@
+{
+  "gName": "com.google.android.gms.nearby.messages.MessageListener",
+  "interfaces": [],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onBleSignalChanged",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.nearby.messages.Message"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.BleSignal"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onBleSignalChanged",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.nearby.message.Message"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.discovery.BleSignal"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.MessageHandler",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onDistanceChanged",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.nearby.messages.Message"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.Distance"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onDistanceChanged",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.nearby.message.Message"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.discovery.Distance"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.MessageHandler",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onFound",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.nearby.messages.Message"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onFound",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.nearby.message.Message"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.MessageHandler",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onLost",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.nearby.messages.Message"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onLost",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.nearby.message.Message"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.MessageHandler",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "MessageListener",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "MessageHandler",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.message.MessageHandler",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.message.MessageHandler",
+  "kitName": "Nearby",
+  "status": "matching"
+}

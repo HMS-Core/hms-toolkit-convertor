@@ -1,0 +1,50 @@
+{
+  "gName": "com.google.firebase.functions.FirebaseFunctionsException",
+  "interfaces": [],
+  "dependencyName": "Functions",
+  "superClass": "com.google.firebase.FirebaseException",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Functions",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCode",
+        "paramTypes": [],
+        "retType": "com.google.firebase.functions.FirebaseFunctionsException.Code"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "com.huawei.agconnect.function.AGCFunctionException",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-func-0000001050159225#EN-US_TOPIC_0000001050159225__section1688113151386"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Functions",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDetails",
+        "paramTypes": [],
+        "retType": "java.lang.Object"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMessage",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.function.AGCFunctionException",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.function.AGCFunctionException",
+  "kitName": "Functions",
+  "status": "matching"
+}

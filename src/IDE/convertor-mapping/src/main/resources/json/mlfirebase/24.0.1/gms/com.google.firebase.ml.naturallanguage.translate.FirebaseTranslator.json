@@ -1,0 +1,83 @@
+{
+  "gName": "com.google.firebase.ml.naturallanguage.translate.FirebaseTranslator",
+  "interfaces": [
+    "java.io.Closeable"
+  ],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "close",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslator",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "downloadModelIfNeeded",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "downloadModelIfNeeded",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "translate",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.String>"
+      },
+      "text": "This API is not supported in this version, but we're planning to introduce it in future versions.",
+      "hName": "com.huawei.hms.mlsdk.translate.cloud.MLRemoteTranslator",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "",
+  "kitName": "ML",
+  "status": "notSupport"
+}

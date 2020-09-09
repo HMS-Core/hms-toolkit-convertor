@@ -1,0 +1,118 @@
+{
+  "gName": "com.google.firebase.ml.vision.objects.FirebaseVisionObjectDetectorOptions",
+  "interfaces": [],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObjectAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObjectAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "SINGLE_IMAGE_MODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TYPE_PICTURE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"FirebaseVisionObjectDetectorOptions public static final int SINGLE_IMAGE_MODE = 2\" will be replaced by \"MLObjectAnalyzerSetting public static final int TYPE_PICTURE = 0\"",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObjectAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "STREAM_MODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TYPE_VIDEO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FirebaseVisionObjectDetectorOptions public static final int STREAM_MODE = 1\" will be replaced by \"MLObjectAnalyzerSetting public static final int TYPE_VIDEO = 1\"",
+      "hName": "com.huawei.hms.mlsdk.objects.MLObjectAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.objects.MLObjectAnalyzerSetting",
+  "kitName": "ML",
+  "status": "matching"
+}

@@ -1,0 +1,80 @@
+{
+  "gName": "com.google.android.gms.safetynet.SafetyNetApi.HarmfulAppsResponse",
+  "interfaces": [],
+  "dependencyName": "Safetynet",
+  "superClass": "com.google.android.gms.common.api.Response",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "HarmfulAppsResponse",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS does not provide a response instantiation solution. Make modifications based on the development guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides/appscheck-0000001050154380"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHarmfulAppsList",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.safetynet.HarmfulAppsData>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMaliciousAppsList",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.support.api.entity.safetydetect.MaliciousAppsData>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.api.entity.safetydetect.MaliciousAppsListResp",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHoursSinceLastScanWithHarmfulApp",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "This method is not implemented in HMS. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLastScanTimeMs",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "text": "This method is not implemented in HMS. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.entity.safetydetect.MaliciousAppsListResp",
+  "kitName": "Safetynet",
+  "status": "notSupport"
+}

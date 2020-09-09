@@ -1,0 +1,188 @@
+{
+  "gName": "com.google.api.services.drive.model.File.ContentHints",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "com.google.api.client.json.GenericJson",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ContentHints",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ContentExtras",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.ContentExtras",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.lang.CloneNotSupportedException"
+        ],
+        "modifiers": [],
+        "name": "clone",
+        "paramTypes": [],
+        "retType": "com.google.api.services.drive.model.File.ContentHints"
+      },
+      "h": {
+        "exceptions": [
+          "java.lang.CloneNotSupportedException"
+        ],
+        "modifiers": [],
+        "name": "clone",
+        "paramTypes": [],
+        "retType": "com.huawei.cloud.services.drive.model.File.ContentExtras"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.ContentExtras",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIndexableText",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getThumbnail",
+        "paramTypes": [],
+        "retType": "com.google.api.services.drive.model.File.ContentHints.Thumbnail"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getThumbnail",
+        "paramTypes": [],
+        "retType": "com.huawei.cloud.services.drive.model.File.ContentExtras.Thumbnail"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.ContentExtras",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "set",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.ContentHints"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "set",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.ContentExtras"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.ContentExtras",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setIndexableText",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.ContentHints"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setThumbnail",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.api.services.drive.model.File.ContentHints.Thumbnail"
+          }
+        ],
+        "retType": "com.google.api.services.drive.model.File.ContentHints"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setThumbnail",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.cloud.services.drive.model.File.ContentExtras.Thumbnail"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.model.File.ContentExtras"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.model.File.ContentExtras",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.cloud.services.drive.model.File.ContentExtras",
+  "kitName": "Drive",
+  "status": "matching"
+}

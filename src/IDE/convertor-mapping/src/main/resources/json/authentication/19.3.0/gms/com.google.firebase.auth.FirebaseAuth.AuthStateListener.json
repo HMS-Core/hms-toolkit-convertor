@@ -1,0 +1,39 @@
+{
+  "gName": "com.google.firebase.auth.FirebaseAuth.AuthStateListener",
+  "interfaces": [],
+  "dependencyName": "Authentication",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onAuthStateChanged",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.FirebaseAuth"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "com.huawei.agconnect.core.service.auth.OnTokenListener",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section1839044362816"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.agconnect.core.service.auth.OnTokenListener",
+  "kitName": "Authentication",
+  "status": "redundant"
+}

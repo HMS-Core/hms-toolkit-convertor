@@ -1,0 +1,126 @@
+{
+  "gName": "com.google.android.gms.fido.fido2.api.common.TokenBinding.TokenBindingStatus",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "FIDO",
+  "superClass": "java.lang.Enum<com.google.android.gms.fido.fido2.api.common.TokenBinding.TokenBindingStatus>",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "FIDO",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "NOT_SUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.TokenBinding.TokenBindingStatus",
+        "value": ""
+      },
+      "text": "This method is not supported. Please delete this method or implement it yourself as needed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "PRESENT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.TokenBinding.TokenBindingStatus",
+        "value": ""
+      },
+      "h": {
+        "name": "PRESENT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.support.api.fido.fido2.TokenBindingStatus",
+        "value": ""
+      },
+      "text": "\"TokenBinding.TokenBindingStatus public static final com.google.android.gms.fido.fido2.api.common.TokenBinding.TokenBindingStatus PRESENT\" will be replaced by \"TokenBindingStatus public static final com.huawei.hms.support.api.fido.fido2.TokenBindingStatus PRESENT\"",
+      "hName": "com.huawei.hms.support.api.fido.fido2.TokenBindingStatus",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "SUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.TokenBinding.TokenBindingStatus",
+        "value": ""
+      },
+      "h": {
+        "name": "SUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.support.api.fido.fido2.TokenBindingStatus",
+        "value": ""
+      },
+      "text": "\"TokenBinding.TokenBindingStatus public static final com.google.android.gms.fido.fido2.api.common.TokenBinding.TokenBindingStatus SUPPORTED\" will be replaced by \"TokenBindingStatus public static final com.huawei.hms.support.api.fido.fido2.TokenBindingStatus SUPPORTED\"",
+      "hName": "com.huawei.hms.support.api.fido.fido2.TokenBindingStatus",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "FIDO",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator",
+        "value": ""
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "enum",
+  "hName": "com.huawei.hms.support.api.fido.fido2.TokenBindingStatus",
+  "kitName": "FIDO",
+  "status": "complex"
+}

@@ -1,0 +1,84 @@
+{
+  "gName": "com.google.android.gms.tasks.CancellationToken",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "CancellationToken",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "CancellationToken",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.CancellationToken",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isCancellationRequested",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isCancellationRequested",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hmf.tasks.CancellationToken",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onCanceledRequested",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.OnTokenCanceledListener"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.CancellationToken"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hmf.tasks.CancellationToken",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/base-conversion-0000001050062325#EN-US_TOPIC_0000001050062325__section6751717155811"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hmf.tasks.CancellationToken",
+  "kitName": "Basement",
+  "status": "complex"
+}

@@ -1,0 +1,89 @@
+{
+  "gName": "com.google.android.gms.vision.barcode.BarcodeDetector",
+  "interfaces": [],
+  "dependencyName": "MLgms",
+  "superClass": "com.google.android.gms.vision.Detector",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "detect",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.vision.Frame"
+          }
+        ],
+        "retType": "android.util.SparseArray<com.google.android.gms.vision.barcode.Barcode>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "analyseFrame",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLFrame"
+          }
+        ],
+        "retType": "android.util.SparseArray<com.huawei.hms.ml.scan.HmsScan>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScanAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isOperational",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isAvailable",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScanAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "release",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "You are advised to replace com.google.android.gms.vision.barcode.BarcodeDetector.release with com.huawei.hms.ml.scan.HmsScanAnalyzer.destory in this method.",
+      "hName": "com.huawei.hms.ml.scan.HmsScanAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/ml-conversion-0000001050062241"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScanAnalyzer",
+  "kitName": "ML",
+  "status": "complex"
+}

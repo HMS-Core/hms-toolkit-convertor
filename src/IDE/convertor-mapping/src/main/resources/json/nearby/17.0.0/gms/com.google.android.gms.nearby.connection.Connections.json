@@ -1,0 +1,718 @@
+{
+  "gName": "com.google.android.gms.nearby.connection.Connections",
+  "interfaces": [],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "acceptConnection",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.connection.PayloadCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "acceptConnectionRequest",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "byte[]"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.nearby.connection.Connections.MessageListener"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "cancelPayload",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "disconnectFromEndpoint",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "rejectConnection",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "rejectConnectionRequest",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "requestConnection",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.nearby.connection.ConnectionLifecycleCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "sendConnectionRequest",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "byte[]"
+          },
+          {
+            "pos": "4",
+            "type": "com.google.android.gms.nearby.connection.Connections.ConnectionResponseCallback"
+          },
+          {
+            "pos": "5",
+            "type": "com.google.android.gms.nearby.connection.Connections.MessageListener"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "sendPayload",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.connection.Payload"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "sendPayload",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.List<java.lang.String>"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.connection.Payload"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "sendReliableMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.List<java.lang.String>"
+          },
+          {
+            "pos": "2",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "sendReliableMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "sendUnreliableMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "sendUnreliableMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.List<java.lang.String>"
+          },
+          {
+            "pos": "2",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startAdvertising",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.nearby.connection.ConnectionLifecycleCallback"
+          },
+          {
+            "pos": "4",
+            "type": "com.google.android.gms.nearby.connection.AdvertisingOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.nearby.connection.Connections.StartAdvertisingResult>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startAdvertising",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.connection.AppMetadata"
+          },
+          {
+            "pos": "3",
+            "type": "long"
+          },
+          {
+            "pos": "4",
+            "type": "com.google.android.gms.nearby.connection.Connections.ConnectionRequestListener"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.nearby.connection.Connections.StartAdvertisingResult>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startDiscovery",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.nearby.connection.Connections.EndpointDiscoveryListener"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startDiscovery",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.connection.EndpointDiscoveryCallback"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.nearby.connection.DiscoveryOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopAdvertising",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopAllEndpoints",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopDiscovery",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopDiscovery",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "DURATION_INDEFINITE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "long",
+        "value": "0L"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.discovery.DiscoveryEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MAX_BYTES_DATA_SIZE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "32768"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MAX_RELIABLE_MESSAGE_LEN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4096"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "MAX_UNRELIABLE_MESSAGE_LEN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1168"
+      },
+      "text": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion.",
+      "hName": "com.huawei.hms.nearby.transfer.TransferEngine",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section33534134157"
+    }
+  ],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Nearby",
+  "status": "dummy"
+}

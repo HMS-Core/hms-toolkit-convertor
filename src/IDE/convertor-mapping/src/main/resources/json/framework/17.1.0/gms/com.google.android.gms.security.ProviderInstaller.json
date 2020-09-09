@@ -1,0 +1,112 @@
+{
+  "gName": "com.google.android.gms.security.ProviderInstaller",
+  "interfaces": [],
+  "dependencyName": "Basement",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [
+          "com.google.android.gms.common.GooglePlayServicesRepairableException",
+          "com.google.android.gms.common.GooglePlayServicesNotAvailableException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "installIfNeeded",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [
+          "com.huawei.hms.api.HuaweiServicesNotAvailableException",
+          "com.huawei.hms.api.HuaweiServicesRepairableException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "install",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.security.SecComponentInstallWizard",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/base-conversion-0000001050062325#EN-US_TOPIC_0000001050062325__section40450155715"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "installIfNeededAsync",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.security.ProviderInstaller.ProviderInstallListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.security.ProviderInstaller",
+      "url": "HMS Core does not support this API currently."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ProviderInstaller",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.security.ProviderInstaller",
+      "url": "HMS Core does not support this API currently."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Basement",
+      "g": {
+        "name": "PROVIDER_NAME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "GmsCore_OpenSSL"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.security.ProviderInstaller",
+      "url": "HMS Core does not support this API currently."
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.security.SecComponentInstallWizard",
+  "kitName": "Basement",
+  "status": "notSupport"
+}

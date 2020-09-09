@@ -1,0 +1,328 @@
+{
+  "gName": "com.google.android.gms.vision.face.FaceDetector",
+  "interfaces": [],
+  "dependencyName": "MLgms",
+  "superClass": "com.google.android.gms.vision.Detector",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalArgumentException",
+          "java.lang.RuntimeException"
+        ],
+        "modifiers": [
+          "final"
+        ],
+        "name": "detect",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.vision.Frame"
+          }
+        ],
+        "retType": "android.util.SparseArray<com.google.android.gms.vision.face.Face>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "analyseFrame",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLFrame"
+          }
+        ],
+        "retType": "android.util.SparseArray<com.huawei.hms.mlsdk.face.MLFace>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isOperational",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isAvailable",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "release",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setFocus",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTrackIdentiy",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "ACCURATE_MODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TYPE_PRECISION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FaceDetector public static final int ACCURATE_MODE = 1\" will be replaced by \"MLFaceAnalyzerSetting public static final int TYPE_PRECISION = 1\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "ALL_CLASSIFICATIONS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TYPE_FEATURES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FaceDetector public static final int ALL_CLASSIFICATIONS = 1\" will be replaced by \"MLFaceAnalyzerSetting public static final int TYPE_FEATURES = 1\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "ALL_LANDMARKS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TYPE_KEYPOINTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FaceDetector public static final int ALL_LANDMARKS = 1\" will be replaced by \"MLFaceAnalyzerSetting public static final int TYPE_KEYPOINTS = 1\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "CONTOUR_LANDMARKS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TYPE_SHAPES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"FaceDetector public static final int CONTOUR_LANDMARKS = 2\" will be replaced by \"MLFaceAnalyzerSetting public static final int TYPE_SHAPES = 2\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "FAST_MODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "TYPE_SPEED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"FaceDetector public static final int FAST_MODE = 0\" will be replaced by \"MLFaceAnalyzerSetting public static final int TYPE_SPEED = 2\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "NO_CLASSIFICATIONS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "TYPE_UNSUPPORT_FEATURES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"FaceDetector public static final int NO_CLASSIFICATIONS = 0\" will be replaced by \"MLFaceAnalyzerSetting public static final int TYPE_UNSUPPORT_FEATURES = 2\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "NO_LANDMARKS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "TYPE_UNSUPPORT_KEYPOINTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"FaceDetector public static final int NO_LANDMARKS = 0\" will be replaced by \"MLFaceAnalyzerSetting public static final int TYPE_UNSUPPORT_KEYPOINTS = 0\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "SELFIE_MODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TYPE_PRECISION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FaceDetector public static final int SELFIE_MODE = 2\" will be replaced by \"MLFaceAnalyzerSetting public static final int TYPE_PRECISION = 1\"",
+      "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzerSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.face.MLFaceAnalyzer",
+  "kitName": "ML",
+  "status": "improve"
+}

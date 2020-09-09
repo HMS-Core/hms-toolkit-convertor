@@ -1,0 +1,72 @@
+{
+  "gName": "com.google.firebase.analytics.FirebaseAnalytics.UserProperty",
+  "interfaces": [],
+  "dependencyName": "Analytics",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Analytics",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "UserProperty",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ALLOW_AD_PERSONALIZATION_SIGNALS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "allow_personalized_ads"
+      },
+      "text": "HMS Core does not support this event attribute constant. You can determine how to process this constant. You are advised to customize this constant.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SIGN_UP_METHOD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "sign_up_method"
+      },
+      "h": {
+        "name": "CHANNEL",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Channel"
+      },
+      "text": "\"FirebaseAnalytics.UserProperty public static final java.lang.String SIGN_UP_METHOD = \"sign_up_method\"\" will be replaced by \"HAParamType java.lang.String CHANNEL = \"$Channel\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAParamType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.analytics.type.HAParamType",
+  "kitName": "Analytics",
+  "status": "notSupport"
+}

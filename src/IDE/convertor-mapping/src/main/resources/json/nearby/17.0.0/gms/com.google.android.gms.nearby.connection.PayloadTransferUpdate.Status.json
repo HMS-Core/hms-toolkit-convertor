@@ -1,0 +1,117 @@
+{
+  "gName": "com.google.android.gms.nearby.connection.PayloadTransferUpdate.Status",
+  "interfaces": [
+    "java.lang.annotation.Annotation"
+  ],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "CANCELED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "TRANSFER_STATE_CANCELED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "text": "\"PayloadTransferUpdate.Status public static final  int  CANCELED=4\" will be replaced by \"TransferStateUpdate.Status public static final  int TRANSFER_STATE_CANCELED=4\"",
+      "hName": "com.huawei.hms.nearby.transfer.TransferStateUpdate.Status",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "FAILURE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TRANSFER_STATE_FAILURE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"PayloadTransferUpdate.Status public static final  int  FAILURE=2\" will be replaced by \"TransferStateUpdate.Status public static final int TRANSFER_STATE_FAILURE=2\"",
+      "hName": "com.huawei.hms.nearby.transfer.TransferStateUpdate.Status",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "IN_PROGRESS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "TRANSFER_STATE_IN_PROGRESS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"PayloadTransferUpdate.Status public static final  int  IN_PROGRESS=3\" will be replaced by \"TransferStateUpdate.Status public static final int TRANSFER_STATE_IN_PROGRESS=3\"",
+      "hName": "com.huawei.hms.nearby.transfer.TransferStateUpdate.Status",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "SUCCESS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TRANSFER_STATE_SUCCESS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"PayloadTransferUpdate.Status public static final  int  SUCCESS=1\" will be replaced by \"TransferStateUpdate.Status public static final int TRANSFER_STATE_SUCCESS=1\"",
+      "hName": "com.huawei.hms.nearby.transfer.TransferStateUpdate.Status",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.nearby.transfer.TransferStateUpdate.Status",
+  "kitName": "Nearby",
+  "status": "matching"
+}

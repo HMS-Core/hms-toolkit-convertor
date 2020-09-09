@@ -1,0 +1,48 @@
+{
+  "gName": "com.google.android.gms.tagmanager.CustomTagProvider",
+  "interfaces": [],
+  "dependencyName": "DTM",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "DTM",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "execute",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Map<java.lang.String, java.lang.Object>"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "call",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Map<java.lang.String,java.lang.Object>"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.dtm.ICustomTag",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.dtm.ICustomTag",
+  "kitName": "DTM",
+  "status": "matching"
+}

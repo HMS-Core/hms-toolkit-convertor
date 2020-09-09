@@ -1,0 +1,51 @@
+{
+  "gName": "com.google.android.gms.vision.CameraSource.PictureCallback",
+  "interfaces": [],
+  "dependencyName": "MLgms",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onPictureTaken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "takenPhotograph",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.LensEngine.PhotographListener",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.mlsdk.common.LensEngine.PhotographListener",
+  "kitName": "ML",
+  "status": "matching"
+}

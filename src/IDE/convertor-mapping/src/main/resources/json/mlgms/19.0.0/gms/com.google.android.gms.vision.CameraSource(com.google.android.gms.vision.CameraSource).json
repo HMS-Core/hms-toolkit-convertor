@@ -1,0 +1,249 @@
+{
+  "gName": "com.google.android.gms.vision.CameraSource",
+  "interfaces": [],
+  "dependencyName": "MLgms",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCameraFacing",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLensType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.LensEngine",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPreviewSize",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.common.images.Size"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDisplayDimension",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.common.size.Size"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.LensEngine",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "release",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "release",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.LensEngine",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "start",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.vision.CameraSource"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "run",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.common.LensEngine"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.LensEngine",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "start",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.view.SurfaceHolder"
+          }
+        ],
+        "retType": "com.google.android.gms.vision.CameraSource"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "run",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.view.SurfaceHolder"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.common.LensEngine"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.LensEngine",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "stop",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "close",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.LensEngine",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "takePicture",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.vision.CameraSource.ShutterCallback"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.vision.CameraSource.PictureCallback"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "photograph",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.LensEngine.ShutteringListener"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.mlsdk.common.LnesEngine.PhotographListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.LensEngine",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "CAMERA_FACING_BACK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "BACK_LENS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"CameraSource public static final int CAMERA_FACING_BACK = 0\" will be replaced by \"LensEngine public static final int BACK_LENS = 0\"",
+      "hName": "com.huawei.hms.mlsdk.common.LensEngine",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "CAMERA_FACING_FRONT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "FRONT_LENS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"CameraSource public static final int CAMERA_FACING_FRONT = 1\" will be replaced by \"LensEngine public static final int FRONT_LENS = 1\"",
+      "hName": "com.huawei.hms.mlsdk.common.LensEngine",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.common.LensEngine",
+  "kitName": "ML",
+  "status": "matching"
+}

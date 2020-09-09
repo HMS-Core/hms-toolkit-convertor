@@ -1,0 +1,281 @@
+{
+  "gName": "com.google.firebase.ml.vision.common.FirebaseVisionImageMetadata",
+  "interfaces": [],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFormat",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFormatType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame.Property",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHeight",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHeight",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame.Property",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRotation",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getQuadrant",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame.Property",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getWidth",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getWidth",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame.Property",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "FirebaseVisionImageMetadata",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.common.FirebaseVisionImageMetadata"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Property",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLFrame.Property"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame.Property",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "IMAGE_FORMAT_NV21",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "17"
+      },
+      "h": {
+        "name": "IMAGE_FORMAT_NV21",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "17"
+      },
+      "text": "\"FirebaseVisionImageMetadata public static final int IMAGE_FORMAT_NV21 = 17\" will be replaced by \"MLFrame.Property public static final int IMAGE_FORMAT_NV21 = 17\"",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame.Property",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "IMAGE_FORMAT_YV12",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "842094169"
+      },
+      "h": {
+        "name": "IMAGE_FORMAT_YV12",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "842094169"
+      },
+      "text": "\"FirebaseVisionImageMetadata public static final int IMAGE_FORMAT_YV12 = 842094169\" will be replaced by \"MLFrame.Property public static final int IMAGE_FORMAT_YV12 = 842094169\"",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame.Property",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "ROTATION_0",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "SCREEN_FIRST_QUADRANT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"FirebaseVisionImageMetadata public static final int ROTATION_0 = 0\" will be replaced by \"MLFrame.Property public static final int SCREEN_FIRST_QUADRANT  = 0\"",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame.Property",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "ROTATION_180",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "SCREEN_THIRD_QUADRANT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"FirebaseVisionImageMetadata public static final int ROTATION_180 = 2\" will be replaced by \"MLFrame.Property public static final int SCREEN_THIRD_QUADRANT = 2\"",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame.Property",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "ROTATION_270",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "SCREEN_FOURTH_QUADRANT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"FirebaseVisionImageMetadata public static final int ROTATION_270 = 3\" will be replaced by \"MLFrame.Property public static final int SCREEN_FOURTH_QUADRANT = 3\"",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame.Property",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "ROTATION_90",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "SCREEN_SECOND_QUADRANT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FirebaseVisionImageMetadata public static final int ROTATION_90 = 1\" will be replaced by \"MLFrame.Property public static final int SCREEN_SECOND_QUADRANT = 1\"",
+      "hName": "com.huawei.hms.mlsdk.common.MLFrame.Property",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.common.MLFrame.Property",
+  "kitName": "ML",
+  "status": "matching"
+}

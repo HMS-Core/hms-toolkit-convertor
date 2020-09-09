@@ -1,0 +1,83 @@
+{
+  "gName": "com.google.firebase.auth.AdditionalUserInfo",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Authentication",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getProfile",
+        "paramTypes": [],
+        "retType": "java.util.Map<java.lang.String, java.lang.Object>"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section858105271410"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getProviderId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section173971446183513"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getUsername",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section615636183612"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isNewUser",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section1481192744013"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Authentication",
+  "status": "complex"
+}

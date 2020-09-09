@@ -1,0 +1,186 @@
+{
+  "gName": "com.google.android.gms.fitness.HistoryApi.ViewIntentBuilder",
+  "interfaces": [],
+  "dependencyName": "Health",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "android.content.Intent"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIntent",
+        "paramTypes": [],
+        "retType": "android.content.Intent"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataManager.GetIntentInfos",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDataSource",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.HistoryApi.ViewIntentBuilder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDataCollector",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataCollector"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.DataManager.GetIntentInfos"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataManager.GetIntentInfos",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPreferredApplication",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.HistoryApi.ViewIntentBuilder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "selectApplication",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.DataManager.GetIntentInfos"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataManager.GetIntentInfos",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTimeInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.HistoryApi.ViewIntentBuilder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTimeInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.DataManager.GetIntentInfos"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataManager.GetIntentInfos",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ViewIntentBuilder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "GetIntentInfos",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.hihealth.data.DataType"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataManager.GetIntentInfos",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.DataManager.GetIntentInfos",
+  "kitName": "Health",
+  "status": "matching"
+}

@@ -1,0 +1,192 @@
+{
+  "gName": "com.google.android.gms.vision.barcode.Barcode.Email",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "MLgms",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Email",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "EmailContent",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EmailContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "HOME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "RESIDENTIAL_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"Barcode.Email public static final int HOME = 2\" will be replaced by \"HmsScan.EmailContent public static final int RESIDENTIAL_USE_TYPE = 0\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EmailContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "OTHER_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "\"Barcode.Email public static final int UNKNOWN = 0\" will be replaced by \"HmsScan.EmailContent public static final int OTHER_USE_TYPE = -1\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EmailContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "WORK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "OFFICE_USE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"Barcode.Email public static final int WORK = 1\" will be replaced by \"HmsScan.EmailContent public static final int OFFICE_USE_TYPE = 1\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EmailContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "address",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "addressInfo",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.Email public java.lang.String address\" will be replaced by \"HmsScan.EmailContent public java.lang.String addressInfo\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EmailContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "body",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "bodyInfo",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.Email public java.lang.String body\" will be replaced by \"HmsScan.EmailContent public java.lang.String bodyInfo\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EmailContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "subject",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "subjectInfo",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.Email public java.lang.String subject\" will be replaced by \"HmsScan.EmailContent public java.lang.String subjectInfo\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EmailContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "type",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "h": {
+        "name": "addressType",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"Barcode.Email public int type\" will be replaced by \"HmsScan.EmailContent public int addressType\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EmailContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan.EmailContent",
+  "kitName": "ML",
+  "status": "matching"
+}

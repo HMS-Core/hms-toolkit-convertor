@@ -1,0 +1,256 @@
+{
+  "gName": "com.google.android.gms.safetynet.SafetyNetStatusCodes",
+  "interfaces": [],
+  "dependencyName": "Safetynet",
+  "superClass": "com.google.android.gms.common.api.CommonStatusCodes",
+  "methods": [],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "RECAPTCHA_INVALID_KEYTYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12008"
+      },
+      "text": "This status code is not implemented in HMS. You are advised to delete it or handle it based on status codes provided by HMS in the development guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/safetydetectstatuscodesapi-0000001050259854"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "RECAPTCHA_INVALID_PACKAGE_NAME",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12013"
+      },
+      "text": "This status code is not implemented in HMS. You are advised to delete it or handle it based on status codes provided by HMS in the development guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/safetydetectstatuscodesapi-0000001050259854"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "RECAPTCHA_INVALID_SITEKEY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12007"
+      },
+      "h": {
+        "name": "USER_DETECT_INVALID_APPID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19802"
+      },
+      "text": "\"SafetyNetStatusCodes public static final int RECAPTCHA_INVALID_SITEKEY = 12007\" will be replaced by \"SafetyDetectStatusCodes public static final int USER_DETECT_INVALID_APPID = 19802\"",
+      "hName": "com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "SAFE_BROWSING_API_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12002"
+      },
+      "h": {
+        "name": "URL_CHECK_INNER_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19600"
+      },
+      "text": "\"SafetyNetStatusCodes public static final int SAFE_BROWSING_API_NOT_AVAILABLE = 12002\" will be replaced by \"SafetyDetectStatusCodes public static final int URL_CHECK_INNER_ERROR = 19600\"",
+      "hName": "com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "SAFE_BROWSING_API_NOT_INITIALIZED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12009"
+      },
+      "h": {
+        "name": "CHECK_WITHOUT_INIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19601"
+      },
+      "text": "\"SafetyNetStatusCodes public static final int SAFE_BROWSING_API_NOT_INITIALIZED = 12009\" will be replaced by \"SafetyDetectStatusCodes public static final int CHECK_WITHOUT_INIT = 19601\"",
+      "hName": "com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "SAFE_BROWSING_MISSING_API_KEY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12001"
+      },
+      "h": {
+        "name": "URL_CHECK_REQUEST_APPID_INVALID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19604"
+      },
+      "text": "\"SafetyNetStatusCodes public static final int SAFE_BROWSING_MISSING_API_KEY = 12001\" will be replaced by \"SafetyDetectStatusCodes public static final int URL_CHECK_REQUEST_APPID_INVALID = 19604\"",
+      "hName": "com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "SAFE_BROWSING_UNSUPPORTED_THREAT_TYPES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12000"
+      },
+      "h": {
+        "name": "URL_CHECK_THREAT_TYPE_INVALID",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19602"
+      },
+      "text": "\"SafetyNetStatusCodes public static final int SAFE_BROWSING_UNSUPPORTED_THREAT_TYPES = 12000\" will be replaced by \"SafetyDetectStatusCodes public static final int URL_CHECK_THREAT_TYPE_INVALID = 19602\"",
+      "hName": "com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "UNSUPPORTED_SDK_VERSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12006"
+      },
+      "h": {
+        "name": "UNSUPPORTED_EMUI_VERSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19202"
+      },
+      "text": "\"SafetyNetStatusCodes public static final int UNSUPPORTED_SDK_VERSION = 12006\" will be replaced by \"SafetyDetectStatusCodes public static final int UNSUPPORTED_EMUI_VERSION = 19202\"",
+      "hName": "com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "VERIFY_APPS_INTERNAL_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12004"
+      },
+      "h": {
+        "name": "APPS_CHECK_INTERNAL_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19401"
+      },
+      "text": "\"SafetyNetStatusCodes public static final int VERIFY_APPS_INTERNAL_ERROR = 12004\" will be replaced by \"SafetyDetectStatusCodes public static final int APPS_CHECK_INTERNAL_ERROR= 19401\"",
+      "hName": "com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "VERIFY_APPS_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12003"
+      },
+      "text": "This status code is not implemented in HMS. You are advised to delete it or handle it based on status codes provided by HMS in the development guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/safetydetectstatuscodesapi-0000001050259854"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Safetynet",
+      "g": {
+        "name": "VERIFY_APPS_NOT_ENABLED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12005"
+      },
+      "text": "This status code is not implemented in HMS. You are advised to delete it or handle it based on status codes provided by HMS in the development guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/safetydetectstatuscodesapi-0000001050259854"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes",
+  "kitName": "Safetynet",
+  "status": "notSupport"
+}

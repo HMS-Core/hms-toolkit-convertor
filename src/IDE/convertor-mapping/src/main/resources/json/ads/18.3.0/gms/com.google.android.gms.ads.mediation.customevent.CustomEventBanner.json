@@ -1,0 +1,60 @@
+{
+  "gName": "com.google.android.gms.ads.mediation.customevent.CustomEventBanner",
+  "interfaces": [
+    "com.google.android.gms.ads.mediation.customevent.CustomEvent"
+  ],
+  "dependencyName": "Ads",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "requestBannerAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.ads.mediation.customevent.CustomEventBannerListener"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.ads.AdSize"
+          },
+          {
+            "pos": "4",
+            "type": "com.google.android.gms.ads.mediation.MediationAdRequest"
+          },
+          {
+            "pos": "5",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Ads",
+  "status": "notSupport"
+}

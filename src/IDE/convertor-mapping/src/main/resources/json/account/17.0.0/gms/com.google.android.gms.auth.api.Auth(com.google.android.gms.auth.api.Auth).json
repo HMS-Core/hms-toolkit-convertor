@@ -1,0 +1,99 @@
+{
+  "gName": "com.google.android.gms.auth.api.Auth",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "name": "CREDENTIALS_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.auth.api.Auth.AuthCredentialsOptions>",
+        "value": ""
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "dummy",
+      "dependencyName": "Account",
+      "g": {
+        "name": "CredentialsApi",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.auth.api.credentials.CredentialsApi",
+        "value": ""
+      },
+      "text": "HMS Core does not provide this method in this version.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "GOOGLE_SIGN_IN_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.auth.api.signin.GoogleSignInOptions>",
+        "value": ""
+      },
+      "h": {
+        "name": "HUAWEI_OAUTH_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.api.Api<com.huawei.hms.support.hwid.request.HuaweiIdAuthParams>",
+        "value": ""
+      },
+      "text": "\"Auth public static final com.google.android.gms.common.api.Api<com.google.android.gms.auth.api.signin.GoogleSignInOptions> GOOGLE_SIGN_IN_API\" will be replaced by \"HuaweiIdAuthAPIManager public static final com.huawei.hms.api.Api<com.huawei.hms.support.hwid.request.HuaweiIdAuthParams> HUAWEI_OAUTH_API\"",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthAPIManager",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "name": "GoogleSignInApi",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.auth.api.signin.GoogleSignInApi",
+        "value": ""
+      },
+      "h": {
+        "name": "HuaweiIdAuthAPIService",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.support.hwid.service.HuaweiIdAuthAPIService",
+        "value": ""
+      },
+      "text": "\"Auth public static final com.google.android.gms.auth.api.signin.GoogleSignInApi GoogleSignInApi\" will be replaced by \"HuaweiIdAuthAPIManager public static final com.huawei.hms.support.hwid.service.HuaweiIdAuthAPIService HuaweiIdAuthAPIService\"",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthAPIManager",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthAPIManager",
+  "kitName": "Account",
+  "status": "matching"
+}

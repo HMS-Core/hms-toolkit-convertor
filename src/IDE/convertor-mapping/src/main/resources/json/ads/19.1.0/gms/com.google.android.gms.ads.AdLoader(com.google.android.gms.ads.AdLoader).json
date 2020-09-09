@@ -1,0 +1,151 @@
+{
+  "gName": "com.google.android.gms.ads.AdLoader",
+  "interfaces": [],
+  "dependencyName": "Ads",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMediationAdapterClassName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isLoading",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isLoading",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdLoader",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.doubleclick.PublisherAdRequest"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.ads.AdParam"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdLoader",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.AdRequest"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.ads.AdParam"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdLoader",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadAds",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.AdRequest"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadAds",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.ads.AdParam"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdLoader",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.ads.nativead.NativeAdLoader",
+  "kitName": "Ads",
+  "status": "improve"
+}

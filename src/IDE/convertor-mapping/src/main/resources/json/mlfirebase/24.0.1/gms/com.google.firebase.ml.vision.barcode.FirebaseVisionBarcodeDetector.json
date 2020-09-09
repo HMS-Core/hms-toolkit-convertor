@@ -1,0 +1,73 @@
+{
+  "gName": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetector",
+  "interfaces": [
+    "java.io.Closeable"
+  ],
+  "dependencyName": "MLfirebase",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "close",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "destory",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScanAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "detectInImage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.common.FirebaseVisionImage"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.util.List<com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode>>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "analyzInAsyn",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLFrame"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.util.List<com.huawei.hms.ml.scan.HmsScan>>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScanAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScanAnalyzer",
+  "kitName": "ML",
+  "status": "matching"
+}

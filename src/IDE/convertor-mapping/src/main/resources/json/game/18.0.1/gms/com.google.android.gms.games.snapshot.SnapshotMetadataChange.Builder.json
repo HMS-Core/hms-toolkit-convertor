@@ -1,0 +1,227 @@
+{
+  "gName": "com.google.android.gms.games.snapshot.SnapshotMetadataChange.Builder",
+  "interfaces": [],
+  "dependencyName": "Game",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadataChange"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "fromMetadata",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.snapshot.SnapshotMetadata"
+          }
+        ],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadataChange.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "fromSummary",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.jos.games.archive.ArchiveSummary"
+          }
+        ],
+        "retType": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setCoverImage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.graphics.Bitmap"
+          }
+        ],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadataChange.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setThumbnail",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.graphics.Bitmap"
+          }
+        ],
+        "retType": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setDescription",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadataChange.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDescInfo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setPlayedTimeMillis",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadataChange.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setActiveTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setProgressValue",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.games.snapshot.SnapshotMetadataChange.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCurrentProgress",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate.Builder",
+  "kitName": "Game",
+  "status": "matching"
+}

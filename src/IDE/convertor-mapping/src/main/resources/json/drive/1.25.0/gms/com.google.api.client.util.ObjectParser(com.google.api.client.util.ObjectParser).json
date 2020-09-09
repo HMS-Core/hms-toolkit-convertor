@@ -1,0 +1,56 @@
+{
+  "gName": "com.google.api.client.util.ObjectParser",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "parseAndClose",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.Reader"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T> T"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "parseAndClose",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.Reader"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T> T"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.util.ObjectParser",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.cloud.base.util.ObjectParser",
+  "kitName": "Drive",
+  "status": "matching"
+}

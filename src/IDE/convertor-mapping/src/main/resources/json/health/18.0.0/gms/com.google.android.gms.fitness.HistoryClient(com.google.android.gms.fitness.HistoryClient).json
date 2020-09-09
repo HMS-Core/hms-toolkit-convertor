@@ -1,0 +1,263 @@
+{
+  "gName": "com.google.android.gms.fitness.HistoryClient",
+  "interfaces": [],
+  "dependencyName": "Health",
+  "superClass": "com.google.android.gms.common.api.GoogleApi",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "deleteData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.request.DataDeleteRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "delete",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.options.DeleteOptions"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "insertData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSet"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "insert",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.SampleSet"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "readDailyTotal",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.fitness.data.DataSet>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "readTodaySummation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataType"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.hihealth.data.SampleSet>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "readDailyTotalFromLocalDevice",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.fitness.data.DataSet>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "readTodaySummationFromDevice",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataType"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.hihealth.data.SampleSet>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "readData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.request.DataReadRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.fitness.result.DataReadResponse>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "read",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.options.ReadOptions"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.hihealth.result.ReadReply>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "registerDataUpdateListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.request.DataUpdateListenerRegistrationRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "registerModifyDataMonitor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "unregisterDataUpdateListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "unregisterModifyDataMonitor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "updateData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.request.DataUpdateRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "update",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.options.UpdateOptions"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.DataController",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.DataController",
+  "kitName": "Health",
+  "status": "matching"
+}

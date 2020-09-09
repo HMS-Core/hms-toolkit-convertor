@@ -1,0 +1,271 @@
+{
+  "gName": "com.google.android.gms.maps.model.StreetViewPanoramaLocation",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Map",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.maps.model.StreetViewPanoramaLocation",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.maps.model.StreetViewPanoramaLocation",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.maps.model.StreetViewPanoramaLocation",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.maps.model.StreetViewPanoramaLocation",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "StreetViewPanoramaLocation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.model.StreetViewPanoramaLink[]"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.maps.model.LatLng"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "StreetViewPanoramaLocation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.maps.model.StreetViewPanoramaLink[]"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.maps.model.LatLng"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "HMS Core does not support this API currently.",
+      "hName": "com.huawei.hms.maps.model.StreetViewPanoramaLocation",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "name": "links",
+        "modifiers": [
+          "final"
+        ],
+        "type": "com.google.android.gms.maps.model.StreetViewPanoramaLink[]",
+        "value": ""
+      },
+      "h": {
+        "name": "links",
+        "modifiers": [
+          "final"
+        ],
+        "type": "com.huawei.hms.maps.model.StreetViewPanoramaLink[]",
+        "value": ""
+      },
+      "text": "\"StreetViewPanoramaLocation public final com.google.android.gms.maps.model.StreetViewPanoramaLink[] links\" will be replaced by \"StreetViewPanoramaLocation public final com.huawei.hms.maps.model.StreetViewPanoramaLink[] links\"",
+      "hName": "com.huawei.hms.maps.model.StreetViewPanoramaLocation",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "name": "panoId",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "panoId",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"StreetViewPanoramaLocation public final java.lang.String panoId\" will be replaced by \"StreetViewPanoramaLocation public final java.lang.String panoId\"",
+      "hName": "com.huawei.hms.maps.model.StreetViewPanoramaLocation",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "name": "position",
+        "modifiers": [
+          "final"
+        ],
+        "type": "com.google.android.gms.maps.model.LatLng",
+        "value": ""
+      },
+      "h": {
+        "name": "position",
+        "modifiers": [
+          "final"
+        ],
+        "type": "com.huawei.hms.maps.model.LatLng",
+        "value": ""
+      },
+      "text": "\"StreetViewPanoramaLocation public final com.google.android.gms.maps.model.LatLng position\" will be replaced by \"StreetViewPanoramaLocation public final com.huawei.hms.maps.model.LatLng position\"",
+      "hName": "com.huawei.hms.maps.model.StreetViewPanoramaLocation",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.maps.model.StreetViewPanoramaLocation>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.huawei.hms.maps.model.StreetViewPanoramaLocation>",
+        "value": ""
+      },
+      "text": "\"StreetViewPanoramaLocation public static final android.os.Parcelable.Creator<com.google.android.gms.maps.model.StreetViewPanoramaLocation> CREATOR\" will be replaced by \"StreetViewPanoramaLocation public static final android.os.Parcelable.Creator<com.huawei.hms.maps.model.StreetViewPanoramaLocation> CREATOR\"",
+      "hName": "com.huawei.hms.maps.model.StreetViewPanoramaLocation",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.maps.model.StreetViewPanoramaLocation",
+  "kitName": "Map",
+  "status": "matching"
+}

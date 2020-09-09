@@ -1,0 +1,160 @@
+{
+  "gName": "com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptions",
+  "interfaces": [],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLRemoteTextSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHintedLanguages",
+        "paramTypes": [],
+        "retType": "java.util.List<java.lang.String>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLanguageList",
+        "paramTypes": [],
+        "retType": "java.util.List<java.lang.String>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLRemoteTextSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getModelType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTextDensityScene",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLRemoteTextSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLRemoteTextSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "DENSE_MODEL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "OCR_COMPACT_SCENE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"FirebaseVisionCloudTextRecognizerOptions public static final int DENSE_MODEL = 2\" will be replaced by \"MLRemoteTextSetting public static final int OCR_COMPACT_SCENE = 2\"",
+      "hName": "com.huawei.hms.mlsdk.text.MLRemoteTextSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "SPARSE_MODEL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "OCR_LOOSE_SCENE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FirebaseVisionCloudTextRecognizerOptions public static final int SPARSE_MODEL = 1\" will be replaced by \"MLRemoteTextSetting public static final int OCR_LOOSE_SCENE = 1\"",
+      "hName": "com.huawei.hms.mlsdk.text.MLRemoteTextSetting",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.text.MLRemoteTextSetting",
+  "kitName": "ML",
+  "status": "matching"
+}

@@ -1,0 +1,413 @@
+{
+  "gName": "com.google.android.gms.auth.api.signin.GoogleSignIn",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAccountForExtension",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.HuaweiIdAuthManager.getExtendedAuthResult(com.huawei.hms.support.hwid.request.HuaweiIdAuthExtendedParams huaweiIdAuthExtendedParams).",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section628711394917"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAccountForScopes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.common.api.Scope"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.common.api.Scope..."
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.HuaweiIdAuthManager.getAuthResultWithScopes(java.util.List<com.huawei.hms.support.api.entity.auth.Scope> scopeList).",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section1376451174716"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getService",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams"
+          }
+        ],
+        "retType": "com.huawei.hms.support.hwid.service.HuaweiIdAuthService"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getService",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.request.HuaweiIdAuthParams"
+          }
+        ],
+        "retType": "com.huawei.hms.support.hwid.service.HuaweiIdAuthService"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getLastSignedInAccount",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.HuaweiIdAuthManager.getAuthResult().",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section628711394917"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getSignedInAccountFromIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.auth.api.signin.GoogleSignInAccount>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "parseAuthResultFromIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.support.hwid.result.AuthHuaweiId>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "hasPermissions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "containScopes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.support.hwid.result.AuthHuaweiId"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.support.hwid.request.HuaweiIdAuthExtendedParams"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "hasPermissions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.common.api.Scope..."
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.HuaweiIdAuthManager.containScopes(com.huawei.hms.support.hwid.result.AuthHuaweiId authHuaweiId, java.util.List<com.huawei.hms.support.api.entity.auth.Scope> scopeList).",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section628711394917"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "requestPermissions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.common.api.Scope..."
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.HuaweiIdAuthManager.addAuthScopes(android.app.Activity activity, int requestCode, java.util.List<com.huawei.hms.support.api.entity.auth.Scope> scopeList).",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section628711394917"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "requestPermissions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.HuaweiIdAuthManager.addAuthScopes(android.app.Activity activity, int requestCode, com.huawei.hms.support.hwid.request.HuaweiIdAuthExtendedParams huaweiIdAuthExtendedParams).",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section628711394917"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "requestPermissions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "androidx.fragment.app.Fragment"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInOptionsExtension"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.HuaweiIdAuthManager.addAuthScopes(android.app.Fragment fragment, int requestCode, com.huawei.hms.support.hwid.request.HuaweiIdAuthExtendedParams huaweiIdAuthExtendedParams).",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section94590179483"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Account",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "requestPermissions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "androidx.fragment.app.Fragment"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.auth.api.signin.GoogleSignInAccount"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.common.api.Scope..."
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "You need to manually convert the method into com.huawei.hms.support.hwid.HuaweiIdAuthManager.addAuthScopes(android.app.Fragment fragment, int requestCode, java.util.List<com.huawei.hms.support.api.entity.auth.Scope> scopeList).",
+      "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/account-conversion-0000001050062087#EN-US_TOPIC_0000001050062087__section416244374819"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.support.hwid.HuaweiIdAuthManager",
+  "kitName": "Account",
+  "status": "complex"
+}

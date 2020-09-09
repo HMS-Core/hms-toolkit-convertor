@@ -1,0 +1,218 @@
+{
+  "gName": "com.google.android.gms.fitness.request.DataUpdateListenerRegistrationRequest",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Health",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataSource",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.data.DataSource"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getModifyDataCollector",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.data.DataCollector"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataType",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.data.DataType"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getModifyDataType",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.data.DataType"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIntent",
+        "paramTypes": [],
+        "retType": "android.app.PendingIntent"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getModifyDataIntent",
+        "paramTypes": [],
+        "retType": "android.app.PendingIntent"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.fitness.request.DataUpdateListenerRegistrationRequest>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.huawei.hms.hihealth.options.ModifyDataMonitorOptions>",
+        "value": ""
+      },
+      "text": "\"DataUpdateListenerRegistrationRequest public static final android.os.Parcelable.Creator<com.google.android.gms.fitness.request.DataUpdateListenerRegistrationRequest> CREATOR\" will be replaced by \"ModifyDataMonitorOptions public static final android.os.Parcelable.Creator<com.huawei.hms.hihealth.options.ModifyDataMonitorOptions> CREATOR\"",
+      "hName": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions",
+  "kitName": "Health",
+  "status": "matching"
+}

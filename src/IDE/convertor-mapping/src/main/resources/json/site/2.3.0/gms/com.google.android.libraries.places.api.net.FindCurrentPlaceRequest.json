@@ -1,0 +1,107 @@
+{
+  "gName": "com.google.android.libraries.places.api.net.FindCurrentPlaceRequest",
+  "interfaces": [
+    "com.google.android.libraries.places.internal.zzcq"
+  ],
+  "dependencyName": "Site",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "builder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List<com.google.android.libraries.places.api.model.Place.Field>"
+          }
+        ],
+        "retType": "com.google.android.libraries.places.api.net.FindCurrentPlaceRequest.Builder"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-querysuggestionrequest-0000001050154769"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getCancellationToken",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.CancellationToken"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-querysuggestionrequest-0000001050154769"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPlaceFields",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.libraries.places.api.model.Place.Field>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-querysuggestionrequest-0000001050154769"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "newInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List<com.google.android.libraries.places.api.model.Place.Field>"
+          }
+        ],
+        "retType": "com.google.android.libraries.places.api.net.FindCurrentPlaceRequest"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-querysuggestionrequest-0000001050154769"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "FindCurrentPlaceRequest",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-querysuggestionrequest-0000001050154769"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Site",
+  "status": "manuallyAdapt"
+}

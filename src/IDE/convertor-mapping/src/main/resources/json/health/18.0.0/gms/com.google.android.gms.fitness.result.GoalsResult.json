@@ -1,0 +1,86 @@
+{
+  "gName": "com.google.android.gms.fitness.result.GoalsResult",
+  "interfaces": [
+    "android.os.Parcelable",
+    "com.google.android.gms.common.api.Result"
+  ],
+  "dependencyName": "Health",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getGoals",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.Goal>"
+      },
+      "text": "HMS Core does not support this api in the current version.",
+      "hName": "com.huawei.hms.hihealth.result.TargetsResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStatus",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.common.api.Status"
+      },
+      "text": "HMS Core does not support this api in the current version.",
+      "hName": "com.huawei.hms.hihealth.result.TargetsResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not support this api in the current version.",
+      "hName": "com.huawei.hms.hihealth.result.TargetsResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Health",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.fitness.result.GoalsResult>",
+        "value": ""
+      },
+      "text": "HMS Core does not support this api in the current version.",
+      "hName": "com.huawei.hms.hihealth.result.TargetsResult",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "",
+  "kitName": "Health",
+  "status": "notSupport"
+}

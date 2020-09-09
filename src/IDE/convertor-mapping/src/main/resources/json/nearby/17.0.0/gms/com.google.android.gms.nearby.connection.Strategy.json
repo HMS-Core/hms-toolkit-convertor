@@ -1,0 +1,209 @@
+{
+  "gName": "com.google.android.gms.nearby.connection.Strategy",
+  "interfaces": [],
+  "dependencyName": "Nearby",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.discovery.Policy",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.discovery.Policy",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.discovery.Policy",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.nearby.discovery.Policy",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "P2P_CLUSTER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.nearby.connection.Strategy",
+        "value": ""
+      },
+      "h": {
+        "name": "POLICY_MESH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.nearby.discovery.Policy",
+        "value": ""
+      },
+      "text": "\"Strategy public static final com.google.android.gms.nearby.connection.Strategy P2P_CLUSTER\" will be replaced by \"Policy public static final com.huawei.hms.nearby.discovery.Policy POLICY_MESH\"",
+      "hName": "com.huawei.hms.nearby.discovery.Policy",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "P2P_POINT_TO_POINT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.nearby.connection.Strategy",
+        "value": ""
+      },
+      "h": {
+        "name": "POLICY_P2P",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.nearby.discovery.Policy",
+        "value": ""
+      },
+      "text": "\"Strategy public static final com.google.android.gms.nearby.connection.Strategy P2P_POINT_TO_POINT\" will be replaced by \"Policy public static final com.huawei.hms.nearby.discovery.Policy POLICY_P2P\"",
+      "hName": "com.huawei.hms.nearby.discovery.Policy",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Nearby",
+      "g": {
+        "name": "P2P_STAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.nearby.connection.Strategy",
+        "value": ""
+      },
+      "h": {
+        "name": "POLICY_STAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.nearby.discovery.Policy",
+        "value": ""
+      },
+      "text": "\"Strategy public static final com.google.android.gms.nearby.connection.Strategy P2P_STAR\" will be replaced by \"Policy public static final com.huawei.hms.nearby.discovery.Policy POLICY_STAR\"",
+      "hName": "com.huawei.hms.nearby.discovery.Policy",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.discovery.Policy",
+  "kitName": "Nearby",
+  "status": "matching"
+}

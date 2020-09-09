@@ -1,0 +1,202 @@
+{
+  "gName": "com.google.android.gms.maps.model.PointOfInterest",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Map",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.maps.model.PointOfInterest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "PointOfInterest",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.model.LatLng"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "PointOfInterest",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.maps.model.LatLng"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.maps.model.PointOfInterest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "name": "latLng",
+        "modifiers": [
+          "final"
+        ],
+        "type": "com.google.android.gms.maps.model.LatLng",
+        "value": ""
+      },
+      "h": {
+        "name": "latLng",
+        "modifiers": [
+          "final"
+        ],
+        "type": "com.huawei.hms.maps.model.LatLng",
+        "value": ""
+      },
+      "text": "\"PointOfInterest public final com.google.android.gms.maps.model.LatLng latLng\" will be replaced by \"PointOfInterest public final com.huawei.hms.maps.model.LatLng latLng\"",
+      "hName": "com.huawei.hms.maps.model.PointOfInterest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "name": "name",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "name",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"PointOfInterest public final java.lang.String name\" will be replaced by \"PointOfInterest public final java.lang.String name\"",
+      "hName": "com.huawei.hms.maps.model.PointOfInterest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "name": "placeId",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "placeId",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"PointOfInterest public final java.lang.String placeId\" will be replaced by \"PointOfInterest public final java.lang.String placeId\"",
+      "hName": "com.huawei.hms.maps.model.PointOfInterest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Map",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.maps.model.PointOfInterest>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.huawei.hms.maps.model.PointOfInterest>",
+        "value": ""
+      },
+      "text": "\"PointOfInterest public static final android.os.Parcelable.Creator<com.google.android.gms.maps.model.PointOfInterest> CREATOR\" will be replaced by \"PointOfInterest public static final android.os.Parcelable.Creator<com.huawei.hms.maps.model.PointOfInterest> CREATOR\"",
+      "hName": "com.huawei.hms.maps.model.PointOfInterest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.maps.model.PointOfInterest",
+  "kitName": "Map",
+  "status": "matching"
+}

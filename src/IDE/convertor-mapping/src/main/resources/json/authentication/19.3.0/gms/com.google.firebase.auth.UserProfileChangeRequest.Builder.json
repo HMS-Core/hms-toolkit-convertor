@@ -1,0 +1,109 @@
+{
+  "gName": "com.google.firebase.auth.UserProfileChangeRequest.Builder",
+  "interfaces": [],
+  "dependencyName": "Authentication",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.UserProfileChangeRequest"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.auth.ProfileRequest"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.ProfileRequest.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDisplayName",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.auth.UserProfileChangeRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDisplayName",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.agconnect.auth.ProfileRequest.Builder"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.ProfileRequest.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPhotoUri",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.google.firebase.auth.UserProfileChangeRequest.Builder"
+      },
+      "text": "Please convert this method manually according to the guide.",
+      "hName": "com.huawei.agconnect.auth.ProfileRequest.Builder",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section14631735103217"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Authentication",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.agconnect.auth.ProfileRequest.Builder",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.agconnect.auth.ProfileRequest.Builder",
+  "kitName": "Authentication",
+  "status": "matching"
+}

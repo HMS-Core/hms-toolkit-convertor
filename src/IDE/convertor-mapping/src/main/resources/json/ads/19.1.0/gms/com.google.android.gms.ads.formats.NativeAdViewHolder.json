@@ -1,0 +1,174 @@
+{
+  "gName": "com.google.android.gms.ads.formats.NativeAdViewHolder",
+  "interfaces": [],
+  "dependencyName": "Ads",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setClickConfirmingView",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.view.View"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setNativeAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.formats.UnifiedNativeAd"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setNativeAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.ads.nativead.NativeAd"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdMonitor",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setNativeAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.formats.NativeAd"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setNativeAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.ads.nativead.NativeAd"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdMonitor",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "unregisterNativeAd",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "unregister",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdMonitor",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "NativeAdViewHolder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.view.View"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.Map<java.lang.String, android.view.View>"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.Map<java.lang.String, android.view.View>"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "NativeViewHolder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.view.View"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.Map<java.lang.String, android.view.View>"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.Map<java.lang.String, android.view.View>"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.nativead.NativeAdMonitor",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ads.nativead.NativeAdMonitor",
+  "kitName": "Ads",
+  "status": "matching"
+}

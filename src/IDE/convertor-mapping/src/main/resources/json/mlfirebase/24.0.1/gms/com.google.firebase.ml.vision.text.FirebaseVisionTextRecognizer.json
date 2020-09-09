@@ -1,0 +1,145 @@
+{
+  "gName": "com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer",
+  "interfaces": [
+    "java.io.Closeable"
+  ],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "close",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "close",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLTextAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRecognizerType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAnalyseType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLTextAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "processImage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.ml.vision.common.FirebaseVisionImage"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.ml.vision.text.FirebaseVisionText>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "asyncAnalyseFrame",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLFrame"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.mlsdk.text.MLText>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLTextAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "CLOUD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "OCR_REMOTE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"FirebaseVisionTextRecognizer public static final int CLOUD = 2\" will be replaced by \"MLTextAnalyzer public static final int OCR_REMOTE_TYPE = 1\"",
+      "hName": "com.huawei.hms.mlsdk.text.MLTextAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "name": "ON_DEVICE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "OCR_LOCAL_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"FirebaseVisionTextRecognizer public static final int ON_DEVICE = 1\" will be replaced by \"MLTextAnalyzer public static final int OCR_LOCAL_TYPE = 0\"",
+      "hName": "com.huawei.hms.mlsdk.text.MLTextAnalyzer",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.text.MLTextAnalyzer",
+  "kitName": "ML",
+  "status": "matching"
+}

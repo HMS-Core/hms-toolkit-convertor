@@ -1,0 +1,193 @@
+{
+  "gName": "com.google.android.gms.vision.barcode.Barcode.CalendarDateTime",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "MLgms",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "CalendarDateTime",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "EventTime",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventTime",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "day",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "h": {
+        "name": "day",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarDateTime public int day\" will be replaced by \"HmsScan.EventTime public int day\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventTime",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "hours",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "h": {
+        "name": "hours",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarDateTime public int hours\" will be replaced by \"HmsScan.EventTime public int hours\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventTime",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "isUtc",
+        "modifiers": [],
+        "type": "boolean",
+        "value": ""
+      },
+      "h": {
+        "name": "isUTCTime",
+        "modifiers": [],
+        "type": "boolean",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarDateTime public boolean isUtc\" will be replaced by \"HmsScan.EventTime public boolean isUTCTime\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventTime",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "minutes",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "h": {
+        "name": "minutes",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarDateTime public int minutes\" will be replaced by \"HmsScan.EventTime public int minutes\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventTime",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "month",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "h": {
+        "name": "month",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarDateTime public int month\" will be replaced by \"HmsScan.EventTime public int month\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventTime",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "rawValue",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "originalValue",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarDateTime public java.lang.String rawValue\" will be replaced by \"HmsScan.EventTime public java.lang.String originalValue\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventTime",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "seconds",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "h": {
+        "name": "seconds",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarDateTime public int seconds\" will be replaced by \"HmsScan.EventTime public int seconds\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventTime",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLgms",
+      "g": {
+        "name": "year",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "h": {
+        "name": "year",
+        "modifiers": [],
+        "type": "int",
+        "value": ""
+      },
+      "text": "\"Barcode.CalendarDateTime public int year\" will be replaced by \"HmsScan.EventTime public int year\"",
+      "hName": "com.huawei.hms.ml.scan.HmsScan.EventTime",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan.EventTime",
+  "kitName": "ML",
+  "status": "matching"
+}

@@ -1,0 +1,872 @@
+{
+  "gName": "com.google.api.services.drive.Drive.Changes.Watch",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "com.google.api.services.drive.DriveRequest<com.google.api.services.drive.model.Channel>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "Watch",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.api.services.drive.model.Channel"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "Subscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.cloud.services.drive.model.Channel"
+          }
+        ],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDriveId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIncludeCorpusRemovals",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIncludeItemsFromAllDrives",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIncludeRemoved",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIncludeDeleted",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIncludeTeamDriveItems",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPageSize",
+        "paramTypes": [],
+        "retType": "java.lang.Integer"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPageSize",
+        "paramTypes": [],
+        "retType": "java.lang.Integer"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPageToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCursor",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRestrictToMyDrive",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSpaces",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContainers",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSupportsAllDrives",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSupportsTeamDrives",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTeamDriveId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isIncludeCorpusRemovals",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isIncludeItemsFromAllDrives",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isIncludeRemoved",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isIncludeDeleted",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isIncludeTeamDriveItems",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isRestrictToMyDrive",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isSupportsAllDrives",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isSupportsTeamDrives",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "set",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "set",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setAlt",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setForm",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDriveId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setFields",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setFields",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setIncludeCorpusRemovals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setIncludeItemsFromAllDrives",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setIncludeRemoved",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setIncludeDeleted",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setIncludeTeamDriveItems",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setKey",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setOauthToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPageSize",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Integer"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPageSize",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Integer"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPageToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCursor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPrettyPrint",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPrettyPrint",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setQuotaUser",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setQuotaId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setRestrictToMyDrive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setSpaces",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setContainers",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setSupportsAllDrives",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setSupportsTeamDrives",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Boolean"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTeamDriveId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setUserIp",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.api.services.drive.Drive.Changes.Watch"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/drive-conversion-0000001050060174#EN-US_TOPIC_0000001050060174__section720424914238"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Drive",
+      "g": {
+        "name": "USER_AGENT_SUFFIX",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "String",
+        "value": "Google-API-Java-Client"
+      },
+      "text": "This API is not supported. Please modify the coding logic.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.cloud.services.drive.Drive.Changes.Subscribe",
+  "kitName": "Drive",
+  "status": "notSupport"
+}

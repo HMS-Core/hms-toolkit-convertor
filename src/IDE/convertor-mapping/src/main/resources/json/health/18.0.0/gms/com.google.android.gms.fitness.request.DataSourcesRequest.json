@@ -1,0 +1,124 @@
+{
+  "gName": "com.google.android.gms.fitness.request.DataSourcesRequest",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "dependencyName": "Health",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataTypes",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.DataType>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataTypes",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.hihealth.data.DataType>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DataCollectorsOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DataCollectorsOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.hihealth.options.DataCollectorsOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Health",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.fitness.request.DataSourcesRequest>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.huawei.hms.hihealth.options.DataCollectorsOptions>",
+        "value": ""
+      },
+      "text": "\"DataSourcesRequest public static final android.os.Parcelable.Creator<com.google.android.gms.fitness.request.DataSourcesRequest> CREATOR\" will be replaced by \"DataCollectorsOptions public static final android.os.Parcelable.Creator<com.huawei.hms.hihealth.options.DataCollectorsOptions> CREATOR\"",
+      "hName": "com.huawei.hms.hihealth.options.DataCollectorsOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.options.DataCollectorsOptions",
+  "kitName": "Health",
+  "status": "matching"
+}

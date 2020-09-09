@@ -1,0 +1,59 @@
+{
+  "gName": "com.google.android.libraries.places.widget.listener.PlaceSelectionListener",
+  "interfaces": [],
+  "dependencyName": "Site",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onError",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.Status"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-nearbysearchrequest-0000001050154749"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onPlaceSelected",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.api.model.Place"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-nearbysearchrequest-0000001050154749"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Site",
+  "status": "manuallyAdapt"
+}

@@ -1,0 +1,57 @@
+{
+  "gName": "com.google.firebase.ml.vision.text.FirebaseVisionText",
+  "interfaces": [],
+  "dependencyName": "MLfirebase",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getText",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStringValue",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLText",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "MLfirebase",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTextBlocks",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.firebase.ml.vision.text.FirebaseVisionText.TextBlock>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBlocks",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.mlsdk.text.MLText.Block>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.mlsdk.text.MLText",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.text.MLText",
+  "kitName": "ML",
+  "status": "matching"
+}

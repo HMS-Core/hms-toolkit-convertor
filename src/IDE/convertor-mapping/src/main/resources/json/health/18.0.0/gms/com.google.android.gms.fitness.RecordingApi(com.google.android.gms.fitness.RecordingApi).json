@@ -1,0 +1,188 @@
+{
+  "gName": "com.google.android.gms.fitness.RecordingApi",
+  "interfaces": [],
+  "dependencyName": "Health",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "listSubscriptions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.fitness.result.ListSubscriptionsResult>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.AutoRecorderManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section124619322479"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "listSubscriptions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.fitness.result.ListSubscriptionsResult>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.AutoRecorderManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section124619322479"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "subscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.AutoRecorderManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section279012111401"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "subscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.AutoRecorderManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section279012111401"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unsubscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.AutoRecorderManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section11348272045184"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unsubscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.AutoRecorderManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section11348272045184"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Health",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unsubscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.data.Subscription"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "text": "Call to the API with the input parameter GoogleApiClient needs to be overridden by call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient.",
+      "hName": "com.huawei.hms.hihealth.AutoRecorderManager",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section11348272045184"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.hihealth.AutoRecorderManager",
+  "kitName": "Health",
+  "status": "manuallyAdapt"
+}

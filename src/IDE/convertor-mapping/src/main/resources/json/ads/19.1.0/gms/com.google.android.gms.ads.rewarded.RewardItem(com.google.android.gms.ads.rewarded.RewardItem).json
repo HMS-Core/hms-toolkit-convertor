@@ -1,0 +1,82 @@
+{
+  "gName": "com.google.android.gms.ads.rewarded.RewardItem",
+  "interfaces": [],
+  "dependencyName": "Ads",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getType",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "com.huawei.hms.ads.reward.Reward",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAmount",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAmount",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "com.huawei.hms.ads.reward.Reward",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "DEFAULT_REWARD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.ads.rewarded.RewardItem",
+        "value": ""
+      },
+      "h": {
+        "name": "DEFAULT",
+        "modifiers": [],
+        "type": "com.huawei.hms.ads.reward.Reward",
+        "value": ""
+      },
+      "text": "\"RewardItem public static final com.google.android.gms.ads.rewarded.RewardItem DEFAULT_REWARD\" will be replaced by \"Reward com.huawei.hms.ads.reward.Reward DEFAULT\"",
+      "hName": "com.huawei.hms.ads.reward.Reward",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.ads.reward.Reward",
+  "kitName": "Ads",
+  "status": "matching"
+}

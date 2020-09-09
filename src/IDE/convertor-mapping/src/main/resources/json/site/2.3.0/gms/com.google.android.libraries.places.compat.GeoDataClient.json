@@ -1,0 +1,176 @@
+{
+  "gName": "com.google.android.libraries.places.compat.GeoDataClient",
+  "interfaces": [],
+  "dependencyName": "Site",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addPlace",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.compat.AddPlaceRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.compat.PlaceBufferResponse>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-site-0000001050154781"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAutocompletePredictions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.maps.model.LatLngBounds"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.libraries.places.compat.AutocompleteFilter"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.compat.AutocompletePredictionBufferResponse>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-site-0000001050154781"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAutocompletePredictions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.maps.model.LatLngBounds"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.libraries.places.compat.AutocompleteFilter"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.compat.AutocompletePredictionBufferResponse>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-site-0000001050154781"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPhoto",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.compat.PlacePhotoMetadata"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.compat.PlacePhotoResponse>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-site-0000001050154781"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPlaceById",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String..."
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.compat.PlaceBufferResponse>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-site-0000001050154781"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPlacePhotos",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.compat.PlacePhotoMetadataResponse>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-site-0000001050154781"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Site",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getScaledPhoto",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.libraries.places.compat.PlacePhotoMetadata"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.libraries.places.compat.PlacePhotoResponse>"
+      },
+      "text": "This type of API does not support conversion. Modify it based on the manual conversion guide.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/doc/api-site-0000001050154781"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "",
+  "kitName": "Site",
+  "status": "manuallyAdapt"
+}

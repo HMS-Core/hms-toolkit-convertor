@@ -1,0 +1,75 @@
+{
+  "gName": "com.google.android.gms.games.LeaderboardsClient.LeaderboardScores",
+  "interfaces": [
+    "com.google.android.gms.common.api.Releasable"
+  ],
+  "dependencyName": "Game",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLeaderboard",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.leaderboard.Leaderboard"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRanking",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.jos.games.ranking.Ranking"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.RankingsClient.RankingScores",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getScores",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.games.leaderboard.LeaderboardScoreBuffer"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRankingScores",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.jos.games.ranking.RankingScore>"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.jos.games.RankingsClient.RankingScores",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "release",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. You can ignore it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.RankingsClient.RankingScores",
+  "kitName": "Game",
+  "status": "notSupport"
+}

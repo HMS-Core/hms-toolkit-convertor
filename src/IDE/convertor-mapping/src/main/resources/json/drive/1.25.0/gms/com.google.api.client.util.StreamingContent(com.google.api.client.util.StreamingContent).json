@@ -1,0 +1,50 @@
+{
+  "gName": "com.google.api.client.util.StreamingContent",
+  "interfaces": [],
+  "dependencyName": "Drive",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Drive",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "writeTo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.OutputStream"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "writeTo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.io.OutputStream"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.cloud.base.util.StreamingContent",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.cloud.base.util.StreamingContent",
+  "kitName": "Drive",
+  "status": "matching"
+}

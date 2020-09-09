@@ -1,0 +1,356 @@
+{
+  "gName": "com.google.android.gms.ads.RequestConfiguration",
+  "interfaces": [],
+  "dependencyName": "Ads",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMaxAdContentRating",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAdContentClassification",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.RequestOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTagForChildDirectedTreatment",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTagForChildProtection",
+        "paramTypes": [],
+        "retType": "java.lang.Integer"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.RequestOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTagForUnderAgeOfConsent",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTagForUnderAgeOfPromise",
+        "paramTypes": [],
+        "retType": "java.lang.Integer"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.RequestOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTestDeviceIds",
+        "paramTypes": [],
+        "retType": "java.util.List<java.lang.String>"
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toBuilder",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.ads.RequestConfiguration.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toBuilder",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ads.RequestOptions.Builder"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.RequestOptions",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_G",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "G"
+      },
+      "h": {
+        "name": "AD_CONTENT_CLASSIFICATION_W",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "W"
+      },
+      "text": "\"RequestConfiguration public static final java.lang.String MAX_AD_CONTENT_RATING_G = G\" will be replaced by \"ContentClassification java.lang.String AD_CONTENT_CLASSIFICATION_W = \"W\"\"",
+      "hName": "com.huawei.hms.ads.ContentClassification",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_MA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "MA"
+      },
+      "h": {
+        "name": "AD_CONTENT_CLASSIFICATION_A",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "A"
+      },
+      "text": "\"RequestConfiguration public static final java.lang.String MAX_AD_CONTENT_RATING_MA = MA\" will be replaced by \"ContentClassification java.lang.String AD_CONTENT_CLASSIFICATION_A = \"A\"\"",
+      "hName": "com.huawei.hms.ads.ContentClassification",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_PG",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "PG"
+      },
+      "h": {
+        "name": "AD_CONTENT_CLASSIFICATION_PI",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "PI"
+      },
+      "text": "\"RequestConfiguration public static final java.lang.String MAX_AD_CONTENT_RATING_PG = PG\" will be replaced by \"ContentClassification java.lang.String AD_CONTENT_CLASSIFICATION_PI = \"PI\"\"",
+      "hName": "com.huawei.hms.ads.ContentClassification",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_T",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "T"
+      },
+      "h": {
+        "name": "AD_CONTENT_CLASSIFICATION_J",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "J"
+      },
+      "text": "\"RequestConfiguration public static final java.lang.String MAX_AD_CONTENT_RATING_T = T\" will be replaced by \"ContentClassification java.lang.String AD_CONTENT_CLASSIFICATION_J = \"J\"\"",
+      "hName": "com.huawei.hms.ads.ContentClassification",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_UNSPECIFIED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "AD_CONTENT_CLASSIFICATION_UNKOWN",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "\"RequestConfiguration public static final java.lang.String MAX_AD_CONTENT_RATING_UNSPECIFIED\" will be replaced by \"ContentClassification java.lang.String AD_CONTENT_CLASSIFICATION_UNKOWN = \"\"\"",
+      "hName": "com.huawei.hms.ads.ContentClassification",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "TAG_FOR_CHILD_PROTECTION_FALSE",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"RequestConfiguration public static final int TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE = 0\" will be replaced by \"TagForChild int TAG_FOR_CHILD_PROTECTION_FALSE = 0\"",
+      "hName": "com.huawei.hms.ads.TagForChild",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TAG_FOR_CHILD_PROTECTION_TRUE",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"RequestConfiguration public static final int TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE = 1\" will be replaced by \"TagForChild int TAG_FOR_CHILD_PROTECTION_TRUE = 1\"",
+      "hName": "com.huawei.hms.ads.TagForChild",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "h": {
+        "name": "TAG_FOR_CHILD_PROTECTION_UNSPECIFIED",
+        "modifiers": [],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "\"RequestConfiguration public static final int TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED = -1\" will be replaced by \"TagForChild int TAG_FOR_CHILD_PROTECTION_UNSPECIFIED = -1\"",
+      "hName": "com.huawei.hms.ads.TagForChild",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "PROMISE_FALSE",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"RequestConfiguration public static final int TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE = 0\" will be replaced by \"UnderAge int PROMISE_FALSE = 0\"",
+      "hName": "com.huawei.hms.ads.UnderAge",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "PROMISE_TRUE",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"RequestConfiguration public static final int TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE = 1\" will be replaced by \"UnderAge int PROMISE_TRUE = 1\"",
+      "hName": "com.huawei.hms.ads.UnderAge",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "h": {
+        "name": "PROMISE_UNSPECIFIED",
+        "modifiers": [],
+        "type": "int",
+        "value": "-1"
+      },
+      "text": "\"RequestConfiguration public static final int TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED = -1\" will be replaced by \"UnderAge int PROMISE_UNSPECIFIED = -1\"",
+      "hName": "com.huawei.hms.ads.UnderAge",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.ads.RequestOptions",
+  "kitName": "Ads",
+  "status": "improve"
+}

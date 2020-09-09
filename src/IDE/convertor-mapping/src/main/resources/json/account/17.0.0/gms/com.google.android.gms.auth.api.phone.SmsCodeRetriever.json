@@ -1,0 +1,76 @@
+{
+  "gName": "com.google.android.gms.auth.api.phone.SmsCodeRetriever",
+  "interfaces": [],
+  "dependencyName": "Account",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "",
+        "paramTypes": [],
+        "retType": ""
+      }
+    },
+    {
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "",
+        "paramTypes": [],
+        "retType": ""
+      }
+    },
+    {
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "",
+        "paramTypes": [],
+        "retType": ""
+      }
+    },
+    {
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAutofillClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.phone.SmsCodeAutofillClient"
+      }
+    },
+    {
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAutofillClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.phone.SmsCodeAutofillClient"
+      }
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "",
+  "kitName": "Account",
+  "status": ""
+}

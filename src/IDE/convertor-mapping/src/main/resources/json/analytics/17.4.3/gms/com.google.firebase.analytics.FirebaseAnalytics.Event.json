@@ -1,0 +1,828 @@
+{
+  "gName": "com.google.firebase.analytics.FirebaseAnalytics.Event",
+  "interfaces": [],
+  "dependencyName": "Analytics",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Analytics",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "Event",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "HMS Core does not provide this method. You are advised to delete it.",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ADD_PAYMENT_INFO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "add_payment_info"
+      },
+      "h": {
+        "name": "CREATEPAYMENTINFO",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$CreatePaymentInfo"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String ADD_PAYMENT_INFO = \"add_payment_info\"\" will be replaced by \"HAEventType java.lang.String CREATEPAYMENTINFO = \"$CreatePaymentInfo\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ADD_TO_CART",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "add_to_cart"
+      },
+      "h": {
+        "name": "ADDPRODUCT2CART",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$AddProduct2Cart"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String ADD_TO_CART = \"add_to_cart\"\" will be replaced by \"HAEventType java.lang.String ADDPRODUCT2CART = \"$AddProduct2Cart\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ADD_TO_WISHLIST",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "add_to_wishlist"
+      },
+      "h": {
+        "name": "ADDPRODUCT2WISHLIST",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$AddProduct2WishList"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String ADD_TO_WISHLIST = \"add_to_wishlist\"\" will be replaced by \"HAEventType java.lang.String ADDPRODUCT2WISHLIST = \"$AddProduct2WishList\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "APP_OPEN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "app_open"
+      },
+      "h": {
+        "name": "STARTAPP",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$StartApp"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String APP_OPEN = \"app_open\"\" will be replaced by \"HAEventType java.lang.String STARTAPP = \"$StartApp\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "BEGIN_CHECKOUT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "begin_checkout"
+      },
+      "h": {
+        "name": "STARTCHECKOUT",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$StartCheckout"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String BEGIN_CHECKOUT = \"begin_checkout\"\" will be replaced by \"HAEventType java.lang.String STARTCHECKOUT = \"$StartCheckout\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "CAMPAIGN_DETAILS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "campaign_details"
+      },
+      "h": {
+        "name": "VIEWCAMPAIGN",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ViewCampaign"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String CAMPAIGN_DETAILS = \"campaign_details\"\" will be replaced by \"HAEventType java.lang.String VIEWCAMPAIGN = \"$ViewCampaign\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "CHECKOUT_PROGRESS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "checkout_progress"
+      },
+      "h": {
+        "name": "VIEWCHECKOUTSTEP",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ViewCheckoutStep"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String CHECKOUT_PROGRESS = \"checkout_progress\"\" will be replaced by \"HAEventType java.lang.String VIEWCHECKOUTSTEP = \"$ViewCheckoutStep\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "EARN_VIRTUAL_CURRENCY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "earn_virtual_currency"
+      },
+      "h": {
+        "name": "WINVIRTUALCOIN",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$WinVirtualCoin"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String EARN_VIRTUAL_CURRENCY = \"earn_virtual_currency\"\" will be replaced by \"HAEventType java.lang.String WINVIRTUALCOIN = \"$WinVirtualCoin\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ECOMMERCE_PURCHASE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "ecommerce_purchase"
+      },
+      "h": {
+        "name": "COMPLETEPURCHASE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$CompletePurchase"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String ECOMMERCE_PURCHASE = \"ecommerce_purchase\"\" will be replaced by \"HAEventType java.lang.String COMPLETEPURCHASE = \"$CompletePurchase\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "GENERATE_LEAD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "generate_lead"
+      },
+      "h": {
+        "name": "OBTAINLEADS",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ObtainLeads"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String GENERATE_LEAD = \"generate_lead\"\" will be replaced by \"HAEventType java.lang.String OBTAINLEADS = \"$ObtainLeads\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "JOIN_GROUP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "join_group"
+      },
+      "h": {
+        "name": "JOINUSERGROUP",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$JoinUserGroup"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String JOIN_GROUP = \"join_group\"\" will be replaced by \"HAEventType java.lang.String JOINUSERGROUP = \"$JoinUserGroup\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "LEVEL_END",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "level_end"
+      },
+      "h": {
+        "name": "COMPLETELEVEL",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$CompleteLevel"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String LEVEL_END = \"level_end\"\" will be replaced by \"HAEventType java.lang.String COMPLETELEVEL = \"$CompleteLevel\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "LEVEL_START",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "level_start"
+      },
+      "h": {
+        "name": "STARTLEVEL",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$StartLevel"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String LEVEL_START = \"level_start\"\" will be replaced by \"HAEventType java.lang.String STARTLEVEL = \"$StartLevel\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "LEVEL_UP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "level_up"
+      },
+      "h": {
+        "name": "UPGRADELEVEL",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$UpgradeLevel"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String LEVEL_UP = \"level_up\"\" will be replaced by \"HAEventType java.lang.String UPGRADELEVEL = \"$UpgradeLevel\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "LOGIN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "login"
+      },
+      "h": {
+        "name": "SIGNIN",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$SignIn"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String LOGIN = \"login\"\" will be replaced by \"HAEventType java.lang.String SIGNIN = \"$SignIn\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "POST_SCORE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "post_score"
+      },
+      "h": {
+        "name": "SUBMITSCORE",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$SubmitScore"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String POST_SCORE = \"post_score\"\" will be replaced by \"HAEventType java.lang.String SUBMITSCORE = \"$SubmitScore\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "PRESENT_OFFER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "present_offer"
+      },
+      "h": {
+        "name": "CREATEORDER",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$CreateOrder"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String PRESENT_OFFER = \"present_offer\"\" will be replaced by \"HAEventType java.lang.String CREATEORDER = \"$CreateOrder\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "PURCHASE_REFUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "purchase_refund"
+      },
+      "h": {
+        "name": "REFUNDORDER",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$RefundOrder"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String PURCHASE_REFUND = \"purchase_refund\"\" will be replaced by \"HAEventType java.lang.String REFUNDORDER = \"$RefundOrder\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "REMOVE_FROM_CART",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "remove_from_cart"
+      },
+      "h": {
+        "name": "DELPRODUCTFROMCART",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$DelProductFromCart"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String REMOVE_FROM_CART = \"remove_from_cart\"\" will be replaced by \"HAEventType java.lang.String DELPRODUCTFROMCART = \"$DelProductFromCart\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SEARCH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "search"
+      },
+      "h": {
+        "name": "SEARCH",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$Search"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String SEARCH = \"search\"\" will be replaced by \"HAEventType java.lang.String SEARCH = \"$Search\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SELECT_CONTENT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "select_content"
+      },
+      "h": {
+        "name": "VIEWCONTENT",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ViewContent"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String SELECT_CONTENT = \"select_content\"\" will be replaced by \"HAEventType java.lang.String VIEWCONTENT = \"$ViewContent\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SET_CHECKOUT_OPTION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "set_checkout_option"
+      },
+      "h": {
+        "name": "UPDATECHECKOUTOPTION",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$UpdateCheckoutOption"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String SET_CHECKOUT_OPTION = \"set_checkout_option\"\" will be replaced by \"HAEventType java.lang.String UPDATECHECKOUTOPTION = \"$UpdateCheckoutOption\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SHARE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "share"
+      },
+      "h": {
+        "name": "SHARECONTENT",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ShareContent"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String SHARE = \"share\"\" will be replaced by \"HAEventType java.lang.String SHARECONTENT = \"$ShareContent\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SIGN_UP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "sign_up"
+      },
+      "h": {
+        "name": "REGISTERACCOUNT",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$RegisterAccount"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String SIGN_UP = \"sign_up\"\" will be replaced by \"HAEventType java.lang.String REGISTERACCOUNT = \"$RegisterAccount\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SPEND_VIRTUAL_CURRENCY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "spend_virtual_currency"
+      },
+      "h": {
+        "name": "CONSUMEVIRTUALCOIN",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ConsumeVirtualCoin"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String SPEND_VIRTUAL_CURRENCY = \"spend_virtual_currency\"\" will be replaced by \"HAEventType java.lang.String CONSUMEVIRTUALCOIN = \"$ConsumeVirtualCoin\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "TUTORIAL_BEGIN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "tutorial_begin"
+      },
+      "h": {
+        "name": "STARTTUTORIAL",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$StartTutorial"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String TUTORIAL_BEGIN = \"tutorial_begin\"\" will be replaced by \"HAEventType java.lang.String STARTTUTORIAL = \"$StartTutorial\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "TUTORIAL_COMPLETE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "tutorial_complete"
+      },
+      "h": {
+        "name": "COMPLETETUTORIAL",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$CompleteTutorial"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String TUTORIAL_COMPLETE = \"tutorial_complete\"\" will be replaced by \"HAEventType java.lang.String COMPLETETUTORIAL = \"$CompleteTutorial\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "UNLOCK_ACHIEVEMENT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "unlock_achievement"
+      },
+      "h": {
+        "name": "OBTAINACHIEVEMENT",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ObtainAchievement"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String UNLOCK_ACHIEVEMENT = \"unlock_achievement\"\" will be replaced by \"HAEventType java.lang.String OBTAINACHIEVEMENT = \"$ObtainAchievement\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "VIEW_ITEM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "view_item"
+      },
+      "h": {
+        "name": "VIEWPRODUCT",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ViewProduct"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String VIEW_ITEM = \"view_item\"\" will be replaced by \"HAEventType java.lang.String VIEWPRODUCT = \"$ViewProduct\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "VIEW_ITEM_LIST",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "view_item_list"
+      },
+      "h": {
+        "name": "VIEWPRODUCTLIST",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ViewProductList"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String VIEW_ITEM_LIST = \"view_item_list\"\" will be replaced by \"HAEventType java.lang.String VIEWPRODUCTLIST = \"$ViewProductList\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "VIEW_SEARCH_RESULTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "view_search_results"
+      },
+      "h": {
+        "name": "VIEWSEARCHRESULT",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "$ViewSearchResult"
+      },
+      "text": "\"FirebaseAnalytics.Event public static final java.lang.String VIEW_SEARCH_RESULTS = \"view_search_results\"\" will be replaced by \"HAEventType java.lang.String VIEWSEARCHRESULT = \"$ViewSearchResult\"\"",
+      "hName": "com.huawei.hms.analytics.type.HAEventType",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "ADD_SHIPPING_INFO",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "PURCHASE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "REFUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SELECT_ITEM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "SELECT_PROMOTION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "VIEW_CART",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "dependencyName": "Analytics",
+      "g": {
+        "name": "VIEW_PROMOTION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.analytics.type.HAEventType",
+  "kitName": "Analytics",
+  "status": "notSupport"
+}

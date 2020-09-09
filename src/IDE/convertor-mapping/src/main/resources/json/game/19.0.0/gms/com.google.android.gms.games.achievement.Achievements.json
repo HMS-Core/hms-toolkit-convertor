@@ -1,0 +1,279 @@
+{
+  "gName": "com.google.android.gms.games.achievement.Achievements",
+  "interfaces": [],
+  "dependencyName": "Game",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getAchievementsIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "android.content.Intent"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.AchievementsClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section1939515720720"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "load",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.achievement.Achievements.LoadAchievementsResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.AchievementsClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "incrementImmediate",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.achievement.Achievements.UpdateAchievementResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.AchievementsClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section139903579203"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "revealImmediate",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.achievement.Achievements.UpdateAchievementResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.AchievementsClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section14441313192720"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "setStepsImmediate",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.achievement.Achievements.UpdateAchievementResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.AchievementsClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section1518073311271"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unlockImmediate",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.achievement.Achievements.UpdateAchievementResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion Guide.",
+      "hName": "com.huawei.hms.jos.games.AchievementsClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/game-conversion-0000001050060188#EN-US_TOPIC_0000001050060188__section11425454112718"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "increment",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.AchievementsClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "reveal",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.AchievementsClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "setSteps",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.AchievementsClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    },
+    {
+      "correspondingStatus": "complex",
+      "dependencyName": "Game",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unlock",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the HMSCore Game Api.",
+      "hName": "com.huawei.hms.jos.games.AchievementsClient",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/jos-games-0000001050121646"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Game",
+  "status": "complex"
+}

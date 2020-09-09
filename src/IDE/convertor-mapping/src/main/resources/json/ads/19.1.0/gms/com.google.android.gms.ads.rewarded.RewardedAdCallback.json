@@ -1,0 +1,233 @@
+{
+  "gName": "com.google.android.gms.ads.rewarded.RewardedAdCallback",
+  "interfaces": [],
+  "dependencyName": "Ads",
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onRewardedAdClosed",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onRewardAdClosed",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.reward.RewardAdStatusListener",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onRewardedAdFailedToShow",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onRewardAdFailedToShow",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.reward.RewardAdStatusListener",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onRewardedAdOpened",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onRewardAdOpened",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.reward.RewardAdStatusListener",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onUserEarnedReward",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.rewarded.RewardItem"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onRewarded",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.ads.reward.Reward"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.reward.RewardAdStatusListener",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "RewardedAdCallback",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "RewardAdStatusListener",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.ads.reward.RewardAdStatusListener",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ERROR_CODE_AD_REUSED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "REUSED",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "text": "\"RewardedAdCallback public static final int ERROR_CODE_AD_REUSED = 1\" will be replaced by \"RewardAdStatusListener.ErrorCode int REUSED = 1\"",
+      "hName": "com.huawei.hms.ads.reward.RewardAdStatusListener.ErrorCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ERROR_CODE_APP_NOT_FOREGROUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "BACKGROUND",
+        "modifiers": [],
+        "type": "int",
+        "value": "3"
+      },
+      "text": "\"RewardedAdCallback public static final int ERROR_CODE_APP_NOT_FOREGROUND = 3\" will be replaced by \"RewardAdStatusListener.ErrorCode int BACKGROUND = 3\"",
+      "hName": "com.huawei.hms.ads.reward.RewardAdStatusListener.ErrorCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ERROR_CODE_INTERNAL_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "INTERNAL",
+        "modifiers": [],
+        "type": "int",
+        "value": "0"
+      },
+      "text": "\"RewardedAdCallback public static final int ERROR_CODE_INTERNAL_ERROR = 0\" will be replaced by \"RewardAdStatusListener.ErrorCode int INTERNAL = 0\"",
+      "hName": "com.huawei.hms.ads.reward.RewardAdStatusListener.ErrorCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    },
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Ads",
+      "g": {
+        "name": "ERROR_CODE_NOT_READY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "NOT_LOADED",
+        "modifiers": [],
+        "type": "int",
+        "value": "2"
+      },
+      "text": "\"RewardedAdCallback public static final int ERROR_CODE_NOT_READY = 2\" will be replaced by \"RewardAdStatusListener.ErrorCode int NOT_LOADED = 2\"",
+      "hName": "com.huawei.hms.ads.reward.RewardAdStatusListener.ErrorCode",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ads.reward.RewardAdStatusListener",
+  "kitName": "Ads",
+  "status": "improve"
+}

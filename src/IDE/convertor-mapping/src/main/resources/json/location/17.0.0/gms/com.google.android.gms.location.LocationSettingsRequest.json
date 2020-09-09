@@ -1,0 +1,82 @@
+{
+  "gName": "com.google.android.gms.location.LocationSettingsRequest",
+  "interfaces": [],
+  "dependencyName": "Location",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "text": "Documents to be completed",
+      "hName": "com.huawei.hms.location.LocationSettingsRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "dependencyName": "Location",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.location.LocationSettingsRequest>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.huawei.hms.location.LocationSettingsRequest>",
+        "value": ""
+      },
+      "text": "\"LocationSettingsRequest public static final android.os.Parcelable.Creator<com.google.android.gms.location.LocationSettingsRequest> CREATOR\" will be replaced by \"LocationSettingsRequest public static final android.os.Parcelable.Creator<com.huawei.hms.location.LocationSettingsRequest> CREATOR\"",
+      "hName": "com.huawei.hms.location.LocationSettingsRequest",
+      "url": "https://developer.huawei.com/consumer/en/"
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.location.LocationSettingsRequest",
+  "kitName": "Location",
+  "status": "matching"
+}

@@ -1,0 +1,151 @@
+{
+  "gName": "com.google.android.gms.awareness.SnapshotApi",
+  "interfaces": [],
+  "dependencyName": "Awareness",
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBeaconState",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.Collection<com.google.android.gms.awareness.state.BeaconState.TypeFilter>"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.awareness.snapshot.BeaconStateResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion \nGuide.",
+      "hName": "com.huawei.hms.kit.awareness.CaptureApi",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018370"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBeaconState",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.awareness.state.BeaconState.TypeFilter..."
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.awareness.snapshot.BeaconStateResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion \nGuide.",
+      "hName": "com.huawei.hms.kit.awareness.CaptureApi",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018370"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getDetectedActivity",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.awareness.snapshot.DetectedActivityResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion \nGuide.",
+      "hName": "com.huawei.hms.kit.awareness.CaptureApi",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018370"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getHeadphoneState",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.awareness.snapshot.HeadphoneStateResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion \nGuide.",
+      "hName": "com.huawei.hms.kit.awareness.CaptureApi",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018370"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLocation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.awareness.snapshot.LocationResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion \nGuide.",
+      "hName": "com.huawei.hms.kit.awareness.CaptureApi",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018370"
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "dependencyName": "Awareness",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTimeIntervals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.awareness.snapshot.TimeIntervalsResult>"
+      },
+      "text": "HMS Core does not provide this API. For details, please refer to the Manual Conversion \nGuide.",
+      "hName": "com.huawei.hms.kit.awareness.CaptureApi",
+      "url": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/awareness-conversion-0000001050062113#EN-US_TOPIC_0000001050062113__section447195018370"
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "",
+  "kitName": "Awareness",
+  "status": "manuallyAdapt"
+}
