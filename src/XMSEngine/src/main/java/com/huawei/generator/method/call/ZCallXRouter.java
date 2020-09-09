@@ -20,7 +20,7 @@ import static com.huawei.generator.gen.AstConstants.THIS;
 
 import com.huawei.generator.ast.CallNode;
 import com.huawei.generator.ast.ConstantNode;
-import com.huawei.generator.ast.GetField;
+import com.huawei.generator.ast.GetFieldNode;
 import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.StatementNode;
 import com.huawei.generator.json.JClass;
@@ -43,9 +43,9 @@ public class ZCallXRouter extends RouterCallHandler {
 
     @Override
     StatementNode receiver() {
-        // ZImpl class nodes should have outer class.
+        // ZImpl class nodes should have outer classes.
         String xClassName = methodNode.parent().outerClass().longName();
-        return GetField.create(ConstantNode.create("Ref", xClassName), THIS);
+        return GetFieldNode.create(ConstantNode.create("Ref", xClassName), THIS);
     }
 
     @Override

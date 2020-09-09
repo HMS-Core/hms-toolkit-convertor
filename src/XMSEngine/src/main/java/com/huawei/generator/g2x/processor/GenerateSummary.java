@@ -36,6 +36,18 @@ public class GenerateSummary {
     public GenerateSummary() {
     }
 
+    public GenerateSummary(GeneratorResult result) {
+        this.result = result;
+    }
+
+    public List<String> getXmsCodePaths() {
+        return xmsCodePaths;
+    }
+
+    public void setXmsCodePaths(List<String> xmsCodePaths) {
+        this.xmsCodePaths = xmsCodePaths;
+    }
+
     public GeneratorResult getResult() {
         return result;
     }

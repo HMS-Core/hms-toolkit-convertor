@@ -17,7 +17,6 @@
 package com.huawei.generator.method.builder;
 
 import static com.huawei.generator.utils.XMSUtils.listMap;
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
 
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
@@ -28,13 +27,13 @@ import com.huawei.generator.json.JMethod;
 import com.huawei.generator.method.component.Component;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.method.gen.BodyGenerator;
-import com.huawei.generator.utils.Modifier;
+import com.huawei.generator.exception.UnExpectedProcessException;
 
 import java.util.ArrayList;
 import java.util.Map;
 
 /**
- * Builder for ZImpl Method
+ * Builder for ZImpl method
  *
  * @since 2019-12-02
  */
@@ -60,11 +59,14 @@ public final class ZImplMethodBuilder extends AbstractMethodBuilder<JMethod> {
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode, JMapping<JMethod> mapping) {
+        if (component == null || xMethodMapping == null) {
+            throw new IllegalArgumentException();
+        }
         JMethod jMethod = component.jMethod(mapping);
         MethodNode method = createMethod(jMethod, classNode);
         BodyGenerator bodyGenerator =
@@ -77,7 +79,7 @@ public final class ZImplMethodBuilder extends AbstractMethodBuilder<JMethod> {
         MethodNode method = new MethodNode();
         method.setModifiers(new ArrayList<>());
         method.modifiers().addAll(jMethod.modifiers());
-        method.modifiers().remove(Modifier.ABSTRACT.getName());
+        method.modifiers().remove("abstract");
         method.setName(jMethod.name());
         method.setParent(classNode);
         method.setReturnType(TypeNode.create(jMethod.returnType(), false));

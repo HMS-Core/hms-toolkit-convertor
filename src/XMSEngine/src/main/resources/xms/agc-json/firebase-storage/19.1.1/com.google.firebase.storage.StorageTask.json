@@ -1,0 +1,1457 @@
+{
+  "gName": "com.google.firebase.storage.StorageTask<ResultT>",
+  "interfaces": [],
+  "superClass": "com.google.firebase.storage.ControllableTask<ResultT>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnCanceledListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.OnCanceledListener"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnCanceledListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.OnCanceledListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnCanceledListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.tasks.OnCanceledListener"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnCanceledListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hmf.tasks.OnCanceledListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnCanceledListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.tasks.OnCanceledListener"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnCanceledListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hmf.tasks.OnCanceledListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnCompleteListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.tasks.OnCompleteListener<ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnCompleteListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hmf.tasks.OnCompleteListener<TResult>"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnCompleteListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.OnCompleteListener<ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnCompleteListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.OnCompleteListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnCompleteListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.tasks.OnCompleteListener<ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnCompleteListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hmf.tasks.OnCompleteListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnFailureListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.tasks.OnFailureListener"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnFailureListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.appActivity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hmf.tasks.OnFailureListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnFailureListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.OnFailureListener"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnFailureListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.OnFailureListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnFailureListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.tasks.OnFailureListener"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnFailureListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hmf.tasks.OnFailureListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnPausedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.storage.OnPausedListener<? super ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnPausedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.agconnect.cloud.storage.core.OnPausedListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnPausedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.storage.OnPausedListener<? super ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnPausedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.cloud.storage.core.OnPausedListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnPausedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.storage.OnPausedListener<? super ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnPausedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.agconnect.cloud.storage.core.OnPausedListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnProgressListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.storage.OnProgressListener<? super ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnProgressListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.cloud.storage.core.OnProgressListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnProgressListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.storage.OnProgressListener<? super ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnProgressListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.agconnect.cloud.storage.core.OnProgressListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnProgressListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.storage.OnProgressListener<? super ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnProgressListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.agconnect.cloud.storage.core.OnProgressListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnSuccessListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.OnSuccessListener<? super ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnSuccessListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.OnSuccessListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnSuccessListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.tasks.OnSuccessListener<? super ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnSuccessListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hmf.tasks.OnSuccessListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnSuccessListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.tasks.OnSuccessListener<? super ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addOnSuccessListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hmf.tasks.OnSuccessListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "cancel",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "cancel",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "continueWith",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.Continuation<ResultT, TContinuationResult>"
+          }
+        ],
+        "retType": "<TContinuationResult> com.google.android.gms.tasks.Task<TContinuationResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "continueWith",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<TContinuationResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "continueWith",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.tasks.Continuation<ResultT, TContinuationResult>"
+          }
+        ],
+        "retType": "<TContinuationResult> com.google.android.gms.tasks.Task<TContinuationResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "continueWith",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hmf.tasks"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<TContinuationResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "continueWithTask",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.tasks.Continuation<ResultT, com.google.android.gms.tasks.Task<TContinuationResult>>"
+          }
+        ],
+        "retType": "<TContinuationResult> com.google.android.gms.tasks.Task<TContinuationResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "continueWithTask",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hmf.tasks"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<TContinuationResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "continueWithTask",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.Continuation<ResultT, com.google.android.gms.tasks.Task<TContinuationResult>>"
+          }
+        ],
+        "retType": "<TContinuationResult> com.google.android.gms.tasks.Task<TContinuationResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "continueWithTask",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<TContinuationResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getException",
+        "paramTypes": [],
+        "retType": "java.lang.Exception"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getException",
+        "paramTypes": [],
+        "retType": "java.lang.Exception"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalStateException",
+          "com.google.android.gms.tasks.RuntimeExecutionException"
+        ],
+        "modifiers": [],
+        "name": "getResult",
+        "paramTypes": [],
+        "retType": "ResultT"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getResult",
+        "paramTypes": [],
+        "retType": "TResult extends com.huawei.agconnect.cloud.storage.core.StorageTask.ErrorResult"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalStateException",
+          "com.google.android.gms.tasks.RuntimeExecutionException",
+          "X"
+        ],
+        "modifiers": [],
+        "name": "getResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Class<X>"
+          }
+        ],
+        "retType": "<X extends java.lang.Throwable> ResultT"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getResultThrowException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Class<E>"
+          }
+        ],
+        "retType": "<E extends java.lang.Throwable> TResult"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSnapshot",
+        "paramTypes": [],
+        "retType": "ResultT"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTimePointState",
+        "paramTypes": [],
+        "retType": "TResult extends com.huawei.agconnect.cloud.storage.core.StorageTask.ErrorResult"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isCanceled",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isCanceled",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isComplete",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isComplete",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isInProgress",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isInProgress",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isPaused",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isPaused",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isSuccessful",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isSuccessful",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onSuccessTask",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.SuccessContinuation<ResultT, ContinuationResultT>"
+          }
+        ],
+        "retType": "<ContinuationResultT> com.google.android.gms.tasks.Task<ContinuationResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onSuccessTask",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.SuccessContinuation<TResult>"
+          }
+        ],
+        "retType": "<TContinuationResult> com.huawei.hmf.tasks.Task<TContinuationResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onSuccessTask",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.tasks.SuccessContinuation<ResultT, ContinuationResultT>"
+          }
+        ],
+        "retType": "<ContinuationResultT> com.google.android.gms.tasks.Task<ContinuationResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onSuccessTask",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hmf.tasks.SuccessContinuation<TResult, TContinuationResult>"
+          }
+        ],
+        "retType": "<TContinuationResult> com.huawei.hmf.tasks.Task<TContinuationResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "pause",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "pause",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeOnCanceledListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.OnCanceledListener"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeOnCanceledListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.OnCanceledListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeOnCompleteListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.OnCompleteListener<ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeOnCompleteListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.OnCompleteListener<TResult>"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeOnFailureListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.OnFailureListener"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeOnFailureListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.OnFailureListener"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeOnPausedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.storage.OnPausedListener<? super ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeOnPausedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.cloud.storage.core.OnPausedListener<TResult>"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeOnProgressListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.storage.OnProgressListener<? super ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeOnProgressListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.cloud.storage.core.OnProgressListener<TResult>"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeOnSuccessListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.tasks.OnSuccessListener<? super ResultT>"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageTask<ResultT>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeOnSuccessListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hmf.tasks.OnSuccessListener<TResult>"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "resume",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "resume",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "StorageTask",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API from com.google.firebase.storage.StorageTask. You can ignore it."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "onCanceled",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "onCanceled",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "onFailure",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "onFailure",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "onPaused",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "onPaused",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "onProgress",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "onProgress",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "onQueued",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API from com.google.firebase.storage.StorageTask. You can ignore it."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "onSuccess",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "onSuccess",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "name": "syncObject",
+        "modifiers": [
+          "protected",
+          "final"
+        ],
+        "type": "Object",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API from com.google.firebase.storage.StorageTask. You can ignore it."
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.agconnect.cloud.storage.core.StorageTask<TResult>"
+}

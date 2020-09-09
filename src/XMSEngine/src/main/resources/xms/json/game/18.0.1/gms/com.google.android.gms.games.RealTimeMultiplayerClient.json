@@ -1,0 +1,280 @@
+{
+  "gName": "com.google.android.gms.games.RealTimeMultiplayerClient",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.games.Games.GamesOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSelectOpponentsIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<android.content.Intent>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSelectOpponentsIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<android.content.Intent>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getWaitingRoomIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.Room"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<android.content.Intent>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "sendReliableMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.games.RealTimeMultiplayerClient.ReliableMessageSentCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Integer>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "create",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.RoomConfig"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "declineInvitation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "dismissInvitation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "join",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.RoomConfig"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "leave",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.realtime.RoomConfig"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "sendUnreliableMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "sendUnreliableMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.List<java.lang.String>"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "sendUnreliableMessageToOthers",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

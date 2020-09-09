@@ -16,10 +16,16 @@
 
 package com.huawei.generator.method.factory;
 
+import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
+import com.huawei.generator.ast.custom.XClassDoc;
+import com.huawei.generator.ast.custom.XFieldDoc;
 import com.huawei.generator.ast.custom.XWrapperConstructorNode;
 import com.huawei.generator.classes.WrapperDecorator;
+import com.huawei.generator.gen.AstConstants;
+import com.huawei.generator.gen.JavadocConstants;
 import com.huawei.generator.gen.ParcelableDecorator;
+import com.huawei.generator.json.DocSources;
 import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JFieldOrMethod;
 import com.huawei.generator.json.JMapping;
@@ -37,13 +43,17 @@ import com.huawei.generator.method.gen.IsInstanceGenerator;
 import com.huawei.generator.method.gen.ToDoBodyGenerator;
 import com.huawei.generator.method.gen.WrapperConstructorGenerator;
 import com.huawei.generator.method.gen.WrappingGenerator;
+import com.huawei.generator.method.gen.ZEnumValueOfGenerator;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
- * Factory for G+H method generator.
+ * G+H method generator factory
  *
  * @since 2020-03-13
  */
-public class GHMethodGeneratorFactory extends AbstractGeneratorFactory {
+public final class GHMethodGeneratorFactory extends AbstractGeneratorFactory {
     private Component gComponent;
 
     private Component hComponent;
@@ -103,6 +113,7 @@ public class GHMethodGeneratorFactory extends AbstractGeneratorFactory {
         if (!WrapperDecorator.mayCallSuper(methodNode, gComponent)) {
             return generator;
         }
+
         // generate call super
         BodyGenerator xCallHSuperGenerator = createXCallZSuperGenerator(methodNode, def, mapping, hComponent);
         BodyGenerator xCallGSuperGenerator = createXCallZSuperGenerator(methodNode, def, mapping, gComponent);
@@ -111,13 +122,14 @@ public class GHMethodGeneratorFactory extends AbstractGeneratorFactory {
     }
 
     @Override
-    public BodyGenerator createWrapperCtorGenerator(XWrapperConstructorNode node) {
+    public BodyGenerator createWrapperConstructorGenerator(XWrapperConstructorNode node) {
         if (node.parent().isXObject()) {
             return new WrapperConstructorGenerator.CallSuperXBoxGenerator(node);
-        }
-        return new WrapperConstructorGenerator(node,
+        } else {
+            return new WrapperConstructorGenerator(node,
                 new WrapperConstructorGenerator.SetInstanceGenerator(node, gComponent),
                 new WrapperConstructorGenerator.SetInstanceGenerator(node, hComponent));
+        }
     }
 
     @Override
@@ -136,11 +148,66 @@ public class GHMethodGeneratorFactory extends AbstractGeneratorFactory {
     }
 
     @Override
+    public BodyGenerator createXEnumValueOfGenerator(JClass def, MethodNode methodNode) {
+        if (!methodNode.parent().isSupported()) {
+            return AbnormalBodyGenerator.UNSUPPORTED;
+        }
+        BodyGenerator hGenerator;
+        if (hComponent.isMatching(def)) {
+            hGenerator = new ZEnumValueOfGenerator(def, methodNode, hComponent);
+        } else {
+            hGenerator = new ToDoBodyGenerator(methodNode);
+        }
+        BodyGenerator gGenerator = new ZEnumValueOfGenerator(def, methodNode, gComponent);
+        return new DualZBodyGenerator(gGenerator, hGenerator);
+    }
+
+    @Override
     public BodyGenerator createGetZInstanceGenerator(MethodNode methodNode) {
         if (!methodNode.parent().isSupported()) {
             return AbnormalBodyGenerator.UNSUPPORTED;
         }
         return new DualZBodyGenerator(new CallGetterGenerator(methodNode, gComponent),
             new CallGetterGenerator(methodNode, hComponent));
+    }
+
+    @Override
+    public void createClassDoc(XClassDoc classDoc, ClassNode classNode) {
+        this.classDoc = classDoc;
+        if (classDoc == null) {
+            return;
+        }
+        XClassDoc classDocNode = DocSources.createClassDocHead(classDoc, classNode);
+        List<String> displayInfoList = classDocNode.getDisplayInfoList();
+        String hClassName = hComponent.getZClassNameForDoc(classDocNode);
+        if (hClassName.isEmpty()) {
+            displayInfoList.add(" * " + JavadocConstants.UNSUPPORTED_CLASS_INFO + ".<br/>");
+            displayInfoList.add(" * " + gComponent.classNameAndInfo(classDocNode) + "<br/>");
+            displayInfoList.add(" */");
+            classDocNode.setDisplayInfoList(displayInfoList);
+            return;
+        }
+        displayInfoList.add(" * Combination of " + hComponent.getZClassNameForDoc(classDocNode) + " and "
+            + gComponent.getZClassNameForDoc(classDocNode) + ".<br/>");
+        displayInfoList.add(" * " + hComponent.classNameAndInfo(classDocNode) + "<br/>");
+        displayInfoList.add(" * " + gComponent.classNameAndInfo(classDocNode) + "<br/>");
+        displayInfoList.add(" */");
+        classDocNode.setDisplayInfoList(displayInfoList);
+    }
+
+    @Override
+    public List<String> moduleDescriptionForMethodDoc(String methodNodeName) {
+        List<String> displayInfoList = new LinkedList<>();
+        displayInfoList.add(" * " + JavadocConstants.SUPPORT_ENVIR_INFO + ".<br/>");
+        if (!methodNodeName.equals(AstConstants.ISINSTANCE) && !methodNodeName.equals(AstConstants.DYNAMICCAST)
+            && !methodNodeName.equals(AstConstants.INNER_CLASS_NAME)) {
+            displayInfoList.add(" * " + JavadocConstants.BELOW_REFERENCE_INFO + "<br/>");
+        }
+        return displayInfoList;
+    }
+
+    @Override
+    public String moduleDescriptionForFieldDoc(XFieldDoc fieldDoc) {
+        return hComponent.getFieldInfo(fieldDoc) + gComponent.getFieldInfo(fieldDoc);
     }
 }

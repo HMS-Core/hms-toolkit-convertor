@@ -1,0 +1,132 @@
+{
+  "gName": "com.google.firebase.auth.ActionCodeSettings.Builder",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.ActionCodeSettings"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.auth.VerifyCodeSettings"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setAndroidPackageName",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "boolean"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.auth.ActionCodeSettings.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDynamicLinkDomain",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.auth.ActionCodeSettings.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setHandleCodeInApp",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.firebase.auth.ActionCodeSettings.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setIOSBundleId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.auth.ActionCodeSettings.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setUrl",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.auth.ActionCodeSettings.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.agconnect.auth.VerifyCodeSettings.Builder"
+}

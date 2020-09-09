@@ -1,0 +1,136 @@
+{
+  "gName": "com.google.android.gms.fido.fido2.api.common.AuthenticatorSelectionCriteria",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAttachment",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fido.fido2.api.common.Attachment"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAuthenticatorAttachment",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.api.fido.fido2.Attachment"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAttachmentAsString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRequireResidentKey",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isRequireResidentKey",
+        "paramTypes": [],
+        "retType": "java.lang.Boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.fido.fido2.AuthenticatorSelectionCriteria"
+}

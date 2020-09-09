@@ -1,0 +1,251 @@
+{
+  "gName": "com.google.android.gms.location.ActivityTransitionEvent",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getActivityType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getActivityType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getElapsedRealTimeNanos",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getElapsedTimeFromReboot",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTransitionType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getConversionType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ActivityTransitionEvent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "ActivityConversionData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "long"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.location.ActivityTransitionEvent>",
+        "value": ""
+      },
+      "h": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<ActivityConversionData>",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.location.ActivityConversionData"
+}

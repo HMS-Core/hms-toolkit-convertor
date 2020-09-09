@@ -33,13 +33,13 @@ import java.util.List;
  * @since 2020-03-04
  */
 public abstract class RoutingMethodGenerator implements BodyGenerator {
-    ParamHandler paramHandler;
+    public ParamHandler paramHandler;
 
-    RouterCallHandler routerCallHandler;
+    public RouterCallHandler routerCallHandler;
 
-    ReturnHandler returnHandler;
+    public ReturnHandler returnHandler;
 
-    ExceptionHandler exceptionHandler;
+    public ExceptionHandler exceptionHandler;
 
     private MethodNode methodNode;
 

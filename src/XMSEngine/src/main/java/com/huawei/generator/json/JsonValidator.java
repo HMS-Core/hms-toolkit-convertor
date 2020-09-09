@@ -17,7 +17,6 @@
 package com.huawei.generator.json;
 
 import com.huawei.generator.ast.TypeNode;
-import com.huawei.generator.utils.Modifier;
 import com.huawei.generator.utils.TypeUtils;
 
 import org.slf4j.Logger;
@@ -38,21 +37,10 @@ public final class JsonValidator {
     private static final List<String> VALID_CLASS_TYPES = Arrays.asList("interface", "class", "enum", "annotation");
 
     private static final List<String> VALID_CLASS_MODIFIERS =
-        Arrays.asList(Modifier.PUBLIC.getName(),
-                Modifier.PROTECTED.getName(),
-                Modifier.PRIVATE.getName(),
-                Modifier.FINAL.getName(),
-                Modifier.STATIC.getName(),
-                Modifier.ABSTRACT.getName());
+        Arrays.asList("public", "protected", "private", "final", "static", "abstract");
 
     private static final List<String> VALID_METHOD_MODIFIERS =
-        Arrays.asList(Modifier.PUBLIC.getName(),
-                Modifier.PROTECTED.getName(),
-                Modifier.PRIVATE.getName(),
-                Modifier.FINAL.getName(),
-                Modifier.STATIC.getName(),
-                Modifier.ABSTRACT.getName(),
-                Modifier.SYNCHRONIZED.getName());
+        Arrays.asList("public", "protected", "private", "final", "static", "abstract", "synchronized");
 
     private String path;
 
@@ -107,17 +95,21 @@ public final class JsonValidator {
 
         ensure(!def.gName().isEmpty(), "gName is empty");
         ensure(isValidClassName(def.gName()), "gName is not a valid class name");
+
         // check class type is valid
         ensure(VALID_CLASS_TYPES.contains(def.type()), "unknown class type: " + def.type());
+
         // check class modifiers are all valid
         ensure(VALID_CLASS_MODIFIERS.containsAll(def.modifiers()),
             "unknown class modifier: " + def.modifiers()
                 .stream()
                 .filter(m -> !VALID_CLASS_MODIFIERS.contains(m))
                 .collect(Collectors.joining(", ")));
+
         // check interfaces are all given as full name
         ensure(def.interfaces().stream().allMatch(this::isValidClassName), "interface is not valid class name: "
             + def.interfaces().stream().filter(it -> !isValidClassName(it)).collect(Collectors.joining(", ")));
+
         // check superClass is full name
         ensure(def.superClass().isEmpty() || isValidClassName(def.superClass()), "invalid superClass");
 
@@ -154,6 +146,7 @@ public final class JsonValidator {
             if (map.h().isJField()) {
                 validateField(map.h().asJField());
             }
+            // else?
         }
     }
 
@@ -222,11 +215,11 @@ public final class JsonValidator {
         if (!def.type().equals("class")) {
             return;
         }
-        if (!def.modifiers().contains(Modifier.ABSTRACT.getName())) {
+        if (!def.modifiers().contains("abstract")) {
             ensure(def.methods().stream().allMatch(m -> {
                 boolean flag = true;
                 if (m.g() != null) {
-                    flag = !m.g().modifiers.contains(Modifier.ABSTRACT.getName());
+                    flag = !m.g().modifiers.contains("abstract");
                 }
                 return flag;
             }), "abstract method defined in non-abstract class");

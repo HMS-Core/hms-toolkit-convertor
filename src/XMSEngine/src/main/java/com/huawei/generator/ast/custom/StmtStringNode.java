@@ -25,7 +25,7 @@ import com.huawei.generator.ast.StatementNode;
  *
  * @since 2019-12-28
  */
-public class StmtStringNode extends StatementNode {
+public final class StmtStringNode extends StatementNode {
     private AstNode inner;
 
     private StmtStringNode() {

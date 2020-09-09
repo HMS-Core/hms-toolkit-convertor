@@ -1,0 +1,294 @@
+{
+  "gName": "com.google.android.gms.nearby.connection.ConnectionsClient",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "acceptConnection",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.connection.PayloadCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "cancelPayload",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "disconnectFromEndpoint",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "rejectConnection",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "requestConnection",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.connection.ConnectionLifecycleCallback"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "sendPayload",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.connection.Payload"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "sendPayload",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List<java.lang.String>"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.connection.Payload"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startAdvertising",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.connection.ConnectionLifecycleCallback"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.nearby.connection.AdvertisingOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startDiscovery",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.connection.EndpointDiscoveryCallback"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.nearby.connection.DiscoveryOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopAdvertising",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopAllEndpoints",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopDiscovery",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "MAX_BYTES_DATA_SIZE",
+        "modifiers": [
+          "static"
+        ],
+        "type": "int",
+        "value": "32768"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": ""
+}

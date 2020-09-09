@@ -18,7 +18,7 @@ package com.huawei.generator.ast;
 
 import static com.huawei.generator.gen.AstConstants.GENERIC_PREFIX;
 
-import com.huawei.generator.utils.Modifier;
+import com.huawei.generator.ast.custom.XMethodDoc;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,13 +26,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * MethodNode class
+ * Method Node
  *
  * @since 2019-11-12
  */
 public class MethodNode extends AstNode {
-    private static final String CONSTANT_VOID = "void";
-
     private ClassNode parent;
 
     private String name;
@@ -53,7 +51,17 @@ public class MethodNode extends AstNode {
 
     private List<TypeNode> localGenerics = new ArrayList<>();
 
+    private XMethodDoc methodDocNode;
+
     public MethodNode() {
+    }
+
+    public void setMethodDocNode(XMethodDoc methodDocNode) {
+        this.methodDocNode = methodDocNode;
+    }
+
+    public XMethodDoc getMethodDocNode() {
+        return methodDocNode;
     }
 
     public String paramAt(int n) {
@@ -126,6 +134,7 @@ public class MethodNode extends AstNode {
         if (localGenerics == null || localGenerics.isEmpty()) {
             return "";
         }
+
         return TypeNode.typeListToString(localGenerics);
     }
 
@@ -133,7 +142,7 @@ public class MethodNode extends AstNode {
         return localGenerics;
     }
 
-    boolean hasTodo() {
+    public boolean hasTodo() {
         return hasTodo;
     }
 
@@ -164,37 +173,40 @@ public class MethodNode extends AstNode {
     }
 
     public boolean isAbstract() {
-        return isModify(Modifier.ABSTRACT.getName());
+        return isModify("abstract");
     }
 
     public boolean isStatic() {
-        return isModify(Modifier.STATIC.getName());
+        return isModify("static");
     }
 
     public boolean isDefault() {
-        return isModify(Modifier.DEFAULT.getName());
+        return isModify("default");
     }
 
     public boolean isProtected() {
-        return isModify(Modifier.PROTECTED.getName());
+        return isModify("protected");
     }
 
     public boolean isPrivate() {
-        return isModify(Modifier.PRIVATE.getName());
+        return isModify("private");
     }
 
     /**
      * Whether the method node is final.
-     * 
+     *
      * @return if final return true, otherwise false
      */
     public boolean isFinal() {
-        return isModify(Modifier.FINAL.getName());
+        return isModify("final");
     }
 
     private boolean isModify(String accFlag) {
-        if (accFlag.equals(Modifier.PUBLIC.getName())) {
+        if (accFlag.equals("public")) {
             return isPublic();
+        }
+        if (modifiers == null) {
+            throw new IllegalArgumentException();
         }
         return modifiers.contains(accFlag);
     }
@@ -222,7 +234,7 @@ public class MethodNode extends AstNode {
         if (returnType == null) {
             return false;
         }
-        return returnType.getTypeName().equals(CONSTANT_VOID);
+        return returnType.getTypeName().equals("void");
     }
 
     public void setHasTodo(boolean hasTodo) {
@@ -231,7 +243,7 @@ public class MethodNode extends AstNode {
 
     /**
      * Checks whether a give type represents a generic type in the scope of this method.
-     * 
+     *
      * @param t the given type
      * @param isXType whether the given type represents a X type
      * @return whether the given type is a generic type
@@ -268,7 +280,7 @@ public class MethodNode extends AstNode {
 
     public TypeNode upperBoundOf(TypeNode given) {
         if (given == null) {
-            throw new IllegalStateException();
+            return null;
         }
 
         for (TypeNode tn : localGenerics) {

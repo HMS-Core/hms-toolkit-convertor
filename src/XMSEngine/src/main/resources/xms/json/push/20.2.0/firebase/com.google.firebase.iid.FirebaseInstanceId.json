@@ -1,0 +1,190 @@
+{
+  "gName": "com.google.firebase.iid.FirebaseInstanceId",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [],
+        "retType": "com.google.firebase.iid.FirebaseInstanceId"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/push-conversion-0000001050060304#EN-US_TOPIC_0000001050060304__section167749454350",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.FirebaseApp"
+          }
+        ],
+        "retType": "com.google.firebase.iid.FirebaseInstanceId"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/push-conversion-0000001050060304#EN-US_TOPIC_0000001050060304__section167749454350",
+      "tipsInfo": "Use HmsInstanceId.getInstance(Context var0) as replacement."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getInstanceId",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.iid.InstanceIdResult>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAAID",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.hms.aaid.entity.AAIDResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCreationTime",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCreationTime",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "deleteInstanceId",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/push-conversion-0000001050060304#EN-US_TOPIC_0000001050060304__section7335189351",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getToken",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "getToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/push-conversion-0000001050060304#EN-US_TOPIC_0000001050060304__section7231468364",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "3.0.0.300",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [],
+        "name": "deleteToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/push-conversion-0000001050060304#EN-US_TOPIC_0000001050060304__section19445103243518",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.aaid.HmsInstanceId"
+}

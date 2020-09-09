@@ -1,0 +1,76 @@
+{
+  "gName": "com.google.firebase.auth.AdditionalUserInfo",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getProfile",
+        "paramTypes": [],
+        "retType": "java.util.Map<java.lang.String, java.lang.Object>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section858105271410",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getProviderId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getUsername",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isNewUser",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

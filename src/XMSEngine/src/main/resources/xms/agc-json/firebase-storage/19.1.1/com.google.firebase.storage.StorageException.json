@@ -1,0 +1,431 @@
+{
+  "gName": "com.google.firebase.storage.StorageException",
+  "interfaces": [],
+  "superClass": "com.google.firebase.FirebaseException",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromErrorStatus",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.Status"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageException"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Throwable"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageException"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Throwable"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageException"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromExceptionAndHttpCode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Throwable"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.firebase.storage.StorageException"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromException",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Throwable"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageException"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "synchronized"
+        ],
+        "name": "getCause",
+        "paramTypes": [],
+        "retType": "java.lang.Throwable"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCause",
+        "paramTypes": [],
+        "retType": "java.lang.Throwable"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getErrorCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getErrorCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHttpResultCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHttpCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getIsRecoverableException",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "overRetryTimes",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "name": "ERROR_BUCKET_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13011"
+      },
+      "h": {
+        "name": "ERROR_BUCKET_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11003"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "name": "ERROR_CANCELED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13040"
+      },
+      "h": {
+        "name": "ERROR_CANCELED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11010"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "name": "ERROR_INVALID_CHECKSUM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13031"
+      },
+      "h": {
+        "name": "ERROR_INVALID_HASH_VERIFY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11009"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "name": "ERROR_NOT_AUTHENTICATED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13020"
+      },
+      "h": {
+        "name": "ERROR_NOT_AUTHENTICATED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11006"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "name": "ERROR_NOT_AUTHORIZED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13021"
+      },
+      "h": {
+        "name": "ERROR_NOT_PERMISSION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11007"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "name": "ERROR_OBJECT_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13010"
+      },
+      "h": {
+        "name": "ERROR_OBJECT_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11004"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "name": "ERROR_PROJECT_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13012"
+      },
+      "h": {
+        "name": "ERROR_PROJECT_NOT_FOUND",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11002"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "name": "ERROR_QUOTA_EXCEEDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13013"
+      },
+      "h": {
+        "name": "ERROR_QUOTA_EXCEEDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11005"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "name": "ERROR_RETRY_LIMIT_EXCEEDED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13030"
+      },
+      "h": {
+        "name": "ERROR_OPERATION_FREQUENT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11008"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "name": "ERROR_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-13000"
+      },
+      "h": {
+        "name": "ERROR_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11001"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.cloud.storage.core.StorageException"
+}

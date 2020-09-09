@@ -10,27 +10,18 @@ import java.lang.reflect.WildcardType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for TypeNode
+ */
 public class TypeNode implements Serializable {
     private Type type;
 
-    /**
-     * method parameter
-     */
     private Parameter parameter;
 
-    /**
-     * owner to resolve current type
-     */
     private TypeNode owner;
 
-    /**
-     * component type if current is array
-     */
     private TypeNode componentType;
 
-    /**
-     * class resolved by current type
-     */
     private Class<?> clazz;
 
     private TypeNode superClassType;
@@ -45,21 +36,28 @@ public class TypeNode implements Serializable {
     }
 
     /**
+     * org.xms.g.utils.TypeNode.getType() get type from the typeNode.<br/>
+     *
      * @return get java type
      */
     public Type getType() {
         return this.type;
     }
 
+    /**
+     * org.xms.g.utils.TypeNode.getClazz() get clazz from the typeNode.<br/>
+     *
+     * @return class with generic
+     */
     public Class<?> getClazz() {
         return this.clazz;
     }
 
     /**
-     * Create TypeNode by Type or Parameter
+     * org.xms.g.utils.TypeNode.createMethodParameterType(Parameter methodParameter, Type targetType) Create TypeNode by Type or Parameter<br/>
      *
      * @param methodParameter method parameter
-     * @param targetType set it null if method parameter is not null
+     * @param targetType      set it null if method parameter is not null
      * @return TypeNode
      */
     public static TypeNode createMethodParameterType(Parameter methodParameter, Type targetType) {
@@ -69,6 +67,8 @@ public class TypeNode implements Serializable {
     }
 
     /**
+     * org.xms.g.utils.TypeNode.resolveComponentType() resolve Component Type<br/>
+     *
      * @return Component TypeNode if this is Array type
      */
     public TypeNode resolveComponentType() {
@@ -88,10 +88,6 @@ public class TypeNode implements Serializable {
         return handleSpecialType().resolveComponentType();
     }
 
-    /**
-     *
-     * @return true or false
-     */
     private boolean isArray() {
         if (this.type == null) {
             return false;
@@ -110,12 +106,6 @@ public class TypeNode implements Serializable {
         return node.isArray();
     }
 
-    /**
-     * resolve declaringClass from receiver class
-     *
-     * @param declaringClass declaring class of current method parameter
-     * @return
-     */
     private TypeNode findTypeNodeFromOwner(Class<?> declaringClass) {
         if (this.type == null || this.clazz == null || this.clazz == declaringClass) {
             return this;
@@ -130,11 +120,6 @@ public class TypeNode implements Serializable {
         return getSuperClassType().findTypeNodeFromOwner(declaringClass);
     }
 
-    /**
-     * generate super class TypeNode
-     *
-     * @return super class TypeNode
-     */
     private TypeNode getSuperClassType() {
         if (this.clazz == null || this.clazz.getGenericSuperclass() == null) {
             return createTypeNode(null, null, null);
@@ -145,9 +130,6 @@ public class TypeNode implements Serializable {
         return this.superClassType;
     }
 
-    /**
-     * @return list of interface TypeNode
-     */
     private List<TypeNode> getInterfaces() {
         if (this.clazz == null) {
             return new ArrayList<>();
@@ -163,9 +145,6 @@ public class TypeNode implements Serializable {
         return this.interfaceTypes;
     }
 
-    /**
-     * @return class resolved by type
-     */
     private Class<?> getClassByType() {
         if (this.type == null) {
             return null;
@@ -184,11 +163,6 @@ public class TypeNode implements Serializable {
         return handleSpecialType().getClazz();
     }
 
-    /**
-     * This is to handler special Type as TypeVariable, WildcardType, ParameterizedType
-     * 
-     * @return TypeNode
-     */
     private TypeNode handleSpecialType() {
         if (this.type instanceof TypeVariable) {
             TypeVariable<?> typeVariable = (TypeVariable<?>) this.type;
@@ -227,10 +201,6 @@ public class TypeNode implements Serializable {
         return bounds[0];
     }
 
-    /**
-     * @param typeVariable TypeVariable
-     * @return TypeNode from TypeVariable
-     */
     private TypeNode handleVariable(TypeVariable<?> typeVariable) {
         if (this.type instanceof TypeVariable) {
             return handleSpecialType().handleVariable(typeVariable);
@@ -259,12 +229,6 @@ public class TypeNode implements Serializable {
         return createTypeNode(null, null, null);
     }
 
-    /**
-     * @param type type node
-     * @param parameter method parameter
-     * @param owner the owner to resolve current type
-     * @return TypeNode
-     */
     private static TypeNode createTypeNode(Type type, Parameter parameter, TypeNode owner) {
         if (type == null && parameter != null) {
             type = parameter.toGenericType();

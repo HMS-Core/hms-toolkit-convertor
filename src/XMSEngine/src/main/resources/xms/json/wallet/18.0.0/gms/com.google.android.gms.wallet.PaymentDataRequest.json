@@ -1,0 +1,240 @@
+{
+  "gName": "com.google.android.gms.wallet.PaymentDataRequest",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromJson",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.PaymentDataRequest"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAllowedPaymentMethods",
+        "paramTypes": [],
+        "retType": "java.util.ArrayList<java.lang.Integer>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCardRequirements",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.wallet.CardRequirements"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getPaymentMethodTokenizationParameters",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.wallet.PaymentMethodTokenizationParameters"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getShippingAddressRequirements",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.wallet.ShippingAddressRequirements"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getTransactionInfo",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.wallet.TransactionInfo"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isEmailRequired",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isPhoneNumberRequired",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isShippingAddressRequired",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isUiRequired",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "synchronized"
+        ],
+        "name": "newBuilder",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.wallet.PaymentDataRequest.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toJson",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.wallet.PaymentDataRequest>",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": ""
+}

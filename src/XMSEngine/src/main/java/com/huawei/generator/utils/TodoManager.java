@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Properties;
 
@@ -56,9 +57,10 @@ public class TodoManager {
         }
     }
 
-    public TodoManager(String jarPath, GeneratorConfiguration config) {
+    public TodoManager(String jarPath, GeneratorConfiguration config, Map<String, String> kitVersionMap) {
         this.isEnabled = config.isEnableTodo();
-        this.customCodeManager = new TodoResourceLoader(jarPath, config.getStaticPath());
+        this.customCodeManager =
+            TodoResourceLoader.Factory.INSTANCE.createLoader(jarPath, config.getStaticPath(), kitVersionMap);
     }
 
     /**
@@ -143,6 +145,7 @@ public class TodoManager {
      * 
      * @param node method node
      * @param prefix prefix of the key for querying to-do entry
+     * @return filled body
      */
     public static List<StatementNode> createTodoBlockFor(MethodNode node, String prefix) {
         String descriptor = prefix + TodoManager.getMethodDescriptor(node);

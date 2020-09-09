@@ -1,0 +1,108 @@
+{
+  "gName": "com.google.android.gms.common.api.BooleanResult",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStatus",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.common.api.Status"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStatus",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.api.client.Status"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getValue",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getValue",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.common.api.BooleanResult"
+}

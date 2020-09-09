@@ -20,8 +20,9 @@ import static com.huawei.generator.utils.XMSUtils.degenerify;
 
 import com.huawei.generator.ast.CompilationUnitNode;
 import com.huawei.generator.ast.PackageNode;
+import com.huawei.generator.g2x.po.kit.KitMapping;
 import com.huawei.generator.g2x.processor.GeneratorResult;
-import com.huawei.generator.g2x.processor.GeneratorResultException;
+import com.huawei.generator.exception.GeneratorResultException;
 import com.huawei.generator.g2x.processor.map.Validator;
 import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JsonValidator;
@@ -57,7 +58,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
 /**
- * Generator class
+ * Class for Generator
  *
  * @since 2019-11-14
  */
@@ -67,11 +68,15 @@ public class Generator {
     // key -- jar name, value -- path of json of jar
     private Map<String, List<String>> jsonMap = new HashMap<>();
 
+    private File inPath; // just for test
+
     private File outPath;
 
     private GenerationTaskManager manager;
 
     private String pluginPath; // the absolute path of generator
+
+    private Map<String, String> kitVersionMap;
 
     private boolean isAllJsonValid = true;
 
@@ -92,11 +97,13 @@ public class Generator {
     }
 
     // just for test
-    public Generator(Set<String> kits, String output, GeneratorConfiguration configuration) {
+    public Generator(Set<String> kits, String output, GeneratorConfiguration configuration,
+        Map<String, String> gmsVersion) {
         this.outPath = new File(output);
         this.configuration = configuration;
         this.manager = GenerationTaskManager.create(configuration.getFactory());
-        this.todoManager = new TodoManager(null, configuration);
+        this.kitVersionMap = KitMapping.processGmsVersion(gmsVersion);
+        this.todoManager = new TodoManager(null, configuration, kitVersionMap);
         List<String> pos = new ArrayList<>();
         pos.add("/xms/json");
         pos.add("/xms/agc-json");
@@ -105,15 +112,15 @@ public class Generator {
         generateDefinitions(kits);
     }
 
-    // builder
     Generator(GeneratorBuilder builder) {
-        this.pluginPath = builder.pluginPath;
-        this.outPath = builder.outPath;
-        this.realKitList = builder.realkitList;
-        this.staticDirs = builder.staticDirs;
-        this.configuration = builder.configuration;
-        this.manager = GenerationTaskManager.create(configuration.getFactory());
-        this.todoManager = new TodoManager(pluginPath, configuration);
+        this.pluginPath = builder.getPluginPath();
+        this.outPath = builder.getOutPath();
+        this.kitVersionMap = builder.getKitVersionMap();
+        this.realKitList = builder.getRealkitList();
+        this.staticDirs = builder.getStaticDirs();
+        this.configuration = builder.getConfiguration();
+        this.manager = GenerationTaskManager.create(configuration.getFactory(), pluginPath);
+        this.todoManager = new TodoManager(pluginPath, configuration, kitVersionMap);
     }
 
     private void generateDefinitions(Set<String> jars) {
@@ -124,15 +131,23 @@ public class Generator {
                 continue;
             }
             for (String path : paths) {
+                if (kitVersionMap.containsKey(jar) && !path.contains(kitVersionMap.get(jar))) {
+                    continue;
+                }
                 try (Stream<Path> walk = Files.walk(Paths.get(path))) {
                     List<Path> json = walk.filter(Files::isRegularFile)
-                        .filter(e -> e.toAbsolutePath().toString().endsWith(".json"))
+                        .filter(filePath -> filePath.toAbsolutePath().toString().endsWith(".json"))
                         .collect(Collectors.toList());
                     for (Path p : json) {
-                        addClassDef(p.toFile());
+                        try (FileInputStream fileInputStream = new FileInputStream(p.toFile())) {
+                            addClassDef(fileInputStream);
+                        } catch (FileNotFoundException e) {
+                            LOGGER.error("Generate Definitions failed!");
+                            return;
+                        }
                     }
                 } catch (IOException e) {
-                    LOGGER.error(e.getMessage());
+                    LOGGER.error("Close resource failed when generating definitions!");
                     return;
                 }
             }
@@ -161,12 +176,18 @@ public class Generator {
                 return;
             }
             for (File kit : kits) {
-                File[] kitFiles = kit.listFiles();
-                if (kitFiles == null || kitFiles.length == 0) {
+                File[] ks = kit.listFiles();
+                if (ks == null || ks.length == 0) {
                     continue;
                 }
-                for (File kitFile : kitFiles) {
-                    jsonMap.computeIfAbsent(kit.getName(), element -> new ArrayList<>()).add(kitFile.getPath());
+                for (File k : ks) {
+                    if (jsonMap.containsKey(kit.getName())) {
+                        jsonMap.get(kit.getName()).add(k.getPath());
+                    } else {
+                        List<String> paths = new ArrayList<>();
+                        paths.add(k.getPath());
+                        jsonMap.put(kit.getName(), paths);
+                    }
                 }
             }
         }
@@ -181,9 +202,9 @@ public class Generator {
     }
 
     /**
-     * return statistics of api converting
+     * Returns API conversion statistics
      *
-     * @return return statistics of api converting
+     * @return API conversion statistics
      */
     public ApiStats generate() {
         if (isAllJsonValid) {
@@ -194,43 +215,42 @@ public class Generator {
         }
     }
 
-    private void addClassDef(File file) {
-        try (FileInputStream fileInputStream = new FileInputStream(file);
-            InputStreamReader isr = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8)) {
-            JClass def = Parser.parse(isr);
-            isAllJsonValid = JsonValidator.validate(def.gName() != null ? def.gName() : "", def) && isAllJsonValid;
-            manager.addDefinition(def);
-        } catch (FileNotFoundException e) {
-            LOGGER.error("File not found.");
-        } catch (IOException e) {
-            LOGGER.error(e.getMessage(), e);
-        }
+    private void addClassDef(InputStream inputStream) {
+        InputStreamReader isr = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+        JClass def = Parser.parse(isr);
+        isAllJsonValid = JsonValidator.validate(def.gName() != null ? def.gName() : "", def) && isAllJsonValid;
+        manager.addDefinition(def);
     }
 
     private ApiStats generateClasses() {
         manager.setAllClassMapping();
         // apis number after class filtering
         ApiStats stats = manager.initClasses();
-        manager.generateAll().forEach(it -> {
-            String packageName = it.packageName();
+        manager.generateAll().forEach(classNode -> {
+            String packageName = classNode.packageName();
             CompilationUnitNode unitNode = new CompilationUnitNode();
-            unitNode.setPackageNode(PackageNode.create(it.packageName()));
-            unitNode.getClassNodes().add(it);
-            if (it.hasTodo()) {
+            unitNode.setPackageNode(PackageNode.create(classNode.packageName()));
+            unitNode.getClassNodes().add(classNode);
+            if (classNode.hasTodo()) {
                 TodoManager.createTodoBlockFor(unitNode);
             }
             File dir = new File(outPath, packageName.replace(".", File.separator));
             dir.mkdirs();
-            File target = new File(dir, degenerify(it.shortName()) + ".java");
+            File target = new File(dir, degenerify(classNode.shortName()) + ".java");
             generatedFiles.add(target);
             try (OutputStream os = new FileOutputStream(target)) {
                 JavaCodeGenerator.from(unitNode, todoManager).to(os);
+            } catch (FileNotFoundException e) {
+                LOGGER.error("Output target file does not exist!");
             } catch (IOException e) {
-                LOGGER.error(e.getMessage());
+                LOGGER.error("Close output stream failed!");
             }
         });
+        String[] paraArray = new String[2];
         for (String jarName : staticDirs) {
-            StaticPatcher.patchResources(jarName, outPath, pluginPath, configuration, generatedFiles);
+            paraArray[0] = jarName;
+            paraArray[1] = pluginPath;
+            StaticPatcher.patchResources(paraArray, outPath, configuration, generatedFiles, kitVersionMap);
         }
         return stats;
     }
@@ -238,32 +258,34 @@ public class Generator {
     public GeneratorResult resolveAllClasses(String zipFileName, Set<String> kitList) {
         try (ZipFile zipFile = new ZipFile(zipFileName);
             ZipInputStream zip = new ZipInputStream(new FileInputStream(new File(zipFileName)))) {
-            while (true) {
-                ZipEntry nextEntry;
-                nextEntry = zip.getNextEntry();
-                if (nextEntry == null) {
-                    break;
-                } else {
-                    if ((nextEntry.getName().startsWith("xms/json") || nextEntry.getName().startsWith("xms/agc-json"))
-                        && nextEntry.getName().endsWith(".json")
-                        && Validator.validNameFromList(nextEntry.getName(), kitList)) {
-                        addClassDef(zipFile, nextEntry);
+            ZipEntry nextEntry = zip.getNextEntry();
+            while (nextEntry != null) {
+                if ((nextEntry.getName().startsWith("xms/json") || nextEntry.getName().startsWith("xms/agc-json"))
+                    && nextEntry.getName().endsWith(".json")
+                    && Validator.validNameFromList(nextEntry.getName(), kitList)) {
+                    InputStream inputStream = zipFile.getInputStream(nextEntry);
+                    String[] pathArray = nextEntry.getName().split("/");
+                    String kitName = pathArray[2];
+                    if (kitVersionMap.containsKey(kitName)) {
+                        String version = kitVersionMap.get(kitName);
+                        String keyPath = "/json/" + kitName + "/" + version;
+                        String agcPath = "/agc-json/" + kitName + "/" + version;
+                        if (nextEntry.getName().contains(keyPath) || nextEntry.getName().contains(agcPath)) {
+                            addClassDef(inputStream);
+                        }
+                    } else {
+                        addClassDef(inputStream);
                     }
                 }
+                nextEntry = zip.getNextEntry();
             }
-        } catch (IOException e) {
-            LOGGER.error(e.getMessage());
+        } catch (FileNotFoundException e) {
+            LOGGER.error("Plugin zip does not exist!");
             return GeneratorResult.MISSING_PLUGIN;
+        } catch (IOException e) {
+            LOGGER.error("Read content from zip failed!");
+            return GeneratorResult.INNER_CRASH;
         }
         return GeneratorResult.SUCCESS;
-    }
-
-    private void addClassDef(ZipFile zipFile, ZipEntry nextEntry) throws IOException {
-        try (InputStream inputStream = zipFile.getInputStream(nextEntry);
-            InputStreamReader isr = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
-            JClass def = Parser.parse(isr);
-            isAllJsonValid = JsonValidator.validate(def.gName() != null ? def.gName() : "", def) && isAllJsonValid;
-            manager.addDefinition(def);
-        }
     }
 }

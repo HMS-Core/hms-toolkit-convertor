@@ -16,8 +16,9 @@
 
 package com.huawei.generator.g2x.po.map.extension;
 
+import com.huawei.generator.g2x.po.map.ExtensionDesc;
+
 import com.google.gson.annotations.Expose;
-import com.huawei.generator.g2x.po.map.ExDesc;
 
 /**
  * ExPackage: used as a description container for packages which
@@ -25,10 +26,14 @@ import com.huawei.generator.g2x.po.map.ExDesc;
  * For example, when we add firebase into this field, source code engine will use this package
  * to catch all the firebase'elements beyond our auto-and-manual mapping relations.
  * We should incrementally fulfill g2x_manual_extension.json.
+ * <p>
  * including:
- * 1. deletedPackageName -> target package name
- * 2. desc -> details of this class, see {@link ExDesc}
+ * 1. deletedPackageName means target package name
+ * 2. desc means details of this class, see {@link ExtensionDesc}
+ * </p>
+ * <p>
  * Note: currently, there are two packages that gms and firebase.
+ * </p>
  *
  * @since 2019-11-27
  */
@@ -37,12 +42,12 @@ public class ExPackage {
     private String deletedPackageName;
 
     @Expose
-    private ExDesc desc;
+    private ExtensionDesc desc;
 
     public ExPackage() {
     }
 
-    public ExPackage(String deletedPackageName, ExDesc desc) {
+    public ExPackage(String deletedPackageName, ExtensionDesc desc) {
         this.deletedPackageName = deletedPackageName;
         this.desc = desc;
     }
@@ -55,11 +60,11 @@ public class ExPackage {
         this.deletedPackageName = deletedPackageName;
     }
 
-    public ExDesc getDesc() {
+    public ExtensionDesc getDesc() {
         return desc;
     }
 
-    public void setDesc(ExDesc desc) {
+    public void setDesc(ExtensionDesc desc) {
         this.desc = desc;
     }
 }

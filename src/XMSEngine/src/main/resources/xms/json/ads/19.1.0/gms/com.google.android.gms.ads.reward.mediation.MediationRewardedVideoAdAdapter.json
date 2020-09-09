@@ -1,0 +1,130 @@
+{
+  "gName": "com.google.android.gms.ads.reward.mediation.MediationRewardedVideoAdAdapter",
+  "interfaces": [
+    "com.google.android.gms.ads.mediation.MediationAdapter"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "initialize",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.ads.mediation.MediationAdRequest"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "com.google.android.gms.ads.reward.mediation.MediationRewardedVideoAdListener"
+          },
+          {
+            "pos": "4",
+            "type": "android.os.Bundle"
+          },
+          {
+            "pos": "5",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isInitialized",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "loadAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.mediation.MediationAdRequest"
+          },
+          {
+            "pos": "1",
+            "type": "android.os.Bundle"
+          },
+          {
+            "pos": "2",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "showVideo",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "CUSTOM_EVENT_SERVER_PARAMETER_FIELD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "parameter"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

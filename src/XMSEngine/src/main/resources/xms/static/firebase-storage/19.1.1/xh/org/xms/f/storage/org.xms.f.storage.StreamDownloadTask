@@ -1,0 +1,84 @@
+package org.xms.f.storage;
+
+public class StreamDownloadTask extends org.xms.f.storage.StorageTask<org.xms.f.storage.StreamDownloadTask.TaskSnapshot> {
+    
+    public StreamDownloadTask(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+    
+    protected void onCanceled() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+    
+    protected void onProgress() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+    
+
+    public static org.xms.f.storage.StreamDownloadTask dynamicCast(java.lang.Object param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public static interface StreamProcessor extends org.xms.g.utils.XInterface {
+
+        public void doInBackground(org.xms.f.storage.StreamDownloadTask.TaskSnapshot param0, java.io.InputStream param1) throws java.io.IOException;
+
+        default java.lang.Object getZInstanceStreamProcessor() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        default java.lang.Object getHInstanceStreamProcessor() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+        
+        public static org.xms.f.storage.StreamDownloadTask.StreamProcessor dynamicCast(java.lang.Object param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+        
+        public static boolean isInstance(java.lang.Object param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+        
+        public static class XImpl extends org.xms.g.utils.XObject implements org.xms.f.storage.StreamDownloadTask.StreamProcessor {
+            
+            public XImpl(org.xms.g.utils.XBox param0) {
+                super(param0);
+            }
+            
+            public void doInBackground(org.xms.f.storage.StreamDownloadTask.TaskSnapshot param0, java.io.InputStream param1) throws java.io.IOException {
+                throw new java.lang.RuntimeException("Not Supported");
+            }
+        }
+    }
+    
+    public static class TaskSnapshot extends org.xms.f.storage.StorageTask.SnapshotBase {
+        
+        public TaskSnapshot(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+        
+        public long getBytesTransferred() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+        
+        public java.io.InputStream getStream() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+        
+        public long getTotalByteCount() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+        
+        public static org.xms.f.storage.StreamDownloadTask.TaskSnapshot dynamicCast(java.lang.Object param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+        
+        public static boolean isInstance(java.lang.Object param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+    }
+}

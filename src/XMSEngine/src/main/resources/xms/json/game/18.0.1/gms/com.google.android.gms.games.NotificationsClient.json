@@ -1,0 +1,119 @@
+{
+  "gName": "com.google.android.gms.games.NotificationsClient",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.games.Games.GamesOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "clear",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "clearAll",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "NOTIFICATION_TYPE_INVITATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "NOTIFICATION_TYPE_LEVEL_UP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "16"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "NOTIFICATION_TYPE_MATCH_UPDATE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "NOTIFICATION_TYPES_ALL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "19"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "NOTIFICATION_TYPES_MULTIPLAYER",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

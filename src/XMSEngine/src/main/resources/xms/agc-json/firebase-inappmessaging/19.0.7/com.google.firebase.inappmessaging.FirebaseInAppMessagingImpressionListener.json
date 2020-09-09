@@ -1,0 +1,46 @@
+{
+  "gName": "com.google.firebase.inappmessaging.FirebaseInAppMessagingImpressionListener",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "impressionDetected",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.model.InAppMessage"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onMessageDisplay",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.appmessaging.model.AppMessage"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessagingOnDisplayListener"
+}

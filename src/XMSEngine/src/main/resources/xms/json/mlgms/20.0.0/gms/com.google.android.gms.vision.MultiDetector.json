@@ -1,0 +1,112 @@
+{
+  "gName": "com.google.android.gms.vision.MultiDetector",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.vision.Detector<java.lang.Object>",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "detect",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.vision.Frame"
+          }
+        ],
+        "retType": "android.util.SparseArray<java.lang.Object>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "analyseFrame",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLFrame"
+          }
+        ],
+        "retType": "android.util.SparseArray<java.lang.Object>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isOperational",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isAvailable",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "release",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "destroy",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setProcessor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.vision.Detector.Processor<java.lang.Object>"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTransactor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor<java.lang.Object>"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.common.MLCompositeAnalyzer"
+}

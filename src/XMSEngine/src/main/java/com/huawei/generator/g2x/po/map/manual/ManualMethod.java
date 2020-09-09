@@ -16,21 +16,27 @@
 
 package com.huawei.generator.g2x.po.map.manual;
 
+import com.huawei.generator.g2x.po.map.MethodDesc;
+
 import com.google.gson.annotations.Expose;
-import com.huawei.generator.g2x.po.map.MDesc;
 
 import java.util.List;
 
 /**
  * ManualField: description of manual-methods, indicating wishhub plugins can not modify them directly.
  * Therefore app client developers should change them manually.
+ * <p>
  * including:
- * 1. methodName -> method name
- * 2. desc -> details of this method, see {@link MDesc}
- * 3. paramTypes -> canonical types of parameters
- * 4. weakTypes -> weakTypes for overloaded methods with same size of params,
+ * 1. methodName means method name
+ * 2. desc means details of this method, see {@link MethodDesc}
+ * 3. paramTypes means canonical types of parameters
+ * 4. weakTypes means weakTypes for overloaded methods with same size of params,
  * we will fulfill with "*" for source code engine. Others will be same with paramTypes
- * Note: for manual field, desc is very important, because it contains the user manual and url to guide developers.
+ * </p>
+ * <p>
+ * Note: for manual field, desc is very important, because it contains the user manual and url to guide
+ * developers.
+ * </p>
  *
  * @since 2019-11-27
  */
@@ -45,9 +51,9 @@ public class ManualMethod {
     private List<String> weakTypes;
 
     @Expose
-    private MDesc desc;
+    private MethodDesc desc;
 
-    public ManualMethod(String methodName, List<String> paramTypes, List<String> weakTypes, MDesc desc) {
+    public ManualMethod(String methodName, List<String> paramTypes, List<String> weakTypes, MethodDesc desc) {
         this.methodName = methodName;
         this.paramTypes = paramTypes;
         this.weakTypes = weakTypes;
@@ -62,7 +68,7 @@ public class ManualMethod {
         return paramTypes;
     }
 
-    public MDesc getDesc() {
+    public MethodDesc getDesc() {
         return desc;
     }
 
@@ -72,5 +78,9 @@ public class ManualMethod {
 
     public void setWeakTypes(List<String> weakTypes) {
         this.weakTypes = weakTypes;
+    }
+
+    public void setMDesc(MethodDesc desc) {
+        this.desc = desc;
     }
 }

@@ -1,0 +1,117 @@
+{
+  "gName": "com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "java.lang.Enum<com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference>",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "DIRECT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference",
+        "value": ""
+      },
+      "h": {
+        "name": "DIRECT",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "INDIRECT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference",
+        "value": ""
+      },
+      "h": {
+        "name": "INDIRECT",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "NONE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.fido2.api.common.AttestationConveyancePreference",
+        "value": ""
+      },
+      "h": {
+        "name": "NONE",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "enum",
+  "hName": "com.huawei.hms.support.api.fido.fido2.AttestationConveyancePreference"
+}

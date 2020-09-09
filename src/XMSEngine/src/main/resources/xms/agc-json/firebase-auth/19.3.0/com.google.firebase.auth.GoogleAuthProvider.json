@@ -1,0 +1,64 @@
+{
+  "gName": "com.google.firebase.auth.GoogleAuthProvider",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getCredential",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.auth.AuthCredential"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "GOOGLE_SIGN_IN_METHOD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "google.com"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "name": "PROVIDER_ID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "google.com"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

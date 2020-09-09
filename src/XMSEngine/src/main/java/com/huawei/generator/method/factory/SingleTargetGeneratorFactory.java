@@ -16,10 +16,14 @@
 
 package com.huawei.generator.method.factory;
 
+import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
+import com.huawei.generator.ast.custom.XClassDoc;
+import com.huawei.generator.ast.custom.XFieldDoc;
 import com.huawei.generator.ast.custom.XWrapperConstructorNode;
 import com.huawei.generator.classes.WrapperDecorator;
 import com.huawei.generator.gen.ParcelableDecorator;
+import com.huawei.generator.json.DocSources;
 import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JFieldOrMethod;
 import com.huawei.generator.json.JMapping;
@@ -34,13 +38,17 @@ import com.huawei.generator.method.gen.IsInstanceGenerator;
 import com.huawei.generator.method.gen.ToDoBodyGenerator;
 import com.huawei.generator.method.gen.WrapperConstructorGenerator;
 import com.huawei.generator.method.gen.WrappingGenerator;
+import com.huawei.generator.method.gen.ZEnumValueOfGenerator;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
- * Factory for G or H method generator.
+ * G or H method generator factory
  *
  * @since 2020-03-19
  */
-public class SingleTargetGeneratorFactory extends AbstractGeneratorFactory {
+public final class SingleTargetGeneratorFactory extends AbstractGeneratorFactory {
     private Component component;
 
     public SingleTargetGeneratorFactory(Component component) {
@@ -51,8 +59,12 @@ public class SingleTargetGeneratorFactory extends AbstractGeneratorFactory {
 
     @Override
     public BodyGenerator createConstructorGenerator(MethodNode methodNode, JMapping<JMethod> mapping) {
-        BodyGenerator bodyGenerator = mapping.isUnsupported() ? BodyGenerator.EMPTY
-            : createSingleSetterGenerator(methodNode, mapping, component);
+        BodyGenerator bodyGenerator;
+        if (mapping.isUnsupported()) {
+            bodyGenerator = BodyGenerator.EMPTY;
+        } else {
+            bodyGenerator = createSingleSetterGenerator(methodNode, mapping, component);
+        }
         return new ConstructorGenerator(methodNode, bodyGenerator);
     }
 
@@ -83,18 +95,20 @@ public class SingleTargetGeneratorFactory extends AbstractGeneratorFactory {
         if (!WrapperDecorator.mayCallSuper(methodNode, component)) {
             return xCallZGenerator;
         }
+
         // generate call super
         BodyGenerator xCallZSuperGenerator = createXCallZSuperGenerator(methodNode, def, mapping, component);
         return new WrappingGenerator(xCallZGenerator, xCallZSuperGenerator);
     }
 
     @Override
-    public BodyGenerator createWrapperCtorGenerator(XWrapperConstructorNode node) {
+    public BodyGenerator createWrapperConstructorGenerator(XWrapperConstructorNode node) {
         if (node.parent().isXObject()) {
             return new WrapperConstructorGenerator.CallSuperXBoxGenerator(node);
+        } else {
+            return new WrapperConstructorGenerator(node,
+                new WrapperConstructorGenerator.SetInstanceGenerator(node, component));
         }
-        return new WrapperConstructorGenerator(node,
-            new WrapperConstructorGenerator.SetInstanceGenerator(node, component));
     }
 
     @Override
@@ -104,8 +118,21 @@ public class SingleTargetGeneratorFactory extends AbstractGeneratorFactory {
         }
         if (component.isMatching(def)) {
             return new ParcelableDecorator.CreateFromParcelGenerator(methodNode, def, component);
+        } else {
+            return new ToDoBodyGenerator(methodNode);
         }
-        return new ToDoBodyGenerator(methodNode);
+    }
+
+    @Override
+    public BodyGenerator createXEnumValueOfGenerator(JClass def, MethodNode methodNode) {
+        if (!methodNode.parent().isSupported()) {
+            return AbnormalBodyGenerator.UNSUPPORTED;
+        }
+        if (component.isMatching(def)) {
+            return new ZEnumValueOfGenerator(def, methodNode, component);
+        } else {
+            return new ToDoBodyGenerator(methodNode);
+        }
     }
 
     @Override
@@ -114,5 +141,31 @@ public class SingleTargetGeneratorFactory extends AbstractGeneratorFactory {
             return AbnormalBodyGenerator.UNSUPPORTED;
         }
         return new GetZInterfaceInstanceGenerator(methodNode, component);
+    }
+
+    @Override
+    public void createClassDoc(XClassDoc classDoc, ClassNode classNode) {
+        this.classDoc = classDoc;
+        if (classDoc == null) {
+            return;
+        }
+        XClassDoc classDocNode = DocSources.createClassDocHead(classDoc, classNode);
+
+        List<String> displayInfoList = classDocNode.getDisplayInfoList();
+        displayInfoList.add(" * Wrapper class for " + component.getZClassNameForDoc(classDocNode) + ", but only the "
+            + component.componentAttribute() + "MS API are provided.<br/>");
+        displayInfoList.add(" * " + component.classNameAndInfo(classDocNode) + "<br/>");
+        displayInfoList.add(" */");
+        classDocNode.setDisplayInfoList(displayInfoList);
+    }
+
+    @Override
+    public List<String> moduleDescriptionForMethodDoc(String methodNodeName) {
+        return Collections.EMPTY_LIST;
+    }
+
+    @Override
+    public String moduleDescriptionForFieldDoc(XFieldDoc fieldDoc) {
+        return component.getFieldInfo(fieldDoc);
     }
 }

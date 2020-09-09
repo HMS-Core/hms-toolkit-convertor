@@ -17,9 +17,9 @@
 package com.huawei.generator.ast;
 
 import com.huawei.generator.ast.custom.CustomContentNode;
+import com.huawei.generator.ast.custom.XClassDoc;
 import com.huawei.generator.json.JClass;
 import com.huawei.generator.utils.GlobalMapping;
-import com.huawei.generator.utils.Modifier;
 import com.huawei.generator.utils.XMSUtils;
 
 import org.slf4j.Logger;
@@ -38,16 +38,14 @@ public class ClassNode extends AstNode {
      * String constants of class types.
      */
     public interface Types {
+        String CLASS = "class";
+
         String INTERFACE = "interface";
 
         String ENUM = "enum";
 
         String ANNOTATION = "annotation";
     }
-
-    private static final String CONSTANT_XMS = "xms";
-
-    private static final String CONSTANT_DOT = ".";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ClassNode.class);
 
@@ -83,7 +81,17 @@ public class ClassNode extends AstNode {
 
     private CustomContentNode customContentNode;
 
+    private XClassDoc classDoc;
+
     public ClassNode() {
+    }
+
+    public void setClassDoc(XClassDoc classDoc) {
+        this.classDoc = classDoc;
+    }
+
+    public XClassDoc getClassDoc() {
+        return classDoc;
     }
 
     public boolean isSupported() {
@@ -103,8 +111,8 @@ public class ClassNode extends AstNode {
         this.fullName = xType.toString();
 
         String className = xType.getTypeName();
-        if (className.contains(CONSTANT_DOT)) {
-            this.packageName = className.substring(0, className.lastIndexOf(CONSTANT_DOT));
+        if (className.contains(".")) {
+            this.packageName = className.substring(0, className.lastIndexOf("."));
         }
     }
 
@@ -115,7 +123,7 @@ public class ClassNode extends AstNode {
     /**
      * UNSAFE: hType may be null.
      * Make sure you know what you are doing before calling this method.
-     * 
+     *
      * @return Hms type for a class node.
      */
     public TypeNode getHType() {
@@ -140,7 +148,7 @@ public class ClassNode extends AstNode {
     }
 
     public void setPackageName(String packageName) {
-        if (!packageName.contains(CONSTANT_DOT)) {
+        if (!packageName.contains(".")) {
             LOGGER.error("Not an inner class: {}", fullName);
         }
         this.packageName = packageName;
@@ -161,7 +169,7 @@ public class ClassNode extends AstNode {
 
     /**
      * For org.xms.utils.Map<T>, shortName() returns "Map"
-     * 
+     *
      * @return type name without package name, without generic info.
      */
     public String shortName() {
@@ -170,7 +178,7 @@ public class ClassNode extends AstNode {
 
     /**
      * For org.xms.utils.Map<T>, longName() returns "org.xms.utils.Map"
-     * 
+     *
      * @return type name with package name, without generic info.
      */
     public String longName() {
@@ -183,7 +191,7 @@ public class ClassNode extends AstNode {
 
     /**
      * For org.xms.utils.Map<T>, fullName() returns "org.xms.utils.Map<T>"
-     * 
+     *
      * @return type name with package name, with generic info.
      */
     public String fullName() {
@@ -229,7 +237,7 @@ public class ClassNode extends AstNode {
      * @param isXType whether the given type is from X world
      * @return whether it's a generic type
      */
-    boolean isGeneric(TypeNode t, boolean isXType) {
+    public boolean isGeneric(TypeNode t, boolean isXType) {
         String type = adaptTypeName(t, isXType);
         if ((generics() != null) && generics().stream().anyMatch(it -> type.equals(it.getTypeName()))) {
             return true;
@@ -241,7 +249,7 @@ public class ClassNode extends AstNode {
      * Adapt the type name of a given generic type, to ensure that the given type and this class are from the same world
      * (X world or Z world). Generic types from the X world are all prefixed with a "X" character, which should be
      * removed before comparing with type names defined in Z classes.
-     * 
+     *
      * @param t a given generic type
      * @param isXType whether the type represents a X type
      * @return the type name of the given type, with generic prefix removed as necessary.
@@ -305,15 +313,15 @@ public class ClassNode extends AstNode {
     }
 
     public boolean isXObject() {
-        return (this.fullName.contains(CONSTANT_XMS) && this.superName.contains(CONSTANT_XMS));
+        return (this.fullName.contains("xms") && this.superName.contains("xms"));
     }
 
     public boolean isAbstract() {
-        return modifiers.contains(Modifier.ABSTRACT.getName());
+        return modifiers.contains("abstract");
     }
 
     public boolean isFinal() {
-        return modifiers.contains(Modifier.FINAL.getName());
+        return modifiers.contains("final");
     }
 
     public void setInnerClasses(List<ClassNode> list) {
@@ -334,23 +342,22 @@ public class ClassNode extends AstNode {
 
     public ClassNode normalize() {
         if (this.isInterface()) {
-            modifiers().remove(Modifier.ABSTRACT.getName());
+            modifiers().remove("abstract");
         }
         if (isAnnotation()) {
-            modifiers().remove(Modifier.ABSTRACT.getName());
+            modifiers().remove("abstract");
             interfaces().remove("java.lang.annotation.Annotation");
         }
-        if (isEnum() && !modifiers().contains(Modifier.FINAL.getName())) {
-            modifiers().add(Modifier.FINAL.getName());
+        if (isEnum() && !modifiers().contains("final")) {
+            modifiers().add("final");
         }
         // Interface's inner is static by default
-        if (!modifiers().contains(Modifier.STATIC.getName()) && getOuterClass() != JClass.J_CLASS
-            && getOuterClass().isInterface()) {
-            modifiers().add(Modifier.STATIC.getName());
+        if (!modifiers().contains("static") && getOuterClass() != null && getOuterClass().isInterface()) {
+            modifiers().add("static");
         }
         // If an interface is inner,then it's static by default
-        if (isInner() && isInterface() && !modifiers().contains(Modifier.STATIC.getName())) {
-            modifiers().add(Modifier.STATIC.getName());
+        if (isInner() && isInterface() && !modifiers().contains("static")) {
+            modifiers().add("static");
         }
         return this;
     }
@@ -386,10 +393,10 @@ public class ClassNode extends AstNode {
 
     private JClass getOuterClass() {
         if (!isInner()) {
-            return JClass.J_CLASS;
+            return null;
         }
         String className = XMSUtils.degenerify(fullName);
-        String outer = className.substring(0, className.lastIndexOf(CONSTANT_DOT));
+        String outer = className.substring(0, className.lastIndexOf("."));
         JClass jClass = GlobalMapping.getDegenerigyMap().get(outer);
         if (jClass == null) {
             throw new IllegalStateException("Missing outer class " + outer);
@@ -411,6 +418,8 @@ public class ClassNode extends AstNode {
         private String superName;
 
         private List<String> interfaces;
+
+        private ClassNode outerClass;
 
         public Builder setSupported(boolean isSupported) {
             this.isSupported = isSupported;
@@ -447,6 +456,11 @@ public class ClassNode extends AstNode {
             return this;
         }
 
+        public Builder setOuterClass(ClassNode outerClass) {
+            this.outerClass = outerClass;
+            return this;
+        }
+
         protected ClassNode getClassNode() {
             return new ClassNode();
         }
@@ -463,6 +477,7 @@ public class ClassNode extends AstNode {
             node.setMethods(new ArrayList<>());
             node.setFields(new ArrayList<>());
             node.setInnerClasses(new ArrayList<>());
+            node.setOuterClass(this.outerClass);
             node.normalize();
             return node;
         }

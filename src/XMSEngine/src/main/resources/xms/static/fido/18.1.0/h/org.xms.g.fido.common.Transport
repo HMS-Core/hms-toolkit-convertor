@@ -1,0 +1,101 @@
+package org.xms.g.fido.common;
+
+public final class Transport extends org.xms.g.utils.XEnum implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator CREATOR = new android.os.Parcelable.Creator() {
+
+        public org.xms.g.fido.common.Transport createFromParcel(android.os.Parcel param0) {
+            String value = param0.readString();
+            com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport hReturn = com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport.fromValue(value);
+            return new org.xms.g.fido.common.Transport(new org.xms.g.utils.XBox(hReturn));
+        }
+
+        public org.xms.g.fido.common.Transport[] newArray(int param0) {
+            return new org.xms.g.fido.common.Transport[param0];
+        }
+    };
+
+    public Transport(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    public static org.xms.g.fido.common.Transport getBLUETOOTH_CLASSIC() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public static org.xms.g.fido.common.Transport getBLUETOOTH_LOW_ENERGY() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport.BLE");
+        com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport hReturn = null;
+        hReturn = com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport.BLE;
+        return ((hReturn) == null ? null : (new org.xms.g.fido.common.Transport(new org.xms.g.utils.XBox(hReturn))));
+    }
+
+    public static org.xms.g.fido.common.Transport getNFC() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport.NFC");
+        com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport hReturn = null;
+        hReturn = com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport.NFC;
+        return ((hReturn) == null ? null : (new org.xms.g.fido.common.Transport(new org.xms.g.utils.XBox(hReturn))));
+    }
+
+    public static org.xms.g.fido.common.Transport getUSB() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport.USB");
+        com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport hReturn = null;
+        hReturn = com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport.USB;
+        return ((hReturn) == null ? null : (new org.xms.g.fido.common.Transport(new org.xms.g.utils.XBox(hReturn))));
+    }
+
+    public void writeToParcel(android.os.Parcel param0, int param1) {
+        com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport hTransport = ((com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport) (this.getHInstance()));
+        param0.writeString(hTransport.getValue());
+    }
+
+    public int describeContents() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public static org.xms.g.fido.common.Transport dynamicCast(java.lang.Object param0) {
+        return ((org.xms.g.fido.common.Transport) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport;
+    }
+
+    public static org.xms.g.fido.common.Transport[] values() {
+        return new org.xms.g.fido.common.Transport[] {
+            getBLUETOOTH_CLASSIC(), getBLUETOOTH_LOW_ENERGY(), getNFC(), getUSB(),
+        };
+    }
+
+    public static class UnsupportedTransportException extends java.lang.Exception implements org.xms.g.utils.XGettable {
+        public java.lang.Object hInstance;
+
+        public UnsupportedTransportException(org.xms.g.utils.XBox param0) {
+            if (param0 == null) {
+                return;
+            }
+            this.setHInstance(param0.getHInstance());
+        }
+
+        public UnsupportedTransportException(java.lang.String param0) {
+        }
+
+        public void setHInstance(java.lang.Object param0) {
+            this.hInstance = param0;
+        }
+
+        public java.lang.Object getHInstance() {
+            return this.hInstance;
+        }
+
+        public static org.xms.g.fido.common.Transport.UnsupportedTransportException dynamicCast(java.lang.Object param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public static boolean isInstance(java.lang.Object param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+    }
+}

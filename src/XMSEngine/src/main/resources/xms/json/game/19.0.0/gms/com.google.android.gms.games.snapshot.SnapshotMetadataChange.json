@@ -1,0 +1,115 @@
+{
+  "gName": "com.google.android.gms.games.snapshot.SnapshotMetadataChange",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getCoverImage",
+        "paramTypes": [],
+        "retType": "android.graphics.Bitmap"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getThumbnail",
+        "paramTypes": [],
+        "retType": "android.graphics.Bitmap"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPlayedTimeMillis",
+        "paramTypes": [],
+        "retType": "java.lang.Long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getActiveTime",
+        "paramTypes": [],
+        "retType": "java.lang.Long"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getProgressValue",
+        "paramTypes": [],
+        "retType": "java.lang.Long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCurrentProgress",
+        "paramTypes": [],
+        "retType": "java.lang.Long"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getDescription",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDescInfo",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "EMPTY_CHANGE",
+        "modifiers": [],
+        "type": "com.google.android.gms.games.snapshot.SnapshotMetadataChange",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.jos.games.archive.ArchiveSummaryUpdate"
+}

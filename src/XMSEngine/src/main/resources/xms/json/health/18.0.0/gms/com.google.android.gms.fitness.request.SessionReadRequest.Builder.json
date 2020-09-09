@@ -1,0 +1,290 @@
+{
+  "gName": "com.google.android.gms.fitness.request.SessionReadRequest.Builder",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.request.SessionReadRequest"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.options.ActivityRecordReadOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "enableServerQueries",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.request.SessionReadRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "allowRemoteInquiry",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.options.ActivityRecordReadOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "excludePackage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.request.SessionReadRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "removeApplication",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.options.ActivityRecordReadOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "read",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.request.SessionReadRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "read",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataCollector"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.options.ActivityRecordReadOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "read",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.request.SessionReadRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "read",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataType"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.options.ActivityRecordReadOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "readSessionsFromAllApps",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.request.SessionReadRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "readActivityRecordsFromAllApps",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.options.ActivityRecordReadOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setSessionId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.request.SessionReadRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setActivityRecordId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.options.ActivityRecordReadOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setSessionName",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.request.SessionReadRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setActivityRecordName",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.options.ActivityRecordReadOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTimeInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.request.SessionReadRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTimeInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.options.ActivityRecordReadOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.options.ActivityRecordReadOptions.Builder"
+}

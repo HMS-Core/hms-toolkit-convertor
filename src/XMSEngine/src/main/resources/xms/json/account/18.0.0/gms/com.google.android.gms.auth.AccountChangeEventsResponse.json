@@ -1,0 +1,83 @@
+{
+  "gName": "com.google.android.gms.auth.AccountChangeEventsResponse",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getEvents",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.auth.AccountChangeEvent>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "AccountChangeEventsResponse",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List<com.google.android.gms.auth.AccountChangeEvent>"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.auth.AccountChangeEventsResponse>",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

@@ -1,0 +1,33 @@
+-keep class org.xms.f.messaging.ExtensionMessagingService{*;}
+-keep class com.google.firebase.messaging.FirebaseMessagingService{*;}
+-keep class com.huawei.hms.push.HmsMessageService{*;}
+
+-keep class org.xms.f.messaging.RemoteMessage{*;}
+-keep class com.huawei.hms.push.RemoteMessage{*;}
+-keep class com.google.firebase.messaging.RemoteMessage{*;}
+-keep class * extends androidx.fragment.app.Fragment{*;}
+
+-keep class org.xms.g.maps.ExtensionMapOptions{*;}
+-keep class com.huawei.hms.maps.HuaweiMapOptions{*;}
+-keep class com.google.android.gms.maps.GoogleMapOptions{*;}
+
+-keep interface org.xms.g.maps.OnMapReadyCallback{*;}
+-keep interface com.huawei.hms.maps.OnMapReadyCallback{*;}
+-keep interface com.google.android.gms.maps.OnMapReadyCallback{*;}
+
+-keep class org.xms.g.maps.StreetViewPanoramaOptions{*;}
+-keep class com.google.android.gms.maps.OnStreetViewPanoramaReadyCallback{*;}
+-keep class com.huawei.hms.maps.OnStreetViewPanoramaReadyCallback{*;}
+
+-keep interface org.xms.g.maps.OnStreetViewPanoramaReadyCallback{*;}
+-keep interface com.google.android.gms.maps.OnStreetViewPanoramaReadyCallback{*;}
+-keep interface com.huawei.hms.maps.OnStreetViewPanoramaReadyCallback{*;}
+
+-keep class org.xms.g.utils.XBox{*;}
+-keep class org.xms.g.utils.XGettable{*;}
+
+# dynamic    ---begin---
+-keep class com.huawei.hms.dynamicloader.** { *; }
+-keep class com.huawei.hms.feature.dynamic.** {*;}
+-keep class com.huawei.hms.feature.** { *;}
+# dynamic    ---end---

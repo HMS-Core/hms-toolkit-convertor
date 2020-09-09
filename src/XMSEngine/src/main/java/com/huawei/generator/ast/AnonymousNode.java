@@ -24,7 +24,7 @@ import java.util.List;
  *
  * @since 2019-11-18
  */
-public class AnonymousNode extends ClassNode {
+public final class AnonymousNode extends ClassNode {
     private TypeNode type;
 
     private List<MethodNode> methods;
@@ -35,6 +35,9 @@ public class AnonymousNode extends ClassNode {
     }
 
     public String type() {
+        if (type == null) {
+            throw new IllegalArgumentException();
+        }
         return type.toString();
     }
 
@@ -53,6 +56,9 @@ public class AnonymousNode extends ClassNode {
 
     @Override
     public List<TypeNode> generics() {
+        if (type == null) {
+            throw new IllegalArgumentException();
+        }
         return type.getGenericType();
     }
 

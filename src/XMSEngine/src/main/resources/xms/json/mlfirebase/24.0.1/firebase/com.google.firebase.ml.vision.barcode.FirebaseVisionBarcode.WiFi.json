@@ -1,0 +1,147 @@
+{
+  "gName": "com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode.WiFi",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getEncryptionType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCipherMode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPassword",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPassword",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSsid",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSsidNumber",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_OPEN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "NO_PASSWORD_MODE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_WEP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "WEP_MODE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TYPE_WPA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "WPA_MODE_TYPE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ml.scan.HmsScan.WiFiConnectionInfo"
+}

@@ -1,0 +1,98 @@
+{
+  "gName": "com.google.firebase.inappmessaging.model.MessageType",
+  "interfaces": [],
+  "superClass": "java.lang.Enum",
+  "methods": [],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "BANNER",
+        "modifiers": [],
+        "type": "com.google.firebase.inappmessaging.model.MessageType",
+        "value": ""
+      },
+      "h": {
+        "name": "BANNER",
+        "modifiers": [],
+        "type": "com.huawei.agconnect.appmessaging.model.MessageType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "CARD",
+        "modifiers": [],
+        "type": "com.google.firebase.inappmessaging.model.MessageType",
+        "value": ""
+      },
+      "h": {
+        "name": "CARD",
+        "modifiers": [],
+        "type": "com.huawei.agconnect.appmessaging.model.MessageType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "IMAGE_ONLY",
+        "modifiers": [],
+        "type": "com.google.firebase.inappmessaging.model.MessageType",
+        "value": ""
+      },
+      "h": {
+        "name": "PICTURE",
+        "modifiers": [],
+        "type": "com.huawei.agconnect.appmessaging.model.MessageType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "MODAL",
+        "modifiers": [],
+        "type": "com.google.firebase.inappmessaging.model.MessageType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "UNSUPPORTED",
+        "modifiers": [],
+        "type": "com.google.firebase.inappmessaging.model.MessageType",
+        "value": ""
+      },
+      "h": {
+        "name": "UN_SUPPORT",
+        "modifiers": [],
+        "type": "com.huawei.agconnect.appmessaging.model.MessageType",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "enum",
+  "hName": "com.huawei.agconnect.appmessaging.model.MessageType"
+}

@@ -1,0 +1,121 @@
+{
+  "gName": "com.google.android.gms.location.GeofenceStatusCodes",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.CommonStatusCodes",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusCodeString",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getErrorMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "name": "GEOFENCE_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1000"
+      },
+      "h": {
+        "name": "GEOFENCE_UNAVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10200"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "name": "GEOFENCE_TOO_MANY_GEOFENCES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1001"
+      },
+      "h": {
+        "name": "GEOFENCE_NUMBER_OVER_LIMIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10201"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.210-SNAPSHOT",
+      "g": {
+        "name": "GEOFENCE_TOO_MANY_PENDING_INTENTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1002"
+      },
+      "h": {
+        "name": "GEOFENCE_PENDINGINTENT_OVER_LIMIT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10202"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.location.GeofenceErrorCodes"
+}

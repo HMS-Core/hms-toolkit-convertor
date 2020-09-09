@@ -17,24 +17,24 @@
 package com.huawei.generator.method.builder;
 
 import static com.huawei.generator.utils.XMSUtils.listMap;
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
 
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.TypeNode;
 import com.huawei.generator.ast.XMethodNode;
+import com.huawei.generator.gen.JavadocConstants;
 import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JMapping;
 import com.huawei.generator.json.JMethod;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.method.gen.BodyGenerator;
-import com.huawei.generator.utils.Modifier;
+import com.huawei.generator.exception.UnExpectedProcessException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Builder for normal method namely routing method.
+ * To build a normal method.
  *
  * @since 2019-11-26
  */
@@ -45,15 +45,17 @@ public class RoutingMethodBuilder extends AbstractMethodBuilder<JMethod> {
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 
     @Override
     public MethodNode build(JClass def, ClassNode classNode, JMapping<JMethod> mapping) {
-        MethodNode method = createMethod(classNode, mapping);
-        BodyGenerator methodBodyGenerator = factory.createRoutingMethodGenerator(method, def, mapping);
-        method.setBody(methodBodyGenerator.generate());
-        return method;
+        MethodNode methodNode = createMethod(classNode, mapping);
+        // add methodDoc information into methodNode
+        createMethodJavadoc(methodNode, mapping);
+        BodyGenerator methodBodyGenerator = factory.createRoutingMethodGenerator(methodNode, def, mapping);
+        methodNode.setBody(methodBodyGenerator.generate());
+        return methodNode;
     }
 
     private MethodNode createMethod(ClassNode parent, JMapping<JMethod> mapping) {
@@ -64,16 +66,16 @@ public class RoutingMethodBuilder extends AbstractMethodBuilder<JMethod> {
         TypeNode tn = TypeNode.create(mapping.g().returnType(), false);
         node.setReturnType(tn == null ? null : tn.toX());
         node.setParameters(listMap(mapping.g().parameterTypes(), param -> TypeNode.create(param.type(), false).toX()));
-
         node.setBody(new ArrayList<>());
+
         // remove abstract modifier to implement inherit method in class
         if ((!parent.isAbstract() && !parent.isInterface()) && node.isAbstract()) {
-            node.modifiers().remove(Modifier.ABSTRACT.getName());
+            node.modifiers().remove("abstract");
         }
 
         // remove abstract modifier in interface for simplify
         if (parent.isInterface() && node.isAbstract()) {
-            node.modifiers().remove(Modifier.ABSTRACT.getName());
+            node.modifiers().remove("abstract");
         }
         // add exceptions
         List<TypeNode> exceptions = new ArrayList<>();
@@ -86,5 +88,13 @@ public class RoutingMethodBuilder extends AbstractMethodBuilder<JMethod> {
         }
         node.setExceptions(exceptions);
         return node.normalize();
+    }
+
+    private void createMethodJavadoc(MethodNode methodNode, JMapping<JMethod> jMapping) {
+        if (jMapping.isUnsupported()) {
+            factory.createMethodDoc(methodNode, JavadocConstants.UNSUPPORTED_METHOD_INFO);
+        } else {
+            factory.createMethodDoc(methodNode);
+        }
     }
 }

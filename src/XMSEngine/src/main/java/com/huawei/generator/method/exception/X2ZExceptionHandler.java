@@ -27,7 +27,10 @@ import com.huawei.generator.ast.ThrowNode;
 import com.huawei.generator.ast.TypeNode;
 import com.huawei.generator.ast.VarNode;
 import com.huawei.generator.gen.AstConstants;
+import com.huawei.generator.json.JMapping;
+import com.huawei.generator.json.JMethod;
 import com.huawei.generator.method.component.Component;
+import com.huawei.generator.utils.XMSUtils;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -40,24 +43,26 @@ import java.util.stream.Collectors;
  * @since 2020-03-04
  */
 public class X2ZExceptionHandler extends ExceptionHandler {
-    public X2ZExceptionHandler(MethodNode methodNode, Component component) {
-        super(methodNode, component);
+    public X2ZExceptionHandler(MethodNode methodNode, JMapping<JMethod> mapping, Component component) {
+        super(methodNode, mapping, component);
     }
 
     @Override
     protected List<TypeNode> findXExceptions() {
         return exceptions.stream()
-            .filter(t -> component.isZType(t.getTypeName()))
-            .map(t -> component.toX(t))
+            .filter(exception -> component.isZType(exception.getTypeName()))
+            .map(exception -> component.toX(exception))
             .collect(Collectors.toList());
     }
 
     @Override
-    protected CatchNode catchException(TypeNode t) {
+    protected CatchNode catchException(TypeNode typeNode) {
         // catch (XException e)
-        // throw e.getZInstance()
+        // throw (ZException) e.getZInstance()
         CallNode ze = CallNode.create(VarNode.create("e"), component.getZInstance(), Collections.emptyList());
-        return CatchNode.create(t.getTypeName(), Collections.singletonList(ThrowNode.create(ze)));
+        CastExprNode castExprNode = CastExprNode.create(TypeNode.create(
+            component.isH() ? XMSUtils.xtoH(typeNode.getTypeName()) : XMSUtils.xtoG(typeNode.getTypeName())), ze);
+        return CatchNode.create(typeNode.getTypeName(), Collections.singletonList(ThrowNode.create(castExprNode)));
     }
 
     @Override

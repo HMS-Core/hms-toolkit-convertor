@@ -50,26 +50,31 @@ import java.util.zip.ZipFile;
  *
  * @since 2020-04-07
  */
-public final class MapProcessor extends BaseProcessor {
+public final class MapProcessor extends Processor {
     private static final Logger LOGGER = LoggerFactory.getLogger(MapProcessor.class);
 
     private String outPath;
 
+    private Map<String, String> currentVersion;
+
     private MapProcessor(MapProcessorBuilder builder) {
         super(builder);
         this.outPath = builder.outPath;
+        this.currentVersion = builder.currentVersion;
     }
-    
+
     /**
      * process all configs
-     *
+     * 
      * @return generatorResult describes the result message
+     * @throws InvalidJsonException if any invalid json file exists.
      */
     public GeneratorResult processAllTarget() throws InvalidJsonException {
+        GeneratorResult generatorResult;
         Auto auto = new Auto();
         Manual manual = new Manual();
 
-        GeneratorResult generatorResult = super.resolveAllClasses(auto, manual);
+        generatorResult = super.resolveAllClasses(auto, manual);
 
         if (generatorResult != GeneratorResult.SUCCESS) {
             return generatorResult;
@@ -101,20 +106,20 @@ public final class MapProcessor extends BaseProcessor {
             return generatorResult;
         }
 
-        // generate white list for code analyze engine
-        List<String> results = MapPatcher.findSameMethod(super.autoGMethodList, super.manualGMethodList);
-        LOGGER.debug("whiteList");
-        for (String result : results) {
-            // print whiteList
-            LOGGER.debug(result);
+        // generate trust list for code analyze engine
+        List<String> result = MapPatcher.findSameMethod(super.autoGMethodList, super.manualGMethodList);
+        LOGGER.debug("trustList");
+        for (String str : result) {
+            // print trustList
+            LOGGER.debug(str);
         }
         return generatorResult;
     }
 
     private G2XExtension resolveG2XExtension() {
         InputStream inputStream = MapProcessor.class.getResourceAsStream("/" + XmsConstants.G2X_MANUAL_EXTENSION);
-        InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-        return Parser.parseEx(inputStreamReader);
+        InputStreamReader isr = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+        return Parser.parseEx(isr);
     }
 
     // sort fields in auto class
@@ -133,40 +138,42 @@ public final class MapProcessor extends BaseProcessor {
 
     @Override
     void process(ZipEntry entry, ZipFile zipFile, Auto auto, Manual manual) throws IOException {
-        if ((entry.getName().startsWith("xms/json") || entry.getName().startsWith("xms/agc-json"))
-            && entry.getName().endsWith(".json")) {
+        if ((entry.getName().startsWith("xms/json") || entry.getName().startsWith("xms/agc-json")
+            || entry.getName().startsWith("xms/special_json")) && entry.getName().endsWith(".json")) {
             JClass jClass = getJClassFromEntry(entry, zipFile);
-            String[] pathStrs = getJsonPathFromEntry(entry,jClass);
-            String kitName = pathStrs[2];
-            String dependencyName = kitName;
+            String[] pathStrs = getJsonPathFromEntry(entry, jClass);
+            String kitname = pathStrs[2];
+            String dependencyName = kitname;
+            if (this.currentVersion.containsKey(kitname)
+                && !entry.getName().contains(this.currentVersion.get(kitname))) {
+                return;
+            }
 
-            // ml should be separated , the same as push
-            if (kitName.equals("ml")) {
-                dependencyName = dependencyName + pathStrs[pathStrs.length - 2];
+            // mlfirebase and mlgms should be separated , the same as push
+            if (kitname.equals("mlgms") || kitname.equals("mlfirebase")) {
+                dependencyName = kitname;
+                kitname = "ml";
             }
 
             // firebase json in gms will be excluded
-            if (kitName.equals("firebase")) {
+            if (kitname.equals("firebase")) {
                 return;
             }
-            String version = "";
             if (allJsonValid) {
-                fillResult(auto, manual, jClass, kitName, dependencyName, version);
+                fillResult(auto, manual, jClass, kitname, dependencyName);
             }
         }
-
         if (entry.getName().startsWith("xms/common") && entry.getName().endsWith(".json")) {
             JClass jClass = getJClassFromEntry(entry, zipFile);
             Map<String, String> paramMap =
                 buildParamMap(jClass, XmsConstants.SERIALIZATION_KIT_NAME, XmsConstants.SERIALIZATION_KIT_NAME);
             fillMethod(auto, manual, jClass, paramMap);
         }
-
         if (entry.getName().startsWith("xms/unsupport") && entry.getName().endsWith(".json")) {
             JClass jClass = getJClassFromEntry(entry, zipFile);
             String[] pathStrs = entry.getName().split("/");
-            String kitName = pathStrs[2];
-            Map<String, String> paramMap = buildParamMap(jClass, kitName, kitName);
+            String kitname = pathStrs[2];
+            Map<String, String> paramMap = buildParamMap(jClass, kitname, kitname);
             fillMethod(auto, manual, jClass, paramMap);
             fillField(auto, manual, jClass, paramMap);
         }
@@ -175,13 +182,21 @@ public final class MapProcessor extends BaseProcessor {
     public static class MapProcessorBuilder extends ProcessorBuilder {
         private String outPath;
 
-        public MapProcessorBuilder(String pluginPath, String outPath) {
+        private Map<String, String> currentVersion;
+
+        public MapProcessorBuilder(String pluginPath, String outPath, Map<String, String> currentVersion) {
             super(pluginPath);
             this.outPath = outPath;
+            this.currentVersion = currentVersion;
         }
 
-        public MapProcessorBuilder dollar(boolean dollar) {
-            super.setDollar(dollar);
+        public MapProcessorBuilder unGenerified(boolean unGenerified) {
+            super.setUnGenerified(unGenerified);
+            return this;
+        }
+
+        public MapProcessorBuilder withClassName(boolean withClassName) {
+            super.setWithClassName(withClassName);
             return this;
         }
 

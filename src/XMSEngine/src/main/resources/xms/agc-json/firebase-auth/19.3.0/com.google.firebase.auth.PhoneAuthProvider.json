@@ -1,0 +1,263 @@
+{
+  "gName": "com.google.firebase.auth.PhoneAuthProvider",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getCredential",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthCredential"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section10600103418206",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.PhoneAuthProvider"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.FirebaseAuth"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthProvider"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "verifyPhoneNumber",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          },
+          {
+            "pos": "3",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "4",
+            "type": "com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section10600103418206",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "verifyPhoneNumber",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          },
+          {
+            "pos": "3",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "4",
+            "type": "com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section10600103418206",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "verifyPhoneNumber",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          },
+          {
+            "pos": "3",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "4",
+            "type": "com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks"
+          },
+          {
+            "pos": "5",
+            "type": "com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section10600103418206",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "verifyPhoneNumber",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "long"
+          },
+          {
+            "pos": "2",
+            "type": "java.util.concurrent.TimeUnit"
+          },
+          {
+            "pos": "3",
+            "type": "java.util.concurrent.Executor"
+          },
+          {
+            "pos": "4",
+            "type": "com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks"
+          },
+          {
+            "pos": "5",
+            "type": "com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section10600103418206",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "verifyPhoneNumber",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.PhoneAuthOptions"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section10600103418206",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "PHONE_SIGN_IN_METHOD",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "phone"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "name": "PROVIDER_ID",
+        "modifiers": [],
+        "type": "java.lang.String",
+        "value": "phone"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

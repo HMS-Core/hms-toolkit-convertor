@@ -1,0 +1,430 @@
+{
+  "gName": "com.google.android.gms.identity.intents.model.UserAddress",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.google.android.gms.identity.intents.model.UserAddress"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "parseIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.huawei.hms.identity.entity.UserAddress"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAddress1",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAddressLine1",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAddress2",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAddressLine2",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAddress3",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAddressLine3",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAddress4",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAddressLine4",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAddress5",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAddressLine5",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAdministrativeArea",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAdministrativeArea",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCompanyName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCompanyName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCountryCode",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCountryCode",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getEmailAddress",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getEmailAddress",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getLocality",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getLocality",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getPhoneNumber",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getPhoneNumber",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getPostalCode",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getPostalNumber",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getSortingCode",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isPostBox",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support the com.google.android.gms.identity.intents.model.UserAddress.writeToParcel(android.os.Parcel,int) method. If it is called, delete it manually."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator<com.google.android.gms.identity.intents.model.UserAddress>",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support the com.google.android.gms.identity.intents.model.UserAddress.CREATOR attribute. If it is used, delete it manually."
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.identity.entity.UserAddress"
+}

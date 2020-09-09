@@ -1,0 +1,117 @@
+{
+  "gName": "com.google.android.gms.vision.text.Text",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBoundingBox",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBorder",
+        "paramTypes": [],
+        "retType": "android.graphics.Rect"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getComponents",
+        "paramTypes": [],
+        "retType": "java.util.List<? extends com.google.android.gms.vision.text.Text>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContents",
+        "paramTypes": [],
+        "retType": "java.util.List<? extends com.huawei.hms.mlsdk.text.MLText.Base>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getCornerPoints",
+        "paramTypes": [],
+        "retType": "android.graphics.Point[]"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getVertexes",
+        "paramTypes": [],
+        "retType": "android.graphics.Point[]"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getValue",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStringValue",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLanguage",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.mlsdk.text.MLText.Text"
+}

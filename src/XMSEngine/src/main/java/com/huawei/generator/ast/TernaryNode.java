@@ -17,11 +17,11 @@
 package com.huawei.generator.ast;
 
 /**
- * This is the TernaryNode class.
+ * Ternary Node
  *
- * @since 2019-11-16
+ * @since 2020-01-17
  */
-public class TernaryNode extends StatementNode {
+public final class TernaryNode extends StatementNode {
     private StatementNode condition;
 
     private StatementNode thenStatement;

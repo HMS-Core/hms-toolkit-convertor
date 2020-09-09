@@ -1,0 +1,190 @@
+{
+  "gName": "com.google.firebase.provider.FirebaseInitProvider",
+  "interfaces": [],
+  "superClass": "android.content.ContentProvider",
+  "methods": [
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "attachInfo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.content.pm.ProviderInfo"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "delete",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String[]"
+          }
+        ],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getType",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "insert",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          },
+          {
+            "pos": "1",
+            "type": "android.content.ContentValues"
+          }
+        ],
+        "retType": "android.net.Uri"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onCreate",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "query",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String[]"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "java.lang.String[]"
+          },
+          {
+            "pos": "4",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "android.database.Cursor"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "update",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          },
+          {
+            "pos": "1",
+            "type": "android.content.ContentValues"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "java.lang.String[]"
+          }
+        ],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "FirebaseInitProvider",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

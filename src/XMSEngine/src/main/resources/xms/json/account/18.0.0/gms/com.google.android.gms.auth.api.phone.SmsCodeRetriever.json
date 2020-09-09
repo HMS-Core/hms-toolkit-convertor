@@ -1,0 +1,100 @@
+{
+  "gName": "com.google.android.gms.auth.api.phone.SmsCodeRetriever",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAutofillClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.phone.SmsCodeAutofillClient"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getAutofillClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.auth.api.phone.SmsCodeAutofillClient"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "name": "EXTRA_SMS_CODE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.auth.api.phone.EXTRA_SMS_CODE"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "name": "EXTRA_STATUS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.auth.api.phone.EXTRA_STATUS"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "name": "SMS_CODE_RETRIEVED_ACTION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "com.google.android.gms.auth.api.phone.SMS_CODE_RETRIEVED"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": ""
+}

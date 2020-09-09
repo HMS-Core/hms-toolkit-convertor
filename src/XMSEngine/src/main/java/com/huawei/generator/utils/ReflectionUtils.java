@@ -17,14 +17,12 @@
 package com.huawei.generator.utils;
 
 import static com.huawei.generator.gen.AstConstants.GENERIC_PREFIX;
-import static com.huawei.generator.gen.AstConstants.XMS_UTILS;
 
 import com.huawei.generator.ast.AssignNode;
 import com.huawei.generator.ast.CallNode;
 import com.huawei.generator.ast.CastExprNode;
 import com.huawei.generator.ast.ConstantNode;
 import com.huawei.generator.ast.DeclareNode;
-import com.huawei.generator.ast.GetField;
 import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.NewArrayNode;
 import com.huawei.generator.ast.ReturnNode;
@@ -32,15 +30,14 @@ import com.huawei.generator.ast.StatementNode;
 import com.huawei.generator.ast.TypeNode;
 import com.huawei.generator.ast.VarNode;
 import com.huawei.generator.gen.AstConstants;
-import com.huawei.generator.json.JMethod;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Handle reflection type
+ * Utils for Reflection
  *
- * @since 2020-05-12
+ * @since 2020-03-23
  */
 public class ReflectionUtils {
     /**
@@ -51,9 +48,12 @@ public class ReflectionUtils {
 
         private String upperbound;
 
-        private TypePair(boolean isGeneric, String upperbound) {
+        private String genericTypeName;
+
+        private TypePair(boolean isGeneric, String upperbound, String genericTypeName) {
             this.isGeneric = isGeneric;
             this.upperbound = upperbound;
+            this.genericTypeName = genericTypeName;
         }
 
         /**
@@ -63,6 +63,15 @@ public class ReflectionUtils {
          */
         public boolean isGeneric() {
             return isGeneric;
+        }
+
+        /**
+         * get generic type name.
+         * 
+         * @return generic type name.
+         */
+        public String getGenericTypeName() {
+            return genericTypeName;
         }
 
         /**
@@ -80,7 +89,7 @@ public class ReflectionUtils {
      * 
      * @param methodNode the method node.
      * @param index parameter index.
-     * @return return parameter of index <isGeneric, type>
+     * @return return parameter type(TypePair)
      */
     public static TypePair getParameterType(MethodNode methodNode, int index) {
         TypeNode typeNode = methodNode.parameters().get(index);
@@ -89,12 +98,17 @@ public class ReflectionUtils {
         // XR
         String xTypeName = GENERIC_PREFIX + typeName;
         String superClass = AstConstants.OBJECT + ".class";
+        String genericTypeName = typeName;
         // find generic upper bound
         boolean isGeneric = false;
         // check whether defined in the generic types of the outer X class
         if (methodNode.parent().outerClass().generics() != null) {
             for (TypeNode generic : methodNode.parent().outerClass().generics()) {
-                if (!xTypeName.equals(generic.getTypeName()) && !typeName.equals(generic.getTypeName())) {
+                if (xTypeName.equals(generic.getTypeName())) {
+                    genericTypeName = xTypeName;
+                } else if (typeName.equals(generic.getTypeName())) {
+                    genericTypeName = typeName;
+                } else {
                     continue;
                 }
                 if (generic.getSuperClass() != null && generic.getSuperClass().size() != 0) {
@@ -113,6 +127,7 @@ public class ReflectionUtils {
                 }
                 if (generic.getSuperClass() != null && generic.getSuperClass().size() != 0) {
                     superClass = generic.getSuperClass().get(0).getTypeName() + ".class";
+                    genericTypeName = typeName;
                     isGeneric = true;
                     break;
                 }
@@ -123,7 +138,7 @@ public class ReflectionUtils {
             superClass = typeName + ".class";
         }
 
-        return new TypePair(isGeneric, superClass);
+        return new TypePair(isGeneric, superClass, genericTypeName);
     }
 
     /**
@@ -151,10 +166,12 @@ public class ReflectionUtils {
      * invoke handleInvokeBridgeReturnValue without cast.
      * 
      * @param resultHandle the result handle.
+     * @param methodNode keep same argument with handleInvokeBridgeMethodReturnValue.
      * @param isH true if HMS; else otherwise.
      * @return return call node of handleInvokeBridgeReturnValue, without cast.
      */
-    private static StatementNode handleInvokeBridgeMethodReturnValueWithoutCast(VarNode resultHandle, boolean isH) {
+    private static StatementNode handleInvokeBridgeMethodReturnValueWithoutCast(VarNode resultHandle,
+        MethodNode methodNode, boolean isH) {
         // init params
         List<StatementNode> params = new ArrayList<>();
         params.add(resultHandle);
@@ -175,7 +192,7 @@ public class ReflectionUtils {
     private static StatementNode handleInvokeBridgeMethodReturnValue(VarNode resultHandle, MethodNode methodNode,
         boolean isH) {
         return CastExprNode.create(TypeNode.create(methodNode.returnType().getTypeName()),
-            handleInvokeBridgeMethodReturnValueWithoutCast(resultHandle, isH));
+            handleInvokeBridgeMethodReturnValueWithoutCast(resultHandle, methodNode, isH));
     }
 
     private static void genTypeAssignment(List<StatementNode> block, MethodNode methodNode) {
@@ -230,7 +247,6 @@ public class ReflectionUtils {
 
         // types[i] = types i
         genTypeAssignment(block, methodNode);
-
         return block;
     }
 
@@ -241,27 +257,28 @@ public class ReflectionUtils {
      * @param receiver the invoke target.
      * @param bridgedMethodName method name of call target.
      * @param isH HMS if true, GMS otherwise.
+     * @return statement nodes of generated invoke bridge method block.
      */
     public static List<StatementNode> genInvokeBridgeMethodBlock(MethodNode methodNode, StatementNode receiver,
         String bridgedMethodName, boolean isH) {
-        // call "invokeBridgeMethod"
+        // call "invokeMethod"
         List<StatementNode> xParams = new ArrayList<>();
         xParams.add(receiver);
         xParams.add(ConstantNode.create("java.lang.String", bridgedMethodName));
         xParams.add(VarNode.create("params"));
         xParams.add(VarNode.create("types"));
         xParams.add(ConstantNode.create("boolean", String.valueOf(isH)));
-        CallNode callBridge = CallNode.create(VarNode.create(AstConstants.XMS_UTILS), "invokeBridgeMethod", xParams);
+        CallNode callBridge = CallNode.create(VarNode.create(AstConstants.XMS_UTILS), "invokeMethod", xParams);
 
-        // handle invokeBridgeMethod parameters
+        // handle invokeMethod parameters
         List<StatementNode> block = new ArrayList<>(genInvokeBridgeParametersFromParameters(methodNode));
-        // return void
         if (methodNode.returnType() == null || methodNode.isReturnVoid()) {
+            // return void
             block.add(callBridge);
             return block;
         }
 
-        // Object result = invokeBridgeMethod()
+        // Object result = invokeMethod()
         AssignNode result =
             AssignNode.create(DeclareNode.create(TypeNode.create(AstConstants.OBJECT), "result"), callBridge);
         block.add(result);
@@ -272,58 +289,4 @@ public class ReflectionUtils {
         return block;
     }
 
-    private static List<StatementNode> genProtectedMethodParameters(JMethod jMethod, List<StatementNode> args) {
-        List<StatementNode> block = new ArrayList<>();
-        int paraSize = jMethod.parameterTypes().size();
-
-        // java.lang.Object[] params = new java.lang.Object[size]
-        block.add(AssignNode.create(DeclareNode.create(TypeNode.create(AstConstants.OBJECT + "[]"), "params"),
-            NewArrayNode.create(TypeNode.create(AstConstants.OBJECT), String.valueOf(paraSize))));
-
-        // java.lang.Class[] types = new java.lang.Class[size]
-        block.add(AssignNode.create(DeclareNode.create(TypeNode.create("java.lang.Class[]"), "types"),
-            NewArrayNode.create(TypeNode.create("java.lang.Class"), String.valueOf(paraSize))));
-
-        // params[i] = params i;
-        for (int index = 0; index < jMethod.parameterTypes().size(); index++) {
-            block.add(AssignNode.create(VarNode.create("params[" + index + "]"), args.get(index)));
-        }
-
-        // types[i] = types i
-        for (int index = 0; index < jMethod.parameterTypes().size(); index++) {
-            block.add(AssignNode.create(VarNode.create("types[" + index + "]"),
-                GetField.create(VarNode.create(jMethod.parameterTypes().get(index).type()), "class")));
-        }
-
-        return block;
-    }
-
-    /**
-     * generate invoke protect method block.
-     *
-     * @param body generated body
-     * @param methodNode the method node.
-     * @param jMethod invoke JMethod
-     * @param receiver invoke receiver
-     * @param args invoke args
-     * @param isH HMS if true, GMS otherwise.
-     * @return return Call Node.
-     */
-    public static CallNode genInvokeProtectMethod(List<StatementNode> body, MethodNode methodNode, JMethod jMethod,
-        StatementNode receiver, List<StatementNode> args, boolean isH) {
-        String className = methodNode.parent().getGType().getTypeName();
-        if (isH) {
-            className = methodNode.parent().getHType().getTypeName();
-        }
-        String methodName = jMethod.name();
-        body.addAll(genProtectedMethodParameters(jMethod, args));
-        List<StatementNode> invokeParams = new ArrayList<>();
-        invokeParams.add(receiver);
-        invokeParams.add(GetField.create(VarNode.create(className), "class"));
-        invokeParams.add(ConstantNode.create("java.lang.String", methodName));
-        invokeParams.add(VarNode.create("types"));
-        invokeParams.add(VarNode.create("params"));
-        // invoke protectMethod
-        return CallNode.create(VarNode.create(XMS_UTILS), "invokeProtectMethod", invokeParams);
-    }
 }

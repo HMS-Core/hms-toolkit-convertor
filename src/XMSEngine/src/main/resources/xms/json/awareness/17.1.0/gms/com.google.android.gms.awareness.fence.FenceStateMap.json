@@ -1,0 +1,72 @@
+{
+  "gName": "com.google.android.gms.awareness.fence.FenceStateMap",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getFenceKeys",
+        "paramTypes": [],
+        "retType": "java.util.Set<java.lang.String>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBarrierLabels",
+        "paramTypes": [],
+        "retType": "java.util.Set<java.lang.String>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getFenceState",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.FenceState"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBarrierStatus",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.BarrierStatus"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.kit.awareness.barrier.BarrierStatusMap"
+}

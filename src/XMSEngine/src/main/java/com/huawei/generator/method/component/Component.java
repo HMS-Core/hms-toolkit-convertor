@@ -23,6 +23,9 @@ import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.NewNode;
 import com.huawei.generator.ast.StatementNode;
 import com.huawei.generator.ast.TypeNode;
+import com.huawei.generator.ast.custom.XClassDoc;
+import com.huawei.generator.ast.custom.XFieldDoc;
+import com.huawei.generator.ast.custom.XMethodDoc;
 import com.huawei.generator.gen.AstConstants;
 import com.huawei.generator.json.JClass;
 import com.huawei.generator.json.JMapping;
@@ -30,12 +33,13 @@ import com.huawei.generator.json.JMethod;
 import com.huawei.generator.mirror.KClass;
 
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
- * Component is XMS routing target.
- * One component corresponds to one XMS routing target.
+ * Class for Component
  *
  * @since 2020-02-19
  */
@@ -65,7 +69,7 @@ public abstract class Component {
      * @return name of method return value
      */
     public String retVarName() {
-        return identifier.toLowerCase() + "Return";
+        return identifier.toLowerCase(Locale.ENGLISH) + "Return";
     }
 
     /**
@@ -90,6 +94,9 @@ public abstract class Component {
      * @return list of parameters
      */
     public List<StatementNode> xWrapperParams(String paramName) {
+        if (container == null) {
+            throw new IllegalArgumentException();
+        }
         return Collections.singletonList(
             NewNode.create(TypeNode.create(AstConstants.XMS_BOX), container.xWrapperParams(this, paramName)));
     }
@@ -100,7 +107,7 @@ public abstract class Component {
      * @return gmsObj or hmsObj
      */
     public String zReturn() {
-        return identifier.toLowerCase() + "msObj";
+        return identifier.toLowerCase(Locale.ENGLISH) + "msObj";
     }
 
     /**
@@ -125,7 +132,7 @@ public abstract class Component {
      * @return method name
      */
     public String getZInstance() {
-        return "get" + identifier.toUpperCase() + "Instance";
+        return "get" + identifier.toUpperCase(Locale.ENGLISH) + "Instance";
     }
 
     /**
@@ -148,7 +155,7 @@ public abstract class Component {
      * @return var name
      */
     public String zObj() {
-        return identifier.toLowerCase() + "Obj";
+        return identifier.toLowerCase(Locale.ENGLISH) + "Obj";
     }
 
     /**
@@ -173,7 +180,7 @@ public abstract class Component {
      * @return inner class name
      */
     public String zImpl() {
-        return identifier.toUpperCase() + "Impl";
+        return identifier.toUpperCase(Locale.ENGLISH) + "Impl";
     }
 
     /**
@@ -186,7 +193,7 @@ public abstract class Component {
     public abstract List<JMapping<JMethod>> wholeMapping(ClassNode xNode);
 
     /**
-     * Whether add method to zImpl
+     * Whether add method to zimpl
      *
      * @param mapping jmapping
      * @param def jclass
@@ -252,7 +259,7 @@ public abstract class Component {
      * @return method name
      */
     public String setZInstance() {
-        return "set" + identifier.toUpperCase() + "Instance";
+        return "set" + identifier.toUpperCase(Locale.ENGLISH) + "Instance";
     }
 
     /**
@@ -261,7 +268,7 @@ public abstract class Component {
      * @return name of the Z instance field
      */
     public String zInstanceFieldName() {
-        return identifier.toLowerCase() + "Instance";
+        return identifier.toLowerCase(Locale.ENGLISH) + "Instance";
     }
 
     /**
@@ -293,4 +300,88 @@ public abstract class Component {
      * @return prefix_name of getZInstance method
      */
     public abstract String getInstancePrefix();
+
+    /**
+     * get the componentContainer
+     *
+     * @return container
+     */
+    public ComponentContainer getContainer() {
+        return container;
+    }
+
+    /**
+     * get the gClassName or hClassName used in javadoc
+     *
+     * @param classDocNode the classDocNode
+     * @return gClassName or hClassName
+     */
+    public abstract String getZClassNameForDoc(XClassDoc classDocNode);
+
+    /**
+     * get the gClassInfo or hClassInfo used in javadoc
+     *
+     * @param classDocNode the classDocNode
+     * @return gClassInfo or hClassInfo
+     */
+    public abstract String getZClassInfoForDoc(XClassDoc classDocNode);
+
+    /**
+     * get the gMethodName or hMethodName used in javadoc
+     *
+     * @param methodDocNode the methodDocNode
+     * @return gMethodName or hMethodName
+     */
+    public abstract String getZMethodNameForDoc(XMethodDoc methodDocNode);
+
+    /**
+     * get the gMethodInfo or hMethodInfo used in javadoc
+     *
+     * @param methodDocNode the methodDocNode
+     * @return gMethodInfo or hMethodInfo
+     */
+    public abstract String getZMethodInfoForDoc(XMethodDoc methodDocNode);
+
+    /**
+     * get the attribute of component used in javadoc
+     *
+     * @return the attribute of component
+     */
+    public abstract String componentAttribute();
+
+    /**
+     * methodDoc's name and information form like 'methodName : <a href=\"https://....">'
+     *
+     * @param methodDocNode method javadoc node
+     * @return method name and info
+     */
+    public List<String> getMethodDocNameAndInfo(XMethodDoc methodDocNode) {
+        String doc = getZMethodNameForDoc(methodDocNode);
+        if (doc.isEmpty()) {
+            return Collections.EMPTY_LIST;
+        }
+
+        List<String> displayInfoList = new LinkedList<>();
+        String zMethodInfoForDoc = getZMethodInfoForDoc(methodDocNode);
+        if (zMethodInfoForDoc.isEmpty()) {
+            displayInfoList.add(" * " + doc);
+            return displayInfoList;
+        }
+
+        displayInfoList.add(" * " + doc + ": <a href=\"" + zMethodInfoForDoc + "\">" + zMethodInfoForDoc + "</a><br/>");
+        return displayInfoList;
+    }
+
+    // classDoc's form like 'className : classInfo'
+    public String classNameAndInfo(XClassDoc node) {
+        return getZClassNameForDoc(node) + ": " + getZClassInfoForDoc(node);
+    }
+
+    /**
+     * get the information of fieldDoc
+     *
+     * @param fieldDoc the fieldDoc
+     * @return the information of fieldDoc
+     */
+    public abstract String getFieldInfo(XFieldDoc fieldDoc);
 }

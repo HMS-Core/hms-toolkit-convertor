@@ -43,11 +43,23 @@ public class GSummaryMap {
         return class2DescMap;
     }
 
+    public void setClass2DescMap(Map<String, JDesc> class2DescMap) {
+        this.class2DescMap = class2DescMap;
+    }
+
     public Map<String, JDesc> getMethod2DescMap() {
         return method2DescMap;
     }
 
+    public void setMethod2DescMap(Map<String, JDesc> method2DescMap) {
+        this.method2DescMap = method2DescMap;
+    }
+
     public Map<String, JDesc> getField2DescMap() {
         return field2DescMap;
+    }
+
+    public void setField2DescMap(Map<String, JDesc> field2DescMap) {
+        this.field2DescMap = field2DescMap;
     }
 }

@@ -37,7 +37,6 @@ import com.huawei.generator.json.JMethod;
 import com.huawei.generator.method.component.Component;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.utils.MappingUtils;
-import com.huawei.generator.utils.Modifier;
 
 import java.util.Collections;
 import java.util.List;
@@ -78,20 +77,21 @@ public final class WrapperDecorator {
         // this.wrapper = false
         classNode.methods()
             .stream()
-            .filter(it -> it instanceof XConstructorNode && !(it instanceof XWrapperConstructorNode))
-            .forEach(it -> createWrapperAssignment(it, false));
+            .filter(methodNode ->
+                methodNode instanceof XConstructorNode && !(methodNode instanceof XWrapperConstructorNode))
+            .forEach(wrapperFalseMethodNode -> createWrapperAssignment(wrapperFalseMethodNode, false));
 
         // this.wrapper = true
         classNode.methods()
             .stream()
-            .filter(it -> it instanceof XWrapperConstructorNode)
-            .forEach(it -> createWrapperAssignment(it, true));
+            .filter(methodNode -> methodNode instanceof XWrapperConstructorNode)
+            .forEach(wrapperTrueMethodNode -> createWrapperAssignment(wrapperTrueMethodNode, true));
 
         // for XView's wrapInst method
         classNode.methods()
             .stream()
-            .filter(it -> it instanceof XViewInitializerNode)
-            .forEach(it -> createWrapperAssignment(it, true));
+            .filter(methodNode -> methodNode instanceof XViewInitializerNode)
+            .forEach(xViewWrapMethodNode -> createWrapperAssignment(xViewWrapMethodNode, true));
 
         return classNode;
     }
@@ -101,7 +101,7 @@ public final class WrapperDecorator {
         List<JMapping<JMethod>> gConstructors = def.methods()
             .stream()
             .filter(mapping -> mapping.isMatching() || mapping.isDisMatchMethodNeedToBeCreated())
-            .filter(mapping -> !mapping.g().modifiers().contains(Modifier.PRIVATE.getName()))
+            .filter(mapping -> !mapping.g().modifiers().contains("private"))
             .filter(mapping -> MappingUtils.isConstructor(def, mapping))
             .collect(Collectors.toList());
         if (!classNode.isInheritable() || gConstructors.isEmpty() || isOnlyForWrapping(classNode.longName())) {
@@ -109,15 +109,15 @@ public final class WrapperDecorator {
         }
         factory.componentContainer()
             .components()
-            .forEach(it -> new ZImplFactory().createZImplClass(factory, classNode, xMethodMapping, it));
+            .forEach(component -> new ZImplFactory().createZImplClass(factory, classNode, xMethodMapping, component));
         return true;
     }
 
     private void createWrapperField(XAdapterClassNode classNode) {
         // add wrapper field
         classNode.fields()
-            .add(FieldNode.create(classNode, Collections.singletonList(Modifier.PRIVATE.getName()),
-                TypeNode.create("boolean"), WRAPPER_FIELD, VarNode.create("true")));
+            .add(FieldNode.create(classNode, Collections.singletonList("private"), TypeNode.create("boolean"),
+                WRAPPER_FIELD, VarNode.create("true")));
     }
 
     private void createWrapperAssignment(MethodNode methodNode, boolean isWrapper) {

@@ -31,7 +31,7 @@ import com.huawei.generator.utils.XMSUtils;
 import java.util.List;
 
 /**
- * Function description
+ * Handler for X2Z Method Return
  *
  * @since 2020-02-26
  */

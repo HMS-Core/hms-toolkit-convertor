@@ -22,6 +22,8 @@ import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.StatementNode;
 import com.huawei.generator.ast.TryNode;
 import com.huawei.generator.ast.TypeNode;
+import com.huawei.generator.json.JMapping;
+import com.huawei.generator.json.JMethod;
 import com.huawei.generator.method.component.Component;
 
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ public abstract class ExceptionHandler {
 
     protected List<TypeNode> exceptions;
 
-    protected ExceptionHandler(MethodNode methodNode, Component component) {
+    public ExceptionHandler(MethodNode methodNode, JMapping<JMethod> mapping, Component component) {
         this.methodNode = methodNode;
         this.exceptions = methodNode.getExceptions();
         this.component = component;
@@ -98,7 +100,10 @@ public abstract class ExceptionHandler {
             catchNodes.add(catchGeneric(e));
         }
 
-        return catchNodes.isEmpty() ? originalBlock :
-            Collections.singletonList(ExceptionNode.create(TryNode.create(originalBlock), catchNodes));
+        if (catchNodes.isEmpty()) {
+            return originalBlock;
+        }
+
+        return Collections.singletonList(ExceptionNode.create(TryNode.create(originalBlock), catchNodes));
     }
 }

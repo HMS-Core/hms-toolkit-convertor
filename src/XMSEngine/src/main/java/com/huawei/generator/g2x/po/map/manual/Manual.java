@@ -16,8 +16,9 @@
 
 package com.huawei.generator.g2x.po.map.manual;
 
-import com.google.gson.annotations.Expose;
 import com.huawei.generator.g2x.po.map.extension.ExPackage;
+
+import com.google.gson.annotations.Expose;
 
 import java.util.LinkedList;
 import java.util.List;

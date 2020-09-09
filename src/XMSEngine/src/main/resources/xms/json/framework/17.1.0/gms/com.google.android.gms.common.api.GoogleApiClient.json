@@ -1,0 +1,730 @@
+{
+  "gName": "com.google.android.gms.common.api.GoogleApiClient",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "blockingConnect",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.common.ConnectionResult"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "holdUpConnect",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.api.ConnectionResult"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "blockingConnect",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.google.android.gms.common.ConnectionResult"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "holdUpConnect",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.huawei.hms.api.ConnectionResult"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "clearDefaultAccountAndReconnect",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "discardAndReconnect",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "connect",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "connect",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "connect",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "disconnect",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "disconnect",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "dump",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.io.FileDescriptor"
+          },
+          {
+            "pos": "2",
+            "type": "java.io.PrintWriter"
+          },
+          {
+            "pos": "3",
+            "type": "java.lang.String[]"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "print",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.io.FileDescriptor"
+          },
+          {
+            "pos": "2",
+            "type": "java.io.PrintWriter"
+          },
+          {
+            "pos": "3",
+            "type": "java.lang.String[]"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "dumpAll",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.io.FileDescriptor"
+          },
+          {
+            "pos": "2",
+            "type": "java.io.PrintWriter"
+          },
+          {
+            "pos": "3",
+            "type": "java.lang.String[]"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getConnectionResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.Api<?>"
+          }
+        ],
+        "retType": "com.google.android.gms.common.ConnectionResult"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getConnectionResult",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.Api<?>"
+          }
+        ],
+        "retType": "com.huawei.hms.api.ConnectionResult"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "hasConnectedApi",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.Api<?>"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "hasConnectedApi",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.Api<?>"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isConnected",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isConnected",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isConnecting",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isConnecting",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isConnectionCallbacksRegistered",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "hasConnectionSuccessListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isConnectionFailedListenerRegistered",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "hasConnectionFailureListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "reconnect",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "reconnect",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "registerConnectionCallbacks",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "setConnectionCallbacks",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "registerConnectionFailedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "setConnectionFailedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalStateException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopAutoManage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "androidx.fragment.app.FragmentActivity"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "redundant",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getScopes",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.support.api.entity.auth.Scope>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "redundant",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPermissionInfos",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.support.api.entity.auth.PermissionInfo>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "redundant",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "disableLifeCycleManagement",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unregisterConnectionCallbacks",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "removeConnectionSuccessListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unregisterConnectionFailedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "removeConnectionFailureListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.hms:base:5.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "GoogleApiClient",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "HuaweiApiClient",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "SIGN_IN_MODE_OPTIONAL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "SIGN_IN_MODE_REQUIRED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently."
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.api.HuaweiApiClient"
+}

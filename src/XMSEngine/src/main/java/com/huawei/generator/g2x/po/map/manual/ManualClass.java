@@ -16,25 +16,31 @@
 
 package com.huawei.generator.g2x.po.map.manual;
 
-import com.google.gson.annotations.Expose;
 import com.huawei.generator.g2x.po.map.Desc;
+
+import com.google.gson.annotations.Expose;
 
 /**
  * ManualField: description of manual-classes, indicating wishhub plugins can not modify them directly.
  * Therefore app client developers should change them manually.
+ * <p>
  * including:
- * 1. className -> class name
- * 2. desc -> details of this method, see {@link Desc}
- * Note: for manual field, desc is very important, because it contains the user manual and url to guide developers.
+ * 1. className means class name
+ * 2. desc means details of this method, see {@link Desc}
+ * </p>
+ * <p>
+ * Note: for manual field, desc is very important, because it contains the user manual and url to guide
+ * developers.
+ * </p>
  *
  * @since 2019-11-27
  */
 public class ManualClass {
     @Expose
-    private String className;
+    String className;
 
     @Expose
-    private Desc desc;
+    Desc desc;
 
     public ManualClass(String className, Desc desc) {
         this.className = className;
@@ -48,4 +54,5 @@ public class ManualClass {
     public Desc getDesc() {
         return desc;
     }
+
 }

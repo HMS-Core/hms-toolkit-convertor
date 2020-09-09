@@ -42,16 +42,16 @@ public class GHImplMethodSupplement {
     public static List<JMapping<JMethod>> getAdditionalMethods(ClassNode classNode) {
         String xmsName = TypeNode.create(classNode.getJClass().gName()).toX().getTypeName();
         List<String> methodNameList = new ArrayList<>();
-        ADDITIONAL_METHODS.forEach(it -> {
-            if (it.className.equals(xmsName)) {
-                methodNameList.add(it.methodName);
+        ADDITIONAL_METHODS.forEach(method -> {
+            if (method.className.equals(xmsName)) {
+                methodNameList.add(method.methodName);
             }
         });
         if (methodNameList.size() == 0) {
             return new ArrayList<>();
         }
         List<JMapping<JMethod>> mappings = new ArrayList<>();
-        List<JMapping<JMethod>> wholeMapping = KClassUtils.getGHierachicalMethodMapping(classNode);
+        List<JMapping<JMethod>> wholeMapping = KClassUtils.getGHierarchicalMethodMapping(classNode);
         wholeMapping.forEach(mapping -> {
             if (methodNameList.contains(mapping.g().name())) {
                 mappings.add(mapping);

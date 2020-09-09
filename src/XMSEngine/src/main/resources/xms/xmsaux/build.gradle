@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+apply from: '../scripts/productFlavor.gradle'
+apply from: 'scripts/copy-dex.gradle'
+
+allprojects {
+    android {
+        compileSdkVersion ${SDKVERSION}
+        defaultConfig {
+            minSdkVersion ${MINVERSION}
+            targetSdkVersion ${TARGETVERSION}
+
+            consumerProguardFiles 'proguard.txt'
+        }
+
+        buildTypes {
+            debug {
+                buildConfigField("String", "XG_BIN_NAME", "\"xg.apk\"")
+                buildConfigField("String", "XH_BIN_NAME", "\"xh.apk\"")
+            }
+            release {
+                buildConfigField("String", "XG_BIN_NAME", "\"xg.apk\"")
+                buildConfigField("String", "XH_BIN_NAME", "\"xh.apk\"")
+            }
+        }
+
+        compileOptions {
+            sourceCompatibility = 1.8
+            targetCompatibility = 1.8
+        }
+    }
+}
+
+dependencies {
+    compileOnly project(':xmsadapter')
+
+    ${DEPENDENCY}
+}
+
+
+afterEvaluate {
+    Project project ->
+        def cleanTask = project.tasks.getByName('clean')
+        cleanTask.doLast {
+            File assetsPath = new File(project.android.sourceSets.main.assets.srcDirs[0].path);
+            assetsPath.deleteDir();
+        }
+}

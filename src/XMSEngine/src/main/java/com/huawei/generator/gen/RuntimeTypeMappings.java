@@ -16,19 +16,13 @@
 
 package com.huawei.generator.gen;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.huawei.generator.build.ClassMappingManager;
 import com.huawei.generator.g2x.processor.GeneratorStrategyKind;
 import com.huawei.generator.json.meta.ClassRelation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -45,26 +39,25 @@ public abstract class RuntimeTypeMappings {
 
     private static final String LINE_DELIMITER = "\n        ";
 
-    String dumpMappings(String src, List<String> specifiedKitList) {
-        try (InputStream ins = RuntimeTypeMappings.class.getResourceAsStream(src);
-            InputStreamReader isr = new InputStreamReader(ins, StandardCharsets.UTF_8)) {
-            Type type = new TypeToken<Map<String, List<ClassRelation>>>() {}.getType();
-            Gson gson = new Gson();
-            Map<String, List<ClassRelation>> jMapping = gson.fromJson(isr, type);
+    private static Map<String, List<ClassRelation>> jMapping;
 
-            List<ClassRelation> classRelations = new ArrayList<>();
-            if (specifiedKitList == null) {
-                // When there is no specified kit, generate all kit
-                jMapping.values().forEach(classRelations::addAll);
-            } else {
-                specifiedKitList.forEach(str -> classRelations.addAll(jMapping.get(str)));
-            }
-            classRelations.sort(Comparator.comparing(ClassRelation::getXmsClassName));
-            return dumpClassRelations(classRelations);
-        } catch (IOException e) {
-            LOGGER.warn("Failed to dump mappings");
+    public static void generateMappingRelation(Map<String, String> kitVersion, String pluginPath) {
+        jMapping = new ClassMappingManager().generateMap(kitVersion, pluginPath);
+    }
+
+    String dumpMappings(List<String> specifiedKitList) {
+        List<ClassRelation> classRelations = new ArrayList<>();
+        if (jMapping == null) {
+            LOGGER.error("Mapping is null, Please initialize!");
         }
-        return "";
+        if (specifiedKitList == null) {
+            // When there is no specified kit, generate all kit
+            jMapping.values().forEach(classRelations::addAll);
+        } else {
+            specifiedKitList.forEach(str -> classRelations.addAll(jMapping.get(str)));
+        }
+        classRelations.sort(Comparator.comparing(ClassRelation::getXmsClassName));
+        return dumpClassRelations(classRelations);
     }
 
     /**
@@ -76,14 +69,17 @@ public abstract class RuntimeTypeMappings {
     protected abstract String dumpClassRelations(List<ClassRelation> relations);
 
     public static RuntimeTypeMappings create(GeneratorStrategyKind strategy) {
-        if (strategy == GeneratorStrategyKind.G || strategy == GeneratorStrategyKind.XG) {
-            return new OnlyG();
-        } else if (strategy == GeneratorStrategyKind.XH) {
-            return new OnlyH();
-        } else if (strategy == GeneratorStrategyKind.XAPI) {
-            return new Empty();
-        } else {
-            return new GAndH();
+        switch (strategy) {
+            case G:
+            case XG:
+                return new OnlyG();
+            case H:
+            case XH:
+                return new OnlyH();
+            case XAPI:
+                return new Empty();
+            default:
+                return new GAndH();
         }
     }
 
@@ -91,26 +87,16 @@ public abstract class RuntimeTypeMappings {
         @Override
         protected String dumpClassRelations(List<ClassRelation> relations) {
             String gh2x = relations.stream()
-                .map(it -> entryTemplate(it).replace("${G}", it.getGmsClassName())
-                    .replace("${H}", it.getHmsClassName())
-                    .replace("${X}", it.getXmsClassName()))
+                .map(classRelation -> entryTemplate(classRelation).replace("${G}", classRelation.getGmsClassName())
+                    .replace("${H}", classRelation.getHmsClassName())
+                    .replace("${X}", classRelation.getXmsClassName()))
                 .collect(Collectors.joining(LINE_DELIMITER));
-            String g2h = relations.stream()
-                .filter(it -> !it.getHmsClassName().isEmpty())
-                .map(it -> "G2H.put(\"${G}\", \"${H}\");".replace("${G}", it.getGmsClassName())
-                    .replace("${H}", it.getHmsClassName()))
-                .collect(Collectors.joining(LINE_DELIMITER));
-            String h2g = relations.stream()
-                .filter(it -> !it.getHmsClassName().isEmpty())
-                .map(it -> "H2G.put(\"${H}\", \"${G}\");".replace("${G}", it.getGmsClassName())
-                    .replace("${H}", it.getHmsClassName()))
-                .collect(Collectors.joining(LINE_DELIMITER));
-            return String.join(LINE_DELIMITER, gh2x, g2h, h2g);
+            return String.join(LINE_DELIMITER, gh2x);
         }
 
-        private String entryTemplate(ClassRelation r) {
+        private String entryTemplate(ClassRelation classRelation) {
             String template = "map.put(\"${G}\", \"${X}\");";
-            if (!r.getHmsClassName().isEmpty()) {
+            if (!classRelation.getHmsClassName().isEmpty()) {
                 template += LINE_DELIMITER;
                 template += "map.put(\"${H}\", \"${X}\");";
             }
@@ -122,8 +108,8 @@ public abstract class RuntimeTypeMappings {
         @Override
         protected String dumpClassRelations(List<ClassRelation> relations) {
             return relations.stream()
-                .map(it -> "map.put(\"${G}\", \"${X}\");".replace("${G}", it.getGmsClassName())
-                    .replace("${X}", it.getXmsClassName()))
+                .map(classRelation -> "map.put(\"${G}\", \"${X}\");".replace("${G}", classRelation.getGmsClassName())
+                    .replace("${X}", classRelation.getXmsClassName()))
                 .collect(Collectors.joining(LINE_DELIMITER));
         }
     }
@@ -132,15 +118,15 @@ public abstract class RuntimeTypeMappings {
         @Override
         protected String dumpClassRelations(List<ClassRelation> relations) {
             return relations.stream()
-                .map(it -> "map.put(\"${H}\", \"${X}\");".replace("${H}", it.getHmsClassName())
-                    .replace("${X}", it.getXmsClassName()))
+                .map(classRelation -> "map.put(\"${H}\", \"${X}\");".replace("${H}", classRelation.getHmsClassName())
+                    .replace("${X}", classRelation.getXmsClassName()))
                 .collect(Collectors.joining(LINE_DELIMITER));
         }
     }
 
     private static class Empty extends RuntimeTypeMappings {
         @Override
-        String dumpMappings(String src, List<String> specifiedKitList) {
+        String dumpMappings(List<String> specifiedKitList) {
             return "";
         }
 

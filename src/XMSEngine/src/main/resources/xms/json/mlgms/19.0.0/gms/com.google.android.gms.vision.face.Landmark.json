@@ -1,0 +1,343 @@
+{
+  "gName": "com.google.android.gms.vision.face.Landmark",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPosition",
+        "paramTypes": [],
+        "retType": "android.graphics.PointF"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCoordinatePoint",
+        "paramTypes": [],
+        "retType": "android.graphics.PointF"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "BOTTOM_MOUTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "TYPE_BOTTOM_OF_MOUTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "LEFT_CHEEK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TYPE_LEFT_CHEEK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "LEFT_EAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "TYPE_LEFT_EAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "LEFT_EAR_TIP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TYPE_TIP_OF_LEFT_EAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "LEFT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "TYPE_LEFT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "LEFT_MOUTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "h": {
+        "name": "TYPE_LEFT_SIDE_OF_MOUTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "NOSE_BASE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "h": {
+        "name": "TYPE_TIP_OF_NOSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "RIGHT_CHEEK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "h": {
+        "name": "TYPE_RIGHT_CHEEK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "RIGHT_EAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "h": {
+        "name": "TYPE_RIGHT_EAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "RIGHT_EAR_TIP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "h": {
+        "name": "TYPE_TIP_OF_RIGHT_EAR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "RIGHT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10"
+      },
+      "h": {
+        "name": "TYPE_RIGHT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "RIGHT_MOUTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11"
+      },
+      "h": {
+        "name": "TYPE_RIGHT_SIDE_OF_MOUTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.face.MLFaceKeyPoint"
+}

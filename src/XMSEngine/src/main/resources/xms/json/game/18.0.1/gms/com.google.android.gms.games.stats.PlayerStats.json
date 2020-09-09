@@ -1,0 +1,223 @@
+{
+  "gName": "com.google.android.gms.games.stats.PlayerStats",
+  "interfaces": [
+    "com.google.android.gms.common.data.Freezable<com.google.android.gms.games.stats.PlayerStats>",
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getAverageSessionLength",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAverageOnLineMinutes",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getChurnProbability",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getHighSpenderProbability",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSessionPercentile",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSpendPercentile",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSpendProbability",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getTotalSpendNext28Days",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getDaysSinceLastPlayed",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDaysFromLastGame",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getNumberOfPurchases",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPaymentTimes",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getNumberOfSessions",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getOnlineTimes",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isDataValid",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "UNSET_VALUE",
+        "modifiers": [],
+        "type": "float",
+        "value": "-1.0F"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.jos.games.playerstats.GamePlayerStatistics"
+}

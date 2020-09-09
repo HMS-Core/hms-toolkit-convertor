@@ -1,0 +1,110 @@
+{
+  "gName": "com.google.firebase.remoteconfig.FirebaseRemoteConfigValue",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalArgumentException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "asBoolean",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "asByteArray",
+        "paramTypes": [],
+        "retType": "byte[]"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalArgumentException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "asDouble",
+        "paramTypes": [],
+        "retType": "double"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalArgumentException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "asLong",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "asString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSource",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-remote-0000001050157274#EN-US_TOPIC_0000001050157274__section694517111144",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

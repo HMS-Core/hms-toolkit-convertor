@@ -1,0 +1,19 @@
+package org.xms.f.inappmessaging.model;
+
+public class XText {
+    private String Text;
+    private String HexColor;
+
+    public XText(String text, String hexColor) {
+        this.Text = text;
+        this.HexColor = hexColor;
+    }
+
+    public String getText() {
+        return this.Text;
+    }
+
+    public String getHexColor() {
+        return this.HexColor;
+    }
+}

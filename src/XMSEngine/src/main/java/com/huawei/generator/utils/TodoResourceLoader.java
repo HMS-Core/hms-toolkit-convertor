@@ -17,6 +17,8 @@
 package com.huawei.generator.utils;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
 import org.slf4j.Logger;
@@ -24,10 +26,12 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -45,11 +49,33 @@ import java.util.zip.ZipInputStream;
  *
  * @since 2019-11-21
  */
-public class TodoResourceLoader {
+public final class TodoResourceLoader {
+    public enum Factory {
+        INSTANCE;
+
+        private boolean enablePatch = true;
+
+        TodoResourceLoader createLoader(String jarPath, String relativePath, Map<String, String> kitVersionMap) {
+            TodoResourceLoader loader = new TodoResourceLoader(jarPath, relativePath, kitVersionMap);
+            loader.enablePatch = this.enablePatch;
+            return loader;
+        }
+
+        public void disablePatch() {
+            enablePatch = false;
+        }
+
+        public void enablePatch() {
+            enablePatch = true;
+        }
+    }
+
     private static final Logger LOGGER = LoggerFactory.getLogger(TodoResourceLoader.class);
 
     private static final String DEFAULT_ROOT =
         String.join(File.separator, System.getProperty("user.dir"), "src", "main", "resources", "xms", "patch");
+
+    private boolean enablePatch;
 
     private String jarPath;
 
@@ -57,7 +83,24 @@ public class TodoResourceLoader {
 
     private Map<String, String> contents;
 
+    private Map<String, String> kitVersionMap;
+
+    private TodoResourceLoader(String jarPath, String relativePath, Map<String, String> kitVersionMap) {
+        this.contents = new HashMap<>();
+        this.jarPath = jarPath;
+        this.relativePath = relativePath;
+        this.kitVersionMap = kitVersionMap;
+        if (jarPath == null) {
+            loadPatchesFromFileSystem();
+        } else {
+            loadPatchesFromJar();
+        }
+    }
+
     Optional<String> getContent(String key) {
+        if (!enablePatch) {
+            return Optional.empty();
+        }
         return Optional.ofNullable(contents.get(key));
     }
 
@@ -72,9 +115,20 @@ public class TodoResourceLoader {
         if (kitDirs == null) {
             throw new IllegalStateException("Patch path is not directory");
         }
+        String kitName;
+        String path;
+        String version;
+        String variantPath;
         for (File kitDir : kitDirs) {
             try {
-                String variantPath = kitDir.getCanonicalPath() + File.separator + relativePath;
+                path = kitDir.getCanonicalPath();
+                kitName = path.substring(path.lastIndexOf(File.separator) + 1);
+                version = kitVersionMap.get(kitName);
+                if (version == null || version.length() == 0) {
+                    variantPath = path + File.separator + relativePath;
+                } else {
+                    variantPath = path + File.separator + version + File.separator + relativePath;
+                }
                 File variantDir = new File(variantPath);
                 File[] patchFiles = variantDir.listFiles();
                 if (patchFiles == null) {
@@ -82,7 +136,7 @@ public class TodoResourceLoader {
                 }
                 Arrays.stream(patchFiles).filter(File::isFile).forEach(allPatchFiles::add);
             } catch (IOException e) {
-                e.printStackTrace();
+                LOGGER.error("Get kitDir's canonicalPath failed!");
             }
         }
         for (File file : allPatchFiles) {
@@ -93,34 +147,27 @@ public class TodoResourceLoader {
     private void loadPatchesFromJar() {
         try (ZipFile zipFile = new ZipFile(jarPath);
             ZipInputStream zip = new ZipInputStream(new FileInputStream(new File(jarPath)))) {
-            while (true) {
-                ZipEntry nextEntry;
-                nextEntry = zip.getNextEntry();
-                if (nextEntry == null) {
-                    break;
-                } else {
-                    if (nextEntry.getName().startsWith("xms/patch")
-                            && nextEntry.getName().contains("/" + relativePath + "/")
-                            && nextEntry.getName().endsWith(".json")) {
-                        try (InputStream resourceAsStream = zipFile.getInputStream(nextEntry)) {
-                            parseSinglePatchStream(resourceAsStream);
-                        }
+            ZipEntry nextEntry = zip.getNextEntry();
+            while (nextEntry != null) {
+                if (nextEntry.getName().startsWith("xms/patch") && nextEntry.getName().endsWith(".json")) {
+                    String version = kitVersionMap.get(nextEntry.getName().split("/")[2]);
+                    String path;
+                    if (version == null || version.length() == 0) {
+                        path = "/" + relativePath + "/";
+                    } else {
+                        path = "/" + version + "/" + relativePath + "/";
+                    }
+                    if (nextEntry.getName().contains(path)) {
+                        InputStream resourceAsStream = zipFile.getInputStream(nextEntry);
+                        parseSinglePatchStream(resourceAsStream);
                     }
                 }
+                nextEntry = zip.getNextEntry();
             }
+        } catch (FileNotFoundException e) {
+            LOGGER.error("Read jar as ZipInputStream failed, can't find the jar");
         } catch (IOException e) {
-            LOGGER.error(e.getMessage());
-        }
-    }
-
-    TodoResourceLoader(String jarPath, String relativePath) {
-        this.contents = new HashMap<>();
-        this.jarPath = jarPath;
-        this.relativePath = relativePath;
-        if (jarPath == null) {
-            loadPatchesFromFileSystem();
-        } else {
-            loadPatchesFromJar();
+            LOGGER.error("Read jar failed");
         }
     }
 
@@ -139,19 +186,32 @@ public class TodoResourceLoader {
     private void parseSinglePatchJsonFile(File file) {
         try (InputStream fileInputStream = new FileInputStream(file)) {
             parseSinglePatchStream(fileInputStream);
+        } catch (FileNotFoundException e) {
+            LOGGER.error("Input file does not exist!");
         } catch (IOException e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Close resource failed when parsing single patch Json file!");
         }
     }
 
-    private void parseSinglePatchStream(InputStream inputStream) throws IOException {
+    public static class MapTypeToken extends TypeToken<Map<String, String>> {
+    }
+
+    private void parseSinglePatchStream(InputStream inputStream) {
         try (Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8.name())) {
-            Type type = new TypeToken<Map<String, String>>() {}.getType();
+            Type type = new MapTypeToken().getType();
             Gson gson = new Gson();
             Map<String, String> map = gson.fromJson(reader, type);
             if (map != null) {
                 addAutoFillCode(map);
             }
+        } catch (UnsupportedEncodingException e) {
+            LOGGER.error("The Character Encoding is not supported!");
+        } catch (JsonIOException e) {
+            LOGGER.error("Read inputStream as Json failed!");
+        } catch (JsonSyntaxException e) {
+            LOGGER.error("Invalid content exists in input Json!");
+        } catch (IOException e) {
+            LOGGER.error("Close resource failed when parsing single patch stream!");
         }
     }
 }

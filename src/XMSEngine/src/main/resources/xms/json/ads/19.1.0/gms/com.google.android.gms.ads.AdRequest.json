@@ -1,0 +1,436 @@
+{
+  "gName": "com.google.android.gms.ads.AdRequest",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getBirthday",
+        "paramTypes": [],
+        "retType": "java.util.Date"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getContentUrl",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCustomEventExtrasBundle",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T extends com.google.android.gms.ads.mediation.customevent.CustomEvent> android.os.Bundle"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getGender",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getKeywords",
+        "paramTypes": [],
+        "retType": "java.util.Set<java.lang.String>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getLocation",
+        "paramTypes": [],
+        "retType": "android.location.Location"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getNetworkExtrasBundle",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T extends com.google.android.gms.ads.mediation.MediationExtrasReceiver> android.os.Bundle"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isTestDevice",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getNeighboringContentUrls",
+        "paramTypes": [],
+        "retType": "java.util.List<java.lang.String>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getNetworkExtras",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Class<T>"
+          }
+        ],
+        "retType": "<T extends com.google.android.gms.ads.mediation.NetworkExtras> T"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "DEVICE_ID_EMULATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "B3EEABB8EE11C2BE770B684D95219ECB"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "ERROR_CODE_INTERNAL_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "ERROR_CODE_INVALID_REQUEST",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "ERROR_CODE_NETWORK_ERROR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "ERROR_CODE_NO_FILL",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "GENDER_FEMALE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "GENDER_MALE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "GENDER_UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_G",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "G"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_MA",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "MA"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_PG",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "PG"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "MAX_AD_CONTENT_RATING_T",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": "T"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "MAX_CONTENT_URL_LENGTH",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "512"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "-1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "ERROR_CODE_APP_ID_MISSING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": ""
+}

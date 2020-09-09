@@ -20,6 +20,8 @@ import com.huawei.generator.g2x.po.summary.Summary;
 import com.huawei.generator.g2x.processor.GenerateSummary;
 import com.huawei.generator.g2x.processor.GeneratorResult;
 import com.huawei.generator.g2x.processor.GeneratorStrategyKind;
+import com.huawei.generator.g2x.processor.ProcessorUtils;
+import com.huawei.generator.g2x.processor.javadoc.Processor;
 import com.huawei.generator.g2x.processor.map.Validator;
 import com.huawei.generator.gen.Generator;
 import com.huawei.generator.gen.GeneratorBuilder;
@@ -32,7 +34,13 @@ import com.huawei.generator.utils.G2XMappingUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -72,22 +80,24 @@ public abstract class ModuleGenerator {
 
     protected GenerateSummary generateSummary;
 
-    public ModuleGenerator(Map<ParamKind, String> pathMap, Map<String, String> kitMap,
-        Map<ParamKind, Summary> summaries, GenerateSummary generateSummary) {
-        this.pluginPath = pathMap.get(ParamKind.PLUGIN_PATH);
-        this.backPath = pathMap.get(ParamKind.BACKUP_PATH);
-        this.targetPath = pathMap.get(ParamKind.TARGET_PATH);
-        this.oldSummary = summaries.get(ParamKind.OLD_SUMMARY);
-        this.newSummary = summaries.get(ParamKind.NEW_SUMMARY);
-        this.localFileSummary = summaries.get(ParamKind.LOCAL_SUMMARY);
-        this.kitSet = resolveKitList(kitMap);
-        this.generateSummary = generateSummary;
+    protected Map<String, String> kitVersionMap;
+
+    public ModuleGenerator(ProcessorUtils processorUtils) {
+        this.pluginPath = processorUtils.getPathMap().get(ParamKind.PLUGIN_PATH);
+        this.backPath = processorUtils.getPathMap().get(ParamKind.BACKUP_PATH);
+        this.targetPath = processorUtils.getPathMap().get(ParamKind.TARGET_PATH);
+        this.oldSummary = processorUtils.getSummaries().get(ParamKind.OLD_SUMMARY);
+        this.newSummary = processorUtils.getSummaries().get(ParamKind.NEW_SUMMARY);
+        this.localFileSummary = processorUtils.getSummaries().get(ParamKind.LOCAL_SUMMARY);
+        this.kitSet = resolveKitList(processorUtils.getKitMap());
+        this.generateSummary = processorUtils.getSummary();
+        this.kitVersionMap = processorUtils.getKitVersionMap();
     }
 
     /**
      * split allDepMap into g and h dependency list separately
      *
-     * @param kitMap kitName -> Add / Del
+     * @param kitMap kitName maps to ADD / REMOVE
      * @return generate result
      */
     protected Set<String> resolveKitList(Map<String, String> kitMap) {
@@ -95,12 +105,12 @@ public abstract class ModuleGenerator {
         Set<String> oldKits = new HashSet<>();
         Set<String> delKits = new HashSet<>();
         Set<String> addKits = new HashSet<>();
-        kitMap.forEach((x, y) -> {
-            if ("ADD".equalsIgnoreCase(y)) {
-                addKits.add(x);
+        kitMap.forEach((kitName, status) -> {
+            if ("ADD".equalsIgnoreCase(status)) {
+                addKits.add(kitName);
             }
-            if ("REMOVE".equalsIgnoreCase(y)) {
-                delKits.add(x);
+            if ("REMOVE".equalsIgnoreCase(status)) {
+                delKits.add(kitName);
             }
         });
 
@@ -120,7 +130,7 @@ public abstract class ModuleGenerator {
      */
     abstract void resolveDepMap(Map<String, Set<String>> allDepMap);
 
-    protected boolean createManifestFile() {
+    protected void createManifestFile() {
         String header = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
         String str =
             header + System.lineSeparator() + "<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\""
@@ -130,51 +140,50 @@ public abstract class ModuleGenerator {
                 + "\t<!--uses-permission android:name=\"android.permission.MANAGE_ACCOUNTS\"-->"
                 + System.lineSeparator() + System.lineSeparator() + "</manifest>";
         FileUtils.createFile(str, manifestPath, "AndroidManifest.xml");
-        return true;
     }
 
     /**
-     * generateCode
+     * generate Code
      *
-     * @return sucess
+     * @return success
      */
     abstract boolean generateCode();
 
     /**
-     * createModule
+     * create Module
      */
     public abstract void createModule();
 
     /**
-     * generateGradle
+     * generate Gradle
      *
      * @return success
      */
     abstract boolean generateGradle();
 
     /**
-     * fillApplyPart
+     * fill apply Part
      *
      * @param stringBuilder total string
      */
     abstract void fillApplyPart(StringBuilder stringBuilder);
 
     /**
-     * fillAndroidPart
+     * fill Android Part
      *
      * @param stringBuilder total string
      */
     abstract void fillAndroidPart(StringBuilder stringBuilder);
 
     /**
-     * fillDependencyPart
+     * fill Dependency Part
      *
      * @param stringBuilder total string
      */
     abstract void fillDependencyPart(StringBuilder stringBuilder);
 
     /**
-     * copyManifest
+     * copy Manifest
      */
     abstract void copyManifest();
 
@@ -186,28 +195,31 @@ public abstract class ModuleGenerator {
         LOGGER.info("xmsLocation:{}", xmsLocation);
         LOGGER.info("dependencies:{}:", dependencies.toString());
         LOGGER.info("strategyKind:{}", strategyKind.toString());
-        G2HTables.openInnerBlackList();
-
+        G2HTables.openInnerBlockList();
         // copy value
         List<String> localDependencies = new LinkedList<>(dependencies);
         localDependencies.replaceAll(x -> x = G2XMappingUtils.unNormalizeKitName(x));
-        GeneratorResult result = Validator.validateParam(xmsLocation, summaryPath, pluginPath);
+        GeneratorResult result = Validator.validateParam(xmsLocation, summaryPath, pluginPath, localDependencies);
         if (result != GeneratorResult.SUCCESS) {
             return result;
         }
 
         // generate xms code
-        GeneratorBuilder builder = new GeneratorBuilder(pluginPath, xmsLocation).strategy(localDependencies,
-            GeneratorConfiguration.getConfiguration(strategyKind));
+        GeneratorBuilder builder = new GeneratorBuilder(pluginPath, xmsLocation)
+            .strategy(localDependencies, GeneratorConfiguration.getConfiguration(strategyKind))
+            .version(kitVersionMap);
         Generator generator = builder.build().initGeneratorForRouter();
         generator.generate();
 
         // generated file list
         List<File> generatedFiles = generator.getGeneratedFiles();
 
-        // copy utils
+        // unzip javadoc web
+        Processor.unZipFilesJar(pluginPath);
+
+        // utils copy
         XModuleGenerator xModuleGenerator = new XModuleGenerator(new File(xmsLocation), generatedFiles);
-        xModuleGenerator.generateModule(true, strategyKind, builder.getStandardKitList());
+        xModuleGenerator.generateModule(true, strategyKind, builder.getOriginKitList());
         return GeneratorResult.SUCCESS;
     }
 
@@ -215,6 +227,33 @@ public abstract class ModuleGenerator {
         for (int i = 0; i < spaceLength; i++) {
             stringBuilder.append(" ");
         }
+    }
+
+    protected void anchorReplace(StringBuilder builder, String anchorStr, String replaceStr) {
+        int index = builder.lastIndexOf(anchorStr);
+        if (index > 0) {
+            builder.replace(index, index + anchorStr.length(), replaceStr);
+        }
+    }
+
+    protected StringBuilder readGradle() {
+        String targetFile = String.join(File.separator, modulePath, "build.gradle");
+        try (BufferedReader bufReader = new BufferedReader(
+            new InputStreamReader(new FileInputStream(new File(targetFile)), StandardCharsets.UTF_8))) {
+            StringBuilder stringBuilder = new StringBuilder();
+            String temp = bufReader.readLine();
+            while (temp != null) {
+                stringBuilder.append(temp);
+                stringBuilder.append(System.lineSeparator());
+                temp = bufReader.readLine();
+            }
+            return stringBuilder;
+        } catch (FileNotFoundException e) {
+            LOGGER.error("Gradle file does not exist!");
+        } catch (IOException e) {
+            LOGGER.error("Close resource failed when reading Gradle file!");
+        }
+        return new StringBuilder();
     }
 
     public String getSummaryPath() {

@@ -1,0 +1,362 @@
+{
+  "gName": "com.google.android.gms.maps.StreetViewPanoramaView",
+  "interfaces": [],
+  "superClass": "android.widget.FrameLayout",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStreetViewPanoramaAsync",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.OnStreetViewPanoramaReadyCallback"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStreetViewPanoramaAsync",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.maps.OnStreetViewPanoramaReadyCallback"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "onCreate",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "onCreate",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onDestroy",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "onLowMemory",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "onLowMemory",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "onPause",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "onPause",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onResume",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "onSaveInstanceState",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "onSaveInstanceState",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Bundle"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onStart",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onStop",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "StreetViewPanoramaView",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "StreetViewPanoramaView",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "StreetViewPanoramaView",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.util.AttributeSet"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "StreetViewPanoramaView",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.util.AttributeSet"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "StreetViewPanoramaView",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.util.AttributeSet"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "StreetViewPanoramaView",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.util.AttributeSet"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "StreetViewPanoramaView",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.maps.StreetViewPanoramaOptions"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "StreetViewPanoramaView",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.maps.StreetViewPanoramaOptions"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.maps.StreetViewPanoramaView"
+}

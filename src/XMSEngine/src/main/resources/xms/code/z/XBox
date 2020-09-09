@@ -1,12 +1,29 @@
 package ${X_PACKAGE};
 
+/**
+ * Class for XBox
+ */
 public class XBox {
+    /**
+     * java.lang.Object inst instance of hms or gms.<br/>
+     */
     java.lang.Object inst;
 
+    /**
+     * org.xms.g.utils.XBox.XBox(java.lang.Object inst) constructor of xbox with Instance.<br/>
+     *
+     * @param gInst instance of gms
+     * @param hInst instance of hms
+     */
     public XBox(java.lang.Object inst) {
         this.inst = inst;
     }
 
+    /**
+     * org.xms.g.utils.getZInstance() get the hms or gms instance from XBox object.<br/>
+     *
+     * @return hms or gms instance
+     */
     public Object getZInstance() {
         return inst;
     }

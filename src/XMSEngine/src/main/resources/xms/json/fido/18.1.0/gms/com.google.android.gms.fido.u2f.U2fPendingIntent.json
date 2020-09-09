@@ -1,0 +1,55 @@
+{
+  "gName": "com.google.android.gms.fido.u2f.U2fPendingIntent",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "hasPendingIntent",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.content.IntentSender.SendIntentException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "launchPendingIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

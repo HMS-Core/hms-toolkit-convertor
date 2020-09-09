@@ -1,0 +1,80 @@
+{
+  "gName": "com.google.android.gms.auth.api.phone.SmsRetrieverStatusCodes",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.CommonStatusCodes",
+  "methods": [
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusCodeString",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "name": "API_NOT_AVAILABLE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "36501"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "name": "PLATFORM_NOT_SUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "36500"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "name": "USER_PERMISSION_REQUIRED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "36502"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": ""
+}

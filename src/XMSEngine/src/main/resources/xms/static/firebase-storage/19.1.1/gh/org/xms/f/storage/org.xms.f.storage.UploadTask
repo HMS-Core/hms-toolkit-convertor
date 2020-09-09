@@ -1,0 +1,119 @@
+package org.xms.f.storage;
+
+public class UploadTask extends org.xms.f.storage.StorageTask<org.xms.f.storage.UploadTask.TaskSnapshot> {
+    
+    public UploadTask(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+    
+    protected void onCanceled() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            java.lang.Object[] params = new java.lang.Object[0];
+            java.lang.Class[] types = new java.lang.Class[0];
+            org.xms.g.utils.Utils.invokeProtectMethod(((com.huawei.agconnect.cloud.storage.core.UploadTask) this.getHInstance()), com.huawei.agconnect.cloud.storage.core.UploadTask.class, "onCanceled", types, params);
+        } else {
+            java.lang.Object[] params = new java.lang.Object[0];
+            java.lang.Class[] types = new java.lang.Class[0];
+            org.xms.g.utils.Utils.invokeProtectMethod(((com.google.firebase.storage.UploadTask) this.getGInstance()), com.google.firebase.storage.UploadTask.class, "onCanceled", types, params);
+        }
+    }
+    
+    protected void resetState() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            java.lang.Object[] params = new java.lang.Object[0];
+            java.lang.Class[] types = new java.lang.Class[0];
+            org.xms.g.utils.Utils.invokeProtectMethod(((com.huawei.agconnect.cloud.storage.core.UploadTask) this.getHInstance()), com.huawei.agconnect.cloud.storage.core.UploadTask.class, "resetState", types, params);
+        } else {
+            java.lang.Object[] params = new java.lang.Object[0];
+            java.lang.Class[] types = new java.lang.Class[0];
+            org.xms.g.utils.Utils.invokeProtectMethod(((com.google.firebase.storage.UploadTask) this.getGInstance()), com.google.firebase.storage.UploadTask.class, "resetState", types, params);
+        }
+    }
+    
+    protected void schedule() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            java.lang.Object[] params = new java.lang.Object[0];
+            java.lang.Class[] types = new java.lang.Class[0];
+            org.xms.g.utils.Utils.invokeProtectMethod(((com.huawei.agconnect.cloud.storage.core.UploadTask) this.getHInstance()), com.huawei.agconnect.cloud.storage.core.UploadTask.class, "schedule", types, params);
+        } else {
+            java.lang.Object[] params = new java.lang.Object[0];
+            java.lang.Class[] types = new java.lang.Class[0];
+            org.xms.g.utils.Utils.invokeProtectMethod(((com.google.firebase.storage.UploadTask) this.getGInstance()), com.google.firebase.storage.UploadTask.class, "schedule", types, params);
+        }
+    }
+    
+   
+    
+    public static org.xms.f.storage.UploadTask dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.f.storage.UploadTask) {
+            return ((org.xms.f.storage.UploadTask) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            com.google.firebase.storage.UploadTask gReturn = ((com.google.firebase.storage.UploadTask) ((org.xms.g.utils.XGettable) param0).getGInstance());
+            com.huawei.agconnect.cloud.storage.core.UploadTask hReturn = ((com.huawei.agconnect.cloud.storage.core.UploadTask) ((org.xms.g.utils.XGettable) param0).getHInstance());
+            return new org.xms.f.storage.UploadTask(new org.xms.g.utils.XBox(gReturn, hReturn));
+        }
+        return ((org.xms.f.storage.UploadTask) param0);
+    }
+    
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.agconnect.cloud.storage.core.UploadTask;
+        } else {
+            return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.firebase.storage.UploadTask;
+        }
+    }
+    
+    public static class TaskSnapshot extends org.xms.f.storage.StorageTask.SnapshotBase {
+        
+        public TaskSnapshot(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+        
+        public long getBytesTransferred() {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.UploadTask.UploadResult) this.getHInstance()).getBytesTransferred()");
+                return ((com.huawei.agconnect.cloud.storage.core.UploadTask.UploadResult) this.getHInstance()).getBytesTransferred();
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.UploadTask.TaskSnapshot) this.getGInstance()).getBytesTransferred()");
+                return ((com.google.firebase.storage.UploadTask.TaskSnapshot) this.getGInstance()).getBytesTransferred();
+            }
+        }
+        
+        public org.xms.f.storage.StorageMetadata getMetadata() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+        
+        public long getTotalByteCount() {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.UploadTask.UploadResult) this.getHInstance()).getTotalByteCount()");
+                return ((com.huawei.agconnect.cloud.storage.core.UploadTask.UploadResult) this.getHInstance()).getTotalByteCount();
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.UploadTask.TaskSnapshot) this.getGInstance()).getTotalByteCount()");
+                return ((com.google.firebase.storage.UploadTask.TaskSnapshot) this.getGInstance()).getTotalByteCount();
+            }
+        }
+        
+        public android.net.Uri getUploadSessionUri() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+        
+        public static org.xms.f.storage.UploadTask.TaskSnapshot dynamicCast(java.lang.Object param0) {
+            return ((org.xms.f.storage.UploadTask.TaskSnapshot) param0);
+        }
+        
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+                return false;
+            }
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.agconnect.cloud.storage.core.UploadTask.UploadResult;
+            } else {
+                return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.firebase.storage.UploadTask.TaskSnapshot;
+            }
+        }
+    }
+}

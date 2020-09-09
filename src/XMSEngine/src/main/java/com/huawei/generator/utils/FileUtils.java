@@ -16,25 +16,33 @@
 
 package com.huawei.generator.utils;
 
+import com.huawei.generator.g2x.processor.GeneratorResult;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.huawei.generator.g2x.processor.GeneratorResult;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.ZipEntry;
 
 /**
- * FileUtils for find file or create file
+ * Utils foe File
  *
  * @since 2019-11-27
  */
@@ -54,42 +62,45 @@ public class FileUtils {
     }
 
     /**
-     * generate file .json
+     * Generating a .json File
+     *
      * @param jsonString json string
-     * @param filePath file Path
-     * @param fileName fileName like xxx
+     * @param filePath   file Path
+     * @param fileName   fileName like xxx
      * @return Generator result ,file will be like xxx.json
      */
     public static GeneratorResult createJsonFile(String jsonString, String filePath, String fileName) {
-        // full path
+        // Combine the full path of the file.
         String fullPath = File.separator + fileName + ".json";
         return createFile(jsonString, filePath, fullPath);
     }
 
     /**
-     * generate file
+     * Generating a file
+     *
      * @param string   out put strings
      * @param filePath file Path
      * @param fileName fileName like xxx
      * @return Generator result ,file will be like xxx
      */
     public static GeneratorResult createFile(String string, String filePath, String fileName) {
-        // flag for whether if generated successfully
+        // Mark whether the file is generated successfully.
         boolean flag = true;
 
-        // full path
+        // Combine the full path of the file.
         String fullPath = filePath + File.separator + fileName;
 
-        // generate file .json
+        // Generating a JSON File
         try {
+            // Ensure that a new file is created.
             File file = new File(fullPath);
-            if (!file.getParentFile().exists()) {
+            if (!file.getParentFile().exists()) { // If the parent directory does not exist, create it.
                 flag = file.getParentFile().mkdirs();
             }
             if (!flag) {
                 return GeneratorResult.INVALID_OUTPATH;
             }
-            if (file.exists()) {
+            if (file.exists()) { // If yes, delete the old file.
                 flag = file.delete();
             }
             if (!flag) {
@@ -97,14 +108,18 @@ public class FileUtils {
             }
             flag = file.createNewFile();
 
+            // Writes the formatted character string to a file.
             try (Writer write = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8)) {
                 write.write(string);
                 write.flush();
+            } catch (FileNotFoundException e) {
+                LOGGER.error("Create output file stream failed!");
             }
         } catch (IOException e) {
             flag = false;
         }
 
+        // Returns a flag indicating whether the operation is successful.
         if (!flag) {
             return GeneratorResult.INVALID_OUTPATH;
         }
@@ -112,10 +127,12 @@ public class FileUtils {
     }
 
     /**
-     * @param obj target serialized
-     * @param outPath path for out
-     * @param fileName out file
-     * @return return status
+     * output json files
+     *
+     * @param obj obj to be serialized
+     * @param outPath Output Path
+     * @param fileName Output File Name
+     * @return Output Status Return
      */
     public static GeneratorResult outPutJson(Object obj, String outPath, String fileName) {
         Gson g = new GsonBuilder().setPrettyPrinting().serializeNulls().excludeFieldsWithoutExposeAnnotation().create();
@@ -126,7 +143,7 @@ public class FileUtils {
     /**
      * Walk a dir recursively and do some processing to each file.
      *
-     * @param dir the dir to be walked
+     * @param dir       the dir to be walked
      * @param processor file processor
      */
     public static void walkDir(File dir, FileProcessor processor) {
@@ -141,8 +158,10 @@ public class FileUtils {
             } else {
                 try (InputStream ins = new FileInputStream(f)) {
                     processor.process(ins);
+                } catch (FileNotFoundException e) {
+                    LOGGER.error("Read input file stream failed!");
                 } catch (IOException e) {
-                    LOGGER.error(e.getMessage());
+                    LOGGER.error("Close resource failed when walking dir!");
                 }
             }
         }
@@ -151,8 +170,9 @@ public class FileUtils {
     /**
      * find file in root by name, note it may has files with same name.
      * For example, GlobalEnvSetting.java in g+h/g mode
-     * @param root root folder
-     * @param target target
+     *
+     * @param root       root folder
+     * @param target     target
      * @param resultList result container
      */
     public static void findFileByName(File root, String target, List<File> resultList) {
@@ -173,5 +193,118 @@ public class FileUtils {
                 }
             }
         }
+    }
+
+    /**
+     * copy between two files
+     *
+     * @param destFile   target file
+     * @param sourceFile source file
+     * @return copy result
+     * @throws IOException if the file I/O operations are abnormal
+     */
+    public static boolean copyFile(File destFile, File sourceFile) throws IOException {
+        try {
+            if (destFile.exists() && !destFile.delete()) {
+                return false;
+            }
+            if (!destFile.getParentFile().exists() && !destFile.getParentFile().mkdirs()) {
+                return false;
+            }
+            Files.copy(sourceFile.toPath(), destFile.toPath());
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    /**
+     * delete directory and its sub-dir
+     *
+     * @param file root directory
+     * @return delete result
+     */
+    public static boolean delFile(File file) {
+        if (!file.exists()) {
+            return false;
+        }
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            if (files == null) {
+                return false;
+            } else {
+                for (File f : files) {
+                    delFile(f);
+                }
+            }
+        }
+        return file.delete();
+    }
+
+    /**
+     * read file to buffer string
+     *
+     * @param filePath file path
+     * @return content of file
+     */
+    public static String getFileContent(String filePath) {
+        StringBuilder buffer = new StringBuilder();
+        try (
+                InputStream is = new FileInputStream(filePath);
+                InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);
+                BufferedReader reader = new BufferedReader(isr)
+        ) {
+            String line = reader.readLine();
+            while (line != null) {
+                buffer.append(line);
+                buffer.append("\n");
+                line = reader.readLine();
+            }
+        } catch (FileNotFoundException e) {
+            LOGGER.error("Read input file failed!");
+        } catch (UnsupportedEncodingException e) {
+            LOGGER.error("The Character Encoding is not supported.");
+        } catch (IOException e) {
+            LOGGER.error("Read line from reader or close resource failed!");
+        }
+        return buffer.toString();
+    }
+
+    /**
+     * get list of all java file paths
+     *
+     * @param dir directory path
+     * @return list of all file paths
+     */
+    public static List<String> listAllFiles(String dir) {
+        List<String> paths = new ArrayList<>();
+        try {
+            File f = new File(dir);
+            File[] files = f.listFiles();
+            if (files == null || files.length == 0) {
+                return paths;
+            }
+            for (File file : files) {
+                if (file.isFile()) {
+                    paths.add(file.getCanonicalPath());
+                } else {
+                    paths.addAll(listAllFiles(file.getCanonicalPath()));
+                }
+            }
+        } catch (IOException e) {
+            LOGGER.error("Get canonical path failed!");
+        }
+        return paths;
+    }
+
+    /**
+     * judge whether input entry is Json for generating xms code
+     *
+     * @param entry input
+     * @return true if input is target Json
+     */
+    public static boolean isJson(ZipEntry entry) {
+        return (entry.getName().startsWith("xms/json") || entry.getName().startsWith("xms/agc-json"))
+            && entry.getName().endsWith(".json");
     }
 }

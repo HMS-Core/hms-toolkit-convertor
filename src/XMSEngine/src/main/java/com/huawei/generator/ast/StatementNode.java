@@ -17,7 +17,7 @@
 package com.huawei.generator.ast;
 
 /**
- * StatementNode class
+ * Statement Node
  *
  * @since 2019-11-13
  */

@@ -1,0 +1,614 @@
+{
+  "gName": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addInfoModuleDataLabeValueRow",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.wobs.LabelValueRow"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section141101019213",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addInfoModuleDataLabelValueRows",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.google.android.gms.wallet.wobs.LabelValueRow>"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section753319463711",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addTextModuleData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.wobs.TextModuleData"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section18220726102713",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addTextModulesData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.google.android.gms.wallet.wobs.TextModuleData>"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section12881241172719",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section1598717464912",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setAccountId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section17143141991119",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addImageModuleDataMainImageUri",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.wobs.UriData"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section12765937083",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setAccountName",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section914453815112",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setBarcodeAlternateText",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section7433152619135",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setBarcodeValue",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section1346510371135",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setBarcodeType",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section63810841414",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setIssuerName",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section18746122410167",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addImageModuleDataMainImageUris",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.google.android.gms.wallet.wobs.UriData>"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section28071653786",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setLoyaltyPoints",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.wobs.LoyaltyPoints"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section981334171612",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setProgramName",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section1424512260176",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setState",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section1113141419196",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setValidTimeInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.wobs.TimeInterval"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section7819538181917",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setBarcodeLabel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setClassId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPassStyleIdentifier",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hms.wallet.pass.PassObject.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setSerialNumber",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hms.wallet.pass.PassObject.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setInfoModuleDataHexBackgroundColor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setInfoModuleDataHexFontColor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setInfoModuleDataShowLastUpdateTime",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addLinksModuleDataUri",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.wobs.UriData"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section10251483916",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addLinksModuleDataUris",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.google.android.gms.wallet.wobs.UriData>"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section105195261892",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addLocation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.model.LatLng"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section645942016106",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addLocations",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.google.android.gms.maps.model.LatLng>"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section16922163191010",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.wobs.WalletObjectMessage"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section1391795071011",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addMessages",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.google.android.gms.wallet.wobs.WalletObjectMessage>"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.LoyaltyWalletObject.Builder"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section20147167141116",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.wallet.pass.PassObject.Builder"
+}

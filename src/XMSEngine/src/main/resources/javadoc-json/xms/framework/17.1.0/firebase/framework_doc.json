@@ -1,0 +1,253 @@
+{
+  "org.xms.f.ExtensionException": {
+    "gClassName": "com.google.firebase.FirebaseException",
+    "hClassName": "",
+    "xClassInfo": "Base class for all Firebase exceptions.",
+    "hClassInfo": "",
+    "gClassInfo": "Base class for all Firebase exceptions.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/FirebaseException",
+    "methods": [
+      {
+        "methodName": "org.xms.f.ExtensionException.ExtensionException(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of org.xms.f.ExtensionException.ExtensionException with org.xms.g.utils.XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.ExtensionException.ExtensionException(java.lang.String)",
+        "descriptions": "Construct a ExtensionException from code.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.FirebaseException.FirebaseException(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/FirebaseException#FirebaseException(java.lang.String)",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "This is detail message"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.ExtensionException.ExtensionException(java.lang.String,java.lang.Throwable)",
+        "descriptions": "Construct a ExtensionException from code.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.FirebaseException.FirebaseException(java.lang.String,java.lang.Throwable)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/FirebaseException#FirebaseException(java.lang.String,%20java.lang.Throwable)",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "This is detail message"
+          },
+          {
+            "name": "param1",
+            "descriptions": "This is Throwable"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.ExtensionException.ExtensionException()",
+        "descriptions": "Construct a ExtensionException from code.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.FirebaseException.FirebaseException()",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/FirebaseException#FirebaseException()",
+        "params": [],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.ExtensionException.setGInstance(java.lang.Object)",
+        "descriptions": "set the gms instance from the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "gms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.ExtensionException.setHInstance(java.lang.Object)",
+        "descriptions": "set the hms instance from the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "hms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.ExtensionException.getGInstance()",
+        "descriptions": "get the gms instance from the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [],
+        "retType": "java.lang.Object",
+        "retDescription": "is gInstance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.ExtensionException.getHInstance()",
+        "descriptions": "get the hms instance from the corresponding xms instance.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [],
+        "retType": "java.lang.Object",
+        "retDescription": "this is hInstance",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.ExtensionException.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.ExtensionException.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.ExtensionException",
+        "retDescription": "casted ExtensionException object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.ExtensionException.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the java.lang.Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  },
+  "org.xms.f.ExtensionApiNotAvailableException": {
+    "gClassName": "com.google.firebase.FirebaseApiNotAvailableException",
+    "hClassName": "",
+    "xClassInfo": "Indicates that a requested API is not available.",
+    "hClassInfo": "",
+    "gClassInfo": "Indicates that a requested API is not available.",
+    "hClassUrl": "",
+    "gClassUrl": "https://developers.google.com/android/reference/com/google/firebase/FirebaseApiNotAvailableException",
+    "methods": [
+      {
+        "methodName": "org.xms.f.ExtensionApiNotAvailableException.ExtensionApiNotAvailableException(org.xms.g.utils.XBox)",
+        "descriptions": "constructor of org.xms.g.safetynet.HarmfulAppsData.HarmfulAppsData with org.xms.g.utils.XBox.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the wrapper of xms instance"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.ExtensionApiNotAvailableException.ExtensionApiNotAvailableException(java.lang.String)",
+        "descriptions": "construction method.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "com.google.firebase.FirebaseApiNotAvailableException.FirebaseApiNotAvailableException(java.lang.String)",
+        "gmsInfo": "https://developers.google.com/android/reference/com/google/firebase/FirebaseApiNotAvailableException#FirebaseApiNotAvailableException(java.lang.String)",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "This is message"
+          }
+        ],
+        "retType": "",
+        "retDescription": "",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.ExtensionApiNotAvailableException.dynamicCast(java.lang.Object)",
+        "descriptions": "dynamic cast the input object to org.xms.f.ExtensionApiNotAvailableException.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "org.xms.f.ExtensionApiNotAvailableException",
+        "retDescription": "casted ExtensionApiNotAvailableException object",
+        "throwExceptions": []
+      },
+      {
+        "methodName": "org.xms.f.ExtensionApiNotAvailableException.isInstance(java.lang.Object)",
+        "descriptions": "judge whether the java.lang.Object is XMS instance or not.",
+        "hName": "",
+        "hmsInfo": "",
+        "gName": "",
+        "gmsInfo": "",
+        "params": [
+          {
+            "name": "param0",
+            "descriptions": "the input object"
+          }
+        ],
+        "retType": "boolean",
+        "retDescription": "true if the Object is XMS instance, otherwise false",
+        "throwExceptions": []
+      }
+    ],
+    "fields": []
+  }
+}

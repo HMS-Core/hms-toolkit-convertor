@@ -1,0 +1,692 @@
+{
+  "gName": "com.google.android.gms.maps.model.GroundOverlay",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getBearing",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBearing",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getBounds",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.maps.model.LatLngBounds"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBounds",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.maps.model.LatLngBounds"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getHeight",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHeight",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getPosition",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.maps.model.LatLng"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPosition",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.maps.model.LatLng"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getTag",
+        "paramTypes": [],
+        "retType": "java.lang.Object"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTag",
+        "paramTypes": [],
+        "retType": "java.lang.Object"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getTransparency",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getTransparency",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getWidth",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getWidth",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getZIndex",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getZIndex",
+        "paramTypes": [],
+        "retType": "float"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isClickable",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isClickable",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isVisible",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isVisible",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "remove",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "remove",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setBearing",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setBearing",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setClickable",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setClickable",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setDimensions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          },
+          {
+            "pos": "1",
+            "type": "float"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDimensions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          },
+          {
+            "pos": "1",
+            "type": "float"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setDimensions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDimensions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setImage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.model.BitmapDescriptor"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setImage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.maps.model.BitmapDescriptor"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setPosition",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.model.LatLng"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPosition",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.maps.model.LatLng"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setPositionFromBounds",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.maps.model.LatLngBounds"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPositionFromBounds",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.maps.model.LatLngBounds"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setTag",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTag",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setTransparency",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTransparency",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setVisible",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setVisible",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.301",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setZIndex",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setZIndex",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "float"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.maps.model.GroundOverlay"
+}

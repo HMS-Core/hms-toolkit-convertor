@@ -17,11 +17,11 @@
 package com.huawei.generator.ast;
 
 /**
- * ForeachNode class
+ * Foreach Node
  *
- * @since 2020-05-12
+ * @since 2019-12-31
  */
-public final class ForeachNode extends BraceNode {
+public class ForeachNode extends BraceNode {
     private DeclareNode declareNode;
 
     private StatementNode statementNode;

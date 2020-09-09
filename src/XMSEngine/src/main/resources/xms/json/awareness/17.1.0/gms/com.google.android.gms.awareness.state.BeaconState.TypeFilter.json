@@ -1,0 +1,109 @@
+{
+  "gName": "com.google.android.gms.awareness.state.BeaconState.TypeFilter",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "with",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.state.BeaconState.TypeFilter"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "match",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.status.BeaconStatus.Filter"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "with",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.state.BeaconState.TypeFilter"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "match",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.status.BeaconStatus.Filter"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.kit.awareness.status.BeaconStatus.Filter"
+}

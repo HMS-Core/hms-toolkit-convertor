@@ -27,78 +27,78 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * This class is used for patching special cases of weaktypes. When source code engine fixes, it should be removed.
  * For details, we have two cases,
  * 1. when one in auto, N >= 1 in Manual, one in auto should use ParamTypes, and vice versa
- * 2. for Methods in BlackList, use the ParamTypes
+ * 2. for Methods in BlockList, use the ParamTypes
  *
  * @since 2020-2-6
  */
 public class MapPatcher {
     private static final Logger LOGGER = LoggerFactory.getLogger(MapPatcher.class);
 
-    private static HashMap<String, MethodInfo> manualBlackList = new HashMap<>();
+    private static HashMap<String, MethodInfo> manualBlockList = new HashMap<>();
 
-    private static HashMap<String, MethodInfo> autoBlackList = new HashMap<>();
+    private static HashMap<String, MethodInfo> autoBlockList = new HashMap<>();
 
     static {
-        manualBlackList.put("com.google.android.gms.auth.api.signin.GoogleSignIn.requestPermissions",
+        manualBlockList.put("com.google.android.gms.auth.api.signin.GoogleSignIn.requestPermissions",
             new MethodInfo("com.google.android.gms.auth.api.signin.GoogleSignIn.requestPermissions", null));
-        manualBlackList.put("com.google.android.gms.ads.MobileAds.initialize",
+        manualBlockList.put("com.google.android.gms.ads.MobileAds.initialize",
             new MethodInfo("com.google.android.gms.ads.MobileAds.initialize", null));
-        autoBlackList.put("com.google.android.gms.auth.api.signin.GoogleSignIn.requestPermissions",
+        autoBlockList.put("com.google.android.gms.auth.api.signin.GoogleSignIn.requestPermissions",
             new MethodInfo("com.google.android.gms.auth.api.signin.GoogleSignIn.requestPermissions", null));
-        autoBlackList.put("com.google.android.gms.ads.MobileAds.initialize",
+        autoBlockList.put("com.google.android.gms.ads.MobileAds.initialize",
             new MethodInfo("com.google.android.gms.ads.MobileAds.initialize", null));
+        autoBlockList.put("com.google.firebase.perf.FirebasePerformance.newHttpMetric",
+            new MethodInfo("com.google.firebase.perf.FirebasePerformance.newHttpMetric", null));
     }
 
-    static void patchMap(Auto xmsAuto, Manual xmsManual) {
+    public static void patchMap(Auto auto, Manual manual) {
         LOGGER.info("Patching G+H map");
         ManualMethod manualMethod = null;
 
-        // detect the single weak-type method and reset weak-type in auto map
-        for (AutoMethod tmpAutoMethod : xmsAuto.getAutoMethods()) {
+        // detect the single weaktype method and reset weaktype in auto map
+        for (AutoMethod autoMethod : auto.getAutoMethods()) {
             int inAuto = 0;
-            for (AutoMethod autoMethodCopy : xmsAuto.getAutoMethods()) {
-                if (tmpAutoMethod.getOldMethodName().equals(autoMethodCopy.getOldMethodName())) {
+            for (AutoMethod autoMethodh : auto.getAutoMethods()) {
+                if (autoMethod.getOldMethodName().equals(autoMethodh.getOldMethodName())) {
                     inAuto++;
                 }
             }
             if ((inAuto == 1)) {
-                replaceAutoTypes(xmsAuto, tmpAutoMethod);
+                replaceAutoTypes(auto, autoMethod);
             }
         }
 
-        // detect the single weak-type method and reset weak-type in manual map
-        for (ManualMethod tmpManualMethod : xmsManual.getManualMethods()) {
-            int inManual = 0;
-            for (ManualMethod manualMethodCopy : xmsManual.getManualMethods()) {
-                String methodName = tmpManualMethod.getMethodName();
-                String tempMethodName = manualMethodCopy.getMethodName();
+        // detect the single weaktype method and reset weaktype in manual map
+        for (ManualMethod manualMethodTemp : manual.getManualMethods()) {
+            int inmanual = 0;
+            for (ManualMethod tmpManualMethod : manual.getManualMethods()) {
+                String methodName = manualMethodTemp.getMethodName();
+                String tempMethodName = tmpManualMethod.getMethodName();
                 if (methodName.equals(tempMethodName)) {
-                    inManual++;
-                    manualMethod = tmpManualMethod;
+                    inmanual++;
+                    manualMethod = manualMethodTemp;
                 }
             }
-            if (inManual == 1) {
-                replaceManualTypes(xmsManual, manualMethod);
+            if (inmanual == 1) {
+                replaceManualTypes(manual, manualMethod);
             }
         }
 
-        // reset the weak-type by blacklist in auto
-        for (AutoMethod autoMethod : xmsAuto.getAutoMethods()) {
-            if (autoBlackList.containsKey(autoMethod.getOldMethodName())) {
-                replaceAutoTypes(xmsAuto, autoMethod);
+        // reset the weaktype by blocklist in auto
+        for (AutoMethod autoMethod : auto.getAutoMethods()) {
+            if (autoBlockList.containsKey(autoMethod.getOldMethodName())) {
+                replaceAutoTypes(auto, autoMethod);
             }
         }
-
-        // reset the weak-type by blacklist in manual
-        for (ManualMethod tempManualMethod : xmsManual.getManualMethods()) {
-            if (manualBlackList.containsKey(tempManualMethod.getMethodName())) {
-                replaceManualTypes(xmsManual, tempManualMethod);
+        // reset the weaktype by blocklist in manual
+        for (ManualMethod tempManualMethod : manual.getManualMethods()) {
+            if (manualBlockList.containsKey(tempManualMethod.getMethodName())) {
+                replaceManualTypes(manual, tempManualMethod);
             }
         }
     }
@@ -124,21 +124,25 @@ public class MapPatcher {
         manual.getManualMethods().set(index, method);
     }
 
-    private static String reBuildMDescMethodName(String oldMethodName, List<String> paramList) {
+    public static String reBuildMDescMethodName(String oldMethodName, List<String> paramList) {
         if (paramList.size() < 1) {
             return oldMethodName;
         }
-        StringBuilder builder = new StringBuilder();
-        String r = oldMethodName.split("\\(")[0] + "(";
-        builder.append(r);
-        String params = paramList.stream().collect(Collectors.joining(","));
-        builder.append(params.replace("#BUILT_IN.", ""));
+        StringBuilder builder = new StringBuilder(oldMethodName.split("\\(")[0] + "(");
+        int index = 0;
+        for (; index < paramList.size(); index++) {
+            String str = paramList.get(index);
+            builder.append(str.replace("#BUILT_IN.", "")).append(",");
+        }
+        if (paramList.size() > 0) {
+            builder.deleteCharAt(builder.length() - 1);
+        }
         builder.append(")");
         return builder.toString();
     }
 
-    // white list for code engine, should be removed in the future
-    static List<String> findSameMethod(List<String> autoGMethodList, List<String> manualGMethodList) {
+    // trust list for code engine, should be removed in the future
+    public static List<String> findSameMethod(List<String> autoGMethodList, List<String> manualGMethodList) {
         List<String> returnList = new LinkedList<>();
         autoGMethodList.retainAll(manualGMethodList);
         for (String s : autoGMethodList) {

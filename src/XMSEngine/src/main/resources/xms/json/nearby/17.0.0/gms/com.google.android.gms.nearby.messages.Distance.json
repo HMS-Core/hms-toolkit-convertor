@@ -1,0 +1,118 @@
+{
+  "gName": "com.google.android.gms.nearby.messages.Distance",
+  "interfaces": [
+    "java.lang.Comparable<com.google.android.gms.nearby.messages.Distance>"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "compareTo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.nearby.messages.Distance"
+          }
+        ],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "compareTo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.nearby.discovery.Distance"
+          }
+        ],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getAccuracy",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPrecision",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getMeters",
+        "paramTypes": [],
+        "retType": "double"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getMeters",
+        "paramTypes": [],
+        "retType": "double"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.nearby.messages.Distance",
+        "value": ""
+      },
+      "h": {
+        "name": "DISTANCE_UNKNOWN",
+        "modifiers": [],
+        "type": "com.huawei.hms.nearby.discovery.Distance",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.nearby.discovery.Distance"
+}

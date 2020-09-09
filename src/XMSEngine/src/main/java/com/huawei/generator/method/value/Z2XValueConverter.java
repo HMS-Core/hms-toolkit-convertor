@@ -31,7 +31,6 @@ import com.huawei.generator.ast.VarNode;
 import com.huawei.generator.ast.custom.NotNullTernaryNode;
 import com.huawei.generator.gen.AstConstants;
 import com.huawei.generator.method.component.Component;
-import com.huawei.generator.utils.Modifier;
 import com.huawei.generator.utils.TypeUtils;
 import com.huawei.generator.utils.XMSUtils;
 
@@ -41,7 +40,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Function description
+ * Converter for X2Z Value
  *
  * @since 2020-02-21
  */
@@ -82,7 +81,7 @@ public class Z2XValueConverter extends ValueConverter {
         String gType = XMSUtils.xtoG(type.getTypeName());
         StatementNode node;
         if (TypeUtils.isGmsInterface(gType) || TypeUtils.isGmsAbstract(gType)) {
-            node = NewNode.create(TypeNode.create(XMSUtils.getImplCtor(type.getTypeName())), paramList);
+            node = NewNode.create(TypeNode.create(XMSUtils.getImplConstructor(type.getTypeName())), paramList);
         } else if (TypeUtils.isViewSubClass(TypeNode.create(gType), true)) {
             // new XView(getContext()).getXInstance(gReturn, hReturn) or
             // new XView(getContext()).getXInstance(param, 0)
@@ -133,7 +132,7 @@ public class Z2XValueConverter extends ValueConverter {
         ClassNode dummy = new ClassNode();
         dummy.setClassType("class");
         mapper.setParent(dummy);
-        mapper.setModifiers(Collections.singletonList(Modifier.PUBLIC.getName()));
+        mapper.setModifiers(Collections.singletonList("public"));
         mapper.setReturnType(TypeNode.create(xType));
         mapper.setBody(new ArrayList<>());
         mapper.setName("apply");

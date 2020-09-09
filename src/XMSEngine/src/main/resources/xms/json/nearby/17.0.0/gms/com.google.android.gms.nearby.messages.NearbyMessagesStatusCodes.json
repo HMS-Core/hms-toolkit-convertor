@@ -1,0 +1,287 @@
+{
+  "gName": "com.google.android.gms.nearby.messages.NearbyMessagesStatusCodes",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.CommonStatusCodes",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusCodeString",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getStatusCode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "APP_NOT_OPTED_IN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2802"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_APP_UNREGISTERED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8050"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "APP_QUOTA_LIMIT_REACHED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2804"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_APP_QUOTA_LIMITED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8051"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "BLE_ADVERTISING_UNSUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2821"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_BLE_BROADCASTING_UNSUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8052"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "BLE_SCANNING_UNSUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2822"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_BLE_SCANNING_UNSUPPORTED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8053"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "BLUETOOTH_OFF",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2820"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_BLUETOOTH_OFF",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8054"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "DISALLOWED_CALLING_CONTEXT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2803"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_WRONG_CONTEXT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8055"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "FORBIDDEN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2806"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_NOT_ALLOW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8056"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "MISSING_PERMISSIONS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2807"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_MISSING_PERMISSIONS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8057"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "NOT_AUTHORIZED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2805"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_AUTH_FAILED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8058"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "TOO_MANY_PENDING_INTENTS",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2801"
+      },
+      "h": {
+        "name": "STATUS_MESSAGE_PENDING_INTENTS_LIMITED",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8059"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.StatusCode"
+}

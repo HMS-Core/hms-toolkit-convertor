@@ -1,0 +1,41 @@
+{
+  "gName": "com.google.firebase.storage.StreamDownloadTask.StreamProcessor",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "doInBackground",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.storage.StreamDownloadTask.TaskSnapshot"
+          },
+          {
+            "pos": "1",
+            "type": "java.io.InputStream"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

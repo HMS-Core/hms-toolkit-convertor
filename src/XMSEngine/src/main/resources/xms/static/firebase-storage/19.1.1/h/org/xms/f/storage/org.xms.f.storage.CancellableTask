@@ -1,0 +1,107 @@
+package org.xms.f.storage;
+
+public abstract class CancellableTask<XStateT> extends org.xms.g.tasks.Task<XStateT> {
+
+    public CancellableTask(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    public CancellableTask() {
+        super(((org.xms.g.utils.XBox) null));
+    }
+
+    public abstract org.xms.f.storage.CancellableTask<XStateT> addOnProgressListener(org.xms.f.storage.OnProgressListener<? super XStateT> param0);
+
+    public abstract org.xms.f.storage.CancellableTask<XStateT> addOnProgressListener(android.app.Activity param0, org.xms.f.storage.OnProgressListener<? super XStateT> param1);
+
+    public abstract org.xms.f.storage.CancellableTask<XStateT> addOnProgressListener(java.util.concurrent.Executor param0, org.xms.f.storage.OnProgressListener<? super XStateT> param1);
+
+    public abstract boolean cancel();
+
+    public abstract boolean isCanceled();
+
+    public abstract boolean isInProgress();
+
+    public static org.xms.f.storage.CancellableTask dynamicCast(java.lang.Object param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public static class XImpl<XStateT> extends org.xms.f.storage.CancellableTask<XStateT> {
+
+        public XImpl(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+
+        public org.xms.f.storage.CancellableTask<XStateT> addOnProgressListener(org.xms.f.storage.OnProgressListener<? super XStateT> param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public org.xms.f.storage.CancellableTask<XStateT> addOnProgressListener(android.app.Activity param0, org.xms.f.storage.OnProgressListener<? super XStateT> param1) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public org.xms.f.storage.CancellableTask<XStateT> addOnProgressListener(java.util.concurrent.Executor param0, org.xms.f.storage.OnProgressListener<? super XStateT> param1) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public boolean cancel() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public boolean isCanceled() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public boolean isInProgress() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public org.xms.g.tasks.Task<XStateT> addOnFailureListener(android.app.Activity param0, org.xms.g.tasks.OnFailureListener param1) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public org.xms.g.tasks.Task<XStateT> addOnFailureListener(org.xms.g.tasks.OnFailureListener param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public org.xms.g.tasks.Task<XStateT> addOnFailureListener(java.util.concurrent.Executor param0, org.xms.g.tasks.OnFailureListener param1) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public org.xms.g.tasks.Task<XStateT> addOnSuccessListener(java.util.concurrent.Executor param0, org.xms.g.tasks.OnSuccessListener<? super XStateT> param1) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public org.xms.g.tasks.Task<XStateT> addOnSuccessListener(org.xms.g.tasks.OnSuccessListener<? super XStateT> param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public org.xms.g.tasks.Task<XStateT> addOnSuccessListener(android.app.Activity param0, org.xms.g.tasks.OnSuccessListener<? super XStateT> param1) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public java.lang.Exception getException() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public XStateT getResult() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public <XX extends java.lang.Throwable> XStateT getResult(java.lang.Class<XX> param0) throws XX {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public boolean isComplete() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public boolean isSuccessful() {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+    }
+}

@@ -2,24 +2,31 @@ package ${X_PACKAGE};
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Class for Utils
+ */
 public class Utils {
     private static final Class XMS_BOX = XBox.class;
 
     private static Map<String, String> map = new HashMap<>();
+
+    private static Map<String, String> mlGMSMap = new HashMap<>();
 
     private static Map<Class, Constructor> wrapperCache = new ConcurrentHashMap<>();
 
@@ -29,6 +36,16 @@ public class Utils {
 
     private static final String H = "h";
 
+    /**
+     * org.xms.g.utils.Utils.mapArray2GH(R[] array, Class<T> cls, boolean isH) transfer map array to GH.<br/>
+     *
+     * @param array array name
+     * @param cls   class name
+     * @param isH   is hms or not
+     * @param <T>   T generic type
+     * @param <R>   R generic type
+     * @return array of T type
+     */
     public static <T, R> T[] mapArray2GH(R[] array, Class<T> cls, boolean isH) {
         if (null == array) {
             org.xms.g.utils.XmsLog.w("1", "array is null");
@@ -70,6 +87,15 @@ public class Utils {
         }
     }
 
+    /**
+     * org.xms.g.utils.Utils.transformIterable(Iterable<R> iterable, Function<R, T> mapper) trans form Iterable<R> to Iterable<T>.<br/>
+     *
+     * @param iterable iterable collection
+     * @param mapper   instance of Function<R, T>
+     * @param <R>      R generic type
+     * @param <T>      T generic type
+     * @return Iterable<T> collection
+     */
     public static <R, T> Iterable<T> transformIterable(Iterable<R> iterable, Function<R, T> mapper) {
         if (iterable == null) {
             org.xms.g.utils.XmsLog.w("1", "iterable is null");
@@ -81,6 +107,36 @@ public class Utils {
         return () -> iter;
     }
 
+    /**
+     * org.xms.g.utils.Utils.transformIterator(Iterator<R> iterator, Function<R, T> mapper) transform Iterator.<br/>
+     *
+     * @param iterator   iterator of R type
+     * @param mapper mapper name
+     * @param <T>    T generic type
+     * @param <R>    R generic type
+     * @return Iterator of T type
+     */
+    public static <R, T> Iterator<T> transformIterator(Iterator<R> iterator, Function<R, T> mapper) {
+        if (iterator == null) {
+            org.xms.g.utils.XmsLog.w("1", "iterator is null");
+            return null;
+        }
+        Iterator<T> iter = new MappedIterator<>(iterator, mapper);
+        String iteratorType = iter == null ? null : iter.getClass().getName();
+        org.xms.g.utils.XmsLog.i("1", "iterator : " + iterator.getClass().getName() + " result : " + iteratorType);
+        return iter;
+    }
+
+    /**
+     * org.xms.g.utils.Utils.genericArrayCopy(R[] array, Class<T> type, Function<R, T> mapper) Copy generic array.<br/>
+     *
+     * @param array  array name
+     * @param type   type name
+     * @param mapper mapper name
+     * @param <T>    T generic type
+     * @param <R>    R generic type
+     * @return array of T type
+     */
     public static <T, R> T[] genericArrayCopy(R[] array, Class<T> type, Function<R, T> mapper) {
         if (array == null) {
             org.xms.g.utils.XmsLog.w("1", "array is null");
@@ -88,15 +144,24 @@ public class Utils {
         }
         T[] arr = (T[]) Array.newInstance(type, array.length);
         for (int i = 0; i < array.length; i++) {
-            arr[i] = mapper.apply(array[i]);
+            arr[i] = array[i] == null ? null : mapper.apply(array[i]);
         }
         String typeType = type == null ? null : type.getClass().getName();
         org.xms.g.utils.XmsLog.i("1",
-                "array : " + array.getClass().getName() + " type : " + typeType + " result : "
-                    + arr.getClass().getName());
+                "array : " + array.getClass().getName() + " type : " + typeType + " result : " + arr.getClass().getName());
         return arr;
     }
 
+    /**
+     * org.xms.g.utils.Utils.convertMap(Map<T, V> map, Function<V, K> mapper) convert map from Map<T, V> to Map<T, K>.<br/>
+     *
+     * @param map    map name
+     * @param mapper mapper name
+     * @param <K>    K generic type
+     * @param <V>    V generic type
+     * @param <T>    T generic type
+     * @return map with key of T type and value of K type
+     */
     public static <K, V, T> Map<T, K> convertMap(Map<T, V> map, Function<V, K> mapper) {
         if (map == null) {
             org.xms.g.utils.XmsLog.w("1", "map is null");
@@ -111,8 +176,17 @@ public class Utils {
         return returnMap;
     }
 
+    /**
+     * org.xms.g.utils.Utils.genericArrayCopy(android.util.SparseArray<R> array,Function<R, T> mapper) Copy generic array.<br/>
+     *
+     * @param array  array name
+     * @param mapper mapper name
+     * @param <T>    T generic type
+     * @param <R>    R generic type
+     * @return SparseArray of T type
+     */
     public static <T, R> android.util.SparseArray<T> genericArrayCopy(android.util.SparseArray<R> array,
-                                                                      Function<R, T> mapper) {
+        Function<R, T> mapper) {
         if (array == null) {
             org.xms.g.utils.XmsLog.w("1", "array is null");
             return null;
@@ -127,12 +201,24 @@ public class Utils {
         return arr;
     }
 
+    /**
+     * org.xms.g.utils.Utils.mapList(List<R> list, Function<R, T> mapper) Combine the list and the mapper to the mapList.<br/>
+     *
+     * @param list   list name
+     * @param mapper mapper name
+     * @param <T>    T generic type
+     * @param <R>    R generic type
+     * @return List of T type
+     */
     public static <T, R> List<T> mapList(List<R> list, Function<R, T> mapper) {
         if (list == null) {
             org.xms.g.utils.XmsLog.i("1", "list is null");
             return null;
         }
         List<T> result = new ArrayList<>(list.size());
+        if (list instanceof LinkedList) {
+            result = new LinkedList();
+        }
         for (R r : list) {
             result.add(mapper.apply(r));
         }
@@ -141,6 +227,15 @@ public class Utils {
         return result;
     }
 
+    /**
+     * org.xms.g.utils.Utils.mapList2GH(List<R> list, boolean isH) tranfer from mapList to GH.<br/>
+     *
+     * @param list list name
+     * @param isH  is hms or not
+     * @param <T>  T generic type
+     * @param <R>  R generic type
+     * @return List of T type
+     */
     public static <T, R> List<T> mapList2GH(List<R> list, boolean isH) {
         List<T> result = mapList(list, it -> getInstanceInInterface(it, isH));
         String listType = list == null ? null : list.getClass().getName();
@@ -149,6 +244,15 @@ public class Utils {
         return result;
     }
 
+    /**
+     * org.xms.g.utils.Utils.mapList2X(List<R> list, boolean isH) tranfer from mapList to X.<br/>
+     *
+     * @param list list name
+     * @param isH  is hms or not
+     * @param <T>  T generic type
+     * @param <R>  R generic type
+     * @return List of T type
+     */
     public static <T, R> List<T> mapList2X(List<R> list, boolean isH) {
         List<T> result = isH ? mapList(list, it -> (T) getXmsObjectWithHmsObject(it))
                 : mapList(list, it -> (T) getXmsObjectWithGmsObject(it));
@@ -158,6 +262,15 @@ public class Utils {
         return result;
     }
 
+    /**
+     * org.xms.g.utils.Utils.mapCollection(Collection<? extends R> collection, Function<R, T> mapper) get map collection.<br/>
+     *
+     * @param collection collection name
+     * @param mapper     mapper name
+     * @param <T>        T generic type
+     * @param <R>        R generic type
+     * @return Collection of T type
+     */
     public static <T, R> Collection<T> mapCollection(Collection<? extends R> collection, Function<R, T> mapper) {
         if (collection == null) {
             org.xms.g.utils.XmsLog.i("0", "collection : null");
@@ -179,6 +292,15 @@ public class Utils {
         return result;
     }
 
+    /**
+     * org.xms.g.utils.Utils.mapCollection2GH(Collection<R> collection, boolean isH) transfer mapCollection to GH.<br/>
+     *
+     * @param collection collection name
+     * @param isH        is hms or not
+     * @param <T>        T generic type
+     * @param <R>        R generic type
+     * @return Collection of T type
+     */
     public static <T, R> Collection<T> mapCollection2GH(Collection<R> collection, boolean isH) {
         Collection<T> result = mapCollection(collection, it -> getInstanceInInterface(it, isH));
         String collectionType = collection == null ? null : collection.getClass().getName();
@@ -187,6 +309,15 @@ public class Utils {
         return result;
     }
 
+    /**
+     * org.xms.g.utils.Utils.mapCollection2X(Collection<R> collection, boolean isH) transfer mapCollection to X.<br/>
+     *
+     * @param collection collection name
+     * @param isH        is hms or not
+     * @param <T>        T generic type
+     * @param <R>        R generic type
+     * @return Collection of T type
+     */
     public static <T, R> Collection<T> mapCollection2X(Collection<R> collection, boolean isH) {
         Collection<T> result = isH ? mapCollection(collection, it -> (T) getXmsObjectWithHmsObject(it))
                 : mapCollection(collection, it -> (T) getXmsObjectWithGmsObject(it));
@@ -196,7 +327,7 @@ public class Utils {
         return result;
     }
 
-    private static Object transformList2X(Object object, boolean isH)
+    private static Object transformList2X(Object object, boolean isH, Map<String, String> xmsMap)
             throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         if (!(object instanceof List)) {
             org.xms.g.utils.XmsLog.i("1", "object is not List");
@@ -205,28 +336,37 @@ public class Utils {
         List result = (List) object.getClass().newInstance();
         for (int i = 0; i < ((List) object).size(); i++) {
             Object o = ((List) object).get(i);
-            if (o == null || !map.containsKey(o.getClass().getCanonicalName())) {
+            if (o == null || !xmsMap.containsKey(o.getClass().getCanonicalName())) {
                 result.add(o);
                 continue;
             }
-            // should transform to X.
-            String xName = map.get(o.getClass().getCanonicalName());
+            String xName = xmsMap.get(o.getClass().getCanonicalName());
             Class clazz = Class.forName(xName);
             result.add(getOrCreateInstance(clazz, o, isH));
         }
-        String objectType = object.getClass().getName();
+        String objectType = object == null ? null : object.getClass().getName();
         String resultType = result == null ? null : result.getClass().getName();
         org.xms.g.utils.XmsLog.i("2", "object : " + objectType + " isH : " + isH + " result : " + resultType);
         return result;
     }
 
+    /**
+     * org.xms.g.utils.Utils.getXmsObjectWithGmsObject(Object object) get the xms Object from the gms Object.<br/>
+     *
+     * @param object gms Object
+     * @return xms Object
+     */
     public static Object getXmsObjectWithGmsObject(Object object) {
+        return getXmsObjectWithGmsObject(object, getXmsMap("NORMAL"));
+    }
+
+    public static Object getXmsObjectWithGmsObject(Object object, Map<String, String> xmsMap) {
         if (object == null) {
             return null;
         }
         if (object instanceof List) {
             try {
-                return transformList2X(object, false);
+                return transformList2X(object, false, xmsMap);
             } catch (IllegalAccessException e) {
                 org.xms.g.utils.XmsLog.e("2", e.getMessage(), e);
             } catch (InstantiationException e) {
@@ -239,16 +379,26 @@ public class Utils {
             return object;
         }
         org.xms.g.utils.XmsLog.i("1", "inObject : " + object.getClass().getName());
-        return getXmsObject(object, G);
+        return getXmsObject(object, G, xmsMap);
     }
 
+    /**
+     * org.xms.g.utils.Utils.getXmsObjectWithHmsObject(Object object) get the xms Object from the hms Object.<br/>
+     *
+     * @param object hms Object
+     * @return xms Object
+     */
     public static Object getXmsObjectWithHmsObject(Object object) {
+        return getXmsObjectWithHmsObject(object, getXmsMap("NORMAL"));
+    }
+
+    public static Object getXmsObjectWithHmsObject(Object object, Map<String, String> xmsMap) {
         if (object == null) {
             return null;
         }
         if (object instanceof List) {
             try {
-                return transformList2X(object, true);
+                return transformList2X(object, true, xmsMap);
             } catch (IllegalAccessException e) {
                 org.xms.g.utils.XmsLog.e("2", e.getMessage(), e);
             } catch (InstantiationException e) {
@@ -261,21 +411,21 @@ public class Utils {
             return object;
         }
         org.xms.g.utils.XmsLog.i("1", "inObject : " + object.getClass().getName());
-        return getXmsObject(object, H);
+        return getXmsObject(object, H, xmsMap);
     }
 
-    private static String getXmsInterfaceName(Class[] interfaces) {
-        if (interfaces == null || interfaces.length == 0) {
+    private static String getXmsInterfaceName(List<Class> interfaces, Map<String, String> xmsMap) {
+        String result = null;
+        if (interfaces == null || interfaces.isEmpty()) {
             return null;
         }
-        String result = null;
-        for (Class item : interfaces) {
-            String interfacesStr = item.getName().replaceAll("\\$", ".");
-            if (map.containsKey(interfacesStr)) {
-                result = map.get(interfacesStr);
+        for (Class oneInterface : interfaces) {
+            String interfacesStr = oneInterface.getName().replaceAll("\\$", ".");
+            if (xmsMap.containsKey(interfacesStr)) {
+                result = xmsMap.get(interfacesStr);
                 break;
             } else {
-                result = getXmsInterfaceName(item.getInterfaces());
+                result = getXmsInterfaceName(Arrays.asList(oneInterface.getInterfaces()), xmsMap);
                 if (result != null) {
                     break;
                 }
@@ -284,24 +434,34 @@ public class Utils {
         return result;
     }
 
-    private static Object getXmsObject(Object object, String unused) {
+    public static Map<String, String> getXmsMap(String mapType) {
+        switch (mapType) {
+            case "ML_GMS":
+                return mlGMSMap;
+            case "NORMAL":
+            default:
+                return map;
+        }
+    }
+
+    private static Object getXmsObject(Object object, String GorH, Map<String, String> xmsMap) {
         String interfaceClass = null;
         Class inSuperClass = object.getClass().getSuperclass();
-        Class[] interfaces = object.getClass().getInterfaces();
+        List<Class> interfaces = new ArrayList<>(Arrays.asList(object.getClass().getInterfaces()));
         String inClassName = object.getClass().getName();
         inClassName = inClassName.replaceAll("\\$", ".");
-        while (!map.containsKey(inClassName)) {
+        while (!xmsMap.containsKey(inClassName)) {
             inClassName = inSuperClass.getName().replaceAll("\\$", ".");
             if (inClassName.equals("java.lang.Object")) {
-                interfaceClass = getXmsInterfaceName(interfaces);
+                interfaceClass = getXmsInterfaceName(interfaces, xmsMap);
                 org.xms.g.utils.XmsLog.d("2", "interfaceClass : " + interfaceClass);
                 break;
             } else {
+                Collections.addAll(interfaces, inSuperClass.getInterfaces());
                 inSuperClass = inSuperClass.getSuperclass();
-                interfaces = inSuperClass.getInterfaces();
             }
         }
-        String xmsClassName = map.get(inClassName);
+        String xmsClassName = xmsMap.get(inClassName);
         org.xms.g.utils.XmsLog.i("1", "inClassName : " + inClassName + ", xmsClassName : " + xmsClassName);
         if (xmsClassName == null) {
             if (interfaceClass != null) {
@@ -335,6 +495,12 @@ public class Utils {
         return null;
     }
 
+    /**
+     * org.xms.g.utils.Utils.isGmsClass(String className) judge if the class is of gms class or not.<br/>
+     *
+     * @param className input class name
+     * @return true if the class is of gms class, otherwise false.
+     */
     public static boolean isGmsClass(String className) {
         if (className.startsWith("com.google.android.gms") || className.startsWith("com.google.firebase")
                 || className.startsWith("com.google.ads") || className.startsWith("com.android.installreferrer")
@@ -346,8 +512,15 @@ public class Utils {
         return false;
     }
 
+    /**
+     * org.xms.g.utils.Utils.isHmsClass(String className) judge if the class is of hms class or not.<br/>
+     *
+     * @param className input class name
+     * @return true if the class is of hms class, otherwise false.
+     */
     public static boolean isHmsClass(String className) {
-        if (className.startsWith("com.huawei.hms") || className.startsWith("com.huawei.hmf")) {
+        if (className.startsWith("com.huawei.hms") || className.startsWith("com.huawei.hmf")
+                || className.startsWith("com.huawei.agconnect")) {
             org.xms.g.utils.XmsLog.i("1", "true");
             return true;
         }
@@ -355,6 +528,12 @@ public class Utils {
         return false;
     }
 
+    /**
+     * org.xms.g.utils.Utils.isGmsType(Object obj) judge if the class is of gms type or not.<br/>
+     *
+     * @param obj input object name
+     * @return true if the object is of gms type, otherwise false.
+     */
     public static boolean isGmsType(Object obj) {
         if (obj == null) {
             return false;
@@ -365,7 +544,6 @@ public class Utils {
             }
             if (obj.getClass().getSuperclass().getName().equals("java.lang.Object")) {
                 Class[] superInterfaces = obj.getClass().getInterfaces();
-                // anonymous class or inner class has only one interface
                 for (Class inter : superInterfaces) {
                     return isGmsClass(inter.getName());
                 }
@@ -377,6 +555,12 @@ public class Utils {
         return isGmsClass(obj.getClass().getName());
     }
 
+    /**
+     * org.xms.g.utils.Utils.isHmsType(Object obj) judge if the class is of hms type or not.<br/>
+     *
+     * @param obj input object name
+     * @return true if the object is of hms type, otherwise false.
+     */
     public static boolean isHmsType(Object obj) {
         if (obj == null) {
             return false;
@@ -387,7 +571,6 @@ public class Utils {
             }
             if (obj.getClass().getSuperclass().getName().equals("java.lang.Object")) {
                 Class[] superInterfaces = obj.getClass().getInterfaces();
-                // anonymous class or inner class has only one interface
                 for (Class inter : superInterfaces) {
                     return isHmsClass(inter.getName());
                 }
@@ -399,44 +582,66 @@ public class Utils {
         return isHmsClass(obj.getClass().getName());
     }
 
+    /**
+     * org.xms.g.utils.Utils.getGmsClassWithXmsClass(Class xmsClass) get the gms class from the xms class.<br/>
+     *
+     * @param xmsClass xms class name
+     * @return gms class
+     */
     public static Class getGmsClassWithXmsClass(Class xmsClass) {
-        try {
-            Field field = xmsClass.getField("zInstance");
-            org.xms.g.utils.XmsLog.i("1", "field.getType : " + field.getType());
-            return field.getType();
-        } catch (NoSuchFieldException e) {
-            org.xms.g.utils.XmsLog.w("2", "xmsClass : " + xmsClass + ", e : " + e.getMessage(), e);
-            return xmsClass;
-        }
+        return getGmsClassWithXmsClass(xmsClass, getXmsMap("NORMAL"));
     }
 
-    public static Class getHmsClassWithXmsClass(Class xmsClass) {
-        try {
-            Field field = xmsClass.getField("zInstance");
-            org.xms.g.utils.XmsLog.i("1", "field.getType : " + field.getType());
-            return field.getType();
-        } catch (NoSuchFieldException e) {
-            org.xms.g.utils.XmsLog.w("2", "xmsClass : " + xmsClass + ", e : " + e.getMessage(), e);
+    public static Class getGmsClassWithXmsClass(Class xmsClass, Map<String, String> xmsMap) {
+        String xmsName = xmsClass.getName();
+        if (!xmsMap.containsValue(xmsName)) {
             return xmsClass;
         }
-    }
-
-    public static Class getXmsClassWithClass(Class clazz) {
-        try {
-            if (map.containsKey(clazz.getName())) {
-                org.xms.g.utils.XmsLog.i("1", "XmsClass : " + map.get(clazz.getName()));
-                return Class.forName(map.get(clazz.getName()));
+        for (Map.Entry<String, String> entry : xmsMap.entrySet()) {
+            String targetKey = entry.getKey();
+            if (xmsName.equals(entry.getValue()) && isGmsClass(targetKey)) {
+                try {
+                    return Class.forName(targetKey);
+                } catch (ClassNotFoundException e) {
+                    return xmsClass;
+                }
             }
-        } catch (ClassNotFoundException e) {
-            org.xms.g.utils.XmsLog.e("2", e.getMessage(), e);
         }
-        return null;
+        return xmsClass;
     }
 
     /**
-     * Tell a clazz is xms type or not.
+     * org.xms.g.utils.Utils.getHmsClassWithXmsClass(Class xmsClass) get the hms class from the xms class.<br/>
      *
-     * @param clazz, the clazz need to be identified.
+     * @param xmsClass xms class name
+     * @return hms class
+     */
+    public static Class getHmsClassWithXmsClass(Class xmsClass) {
+        return getHmsClassWithXmsClass(xmsClass, getXmsMap("NORMAL"));
+    }
+
+    public static Class getHmsClassWithXmsClass(Class xmsClass, Map<String, String> xmsMap) {
+        String xmsName = xmsClass.getName();
+        if (!xmsMap.containsValue(xmsName)) {
+            return xmsClass;
+        }
+        for (Map.Entry<String, String> entry : xmsMap.entrySet()) {
+            String targetKey = entry.getKey();
+            if (xmsName.equals(entry.getValue()) && isHmsClass(targetKey)) {
+                try {
+                    return Class.forName(targetKey);
+                } catch (ClassNotFoundException e) {
+                    return xmsClass;
+                }
+            }
+        }
+        return xmsClass;
+    }
+
+    /**
+     * org.xms.g.utils.Utils.isXmsType(Class clazz) Tell a clazz is xms type or not.<br/>
+     *
+     * @param clazz the clazz need to be identified.
      * @return if clazz is xms type, return true.
      */
     public static boolean isXmsType(Class clazz) {
@@ -446,15 +651,13 @@ public class Utils {
     }
 
     /**
-     * Create an instance from its Class, and we MUST use
-     * its wrapper constructor.
+     * org.xms.g.utils.Utils.getOrCreateInstance(Class clazz, Object zInst, boolean isH) Create an instance from its Class, and we MUST use its wrapper constructor.<br>
      *
-     * @param clazz, Create an instance from clazz.
-     * @param zInst, parameter for constructor.
+     * @param clazz Create an instance from clazz.
+     * @param zInst parameter for constructor.
      * @return the instance.
      */
     public static Object getOrCreateInstance(Class clazz, Object zInst, boolean isH) {
-        // transform ghList to xList.
         if (zInst == null) {
             org.xms.g.utils.XmsLog.i("1", "instance : null");
             return null;
@@ -466,11 +669,9 @@ public class Utils {
 
         if (!isXmsType(clazz)) {
             org.xms.g.utils.XmsLog.i("3", "instance : " + zInst.getClass().getName());
-            // maybe instance is GInstance or HInstance
-            if (isH) { // HInstance
+            if (isH) {
                 return getXmsObjectWithHmsObject(zInst);
             }
-            // GInstance
             return getXmsObjectWithGmsObject(zInst);
         }
 
@@ -503,9 +704,9 @@ public class Utils {
     }
 
     /**
-     * Find wrapper constructor for an xms class.
+     * org.xms.g.utils.Utils.getWrapperConstructor(Class xmsType) Find wrapper constructor for an xms class.<br/>
      *
-     * @param xmsType, the class whose wrapper constructor need to be found.
+     * @param xmsType the class whose wrapper constructor need to be found.
      * @return xmsType's wrapper constructor.
      */
     public static Constructor getWrapperConstructor(Class xmsType) {
@@ -535,10 +736,7 @@ public class Utils {
     }
 
     /**
-     * If an object is xms instance, get its G instance or H instance.
-     * An xms object may be an XGettable instance, then it has a concrete g instance,
-     * also, it may be an XInterface but not XGettable, we must call these methods
-     * by reflection.
+     * org.xms.g.utils.Utils.getInstanceInInterface(Object o, boolean isH) If an object is xms instance, get its G instance or H instance.An xms object may be an XGettable instance, then it has a concrete g instance,also, it may be an XInterface but not XGettable, we must call these methods by reflection.<br/>
      *
      * @param o   object to get its g instance.
      * @param isH show we need its g or h instance.
@@ -556,7 +754,6 @@ public class Utils {
             return (T) ((XGettable) o).getZInstance();
         }
 
-        // o must be an XInterface and not XGettable.
         return (T) reflectiveGetInstance(o, isH);
     }
 
@@ -596,19 +793,93 @@ public class Utils {
         return null;
     }
 
+    private static Object[] wrapZType(Object[] objects, Class[] types, boolean isH) {
+        Object[] xmsObj = new Object[objects.length];
+        for (int i = 0; i < objects.length; i++) {
+            xmsObj[i] = Utils.getOrCreateInstance(types[i], objects[i], isH);
+        }
+        if (xmsObj.length > 0) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < xmsObj.length; i++) {
+                String argsType = xmsObj[i] == null ? null : xmsObj[i].getClass().getName();
+                sb.append("XMS Types [").append(i).append("] : ").append(argsType).append(", ");
+            }
+            org.xms.g.utils.XmsLog.i("1", sb.toString());
+        }
+        return xmsObj;
+    }
+
     /**
-     * Invoke the bridge method with the original parameter types.
+     * org.xms.g.utils.Utils.getBridgedMethod(Object receiver, String methodName, Class[] paramTypes) get bridged method.<br/>
+     *
+     * @param receiver   receiver name
+     * @param methodName method name
+     * @param paramTypes param types
+     * @return bridged method
+     * @throws NoSuchMethodException can not find such method
+     */
+    public static Method getBridgedMethod(Object receiver, String methodName, Class[] paramTypes) throws NoSuchMethodException {
+        Method bridgeMethod = BridgeMethodUtils.getBridgeMethod(receiver.getClass(), methodName, paramTypes);
+        org.xms.g.utils.XmsLog.d("1", "get bridge method " + bridgeMethod.toString());
+        Method bridgedMethod = BridgeMethodUtils.getBridgedMethod(bridgeMethod);
+        org.xms.g.utils.XmsLog.d("2", "get bridged method " + bridgedMethod.toString());
+        String bridgeMethodType = bridgeMethod.getName();
+        String bridgedMethodMethodType = bridgedMethod.getName();
+        org.xms.g.utils.XmsLog.d("3",
+                "bridgeMethod : " + bridgeMethodType + ", bridgedMethod : " + bridgedMethodMethodType);
+        return bridgedMethod;
+    }
+
+    /**
+     * org.xms.g.utils.Utils.getXmsRetObj(Object receiver, String methodName, Object returnObj, Class[] paramTypes, boolean isH) Get xms type by Invoking the bridge method with the original return types.<br/>
+     *
+     * @param receiver   the invoke target
+     * @param methodName the method name
+     * @param returnObj  return object
+     * @param paramTypes the declaration types of parameters (the upper bound type for the generic type)
+     * @param isH        HMS if true; GMS, otherwise
+     * @return xms object
+     */
+    public static Object getXmsRetObj(Object receiver, String methodName, Object returnObj, Class[] paramTypes, boolean isH) {
+        if (returnObj == null) {
+            org.xms.g.utils.XmsLog.w("1", "returnObj == null");
+            throw new IllegalArgumentException("return object can not be null!");
+        }
+
+        if (paramTypes == null) {
+            org.xms.g.utils.XmsLog.w("2", "paramTypes == null");
+            throw new IllegalArgumentException("parameter types object can not be null!");
+        }
+
+        Method bridgedMethod;
+        try {
+            bridgedMethod = getBridgedMethod(receiver, methodName, paramTypes);
+        } catch (NoSuchMethodException e) {
+            return isH ? getXmsObjectWithHmsObject(returnObj) : getXmsObjectWithGmsObject(returnObj);
+        }
+        Class<?> returnType = bridgedMethod.getReturnType();
+        return wrapZType(new Object[]{returnObj}, new Class[]{returnType}, isH)[0];
+    }
+
+    public static Object invokeMethod(Object receiver, String methodName, Object[] params, Class[] paramTypes,
+                                      boolean isH) throws IllegalStateException {
+        return invokeMethod(receiver, methodName, params, paramTypes, isH, getXmsMap("NORMAL"));
+    }
+
+    /**
+     * org.xms.g.utils.Utils.invokeMethod(Object receiver, String methodName, Object[] params, Class[] paramTypes,boolean isH) Invoke the bridge method with the original parameter types.<br/>
      *
      * @param receiver   the invoke target
      * @param methodName the method name
      * @param params     parameters
      * @param paramTypes the declaration types of parameters (the upper bound type for the generic type)
      * @param isH        HMS if true; GMS, otherwise
+     * @param xmsMap     XMS relation map
      * @return the return value
      * @throws IllegalStateException capsuling the real refection exception
      */
-    public static Object invokeBridgeMethod(Object receiver, String methodName, Object[] params, Class[] paramTypes,
-                                            boolean isH) throws IllegalStateException {
+    public static Object invokeMethod(Object receiver, String methodName, Object[] params, Class[] paramTypes,
+                                      boolean isH, Map<String, String> xmsMap) throws IllegalStateException {
         if (params == null) {
             org.xms.g.utils.XmsLog.w("1", "params == null");
             throw new IllegalArgumentException("null params");
@@ -624,58 +895,84 @@ public class Utils {
             throw new IllegalArgumentException("mismatched params and paramTypes");
         }
 
-        Method bridgeMethod = BridgeMethodUtils.getBridgeMethod(receiver.getClass(), methodName, paramTypes);
-        org.xms.g.utils.XmsLog.d("4", "get bridge method " + bridgeMethod.toString());
-        Method bridgedMethod = BridgeMethodUtils.getBridgedMethod(bridgeMethod);
-        org.xms.g.utils.XmsLog.d("4", "get bridged method " + bridgedMethod.toString());
+        Method bridgedMethod;
         try {
-            String bridgeMethodType = bridgeMethod.getName();
-            String bridgedMethodMethodType = bridgedMethod.getName();
-            org.xms.g.utils.XmsLog.d("4",
-                    "bridgeMethod : " + bridgeMethodType + ", bridgedMethod : " + bridgedMethodMethodType);
+            bridgedMethod = getBridgedMethod(receiver, methodName, paramTypes);
+        } catch (NoSuchMethodException e) {
+            return invokeImprecise(receiver, methodName, params, paramTypes, isH, xmsMap);
+        }
+        org.xms.g.utils.XmsLog.i("4", "receiver : " + receiver.getClass().getName());
+        try {
             Class<?>[] types = bridgedMethod.getParameterTypes();
-            Object[] args = new Object[params.length];
-            for (int i = 0; i < params.length; i++) {
-                args[i] = Utils.getOrCreateInstance(types[i], params[i], isH);
-            }
-            org.xms.g.utils.XmsLog.i("5", "receiver : " + receiver.getClass().getName());
-            if (args.length > 0) {
-                StringBuilder argSb = new StringBuilder();
-                for (int i = 0; i < args.length; i++) {
-                    String argsType = args[i] == null ? null : args[i].getClass().getName();
-                    argSb.append("args [").append(i).append("] : ").append(argsType).append(", ");
-                }
-                org.xms.g.utils.XmsLog.i("6", argSb.toString());
-            }
+            Object[] args = wrapZType(params, types, isH);
             bridgedMethod.setAccessible(true);
             return bridgedMethod.invoke(receiver, args);
         } catch (Exception ex) {
-            org.xms.g.utils.XmsLog.e("7", ex.getMessage(), ex);
+            org.xms.g.utils.XmsLog.e("5", ex.getMessage(), ex);
             throw new IllegalStateException(ex);
         }
     }
 
     /**
-     * handle invokeBridge method return value.
-     * return value need type cast.
+     * org.xms.g.utils.Utils.invokeImprecise(Object receiver, String methodName, Object[] paramObj, Class[] upperBoundType, boolean isH) invoke imprecise.<br/>
+     *
+     * @param receiver       the invoke target
+     * @param methodName     the method name
+     * @param paramObj       parameters
+     * @param upperBoundType type of upper boundary
+     * @param isH            is hms or not
+     * @return Object
+     */
+    public static Object invokeImprecise(Object receiver, String methodName, Object[] paramObj, Class[] upperBoundType, boolean isH, Map<String, String> xmsMap) {
+        Object[] xmsObj = new Object[paramObj.length];
+        for (int i = 0; i < paramObj.length; i++) {
+            xmsObj[i] = isH ? getXmsObjectWithHmsObject(paramObj[i], xmsMap) : getXmsObjectWithGmsObject(paramObj[i], xmsMap);
+        }
+        Method[] methods = receiver.getClass().getMethods();
+        Method method = getDeclaredMethod(methods, methodName, upperBoundType);
+        try {
+            return method.invoke(receiver, xmsObj);
+        } catch (Exception ex) {
+            org.xms.g.utils.XmsLog.e("1", ex.getMessage(), ex);
+            throw new IllegalStateException(ex);
+        }
+    }
+
+    private static Method getDeclaredMethod(Method[] methods, String methodName, Class[] upperBoundType) {
+        for (Method method : methods) {
+            if (!method.getName().equals(methodName) || method.getParameterTypes().length != upperBoundType.length) {
+                continue;
+            }
+            Class[] paramTypes = method.getParameterTypes();
+            for (int i = 0; i < paramTypes.length; i++) {
+                if (!upperBoundType[i].isAssignableFrom(paramTypes[i])) {
+                    break;
+                }
+                if (i == paramTypes.length - 1) {
+                    return method;
+                }
+            }
+        }
+        throw new IllegalStateException("No such method!");
+    }
+
+    /**
+     * org.xms.g.utils.Utils.handleInvokeBridgeReturnValue(Object receiver, boolean isH) handle invokeBridge method return value.return value need type cast.<br/>
      *
      * @param receiver the invoke target
      * @param isH      HMS if true; GMS, otherwise
      * @return the return value
      */
     public static Object handleInvokeBridgeReturnValue(Object receiver, boolean isH) {
-        // not xms type
         if (!isXmsType(receiver.getClass())) {
             org.xms.g.utils.XmsLog.d("1", "receiver : " + receiver.getClass().getName());
             return receiver;
         }
-        // gettable, use Gettable getGorHinstance
         if (receiver instanceof XGettable) {
             org.xms.g.utils.XmsLog.i("2",
                     "zInstance : " + ((XGettable) receiver).getZInstance().getClass().getName());
             return ((XGettable) receiver).getZInstance();
         }
-        // interface, invoke default getHorGInstance method
         Method[] methods = receiver.getClass().getMethods();
         int cnt = 0;
         String prefix = "getZInstance";
@@ -701,6 +998,16 @@ public class Utils {
         throw illegalStateException;
     }
 
+    /**
+     * org.xms.g.utils.Utils.invokeProtectMethod(Object receiver, Class targetClass, String methodName, Class[] methodParametersType, Object[] args) invoke protect method.<br/>
+     *
+     * @param receiver             the invoke target
+     * @param targetClass          the target class
+     * @param methodName           the method name
+     * @param methodParametersType the type of method parameters
+     * @param args                 the arguments
+     * @return the Object
+     */
     public static Object invokeProtectMethod(Object receiver, Class targetClass, String methodName,
                                              Class[] methodParametersType, Object[] args) {
         if (targetClass == null) {
@@ -712,7 +1019,7 @@ public class Utils {
         try {
             Method method = targetClass.getDeclaredMethod(methodName, methodParametersType);
             if (method == null) {
-                throw new IllegalStateException("method dose not exist.");
+                throw new IllegalStateException("method does not exist.");
             }
             method.setAccessible(true);
             return method.invoke(receiver, args);
@@ -728,5 +1035,7 @@ public class Utils {
 
     static {
         ${XGH_MAP}
+        ${GMS_ML_MAP}
+        ${FIREBASE_ML_MAP}
     }
 }

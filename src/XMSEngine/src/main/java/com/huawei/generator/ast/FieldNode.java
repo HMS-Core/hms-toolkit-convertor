@@ -16,10 +16,12 @@
 
 package com.huawei.generator.ast;
 
+import com.huawei.generator.ast.custom.XFieldDoc;
+
 import java.util.List;
 
 /**
- * FieldNode class
+ * Field Node
  *
  * @since 2019-11-12
  */
@@ -33,6 +35,8 @@ public final class FieldNode extends AstNode {
     private String name;
 
     private AstNode value;
+
+    private XFieldDoc fieldDoc;
 
     private FieldNode() {
     }
@@ -59,6 +63,14 @@ public final class FieldNode extends AstNode {
 
     public AstNode value() {
         return value;
+    }
+
+    public XFieldDoc getFieldDoc() {
+        return fieldDoc;
+    }
+
+    public void setFieldDoc(XFieldDoc fieldDoc) {
+        this.fieldDoc = fieldDoc;
     }
 
     @Override

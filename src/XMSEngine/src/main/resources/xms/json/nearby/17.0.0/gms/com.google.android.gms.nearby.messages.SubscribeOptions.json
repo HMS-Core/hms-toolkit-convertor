@@ -1,0 +1,127 @@
+{
+  "gName": "com.google.android.gms.nearby.messages.SubscribeOptions",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getCallback",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.nearby.messages.SubscribeCallback"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCallback",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.nearby.message.GetCallback"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getFilter",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.nearby.messages.MessageFilter"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPicker",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.nearby.message.MessagePicker"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getStrategy",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.nearby.messages.Strategy"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPolicy",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.nearby.message.Policy"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "DEFAULT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.nearby.messages.SubscribeOptions",
+        "value": ""
+      },
+      "h": {
+        "name": "DEFAULT",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.nearby.message.GetOption",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.message.GetOption"
+}

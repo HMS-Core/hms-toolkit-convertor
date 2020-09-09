@@ -1,0 +1,173 @@
+{
+  "gName": "com.google.android.gms.games.leaderboard.ScoreSubmissionData.Result",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Result",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "boolean"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Result",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "2",
+            "type": "java.lang.String"
+          },
+          {
+            "pos": "3",
+            "type": "boolean"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "newBest",
+        "modifiers": [
+          "final"
+        ],
+        "type": "boolean",
+        "value": ""
+      },
+      "h": {
+        "name": "isBest",
+        "modifiers": [
+          "final"
+        ],
+        "type": "boolean",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "formattedScore",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "displayScore",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "scoreTag",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "h": {
+        "name": "scoreTips",
+        "modifiers": [
+          "final"
+        ],
+        "type": "java.lang.String",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "rawScore",
+        "modifiers": [
+          "final"
+        ],
+        "type": "long",
+        "value": ""
+      },
+      "h": {
+        "name": "playerRawScore",
+        "modifiers": [
+          "final"
+        ],
+        "type": "long",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.jos.games.ranking.ScoreSubmissionInfo.Result"
+}

@@ -1,0 +1,211 @@
+{
+  "gName": "com.google.android.gms.games.video.Videos",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getCaptureOverlayIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "android.content.Intent"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isCaptureSupported",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "isCaptureAvailable",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.video.Videos.CaptureAvailableResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getCaptureCapabilities",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.video.Videos.CaptureCapabilitiesResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getCaptureState",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.games.video.Videos.CaptureStateResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "registerCaptureOverlayStateChangedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.games.video.Videos.CaptureOverlayStateListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unregisterCaptureOverlayStateChangedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "CAPTURE_OVERLAY_STATE_CAPTURE_STARTED",
+        "modifiers": [],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "CAPTURE_OVERLAY_STATE_CAPTURE_STOPPED",
+        "modifiers": [],
+        "type": "int",
+        "value": "3"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "CAPTURE_OVERLAY_STATE_DISMISSED",
+        "modifiers": [],
+        "type": "int",
+        "value": "4"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "HMS 4.0.0.300",
+      "g": {
+        "name": "CAPTURE_OVERLAY_STATE_SHOWN",
+        "modifiers": [],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

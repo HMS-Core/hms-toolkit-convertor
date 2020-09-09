@@ -27,7 +27,6 @@ import com.huawei.generator.json.JMapping;
 import com.huawei.generator.json.JMethod;
 import com.huawei.generator.json.JParameter;
 import com.huawei.generator.utils.GlobalMapping;
-import com.huawei.generator.utils.Modifier;
 import com.huawei.generator.utils.TypeUtils;
 
 import org.slf4j.Logger;
@@ -39,24 +38,18 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Function description
+ * Utils ofr KClass
  *
  * @since 2019-12-09
  */
 public class KClassUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(KClassUtils.class);
 
-    private static final String CONSTANT_G = "G";
-
-    private static final String CONSTANT_H = "H";
-
-    private static final String CONSTANT_A = "A";
-
     private static boolean isAbstractMethod(KClass kClass, JMethod kMethod) {
         if (!kClass.contains(kMethod)) {
             throw new IllegalArgumentException("kMethod must be declared in kClass");
         }
-        return kMethod.modifiers().contains(Modifier.ABSTRACT.getName());
+        return kMethod.modifiers().contains("abstract");
     }
 
     // Check whether method is implemented in any class in kClassList
@@ -69,10 +62,12 @@ public class KClassUtils {
      * 
      * @param kClass the target class
      * @param kClassMap the class hierarchy, given as a map
+     * @param excludeImplemented whether to exclude the implemented (overridden) method from the results
      * @param includeSelf whether to include the given 'kClass' in the searching class list
      * @return list of abstract methods
      */
-    private static List<JMethod> allAbstractMethods(KClass kClass, Map<String, KClass> kClassMap, boolean includeSelf) {
+    private static List<JMethod> allAbstractMethods(KClass kClass, Map<String, KClass> kClassMap,
+        boolean excludeImplemented, boolean includeSelf) {
         List<JMethod> resultList = new ArrayList<>();
         List<KClass> classList = new SupersVisitor(kClass, kClassMap).visit();
         if (!includeSelf) {
@@ -82,7 +77,7 @@ public class KClassUtils {
         // classList should have contained all the super classes and super interfaces
         for (KClass clz : classList) {
             for (JMethod method : clz.getMethods()) {
-                if (!isAbstractMethod(clz, method) || (methodImplementedIn(method, classList))) {
+                if (!isAbstractMethod(clz, method) || (excludeImplemented && methodImplementedIn(method, classList))) {
                     continue;
                 }
                 // Abstract method may be declared for multiple times. So avoid adding duplicated method
@@ -104,8 +99,8 @@ public class KClassUtils {
      * @return The mapping for this method
      */
     private static JMapping<JMethod> toJMapping(JMethod method, String gORh) {
-        boolean isG = gORh.equals(CONSTANT_G);
-        boolean isH = gORh.equals(CONSTANT_H);
+        boolean isG = gORh.equals("G");
+        boolean isH = gORh.equals("H");
         String kClassName = method.getKClass().getClassName();
         String xClassName = null;
         if (isG) {
@@ -145,7 +140,7 @@ public class KClassUtils {
     public static List<JMapping<JMethod>> getXImplMethods(JClass def, ClassNode xNode) {
         // methods need to be implemented in inheritance chain
         List<JMapping<JMethod>> inheritedAbstractMethods =
-            KClassUtils.getHierarchicalAbstractMethodMappings(xNode, false);
+            KClassUtils.getHierarchicalAbstractMethodMappings(xNode, true, false);
         // abstract method in xms class
         List<JMapping<JMethod>> abstractMethods = new ArrayList<>();
         // implement method in xms class
@@ -154,8 +149,8 @@ public class KClassUtils {
             if (jMapping.g() == null) {
                 return;
             }
-            if (jMapping.g().modifiers().contains(Modifier.ABSTRACT.getName())
-                || (xNode.isInterface() && !jMapping.g().modifiers().contains(Modifier.DEFAULT.getName()))) {
+            if (jMapping.g().modifiers().contains("abstract")
+                || (xNode.isInterface() && !jMapping.g().modifiers().contains("default"))) {
                 abstractMethods.add(jMapping);
             } else {
                 implementMethods.add(jMapping);
@@ -180,13 +175,16 @@ public class KClassUtils {
      * in the class and all abstract method in the superclass, interfaces.
      *
      * @param xNode xms class node
+     * @param excludeImplemented true if you want to get a collection of methods that are not implemented, otherwise
+     *        false
      * @param includeSelf true if include xNode, otherwise false
      * @return the collection of method mapping
      */
-    public static List<JMapping<JMethod>> getHierarchicalAbstractMethodMappings(ClassNode xNode, boolean includeSelf) {
+    public static List<JMapping<JMethod>> getHierarchicalAbstractMethodMappings(ClassNode xNode,
+        boolean excludeImplemented, boolean includeSelf) {
         List<JMapping<JMethod>> resultMappings = new ArrayList<>();
 
-        getMappingsImpl(resultMappings, xNode, includeSelf);
+        getMappingsImpl(resultMappings, xNode, excludeImplemented, includeSelf);
 
         return resultMappings;
     }
@@ -202,7 +200,7 @@ public class KClassUtils {
         // First include all method-mappings of this class
         List<JMapping<JMethod>> resultMappings = new ArrayList<>(xNode.getJClass().methods());
 
-        getMappingsImpl(resultMappings, xNode, true);
+        getMappingsImpl(resultMappings, xNode, true, true);
 
         return resultMappings;
     }
@@ -215,10 +213,10 @@ public class KClassUtils {
      * @param xNode xms class node
      * @return the collection of method mapping
      */
-    public static List<JMapping<JMethod>> getGHierachicalMethodMapping(ClassNode xNode) {
+    public static List<JMapping<JMethod>> getGHierarchicalMethodMapping(ClassNode xNode) {
         List<JMapping<JMethod>> resultMappings = new ArrayList<>(xNode.getJClass().methods());
 
-        getGMappingsImpl(resultMappings, xNode);
+        getGMappingsImpl(resultMappings, xNode, true, true);
 
         return resultMappings;
     }
@@ -231,10 +229,10 @@ public class KClassUtils {
      * @param xNode xms class node
      * @return the collection of method mapping
      */
-    public static List<JMapping<JMethod>> getHHierachicalMethodMapping(ClassNode xNode) {
+    public static List<JMapping<JMethod>> getHHierarchicalMethodMapping(ClassNode xNode) {
         List<JMapping<JMethod>> resultMappings = new ArrayList<>(xNode.getJClass().methods());
 
-        getHMappingsImpl(resultMappings, xNode);
+        getHMappingsImpl(resultMappings, xNode, true, true);
 
         return resultMappings;
     }
@@ -254,7 +252,7 @@ public class KClassUtils {
     }
 
     private static void addToMappings(ClassNode node, JMethod method, List<JMapping<JMethod>> mappings, String world) {
-        if (!world.equals(CONSTANT_G) && !world.equals(CONSTANT_H) && !world.equals(CONSTANT_A)) {
+        if (!world.equals("G") && !world.equals("H") && !world.equals("A")) {
             throw new IllegalArgumentException("world must be G or H or A");
         }
         // Generator will traverse the inheritance tree to collect all the abstract methods.
@@ -303,14 +301,17 @@ public class KClassUtils {
      * 
      * @param resultMappings the result mappings of the collected methods, may be not empty at the entry
      * @param xNode the class node of an X type
+     * @param excludeImplemented param passed to allAbstractMethods
      * @param includeSelf param passed to allAbstractMethods
      */
-    private static void getMappingsImpl(List<JMapping<JMethod>> resultMappings, ClassNode xNode, boolean includeSelf) {
+    private static void getMappingsImpl(List<JMapping<JMethod>> resultMappings, ClassNode xNode,
+        boolean excludeImplemented, boolean includeSelf) {
         KClass gClass = KClassReader.INSTANCE.getGClassList().get(xNode.getGType().getTypeName());
         if (gClass == null || gClass.getClassName().equals("")) {
             throw new IllegalStateException("Missing " + xNode.getGType().getTypeName() + " in gms.json");
         }
-        List<JMethod> gAbstractMethods = allAbstractMethods(gClass, KClassReader.INSTANCE.getGClassList(), includeSelf);
+        List<JMethod> gAbstractMethods =
+            allAbstractMethods(gClass, KClassReader.INSTANCE.getGClassList(), excludeImplemented, includeSelf);
 
         KClass hClass = KClassReader.INSTANCE.getHClassList().get(xNode.getHType().getTypeName());
 
@@ -322,19 +323,22 @@ public class KClassUtils {
             gAbstractMethods.forEach(abstractMethod -> addToMappings(xNode, abstractMethod, resultMappings, "G"));
             return;
         }
-        List<JMethod> hAbstractMethods = allAbstractMethods(hClass, KClassReader.INSTANCE.getHClassList(), includeSelf);
+        List<JMethod> hAbstractMethods =
+            allAbstractMethods(hClass, KClassReader.INSTANCE.getHClassList(), excludeImplemented, includeSelf);
 
         List<JMethod> commonMethods = getCommonMethods(resultMappings, xNode, gAbstractMethods, hAbstractMethods);
         addGMapping(commonMethods, resultMappings, xNode, gAbstractMethods);
         addHMapping(commonMethods, resultMappings, xNode, hAbstractMethods);
     }
 
-    private static void getGMappingsImpl(List<JMapping<JMethod>> resultMappings, ClassNode xNode) {
+    private static void getGMappingsImpl(List<JMapping<JMethod>> resultMappings, ClassNode xNode,
+        boolean excludeImplemented, boolean includeSelf) {
         KClass gClass = KClassReader.INSTANCE.getGClassList().get(xNode.getGType().getTypeName());
         if (gClass == null || gClass.getClassName().equals("")) {
             throw new IllegalStateException("Missing " + xNode.getGType().getTypeName() + " in gms.json");
         }
-        List<JMethod> gAbstractMethods = allAbstractMethods(gClass, KClassReader.INSTANCE.getGClassList(), true);
+        List<JMethod> gAbstractMethods =
+            allAbstractMethods(gClass, KClassReader.INSTANCE.getGClassList(), excludeImplemented, includeSelf);
 
         KClass hClass = KClassReader.INSTANCE.getHClassList().get(xNode.getHType().getTypeName());
 
@@ -346,18 +350,21 @@ public class KClassUtils {
             gAbstractMethods.forEach(abstractMethod -> addToMappings(xNode, abstractMethod, resultMappings, "G"));
             return;
         }
-        List<JMethod> hAbstractMethods = allAbstractMethods(hClass, KClassReader.INSTANCE.getHClassList(), true);
+        List<JMethod> hAbstractMethods =
+            allAbstractMethods(hClass, KClassReader.INSTANCE.getHClassList(), excludeImplemented, includeSelf);
 
         List<JMethod> commonMethods = getCommonMethods(resultMappings, xNode, gAbstractMethods, hAbstractMethods);
         addGMapping(commonMethods, resultMappings, xNode, gAbstractMethods);
     }
 
-    private static void getHMappingsImpl(List<JMapping<JMethod>> resultMappings, ClassNode xNode) {
+    private static void getHMappingsImpl(List<JMapping<JMethod>> resultMappings, ClassNode xNode,
+        boolean excludeImplemented, boolean includeSelf) {
         KClass gClass = KClassReader.INSTANCE.getGClassList().get(xNode.getGType().getTypeName());
         if (gClass == null || gClass.getClassName().equals("")) {
             throw new IllegalStateException("Missing " + xNode.getGType().getTypeName() + " in gms.json");
         }
-        List<JMethod> gAbstractMethods = allAbstractMethods(gClass, KClassReader.INSTANCE.getGClassList(), true);
+        List<JMethod> gAbstractMethods =
+            allAbstractMethods(gClass, KClassReader.INSTANCE.getGClassList(), excludeImplemented, includeSelf);
 
         KClass hClass = KClassReader.INSTANCE.getHClassList().get(xNode.getHType().getTypeName());
 
@@ -368,7 +375,8 @@ public class KClassUtils {
             // Just return the abstract method mappings from G
             return;
         }
-        List<JMethod> hAbstractMethods = allAbstractMethods(hClass, KClassReader.INSTANCE.getHClassList(), true);
+        List<JMethod> hAbstractMethods =
+            allAbstractMethods(hClass, KClassReader.INSTANCE.getHClassList(), excludeImplemented, includeSelf);
 
         List<JMethod> commonMethods = getCommonMethods(resultMappings, xNode, gAbstractMethods, hAbstractMethods);
         addHMapping(commonMethods, resultMappings, xNode, hAbstractMethods);
@@ -438,6 +446,7 @@ public class KClassUtils {
      * Get hms constructor list from hms.json.
      *
      * @param className target class name
+     * @param classList Collection of z KClasses
      * @return collection of constructor list
      */
     public static List<JMethod> getConstructorList(String className, Map<String, KClass> classList) {
@@ -481,6 +490,7 @@ public class KClassUtils {
         Map<String, KClass> map = KClassReader.INSTANCE.getGClassList();
         KClass kClass = map.get(gType.getTypeName());
         List<KClass> classList = new SupersVisitor(kClass, map).visit();
+        classList.remove(kClass);
         for (KClass cls : classList) {
             if (TypeUtils.isGmsType(TypeNode.create(cls.getClassName()).getTypeName())
                 && (cls.isAbstract() || cls.isInterface())) {

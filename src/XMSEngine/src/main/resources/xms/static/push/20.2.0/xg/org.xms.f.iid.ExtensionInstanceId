@@ -1,0 +1,152 @@
+package org.xms.f.iid;
+
+/**
+ * Instance ID provides a unique identifier for each app instance and a mechanism to authenticate and authorize actions (example: sending FCM messages).<br/>
+ * Wrapper class for com.google.firebase.iid.FirebaseInstanceId, but only the GMS API are provided.<br/>
+ * com.google.firebase.iid.FirebaseInstanceId : Firebase Instance ID provides a unique identifier for each app instance and a mechanism to authenticate and authorize actions (example: sending FCM messages).<br/>
+ */
+public class ExtensionInstanceId extends org.xms.g.utils.XObject {
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.ExtensionInstanceId(org.xms.g.utils.XBox)  constructor of ExtensionInstanceId with XBox.<br/>
+     *
+     * @param param0 the wrapper of xms instance
+     */
+    public ExtensionInstanceId(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.getInstance(android.content.Context)  Returns an instance of this class.<br/>
+     * com.google.firebase.iid.FirebaseInstanceId.getInstance() : <a href="https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-static-firebaseinstanceid-getinstance">https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-static-firebaseinstanceid-getinstance</a><br/>
+     *
+     * @param context the Context instance
+     * @return ExtensionInstanceId instance
+     */
+    public static org.xms.f.iid.ExtensionInstanceId getInstance(android.content.Context context) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).getInstance()");
+        com.google.firebase.iid.FirebaseInstanceId zReturn = com.google.firebase.iid.FirebaseInstanceId.getInstance();
+        return ((zReturn) == null ? null : (new org.xms.f.iid.ExtensionInstanceId(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public static org.xms.f.iid.ExtensionInstanceId getInstance() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public static org.xms.f.iid.ExtensionInstanceId getInstance(org.xms.f.ExtensionApp param0) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.getInstanceId() Returns the ID and automatically generated token for this Firebase project.<br/>
+     * com.google.firebase.iid.FirebaseInstanceId.getInstanceId() : <a href="https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-taskinstanceidresult-getinstanceid">https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-taskinstanceidresult-getinstanceid</a><br/>
+     *
+     * @return Task which you can use to see the result via the InstanceIdResult which holds the ID and token
+     */
+    public org.xms.g.tasks.Task<org.xms.f.iid.InstanceIdResult> getInstanceId() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).getInstanceId()");
+        com.google.android.gms.tasks.Task zReturn = ((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).getInstanceId();
+        return ((zReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.getId() Returns a stable identifier that uniquely identifies the app instance.<br/>
+     * com.google.firebase.iid.FirebaseInstanceId.getId() : <a href="https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-string-getid">https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-string-getid</a><br/>
+     *
+     * @return a stable identifier that uniquely identifies the app instance
+     */
+    public java.lang.String getId() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).getId()");
+        return ((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).getId();
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.getCreationTime() Returns time when instance ID was created.<br/>
+     * com.google.firebase.iid.FirebaseInstanceId.getCreationTime() : <a href="https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-long-getcreationtime">https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-long-getcreationtime</a><br/>
+     *
+     * @return time when instance ID was created
+     */
+    public long getCreationTime() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).getCreationTime()");
+        return ((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).getCreationTime();
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.deleteInstanceId() Delete the Instance ID and the data associated with it.<br/>
+     * com.google.firebase.iid.FirebaseInstanceId.deleteInstanceId() : <a href="https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-void-deleteinstanceid">https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-void-deleteinstanceid</a><br/>
+     *
+     * @throws java.io.IOException if the request fails
+     */
+    public void deleteInstanceId() throws java.io.IOException {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).deleteInstanceId()");
+        ((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).deleteInstanceId();
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.getToken() Returns the automatically generated token for the default Firebase project.<br/>
+     * com.google.firebase.iid.FirebaseInstanceId.getToken() : <a href="https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-string-gettoken">https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-string-gettoken</a><br/>
+     *
+     * @return the master token or null if the token is not yet available
+     */
+    public java.lang.String getToken() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).getToken()");
+        return ((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).getToken();
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.getToken(java.lang.String,java.lang.String) Returns a token that authorizes a sender ID to perform an action on behalf of the application identified by Instance ID.<br/>
+     * com.google.firebase.iid.FirebaseInstanceId.getToken(java.lang.String,java.lang.String) : <a href="https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-string-gettoken-string-senderid,-string-scope">https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-string-gettoken-string-senderid,-string-scope</a><br/>
+     *
+     * @param param0 ID of the sender that is authorized by the token
+     * @param param1 Action authorized for senderId. Set the scope to FCM to get authorization to send messages via FirebaseMessaging
+     * @return a token that authorizes a sender ID to perform an action on behalf of the application identified by Instance ID
+     * @throws java.io.IOException the master token or null if the token is not yet available
+     */
+    public java.lang.String getToken(java.lang.String param0, java.lang.String param1) throws java.io.IOException {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).getToken(param0, param1)");
+        return ((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).getToken(param0, param1);
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.deleteToken(java.lang.String,java.lang.String) Revokes access to a scope (action) for a sender ID previously authorized by getToken().<br/>
+     * Support running environments including both HMS and GMS which are chosen by users.<br/>
+     * Below are the references of HMS apis and GMS apis respectively:<br/>
+     * com.google.firebase.iid.FirebaseInstanceId.deleteToken(java.lang.String,java.lang.String) : <a href="https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-void-deletetoken-string-senderid,-string-scope">https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-void-deletetoken-string-senderid,-string-scope</a><br/>
+     *
+     * @param param0 ID of the sender that must no longer have access
+     * @param param1 Action that the sender ID is no longer authorized to perform. Set the scope to FCM to revoke the authorization to send messages via FirebaseMessaging
+     * @throws java.io.IOException if the request fails
+     */
+    public void deleteToken(java.lang.String param0, java.lang.String param1) throws java.io.IOException {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).deleteToken(param0, param1)");
+        ((com.google.firebase.iid.FirebaseInstanceId) this.getZInstance()).deleteToken(param0, param1);
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.dynamicCast(java.lang.Object) dynamic cast the input object to ExtensionInstanceId.<br/>
+     *
+     * @param param0 the input object
+     * @return casted ExtensionInstanceId object
+     */
+    public static org.xms.f.iid.ExtensionInstanceId dynamicCast(java.lang.Object param0) {
+        return ((org.xms.f.iid.ExtensionInstanceId) param0);
+    }
+
+    /**
+     * org.xms.f.iid.ExtensionInstanceId.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+     *
+     * @param param0 the input object
+     * @return true if the Object is XMS instance, otherwise false
+     */
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.google.firebase.iid.FirebaseInstanceId;
+    }
+}

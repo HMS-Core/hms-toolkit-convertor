@@ -1,0 +1,169 @@
+{
+  "gName": "com.google.android.gms.fido.fido2.api.common.AuthenticatorAttestationResponse",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "com.google.android.gms.fido.fido2.api.common.AuthenticatorResponse",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "deserializeFromBytes",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          }
+        ],
+        "retType": "com.google.android.gms.fido.fido2.api.common.AuthenticatorAttestationResponse"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAttestationObject",
+        "paramTypes": [],
+        "retType": "byte[]"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getAttestationObject",
+        "paramTypes": [],
+        "retType": "byte[]"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getClientDataJSON",
+        "paramTypes": [],
+        "retType": "byte[]"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getClientDataJson",
+        "paramTypes": [],
+        "retType": "byte[]"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getKeyHandle",
+        "paramTypes": [],
+        "retType": "byte[]"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "serializeToBytes",
+        "paramTypes": [],
+        "retType": "byte[]"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method in this version. Use the Google API if necessary."
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.fido.fido2.AuthenticatorAttestationResponse"
+}

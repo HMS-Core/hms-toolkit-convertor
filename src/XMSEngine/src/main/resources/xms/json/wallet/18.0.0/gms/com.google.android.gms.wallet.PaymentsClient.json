@@ -1,0 +1,48 @@
+{
+  "gName": "com.google.android.gms.wallet.PaymentsClient",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.GoogleApi<com.google.android.gms.wallet.Wallet.WalletOptions>",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isReadyToPay",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.IsReadyToPayRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Boolean>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "loadPaymentData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.PaymentDataRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.android.gms.wallet.PaymentData>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": ""
+}

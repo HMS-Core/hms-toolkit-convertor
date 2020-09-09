@@ -1,0 +1,1129 @@
+package org.xms.g.common.api;
+
+/**
+ * The main entry point for services integration.<br/>
+ * Wrapper class for com.huawei.hms.api.HuaweiApiClient, but only the HMS API are provided.<br/>
+ * com.huawei.hms.api.HuaweiApiClient : <br/>
+ */
+public abstract class ExtensionApiClient extends org.xms.g.utils.XObject {
+    private boolean wrapper = true;
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.ExtensionApiClient(org.xms.g.utils.XBox)  constructor of ExtensionApiClient with XBox.<br/>
+     *
+     * @param param0 the wrapper of xms instance
+     */
+    public ExtensionApiClient(org.xms.g.utils.XBox param0) {
+        super(param0);
+        wrapper = true;
+    }
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.ExtensionApiClient() constructor of ExtensionApiClient.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.HuaweiApiClient()
+     */
+    public ExtensionApiClient() {
+        super(((org.xms.g.utils.XBox) null));
+        this.setHInstance(new HImpl());
+        wrapper = false;
+    }
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public static int getSIGN_IN_MODE_OPTIONAL() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public static int getSIGN_IN_MODE_REQUIRED() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.blockingConnect() Connects the client to Google Play services. Blocks until the connection either succeeds or fails.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.holdUpConnect()
+     *
+     * @return the result of the connection
+     */
+    public abstract org.xms.g.common.ConnectionResult blockingConnect();
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.blockingConnect(long,java.util.concurrent.TimeUnit) Connects the client to Google Play services. Blocks until the connection either succeeds or fails, or the timeout is reached.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.holdUpConnect(long,java.util.concurrent.TimeUnit)
+     *
+     * @param param0 the maximum time to wait
+     * @param param1 the time unit of the timeout argument
+     * @return the result of the connection
+     */
+    public abstract org.xms.g.common.ConnectionResult blockingConnect(long param0, java.util.concurrent.TimeUnit param1);
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.clearDefaultAccountAndReconnect() Clears the account selected by the user and reconnects the client asking the user to pick an account again if useDefaultAccount() was set.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.discardAndReconnect()
+     *
+     * @return the pending result is fired once the default account has been cleared, but before the client is reconnected - for that ConnectionCallbacks can be used
+     */
+    public abstract org.xms.g.common.api.PendingResult<org.xms.g.common.api.Status> clearDefaultAccountAndReconnect();
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.connect(int) Connects the client to Google Play services using the given sign in mode.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.connect(int)
+     *
+     * @param param0 signIn Mode
+     */
+    public void connect(int param0) {
+        if (wrapper) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).connect(param0)");
+            ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).connect(param0);
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((HImpl) ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance())).connectCallSuper(param0)");
+            ((HImpl) ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance())).connectCallSuper(param0);
+        }
+    }
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.connect() Connects the client to Google Play services. <br/>
+     * com.huawei.hms.api.HuaweiApiClient.connect(null)
+     */
+    public abstract void connect();
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.disconnect() Closes the connection to Google Play services.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.disconnect()
+     */
+    public abstract void disconnect();
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) Prints the GoogleApiClient's state into the given stream.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.print(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+     *
+     * @param param0 Desired prefix to prepend at each line of output
+     * @param param1 The raw file descriptor that the dump is being sent to
+     * @param param2 The PrintWriter to use for writing the dump
+     * @param param3 Additional arguments to the dump request
+     */
+    public abstract void dump(java.lang.String param0, java.io.FileDescriptor param1, java.io.PrintWriter param2, java.lang.String[] param3);
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public static void dumpAll(java.lang.String param0, java.io.FileDescriptor param1, java.io.PrintWriter param2, java.lang.String[] param3) {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.getConnectionResult(org.xms.g.common.api.Api<?>) Returns the ConnectionResult for the GoogleApiClient's connection to the specified API.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.getConnectionResult(com.huawei.hms.api.Api<?>)
+     *
+     * @param param0 The Api to retrieve the ConnectionResult of. Passing an API that was not registered with the GoogleApiClient results in an IllegalArgumentException
+     * @return the ConnectionResult
+     */
+    public abstract org.xms.g.common.ConnectionResult getConnectionResult(org.xms.g.common.api.Api<?> param0);
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.hasConnectedApi(org.xms.g.common.api.Api<?>) Returns whether or not this GoogleApiClient has the specified API in a connected state.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.hasConnectedApi(com.huawei.hms.api.Api<?>)
+     *
+     * @param param0 The Api to test the connection of
+     * @return true if or not this ApiClient has the specified API in a connected state
+     */
+    public abstract boolean hasConnectedApi(org.xms.g.common.api.Api<?> param0);
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.isConnected() Checks if the client is currently connected to the service, so that requests to other methods will succeed. <br/>
+     * com.huawei.hms.api.HuaweiApiClient.isConnected()
+     *
+     * @return true if the client is connected to the service
+     */
+    public abstract boolean isConnected();
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.isConnecting() Checks if the client is attempting to connect to the service.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.isConnecting()
+     *
+     * @return true if the client is attempting to connect to the service
+     */
+    public abstract boolean isConnecting();
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.isConnectionCallbacksRegistered(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks) Returns true if the specified listener is currently registered to receive connection events.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.hasConnectionSuccessListener(com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks)
+     *
+     * @param param0 The listener to check for
+     * @return true if the specified listener is currently registered to receive connection events
+     */
+    public abstract boolean isConnectionCallbacksRegistered(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks param0);
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.isConnectionFailedListenerRegistered(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener) Returns true if the specified listener is currently registered to receive connection failed events.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.hasConnectionFailureListener(com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener)
+     *
+     * @param param0 The listener to check for
+     * @return true if the specified listener is currently registered to receive connection failed events
+     */
+    public abstract boolean isConnectionFailedListenerRegistered(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener param0);
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.reconnect() Closes the current connection to Google Play services and creates a new connection.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.reconnect()
+     */
+    public abstract void reconnect();
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.registerConnectionCallbacks(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks) Registers a listener to receive connection events from this GoogleApiClient.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.setConnectionCallbacks(com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks)
+     *
+     * @param param0 the listener where the results of the asynchronous connect() call are delivered
+     */
+    public abstract void registerConnectionCallbacks(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks param0);
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.registerConnectionFailedListener(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener) Registers a listener to receive connection failed events from this GoogleApiClient. <br/>
+     * com.huawei.hms.api.HuaweiApiClient.setConnectionFailedListener(com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener)
+     *
+     * @param param0 the listener where the results of the asynchronous connect() call are delivered
+     */
+    public abstract void registerConnectionFailedListener(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener param0);
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.stopAutoManage(androidx.fragment.app.FragmentActivity) Disconnects the client and stops automatic lifecycle management. <br/>
+     * com.huawei.hms.api.HuaweiApiClient.disableLifeCycleManagement(androidx.fragment.app.FragmentActivity)
+     *
+     * @param param0 the activity managing the client's lifecycle
+     * @throws java.lang.IllegalStateException if called from outside of the main thread
+     */
+    public abstract void stopAutoManage(androidx.fragment.app.FragmentActivity param0) throws java.lang.IllegalStateException;
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.unregisterConnectionCallbacks(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks) Removes a connection listener from this GoogleApiClientbr/>
+     * com.huawei.hms.api.HuaweiApiClient.removeConnectionSuccessListener(com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks)
+     *
+     * @param param0 the listener to unregister
+     */
+    public abstract void unregisterConnectionCallbacks(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks param0);
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.unregisterConnectionFailedListener(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener) Removes a connection failed listener from the GoogleApiClient. <br/>
+     * com.huawei.hms.api.HuaweiApiClient.removeConnectionFailureListener(com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener)
+     *
+     * @param param0 the listener to unregister
+     */
+    public abstract void unregisterConnectionFailedListener(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener param0);
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.dynamicCast(java.lang.Object) dynamic cast the input object to org.xms.g.common.api.ExtensionApiClient.<br/>
+     * <p>
+     *
+     * @param param0 the input object
+     * @return casted ExtensionApiClient object
+     */
+    public static org.xms.g.common.api.ExtensionApiClient dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.g.common.api.ExtensionApiClient) {
+            return ((org.xms.g.common.api.ExtensionApiClient) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            com.huawei.hms.api.HuaweiApiClient hReturn = ((com.huawei.hms.api.HuaweiApiClient) ((org.xms.g.utils.XGettable) param0).getHInstance());
+            return new org.xms.g.common.api.ExtensionApiClient.XImpl(new org.xms.g.utils.XBox(hReturn));
+        }
+        return ((org.xms.g.common.api.ExtensionApiClient) param0);
+    }
+
+    /**
+     * org.xms.g.common.api.ExtensionApiClient.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+     *
+     * @param param0 the input object
+     * @return true if the Object is XMS instance, otherwise false
+     */
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.api.HuaweiApiClient;
+    }
+
+    /**
+     * Wrapper class of ExtensionApiClient which is the main entry point for services integration.<br/>
+     * Wrapper class for com.huawei.hms.api.HuaweiApiClient, but only the HMS API are provided.<br/>
+     * com.huawei.hms.api.HuaweiApiClient : <br/>
+     */
+    public static class XImpl extends org.xms.g.common.api.ExtensionApiClient {
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.XImpl(org.xms.g.utils.XBox)  constructor of XImpl with XBox.<br/>
+         *
+         * @param param0 the wrapper of xms instance
+         */
+        public XImpl(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.blockingConnect() Connects the client to Google Play services. Blocks until the connection either succeeds or fails.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.holdUpConnect()
+         *
+         * @return the result of the connection
+         */
+        public org.xms.g.common.ConnectionResult blockingConnect() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).holdUpConnect()");
+            com.huawei.hms.api.ConnectionResult hReturn = ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).holdUpConnect();
+            return ((hReturn) == null ? null : (new org.xms.g.common.ConnectionResult(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.blockingConnect(long,java.util.concurrent.TimeUnit) Connects the client to Google Play services. Blocks until the connection either succeeds or fails, or the timeout is reached.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.holdUpConnect(long,java.util.concurrent.TimeUnit)
+         *
+         * @param param0 the maximum time to wait
+         * @param param1 the time unit of the timeout argument
+         * @return the result of the connection
+         */
+        public org.xms.g.common.ConnectionResult blockingConnect(long param0, java.util.concurrent.TimeUnit param1) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).holdUpConnect(param0, param1)");
+            com.huawei.hms.api.ConnectionResult hReturn = ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).holdUpConnect(param0, param1);
+            return ((hReturn) == null ? null : (new org.xms.g.common.ConnectionResult(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.clearDefaultAccountAndReconnect() Clears the account selected by the user and reconnects the client asking the user to pick an account again if useDefaultAccount() was set.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.discardAndReconnect()
+         *
+         * @return the pending result is fired once the default account has been cleared, but before the client is reconnected for that ConnectionCallbacks can be used
+         */
+        public org.xms.g.common.api.PendingResult<org.xms.g.common.api.Status> clearDefaultAccountAndReconnect() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).discardAndReconnect()");
+            com.huawei.hms.support.api.client.PendingResult hReturn = ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).discardAndReconnect();
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.PendingResult.XImpl(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.connect() Connects the client to Google Play services. <br/>
+         * com.huawei.hms.api.HuaweiApiClient.connect(null)
+         */
+        public void connect() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).connect(null)");
+            ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).connect(null);
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.disconnect() Closes the connection to Google Play services.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.disconnect()
+         */
+        public void disconnect() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).disconnect()");
+            ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).disconnect();
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) Prints the GoogleApiClient's state into the given stream.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.print(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
+         *
+         * @param param0 Desired prefix to prepend at each line of output
+         * @param param1 The raw file descriptor that the dump is being sent to
+         * @param param2 The PrintWriter to use for writing the dump
+         * @param param3 Additional arguments to the dump request
+         */
+        public void dump(java.lang.String param0, java.io.FileDescriptor param1, java.io.PrintWriter param2, java.lang.String[] param3) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).print(param0, param1, param2, param3)");
+            ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).print(param0, param1, param2, param3);
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.getConnectionResult(org.xms.g.common.api.Api<?>) Returns the ConnectionResult for the GoogleApiClient's connection to the specified API.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.getConnectionResult(com.huawei.hms.api.Api<?>)
+         *
+         * @param param0 The Api to retrieve the ConnectionResult of. Passing an API that was not registered with the GoogleApiClient results in an IllegalArgumentException
+         * @return the ConnectionResult
+         */
+        public org.xms.g.common.ConnectionResult getConnectionResult(org.xms.g.common.api.Api<?> param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).getConnectionResult(((com.huawei.hms.api.Api) ((param0) == null ? null : (param0.getHInstance()))))");
+            com.huawei.hms.api.ConnectionResult hReturn = ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).getConnectionResult(((com.huawei.hms.api.Api) ((param0) == null ? null : (param0.getHInstance()))));
+            return ((hReturn) == null ? null : (new org.xms.g.common.ConnectionResult(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.hasConnectedApi(org.xms.g.common.api.Api<?>) Returns whether or not this GoogleApiClient has the specified API in a connected state.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.hasConnectedApi(com.huawei.hms.api.Api<?>)
+         *
+         * @param param0 The Api to test the connection of
+         * @return true if or not this GoogleApiClient has the specified API in a connected state
+         */
+        public boolean hasConnectedApi(org.xms.g.common.api.Api<?> param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).hasConnectedApi(((com.huawei.hms.api.Api) ((param0) == null ? null : (param0.getHInstance()))))");
+            return ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).hasConnectedApi(((com.huawei.hms.api.Api) ((param0) == null ? null : (param0.getHInstance()))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.isConnected() Checks if the client is currently connected to the service, so that requests to other methods will succeed. <br/>
+         * com.huawei.hms.api.HuaweiApiClient.isConnected()
+         *
+         * @return true if the client is connected to the service
+         */
+        public boolean isConnected() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).isConnected()");
+            return ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).isConnected();
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.isConnecting() Checks if the client is attempting to connect to the service.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.isConnecting()
+         *
+         * @return true if the client is attempting to connect to the service
+         */
+        public boolean isConnecting() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).isConnecting()");
+            return ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).isConnecting();
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.isConnectionCallbacksRegistered(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks) Returns true if the specified listener is currently registered to receive connection events.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.hasConnectionSuccessListener(com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks)
+         *
+         * @param param0 The listener to check for
+         * @return true if the specified listener is currently registered to receive connection events
+         */
+        public boolean isConnectionCallbacksRegistered(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).hasConnectionSuccessListener(((param0) == null ? null : (param0.getHInstanceConnectionCallbacks())))");
+            return ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).hasConnectionSuccessListener(((param0) == null ? null : (param0.getHInstanceConnectionCallbacks())));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.isConnectionFailedListenerRegistered(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener) Returns true if the specified listener is currently registered to receive connection failed events.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.hasConnectionFailureListener(com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener)
+         *
+         * @param param0 The listener to check for
+         * @return true if the specified listener is currently registered to receive connection failed events
+         */
+        public boolean isConnectionFailedListenerRegistered(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).hasConnectionFailureListener(((param0) == null ? null : (param0.getHInstanceOnConnectionFailedListener())))");
+            return ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).hasConnectionFailureListener(((param0) == null ? null : (param0.getHInstanceOnConnectionFailedListener())));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.reconnect() Closes the current connection to Google Play services and creates a new connection.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.reconnect()
+         *
+         */
+        public void reconnect() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).reconnect()");
+            ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).reconnect();
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.registerConnectionCallbacks(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks) Registers a listener to receive connection events from this GoogleApiClient.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.setConnectionCallbacks(com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks)
+         *
+         * @param param0 the listener where the results of the asynchronous connect() call are delivered
+         */
+        public void registerConnectionCallbacks(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).setConnectionCallbacks(((param0) == null ? null : (param0.getHInstanceConnectionCallbacks())))");
+            ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).setConnectionCallbacks(((param0) == null ? null : (param0.getHInstanceConnectionCallbacks())));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.registerConnectionFailedListener(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener) Registers a listener to receive connection failed events from this GoogleApiClient. <br/>
+         * com.huawei.hms.api.HuaweiApiClient.setConnectionFailedListener(com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener)
+         *
+         * @param param0 the listener where the results of the asynchronous connect() call are delivered
+         */
+        public void registerConnectionFailedListener(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).setConnectionFailedListener(((param0) == null ? null : (param0.getHInstanceOnConnectionFailedListener())))");
+            ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).setConnectionFailedListener(((param0) == null ? null : (param0.getHInstanceOnConnectionFailedListener())));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.stopAutoManage(androidx.fragment.app.FragmentActivity) Disconnects the client and stops automatic lifecycle management. <br/>
+         * com.huawei.hms.api.HuaweiApiClient.disableLifeCycleManagement(androidx.fragment.app.FragmentActivity)
+         *
+         * @param param0 the activity managing the client's lifecycle
+         * @throws java.lang.IllegalStateException if called from outside of the main thread
+         */
+        public void stopAutoManage(androidx.fragment.app.FragmentActivity param0) throws java.lang.IllegalStateException {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).disableLifeCycleManagement(param0)");
+            ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).disableLifeCycleManagement(param0);
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.unregisterConnectionCallbacks(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks) Removes a connection listener from this GoogleApiClientbr/>
+         * com.huawei.hms.api.HuaweiApiClient.removeConnectionSuccessListener(com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks)
+         *
+         * @param param0 the listener to unregister
+         */
+        public void unregisterConnectionCallbacks(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).removeConnectionSuccessListener(((param0) == null ? null : (param0.getHInstanceConnectionCallbacks())))");
+            ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).removeConnectionSuccessListener(((param0) == null ? null : (param0.getHInstanceConnectionCallbacks())));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.XImpl.unregisterConnectionFailedListener(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener) Removes a connection failed listener from the GoogleApiClient. <br/>
+         * com.huawei.hms.api.HuaweiApiClient.removeConnectionFailureListener(com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener)
+         *
+         * @param param0 the listener to unregister
+         */
+        public void unregisterConnectionFailedListener(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).removeConnectionFailureListener(((param0) == null ? null : (param0.getHInstanceOnConnectionFailedListener())))");
+            ((com.huawei.hms.api.HuaweiApiClient) this.getHInstance()).removeConnectionFailureListener(((param0) == null ? null : (param0.getHInstanceOnConnectionFailedListener())));
+        }
+    }
+
+    private class HImpl extends com.huawei.hms.api.HuaweiApiClient {
+
+        public void connect(int param0) {
+            org.xms.g.common.api.ExtensionApiClient.this.connect(param0);
+        }
+
+        public void connectCallSuper(int param0) {
+            super.connect(param0);
+        }
+
+        public com.huawei.hms.api.ConnectionResult holdUpConnect() {
+            org.xms.g.common.ConnectionResult xResult = org.xms.g.common.api.ExtensionApiClient.this.blockingConnect();
+            return ((com.huawei.hms.api.ConnectionResult) ((xResult) == null ? null : (xResult.getHInstance())));
+        }
+
+        public com.huawei.hms.api.ConnectionResult holdUpConnect(long param0, java.util.concurrent.TimeUnit param1) {
+            org.xms.g.common.ConnectionResult xResult = org.xms.g.common.api.ExtensionApiClient.this.blockingConnect(param0, param1);
+            return ((com.huawei.hms.api.ConnectionResult) ((xResult) == null ? null : (xResult.getHInstance())));
+        }
+
+        public com.huawei.hms.support.api.client.PendingResult<com.huawei.hms.support.api.client.Status> discardAndReconnect() {
+            org.xms.g.common.api.PendingResult xResult = org.xms.g.common.api.ExtensionApiClient.this.clearDefaultAccountAndReconnect();
+            return ((com.huawei.hms.support.api.client.PendingResult) ((xResult) == null ? null : (xResult.getHInstance())));
+        }
+
+        public void disconnect() {
+            org.xms.g.common.api.ExtensionApiClient.this.disconnect();
+        }
+
+        public void print(java.lang.String param0, java.io.FileDescriptor param1, java.io.PrintWriter param2, java.lang.String[] param3) {
+            org.xms.g.common.api.ExtensionApiClient.this.dump(param0, param1, param2, param3);
+        }
+
+        public com.huawei.hms.api.ConnectionResult getConnectionResult(com.huawei.hms.api.Api<?> param0) {
+            org.xms.g.common.ConnectionResult xResult = org.xms.g.common.api.ExtensionApiClient.this.getConnectionResult(((param0) == null ? null : (new org.xms.g.common.api.Api(new org.xms.g.utils.XBox(param0)))));
+            return ((com.huawei.hms.api.ConnectionResult) ((xResult) == null ? null : (xResult.getHInstance())));
+        }
+
+        public boolean hasConnectedApi(com.huawei.hms.api.Api<?> param0) {
+            return org.xms.g.common.api.ExtensionApiClient.this.hasConnectedApi(((param0) == null ? null : (new org.xms.g.common.api.Api(new org.xms.g.utils.XBox(param0)))));
+        }
+
+        public boolean isConnected() {
+            return org.xms.g.common.api.ExtensionApiClient.this.isConnected();
+        }
+
+        public boolean isConnecting() {
+            return org.xms.g.common.api.ExtensionApiClient.this.isConnecting();
+        }
+
+        public boolean hasConnectionSuccessListener(com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks param0) {
+            return org.xms.g.common.api.ExtensionApiClient.this.isConnectionCallbacksRegistered(((param0) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.XImpl(new org.xms.g.utils.XBox(param0)))));
+        }
+
+        public boolean hasConnectionFailureListener(com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener param0) {
+            return org.xms.g.common.api.ExtensionApiClient.this.isConnectionFailedListenerRegistered(((param0) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener.XImpl(new org.xms.g.utils.XBox(param0)))));
+        }
+
+        public void reconnect() {
+            org.xms.g.common.api.ExtensionApiClient.this.reconnect();
+        }
+
+        public void setConnectionCallbacks(com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks param0) {
+            org.xms.g.common.api.ExtensionApiClient.this.registerConnectionCallbacks(((param0) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.XImpl(new org.xms.g.utils.XBox(param0)))));
+        }
+
+        public void setConnectionFailedListener(com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener param0) {
+            org.xms.g.common.api.ExtensionApiClient.this.registerConnectionFailedListener(((param0) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener.XImpl(new org.xms.g.utils.XBox(param0)))));
+        }
+
+        public java.util.List<com.huawei.hms.support.api.entity.auth.Scope> getScopes() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public java.util.List<com.huawei.hms.support.api.entity.auth.PermissionInfo> getPermissionInfos() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public void disableLifeCycleManagement(android.app.Activity param0) {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public void removeConnectionSuccessListener(com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks param0) {
+            org.xms.g.common.api.ExtensionApiClient.this.unregisterConnectionCallbacks(((param0) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.XImpl(new org.xms.g.utils.XBox(param0)))));
+        }
+
+        public void removeConnectionFailureListener(com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener param0) {
+            org.xms.g.common.api.ExtensionApiClient.this.unregisterConnectionFailedListener(((param0) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener.XImpl(new org.xms.g.utils.XBox(param0)))));
+        }
+
+        public void connect(android.app.Activity param0) {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public void connectForeground() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public boolean setSubAppInfo(com.huawei.hms.support.api.client.SubAppInfo param0) {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public void checkUpdate(android.app.Activity param0, com.huawei.hms.api.CheckUpdatelistener param1) {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public void onResume(android.app.Activity param0) {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public void onPause(android.app.Activity param0) {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public android.app.Activity getTopActivity() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public java.util.Map<com.huawei.hms.api.Api<?>, com.huawei.hms.api.Api.ApiOptions> getApiMap() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public java.util.List<java.lang.String> getApiNameList() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public com.huawei.hms.core.aidl.d getService() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public java.lang.String getTransportName() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public java.lang.String getAppID() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public java.lang.String getCpID() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public java.lang.String getSessionId() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public java.lang.String getPackageName() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public com.huawei.hms.support.api.client.SubAppInfo getSubAppInfo() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public android.content.Context getContext() {
+            throw new java.lang.RuntimeException("Stub");
+        }
+
+        public HImpl() {
+            super();
+        }
+    }
+
+    /**
+     * Wrapper class of Builder to configure a ExtensionApiClient.<br/>
+     * Wrapper class for com.huawei.hms.api.HuaweiApiClient.Builder, but only the HMS API are provided.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.Builder : <br/>
+     */
+    public static final class Builder extends org.xms.g.utils.XObject {
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.Builder(org.xms.g.utils.XBox)  constructor of Builder with XBox.<br/>
+         *
+         * @param param0 the wrapper of xms instance
+         */
+        public Builder(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.Builder(android.content.Context) Builder to help construct the GoogleApiClient object.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.Builder(android.content.Context)
+         *
+         * @param param0 The context to use for the connection
+         */
+        public Builder(android.content.Context param0) {
+            super(((org.xms.g.utils.XBox) null));
+            this.setHInstance(new com.huawei.hms.api.HuaweiApiClient.Builder(param0));
+        }
+
+        /**
+         * XMS does not provide this api.<br/>
+         */
+        public Builder(android.content.Context param0, org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks param1, org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener param2) {
+            super(((org.xms.g.utils.XBox) null));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.addApi(org.xms.g.common.api.Api<XO>,XO) Specify which Apis are requested by your app. See Api for more information.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.addApi(com.huawei.hms.api.Api<O>,O)
+         *
+         * @param param0 The Api requested by your app
+         * @param param1 Any additional parameters required for the specific AP
+         * @return the Builder
+         */
+        public final <XO extends org.xms.g.common.api.Api.ApiOptions.HasOptions> org.xms.g.common.api.ExtensionApiClient.Builder addApi(org.xms.g.common.api.Api<XO> param0, XO param1) {
+            com.huawei.hms.api.Api.ApiOptions.HasOptions hObj1 = ((com.huawei.hms.api.Api.ApiOptions.HasOptions) org.xms.g.utils.Utils.getInstanceInInterface(param1, true));
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addApi(((com.huawei.hms.api.Api) ((param0) == null ? null : (param0.getHInstance()))), hObj1)");
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addApi(((com.huawei.hms.api.Api) ((param0) == null ? null : (param0.getHInstance()))), hObj1);
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.addApi(org.xms.g.common.api.Api<? extends org.xms.g.common.api.Api.ApiOptions.NotRequiredOptions>) Specify which Apis are requested by your app. See Api for more information. <br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.addApi(com.huawei.hms.api.Api<? extends com.huawei.hms.api.Api.ApiOptions.NotRequiredOptions>)
+         *
+         * @param param0 The Api requested by your app
+         * @return the Builder
+         */
+        public final org.xms.g.common.api.ExtensionApiClient.Builder addApi(org.xms.g.common.api.Api<? extends org.xms.g.common.api.Api.ApiOptions.NotRequiredOptions> param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addApi(((com.huawei.hms.api.Api) ((param0) == null ? null : (param0.getHInstance()))))");
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addApi(((com.huawei.hms.api.Api) ((param0) == null ? null : (param0.getHInstance()))));
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.addApiIfAvailable(org.xms.g.common.api.Api<XO>,XO,org.xms.g.common.api.Scope...) Specify which Apis should attempt to connect, but are not strictly required for your app. <br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.addApiWithScope(com.huawei.hms.api.Api<O>,O,com.huawei.hms.support.api.entity.auth.Scope[])
+         *
+         * @param param0 The Api requested by your app
+         * @param param1 XO that extends ApiOptions.HasOptions
+         * @param param2 Scopes required by this API
+         * @return the Builder
+         */
+        public final <XO extends org.xms.g.common.api.Api.ApiOptions.HasOptions> org.xms.g.common.api.ExtensionApiClient.Builder addApiIfAvailable(org.xms.g.common.api.Api<XO> param0, XO param1, org.xms.g.common.api.Scope... param2) {
+            com.huawei.hms.api.Api.ApiOptions.HasOptions hObj1 = ((com.huawei.hms.api.Api.ApiOptions.HasOptions) org.xms.g.utils.Utils.getInstanceInInterface(param1, true));
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addApiWithScope(((com.huawei.hms.api.Api) ((param0) == null ? null : (param0.getHInstance()))), hObj1, ((com.huawei.hms.support.api.entity.auth.Scope[]) org.xms.g.utils.Utils.genericArrayCopy(param2, com.huawei.hms.support.api.entity.auth.Scope.class, x -> (com.huawei.hms.support.api.entity.auth.Scope)x.getHInstance())))");
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addApiWithScope(((com.huawei.hms.api.Api) ((param0) == null ? null : (param0.getHInstance()))), hObj1, ((com.huawei.hms.support.api.entity.auth.Scope[]) org.xms.g.utils.Utils.genericArrayCopy(param2, com.huawei.hms.support.api.entity.auth.Scope.class, x -> (com.huawei.hms.support.api.entity.auth.Scope) x.getHInstance())));
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.addApiIfAvailable(org.xms.g.common.api.Api<? extends org.xms.g.common.api.Api.ApiOptions.NotRequiredOptions>,org.xms.g.common.api.Scope[]) Specify which Apis should attempt to connect, but are not strictly required for your app.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.addApiWithScope(com.huawei.hms.api.Api<? extends com.huawei.hms.api.Api.ApiOptions.NotRequiredOptions>,com.huawei.hms.support.api.entity.auth.Scope[])
+         *
+         * @param param0 The Api requested by your app
+         * @param param1 Scopes required by this API
+         * @return the Builder
+         */
+        public final org.xms.g.common.api.ExtensionApiClient.Builder addApiIfAvailable(org.xms.g.common.api.Api<? extends org.xms.g.common.api.Api.ApiOptions.NotRequiredOptions> param0, org.xms.g.common.api.Scope[] param1) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addApiWithScope(((com.huawei.hms.api.Api) ((param0) == null ? null : (param0.getHInstance()))), ((com.huawei.hms.support.api.entity.auth.Scope[]) org.xms.g.utils.Utils.genericArrayCopy(param1, com.huawei.hms.support.api.entity.auth.Scope.class, x -> (com.huawei.hms.support.api.entity.auth.Scope)x.getHInstance())))");
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addApiWithScope(((com.huawei.hms.api.Api) ((param0) == null ? null : (param0.getHInstance()))), ((com.huawei.hms.support.api.entity.auth.Scope[]) org.xms.g.utils.Utils.genericArrayCopy(param1, com.huawei.hms.support.api.entity.auth.Scope.class, x -> (com.huawei.hms.support.api.entity.auth.Scope) x.getHInstance())));
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.addConnectionCallbacks(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks) Registers a listener to receive connection events from this GoogleApiClient. <br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.addConnectionCallbacks(com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks)
+         *
+         * @param param0 the listener where the results of the asynchronous connect() call are delivered
+         * @return the Builder
+         */
+        public final org.xms.g.common.api.ExtensionApiClient.Builder addConnectionCallbacks(org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addConnectionCallbacks(((param0) == null ? null : (param0.getHInstanceConnectionCallbacks())))");
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addConnectionCallbacks(((param0) == null ? null : (param0.getHInstanceConnectionCallbacks())));
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.addOnConnectionFailedListener(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener) Adds a listener to register to receive connection failed events from this GoogleApiClient.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.addOnConnectionFailedListener(com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener)
+         *
+         * @param param0 the listener where the results of the asynchronous connect() call are delivered
+         * @return the Builder
+         */
+        public final org.xms.g.common.api.ExtensionApiClient.Builder addOnConnectionFailedListener(org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addOnConnectionFailedListener(((param0) == null ? null : (param0.getHInstanceOnConnectionFailedListener())))");
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addOnConnectionFailedListener(((param0) == null ? null : (param0.getHInstanceOnConnectionFailedListener())));
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.addScope(org.xms.g.common.api.Scope) Specify the OAuth 2.0 scopes requested by your app.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.addScope(com.huawei.hms.support.api.entity.auth.Scope)
+         *
+         * @param param0 The OAuth 2.0 scopes requested by your app
+         * @return the Builder
+         */
+        public final org.xms.g.common.api.ExtensionApiClient.Builder addScope(org.xms.g.common.api.Scope param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addScope(((com.huawei.hms.support.api.entity.auth.Scope) ((param0) == null ? null : (param0.getHInstance()))))");
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).addScope(((com.huawei.hms.support.api.entity.auth.Scope) ((param0) == null ? null : (param0.getHInstance()))));
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.build() Builds a new GoogleApiClient object for communicating with the Google APIs.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.build()
+         *
+         * @return The ExtensionApiClient object
+         */
+        public final org.xms.g.common.api.ExtensionApiClient build() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).build()");
+            com.huawei.hms.api.HuaweiApiClient hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).build();
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.XImpl(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.enableAutoManage(androidx.fragment.app.FragmentActivity,org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener) Enables automatic lifecycle management in a support library FragmentActivity that connects the client in onStart() and disconnects it in onStop().<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.allowLifeCycleManagement(android.app.Activity,com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener)
+         *
+         * @param param0 The activity that uses the GoogleApiClient. For lifecycle management to work correctly the activity must call its parent's onActivityResult(int, int, android.content.Intent)
+         * @param param1 Called if the connection failed and there was no resolution or the user chose not to complete the provided resolution. If this listener is called, the client will no longer be auto-managed, and a new instance must be built. In the event that the user chooses not to complete a resolution, the ConnectionResult will have a status code of CANCELED
+         * @return the Builder
+         * @throws java.lang.NullPointerException if fragmentActivity is null
+         * @throws java.lang.IllegalStateException if another GoogleApiClient is already being auto-managed with the default clientId
+         */
+        public final org.xms.g.common.api.ExtensionApiClient.Builder enableAutoManage(androidx.fragment.app.FragmentActivity param0, org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener param1) throws java.lang.NullPointerException, java.lang.IllegalStateException {
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = null;
+            hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).allowLifeCycleManagement(param0, ((param1) == null ? null : (param1.getHInstanceOnConnectionFailedListener())));
+            if (hReturn == null) {
+                return null;
+            }
+            return new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.enableAutoManage(androidx.fragment.app.FragmentActivity,int,org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener) Enables automatic lifecycle management in a support library FragmentActivity that connects the client in onStart() and disconnects it in onStop().<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.allowLifeCycleManagement(android.app.Activity,int,com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener)
+         *
+         * @param param0 The activity that uses the GoogleApiClient. For lifecycle management to work correctly the activity must call its parent's onActivityResult(int, int, android.content.Intent)
+         * @param param1 A non-negative identifier for this client. At any given time, only one auto-managed client is allowed per id. To reuse an id you must first call stopAutoManage(FragmentActivity) on the previous client
+         * @param param2 The listener instance
+         * @return the Builder
+         * @throws java.lang.NullPointerException if fragmentActivity is null
+         * @throws java.lang.IllegalArgumentException if clientId is negative
+         * @throws java.lang.IllegalStateException if clientId is already being auto-managed
+         */
+        public final org.xms.g.common.api.ExtensionApiClient.Builder enableAutoManage(androidx.fragment.app.FragmentActivity param0, int param1, org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener param2) throws java.lang.NullPointerException, java.lang.IllegalArgumentException, java.lang.IllegalStateException {
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = null;
+            hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).allowLifeCycleManagement(param0, param1, ((param2) == null ? null : (param2.getHInstanceOnConnectionFailedListener())));
+            if (hReturn == null) {
+                return null;
+            }
+            return new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.setAccountName(java.lang.String) Specify an account name on the device that should be used.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.setAccountName(java.lang.String)
+         *
+         * @param param0 The account name on the device that should be used by GoogleApiClient
+         * @return the Builder
+         */
+        public final org.xms.g.common.api.ExtensionApiClient.Builder setAccountName(java.lang.String param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).setAccountName(param0)");
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).setAccountName(param0);
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.setGravityForPopups(int) Specifies the part of the screen at which games service popups (for example, "welcome back" or "achievement unlocked" popups) will be displayed using gravity.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.setPopupsGravity(int)
+         *
+         * @param param0 The gravity which controls the placement of games service popups
+         * @return the Builder
+         */
+        public final org.xms.g.common.api.ExtensionApiClient.Builder setGravityForPopups(int param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).setPopupsGravity(param0)");
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).setPopupsGravity(param0);
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.setHandler(android.os.Handler) Sets a Handler to indicate which thread to use when invoking callbacks. Will not be used directly to handle callbacks. If this is not called then the application's main thread will be used.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.setHandler(android.os.Handler)
+         *
+         * @param param0 A Handler instance
+         * @return the Builder
+         */
+        public final org.xms.g.common.api.ExtensionApiClient.Builder setHandler(android.os.Handler param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).setHandler(param0)");
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).setHandler(param0);
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.setViewForPopups(android.view.View) Sets the View to use as a content view for popups.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.setViewForPopups(android.view.View)
+         *
+         * @param param0 The view to use as a content view for popups. View cannot be null
+         * @return the Builder
+         */
+        public final org.xms.g.common.api.ExtensionApiClient.Builder setViewForPopups(android.view.View param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).setViewForPopups(param0)");
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).setViewForPopups(param0);
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.useDefaultAccount() Specify that the default account should be used when connecting to services.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.Builder.applyDefaultAccount()
+         *
+         * @return the Builder
+         */
+        public final org.xms.g.common.api.ExtensionApiClient.Builder useDefaultAccount() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).applyDefaultAccount()");
+            com.huawei.hms.api.HuaweiApiClient.Builder hReturn = ((com.huawei.hms.api.HuaweiApiClient.Builder) this.getHInstance()).applyDefaultAccount();
+            return ((hReturn) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.Builder(new org.xms.g.utils.XBox(hReturn))));
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.dynamicCast(java.lang.Object) dynamic cast the input object to org.xms.g.common.api.ExtensionApiClient.Builder.<br/>
+         * <p>
+         *
+         * @param param0 the input object
+         * @return casted ExtensionApiClient.Builder object
+         */
+        public static org.xms.g.common.api.ExtensionApiClient.Builder dynamicCast(java.lang.Object param0) {
+            return ((org.xms.g.common.api.ExtensionApiClient.Builder) param0);
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.Builder.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+         *
+         * @param param0 the input object
+         * @return true if the Object is XMS instance, otherwise false
+         */
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+                return false;
+            }
+            return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.api.HuaweiApiClient.Builder;
+        }
+    }
+
+    /**
+     * Provides callbacks that are called when the client is connected or disconnected from the service. <br/>
+     * Wrapper class for com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks, but only the HMS API are provided.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks : <br/>
+     */
+    public static interface ConnectionCallbacks extends org.xms.g.utils.XInterface {
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.getCAUSE_NETWORK_LOST() return the value of CAUSE_NETWORK_LOST.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks.CAUSE_NETWORK_LOST
+         *
+         * @return A suspension cause informing you that a peer device connection was lost
+         */
+        public static int getCAUSE_NETWORK_LOST() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks.CAUSE_NETWORK_LOST");
+            return com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks.CAUSE_NETWORK_LOST;
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.getCAUSE_SERVICE_DISCONNECTED() return the value of CAUSE_SERVICE_DISCONNECTED.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks.CAUSE_SERVICE_DISCONNECTED
+         *
+         * @return A suspension cause informing that the service has been killed
+         */
+        public static int getCAUSE_SERVICE_DISCONNECTED() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks.CAUSE_SERVICE_DISCONNECTED");
+            return com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks.CAUSE_SERVICE_DISCONNECTED;
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.onConnected(android.os.Bundle) Called when attempt to connect the client to the service.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks.onConnected()
+         *
+         * @param param0 Bundle instance
+         */
+        public void onConnected(android.os.Bundle param0);
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.onConnectionSuspended(int) Called when connection with the client is Suspended.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks.onConnectionSuspended(int)
+         *
+         * @param param0 the value about connection
+         */
+        public void onConnectionSuspended(int param0);
+
+        default com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks getHInstanceConnectionCallbacks() {
+            if (this instanceof org.xms.g.utils.XGettable) {
+                return ((com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks) ((org.xms.g.utils.XGettable) this).getHInstance());
+            }
+            return new com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks() {
+
+                public void onConnectionSuspended(int param0) {
+                    org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.this.onConnectionSuspended(param0);
+                }
+
+                public void onConnected() {
+                    org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.this.onConnected(null);
+                }
+            };
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.dynamicCast(java.lang.Object) dynamic cast the input object to org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.<br/>
+         * <p>
+         *
+         * @param param0 the input object
+         * @return casted ExtensionApiClient.ConnectionCallbacks object
+         */
+        public static org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks dynamicCast(java.lang.Object param0) {
+            if (param0 instanceof org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks) {
+                return ((org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks) param0);
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks hReturn = ((com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks) ((org.xms.g.utils.XGettable) param0).getHInstance());
+                return new org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.XImpl(new org.xms.g.utils.XBox(hReturn));
+            }
+            return ((org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks) param0);
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+         *
+         * @param param0 the input object
+         * @return true if the Object is XMS instance, otherwise false
+         */
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XInterface)) {
+                return false;
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks;
+            }
+            return param0 instanceof org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks;
+        }
+
+        /**
+         * Wrapper class of ConnectionCallbacks which provides callbacks that are called when the client is connected or disconnected from the service. <br/>
+         * Wrapper class for com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks, but only the HMS API are provided.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks : <br/>
+         */
+        public static class XImpl extends org.xms.g.utils.XObject implements org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks {
+
+            /**
+             * org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.XImpl.XImpl(org.xms.g.utils.XBox)  constructor of XImpl with XBox.<br/>
+             *
+             * @param param0 the wrapper of xms instance
+             */
+            public XImpl(org.xms.g.utils.XBox param0) {
+                super(param0);
+            }
+
+            /**
+             * org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.XImpl.onConnected(android.os.Bundle) Called when attempt to connect the client to the service.<br/>
+             * com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks.onConnected()
+             *
+             * @param param0 Bundle instance
+             */
+            public void onConnected(android.os.Bundle param0) {
+                ((com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks) this.getHInstance()).onConnected();
+            }
+
+            /**
+             * org.xms.g.common.api.ExtensionApiClient.ConnectionCallbacks.XImpl.onConnectionSuspended(int) Called when connection with the client is Suspended.<br/>
+             * com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks.onConnectionSuspended(int) :<a href=""></a><br/>
+             *
+             * @param param0 the value about connection
+             */
+            public void onConnectionSuspended(int param0) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks) this.getHInstance()).onConnectionSuspended(param0)");
+                ((com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks) this.getHInstance()).onConnectionSuspended(param0);
+            }
+        }
+    }
+
+    /**
+     * Provides callbacks for scenarios that result in a failed attempt to connect the client to the service. <br/>
+     * Wrapper class for com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks, but only the HMS API are provided.<br/>
+     * com.huawei.hms.api.HuaweiApiClient.ConnectionCallbacks : <br/>
+     */
+    public static interface OnConnectionFailedListener extends org.xms.g.utils.XInterface {
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener.onConnectionFailed(org.xms.g.common.ConnectionResult) Called when connect with client is failed.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener.onConnectionFailed(com.huawei.hms.api.ConnectionResult)
+         *
+         * @param param0 ConnectionResult instance
+         */
+        public void onConnectionFailed(org.xms.g.common.ConnectionResult param0);
+
+        default com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener getHInstanceOnConnectionFailedListener() {
+            if (this instanceof org.xms.g.utils.XGettable) {
+                return ((com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener) ((org.xms.g.utils.XGettable) this).getHInstance());
+            }
+            return new com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener() {
+
+                public void onConnectionFailed(com.huawei.hms.api.ConnectionResult param0) {
+                    org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener.this.onConnectionFailed(((param0) == null ? null : (new org.xms.g.common.ConnectionResult(new org.xms.g.utils.XBox(param0)))));
+                }
+            };
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener.dynamicCast(java.lang.Object) dynamic cast the input object to org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener.<br/>
+         * <p>
+         *
+         * @param param0 the input object
+         * @return casted ExtensionApiClient.OnConnectionFailedListener object
+         */
+        public static org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener dynamicCast(java.lang.Object param0) {
+            if (param0 instanceof org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener) {
+                return ((org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener) param0);
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener hReturn = ((com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener) ((org.xms.g.utils.XGettable) param0).getHInstance());
+                return new org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener.XImpl(new org.xms.g.utils.XBox(hReturn));
+            }
+            return ((org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener) param0);
+        }
+
+        /**
+         * org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+         *
+         * @param param0 the input object
+         * @return true if the Object is XMS instance, otherwise false
+         */
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XInterface)) {
+                return false;
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener;
+            }
+            return param0 instanceof org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener;
+        }
+
+        /**
+         * Wrapper class of OnConnectionFailedListener which provides callbacks for scenarios that result in a failed attempt to connect the client to the service. <br/>
+         * Wrapper class for com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener, but only the HMS API are provided.<br/>
+         * com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener : <br/>
+         */
+        public static class XImpl extends org.xms.g.utils.XObject implements org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener {
+
+            /**
+             * org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener.XImpl.XImpl(org.xms.g.utils.XBox)  constructor of XImpl with XBox.<br/>
+             *
+             * @param param0 the wrapper of xms instance
+             */
+            public XImpl(org.xms.g.utils.XBox param0) {
+                super(param0);
+            }
+
+            /**
+             * org.xms.g.common.api.ExtensionApiClient.OnConnectionFailedListener.XImpl.onConnectionFailed(org.xms.g.common.ConnectionResult) Called when connect with client is failed.<br/>
+             * com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener.onConnectionFailed(com.huawei.hms.api.ConnectionResult)
+             *
+             * @param param0 ConnectionResult instance
+             */
+            public void onConnectionFailed(org.xms.g.common.ConnectionResult param0) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener) this.getHInstance()).onConnectionFailed(((com.huawei.hms.api.ConnectionResult) ((param0) == null ? null : (param0.getHInstance()))))");
+                ((com.huawei.hms.api.HuaweiApiClient.OnConnectionFailedListener) this.getHInstance()).onConnectionFailed(((com.huawei.hms.api.ConnectionResult) ((param0) == null ? null : (param0.getHInstance()))));
+            }
+        }
+    }
+}

@@ -1,0 +1,212 @@
+{
+  "gName": "com.google.android.gms.fitness.RecordingClient",
+  "interfaces": [],
+  "superClass": "com.google.android.gms.common.api.GoogleApi",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "listSubscriptions",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.util.List<com.google.android.gms.fitness.data.Subscription>>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRecords",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<java.util.List<com.huawei.hms.hihealth.data.Record>>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "listSubscriptions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.util.List<com.google.android.gms.fitness.data.Subscription>>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getRecords",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataType"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.util.List<com.huawei.hms.hihealth.data.Record>>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "subscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "startRecord",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataCollector"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "subscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "startRecord",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataType"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "unsubscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.Subscription"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "stopRecord",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.Record"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "unsubscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "stopRecord",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataType"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "unsubscribe",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "stopRecord",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataCollector"
+          }
+        ],
+        "retType": "com.huawei.hmf.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.AutoRecorderController"
+}

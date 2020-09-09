@@ -1,0 +1,128 @@
+package org.xms.g.vision;
+
+public class MultiProcessor<XT> extends org.xms.g.utils.XObject implements org.xms.g.vision.Detector.Processor<XT> {
+    
+    public MultiProcessor(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+    
+    public void release() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLCompositeTransactor) this.getHInstance()).destroy()");
+        ((com.huawei.hms.mlsdk.common.MLCompositeTransactor) this.getHInstance()).destroy();
+    }
+    
+    public void receiveDetections(org.xms.g.vision.Detector.Detections<XT> param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLCompositeTransactor) this.getHInstance()).transactResult(((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) ((param0) == null ? null : (param0.getHInstance()))))");
+        ((com.huawei.hms.mlsdk.common.MLCompositeTransactor) this.getHInstance()).transactResult(((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) ((param0) == null ? null : (param0.getHInstance()))));
+    }
+    
+    public static org.xms.g.vision.MultiProcessor dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.g.vision.MultiProcessor) {
+            return ((org.xms.g.vision.MultiProcessor) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            com.huawei.hms.mlsdk.common.MLCompositeTransactor hReturn = ((com.huawei.hms.mlsdk.common.MLCompositeTransactor) ((org.xms.g.utils.XGettable) param0).getHInstance());
+            return new org.xms.g.vision.MultiProcessor(new org.xms.g.utils.XBox(hReturn));
+        }
+        return ((org.xms.g.vision.MultiProcessor) param0);
+    }
+    
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.mlsdk.common.MLCompositeTransactor;
+    }
+    
+    public static class Builder<XT> extends org.xms.g.utils.XObject {
+        
+        public Builder(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+        
+        public Builder(org.xms.g.vision.MultiProcessor.Factory<XT> param0) {
+            super((org.xms.g.utils.XBox) null);
+            this.setHInstance(new com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator(((param0) == null ? null : (param0.getHInstanceFactory()))));
+        }
+        
+        public org.xms.g.vision.MultiProcessor<XT> build() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator) this.getHInstance()).create()");
+            com.huawei.hms.mlsdk.common.MLCompositeTransactor hReturn = ((com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator) this.getHInstance()).create();
+            return ((hReturn) == null ? null : (new org.xms.g.vision.MultiProcessor<XT>(new org.xms.g.utils.XBox(hReturn))));
+        }
+        
+        public org.xms.g.vision.MultiProcessor.Builder<XT> setMaxGapFrames(int param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator) this.getHInstance()).setMaxFrameLostCount(param0)");
+            com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator hReturn = ((com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator) this.getHInstance()).setMaxFrameLostCount(param0);
+            return ((hReturn) == null ? null : (new org.xms.g.vision.MultiProcessor.Builder<XT>(new org.xms.g.utils.XBox(hReturn))));
+        }
+        
+        public static org.xms.g.vision.MultiProcessor.Builder dynamicCast(java.lang.Object param0) {
+            return ((org.xms.g.vision.MultiProcessor.Builder) param0);
+        }
+        
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+                return false;
+            }
+            return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.mlsdk.common.MLCompositeTransactor.Creator;
+        }
+    }
+    
+    public static interface Factory<XT> extends org.xms.g.utils.XInterface {
+        
+        public org.xms.g.vision.Tracker<XT> create(XT param0);
+        
+        default <T> com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory<T> getHInstanceFactory() {
+            if (this instanceof org.xms.g.utils.XGettable) {
+                return ((com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory<T>) ((org.xms.g.utils.XGettable) this).getHInstance());
+            }
+            return new com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory<T>() {
+                
+                public com.huawei.hms.mlsdk.common.MLResultTrailer<T> create(T param0) {
+                    java.lang.Object[] params = new java.lang.Object[1];
+                    java.lang.Class[] types = new java.lang.Class[1];
+                    params[0] = param0;
+                    types[0] = java.lang.Object.class;
+                    java.lang.Object result = org.xms.g.utils.Utils.invokeMethod(org.xms.g.vision.MultiProcessor.Factory.this, "create", params, types, true, org.xms.g.utils.Utils.getXmsMap("ML_GMS"));
+                    return ((com.huawei.hms.mlsdk.common.MLResultTrailer) org.xms.g.utils.Utils.handleInvokeBridgeReturnValue(result, true));
+                }
+            };
+        }
+        
+        public static org.xms.g.vision.MultiProcessor.Factory dynamicCast(java.lang.Object param0) {
+            if (param0 instanceof org.xms.g.vision.MultiProcessor.Factory) {
+                return ((org.xms.g.vision.MultiProcessor.Factory) param0);
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory hReturn = ((com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory) ((org.xms.g.utils.XGettable) param0).getHInstance());
+                return new org.xms.g.vision.MultiProcessor.Factory.XImpl(new org.xms.g.utils.XBox(hReturn));
+            }
+            return ((org.xms.g.vision.MultiProcessor.Factory) param0);
+        }
+        
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XInterface)) {
+                return false;
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory;
+            }
+            return param0 instanceof org.xms.g.vision.MultiProcessor.Factory;
+        }
+        
+        public static class XImpl<XT> extends org.xms.g.utils.XObject implements org.xms.g.vision.MultiProcessor.Factory<XT> {
+            
+            public XImpl(org.xms.g.utils.XBox param0) {
+                super(param0);
+            }
+            
+            public org.xms.g.vision.Tracker<XT> create(XT param0) {
+                java.lang.Object hObj0 = ((java.lang.Object) org.xms.g.utils.Utils.getInstanceInInterface(param0, true));
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory) this.getHInstance()).create(hObj0)");
+                com.huawei.hms.mlsdk.common.MLResultTrailer hReturn = ((com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory) this.getHInstance()).create(hObj0);
+                return ((hReturn) == null ? null : (new org.xms.g.vision.Tracker<XT>(new org.xms.g.utils.XBox(hReturn))));
+            }
+        }
+    }
+}

@@ -23,10 +23,11 @@ import com.huawei.generator.json.JMapping;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 
 /**
- * Builder for common methods definitions.
+ * Some common methods definitions.
  *
  * @since 2019-11-26
  */
+
 public abstract class AbstractMethodBuilder<T> {
     protected MethodGeneratorFactory factory;
 

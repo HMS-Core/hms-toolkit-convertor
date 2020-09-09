@@ -34,7 +34,7 @@ import java.util.List;
  *
  * @since 2020-02-25
  */
-public class XAdapterClassNode extends XClassNode {
+public final class XAdapterClassNode extends XClassNode {
     // A X adapter class corresponds to a json definition
     private JClass def;
 

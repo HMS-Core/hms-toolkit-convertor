@@ -19,7 +19,7 @@ package com.huawei.generator.ast;
 import java.util.List;
 
 /**
- * CatchNode class
+ * Catch Node
  *
  * @since 2019-11-16
  */

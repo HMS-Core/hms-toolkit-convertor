@@ -24,11 +24,11 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Function description
+ * Generator for DualZBody
  *
  * @since 2020-03-03
  */
-public class DualZBodyGenerator implements BodyGenerator {
+public final class DualZBodyGenerator implements BodyGenerator {
     private final BodyGenerator gGenerator;
 
     private final BodyGenerator hGenerator;

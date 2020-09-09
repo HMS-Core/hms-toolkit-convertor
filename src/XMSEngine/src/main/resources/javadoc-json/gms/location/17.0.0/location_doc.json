@@ -1,0 +1,2089 @@
+{
+  "com.google.android.gms.location.LocationSettingsStates": {
+    "classDes": "Stores the current states of all location-related settings.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStates",
+    "methods": {
+      "com.google.android.gms.location.LocationSettingsStates.isBlePresent()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStates#isBlePresent()",
+        "methodDes": "Whether BLE is present on the device.",
+        "params": {},
+        "returns": "boolean: true if BLE is present on the device",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsStates.isGpsPresent()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStates#isGpsPresent()",
+        "methodDes": "Whether GPS provider is present on the device.",
+        "params": {},
+        "returns": "boolean: true if GPS provider is present on the device",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsStates.isNetworkLocationPresent()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStates#isNetworkLocationPresent()",
+        "methodDes": "Whether network location provider is present on the device.",
+        "params": {},
+        "returns": "boolean: true if network location provider is present on the device",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsStates.isBleUsable()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStates#isBleUsable()",
+        "methodDes": "Whether BLE is enabled and is usable by the app.",
+        "params": {},
+        "returns": "boolean: true if BLE is enabled and is usable by the app",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsStates.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStates#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "dest": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsStates.isLocationUsable()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStates#isLocationUsable()",
+        "methodDes": "Whether location is enabled and is usable by the app. This method returns true when either GPS or network location provider is usable.",
+        "params": {},
+        "returns": "boolean: true location is enabled and is usable by the app",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsStates.isLocationPresent()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStates#isLocationPresent()",
+        "methodDes": "Whether location is present on the device. This method returns true when either GPS or network location provider is present.",
+        "params": {},
+        "returns": "boolean: true if location is present on the device",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsStates.fromIntent(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStates#fromIntent(android.content.Intent)",
+        "methodDes": "Retrieves the location settings states from the intent extras. When the location settings dialog finishes, you can use this method to retrieve the current location settings states from the intent in your onActivityResult(int, int, Intent).",
+        "params": {
+          "intent": ""
+        },
+        "returns": "com.google.android.gms.location.LocationSettingsStates: the location settings states from the intent extras",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsStates.isGpsUsable()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStates#isGpsUsable()",
+        "methodDes": "Whether GPS provider is enabled and is usable by the app.",
+        "params": {},
+        "returns": "boolean: true if GPS provider is enabled and is usable by the app",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsStates.isNetworkLocationUsable()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStates#isNetworkLocationUsable()",
+        "methodDes": "Whether network location provider is enabled and usable by the app.",
+        "params": {},
+        "returns": "boolean: true network location provider is enabled and usable by the app",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.LocationSettingsStates.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStates#CREATOR",
+        "value": ""
+      }
+    }
+  },
+  "com.google.android.gms.location.GeofencingApi": {
+    "classDes": "This interface is deprecated. Use the GoogleApi-based API GeofencingClient instead. The main entry point for interacting with the geofencing APIs. The methods must be used in conjunction with a GoogleApiClient. E.g. new GoogleApiClient.Builder(context) .addApi(LocationServices.API) .addConnectionCallbacks(this) .addOnConnectionFailedListener(this) .build() All methods are thread safe.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingApi",
+    "methods": {
+      "com.google.android.gms.location.GeofencingApi.addGeofences(com.google.android.gms.common.api.GoogleApiClient,java.util.List<com.google.android.gms.location.Geofence>,android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingApi#addGeofences(com.google.android.gms.common.api.GoogleApiClient, java.util.List<com.google.android.gms.location.Geofence>, android.app.PendingIntent)",
+        "methodDes": "This method is deprecated. use addGeofences(GoogleApiClient, GeofencingRequest, PendingIntent) instead.",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "geofences": "a list of geofences to be added. The geofences must be created using Geofence.Builder",
+          "pendingIntent": "a pending intent that will be used to generate an intent when matched geofence transition is observed"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>: a PendingResult instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingApi.addGeofences(com.google.android.gms.common.api.GoogleApiClient,com.google.android.gms.location.GeofencingRequest,android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingApi#public-abstract-pendingresultstatus-addgeofences-googleapiclient-client,-geofencingrequest-geofencingrequest,-pendingintent-pendingintent",
+        "methodDes": "Sets alerts to be notified when the device enters or exits one of the specified geofences.",
+        "params": {
+          "client": "an existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "geofencingRequest": "geofencing request that include a list of geofences to be added and related triggering behavior. The request must be created using GeofencingRequest.Builder",
+          "pendingIntent": "a pending intent that will be used to generate an intent when matched geofence transition is observed"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>: a PendingResult instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingApi.removeGeofences(com.google.android.gms.common.api.GoogleApiClient,android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingApi#removeGeofences(com.google.android.gms.common.api.GoogleApiClient, android.app.PendingIntent)",
+        "methodDes": "Removes all geofences associated with the given pendingIntent. Warning: equals(Object) is used for comparison. Please use FLAG_UPDATE_CURRENT rather than FLAG_CANCEL_CURRENT when creating the pending intent, otherwise you will not get the same pending intent you provided to addGeofences(GoogleApiClient, List, PendingIntent) and thus the removal operation will remove nothing. Status is returned when geofences are successfully removed or fail to be removed. Refer to GeofenceStatusCodes for possible errors when removing geofences. This method requires ACCESS_FINE_LOCATION.",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "pendingIntent": "the pending intent associated with the geofences that need to be removed"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>: a PendingResult instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingApi.removeGeofences(com.google.android.gms.common.api.GoogleApiClient,java.util.List<java.lang.String>)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingApi#public-abstract-pendingresultstatus-removegeofences-googleapiclient-client,-liststring-geofencerequestids",
+        "methodDes": "",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "geofenceRequestIds": "a list of request IDs of geofences that need to be removed"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>: a PendingResult instance",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.LocationServices": {
+    "classDes": "The main entry point for location services integration.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationServices",
+    "methods": {
+      "com.google.android.gms.location.LocationServices.getGeofencingClient(android.content.Context)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationServices#getGeofencingClient(android.content.Context)",
+        "methodDes": "Create a new instance of GeofencingClient for use in a non-activity Context. Error resolutions will be automatically launched from the provided Context, displaying system tray notifications when necessary.",
+        "params": {
+          "context": ""
+        },
+        "returns": "com.google.android.gms.location.GeofencingClient: a new instance of GeofencingClient for use in a non-activity Context",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationServices.getGeofencingClient(android.app.Activity)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationServices#public-static-geofencingclient-getgeofencingclient-activity-activity",
+        "methodDes": "Create a new instance of GeofencingClient for use in an Activity. Error resolutions will be automatically launched from the provided Activity, displaying UI when necessary.",
+        "params": {
+          "activity": ""
+        },
+        "returns": "com.google.android.gms.location.GeofencingClient: a new instance of GeofencingClient for use in an Activity",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationServices.getSettingsClient(android.content.Context)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationServices#public-static-settingsclient-getsettingsclient-context-context",
+        "methodDes": "Create a new instance of SettingsClient for use in a non-activity Context. Error resolutions will be automatically launched from the provided Context, displaying system tray notifications when necessary.",
+        "params": {
+          "context": ""
+        },
+        "returns": "com.google.android.gms.location.SettingsClient: a new instance of SettingsClient for use in a non-activity Context",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationServices.getSettingsClient(android.app.Activity)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationServices#getSettingsClient(android.app.Activity)",
+        "methodDes": "Create a new instance of SettingsClient for use in an Activity. Error resolutions will be automatically launched from the provided Activity, displaying UI when necessary.",
+        "params": {
+          "activity": ""
+        },
+        "returns": "com.google.android.gms.location.SettingsClient: a new instance of SettingsClient for use in an Activity",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationServices.getFusedLocationProviderClient(android.content.Context)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationServices#getFusedLocationProviderClient(android.content.Context)",
+        "methodDes": "Create a new instance of FusedLocationProviderClient for use in a non-activity Context. Error resolutions will be automatically launched from the provided Context, displaying system tray notifications when necessary.",
+        "params": {
+          "context": ""
+        },
+        "returns": "com.google.android.gms.location.FusedLocationProviderClient: a new instance of FusedLocationProviderClient for use in a non-activity Context",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationServices.getFusedLocationProviderClient(android.app.Activity)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationServices#public-static-fusedlocationproviderclient-getfusedlocationproviderclient-activity-activity",
+        "methodDes": "Create a new instance of FusedLocationProviderClient for use in an Activity. Error resolutions will be automatically launched from the provided Context, displaying system tray notifications when necessary.",
+        "params": {
+          "activity": ""
+        },
+        "returns": "com.google.android.gms.location.FusedLocationProviderClient: a new instance of FusedLocationProviderClient for use in an Activity",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.LocationServices.SettingsApi": {
+        "des": "Entry point to the location settings-enabler dialog APIs.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationServices#SettingsApi",
+        "value": ""
+      },
+      "com.google.android.gms.location.LocationServices.API": {
+        "des": "Token to pass to addApi(Api) to enable LocationServices.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationServices#API",
+        "value": ""
+      },
+      "com.google.android.gms.location.LocationServices.FusedLocationApi": {
+        "des": "Entry point to the fused location APIs.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationServices#FusedLocationApi",
+        "value": ""
+      },
+      "com.google.android.gms.location.LocationServices.GeofencingApi": {
+        "des": "Entry point to the geofencing APIs.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationServices#GeofencingApi",
+        "value": ""
+      }
+    }
+  },
+  "com.google.android.gms.location.LocationAvailability": {
+    "classDes": "Status on the availability of location data. Delivered from LocationCallback registered via #requestLocationUpdates(GoogleApiClient,LocationRequest,LocationCallback,Looper) or from a PendingIntent registered via #requestLocationUpdates(GoogleApiClient, LocationRequest, PendingIntent). It is also available on demand via getLocationAvailability(GoogleApiClient).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationAvailability",
+    "methods": {
+      "com.google.android.gms.location.LocationAvailability.hashCode()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationAvailability#hashCode()",
+        "methodDes": "",
+        "params": {},
+        "returns": "int: a hash code value for this object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationAvailability.hasLocationAvailability(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationAvailability#hasLocationAvailability(android.content.Intent)",
+        "methodDes": "Returns true if an Intent contains a LocationAvailability. This is a utility function that can be called from inside an intent receiver to make sure the received intent contains location availability data.",
+        "params": {
+          "intent": ""
+        },
+        "returns": "boolean:true if the intent contains a LocationAvailability, false otherwise",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationAvailability.isLocationAvailable()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationAvailability#isLocationAvailable()",
+        "methodDes": "Returns true if the device location is known and reasonably up to date within the hints requested by the active LocationRequests. Failure to determine location may result from a number of causes including disabled location settings or an inability to retrieve sensor data in the device's environment.",
+        "params": {},
+        "returns": "boolean: true if the device location is known and reasonably up to date within the hints requested by the active LocationRequests",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationAvailability.equals(java.lang.Object)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationAvailability#equals(java.lang.Object)",
+        "methodDes": "",
+        "params": {
+          "o": "the reference object with which to compare"
+        },
+        "returns": "boolean: true if this object is the same as the obj argument; false otherwise",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationAvailability.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationAvailability#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "parcel": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationAvailability.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationAvailability#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String: a string representation of the object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationAvailability.extractLocationAvailability(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationAvailability#extractLocationAvailability(android.content.Intent)",
+        "methodDes": "Extracts the LocationAvailability from an Intent. This is a utility function which extracts the LocationAvailability from the extras of an Intent that was sent in response to a location request.",
+        "params": {
+          "intent": ""
+        },
+        "returns": "com.google.android.gms.location.LocationAvailability:a LocationAvailability, or null if the Intent doesn't contain this data",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.LocationAvailability.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationAvailability#CREATOR",
+        "value": ""
+      }
+    }
+  },
+  "com.google.android.gms.location.ActivityTransition.Builder": {
+    "classDes": "The builder to help create an ActivityTransition object.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition.Builder",
+    "methods": {
+      "com.google.android.gms.location.ActivityTransition.Builder.Builder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition.Builder#public-activitytransition.builder",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransition.Builder.build()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition.Builder#build()",
+        "methodDes": "Builds a ActivityTransition object.",
+        "params": {},
+        "returns": "com.google.android.gms.location.ActivityTransition: a ActivityTransition instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransition.Builder.setActivityTransition(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition.Builder#setActivityTransition(int)",
+        "methodDes": "Adds an interested transition type.",
+        "params": {
+          "transition": "the interested transition type. It's one of the ACTIVITY_TRANSITION_xxx constants"
+        },
+        "returns": "com.google.android.gms.location.ActivityTransition.Builder:this builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransition.Builder.setActivityType(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition.Builder#setActivityType(int)",
+        "methodDes": "Sets the type of the activity to be detected.",
+        "params": {
+          "activityType": "the type of the activity to be detected. It's one of the constant in DetectedActivity"
+        },
+        "returns": "com.google.android.gms.location.ActivityTransition.Builder:this builder",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.GeofenceStatusCodes": {
+    "classDes": "Geofence specific status codes, for use in getStatusCode().",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofenceStatusCodes",
+    "methods": {
+      "com.google.android.gms.location.GeofenceStatusCodes.getStatusCodeString(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/common/api/CommonStatusCodes#getStatusCodeString(int)",
+        "methodDes": "Returns an untranslated debug (not user-friendly!) string based on the current status code.",
+        "params": {
+          "statusCode": ""
+        },
+        "returns": "java.lang.String: an untranslated debug (not user-friendly!) string based on the current status code",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.GeofenceStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES": {
+        "des": "Your app has registered more than 100 geofences. Remove unused ones before adding new geofences.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofenceStatusCodes#GEOFENCE_TOO_MANY_GEOFENCES",
+        "value": "1001"
+      },
+      "com.google.android.gms.location.GeofenceStatusCodes.GEOFENCE_NOT_AVAILABLE": {
+        "des": "Geofence service is not available now. Typically this is because the user turned off location access in settings > location access.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofenceStatusCodes#GEOFENCE_NOT_AVAILABLE",
+        "value": "1000"
+      },
+      "com.google.android.gms.location.GeofenceStatusCodes.GEOFENCE_TOO_MANY_PENDING_INTENTS": {
+        "des": "You have provided more than 5 different PendingIntents to the  addGeofences(GoogleApiClient, GeofencingRequest, PendingIntent) call.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofenceStatusCodes#GEOFENCE_TOO_MANY_PENDING_INTENTS",
+        "value": "1002"
+      }
+    }
+  },
+  "com.google.android.gms.location.LocationRequest": {
+    "classDes": "A data object that contains quality of service parameters for requests to the FusedLocationProviderApi. LocationRequest objects are used to request a quality of service for location updates from the FusedLocationProviderApi. For example, if your application wants high accuracy location it should create a location request with setPriority(int) set to PRIORITY_HIGH_ACCURACY and setInterval(long) to 5 seconds. This would be appropriate for mapping applications that are showing your location in real-time. At the other extreme, if you want negligible power impact, but to still receive location updates when available, then create a location request with setPriority(int) set to PRIORITY_NO_POWER. With this request your application will not trigger (and therefore will not receive any power blame) any location updates, but will receive locations triggered by other applications. This would be appropriate for applications that have no firm requirement for location, but can take advantage when available. In between these two extremes is a very common use-case, where applications definitely want to receive updates at a specified interval, and can receive them faster when available, but still want a low power impact. These applications should consider PRIORITY_BALANCED_POWER_ACCURACY combined with a faster setFastestInterval(long) (such as 1 minute) and a slower setInterval(long) (such as 60 minutes). They will only be assigned power blame for the interval set by setInterval(long), but can still receive locations triggered by other applications at a rate up to setFastestInterval(long). This style of request is appropriate for many location aware applications, including background usage. Do be careful to also throttle setFastestInterval(long) if you perform heavy-weight work after receiving an update - such as using the network. Activities should strongly consider removing all location request when entering the background (for example at onPause()), or at least swap the request to a larger interval and lower quality. Applications cannot specify the exact location sources, such as GPS, that are used by the LocationClient. In fact, the system may have multiple location sources (providers) running and may fuse the results from several sources into a single Location object. Location requests from applications with ACCESS_COARSE_LOCATION and not ACCESS_FINE_LOCATION will be automatically throttled to a slower interval, and the location object will be obfuscated to only show a coarse level of accuracy. All location requests are considered hints, and you may receive locations that are more/less accurate, and faster/slower than requested.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest",
+    "methods": {
+      "com.google.android.gms.location.LocationRequest.LocationRequest()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest",
+        "methodDes": "constructor of LocationRequest.",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.getExpirationTime()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#getExpirationTime()",
+        "methodDes": "Get the request expiration time, in milliseconds since boot. This value can be compared to elapsedRealtime() to determine the time until expiration.",
+        "params": {},
+        "returns": "long:expiration time of request, in milliseconds since boot including suspend",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.getMaxWaitTime()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#getMaxWaitTime()",
+        "methodDes": "Gets the maximum wait time in milliseconds for location updates. If the wait time is smaller than the interval requested with setInterval(long), then the interval will be used instead.",
+        "params": {},
+        "returns": "long:maximum wait time in milliseconds, inexact",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.setMaxWaitTime(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#setMaxWaitTime(long)",
+        "methodDes": "Sets the maximum wait time in milliseconds for location updates. If you pass a value at least 2x larger than the interval specified with setInterval(long), then location delivery may be delayed and multiple locations can be delivered at once. Locations are determined at the setInterval(long) rate, but can be delivered in batch after the interval you set in this method. This can consume less battery and give more accurate locations, depending on the device's hardware capabilities. You should set this value to be as large as possible for your needs if you don't need immediate location delivery.",
+        "params": {
+          "millis": "desired maximum wait time in millisecond, inexact"
+        },
+        "returns": "com.google.android.gms.location.LocationRequest:the same object, so that setters can be chained",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.setSmallestDisplacement(float)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#setSmallestDisplacement(float)",
+        "methodDes": "Set the minimum displacement between location updates in meters By default this is 0.",
+        "params": {
+          "smallestDisplacementMeters": "the smallest displacement in meters the user must move between location updates"
+        },
+        "returns": "com.google.android.gms.location.LocationRequest:the same object, so that setters can be chained",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.getInterval()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#getInterval()",
+        "methodDes": "Get the desired interval of this request, in milliseconds.",
+        "params": {},
+        "returns": "long:desired interval in milliseconds, inexact",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.setExpirationDuration(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#setExpirationDuration(long)",
+        "methodDes": "Set the duration of this request, in milliseconds. The duration begins immediately (and not when the request is passed to the location client), so call this method again if the request is re-used at a later time. The location client will automatically stop updates after the request expires. The duration includes suspend time. Values less than 0 are allowed, but indicate that the request has already expired.",
+        "params": {
+          "millis": "duration of request in milliseconds"
+        },
+        "returns": "com.google.android.gms.location.LocationRequest:the same object, so that setters can be chained",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.getNumUpdates()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#getNumUpdates()",
+        "methodDes": "Get the number of updates requested. By default this is MAX_VALUE, which indicates that locations are updated until the request is explicitly removed.",
+        "params": {},
+        "returns": "int:number of updates",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.setExpirationTime(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#setExpirationTime(long)",
+        "methodDes": "Set the request expiration time, in millisecond since boot. This expiration time uses the same time base as elapsedRealtime(). The location client will automatically stop updates after the request expires. The duration includes suspend time. Values before elapsedRealtime() are allowed, but indicate that the request has already expired.",
+        "params": {
+          "millis": "expiration time of request, in milliseconds since boot including suspend"
+        },
+        "returns": "com.google.android.gms.location.LocationRequest:the same object, so that setters can be chained",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.setFastestInterval(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#setFastestInterval(long)",
+        "methodDes": "Explicitly set the fastest interval for location updates, in milliseconds. This controls the fastest rate at which your application will receive location updates, which might be faster than setInterval(long) in some situations (for example, if other applications are triggering location updates). This allows your application to passively acquire locations at a rate faster than it actively acquires locations, saving power. Unlike setInterval(long), this parameter is exact. Your application will never receive updates faster than this value. If you don't call this method, a fastest interval will be selected for you. It will be a value faster than your active interval (setInterval(long)). An interval of 0 is allowed, but not recommended, since location updates may be extremely fast on future implementations. If setFastestInterval(long) is set slower than setInterval(long), then your effective fastest interval is setInterval(long).",
+        "params": {
+          "millis": "fastest interval for updates in milliseconds, exact"
+        },
+        "returns": "com.google.android.gms.location.LocationRequest:the same object, so that setters can be chained",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.equals(java.lang.Object)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#equals(java.lang.Object)",
+        "methodDes": "",
+        "params": {
+          "object": "the reference object with which to compare"
+        },
+        "returns": "boolean: true if this object is the same as the obj argument; false otherwise",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.setInterval(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#setInterval(long)",
+        "methodDes": "Set the desired interval for active location updates, in milliseconds. The location client will actively try to obtain location updates for your application at this interval, so it has a direct influence on the amount of power used by your application. Choose your interval wisely. This interval is inexact. You may not receive updates at all (if no location sources are available), or you may receive them slower than requested. You may also receive them faster than requested (if other applications are requesting location at a faster interval). The fastest rate that that you will receive updates can be controlled with setFastestInterval(long). By default this fastest rate is 6x the interval frequency. Applications with only the coarse location permission may have their interval silently throttled. An interval of 0 is allowed, but not recommended, since location updates may be extremely fast on future implementations. setPriority(int) and setInterval(long) are the most important parameters on a location request.",
+        "params": {
+          "millis": "desired interval in millisecond, inexact"
+        },
+        "returns": "com.google.android.gms.location.LocationRequest:the same object, so that setters can be chained",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.isFastestIntervalExplicitlySet()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#isFastestIntervalExplicitlySet()",
+        "methodDes": "Returns whether or not the fastest interval was explicitly specified for the location request.",
+        "params": {},
+        "returns": "boolean:True if the fastest interval was explicitly set for the location request; false otherwise",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.getSmallestDisplacement()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#getSmallestDisplacement()",
+        "methodDes": "Get the minimum displacement between location updates in meters By default this is 0.",
+        "params": {},
+        "returns": "float:minimum displacement between location updates in meters",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.create()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#create()",
+        "methodDes": "Create a location request with default parameters. Default parameters are for a block accuracy, slowly updated location. It can then be adjusted as required by the applications before passing to the FusedLocationProviderApi.",
+        "params": {},
+        "returns": "com.google.android.gms.location.LocationRequest:a new location request",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.hashCode()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#hashCode()",
+        "methodDes": "",
+        "params": {},
+        "returns": "int: a hash code value for this object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.getFastestInterval()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#getFastestInterval()",
+        "methodDes": "Get the fastest interval of this request, in milliseconds. The system will never provide location updates faster than the minimum of getFastestInterval() and getInterval().",
+        "params": {},
+        "returns": "long:fastest interval in milliseconds, exact",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.setPriority(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#setPriority(int)",
+        "methodDes": "Set the priority of the request. Use with a priority constant such as PRIORITY_HIGH_ACCURACY. No other values are accepted. The priority of the request is a strong hint to the LocationClient for which location sources to use. For example, PRIORITY_HIGH_ACCURACY is more likely to use GPS, and PRIORITY_BALANCED_POWER_ACCURACY is more likely to use WIFI & Cell tower positioning, but it also depends on many other factors (such as which sources are available) and is implementation dependent. setPriority(int) and setInterval(long) are the most important parameters on a location request.",
+        "params": {
+          "priority": "an accuracy or power constant"
+        },
+        "returns": "com.google.android.gms.location.LocationRequest:the same object, so that setters can be chained",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.setNumUpdates(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#setNumUpdates(int)",
+        "methodDes": "Set the number of location updates. By default locations are continuously updated until the request is explicitly removed, however you can optionally request a set number of updates. For example, if your application only needs a single fresh location, then call this method with a value of 1 before passing the request to the location client. When using this option care must be taken to either explicitly remove the request when no longer needed or to set an expiration with (setExpirationDuration(long) or setExpirationTime(long). Otherwise in some cases if a location can't be computed, this request could stay active indefinitely consuming power.",
+        "params": {
+          "numUpdates": "the number of location updates requested"
+        },
+        "returns": "com.google.android.gms.location.LocationRequest:the same object, so that setters can be chained",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.getPriority()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#getPriority()",
+        "methodDes": "Get the quality of the request.",
+        "params": {},
+        "returns": "int:an accuracy constant",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String: a string representation of the object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationRequest.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "parcel": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.LocationRequest.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#CREATOR",
+        "value": ""
+      },
+      "com.google.android.gms.location.LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY": {
+        "des": "Used with  setPriority(int) to request \"block\" level accuracy.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#PRIORITY_BALANCED_POWER_ACCURACY",
+        "value": "102"
+      },
+      "com.google.android.gms.location.LocationRequest.PRIORITY_LOW_POWER": {
+        "des": "Used with  setPriority(int) to request \"city\" level accuracy.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#PRIORITY_LOW_POWER",
+        "value": "104"
+      },
+      "com.google.android.gms.location.LocationRequest.PRIORITY_NO_POWER": {
+        "des": "Used with  setPriority(int) to request the best accuracy possible with zero additional power consumption.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#PRIORITY_NO_POWER",
+        "value": "105"
+      },
+      "com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY": {
+        "des": "Used with  setPriority(int) to request the most accurate locations available.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationRequest#PRIORITY_HIGH_ACCURACY",
+        "value": "100"
+      }
+    }
+  },
+  "com.google.android.gms.location.LocationSettingsRequest.Builder": {
+    "classDes": "A builder that builds LocationSettingsRequest.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsRequest.Builder",
+    "methods": {
+      "com.google.android.gms.location.LocationSettingsRequest.Builder.addLocationRequest(com.google.android.gms.location.LocationRequest)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsRequest.Builder#addLocationRequest(com.google.android.gms.location.LocationRequest)",
+        "methodDes": "Adds one LocationRequest that the client is interested in. Settings will be checked for optimal performance of all LocationRequests.",
+        "params": {
+          "requests": ""
+        },
+        "returns": "com.google.android.gms.location.LocationSettingsRequest.Builder: the Builder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsRequest.Builder.setNeedBle(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsRequest.Builder#setNeedBle(boolean)",
+        "methodDes": "Sets whether the client wants BLE scan to be enabled. When this flag is set to true, if the platform supports BLE scan mode and Bluetooth is off, the dialog will prompt the user to enable BLE scan. If the platform doesn't support BLE scan mode, the dialog will prompt to enable Bluetooth.",
+        "params": {
+          "needBle": ""
+        },
+        "returns": "com.google.android.gms.location.LocationSettingsRequest.Builder: the Builder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsRequest.Builder.build()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsRequest.Builder#build()",
+        "methodDes": "Creates a LocationSettingsRequest that can be used with SettingsApi.",
+        "params": {},
+        "returns": "com.google.android.gms.location.LocationSettingsRequest: a LocationSettingsRequest that can be used with SettingsApi",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsRequest.Builder.Builder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.Builder#public-geofencingrequest.builder",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsRequest.Builder.setAlwaysShow(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsRequest.Builder#setAlwaysShow(boolean)",
+        "methodDes": "Whether or not location is required by the calling app in order to continue. Set this to true if location is required to continue and false if having location provides better results, but is not required. This changes the wording/appearance of the dialog accordingly.",
+        "params": {
+          "show": ""
+        },
+        "returns": "com.google.android.gms.location.LocationSettingsRequest.Builder: the Builder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsRequest.Builder.addAllLocationRequests(java.util.Collection<com.google.android.gms.location.LocationRequest>)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsRequest.Builder#addAllLocationRequests(java.util.Collection<com.google.android.gms.location.LocationRequest>)",
+        "methodDes": "Adds a collection of LocationRequests that the client is interested in. Settings will be checked for optimal performance of all LocationRequests.",
+        "params": {
+          "requests": ""
+        },
+        "returns": "com.google.android.gms.location.LocationSettingsRequest.Builder: ",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.ActivityTransition": {
+    "classDes": "Represents an activity and the transition of it. For instance start to walk; stop running etc.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition",
+    "methods": {
+      "com.google.android.gms.location.ActivityTransition.hashCode()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition#hashCode()",
+        "methodDes": "",
+        "params": {},
+        "returns": "int: a hash code value for this object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransition.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "dest": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransition.equals(java.lang.Object)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition#equals(java.lang.Object)",
+        "methodDes": "",
+        "params": {
+          "object": "the reference object with which to compare"
+        },
+        "returns": "boolean: true if this object is the same as the obj argument; false otherwise",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransition.getTransitionType()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition#getTransitionType()",
+        "methodDes": "Gets the interested transition type. It's one of the ACTIVITY_TRANSITION_xxx constants.",
+        "params": {},
+        "returns": "int:  the interested transition type",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransition.getActivityType()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition#getActivityType()",
+        "methodDes": "Gets the type of the activity to be detected.",
+        "params": {},
+        "returns": "int: the type of the activity to be detected",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransition.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String: a string representation of the object",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.ActivityTransition.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition#CREATOR",
+        "value": ""
+      },
+      "com.google.android.gms.location.ActivityTransition.ACTIVITY_TRANSITION_ENTER": {
+        "des": "User enters the given activity.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition#ACTIVITY_TRANSITION_ENTER",
+        "value": "0"
+      },
+      "com.google.android.gms.location.ActivityTransition.ACTIVITY_TRANSITION_EXIT": {
+        "des": "User exits the given activity.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition#ACTIVITY_TRANSITION_EXIT",
+        "value": "1"
+      }
+    }
+  },
+  "com.google.android.gms.location.LocationStatusCodes": {
+    "classDes": "This class is deprecated. Use GeofenceStatusCodes. Status codes that can be returned to listeners to indicate the success or failure of an operation.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationStatusCodes",
+    "methods": {},
+    "fields": {
+      "com.google.android.gms.location.LocationStatusCodes.GEOFENCE_NOT_AVAILABLE": {
+        "des": "Geofence service is not available now. Typically this is because the user turned off location access in settings > location access.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationStatusCodes#GEOFENCE_NOT_AVAILABLE",
+        "value": "1000"
+      },
+      "com.google.android.gms.location.LocationStatusCodes.SUCCESS": {
+        "des": "The operation was successful.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationStatusCodes#SUCCESS",
+        "value": "0"
+      },
+      "com.google.android.gms.location.LocationStatusCodes.ERROR": {
+        "des": "An unspecified error occurred; no more specific information is available. The device logs may provide additional data.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationStatusCodes#ERROR",
+        "value": "1"
+      },
+      "com.google.android.gms.location.LocationStatusCodes.GEOFENCE_TOO_MANY_PENDING_INTENTS": {
+        "des": "You have provided more than 5 different PendingIntents to the  addGeofences(com.google.android.gms.common.api.GoogleApiClient, GeofencingRequest, PendingIntent) call.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationStatusCodes#GEOFENCE_TOO_MANY_PENDING_INTENTS",
+        "value": "1002"
+      },
+      "com.google.android.gms.location.LocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES": {
+        "des": "Your app has registered more than 100 geofences. Remove unused ones before adding new geofences.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationStatusCodes#GEOFENCE_TOO_MANY_GEOFENCES",
+        "value": "1001"
+      }
+    }
+  },
+  "com.google.android.gms.location.FusedLocationProviderApi": {
+    "classDes": "This interface is deprecated. Use the GoogleApi-based API FusedLocationProviderClient instead. The main entry point for interacting with the fused location provider. The methods must be used in conjunction with a GoogleApiClient.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi",
+    "methods": {
+      "com.google.android.gms.location.FusedLocationProviderApi.getLastLocation(com.google.android.gms.common.api.GoogleApiClient)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#getLastLocation(com.google.android.gms.common.api.GoogleApiClient)",
+        "methodDes": "Returns the best most recent location currently available. If a location is not available, which should happen very rarely, null will be returned. The best accuracy available while respecting the location permissions will be returned. This method provides a simplified way to get location. It is particularly well suited for applications that do not require an accurate location and that do not want to maintain extra logic for location updates.",
+        "params": {
+          "client": "An existing GoogleApiClient. If not connected null will be returned"
+        },
+        "returns": "android.location.Location: the best most recent location currently available",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderApi.removeLocationUpdates(com.google.android.gms.common.api.GoogleApiClient,com.google.android.gms.location.LocationCallback)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#removeLocationUpdates(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.location.LocationCallback)",
+        "methodDes": "Removes all location updates for the given location result listener.",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "callback": "The callback to remove"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>:a PendingResult for the call, check isSuccess() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderApi.removeLocationUpdates(com.google.android.gms.common.api.GoogleApiClient,com.google.android.gms.location.LocationListener)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#public-abstract-pendingresultstatus-removelocationupdates-googleapiclient-client,-locationlistener-listener",
+        "methodDes": "Removes all location updates for the given location listener.",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "listener": "The listener to remove"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>:a PendingResult for the call, check isSuccess() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderApi.removeLocationUpdates(com.google.android.gms.common.api.GoogleApiClient,android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#public-abstract-pendingresultstatus-removelocationupdates-googleapiclient-client,-pendingintent-callbackintent",
+        "methodDes": "Removes all location updates for the given pending intent.It is possible for this call to cancel the PendingIntent under some circumstances.",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "callbackIntent": "The PendingIntent that was used in requestLocationUpdates(GoogleApiClient, LocationRequest, PendingIntent) or is equal as defined by equals(Object)"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>:a PendingResult for the call, check isSuccess() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderApi.requestLocationUpdates(com.google.android.gms.common.api.GoogleApiClient,com.google.android.gms.location.LocationRequest,com.google.android.gms.location.LocationListener)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#public-abstract-pendingresultstatus-requestlocationupdates-googleapiclient-client,-locationrequest-request,-locationlistener-listener",
+        "methodDes": "Requests location updates.",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "request": "The location request for the updates",
+          "listener": "The listener for the location updates"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>:a PendingResult for the call, check isSuccess() to determine if it was successful",
+        "Exceptions": {
+          "java.lang.IllegalStateException": "If this method is executed in a thread that has not called Looper.prepare()"
+        }
+      },
+      "com.google.android.gms.location.FusedLocationProviderApi.requestLocationUpdates(com.google.android.gms.common.api.GoogleApiClient,com.google.android.gms.location.LocationRequest,com.google.android.gms.location.LocationCallback,android.os.Looper)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#public-abstract-pendingresultstatus-requestlocationupdates-googleapiclient-client,-locationrequest-request,-locationcallback-callback,-looper-looper",
+        "methodDes": "Requests location updates with a callback on the specified Looper thread.",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "request": "The location request for the updates",
+          "callback": "The callback for the location updates",
+          "looper": "The Looper object whose message queue will be used to implement the callback mechanism, or null to make callbacks on the calling thread"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>:a PendingResult for the call, check isSuccess() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderApi.requestLocationUpdates(com.google.android.gms.common.api.GoogleApiClient,com.google.android.gms.location.LocationRequest,com.google.android.gms.location.LocationListener,android.os.Looper)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#public-abstract-pendingresultstatus-requestlocationupdates-googleapiclient-client,-locationrequest-request,-locationlistener-listener,-looper-looper",
+        "methodDes": "Requests location updates with a callback on the specified Looper thread.",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "request": "The location request for the updates",
+          "listener": "The listener for the location updates",
+          "looper": "The Looper object whose message queue will be used to implement the callback mechanism, or null to make callbacks on the calling thread"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>:a PendingResult for the call, check isSuccess() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderApi.setMockMode(com.google.android.gms.common.api.GoogleApiClient,boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#setMockMode(com.google.android.gms.common.api.GoogleApiClient, boolean)",
+        "methodDes": "Sets whether or not the location provider is in mock mode. The underlying providers (network and gps) will be stopped (except by direct LocationManager access), and only locations specified in setMockLocation(GoogleApiClient, Location) will be reported. This will effect all location clients connected using the FusedLocationProviderApi, including geofencer clients (i.e. geofences can be triggered based on mock locations). The client must remain connected in order for mock mode to remain active. If the client dies the system will return to its normal state. Calls are not nested, and mock mode will be set directly regardless of previous calls.",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "isMockMode": "If true the location provider will be set to mock mode. If false it will be returned to its normal state"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>:a PendingResult for the call, check isSuccess() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderApi.flushLocations(com.google.android.gms.common.api.GoogleApiClient)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#flushLocations(com.google.android.gms.common.api.GoogleApiClient)",
+        "methodDes": "Flushes any locations currently being batched and sends them to all registered LocationListeners, LocationCallbacks, and PendingIntents. This call is only useful when batching is specified using setMaxWaitTime(long), otherwise locations are already delivered immediately when available. When the returned PendingResult is complete, then you can assume that any pending batched locations have already been delivered.",
+        "params": {
+          "client": ""
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>: a PendingResult instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderApi.getLocationAvailability(com.google.android.gms.common.api.GoogleApiClient)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#getLocationAvailability(com.google.android.gms.common.api.GoogleApiClient)",
+        "methodDes": "Returns the availability of location data. When isLocationAvailable() returns true, then the location returned by getLastLocation(GoogleApiClient) will be reasonably up to date within the hints specified by the active LocationRequests. If the client isn't connected to Google Play services and the request times out, null is returned. Note it's always possible for getLastLocation(GoogleApiClient) to return null even when this method returns true (e.g. location settings were disabled between calls).",
+        "params": {
+          "client": "An existing GoogleApiClient. If not connected null will be returned"
+        },
+        "returns": "com.google.android.gms.location.LocationAvailability: the availability of location data",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderApi.requestLocationUpdates(com.google.android.gms.common.api.GoogleApiClient,com.google.android.gms.location.LocationRequest,android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#requestLocationUpdates(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.location.LocationRequest, android.app.PendingIntent)",
+        "methodDes": "Requests location updates with a callback on the specified PendingIntent. This method is suited for the background use cases, more specifically for receiving location updates, even when the app has been killed by the system. In order to do so, use a PendingIntent for a started service. For foreground use cases, the LocationListener version of the method is recommended, see requestLocationUpdates(GoogleApiClient, LocationRequest, LocationListener). Any previously registered requests that have the same PendingIntent (as defined by equals(Object)) will be replaced by this request. Both LocationResult and LocationAvailability are sent to the given PendingIntent. You can extract data from an Intent using hasResult(Intent), extractResult(Intent), hasLocationAvailability(Intent), and extractLocationAvailability(Intent).",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "request": "The location request for the updates",
+          "callbackIntent": "A pending intent to be sent for each location update"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>:a PendingResult for the call, check isSuccess() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderApi.setMockLocation(com.google.android.gms.common.api.GoogleApiClient,android.location.Location)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#setMockLocation(com.google.android.gms.common.api.GoogleApiClient, android.location.Location)",
+        "methodDes": "Sets the mock location to be used for the location provider. This location will be used in place of any actual locations from the underlying providers (network or gps). setMockMode(GoogleApiClient, boolean) must be called and set to true prior to calling this method. Care should be taken in specifying the timestamps as many applications require them to be monotonically increasing.",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "mockLocation": "The mock location. Must have a minimum number of fields set to be considered a valild location, as per documentation in the Location class"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>:a PendingResult for the call, check isSuccess() to determine if it was successful",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.FusedLocationProviderApi.KEY_LOCATION_CHANGED": {
+        "des": "Key used for a Bundle extra holding a Location value when a location change is broadcast using a PendingIntent.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#KEY_LOCATION_CHANGED",
+        "value": "\"com.google.android.location.LOCATION\""
+      },
+      "com.google.android.gms.location.FusedLocationProviderApi.KEY_MOCK_LOCATION": {
+        "des": "Key used for the Bundle extra in Location object holding a boolean indicating whether the location was set using  setMockLocation(GoogleApiClient, Location). If the value is false this extra is not set.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderApi#KEY_MOCK_LOCATION",
+        "value": "\"mockLocation\""
+      }
+    }
+  },
+  "com.google.android.gms.location.ActivityRecognitionClient": {
+    "classDes": "The main entry point for interacting with activity recognition. Activity Recognition provides two APIs: the Activity Recognition Transition API and the Activity Recognition Sampling API. Activity Recognition Transition API The Transition API is the preferred way of using Activity Recognition because it improves accuracy, consumes less power, and enhances engineering productivity. It is suitable for all use cases and developers get notified when a user activity has changed. As an example, you can use the API to detect when the user has entered or exited the vehicle to set the user's status to busy. Similarly, a parking detection app can use the API to detect when the user has exited a vehicle and started walking. For details, refer to requestActivityTransitionUpdates(ActivityTransitionRequest, PendingIntent). Activity Recognition Sampling API This may be useful for apps that: need more fine-grained control over the frequency at which activity recognition is running have unique precision and/or recall requirements and therefore want access to unfiltered, raw activity data When using this API, apps are responsible for managing power consumption via the detectionInterval parameter and writing a filter on top of the raw activity classifications as individual predictions may be noisy. The transition API handles these for you which is why we recommend using the transition API instead of the raw API whenever possible. For details, refer to requestActivityUpdates(long, PendingIntent).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionClient",
+    "methods": {
+      "com.google.android.gms.location.ActivityRecognitionClient.ActivityRecognitionClient(android.app.Activity)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionClient",
+        "methodDes": "constructor of ActivityRecognitionClient.",
+        "params": {
+          "activity": ""
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionClient.ActivityRecognitionClient(android.content.Context)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionClient",
+        "methodDes": "constructor of ActivityRecognitionClient.",
+        "params": {
+          "context": ""
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionClient.requestActivityUpdates(long,android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionClient#requestActivityUpdates(long, android.app.PendingIntent)",
+        "methodDes": "Register for activity recognition updates. The activities are detected by periodically waking up the device and reading short bursts of sensor data.",
+        "params": {
+          "detectionIntervalMillis": "the desired time between activity detections. Larger values will result in fewer activity detections while improving battery life. A value of 0 will result in activity detections at the fastest possible rate",
+          "callbackIntent": "a PendingIntent to be sent for each activity detection"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>:a Task for apps to check the status of the call. If the task fails, the status code for the failure can be found by examining getStatusCode()",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionClient.removeActivityTransitionUpdates(android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionClient#removeActivityTransitionUpdates(android.app.PendingIntent)",
+        "methodDes": "Removes activity transition updates associated with the given pendingIntent. To call this function, a different permission is required depending on your Android API level: For Android 10 (API level 29) and later: android.permission.ACTIVITY_RECOGNITION permission For Android 9 (API level 28) and earlier: com.google.android.gms.permission.ACTIVITY_RECOGNITION permission.",
+        "params": {
+          "pendingIntent": "the associated PendingIntent of the activity transition request which is to be removed"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>:a Task for apps to check the status of the call. If the task fails, the status code for the failure can be found by examining getStatusCode()",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionClient.removeActivityUpdates(android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionClient#removeActivityUpdates(android.app.PendingIntent)",
+        "methodDes": "Removes all activity updates for the specified PendingIntent. To call this function, a different permission is required depending on your Android API level: For Android 10 (API level 29) and later: android.permission.ACTIVITY_RECOGNITION permission For Android 9 (API level 28) and earlier: com.google.android.gms.permission.ACTIVITY_RECOGNITION permission.",
+        "params": {
+          "callbackIntent": "the PendingIntent that was used in requestActivityUpdates(long, PendingIntent) or is equal as defined by equals(Object)"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>:a Task for apps to check the status of the call. If the task fails, the status code for the failure can be found by examining getStatusCode()",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionClient.requestActivityTransitionUpdates(com.google.android.gms.location.ActivityTransitionRequest,android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionClient#requestActivityTransitionUpdates(com.google.android.gms.location.ActivityTransitionRequest, android.app.PendingIntent)",
+        "methodDes": "Activity Recognition Transition API provides an ability for apps to subscribe to activity transitional conditions (enter, exit).",
+        "params": {
+          "activityTransitionRequest": "the interested activity transitions",
+          "pendingIntent": "the PendingIntent used to generate the callback intent when one of the interested transition has happened"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>:a Task for apps to check the status of the call. If the task fails, the status code for the failure can be found by examining getStatusCode()",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.ActivityRecognition": {
+    "classDes": "The main entry point for activity recognition integration.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognition",
+    "methods": {
+      "com.google.android.gms.location.ActivityRecognition.getClient(android.content.Context)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognition#getClient(android.content.Context)",
+        "methodDes": "Create a new instance of ActivityRecognitionClient for use in a non-activity Context.",
+        "params": {
+          "context": ""
+        },
+        "returns": "com.google.android.gms.location.ActivityRecognitionClient: a new instance of ActivityRecognitionClient for use in a non-activity Context",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognition.getClient(android.app.Activity)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognition#public-static-activityrecognitionclient-getclient-activity-activity",
+        "methodDes": "Create a new instance of ActivityRecognitionClient for use in an Activity.",
+        "params": {
+          "activity": ""
+        },
+        "returns": "com.google.android.gms.location.ActivityRecognitionClient: a new instance of ActivityRecognitionClient for use in an Activity",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.ActivityRecognition.ActivityRecognitionApi": {
+        "des": "Entry point to the activity recognition APIs.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognition#ActivityRecognitionApi",
+        "value": ""
+      },
+      "com.google.android.gms.location.ActivityRecognition.API": {
+        "des": "Token to pass to  addApi(Api ) to enable ContextServices.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognition#API",
+        "value": ""
+      },
+      "com.google.android.gms.location.ActivityRecognition.CLIENT_NAME": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognition#CLIENT_NAME",
+        "value": "\"activity_recognition\""
+      }
+    }
+  },
+  "com.google.android.gms.location.SettingsClient": {
+    "classDes": "The main entry point for interacting with the location settings-enabler APIs. This API makes it easy for an app to ensure that the device's system settings are properly configured for the app's location needs.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/SettingsClient",
+    "methods": {
+      "com.google.android.gms.location.SettingsClient.checkLocationSettings(com.google.android.gms.location.LocationSettingsRequest)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/SettingsClient#checkLocationSettings(com.google.android.gms.location.LocationSettingsRequest)",
+        "methodDes": "Checks if the relevant system settings are enabled on the device to carry out the desired location requests.",
+        "params": {
+          "locationSettingsRequest": "an object that contains all the location requirements that the client is interested in"
+        },
+        "returns": "com.google.android.gms.tasks.Task<com.google.android.gms.location.LocationSettingsResponse>: the task",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.LocationListener": {
+    "classDes": "Used for receiving notifications from the FusedLocationProviderApi when the location has changed. The methods are called if the LocationListener has been registered with the location client using the requestLocationUpdates(com.google.android.gms.common.api.GoogleApiClient, LocationRequest, LocationListener) or requestLocationUpdates(com.google.android.gms.common.api.GoogleApiClient, LocationRequest, LocationListener, android.os.Looper) methods.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationListener",
+    "methods": {
+      "com.google.android.gms.location.LocationListener.onLocationChanged(android.location.Location)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationListener#onLocationChanged(android.location.Location)",
+        "methodDes": "Called when the location has changed.",
+        "params": {
+          "location": "The updated location"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.ActivityTransitionResult": {
+    "classDes": "Represents the result of activity transitions.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionResult",
+    "methods": {
+      "com.google.android.gms.location.ActivityTransitionResult.hashCode()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionResult#hashCode()",
+        "methodDes": "",
+        "params": {},
+        "returns": "int: a hash code value for this object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionResult.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionResult#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "dest": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionResult.extractResult(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionResult#extractResult(android.content.Intent)",
+        "methodDes": "Extracts the ActivityTransitionResult from the given Intent.",
+        "params": {
+          "intent": "the Intent to extract the result from"
+        },
+        "returns": "com.google.android.gms.location.ActivityTransitionResult:the ActivityTransitionResult included in the given intent or return null if no such result is found in the given intent",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionResult.hasResult(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionResult#hasResult(android.content.Intent)",
+        "methodDes": "Checks if the intent contains an ActivityTransitionResult.",
+        "params": {
+          "intent": ""
+        },
+        "returns": "boolean: true if the intent contains an ActivityTransitionResult",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionResult.ActivityTransitionResult(java.util.List<com.google.android.gms.location.ActivityTransitionEvent>)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionResult#ActivityTransitionResult(java.util.List<com.google.android.gms.location.ActivityTransitionEvent>)",
+        "methodDes": "Constructs a result by specifying a list of transition events.",
+        "params": {
+          "transitionEvents": "the transition events"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionResult.getTransitionEvents()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionResult#getTransitionEvents()",
+        "methodDes": "Gets all the activity transition events in this result. The events are in ascending order of time, and may include events in the past.",
+        "params": {},
+        "returns": "java.util.List<com.google.android.gms.location.ActivityTransitionEvent>:  all the activity transition events in this result",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionResult.equals(java.lang.Object)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionResult#equals(java.lang.Object)",
+        "methodDes": "",
+        "params": {
+          "o": "the reference object with which to compare"
+        },
+        "returns": "boolean: true if this object is the same as the obj argument; false otherwise",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.ActivityTransitionResult.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionResult#CREATOR",
+        "value": ""
+      }
+    }
+  },
+  "com.google.android.gms.location.GeofencingClient": {
+    "classDes": "The main entry point for interacting with the geofencing APIs. Get an instance of this client via getGeofencingClient(Activity). All methods are thread safe.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingClient",
+    "methods": {
+      "com.google.android.gms.location.GeofencingClient.addGeofences(com.google.android.gms.location.GeofencingRequest,android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingClient#addGeofences(com.google.android.gms.location.GeofencingRequest, android.app.PendingIntent)",
+        "methodDes": "Sets alerts to be notified when the device enters or exits one of the specified geofences. If an existing geofence with the same request ID is already registered, the old geofence is replaced by the new one, and the new PendingIntent is used to generate intents for alerts. Task is completed when geofences are successfully added or failed to be added. Upon failure, an ApiException will be set on the Task. Refer to GeofenceStatusCodes for possible errors when adding geofences. When a geofence transition (for example, entering or exiting) matches one of the transition filter (see setTransitionTypes(int)) in the given geofence list, an intent is generated using the given pending intent. You can call fromIntent(android.content.Intent) to get the transition type, geofences that triggered this intent and the location that triggered the geofence transition. In case network location provider is disabled by the user, the geofence service will stop updating, all registered geofences will be removed and an intent is generated by the provided pending intent. In this case, the GeofencingEvent created from this intent represents an error event, where hasError() returns true and getErrorCode() returns GEOFENCE_NOT_AVAILABLE. This method requires ACCESS_FINE_LOCATION.",
+        "params": {
+          "geofencingRequest": "geofencing request that include a list of geofences to be added and related triggering behavior. The request must be created using GeofencingRequest.Builder",
+          "pendingIntent": "a pending intent that will be used to generate an intent when matched geofence transition is observed"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>: the task",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingClient.removeGeofences(android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingClient#removeGeofences(android.app.PendingIntent)",
+        "methodDes": "Removes all geofences associated with the given pendingIntent. Warning: equals(Object) is used for comparison. Please use FLAG_UPDATE_CURRENT rather than FLAG_CANCEL_CURRENT when creating the pending intent, otherwise you will not get the same pending intent you provided to addGeofences(GeofencingRequest, PendingIntent) and thus the removal operation will remove nothing. Task is completed when geofences are successfully removed or fail to be removed. Upon failure, an ApiException will be set on the Task. Refer to GeofenceStatusCodes for possible errors when removing geofences. This method requires ACCESS_FINE_LOCATION.",
+        "params": {
+          "pendingIntent": "the pending intent associated with the geofences that need to be removed"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>: the task",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingClient.removeGeofences(java.util.List<java.lang.String>)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingClient#public-taskvoid-removegeofences-liststring-geofencerequestids",
+        "methodDes": "Removes geofences by their request IDs.",
+        "params": {
+          "geofenceRequestIds": "a list of request IDs of geofences that need to be removed"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>: the task",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.ActivityRecognitionResult": {
+    "classDes": "Result of an activity recognition. It contains a list of activities that a user may have been doing at a particular time. The activities are sorted by the most probable activity first. A confidence is associated with each activity which indicates how likely that activity is. getMostProbableActivity() will return the most probable activity of the user at the time that activity recognition was run.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult",
+    "methods": {
+      "com.google.android.gms.location.ActivityRecognitionResult.hasResult(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult#hasResult(android.content.Intent)",
+        "methodDes": "Returns true if an Intent contains an ActivityRecognitionResult. This is a utility function that can be called from inside an intent receiver to make sure the received intent is from activity recognition.",
+        "params": {
+          "intent": ""
+        },
+        "returns": "boolean:true if the intent contains an ActivityRecognitionResult, false otherwise or the given intent is null",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionResult.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String: the string about ActivityRecognitionResult",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionResult.getProbableActivities()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult#getProbableActivities()",
+        "methodDes": "Returns the list of activities that were detected with the confidence value associated with each activity. The activities are sorted by most probable activity first. The sum of the confidences of all detected activities this method returns does not have to be <= 100 since some activities are not mutually exclusive (for example, you can be walking while in a bus) and some activities are hierarchical (ON_FOOT is a generalization of WALKING and RUNNING).",
+        "params": {},
+        "returns": "java.util.List<com.google.android.gms.location.DetectedActivity>: the list of activities that were detected with the confidence value associated with each activity",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionResult.getMostProbableActivity()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult#getMostProbableActivity()",
+        "methodDes": "Returns the most probable activity of the user.",
+        "params": {},
+        "returns": "com.google.android.gms.location.DetectedActivity: the most probable activity of the user",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionResult.getTime()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult#getTime()",
+        "methodDes": "Returns the UTC time of this detection, in milliseconds since January 1, 1970.",
+        "params": {},
+        "returns": "long: the UTC time of this detection, in milliseconds since January 1, 1970",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionResult.getActivityConfidence(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult#getActivityConfidence(int)",
+        "methodDes": "Returns the confidence of the given activity type.",
+        "params": {
+          "activityType": ""
+        },
+        "returns": "int: the confidence of the given activity type",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionResult.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "out": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionResult.ActivityRecognitionResult(com.google.android.gms.location.DetectedActivity,long,long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult#ActivityRecognitionResult(com.google.android.gms.location.DetectedActivity, long, long)",
+        "methodDes": "Constructs an ActivityRecognitionResult from a single activity.",
+        "params": {
+          "mostProbableActivity": "the most probable activity of the device",
+          "time": "the UTC time of this detection, in milliseconds since January 1, 1970",
+          "elapsedRealtimeMillis": "milliseconds since boot"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionResult.ActivityRecognitionResult(java.util.List<com.google.android.gms.location.DetectedActivity>,long,long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult#public-activityrecognitionresult-listdetectedactivity-probableactivities,-long-time,-long-elapsedrealtimemillis",
+        "methodDes": "Constructs an ActivityRecognitionResult.",
+        "params": {
+          "probableActivities": "the activities that were detected, sorted by confidence (most probable first)",
+          "time": "the UTC time of this detection, in milliseconds since January 1, 1970",
+          "elapsedRealtimeMillis": "milliseconds since boot"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionResult.extractResult(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult#extractResult(android.content.Intent)",
+        "methodDes": "Extracts the ActivityRecognitionResult from an Intent. This is a utility function which extracts the ActivityRecognitionResult from the extras of an Intent that was sent from the activity detection service.",
+        "params": {
+          "intent": ""
+        },
+        "returns": "com.google.android.gms.location.ActivityRecognitionResult:an ActivityRecognitionResult, or null if the intent doesn't contain an ActivityRecognitionResult",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionResult.getElapsedRealtimeMillis()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult#getElapsedRealtimeMillis()",
+        "methodDes": "Returns the elapsed real time of this detection in milliseconds since boot, including time spent in sleep as obtained by SystemClock.elapsedRealtime().",
+        "params": {},
+        "returns": "long: the elapsed real time of this detection in milliseconds since boot",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.ActivityRecognitionResult.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionResult#CREATOR",
+        "value": ""
+      }
+    }
+  },
+  "com.google.android.gms.location.LocationSettingsResponse": {
+    "classDes": "Successful response of checking settings via checkLocationSettings(GoogleApiClient, LocationSettingsRequest). If a Task with this response type fails, it will receive a ResolvableApiException which may be able to resolve the failure. See SettingsClient for more details. The current location settings states can be accessed via getLocationSettingsStates(). See LocationSettingsResult for more details.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsResponse",
+    "methods": {
+      "com.google.android.gms.location.LocationSettingsResponse.getLocationSettingsStates()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsResponse#getLocationSettingsStates()",
+        "methodDes": "",
+        "params": {},
+        "returns": "com.google.android.gms.location.LocationSettingsStates: a LocationSettingsStates instance",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.GeofencingEvent": {
+    "classDes": "Represents an event from the GeofencingApi API. The event can be A geofence triggering event generated when a geofence transition happens. An error happens after geofences are registered and being monitored.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingEvent",
+    "methods": {
+      "com.google.android.gms.location.GeofencingEvent.fromIntent(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingEvent#fromIntent(android.content.Intent)",
+        "methodDes": "Creates a GeofencingEvent object from the given intent.",
+        "params": {
+          "intent": "the intent to extract the geofencing event data from"
+        },
+        "returns": "com.google.android.gms.location.GeofencingEvent:a GeofencingEvent object or null if the given intent is null",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingEvent.getErrorCode()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingEvent#getErrorCode()",
+        "methodDes": "Returns the error code that explains the error that triggered the intent specified in fromIntent(Intent).",
+        "params": {},
+        "returns": "int:the error code specified in GeofenceStatusCodes or -1 if hasError() returns false",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingEvent.getTriggeringGeofences()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingEvent#getTriggeringGeofences()",
+        "methodDes": "Returns a list of geofences that triggered this geofence transition alert.",
+        "params": {},
+        "returns": "java.util.List<com.google.android.gms.location.Geofence>:a list of geofences that triggered this geofence transition alert or null if the intent specified in fromIntent(Intent) is not generated for a geofence transition alert",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingEvent.hasError()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingEvent#hasError()",
+        "methodDes": "Whether an error triggered this intent.",
+        "params": {},
+        "returns": "boolean:true if an error triggered the intent specified in fromIntent(Intent), otherwise false",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingEvent.getGeofenceTransition()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingEvent#getGeofenceTransition()",
+        "methodDes": "Returns the transition type of the geofence transition alert.",
+        "params": {},
+        "returns": "int:-1 if the intent specified in fromIntent(Intent) is not generated for a transition alert; Otherwise returns the GEOFENCE_TRANSITION_ flags value defined in Geofence",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingEvent.getTriggeringLocation()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingEvent#getTriggeringLocation()",
+        "methodDes": "Gets the location that triggered the geofence transition.",
+        "params": {},
+        "returns": "android.location.Location:the location that triggered this geofence alert or null if it's not included in the intent specified in fromIntent(Intent)",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.ActivityRecognitionApi": {
+    "classDes": "This interface is deprecated. Use the GoogleApi-based API ActivityRecognitionClient instead. The main entry point for interacting with activity recognition.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionApi",
+    "methods": {
+      "com.google.android.gms.location.ActivityRecognitionApi.requestActivityUpdates(com.google.android.gms.common.api.GoogleApiClient,long,android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionApi#requestActivityUpdates(com.google.android.gms.common.api.GoogleApiClient, long, android.app.PendingIntent)",
+        "methodDes": "Register for activity recognition updates. The activities are detected by periodically waking up the device and reading short bursts of sensor data. It only makes use of low power sensors in order to keep the power usage to a minimum. For example, it can detect if the user is currently on foot, in a car, on a bicycle or still. See DetectedActivity for more details. The activity detection update interval can be controlled with the detectionIntervalMillis parameter. Larger values will result in fewer activity detections while improving battery life. Smaller values will result in more frequent activity detections but will consume more power since the device must be woken up more frequently. Long.MAX_VALUE means it only monitors the results requested by other clients without consuming additional power. Activities may be received more frequently than the detectionIntervalMillis parameter if another application has also requested activity updates at a faster rate. It may also receive updates faster when the activity detection service receives a signal that the current activity may change, such as if the device has been still for a long period of time and is then unplugged from a phone charger. Activities may arrive several seconds after the requested detectionIntervalMillis if the activity detection service requires more samples to make a more accurate prediction. To conserve battery, activity reporting may stop when the device is 'STILL' for an extended period of time. It will resume once the device moves again. This only happens on devices that support the Sensor.TYPE_SIGNIFICANT_MOTION hardware. Beginning in API 21, activities may be received less frequently than the detectionIntervalMillis parameter if the device is in power save mode and the screen is off. A common use case is that an application wants to monitor activities in the background and perform an action when a specific activity is detected. To do this without needing a service that is always on in the background consuming resources, detected activities are delivered via an intent. The application specifies a PendingIntent callback (typically an IntentService) which will be called with an intent when activities are detected. The intent recipient can extract the ActivityRecognitionResult using extractResult(android.content.Intent). See the documentation of PendingIntent for more details. Any requests previously registered with requestActivityUpdates(GoogleApiClient, long, PendingIntent) that have the same PendingIntent (as defined by equals(Object)) will be replaced by this request. Calling this function requires the com.google.android.gms.permission.ACTIVITY_RECOGNITION permission.",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "detectionIntervalMillis": "the desired time between activity detections. Larger values will result in fewer activity detections while improving battery life. A value of 0 will result in activity detections at the fastest possible rate",
+          "callbackIntent": "a PendingIntent to be sent for each activity detection"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>:a PendingResult for the call, check isSuccess() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityRecognitionApi.removeActivityUpdates(com.google.android.gms.common.api.GoogleApiClient,android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityRecognitionApi#removeActivityUpdates(com.google.android.gms.common.api.GoogleApiClient, android.app.PendingIntent)",
+        "methodDes": "Removes all activity updates for the specified PendingIntent. Calling this function requires the com.google.android.gms.permission.ACTIVITY_RECOGNITION permission.",
+        "params": {
+          "client": "An existing GoogleApiClient. It must be connected at the time of this call, which is normally achieved by calling connect() and waiting for GoogleApiClient.ConnectionCallbacks#onConnected to be called",
+          "callbackIntent": "the PendingIntent that was used in requestActivityUpdates(GoogleApiClient, long, PendingIntent) or is equal as defined by equals(Object)"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>:a PendingResult for the call, check isSuccess() to determine if it was successful",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.ActivityTransitionEvent": {
+    "classDes": "Represents an activity transition event, for example start to walk, stop running etc.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionEvent",
+    "methods": {
+      "com.google.android.gms.location.ActivityTransitionEvent.equals(java.lang.Object)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionEvent#equals(java.lang.Object)",
+        "methodDes": "",
+        "params": {
+          "object": "the reference object with which to compare"
+        },
+        "returns": "boolean: true if this object is the same as the obj argument; false otherwise",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionEvent.getActivityType()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionEvent#getActivityType()",
+        "methodDes": "Gets the type of the activity of this transition. It's one of activity types defined in DetectedActivity.",
+        "params": {},
+        "returns": "int: the type of the activity of this transition",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionEvent.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionEvent#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "dest": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionEvent.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionEvent#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String: a string representation of the object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionEvent.ActivityTransitionEvent(int,int,long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionEvent#ActivityTransitionEvent(int, int, long)",
+        "methodDes": "Creates an activity transition event.",
+        "params": {
+          "activityType": "the type of the activity of this transition",
+          "transitionType": "the type of transition",
+          "elapsedRealtimeNanos": "the elapsed realtime when this transition happened"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionEvent.getTransitionType()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionEvent#getTransitionType()",
+        "methodDes": "Gets the type of the transition. It's one of the transition types defined in ActivityTransition.",
+        "params": {},
+        "returns": "int: the type of the transition",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionEvent.getElapsedRealTimeNanos()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionEvent#getElapsedRealTimeNanos()",
+        "methodDes": "Gets the elapsed realtime when this transition happened. Note that the event may happen in the past which means this timestamp may be much smaller than the current time.",
+        "params": {},
+        "returns": "long: the elapsed realtime when this transition happened",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionEvent.hashCode()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionEvent#hashCode()",
+        "methodDes": "",
+        "params": {},
+        "returns": "int: a hash code value for this object",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.ActivityTransitionEvent.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionEvent#CREATOR",
+        "value": ""
+      }
+    }
+  },
+  "com.google.android.gms.location.LocationCallback": {
+    "classDes": "Used for receiving notifications from the FusedLocationProviderApi when the device location has changed or can no longer be determined. The methods are called if the LocationCallback has been registered with the location client using the requestLocationUpdates(GoogleApiClient, LocationRequest, LocationCallback, Looper) method.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationCallback",
+    "methods": {
+      "com.google.android.gms.location.LocationCallback.onLocationAvailability(com.google.android.gms.location.LocationAvailability)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationCallback#onLocationAvailability(com.google.android.gms.location.LocationAvailability)",
+        "methodDes": "Called when there is a change in the availability of location data. When isLocationAvailable() returns false you can assume that location will not be returned in onLocationResult(LocationResult) until something changes in the device's settings or environment. Even when isLocationAvailable() returns true the onLocationResult(LocationResult) may not always be called regularly, however the device location is known and both the most recently delivered location and getLastLocation(GoogleApiClient) will be reasonably up to date given the hints specified by the active LocationRequests.",
+        "params": {
+          "locationAvailability": "The current status of location availability"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationCallback.onLocationResult(com.google.android.gms.location.LocationResult)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationCallback#onLocationResult(com.google.android.gms.location.LocationResult)",
+        "methodDes": "Called when device location information is available. The most recent location returned by getLastLocation() is not guaranteed to be immediately fresh, but will be reasonably up to date given the hints specified by the active LocationRequests.",
+        "params": {
+          "result": "The latest location result available"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationCallback.LocationCallback()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationCallback#LocationCallback()",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.LocationResult": {
+    "classDes": "A data class representing a geographic location result from the fused location provider. All locations returned by getLocations() are guaranteed to have a valid latitude, longitude, and UTC timestamp. On API level 17 or later they are also guaranteed to have elapsed real-time since boot. All other parameters are optional.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationResult",
+    "methods": {
+      "com.google.android.gms.location.LocationResult.getLastLocation()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationResult#getLastLocation()",
+        "methodDes": "Returns the most recent location available in this result, or null if no locations are available.",
+        "params": {},
+        "returns": "android.location.Location: the most recent location available in this result, or null if no locations are available",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationResult.hashCode()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationResult#hashCode()",
+        "methodDes": "",
+        "params": {},
+        "returns": "int: a hash code value for this object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationResult.getLocations()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationResult#getLocations()",
+        "methodDes": "Returns locations computed, ordered from oldest to newest. No duplicate locations will be returned to any given listener (i.e. locations will not overlap in time between subsequent calls to a listener).",
+        "params": {},
+        "returns": "java.util.List<android.location.Location>: locations computed, ordered from oldest to newest",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationResult.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationResult#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String: a string representation of the object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationResult.extractResult(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationResult#extractResult(android.content.Intent)",
+        "methodDes": "Extracts the LocationResult from an Intent. This is a utility function which extracts the LocationResult from the extras of an Intent that was sent from the fused location provider.",
+        "params": {
+          "intent": ""
+        },
+        "returns": "com.google.android.gms.location.LocationResult:a LocationResult, or null if the Intent doesn't contain a result",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationResult.hasResult(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationResult#hasResult(android.content.Intent)",
+        "methodDes": "Returns true if an Intent contains a LocationResult. This is a utility function that can be called from inside an intent receiver to make sure the received intent is from the fused location provider.",
+        "params": {
+          "intent": ""
+        },
+        "returns": "boolean:true if the intent contains a LocationResult, false otherwise",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationResult.create(java.util.List<android.location.Location>)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationResult#create(java.util.List<android.location.Location>)",
+        "methodDes": "Creates a LocationResult for the given locations.",
+        "params": {
+          "locations": ""
+        },
+        "returns": "com.google.android.gms.location.LocationResult: a LocationResult for the given locations",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationResult.equals(java.lang.Object)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationResult#equals(java.lang.Object)",
+        "methodDes": "",
+        "params": {
+          "other": "the reference object with which to compare"
+        },
+        "returns": "boolean: true if this object is the same as the obj argument; false otherwise",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationResult.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationResult#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "parcel": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.LocationResult.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationResult#CREATOR",
+        "value": ""
+      }
+    }
+  },
+  "com.google.android.gms.location.GeofencingRequest": {
+    "classDes": "Specifies the list of geofences to be monitored and how the geofence notifications should be reported. Refer to addGeofences(com.google.android.gms.common.api.GoogleApiClient, GeofencingRequest, android.app.PendingIntent) on how to monitor geofences.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest",
+    "methods": {
+      "com.google.android.gms.location.GeofencingRequest.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "dest": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingRequest.getGeofences()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest#getGeofences()",
+        "methodDes": "Gets the list of geofences to be monitored.",
+        "params": {},
+        "returns": "java.util.List<com.google.android.gms.location.Geofence>:the list of geofences to be monitored",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingRequest.getInitialTrigger()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest#getInitialTrigger()",
+        "methodDes": "Gets the triggering behavior at the moment when the geofences are added.",
+        "params": {},
+        "returns": "int:the triggering behavior at the moment when the geofences are added. Its a bit-wise of INITIAL_TRIGGER_ENTER and INITIAL_TRIGGER_EXIT",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingRequest.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String: a string representation of the object",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.GeofencingRequest.INITIAL_TRIGGER_ENTER": {
+        "des": "A flag indicating that geofencing service should trigger  GEOFENCE_TRANSITION_ENTER notification at the moment when the geofence is added and if the device is already inside that geofence.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest#INITIAL_TRIGGER_ENTER",
+        "value": "1"
+      },
+      "com.google.android.gms.location.GeofencingRequest.INITIAL_TRIGGER_EXIT": {
+        "des": "A flag indicating that geofencing service should trigger  GEOFENCE_TRANSITION_EXIT notification at the moment when the geofence is added and if the device is already outside that geofence.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest#INITIAL_TRIGGER_EXIT",
+        "value": "2"
+      },
+      "com.google.android.gms.location.GeofencingRequest.INITIAL_TRIGGER_DWELL": {
+        "des": "A flag indicating that geofencing service should trigger  GEOFENCE_TRANSITION_DWELL notification at the moment when the geofence is added and if the device is already inside that geofence for some time.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest#INITIAL_TRIGGER_DWELL",
+        "value": "4"
+      },
+      "com.google.android.gms.location.GeofencingRequest.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest#CREATOR",
+        "value": ""
+      }
+    }
+  },
+  "com.google.android.gms.location.LocationSettingsResult": {
+    "classDes": "Result of checking settings via checkLocationSettings(GoogleApiClient, LocationSettingsRequest), indicates whether a dialog should be shown to ask the user's consent to change their settings. The method getStatus() can be be used to confirm if the request was successful. If the current location settings don't satisfy the app's requirements and the user has permission to change the settings, the app could use startResolutionForResult(Activity, int) to start an intent to show a dialog, asking for user's consent to change the settings. The current location settings states can be accessed via getLocationSettingsStates(). See LocationSettingsResult for more details.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsResult",
+    "methods": {
+      "com.google.android.gms.location.LocationSettingsResult.getStatus()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/common/api/Result#getStatus()",
+        "methodDes": "Returns the status of this result. Use isSuccess() to determine whether the call was successful, and getStatusCode() to determine what the error cause was. Certain errors are due to failures that can be resolved by launching a particular intent. The resolution intent is available via getResolution().",
+        "params": {},
+        "returns": "com.google.android.gms.common.api.Status: the status of this result",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsResult.getLocationSettingsStates()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsResult#getLocationSettingsStates()",
+        "methodDes": "Retrieves the location settings states.",
+        "params": {},
+        "returns": "com.google.android.gms.location.LocationSettingsStates: the location settings states",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.LocationSettingsResult.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsResult#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "dest": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.LocationSettingsResult.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsResult#CREATOR",
+        "value": ""
+      }
+    }
+  },
+  "com.google.android.gms.location.FusedLocationProviderClient": {
+    "classDes": "The main entry point for interacting with the fused location provider. Note: It's recommended to use Google Play services version 11.6.0 or higher, which includes bug fixes for this class.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient",
+    "methods": {
+      "com.google.android.gms.location.FusedLocationProviderClient.getLocationAvailability()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#getLocationAvailability()",
+        "methodDes": "Returns the availability of location data. When isLocationAvailable() returns true, then the location returned by getLastLocation() will be reasonably up to date within the hints specified by the active LocationRequests. If the client isn't connected to Google Play services and the request times out, null is returned. Note it's always possible for getLastLocation() to return null even when this method returns true (e.g. location settings were disabled between calls).",
+        "params": {},
+        "returns": "com.google.android.gms.tasks.Task<com.google.android.gms.location.LocationAvailability>: the availability of location data",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderClient.getLastLocation()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#getLastLocation()",
+        "methodDes": "Returns the best most recent location currently available. If a location is not available, which should happen very rarely, null will be returned. The best accuracy available while respecting the location permissions will be returned. This method provides a simplified way to get location. It is particularly well suited for applications that do not require an accurate location and that do not want to maintain extra logic for location updates.",
+        "params": {},
+        "returns": "com.google.android.gms.tasks.Task<android.location.Location>: the best most recent location currently available",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderClient.removeLocationUpdates(com.google.android.gms.location.LocationCallback)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#removeLocationUpdates(com.google.android.gms.location.LocationCallback)",
+        "methodDes": "Removes all location updates for the given location result listener.",
+        "params": {
+          "callback": "The callback to remove"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>:a Task for the call, check isSuccessful() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderClient.removeLocationUpdates(android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#public-taskvoid-removelocationupdates-pendingintent-callbackintent",
+        "methodDes": "Removes all location updates for the given pending intent.It is possible for this call to cancel the PendingIntent under some circumstances.",
+        "params": {
+          "callbackIntent": "The PendingIntent that was used in requestLocationUpdates(LocationRequest, PendingIntent) or is equal as defined by equals(Object)"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>:a Task for the call, check isSuccessful() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderClient.setMockLocation(android.location.Location)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#setMockLocation(android.location.Location)",
+        "methodDes": "Sets the mock location to be used for the location provider. This location will be used in place of any actual locations from the underlying providers (network or gps). setMockMode(boolean) must be called and set to true prior to calling this method. Care should be taken in specifying the timestamps as many applications require them to be monotonically increasing.",
+        "params": {
+          "mockLocation": "The mock location. Must have a minimum number of fields set to be considered a valild location, as per documentation in the Location class"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>:a Task for the call, check isSuccessful() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderClient.setMockMode(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#setMockMode(boolean)",
+        "methodDes": "Sets whether or not the location provider is in mock mode. The underlying providers (network and gps) will be stopped (except by direct LocationManager access), and only locations specified in setMockLocation(Location) will be reported. This will effect all location clients connected using the FusedLocationProviderApi, including geofencer clients (i.e. geofences can be triggered based on mock locations). The client must remain connected in order for mock mode to remain active. If the client dies the system will return to its normal state. Calls are not nested, and mock mode will be set directly regardless of previous calls.",
+        "params": {
+          "isMockMode": "If true the location provider will be set to mock mode. If false it will be returned to its normal state"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>:a Task for the call, check isSuccessful() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderClient.requestLocationUpdates(com.google.android.gms.location.LocationRequest,android.app.PendingIntent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#requestLocationUpdates(com.google.android.gms.location.LocationRequest, android.app.PendingIntent)",
+        "methodDes": "Requests location updates with a callback on the specified PendingIntent. This method is suited for the background use cases, more specifically for receiving location updates, even when the app has been killed by the system. In order to do so, use a PendingIntent for a started service. For foreground use cases, the LocationCallback version of the method is recommended, see requestLocationUpdates(LocationRequest, LocationCallback, Looper). Any previously registered requests that have the same PendingIntent (as defined by equals(Object)) will be replaced by this request. Both LocationResult and LocationAvailability are sent to the given PendingIntent. You can extract data from an Intent using hasResult(Intent), extractResult(Intent), hasLocationAvailability(Intent), and extractLocationAvailability(Intent).",
+        "params": {
+          "request": "The location request for the updates",
+          "callbackIntent": "A pending intent to be sent for each location update"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>:a Task for the call, check isSuccessful() to determine if it was successful",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.FusedLocationProviderClient.requestLocationUpdates(com.google.android.gms.location.LocationRequest,com.google.android.gms.location.LocationCallback,android.os.Looper)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#public-taskvoid-requestlocationupdates-locationrequest-request,-locationcallback-callback,-looper-looper",
+        "methodDes": "Requests location updates with a callback on the specified Looper thread.",
+        "params": {
+          "request": "The location request for the updates",
+          "callback": "The callback for the location updates",
+          "looper": "The Looper object whose message queue will be used to implement the callback mechanism, or null to make callbacks on the calling thread"
+        },
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>:a Task for the call, check isSuccessful() to determine if it was successful",
+        "Exceptions": {
+          "java.lang.IllegalStateException": "If looper is null and this method is executed in a thread that has not called Looper.prepare()"
+        }
+      },
+      "com.google.android.gms.location.FusedLocationProviderClient.flushLocations()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#flushLocations()",
+        "methodDes": "Flushes any locations currently being batched and sends them to all registered LocationListeners, LocationCallbacks, and PendingIntents. This call is only useful when batching is specified using setMaxWaitTime(long), otherwise locations are already delivered immediately when available. When the returned Task is complete, then you can assume that any pending batched locations have already been delivered.",
+        "params": {},
+        "returns": "com.google.android.gms.tasks.Task<java.lang.Void>: the task",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.FusedLocationProviderClient.KEY_VERTICAL_ACCURACY": {
+        "des": "Key used for the Bundle extra in Location object holding a float indicating the estimated vertical accuracy of the location, in meters.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/FusedLocationProviderClient#KEY_VERTICAL_ACCURACY",
+        "value": "\"verticalAccuracy\""
+      }
+    }
+  },
+  "com.google.android.gms.location.ActivityTransitionRequest": {
+    "classDes": "The request object for apps to get notified when user's activity changes.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionRequest",
+    "methods": {
+      "com.google.android.gms.location.ActivityTransitionRequest.hashCode()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionRequest#hashCode()",
+        "methodDes": "",
+        "params": {},
+        "returns": "int: a hash code value for this object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionRequest.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionRequest#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "dest": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionRequest.ActivityTransitionRequest(java.util.List<com.google.android.gms.location.ActivityTransition>)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionRequest#ActivityTransitionRequest(java.util.List<com.google.android.gms.location.ActivityTransition>)",
+        "methodDes": "Creates an ActivityTransitionRequest object by specifying a list of interested activity transitions.",
+        "params": {
+          "transitions": "a list of interested activity transitions"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionRequest.serializeToIntentExtra(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionRequest#serializeToIntentExtra(android.content.Intent)",
+        "methodDes": "Serializes this request to the given intent.",
+        "params": {
+          "intent": "the intent to serailize this object to"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionRequest.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionRequest#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String: a string representation of the object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.ActivityTransitionRequest.equals(java.lang.Object)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransition#equals(java.lang.Object)",
+        "methodDes": "",
+        "params": {
+          "o": "the reference object with which to compare"
+        },
+        "returns": "boolean: true if this object is the same as the obj argument; false otherwise",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.ActivityTransitionRequest.IS_SAME_TRANSITION": {
+        "des": "The comparator used to determine if two transitions are the same. It's different from  equals(Object) because in the future we may add latency to activity transition and the latency value should not be compared against.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionRequest#IS_SAME_TRANSITION",
+        "value": ""
+      },
+      "com.google.android.gms.location.ActivityTransitionRequest.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/ActivityTransitionRequest#CREATOR",
+        "value": ""
+      }
+    }
+  },
+  "com.google.android.gms.location.LocationSettingsRequest": {
+    "classDes": "Specifies the types of location services the client is interested in using. Settings will be checked for optimal functionality of all requested services. Use LocationSettingsRequest.Builder to construct this object.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsRequest",
+    "methods": {
+      "com.google.android.gms.location.LocationSettingsRequest.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsRequest#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "dest": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.LocationSettingsRequest.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsRequest#CREATOR",
+        "value": ""
+      }
+    }
+  },
+  "com.google.android.gms.location.Geofence.Builder": {
+    "classDes": "A builder that builds Geofence.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder",
+    "methods": {
+      "com.google.android.gms.location.Geofence.Builder.setExpirationDuration(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder#setExpirationDuration(long)",
+        "methodDes": "Sets the expiration duration of geofence. This geofence will be removed automatically after this period of time.",
+        "params": {
+          "durationMillis": "time for this proximity alert, in milliseconds, or NEVER_EXPIRE to indicate no expiration. When positive, this geofence will be removed automatically after this amount of time"
+        },
+        "returns": "com.google.android.gms.location.Geofence.Builder: the Builder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.Geofence.Builder.setNotificationResponsiveness(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder#setNotificationResponsiveness(int)",
+        "methodDes": "Sets the best-effort notification responsiveness of the geofence. Defaults to 0. Setting a big responsiveness value, for example 5 minutes, can save power significantly. However, setting a very small responsiveness value, for example 5 seconds, doesn't necessarily mean you will get notified right after the user enters or exits a geofence: internally, the geofence might adjust the responsiveness value to save power when needed.",
+        "params": {
+          "notificationResponsivenessMs": "(milliseconds) defines the best-effort description of how soon should the callback be called when the transition associated with the Geofence is triggered. For instance, if set to 300000 milliseconds the callback will be called 5 minutes within entering or exiting the geofence"
+        },
+        "returns": "com.google.android.gms.location.Geofence.Builder: the Builder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.Geofence.Builder.setRequestId(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder#setRequestId(java.lang.String)",
+        "methodDes": "Sets the request ID of the geofence. Request ID is a string to identify this geofence inside your application. When two geofences with the same requestId are monitored, the new one will replace the old one regardless the geographical region these two geofences represent.",
+        "params": {
+          "requestId": "the request ID. The length of the string can be up to 100 characters"
+        },
+        "returns": "com.google.android.gms.location.Geofence.Builder: the Builder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.Geofence.Builder.setCircularRegion(double,double,float)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder#setCircularRegion(double, double, float)",
+        "methodDes": "Sets the region of this geofence. The geofence represents a circular area on a flat, horizontal plane.",
+        "params": {
+          "latitude": "latitude in degrees, between -90 and +90 inclusive",
+          "longitude": "longitude in degrees, between -180 and +180 inclusive",
+          "radius": "radius in meters"
+        },
+        "returns": "com.google.android.gms.location.Geofence.Builder: the Builder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.Geofence.Builder.Builder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder#public-geofence.builder",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.Geofence.Builder.build()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder#build()",
+        "methodDes": "Creates a geofence object.",
+        "params": {},
+        "returns": "com.google.android.gms.location.Geofence: a Geofence instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.Geofence.Builder.setLoiteringDelay(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder#setLoiteringDelay(int)",
+        "methodDes": "Sets the delay between GEOFENCE_TRANSITION_ENTER and GEOFENCE_TRANSITION_DWELLING in milliseconds. For example, if loitering delay is set to 300000 ms (i.e. 5 minutes) the geofence service will send a GEOFENCE_TRANSITION_DWELL alert roughly 5 minutes after user enters a geofence if the user stays inside the geofence during this period of time. If the user exits from the geofence in this amount of time, GEOFENCE_TRANSITION_DWELL alert won't be sent. This value is ignored if the transition types don't include a GEOFENCE_TRANSITION_DWELL filter.",
+        "params": {
+          "loiteringDelayMs": "the delay for confirming dwelling, in milliseconds"
+        },
+        "returns": "com.google.android.gms.location.Geofence.Builder: the Builder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.Geofence.Builder.setTransitionTypes(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence.Builder#setTransitionTypes(int)",
+        "methodDes": "Sets the transition types of interest. Alerts are only generated for the given transition types.",
+        "params": {
+          "transitionTypes": "geofence transition types of interest, as a bitwise-OR of GEOFENCE_TRANSITION_ flags"
+        },
+        "returns": "com.google.android.gms.location.Geofence.Builder: the Builder instance",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.GeofencingRequest.Builder": {
+    "classDes": "A builder that builds GeofencingRequest.Pending.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.Builder",
+    "methods": {
+      "com.google.android.gms.location.GeofencingRequest.Builder.addGeofences(java.util.List<com.google.android.gms.location.Geofence>)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.Builder#addGeofences(java.util.List<com.google.android.gms.location.Geofence>)",
+        "methodDes": "Adds all the geofences in the given list to be monitored by geofencing service.",
+        "params": {
+          "geofences": "the geofences to be monitored. The geofences in the list must be built with Geofence.Builder"
+        },
+        "returns": "com.google.android.gms.location.GeofencingRequest.Builder:the builder object itself for method chaining",
+        "Exceptions": {
+          "java.lang.IllegalArgumentException": "if the geofence is not built with Geofence.Builder"
+        }
+      },
+      "com.google.android.gms.location.GeofencingRequest.Builder.addGeofence(com.google.android.gms.location.Geofence)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.Builder#addGeofence(com.google.android.gms.location.Geofence)",
+        "methodDes": "Adds a geofence to be monitored by geofencing service.",
+        "params": {
+          "geofence": "the geofence to be monitored. The geofence must be built with Geofence.Builder"
+        },
+        "returns": "com.google.android.gms.location.GeofencingRequest.Builder:the builder object itself for method chaining",
+        "Exceptions": {
+          "java.lang.NullPointerException": "if the given geofence is null",
+          "java.lang.IllegalArgumentException": "if the geofence is not built with Geofence.Builder"
+        }
+      },
+      "com.google.android.gms.location.GeofencingRequest.Builder.Builder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.Builder#public-geofencingrequest.builder",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingRequest.Builder.build()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.Builder#build()",
+        "methodDes": "Builds the GeofencingRequest object.",
+        "params": {},
+        "returns": "com.google.android.gms.location.GeofencingRequest:a GeofencingRequest object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.GeofencingRequest.Builder.setInitialTrigger(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/GeofencingRequest.Builder#setInitialTrigger(int)",
+        "methodDes": "Sets the geofence notification behavior at the moment when the geofences are added. The default behavior is INITIAL_TRIGGER_ENTER and INITIAL_TRIGGER_DWELL.",
+        "params": {
+          "initialTrigger": "the notification behavior. It's a bit-wise of INITIAL_TRIGGER_ENTER and/or INITIAL_TRIGGER_EXIT and/or INITIAL_TRIGGER_DWELL. When initialTrigger is set to 0 (setInitialTrigger(0)), initial trigger would be disabled"
+        },
+        "returns": "com.google.android.gms.location.GeofencingRequest.Builder:the builder object itself for method chaining",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.DetectedActivity": {
+    "classDes": "The detected activity of the device with an an associated confidence. See ActivityRecognitionApi for details on how to obtain a DetectedActivity.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity",
+    "methods": {
+      "com.google.android.gms.location.DetectedActivity.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "out": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.DetectedActivity.DetectedActivity(int,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#DetectedActivity(int, int)",
+        "methodDes": "Constructs a DetectedActivity.",
+        "params": {
+          "activityType": "the activity that was detected",
+          "confidence": "value from 0 to 100 indicating how likely it is that the user is performing this activity"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.DetectedActivity.getConfidence()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#getConfidence()",
+        "methodDes": "Returns a value from 0 to 100 indicating the likelihood that the user is performing this activity. The larger the value, the more consistent the data used to perform the classification is with the detected activity. This value will be <= 100. It means that larger values indicate that it's likely that the detected activity is correct, while a value of <= 50 indicates that there may be another activity that is just as or more likely. Multiple activities may have high confidence values. For example, the ON_FOOT may have a confidence of 100 while the RUNNING activity may have a confidence of 95. The sum of the confidences of all detected activities for a classification does not have to be <= 100 since some activities are not mutually exclusive (for example, you can be walking while in a bus) and some activities are hierarchical (ON_FOOT is a generalization of WALKING and RUNNING).",
+        "params": {},
+        "returns": "int: a value from 0 to 100 indicating the likelihood that the user is performing this activity",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.DetectedActivity.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String: a String about DetectedActivity",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.location.DetectedActivity.getType()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#getType()",
+        "methodDes": "Returns the type of activity that was detected.",
+        "params": {},
+        "returns": "int: the type of activity that was detected",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.DetectedActivity.TILTING": {
+        "des": "The device angle relative to gravity changed significantly. This often occurs when a device is picked up from a desk or a user who is sitting stands up.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#TILTING",
+        "value": "5"
+      },
+      "com.google.android.gms.location.DetectedActivity.ON_FOOT": {
+        "des": "The device is on a user who is walking or running.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#ON_FOOT",
+        "value": "2"
+      },
+      "com.google.android.gms.location.DetectedActivity.ON_BICYCLE": {
+        "des": "The device is on a bicycle.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#ON_BICYCLE",
+        "value": "1"
+      },
+      "com.google.android.gms.location.DetectedActivity.UNKNOWN": {
+        "des": "Unable to detect the current activity.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#UNKNOWN",
+        "value": "4"
+      },
+      "com.google.android.gms.location.DetectedActivity.RUNNING": {
+        "des": "The device is on a user who is running. This is a sub-activity of ON_FOOT.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#RUNNING",
+        "value": "8"
+      },
+      "com.google.android.gms.location.DetectedActivity.IN_VEHICLE": {
+        "des": "The device is in a vehicle, such as a car.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#IN_VEHICLE",
+        "value": "0"
+      },
+      "com.google.android.gms.location.DetectedActivity.STILL": {
+        "des": "The device is still (not moving).",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#STILL",
+        "value": "3"
+      },
+      "com.google.android.gms.location.DetectedActivity.WALKING": {
+        "des": "The device is on a user who is walking. This is a sub-activity of ON_FOOT.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#WALKING",
+        "value": "7"
+      },
+      "com.google.android.gms.location.DetectedActivity.CREATOR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity#CREATOR",
+        "value": ""
+      }
+    }
+  },
+  "com.google.android.gms.location.SettingsApi": {
+    "classDes": "This interface is deprecated. Use GoogleApi-based API SettingsClient instead. The main entry point for interacting with the location settings-enabler APIs.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/SettingsApi",
+    "methods": {
+      "com.google.android.gms.location.SettingsApi.checkLocationSettings(com.google.android.gms.common.api.GoogleApiClient,com.google.android.gms.location.LocationSettingsRequest)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/SettingsApi#checkLocationSettings(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.location.LocationSettingsRequest)",
+        "methodDes": "Checks if the relevant system settings are enabled on the device to carry out the desired location requests.",
+        "params": {
+          "client": "an existing GoogleApiClient. It does not need to be connected at the time of this call, but the result will be delayed until the connection is complete",
+          "locationSettingsRequest": "an object that contains all the location requirements that the client is interested in"
+        },
+        "returns": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.location.LocationSettingsResult>:result containing the status of the request",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.location.Geofence": {
+    "classDes": "Represents a geographical region, also known as a geofence. Geofences can be monitored by geofencer service. And when the user crosses the boundary of a geofence, an alert will be generated.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence",
+    "methods": {
+      "com.google.android.gms.location.Geofence.getRequestId()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence#getRequestId()",
+        "methodDes": "Returns the request ID of this geofence. The request ID is a string to identify this geofence inside your application. When two geofences with the same requestId are monitored, the new one will replace the old one regardless the geographical region these two geofences represent.",
+        "params": {},
+        "returns": "java.lang.String: the request ID of this geofence",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.location.Geofence.GEOFENCE_TRANSITION_EXIT": {
+        "des": "The transition type indicating that the user exits the geofence(s).",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence#GEOFENCE_TRANSITION_EXIT",
+        "value": "2"
+      },
+      "com.google.android.gms.location.Geofence.NEVER_EXPIRE": {
+        "des": "Expiration value that indicates the geofence should never expire.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence#NEVER_EXPIRE",
+        "value": "-1"
+      },
+      "com.google.android.gms.location.Geofence.GEOFENCE_TRANSITION_DWELL": {
+        "des": "The transition type indicating that the user enters and dwells in geofences for a given period of time. If  GEOFENCE_TRANSITION_ENTER is also specified, this alert will always be sent after the  GEOFENCE_TRANSITION_ENTER alert.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence#GEOFENCE_TRANSITION_DWELL",
+        "value": "4"
+      },
+      "com.google.android.gms.location.Geofence.GEOFENCE_TRANSITION_ENTER": {
+        "des": "The transition type indicating that the user enters the geofence(s).",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/Geofence#GEOFENCE_TRANSITION_ENTER",
+        "value": "1"
+      }
+    }
+  },
+  "com.google.android.gms.location.LocationSettingsStatusCodes": {
+    "classDes": "Location settings specific status codes, for use in getStatusCode().",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStatusCodes",
+    "methods": {},
+    "fields": {
+      "com.google.android.gms.location.LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE": {
+        "des": "Location settings can't be changed to meet the requirements, no dialog pops up.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/location/LocationSettingsStatusCodes#SETTINGS_CHANGE_UNAVAILABLE",
+        "value": "8502"
+      }
+    }
+  },
+  "com.google.android.gms.location.places.PlaceLikelihood": {
+    "classDes": "A Place and the relative likelihood of the place being the best match within the list of returned places for a single request.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/location/places/PlaceLikelihood",
+    "methods": {},
+    "fields": {}
+  }
+}

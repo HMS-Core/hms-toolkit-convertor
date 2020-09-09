@@ -1,0 +1,158 @@
+{
+  "gName": "com.google.android.gms.fitness.SessionsApi",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "insertSession",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.request.SessionInsertRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section11471125010467",
+      "tipsInfo": "Call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient needs to be added."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "readSession",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.request.SessionReadRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.fitness.result.SessionReadResult>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section137231629244155",
+      "tipsInfo": "Call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient needs to be added."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "registerForSessions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section137231629244157",
+      "tipsInfo": "Call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient needs to be added."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "startSession",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.data.Session"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section182465316394",
+      "tipsInfo": "Call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient needs to be added."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "stopSession",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.fitness.result.SessionStopResult>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section5565343193920",
+      "tipsInfo": "Call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient needs to be added."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "unregisterForSessions",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section11348272045183",
+      "tipsInfo": "Call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient needs to be added."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

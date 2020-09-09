@@ -1,0 +1,69 @@
+{
+  "gName": "com.google.android.gms.games.multiplayer.InvitationCallback",
+  "interfaces": [
+    "com.google.android.gms.games.multiplayer.OnInvitationReceivedListener"
+  ],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onInvitationReceived",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.games.multiplayer.Invitation"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onInvitationRemoved",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "InvitationCallback",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You are advised to delete it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": ""
+}

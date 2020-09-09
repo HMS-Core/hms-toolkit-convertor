@@ -1,0 +1,195 @@
+package org.xms.f.messaging;
+
+/**
+ * org.xms.f.messaging.ExtensionMessaging : Top level Cloud Messaging singleton that provides methods for subscribing to topics and sending upstream messages.<br/>
+ * Combination of com.huawei.hms.push.HmsMessaging and com.google.firebase.messaging.FirebaseMessaging.<br/>
+ * com.huawei.hms.push.HmsMessaging : A class that provides methods for subscribing to topics and enables or disables the function of receiving notification messages.<br/>
+ * com.google.firebase.messaging.FirebaseMessaging : Top level Firebase Cloud Messaging singleton that provides methods for subscribing to topics and sending upstream messages.<br/>
+ */
+public class ExtensionMessaging extends org.xms.g.utils.XObject {
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.ExtensionMessaging(org.xms.g.utils.XBox) constructor of ExtensionMessaging with XBox.<br/>
+     *
+     * @param param0 the wrapper of xms instance
+     */
+    public ExtensionMessaging(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.getINSTANCE_ID_SCOPE() return the constant value.<br/>
+     * Support running environments including both HMS and GMS which are chosen by users.<br/>
+     * Below are the references of HMS apis and GMS apis respectively:<br/>
+     * com.huawei.hms.push.HmsMessaging.DEFAULT_TOKEN_SCOPE : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section273210584410">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section273210584410</a><br/>
+     * com.google.firebase.messaging.FirebaseMessaging.INSTANCE_ID_SCOPE : <a href="https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-static-final-string-instance_id_scope">https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-static-final-string-instance_id_scope</a><br/>
+     *
+     * @return Specifies scope used in obtaining a registration token when calling getToken()
+     */
+    public static java.lang.String getINSTANCE_ID_SCOPE() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.push.HmsMessaging.DEFAULT_TOKEN_SCOPE");
+            return com.huawei.hms.push.HmsMessaging.DEFAULT_TOKEN_SCOPE;
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.google.firebase.messaging.FirebaseMessaging.INSTANCE_ID_SCOPE");
+            return com.google.firebase.messaging.FirebaseMessaging.INSTANCE_ID_SCOPE;
+        }
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.getInstance(android.content.Context) Obtains an instance.<br/>
+     * Support running environments including both HMS and GMS which are chosen by users.<br/>
+     * Below are the references of HMS apis and GMS apis respectively:<br/>
+     * com.huawei.hms.push.HmsMessaging.getInstance(android.content.Context) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section13628131719466">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section13628131719466</a><br/>
+     * com.google.firebase.messaging.FirebaseMessaging.getInstance() : <a href="https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-static-synchronized-firebasemessaging-getinstance">https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-static-synchronized-firebasemessaging-getinstance</a><br/>
+     *
+     * @param context a Context object
+     * @return ExtensionMessaging instance
+     */
+    public static synchronized org.xms.f.messaging.ExtensionMessaging getInstance(android.content.Context context) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).getInstance(context)");
+            com.huawei.hms.push.HmsMessaging hReturn = com.huawei.hms.push.HmsMessaging.getInstance(context);
+            return ((hReturn) == null ? null : (new org.xms.f.messaging.ExtensionMessaging(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).getInstance()");
+            com.google.firebase.messaging.FirebaseMessaging gReturn = com.google.firebase.messaging.FirebaseMessaging.getInstance();
+            return ((gReturn) == null ? null : (new org.xms.f.messaging.ExtensionMessaging(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public static synchronized org.xms.f.messaging.ExtensionMessaging getInstance() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.isAutoInitEnabled() Determines whether FCM auto-initialization is enabled or disabled.<br/>
+     * Support running environments including both HMS and GMS which are chosen by users.<br/>
+     * Below are the references of HMS apis and GMS apis respectively:<br/>
+     * com.huawei.hms.push.HmsMessaging.isAutoInitEnabled() : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section768215326488">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section768215326488</a><br/>
+     * com.google.firebase.messaging.FirebaseMessaging.isAutoInitEnabled() : <a href="https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-boolean-isautoinitenabled">https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-boolean-isautoinitenabled</a><br/>
+     *
+     * @return true if auto-init is enabled and false if auto-init is disabled
+     */
+    public boolean isAutoInitEnabled() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).isAutoInitEnabled()");
+            return ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).isAutoInitEnabled();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).isAutoInitEnabled()");
+            return ((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).isAutoInitEnabled();
+        }
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.send(org.xms.f.messaging.RemoteMessage) Sends message upstream to your app server.<br/>
+     * Support running environments including both HMS and GMS which are chosen by users.<br/>
+     * Below are the references of HMS apis and GMS apis respectively:<br/>
+     * com.huawei.hms.push.HmsMessaging.send(com.huawei.hms.push.RemoteMessage) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section17106147135813">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section17106147135813</a><br/>
+     * com.google.firebase.messaging.FirebaseMessaging.send(com.google.firebase.messaging.RemoteMessage) : <a href="https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-void-send-remotemessage-message">https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-void-send-remotemessage-message</a><br/>
+     *
+     * @param param0 the message to be sent
+     */
+    public void send(org.xms.f.messaging.RemoteMessage param0) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).send(((com.huawei.hms.push.RemoteMessage) ((param0) == null ? null : (param0.getHInstance()))))");
+            ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).send(((com.huawei.hms.push.RemoteMessage) ((param0) == null ? null : (param0.getHInstance()))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).send(((com.google.firebase.messaging.RemoteMessage) ((param0) == null ? null : (param0.getGInstance()))))");
+            ((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).send(((com.google.firebase.messaging.RemoteMessage) ((param0) == null ? null : (param0.getGInstance()))));
+        }
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.setAutoInitEnabled(boolean) Enables or disables auto-initialization of Firebase Cloud Messaging.<br/>
+     * Support running environments including both HMS and GMS which are chosen by users.<br/>
+     * Below are the references of HMS apis and GMS apis respectively:<br/>
+     * com.huawei.hms.push.HmsMessaging.setAutoInitEnabled(boolean) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section19198183125511">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section19198183125511</a><br/>
+     * com.google.firebase.messaging.FirebaseMessaging.setAutoInitEnabled(boolean) : <a href="https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-void-setautoinitenabled-boolean-enable">https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-void-setautoinitenabled-boolean-enable</a><br/>
+     *
+     * @param param0 Whether Cloud Messaging should auto-initialize
+     */
+    public void setAutoInitEnabled(boolean param0) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).setAutoInitEnabled(param0)");
+            ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).setAutoInitEnabled(param0);
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).setAutoInitEnabled(param0)");
+            ((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).setAutoInitEnabled(param0);
+        }
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.subscribeToTopic(java.lang.String) subscribe To Topic.<br/>
+     * Support running environments including both HMS and GMS which are chosen by users.<br/>
+     * Below are the references of HMS apis and GMS apis respectively:<br/>
+     * com.huawei.hms.push.HmsMessaging.subscribe(java.lang.String) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section1222313413551">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section1222313413551</a><br/>
+     * com.google.firebase.messaging.FirebaseMessaging.subscribeToTopic(java.lang.String) : <a href="https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-taskvoid-subscribetotopic-string-topic">https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-taskvoid-subscribetotopic-string-topic</a><br/>
+     *
+     * @param param0 The name of the topic to subscribe
+     * @return A task that will be completed when the topic has been successfully subscribed to
+     */
+    public org.xms.g.tasks.Task<java.lang.Void> subscribeToTopic(java.lang.String param0) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).subscribe(param0)");
+            com.huawei.hmf.tasks.Task hReturn = ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).subscribe(param0);
+            return ((hReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).subscribeToTopic(param0)");
+            com.google.android.gms.tasks.Task gReturn = ((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).subscribeToTopic(param0);
+            return ((gReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.unsubscribeFromTopic(java.lang.String) Unsubscribes from topic in the background.<br/>
+     * Support running environments including both HMS and GMS which are chosen by users.<br/>
+     * Below are the references of HMS apis and GMS apis respectively:<br/>
+     * com.huawei.hms.push.HmsMessaging.unsubscribe(java.lang.String) : <a href="https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section7598115275611">https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5#EN-US_TOPIC_0000001050255650__section7598115275611</a><br/>
+     * com.google.firebase.messaging.FirebaseMessaging.unsubscribeFromTopic(java.lang.String) : <a href="https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-taskvoid-unsubscribefromtopic-string-topic">https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#public-taskvoid-unsubscribefromtopic-string-topic</a><br/>
+     *
+     * @param param0 The name of the topic to unsubscribe from
+     * @return A task that will be completed when the topic has been successfully unsubscribed from
+     */
+    public org.xms.g.tasks.Task<java.lang.Void> unsubscribeFromTopic(java.lang.String param0) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.push.HmsMessaging) this.getHInstance()).unsubscribe(param0)");
+            com.huawei.hmf.tasks.Task hReturn = ((com.huawei.hms.push.HmsMessaging) this.getHInstance()).unsubscribe(param0);
+            return ((hReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).unsubscribeFromTopic(param0)");
+            com.google.android.gms.tasks.Task gReturn = ((com.google.firebase.messaging.FirebaseMessaging) this.getGInstance()).unsubscribeFromTopic(param0);
+            return ((gReturn) == null ? null : (new org.xms.g.tasks.Task.XImpl(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.dynamicCast(java.lang.Object) dynamic cast the input object to org.xms.f.messaging.ExtensionMessaging.<br/>
+     *
+     * @param param0 the input object
+     * @return casted ExtensionMessaging object
+     */
+    public static org.xms.f.messaging.ExtensionMessaging dynamicCast(java.lang.Object param0) {
+        return ((org.xms.f.messaging.ExtensionMessaging) param0);
+    }
+
+    /**
+     * org.xms.f.messaging.ExtensionMessaging.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+     *
+     * @param param0 the input object
+     * @return true if the Object is XMS instance, otherwise false
+     */
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.push.HmsMessaging;
+        } else {
+            return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.firebase.messaging.FirebaseMessaging;
+        }
+    }
+}

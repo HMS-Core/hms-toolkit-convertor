@@ -17,9 +17,9 @@
 package com.huawei.generator.ast;
 
 /**
- * BraceNode class
+ * Brace Node
  *
- * @since 2020-05-12
+ * @since 2019-12-31
  */
 public abstract class BraceNode extends StatementNode {
 }

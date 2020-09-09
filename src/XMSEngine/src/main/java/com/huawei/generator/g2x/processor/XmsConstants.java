@@ -24,25 +24,30 @@ package com.huawei.generator.g2x.processor;
  * @since 2020-02-26
  */
 public class XmsConstants {
+    // summary file name
+    public static final String GH_SUMMARY_FILE_NAME = "gh_summary";
+
+    public static final String HG_SUMMARY_FILE_NAME = "hg_summary";
+
+    public static final String G_SUMMARY_FILE_NAME = "g_summary";
+
     // single module name
     public static final String XMS_MODULE_NAME = "xmsadapter";
+
+    public static final String XMS_SUBMODULE_NAME = "xmsaux";
 
     public static final String XG_MODULE_NAME = "xg";
 
     public static final String XH_MODULE_NAME = "xh";
 
-    public static final String XMS_LIB_NAME = "libxms";
-
     // xms adapter code location
     public static final String XMS_TEMP_PATH = "xmstemp";
-
-    public static final String XMS_ML_FIREBASE_PATH = String.join("/", "ml", "firebase");
-
-    public static final String XMS_ML_GMS_PATH = String.join("/", "ml", "gms");
 
     public static final String G2X_MANUAL_EXTENSION = "xms/g2x_config/g2x_manual_extension.json";
 
     public static final String KIT_INFO = "xms/g2x_config/kit_info.json";
+
+    public static final String KIT_MAPPING = "xms/g2x_config/kit_mapping.json";
 
     // constants in diff and readme
     public static final String NULL_SIGN = "N/A";

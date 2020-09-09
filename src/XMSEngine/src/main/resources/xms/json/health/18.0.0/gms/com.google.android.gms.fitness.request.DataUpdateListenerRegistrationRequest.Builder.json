@@ -1,0 +1,146 @@
+{
+  "gName": "com.google.android.gms.fitness.request.DataUpdateListenerRegistrationRequest.Builder",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.request.DataUpdateListenerRegistrationRequest"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "java.lang.NullPointerException"
+        ],
+        "modifiers": [],
+        "name": "setDataSource",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.request.DataUpdateListenerRegistrationRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setModifyDataCollector",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataCollector"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDataType",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataType"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.request.DataUpdateListenerRegistrationRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setModifyDataType",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataType"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setPendingIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.request.DataUpdateListenerRegistrationRequest.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setModifyDataIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.options.ModifyDataMonitorOptions.Builder"
+}

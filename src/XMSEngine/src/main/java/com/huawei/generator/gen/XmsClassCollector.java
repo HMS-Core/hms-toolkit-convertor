@@ -90,12 +90,12 @@ public class XmsClassCollector {
             return;
         }
 
-        Queue<TypeNode> q = new LinkedList<>();
-        q.add(node);
-        while (!q.isEmpty()) {
-            TypeNode t = q.remove();
-            if (TypeUtils.isGmsType(t.getTypeName())) {
-                List<String> wholeClasses = outerClassesOf(t.getTypeName());
+        Queue<TypeNode> typeNodeQueue = new LinkedList<>();
+        typeNodeQueue.add(node);
+        while (!typeNodeQueue.isEmpty()) {
+            TypeNode typeNode = typeNodeQueue.remove();
+            if (TypeUtils.isGmsType(typeNode.getTypeName())) {
+                List<String> wholeClasses = outerClassesOf(typeNode.getTypeName());
                 for (String str : wholeClasses) {
                     String xName = TypeNode.create(str).toX().toString();
                     if (!set.contains(xName)) {
@@ -105,24 +105,24 @@ public class XmsClassCollector {
                 }
             }
 
-            if (t.getGenericType() != null) {
-                q.addAll(t.getGenericType());
+            if (typeNode.getGenericType() != null) {
+                typeNodeQueue.addAll(typeNode.getGenericType());
             }
 
-            if (t.getSuperClass() != null) {
-                q.addAll(t.getSuperClass());
+            if (typeNode.getSuperClass() != null) {
+                typeNodeQueue.addAll(typeNode.getSuperClass());
             }
 
-            if (t.getDefTypes() != null) {
-                q.addAll(t.getDefTypes());
+            if (typeNode.getDefTypes() != null) {
+                typeNodeQueue.addAll(typeNode.getDefTypes());
             }
 
-            if (t.getInfClass() != null) {
-                q.addAll(t.getInfClass());
+            if (typeNode.getInfClass() != null) {
+                typeNodeQueue.addAll(typeNode.getInfClass());
             }
 
-            if (t.getOuterType() != null) {
-                q.add(t.getOuterType());
+            if (typeNode.getOuterType() != null) {
+                typeNodeQueue.add(typeNode.getOuterType());
             }
         }
     }
@@ -130,7 +130,7 @@ public class XmsClassCollector {
     private static List<String> outerClassesOf(String name) {
         List<String> list = new ArrayList<>();
         String[] str = name.split("\\.");
-        if (str == null || str.length <= 1) {
+        if (str.length <= 1) {
             throw new IllegalStateException("bad class name : " + name);
         }
         StringBuilder sb = new StringBuilder();

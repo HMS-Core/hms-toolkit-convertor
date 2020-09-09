@@ -20,7 +20,7 @@ import com.huawei.generator.ast.BinaryExprNode;
 import com.huawei.generator.ast.CallNode;
 import com.huawei.generator.ast.IfNode;
 import com.huawei.generator.ast.MethodNode;
-import com.huawei.generator.ast.OperatorTypeNode;
+import com.huawei.generator.ast.OperatorType;
 import com.huawei.generator.ast.ReturnNode;
 import com.huawei.generator.ast.StatementNode;
 import com.huawei.generator.ast.VarNode;
@@ -52,9 +52,9 @@ public class WrapperConstructorGenerator implements BodyGenerator {
         List<StatementNode> body = new ArrayList<>();
         // For XGettable wrapper constructors, if param0 == null then return
         body.add(IfNode.create(
-            BinaryExprNode.create(VarNode.create(methodNode.paramAt(0)), OperatorTypeNode.EQ, VarNode.create("null")),
+            BinaryExprNode.create(VarNode.create(methodNode.paramAt(0)), OperatorType.EQ, VarNode.create("null")),
             Collections.singletonList(ReturnNode.create(null)), null));
-        generators.forEach(it -> body.addAll(it.generate()));
+        generators.forEach(bodyGenerator -> body.addAll(bodyGenerator.generate()));
         return body;
     }
 

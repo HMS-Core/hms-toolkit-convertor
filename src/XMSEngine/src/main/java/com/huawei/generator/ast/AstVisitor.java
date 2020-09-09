@@ -20,6 +20,9 @@ import com.huawei.generator.ast.custom.CustomContentNode;
 import com.huawei.generator.ast.custom.CustomMethodNode;
 import com.huawei.generator.ast.custom.NotNullTernaryNode;
 import com.huawei.generator.ast.custom.StmtStringNode;
+import com.huawei.generator.ast.custom.XClassDoc;
+import com.huawei.generator.ast.custom.XFieldDoc;
+import com.huawei.generator.ast.custom.XMethodDoc;
 
 /**
  * Base interface of AST visitors.
@@ -74,7 +77,7 @@ public interface AstVisitor {
      *
      * @param node GetField
      */
-    void visit(GetField node);
+    void visit(GetFieldNode node);
 
     /**
      * Visit IfNode
@@ -254,9 +257,9 @@ public interface AstVisitor {
     /**
      * OperatorTypes
      *
-     * @param operatorTypeNode operatorTypeNode object.
+     * @param operatorType operatorTypeNode object.
      */
-    void visit(OperatorTypeNode operatorTypeNode);
+    void visit(OperatorType operatorType);
 
     /**
      * unaryNode, for example:
@@ -276,7 +279,7 @@ public interface AstVisitor {
 
     /**
      * modifierNode
-     * 
+     *
      * @param modifierNode modifierNode object
      */
     void visit(ModifierNode modifierNode);
@@ -294,4 +297,25 @@ public interface AstVisitor {
      * @param node CustomContentNode
      */
     void visit(CustomContentNode node);
+
+    /**
+     * visits classDoc node.
+     *
+     * @param node classDoc node
+     */
+    void visit(XClassDoc node);
+
+    /**
+     * visits methodDoc node.
+     *
+     * @param node methodDoc node
+     */
+    void visit(XMethodDoc node);
+
+    /**
+     * visits fieldDoc node.
+     *
+     * @param node methodDoc node.
+     */
+    void visit(XFieldDoc node);
 }

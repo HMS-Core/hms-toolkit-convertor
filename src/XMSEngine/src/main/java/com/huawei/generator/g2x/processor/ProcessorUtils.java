@@ -16,6 +16,7 @@
 
 package com.huawei.generator.g2x.processor;
 
+import com.huawei.generator.g2x.po.kit.KitMapping;
 import com.huawei.generator.g2x.po.summary.Summary;
 import com.huawei.generator.g2x.processor.module.ParamKind;
 
@@ -51,6 +52,9 @@ public class ProcessorUtils {
     // user only or not
     private boolean useOnlyG;
 
+    // new class loader or not
+    private boolean needClassLoader;
+
     private GenerateSummary summary;
 
     // kitName -> Add / Del
@@ -66,6 +70,10 @@ public class ProcessorUtils {
 
     private Map<ParamKind, Summary> summaries;
 
+    private Map<String, String> kitVersionMap;
+
+    private Map<String, String> gmsVersionMap;
+
     public ProcessorUtils(Builder builder) {
         this.pluginPath = builder.pluginPath;
         this.backPath = builder.backPath;
@@ -74,12 +82,15 @@ public class ProcessorUtils {
         this.newPath = builder.newPath;
         this.thirdSDK = builder.thirdSDK;
         this.useOnlyG = builder.useOnlyG;
+        this.needClassLoader = builder.needClassLoader;
         this.summary = builder.summary;
         this.kitMap = builder.kitMap;
         this.allDepMap = builder.allDepMap;
         this.strategyKindList = builder.strategyKindList;
         this.pathMap = builder.pathMap;
         this.summaries = builder.summaries;
+        this.kitVersionMap = builder.kitVersionMap;
+        this.gmsVersionMap = builder.gmsVersionMap;
     }
 
     public GenerateSummary getSummary() {
@@ -92,6 +103,10 @@ public class ProcessorUtils {
 
     public boolean isUseOnlyG() {
         return useOnlyG;
+    }
+
+    public boolean getNeedClassLoader() {
+        return needClassLoader;
     }
 
     public Map<ParamKind, String> getPathMap() {
@@ -112,6 +127,14 @@ public class ProcessorUtils {
 
     public Map<String, String> getKitMap() {
         return kitMap;
+    }
+
+    public Map<String, String> getKitVersionMap() {
+        return kitVersionMap;
+    }
+
+    public Map<String, String> getGmsVersionMap() {
+        return gmsVersionMap;
     }
 
     public String getBackPath() {
@@ -149,6 +172,8 @@ public class ProcessorUtils {
 
         private boolean useOnlyG = false;
 
+        private boolean needClassLoader = false;
+
         private GenerateSummary summary = null;
 
         private Map<String, String> kitMap = new HashMap<>();
@@ -161,23 +186,33 @@ public class ProcessorUtils {
 
         private Map<ParamKind, Summary> summaries = new HashMap<>();
 
+        private Map<String, String> kitVersionMap = new HashMap<String, String>();
+
+        private Map<String, String> gmsVersionMap = new HashMap<String, String>();
+
         public Builder() {
+            this(null);
         }
 
         public Builder(ProcessorUtils processorUtils) {
-            this.pluginPath = processorUtils.pluginPath;
-            this.backPath = processorUtils.backPath;
-            this.targetPath = processorUtils.targetPath;
-            this.oldPath = processorUtils.oldPath;
-            this.newPath = processorUtils.newPath;
-            this.thirdSDK = processorUtils.thirdSDK;
-            this.useOnlyG = processorUtils.useOnlyG;
-            this.summary = processorUtils.summary;
-            this.kitMap = processorUtils.kitMap;
-            this.allDepMap = processorUtils.allDepMap;
-            this.strategyKindList = processorUtils.strategyKindList;
-            this.pathMap = processorUtils.pathMap;
-            this.summaries = processorUtils.summaries;
+            if (processorUtils != null) {
+                this.pluginPath = processorUtils.pluginPath;
+                this.backPath = processorUtils.backPath;
+                this.targetPath = processorUtils.targetPath;
+                this.oldPath = processorUtils.oldPath;
+                this.newPath = processorUtils.newPath;
+                this.thirdSDK = processorUtils.thirdSDK;
+                this.useOnlyG = processorUtils.useOnlyG;
+                this.needClassLoader = processorUtils.needClassLoader;
+                this.summary = processorUtils.summary;
+                this.kitMap = processorUtils.kitMap;
+                this.allDepMap = processorUtils.allDepMap;
+                this.strategyKindList = processorUtils.strategyKindList;
+                this.pathMap = processorUtils.pathMap;
+                this.summaries = processorUtils.summaries;
+                this.kitVersionMap = processorUtils.kitVersionMap;
+                this.gmsVersionMap = processorUtils.gmsVersionMap;
+            }
         }
 
         public Builder setPluginPath(String pluginPath) {
@@ -215,6 +250,11 @@ public class ProcessorUtils {
             return this;
         }
 
+        public Builder setNeedClassLoader(boolean needClassLoader) {
+            this.needClassLoader = needClassLoader;
+            return this;
+        }
+
         public Builder setSummary(GenerateSummary summary) {
             this.summary = summary;
             return this;
@@ -242,6 +282,22 @@ public class ProcessorUtils {
 
         public Builder setSummaries(Map<ParamKind, Summary> summaries) {
             this.summaries = summaries;
+            return this;
+        }
+
+        public Builder setKitVersionMap(Map<String, String> kitVersionMap) {
+            this.kitVersionMap = kitVersionMap;
+            return this;
+        }
+
+        /**
+         * set gms version map, then kit version map will be set too in this method.
+         * @param gmsVersionMap gms version map
+         * @return builder instance
+         */
+        public Builder setGmsVersionMap(Map<String, String> gmsVersionMap) {
+            this.gmsVersionMap = gmsVersionMap;
+            this.kitVersionMap = KitMapping.processGmsVersion(gmsVersionMap);
             return this;
         }
 

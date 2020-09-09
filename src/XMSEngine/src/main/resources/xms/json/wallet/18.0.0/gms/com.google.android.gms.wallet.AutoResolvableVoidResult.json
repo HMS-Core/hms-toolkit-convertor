@@ -1,0 +1,64 @@
+{
+  "gName": "com.google.android.gms.wallet.AutoResolvableVoidResult",
+  "interfaces": [
+    "com.google.android.gms.wallet.AutoResolvableResult"
+  ],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "putIntoIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "AutoResolvableVoidResult",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "AutoResolvableForegroundIntentResult",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.wallet.AutoResolvableForegroundIntentResult"
+}

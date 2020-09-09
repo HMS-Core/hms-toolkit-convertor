@@ -1,0 +1,265 @@
+package org.xms.g.vision;
+
+public abstract class Detector<XT> extends org.xms.g.utils.XObject {
+    private boolean wrapper = true;
+    
+    public Detector(org.xms.g.utils.XBox param0) {
+        super(param0);
+        wrapper = true;
+    }
+    
+    public Detector() {
+        super((org.xms.g.utils.XBox) null);
+        this.setZInstance(new ZImpl());
+        wrapper = false;
+    }
+    
+    public abstract android.util.SparseArray<XT> detect(org.xms.g.vision.Frame param0);
+    
+    public boolean isOperational() {
+        if (wrapper) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance()).isAvailable()");
+            return ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance()).isAvailable();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((ZImpl) ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance())).isAvailableCallSuper()");
+            return ((ZImpl) ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance())).isAvailableCallSuper();
+        }
+    }
+    
+    public void receiveFrame(org.xms.g.vision.Frame param0) {
+        if (wrapper) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance()).obtainPicture(((com.huawei.hms.mlsdk.common.MLFrame) ((param0) == null ? null : (param0.getZInstance()))))");
+            ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance()).obtainPicture(((com.huawei.hms.mlsdk.common.MLFrame) ((param0) == null ? null : (param0.getZInstance()))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((ZImpl) ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance())).obtainPictureCallSuper(((com.huawei.hms.mlsdk.common.MLFrame) ((param0) == null ? null : (param0.getZInstance()))))");
+            ((ZImpl) ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance())).obtainPictureCallSuper(((com.huawei.hms.mlsdk.common.MLFrame) ((param0) == null ? null : (param0.getZInstance()))));
+        }
+    }
+    
+    public void release() {
+        if (wrapper) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance()).destroy()");
+            ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance()).destroy();
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((ZImpl) ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance())).destroyCallSuper()");
+            ((ZImpl) ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance())).destroyCallSuper();
+        }
+    }
+    
+    public boolean setFocus(int param0) {
+        if (wrapper) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance()).traceItem(param0)");
+            return ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance()).traceItem(param0);
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((ZImpl) ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance())).traceItemCallSuper(param0)");
+            return ((ZImpl) ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance())).traceItemCallSuper(param0);
+        }
+    }
+    
+    public void setProcessor(org.xms.g.vision.Detector.Processor<XT> param0) {
+        if (wrapper) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance()).setTransactor(((param0) == null ? null : (param0.getHInstanceProcessor())))");
+            ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance()).setTransactor(((param0) == null ? null : (param0.getHInstanceProcessor())));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((ZImpl) ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance())).setTransactorCallSuper(((param0) == null ? null : (param0.getHInstanceProcessor())))");
+            ((ZImpl) ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance())).setTransactorCallSuper(((param0) == null ? null : (param0.getHInstanceProcessor())));
+        }
+    }
+    
+    public static org.xms.g.vision.Detector dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.g.vision.Detector) {
+            return ((org.xms.g.vision.Detector) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            com.huawei.hms.mlsdk.common.MLAnalyzer zReturn = ((com.huawei.hms.mlsdk.common.MLAnalyzer) ((org.xms.g.utils.XGettable) param0).getZInstance());
+            return new org.xms.g.vision.Detector.XImpl(new org.xms.g.utils.XBox(zReturn));
+        }
+        return ((org.xms.g.vision.Detector) param0);
+    }
+    
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.huawei.hms.mlsdk.common.MLAnalyzer;
+    }
+    
+    public static class XImpl<XT> extends org.xms.g.vision.Detector<XT> {
+        
+        public XImpl(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+        
+        public android.util.SparseArray<XT> detect(org.xms.g.vision.Frame param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance()).analyseFrame(((com.huawei.hms.mlsdk.common.MLFrame) ((param0) == null ? null : (param0.getZInstance()))))");
+            android.util.SparseArray zReturn = ((com.huawei.hms.mlsdk.common.MLAnalyzer) this.getZInstance()).analyseFrame(((com.huawei.hms.mlsdk.common.MLFrame) ((param0) == null ? null : (param0.getZInstance()))));
+            return org.xms.g.utils.Utils.genericArrayCopy(zReturn, new org.xms.g.utils.Function<Object, XT>() {
+                
+                public XT apply(java.lang.Object param0) {
+                    return ((XT) org.xms.g.utils.Utils.getXmsObjectWithHmsObject(param0, org.xms.g.utils.Utils.getXmsMap("ML_GMS")));
+                }
+            });
+        }
+    }
+    
+    private class ZImpl<T> extends com.huawei.hms.mlsdk.common.MLAnalyzer<T> {
+        
+        public boolean isAvailable() {
+            return org.xms.g.vision.Detector.this.isOperational();
+        }
+        
+        public void obtainPicture(com.huawei.hms.mlsdk.common.MLFrame param0) {
+            org.xms.g.vision.Detector.this.receiveFrame(((param0) == null ? null : (new org.xms.g.vision.Frame(new org.xms.g.utils.XBox(param0)))));
+        }
+        
+        public void destroy() {
+            org.xms.g.vision.Detector.this.release();
+        }
+        
+        public boolean traceItem(int param0) {
+            return org.xms.g.vision.Detector.this.setFocus(param0);
+        }
+        
+        public void setTransactor(com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor<T> param0) {
+            org.xms.g.vision.Detector.this.setProcessor(((param0) == null ? null : (new org.xms.g.vision.Detector.Processor.XImpl(new org.xms.g.utils.XBox(param0)))));
+        }
+        
+        public boolean isAvailableCallSuper() {
+            return super.isAvailable();
+        }
+        
+        public void obtainPictureCallSuper(com.huawei.hms.mlsdk.common.MLFrame param0) {
+            super.obtainPicture(param0);
+        }
+        
+        public void destroyCallSuper() {
+            super.destroy();
+        }
+        
+        public boolean traceItemCallSuper(int param0) {
+            return super.traceItem(param0);
+        }
+        
+        public void setTransactorCallSuper(com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor<T> param0) {
+            super.setTransactor(param0);
+        }
+        
+        public android.util.SparseArray<T> analyseFrame(com.huawei.hms.mlsdk.common.MLFrame param0) {
+            return ((android.util.SparseArray) org.xms.g.utils.Utils.genericArrayCopy(((android.util.SparseArray) org.xms.g.vision.Detector.this.detect(((param0) == null ? null : (new org.xms.g.vision.Frame(new org.xms.g.utils.XBox(param0)))))), new org.xms.g.utils.Function<XT, T>() {
+                
+                public T apply(XT param0) {
+                    return ((T) org.xms.g.utils.Utils.getInstanceInInterface(param0, true));
+                }
+            }));
+        }
+        
+        public ZImpl() {
+            super();
+        }
+    }
+    
+    public static class Detections<XT> extends org.xms.g.utils.XObject {
+        
+        public Detections(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+        
+        public boolean detectorIsOperational() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) this.getZInstance()).isAnalyzerAvaliable()");
+            return ((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) this.getZInstance()).isAnalyzerAvaliable();
+        }
+        
+        public android.util.SparseArray<XT> getDetectedItems() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) this.getZInstance()).getAnalyseList()");
+            android.util.SparseArray zReturn = ((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) this.getZInstance()).getAnalyseList();
+            return org.xms.g.utils.Utils.genericArrayCopy(zReturn, new org.xms.g.utils.Function<Object, XT>() {
+                
+                public XT apply(java.lang.Object param0) {
+                    return ((XT) org.xms.g.utils.Utils.getXmsObjectWithHmsObject(param0, org.xms.g.utils.Utils.getXmsMap("ML_GMS")));
+                }
+            });
+        }
+        
+        public org.xms.g.vision.Frame.Metadata getFrameMetadata() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) this.getZInstance()).getFrameProperty()");
+            com.huawei.hms.mlsdk.common.MLFrame.Property zReturn = ((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) this.getZInstance()).getFrameProperty();
+            return ((zReturn) == null ? null : (new org.xms.g.vision.Frame.Metadata(new org.xms.g.utils.XBox(zReturn))));
+        }
+        
+        public static org.xms.g.vision.Detector.Detections dynamicCast(java.lang.Object param0) {
+            return ((org.xms.g.vision.Detector.Detections) param0);
+        }
+        
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+                return false;
+            }
+            return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.huawei.hms.mlsdk.common.MLAnalyzer.Result;
+        }
+    }
+    
+    public static interface Processor<XT> extends org.xms.g.utils.XInterface {
+        
+        public void release();
+        
+        public void receiveDetections(org.xms.g.vision.Detector.Detections<XT> param0);
+
+        default java.lang.Object getZInstanceProcessor() {
+            return getHInstanceProcessor();
+        }
+
+        default <T> com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor<T> getHInstanceProcessor() {
+            if (this instanceof org.xms.g.utils.XGettable) {
+                return ((com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor<T>) ((org.xms.g.utils.XGettable) this).getZInstance());
+            }
+            return new com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor<T>() {
+                
+                public void destroy() {
+                    org.xms.g.vision.Detector.Processor.this.release();
+                }
+                
+                public void transactResult(com.huawei.hms.mlsdk.common.MLAnalyzer.Result<T> param0) {
+                    org.xms.g.vision.Detector.Processor.this.receiveDetections(((param0) == null ? null : (new org.xms.g.vision.Detector.Detections(new org.xms.g.utils.XBox(param0)))));
+                }
+            };
+        }
+        
+        public static org.xms.g.vision.Detector.Processor dynamicCast(java.lang.Object param0) {
+            if (param0 instanceof org.xms.g.vision.Detector.Processor) {
+                return ((org.xms.g.vision.Detector.Processor) param0);
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor zReturn = ((com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor) ((org.xms.g.utils.XGettable) param0).getZInstance());
+                return new org.xms.g.vision.Detector.Processor.XImpl(new org.xms.g.utils.XBox(zReturn));
+            }
+            return ((org.xms.g.vision.Detector.Processor) param0);
+        }
+        
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XInterface)) {
+                return false;
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor;
+            }
+            return param0 instanceof org.xms.g.vision.Detector.Processor;
+        }
+        
+        public static class XImpl<XT> extends org.xms.g.utils.XObject implements org.xms.g.vision.Detector.Processor<XT> {
+            
+            public XImpl(org.xms.g.utils.XBox param0) {
+                super(param0);
+            }
+            
+            public void release() {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor) this.getZInstance()).destroy()");
+                ((com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor) this.getZInstance()).destroy();
+            }
+            
+            public void receiveDetections(org.xms.g.vision.Detector.Detections<XT> param0) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor) this.getZInstance()).transactResult(((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) ((param0) == null ? null : (param0.getZInstance()))))");
+                ((com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor) this.getZInstance()).transactResult(((com.huawei.hms.mlsdk.common.MLAnalyzer.Result) ((param0) == null ? null : (param0.getZInstance()))));
+            }
+        }
+    }
+}

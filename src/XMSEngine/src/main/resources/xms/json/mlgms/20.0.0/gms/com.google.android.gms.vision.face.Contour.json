@@ -1,0 +1,397 @@
+{
+  "gName": "com.google.android.gms.vision.face.Contour",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPositions",
+        "paramTypes": [],
+        "retType": "android.graphics.PointF[]"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCoordinatePoints",
+        "paramTypes": [],
+        "retType": "android.graphics.PointF[]"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFaceShapeType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "FACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "TYPE_FACE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "LEFT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "h": {
+        "name": "TYPE_LEFT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "LEFT_EYEBROW_BOTTOM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "h": {
+        "name": "TYPE_BOTTOM_OF_LEFT_EYEBROW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "LEFT_EYEBROW_TOP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TYPE_TOP_OF_LEFT_EYEBROW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "6"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "LOWER_LIP_BOTTOM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11"
+      },
+      "h": {
+        "name": "TYPE_BOTTOM_OF_LOWER_LIP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "LOWER_LIP_TOP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10"
+      },
+      "h": {
+        "name": "TYPE_TOP_OF_LOWER_LIP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "NOSE_BOTTOM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "13"
+      },
+      "h": {
+        "name": "TYPE_BOTTOM_OF_NOSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "NOSE_BRIDGE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "12"
+      },
+      "h": {
+        "name": "TYPE_BRIDGE_OF_NOSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "13"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "RIGHT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "h": {
+        "name": "TYPE_RIGHT_EYE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "RIGHT_EYEBROW_BOTTOM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "h": {
+        "name": "TYPE_BOTTOM_OF_RIGHT_EYEBROW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "RIGHT_EYEBROW_TOP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "TYPE_TOP_OF_RIGHT_EYEBROW",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "7"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "UPPER_LIP_BOTTOM",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "9"
+      },
+      "h": {
+        "name": "TYPE_BOTTOM_OF_UPPER_LIP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "10"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "UPPER_LIP_TOP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "8"
+      },
+      "h": {
+        "name": "TYPE_TOP_OF_UPPER_LIP",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "11"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "LEFT_CHEEK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "14"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "RIGHT_CHEEK",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "15"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.face.MLFaceShape"
+}

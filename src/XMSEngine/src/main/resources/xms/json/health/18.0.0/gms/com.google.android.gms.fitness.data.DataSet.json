@@ -1,0 +1,372 @@
+{
+  "gName": "com.google.android.gms.fitness.data.DataSet",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "add",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataPoint"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addSample",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.SamplePoint"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "addAll",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Iterable<com.google.android.gms.fitness.data.DataPoint>"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "addSampleList",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Iterable<com.huawei.hms.hihealth.data.SamplePoint>"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "builder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataSet.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "builder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataCollector"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SampleSet.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "create",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataSource"
+          }
+        ],
+        "retType": "com.google.android.gms.fitness.data.DataSet"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "create",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.hihealth.data.DataCollector"
+          }
+        ],
+        "retType": "com.huawei.hms.hihealth.data.SampleSet"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "createDataPoint",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.data.DataPoint"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "createSamplePoint",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.data.SamplePoint"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "equals",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Object"
+          }
+        ],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataPoints",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.android.gms.fitness.data.DataPoint>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSamplePoints",
+        "paramTypes": [],
+        "retType": "java.util.List<com.huawei.hms.hihealth.data.SamplePoint>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDataSource",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.data.DataSource"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataCollector",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.data.DataCollector"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getDataType",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.fitness.data.DataType"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDataType",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.hihealth.data.DataType"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "hashCode",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isEmpty",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "isEmpty",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "toString",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.hihealth.data.SampleSet"
+}

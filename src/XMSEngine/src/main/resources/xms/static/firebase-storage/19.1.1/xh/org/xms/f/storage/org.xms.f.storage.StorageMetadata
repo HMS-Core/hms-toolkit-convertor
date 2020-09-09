@@ -1,0 +1,301 @@
+package org.xms.f.storage;
+
+
+
+public class StorageMetadata extends org.xms.g.utils.XObject {
+
+
+    public StorageMetadata(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    public StorageMetadata() {
+        super(((org.xms.g.utils.XBox) null));
+    }
+
+    public java.lang.String getBucket() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getBucket()");
+        return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getBucket();
+    }
+
+    public java.lang.String getCacheControl() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getCacheControl()");
+        return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getCacheControl();
+    }
+
+    public java.lang.String getContentDisposition() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getContentDisposition()");
+        return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getContentDisposition();
+    }
+
+    public java.lang.String getContentEncoding() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getContentEncoding()");
+        return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getContentEncoding();
+    }
+
+    public java.lang.String getContentLanguage() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getContentLanguage()");
+        return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getContentLanguage();
+    }
+
+    public java.lang.String getContentType() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getContentType()");
+        return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getContentType();
+    }
+
+    public long getCreationTimeMillis() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", " Long.valueOf(((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getZInstance()).getCTime())");
+        java.text.SimpleDateFormat mSimpleDataFormat = new java.text.SimpleDateFormat("EEE,dd MMM yyyy hh:mm:ss 'GMT'", java.util.Locale.ENGLISH);
+        long creationsTime = 0l;
+        try {
+            java.util.Date date = mSimpleDataFormat.parse(((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getZInstance()).getCTime());
+            creationsTime= date.getTime();
+        } catch (java.text.ParseException e) {
+            e.printStackTrace();
+        }
+        return creationsTime;
+    }
+
+    public java.lang.String getCustomMetadata(java.lang.String param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getCustomMetadata().get(param0)");
+        return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getCustomMetadata().get(param0);
+    }
+
+    public java.util.Set<java.lang.String> getCustomMetadataKeys() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getZInstance()).getCustomMetadata().keySet()");
+        return  ((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getZInstance()).getCustomMetadata().keySet();
+    }
+
+    public java.lang.String getGeneration() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public java.lang.String getMd5Hash() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getSHA256Hash()");
+        return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getSHA256Hash();
+    }
+
+    public java.lang.String getMetadataGeneration() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public java.lang.String getName() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getName()");
+        return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getName();
+    }
+
+    public java.lang.String getPath() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getPath()");
+        return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getPath();
+    }
+
+    public org.xms.f.storage.StorageReference getReference() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getStorageReference()");
+        com.huawei.agconnect.cloud.storage.core.StorageReference zReturn = ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getStorageReference();
+        return ((zReturn) == null ? null : (new org.xms.f.storage.StorageReference(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    public long getSizeBytes() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getSize()");
+        return ((com.huawei.agconnect.cloud.storage.core.FileMetadata) this.getZInstance()).getSize();
+    }
+
+    public long getUpdatedTimeMillis() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "Long.valueOf(((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getZInstance()).getMTime())");
+        return Long.valueOf(((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getZInstance()).getMTime());
+    }
+
+    public static org.xms.f.storage.StorageMetadata dynamicCast(java.lang.Object param0) {
+        return ((org.xms.f.storage.StorageMetadata) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.huawei.agconnect.cloud.storage.core.FileMetadata;
+    }
+
+    public static class Builder extends org.xms.g.utils.XObject {
+
+
+        public Builder(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+
+        public Builder() {
+            super(((org.xms.g.utils.XBox) null));
+            this.setHInstance(new org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder());
+        }
+
+        public Builder(org.xms.f.storage.StorageMetadata param0) {
+            super(((org.xms.g.utils.XBox) null));
+        }
+
+        public org.xms.f.storage.StorageMetadata build() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.f.storage.StorageMetadata(new org.xms.g.utils.XBox(null, this.getZInstance()))");
+            com.huawei.agconnect.cloud.storage.core.FileMetadata zReturn = ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getZInstance()).build();
+            return new org.xms.f.storage.StorageMetadata(new org.xms.g.utils.XBox(null, zReturn));
+        }
+
+        public java.lang.String getCacheControl() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getZInstance()).getCacheControl()");
+            return ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getZInstance()).getCacheControl();
+        }
+
+        public java.lang.String getContentDisposition() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getZInstance()).getContentDisposition()");
+            return ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getZInstance()).getContentDisposition();
+        }
+
+        public java.lang.String getContentEncoding() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getZInstance()).getContentEncoding()");
+            return ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getZInstance()).getContentEncoding();
+        }
+
+        public java.lang.String getContentLanguage() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getZInstance()).getContentLanguage()");
+            return ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getZInstance()).getContentLanguage();
+        }
+
+        public java.lang.String getContentType() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getZInstance()).getContentType()");
+            return ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder) this.getZInstance()).getContentType();
+        }
+
+        public org.xms.f.storage.StorageMetadata.Builder setCacheControl(java.lang.String param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", " ((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getZInstance()).setCacheControl()");
+            org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder zReturn = ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getZInstance());
+            zReturn.setCacheControl(param0);
+            return ((zReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(null, zReturn))));
+        }
+
+        public org.xms.f.storage.StorageMetadata.Builder setContentDisposition(java.lang.String param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", " ((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getZInstance()).setContentDisposition()");
+            org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder zReturn = ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getZInstance());
+            zReturn.setContentDisposition(param0);
+            return ((zReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(null, zReturn))));
+        }
+
+        public org.xms.f.storage.StorageMetadata.Builder setContentEncoding(java.lang.String param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", " ((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getZInstance()).setContentEncoding()");
+            org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder zReturn = (( org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getZInstance());
+            zReturn.setContentEncoding(param0);
+            return ((zReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(null, zReturn))));
+        }
+
+        public org.xms.f.storage.StorageMetadata.Builder setContentLanguage(java.lang.String param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", " ((com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getZInstance()).setContentLanguage()");
+            org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder zReturn = ((org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getZInstance());
+            zReturn.setContentLanguage(param0);
+            return ((zReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(null, zReturn))));
+        }
+
+        public org.xms.f.storage.StorageMetadata.Builder setContentType(java.lang.String param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", " (( com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getZInstance()).setContentType()");
+            org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder zReturn = (( org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getZInstance());
+            zReturn.setContentType(param0);
+            return ((zReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(null, zReturn))));
+        }
+
+        public org.xms.f.storage.StorageMetadata.Builder setCustomMetadata(java.lang.String param0, java.lang.String param1) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", " (( com.huawei.agconnect.cloud.storage.core.FileMetadata)this.getZInstance()).setCustomMetadata(map)");
+            org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder zReturn = (( org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder)this.getZInstance());
+            java.util.Map<java.lang.String,java.lang.String> map = new java.util.HashMap<>();
+            map.put(param0,param1);
+            zReturn.setCustomMetadata(map);
+            return ((zReturn) == null ? null : (new org.xms.f.storage.StorageMetadata.Builder(new org.xms.g.utils.XBox(null, zReturn))));
+        }
+
+        public static org.xms.f.storage.StorageMetadata.Builder dynamicCast(java.lang.Object param0) {
+            return ((org.xms.f.storage.StorageMetadata.Builder) param0);
+        }
+
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+                return false;
+            }
+            return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof org.xms.f.storage.StorageMetadata.HStorageMetadataBuilder;
+        }
+    }
+    public static class HStorageMetadataBuilder extends org.xms.g.utils.XObject{
+
+                com.huawei.agconnect.cloud.storage.core.FileMetadata mFileMetadata;
+
+                private java.util.Map<java.lang.String, java.lang.String> metadata;
+
+
+                public HStorageMetadataBuilder(org.xms.g.utils.XBox param0) {
+                    super(param0);
+                    this.mFileMetadata = new com.huawei.agconnect.cloud.storage.core.FileMetadata();
+                }
+
+                public HStorageMetadataBuilder() {
+                    super(((org.xms.g.utils.XBox) null));
+                    this.setHInstance(new com.huawei.agconnect.cloud.storage.core.FileMetadata());
+                    this.mFileMetadata = new com.huawei.agconnect.cloud.storage.core.FileMetadata();
+                }
+
+                public HStorageMetadataBuilder(org.xms.f.storage.StorageMetadata param0) {
+                    super(((org.xms.g.utils.XBox) null));
+                    this.mFileMetadata = new com.huawei.agconnect.cloud.storage.core.FileMetadata();
+                }
+                public void setCacheControl(String var1) {
+                    this.mFileMetadata.setCacheControl(var1);
+                }
+
+                public java.lang.String getCacheControl(){
+                    return this.mFileMetadata.getCacheControl();
+                }
+
+                public void setContentDisposition(String var1) {
+                    this.mFileMetadata.setContentDisposition(var1);
+                }
+                public java.lang.String getContentDisposition(){
+                    return this.mFileMetadata.getContentDisposition();
+                }
+
+
+                public void setContentEncoding(String var1) {
+                    this.mFileMetadata.setContentEncoding(var1);
+                }
+
+                public java.lang.String getContentEncoding(){
+                    return this.mFileMetadata.getContentEncoding();
+                }
+
+
+                public void setContentLanguage(String var1) {
+                    this.mFileMetadata.setContentLanguage(var1);
+                }
+
+                public java.lang.String getContentLanguage(){
+                    return this.mFileMetadata.getContentLanguage();
+                }
+
+                public void setContentType(String var1) {
+                    this.mFileMetadata.setContentType(var1);
+                }
+                public java.lang.String getContentType(){
+                    return this.mFileMetadata.getContentType();
+                }
+
+                public void setSHA256Hash(String var1) {
+                    this.mFileMetadata.setSHA256Hash(var1);
+                }
+                public java.lang.String getSHA256Hash(){
+                    return this.mFileMetadata.getSHA256Hash();
+                }
+
+
+                public void setCustomMetadata(java.util.Map<java.lang.String, java.lang.String> var1) {
+                    this.mFileMetadata.setCustomMetadata(var1);
+                }
+                public java.util.Map<java.lang.String,java.lang.String> getCustomMetadata(){
+                    return this.mFileMetadata.getCustomMetadata();
+                }
+                public  com.huawei.agconnect.cloud.storage.core.FileMetadata build(){
+                    return mFileMetadata;
+                }
+            }
+}

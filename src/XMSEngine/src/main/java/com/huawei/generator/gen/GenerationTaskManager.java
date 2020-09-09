@@ -44,14 +44,14 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * GenerationTaskManager class
+ * TaskManager for Generation
  *
  * @since 2019-11-14
  */
 public class GenerationTaskManager {
     private static final Logger LOGGER = LoggerFactory.getLogger(GenerationTaskManager.class);
 
-    Map<String, JClass> definitions = new HashMap<>();
+    private Map<String, JClass> definitions = new HashMap<>();
 
     private Map<String, XAdapterClassNode> outerTasks = new HashMap<>();
 
@@ -70,10 +70,15 @@ public class GenerationTaskManager {
         return new GenerationTaskManager(factory);
     }
 
+    public static GenerationTaskManager create(MethodGeneratorFactory methodFactory, String pluginPath) {
+        XClassFactory factory = new XClassFactory(methodFactory, pluginPath);
+        return new GenerationTaskManager(factory);
+    }
+
     /**
-     * return api convert statistics
-     * 
-     * @return return api convert statistics
+     * return API conversion statistics
+     *
+     * @return API conversion statistics
      */
     ApiStats initClasses() {
         // API means the public methods and fields
@@ -88,7 +93,7 @@ public class GenerationTaskManager {
         List<JClass> outClasses = definitions.values()
             .stream()
             .filter(def -> !def.isInnerClass())
-            .filter(def -> !G2HTables.inBlackList(TypeNode.create(def.gName()).toX().toString(), "*"))
+            .filter(def -> !G2HTables.inBlockList(TypeNode.create(def.gName()).toX().toString(), "*"))
             .collect(Collectors.toList());
         outClasses.forEach(def -> {
             XAdapterClassNode node = xClassFactory.from(def);
@@ -102,7 +107,7 @@ public class GenerationTaskManager {
         List<JClass> innerClasses = definitions.values()
             .stream()
             .filter(JClass::isInnerClass)
-            .filter(def -> !G2HTables.inBlackList(TypeNode.create(def.gName()).toX().toString(), "*"))
+            .filter(def -> !G2HTables.inBlockList(TypeNode.create(def.gName()).toX().toString(), "*"))
             .collect(Collectors.toList());
         innerClasses.forEach(def -> {
             XAdapterClassNode node = xClassFactory.from(def);
@@ -115,6 +120,7 @@ public class GenerationTaskManager {
 
         int fakeApis = computeFakeApis(outClasses) + computeFakeApis(innerClasses);
         stats.setFakeApis(fakeApis);
+
         // resolve all inner classes, put them into their outer classes
         allClasses.values().stream().filter(ClassNode::isInner).forEach(classNode -> {
             String fullName = classNode.fullName();
@@ -128,8 +134,9 @@ public class GenerationTaskManager {
         });
 
         // set package name of all inner classes
-        outerTasks.values()
-            .forEach(classNode -> classNode.innerClasses().forEach(c -> c.setPackageName(classNode.packageName())));
+        outerTasks.values().forEach(classNode -> {
+            classNode.innerClasses().forEach(c -> c.setPackageName(classNode.packageName()));
+        });
         return stats;
     }
 
@@ -138,8 +145,8 @@ public class GenerationTaskManager {
     }
 
     /**
-     * @param classes api collection after filtered by black-list, namely outer classes or inner classes
-     * @return return number of api whose status if notSupport or isDeprecated
+     * @param classes API collection after block list filtering, outer classes or inner classes
+     * @return the number of APIs with notsupport and isdecrecrected status in the API after block list filtering
      */
     private int computeFakeApis(List<JClass> classes) {
         int apis = 0;
@@ -159,10 +166,10 @@ public class GenerationTaskManager {
     }
 
     /**
-     * check status of api whether notSupport or isDeprecated or developerManual
-     * 
+     * check if the status of the API is notSupport or isDeprecated or developerManual
+     *
      * @param status api status
-     * @return true if notSupport or isDeprecated or developerManual
+     * @return return boolean
      */
     private boolean isFakeApi(String status) {
         return Arrays.asList(JMapping.STATUS_UNSUPPORTED, JMapping.STATUS_DEVELOPER_MANUAL, JMapping.STATUS_DUMMY)

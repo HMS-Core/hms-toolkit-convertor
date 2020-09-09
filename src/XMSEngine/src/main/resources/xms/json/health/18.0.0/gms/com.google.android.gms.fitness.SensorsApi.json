@@ -1,0 +1,142 @@
+{
+  "gName": "com.google.android.gms.fitness.SensorsApi",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "add",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.request.SensorRequest"
+          },
+          {
+            "pos": "2",
+            "type": "com.google.android.gms.fitness.request.OnDataPointListener"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section1922515491422",
+      "tipsInfo": "Call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient needs to be added."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "add",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.request.SensorRequest"
+          },
+          {
+            "pos": "2",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section1922515491422",
+      "tipsInfo": "Call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient needs to be added."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "findDataSources",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.request.DataSourcesRequest"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.fitness.result.DataSourcesResult>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section23310984619",
+      "tipsInfo": "Call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient needs to be added."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "remove",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.fitness.request.OnDataPointListener"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section137231629244158",
+      "tipsInfo": "Call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient needs to be added."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "remove",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.common.api.GoogleApiClient"
+          },
+          {
+            "pos": "1",
+            "type": "android.app.PendingIntent"
+          }
+        ],
+        "retType": "com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Status>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/health-conversion-0000001050062171#EN-US_TOPIC_0000001050062171__section137231629244158",
+      "tipsInfo": "Call to the API with the input parameter com.huawei.hms.hihealth.HiHealthKitClient needs to be added."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

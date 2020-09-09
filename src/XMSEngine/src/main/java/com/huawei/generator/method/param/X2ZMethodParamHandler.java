@@ -31,11 +31,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Function description
+ * Handler for X2Z Method Param
  *
  * @since 2020-02-26
  */
-public class X2ZMethodParamHandler implements ParamHandler {
+public final class X2ZMethodParamHandler implements ParamHandler {
     private MethodNode methodNode;
 
     private Component component;

@@ -1,0 +1,90 @@
+{
+  "gName": "com.google.android.gms.measurement.AppMeasurementReceiver",
+  "interfaces": [],
+  "superClass": "androidx.legacy.content.WakefulBroadcastReceiver",
+  "methods": [
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "AppMeasurementReceiver",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/analytics-conversion-0000001050060148#EN-US_TOPIC_0000001050060148__section18901414707",
+      "tipsInfo": "This API is currently unsupported by HMS Core. It still can be used in the scenario where GMS APIs are preferred. For details, please refer to the manual conversion guide."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "doGoAsync",
+        "paramTypes": [],
+        "retType": "android.content.BroadcastReceiver.PendingResult"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can \ndetermine how to process API. We recommend that you delete code related to this \nAPI."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "doStartService",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can \ndetermine how to process API. We recommend that you delete code related to this \nAPI."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "onReceive",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/analytics-conversion-0000001050060148#EN-US_TOPIC_0000001050060148__section18901414707",
+      "tipsInfo": "This API is currently unsupported by HMS Core. It still can be used in the scenario where GMS APIs are preferred. For details, please refer to the manual conversion guide."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": ""
+}

@@ -1,0 +1,55 @@
+package ${X_PACKAGE};
+
+public abstract class XEnum<E extends XEnum<E>> extends XObject implements Comparable<E> {
+    public XEnum(org.xms.g.utils.XBox hInst) {
+        super(hInst);
+    }
+
+    public final String name() {
+        return ((Enum) getHInstance()).name();
+    }
+
+    public final int ordinal() {
+        return ((Enum) getHInstance()).ordinal();
+    }
+
+    public final boolean equals(Object other) {
+        if (!(other instanceof XEnum)) {
+            return false;
+        }
+        return this.getHInstance() == ((XEnum) other).getHInstance();
+    }
+
+    public final int hashCode() {
+        return getHInstance().hashCode();
+    }
+
+    public String toString() {
+        return getHInstance().toString();
+    }
+
+    @Override
+    public final void setHInstance(Object hInst) {
+        throw new RuntimeException("");
+    }
+
+    public final int compareTo(E o) {
+        XEnum<?> other = o;
+        XEnum<E> self = this;
+        if (self.getClass() != other.getClass() && self.getDeclaringClass() != other.getDeclaringClass()) {
+            throw new ClassCastException();
+        }
+        return self.ordinal() - other.ordinal();
+    }
+
+    @SuppressWarnings("unchecked")
+    public final Class<E> getDeclaringClass() {
+        Class<?> clazz = getClass();
+        Class<?> zuper = clazz.getSuperclass();
+        return (zuper == Enum.class) ? (Class<E>) clazz : (Class<E>) zuper;
+    }
+
+    public static <T extends Enum<T>> T valueOf(Class<T> enumType, String name) {
+        return java.lang.Enum.valueOf(enumType, name);
+    }
+}

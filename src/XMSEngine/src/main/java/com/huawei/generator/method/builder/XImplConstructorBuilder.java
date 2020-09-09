@@ -16,8 +16,6 @@
 
 package com.huawei.generator.method.builder;
 
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
-
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.custom.XWrapperConstructorNode;
@@ -26,6 +24,7 @@ import com.huawei.generator.json.JMapping;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.method.gen.BodyGenerator;
 import com.huawei.generator.method.gen.WrapperConstructorGenerator;
+import com.huawei.generator.exception.UnExpectedProcessException;
 import com.huawei.generator.utils.XMSUtils;
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ import java.util.Collections;
 /**
  * Builder for XImpl Constructor
  *
- * @since 2020-04-02
+ * @since 2019-12-02
  */
 public class XImplConstructorBuilder extends AbstractMethodBuilder {
     private XImplConstructorBuilder(MethodGeneratorFactory factory) {
@@ -53,11 +52,12 @@ public class XImplConstructorBuilder extends AbstractMethodBuilder {
         wrapperConstructor.setBody(new ArrayList<>());
         BodyGenerator generator = new WrapperConstructorGenerator.CallSuperXBoxGenerator(wrapperConstructor);
         wrapperConstructor.body().getStatements().addAll(generator.generate());
+        factory.createMethodDoc(wrapperConstructor);
         return wrapperConstructor;
     }
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode, JMapping mapping) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 }

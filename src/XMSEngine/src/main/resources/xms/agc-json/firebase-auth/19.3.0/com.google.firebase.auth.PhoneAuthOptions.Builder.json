@@ -1,0 +1,232 @@
+{
+  "gName": "com.google.firebase.auth.PhoneAuthOptions.Builder",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.FirebaseAuth"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setPhoneNumber",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setMultiFactorHint",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.PhoneMultiFactorInfo"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setTimeout",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.Long"
+          },
+          {
+            "pos": "1",
+            "type": "java.util.concurrent.TimeUnit"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setCallbacks",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setActivity",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setExecutor",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.concurrent.Executor"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setForceResendingToken",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setMultiFactorSession",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.MultiFactorSession"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "requireSmsValidation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.PhoneAuthOptions"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": ""
+}

@@ -1,5 +1,13 @@
 package ${X_PACKAGE};
 
+/**
+ * interface for XGettable
+ */
 public interface XGettable extends XInterface {
+    /**
+     * org.xms.g.utils.XGettable.getZInstance() get hms or gms instance.<br/>
+     *
+     * @return hms or gms object
+     */
     Object getZInstance();
 }

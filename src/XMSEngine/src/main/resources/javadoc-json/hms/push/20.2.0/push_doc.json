@@ -1,0 +1,712 @@
+{
+  "com.huawei.hms.push.RemoteMessage.Notification": {
+    "classDes": "An internal class of the RemoteMessage class that indicates the notification message.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-notification-0000001050255662-V5",
+    "methods": {
+      "com.huawei.hms.push.RemoteMessage.Notification.getBodyLocalizationKey()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getBodyLocalizationKey",
+        "methodDes": "This method is used to obtain the key of the localized content of a notification message for message display localization.",
+        "params": {},
+        "returns": "java.lang.String:this is string",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getImageUrl()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getImageUrl",
+        "methodDes": "This method is used to obtain the URL of an image in a message.",
+        "params": {},
+        "returns": "android.net.Uri:Image URL set by the developer. If no URL is set, null is returned",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.isDefaultVibrate()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#isDefaultVibrate",
+        "methodDes": "This method is used to check whether a notification message uses the default vibration mode. For details, please refer to the description of use_default_vibrate in the AndroidNotification structure in Sending Messages.",
+        "params": {},
+        "returns": "boolean:Value true or false",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.isAutoCancel()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#isAutoCancel",
+        "methodDes": "This method is used to check whether a notification message is sticky.",
+        "params": {},
+        "returns": "boolean:Value true or false",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getBody()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getBody",
+        "methodDes": "This method is used to obtain the displayed content of a message.",
+        "params": {},
+        "returns": "java.lang.String:this is string",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getColor()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getColor",
+        "methodDes": "his method is used to obtain the colors (in #RRGGBB format) of icons in a message.",
+        "params": {},
+        "returns": "java.lang.String:Colors of icons in a message",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.isDefaultLight()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#isDefaultLight",
+        "methodDes": "This method is used to check whether a notification message uses the default notification light settings.",
+        "params": {},
+        "returns": "boolean:Value true or false",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getTitleLocalizationArgs()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getTitleLocalizationArgs",
+        "methodDes": "This method is used to obtain variable string values in the localized title of a notification message.",
+        "params": {},
+        "returns": "java.lang.String[]:this is string",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getIcon()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getIcon",
+        "methodDes": "This method is used to obtain the image resource name of a notification icon. On an Android device, all icon files are stored in the /res/raw/** directory of the app.",
+        "params": {},
+        "returns": "java.lang.String:Icon resource file name, for example, /raw/ic_launcher, corresponding to the local file /res/raw/ic_launcher.png",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getTicker()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getTicker",
+        "methodDes": "This method is used to obtain the text to be displayed on the status bar for a notification message.",
+        "params": {},
+        "returns": "java.lang.String:this is string",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getChannelId()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getChannelId",
+        "methodDes": "This method is used to obtain IDs of channels that support the display of a message. If no channel is set, null is returned.",
+        "params": {},
+        "returns": "java.lang.String:IDs of channels configured locally",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getClickAction()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getClickAction",
+        "methodDes": "This method is used to obtain the action triggered upon notification message tapping.",
+        "params": {},
+        "returns": "java.lang.String:Action triggered upon notification message tapping. The action returned must be the same as the action declared in the intent-filter tag of Activity defined in AndroidManifest.xml",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getTag()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getTag",
+        "methodDes": "This method is used to obtain the tag from a message for message overwriting. A message will be overwritten by another message with the same tag but is sent later.",
+        "params": {},
+        "returns": "java.lang.String:Message tag",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getSound()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getSound",
+        "methodDes": "This method is used to obtain the name of an audio resource to be played when a notification message is displayed.",
+        "params": {},
+        "returns": "java.lang.String:Audio resource file name, for example, /raw/shake, corresponding to the local file /res/raw/shake.mp3",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getLightSettings()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getLightSettings",
+        "methodDes": "This method is used to obtain the blinking frequency and color of a breathing light.",
+        "params": {},
+        "returns": "int[]:this is int",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getTitleLocalizationKey()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getTitleLocalizationKey",
+        "methodDes": "This method is used to obtain the key of the localized title of a notification message for message display localization.",
+        "params": {},
+        "returns": "java.lang.String:this is string",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getVisibility()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getVisibility",
+        "methodDes": "This method is used to obtain the visibility of a notification message. For details, please refer to the definition of visibility in the AndroidNotification structure.",
+        "params": {},
+        "returns": "java.lang.Integer:this is int",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getImportance()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getImportance",
+        "methodDes": "This method is used to obtain the priority of a notification message.",
+        "params": {},
+        "returns": "java.lang.Integer:this is int",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getLink()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getLink",
+        "methodDes": "This method is used to obtain the deep link from a message. A deep link is a specific URL, such as the URL of a web page or rich media. If no URL is set, null is returned.",
+        "params": {},
+        "returns": "android.net.Uri:URL in a message",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getBodyLocalizationArgs()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getBodyLocalizationArgs",
+        "methodDes": "This method is used to obtain variable string values in the localized content of a message.",
+        "params": {},
+        "returns": "java.lang.String[]:this is string",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getVibrateConfig()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getVibrateConfig",
+        "methodDes": "This method is used to obtain the vibration mode of a message.",
+        "params": {},
+        "returns": "long[]:Array consisting of at most 10 elements, with each in milliseconds",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.isDefaultSound()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#isDefaultSound",
+        "methodDes": "his method is used to check whether a notification message uses the default sound.",
+        "params": {},
+        "returns": "boolean:Value true or false",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getBadgeNumber()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getBadgeNumber",
+        "methodDes": "This method is used to obtain the number of notification messages.",
+        "params": {},
+        "returns": "java.lang.Integer:this is int",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getWhen()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getWhen",
+        "methodDes": "This method is used to obtain the time (in milliseconds) when an event occurs from a notification message. Developers can sort notification messages by this time.",
+        "params": {},
+        "returns": "java.lang.Long:this is long",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Notification.getTitle()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Notification-cls#getTitle",
+        "methodDes": "This method is used to obtain the title of a message.",
+        "params": {},
+        "returns": "java.lang.String:this is title",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.push.RemoteMessage": {
+    "classDes": "A message entity class. An app calls the onMessageReceived(RemoteMessage) method in HmsMessageService to receive messages pushed by the server and calls the send(RemoteMessage) method in HmsMessaging to send uplink messages.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-0000001050171874-V5",
+    "methods": {
+      "com.huawei.hms.push.RemoteMessage.getUrgency()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#getUrgency",
+        "methodDes": "Obtains the message priority set on the HUAWEI Push Kit server.",
+        "params": {},
+        "returns": "int:Message priority. For details, please refer to the definition in Constants of the RemoteMessage class",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.getMessageId()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#getMessageId",
+        "methodDes": "Obtains the ID of a message.",
+        "params": {},
+        "returns": "java.lang.String:Message ID",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.getCollapseKey()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#getCollapseKey",
+        "methodDes": "Obtains the classification identifier (collapse key) of a message.",
+        "params": {},
+        "returns": "java.lang.String:Message classification identifier",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.getDataOfMap()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#getDataOfMap",
+        "methodDes": "Obtains the payload of a Map message.",
+        "params": {},
+        "returns": "java.util.Map<java.lang.String, java.lang.String>:If data is set to 123 in the message sent, the getData() method returns \"123\" and this method returns null",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.getOriginalUrgency()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#getOriginalUrgency",
+        "methodDes": "Obtains the message priority set by the app.",
+        "params": {},
+        "returns": "int:Message priority. For details, please refer to the definition in Constants of the RemoteMessage class",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.getTo()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#getTo",
+        "methodDes": "Obtains the recipient of a message.",
+        "params": {},
+        "returns": "java.lang.String:Message recipient",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.getNotification()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#getNotification",
+        "methodDes": "Obtains the notification data instance from a message.",
+        "params": {},
+        "returns": "com.huawei.hms.push.RemoteMessage.Notification:Notification message instance or null",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.getFrom()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#getFrom",
+        "methodDes": "Obtains the resource of a message.",
+        "params": {},
+        "returns": "java.lang.String:Message source",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.getMessageType()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#getMessageType",
+        "methodDes": "Obtains the type of a message.",
+        "params": {},
+        "returns": "java.lang.String:Message type set by the developer and transparently transmitted by the SDK",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.getTtl()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#getTtl",
+        "methodDes": "Obtains the maximum cache duration of a message.",
+        "params": {},
+        "returns": "int:Maximum cache duration of a message, in seconds",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.getSentTime()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#getSentTime",
+        "methodDes": "Obtains the time when a message is sent from the server.",
+        "params": {},
+        "returns": "long:Number of milliseconds from 00:00:00 on January 1, 1970 to the time when a message is sent from the server",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "",
+        "methodDes": "",
+        "params": {
+          "dest": "",
+          "flags": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.hms.push.RemoteMessage.PRIORITY_UNKNOWN": {
+        "des": "Unknown priority.",
+        "value": "0",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#h1-1576070229534"
+      },
+      "com.huawei.hms.push.RemoteMessage.PRIORITY_NORMAL": {
+        "des": "High priority.",
+        "value": "2",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#h1-1576070229534"
+      },
+      "com.huawei.hms.push.RemoteMessage.PRIORITY_HIGH": {
+        "des": "Normal priority.",
+        "value": "1",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-RemoteMessage-cls#h1-1576070229534"
+      },
+      "com.huawei.hms.push.RemoteMessage.CREATOR": {
+        "des": "",
+        "value": "",
+        "url": ""
+      }
+    }
+  },
+  "com.huawei.hms.push.SendException": {
+    "classDes": "Hms message send exception.",
+    "classUrl": "",
+    "methods": {
+      "com.huawei.hms.push.SendException.getErrorCode()": {
+        "methodUrl": "",
+        "methodDes": "",
+        "params": {},
+        "returns": "int:",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.hms.push.SendException.ERROR_INVALID_PARAMETERS": {
+        "des": "",
+        "value": "",
+        "url": ""
+      },
+      "com.huawei.hms.push.SendException.ERROR_SIZE": {
+        "des": "",
+        "value": "",
+        "url": ""
+      },
+      "com.huawei.hms.push.SendException.ERROR_TOO_MANY_MESSAGES": {
+        "des": "",
+        "value": "",
+        "url": ""
+      },
+      "com.huawei.hms.push.SendException.ERROR_TTL_EXCEEDED": {
+        "des": "",
+        "value": "",
+        "url": ""
+      },
+      "com.huawei.hms.push.SendException.ERROR_UNKNOWN": {
+        "des": "",
+        "value": "",
+        "url": ""
+      }
+    }
+  },
+  "com.huawei.hms.aaid.entity.AAIDResult": {
+    "classDes": "Bears and returns AAIDs obtained through the getAAID() method in HmsInstanceId You can call the getId() method in the AAIDResult class to obtain an AAID.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/aaidresult-0000001050255642-V5",
+    "methods": {
+      "com.huawei.hms.aaid.entity.AAIDResult.getId()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-aaidresult-cls#getId",
+        "methodDes": "Obtains the AAID of an app.",
+        "params": {},
+        "returns": "java.lang.String:AAID of an app",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.push.HmsMessaging": {
+    "classDes": "A class that provides methods for subscribing to topics and enables or disables the function of receiving notification messages.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hmsmessaging-0000001050255650-V5",
+    "methods": {
+      "com.huawei.hms.push.HmsMessaging.isAutoInitEnabled()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessaging-cls#isAutoInitEnabled",
+        "methodDes": "Checks whether automatic initialization is enabled.",
+        "params": {},
+        "returns": "boolean:Boolean value. The value true indicates that automatic initialization is enabled and false indicates that automatic initialization is not enabled",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.HmsMessaging.subscribe(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessaging-cls#subscribe",
+        "methodDes": "Subscribes to topics in asynchronous mode.",
+        "params": {
+          "topic": "Topic to be subscribed to"
+        },
+        "returns": "com.huawei.hmf.tasks.Task<java.lang.Void>:You need to add a listener to listen to the operation result",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.HmsMessaging.unsubscribe(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessaging-cls#unsubscribe",
+        "methodDes": "Unsubscribes from topics in asynchronous mode.",
+        "params": {
+          "topic": "Name of a topic to be unsubscribed from"
+        },
+        "returns": "com.huawei.hmf.tasks.Task<java.lang.Void>:You need to add a listener to listen to the operation result",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.HmsMessaging.setAutoInitEnabled(boolean)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessaging-cls#setAutoInitEnabled",
+        "methodDes": "Determines whether to enable automatic initialization.",
+        "params": {
+          "enable": "Indicates whether to enable automatic initialization. The value true indicates yes and false indicates no"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.HmsMessaging.send(com.huawei.hms.push.RemoteMessage)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessaging-cls#send",
+        "methodDes": "Sends upstream messages in asynchronous mode.",
+        "params": {
+          "message": "Message to be sent"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.HmsMessaging.getInstance(android.content.Context)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessaging-cls#getInstance",
+        "methodDes": "Obtains the instance.",
+        "params": {
+          "context": "App context"
+        },
+        "returns": "com.huawei.hms.push.HmsMessaging:this is Instance",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.huawei.hms.push.HmsMessaging.DEFAULT_TOKEN_SCOPE": {
+        "des": "Default value of the scope parameter when the HmsInstanceId.getToken(String appid, String scope) method is called to obtain a registration token.",
+        "value": "HCM",
+        "url": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsMessaging-cls#DEFAULT_TOKEN_SCOPE"
+      }
+    }
+  },
+  "com.huawei.hms.aaid.HmsInstanceId": {
+    "classDes": "Provides methods for obtaining the AAID of an app and obtaining tokens required for accessing HUAWEI Push Kit.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/hms-instanceid-0000001050255634-V5",
+    "methods": {
+      "com.huawei.hms.aaid.HmsInstanceId.getAAID()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsInstanceId-cls#getAAID",
+        "methodDes": "Obtains an AAID in asynchronous mode.",
+        "params": {},
+        "returns": "com.huawei.hmf.tasks.Task<com.huawei.hms.aaid.entity.AAIDResult>:You need to add a listener to listen to the operation result. If the operation is successful, you can obtain the AAID using the AAIDResult.getId() method",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.aaid.HmsInstanceId.getId()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsInstanceId-cls#getId",
+        "methodDes": "Obtains an AAID in synchronous mode.",
+        "params": {},
+        "returns": "java.lang.String:AAID of an app",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.aaid.HmsInstanceId.getInstance(android.content.Context)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsInstanceId-cls#getInstance",
+        "methodDes": "Obtains the instance of the HmsInstanceId class.",
+        "params": {
+          "context": "App context"
+        },
+        "returns": "com.huawei.hms.aaid.HmsInstanceId:this is Instance",
+        "Exceptions": {
+          "java.lang.NullPointerException": "Exception that occurs when an input parameter is an empty reference"
+        }
+      },
+      "com.huawei.hms.aaid.HmsInstanceId.deleteAAID()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsInstanceId-cls#deleteAAID",
+        "methodDes": "Deletes a local AAID and its generation timestamp.",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {
+          "java.lang.ApiException": "All exceptions that occur when this method fails to be called are thrown through the ApiException class. You can obtain exception information using the methods provided by the ApiException class"
+        }
+      },
+      "com.huawei.hms.aaid.HmsInstanceId.deleteToken(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsInstanceId-cls#deleteToken",
+        "methodDes": "Deletes a token.",
+        "params": {
+          "appId": "App ID allocated when an app is created in AppGallery Connect",
+          "scope": "Authorization scope"
+        },
+        "returns": "void",
+        "Exceptions": {
+          "java.lang.ApiException": "All exceptions that occur when this method fails to be called are thrown through the ApiException class"
+        }
+      },
+      "com.huawei.hms.aaid.HmsInstanceId.getCreationTime()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsInstanceId-cls#getCreationTime",
+        "methodDes": "Obtains the generation timestamp of an AAID.",
+        "params": {},
+        "returns": "long:Timestamp, which is the number of milliseconds from 00:00:00 on January 1, 1970 to the AAID generation time",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.aaid.HmsInstanceId.getToken()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsInstanceId-cls#getToken_d",
+        "methodDes": "Obtains a token. This method is not recommended. You are advised to use the getToken(String appId, String scope) method to obtain tokens.",
+        "params": {},
+        "returns": "java.lang.String:Token required for accessing HUAWEI Push Kit",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.aaid.HmsInstanceId.getToken(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-HmsInstanceId-cls#getToken",
+        "methodDes": "Obtains a token required for accessing HUAWEI Push Kit.",
+        "params": {
+          "appId": "App ID allocated when an app is created in AppGallery Connect",
+          "scope": "Authorization scope"
+        },
+        "returns": "java.lang.String:Token required for accessing HUAWEI Push Kit",
+        "Exceptions": {
+          "java.lang.ApiException": "All exceptions that occur when this method fails to be called are thrown through the ApiException class"
+        }
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.push.RemoteMessage.Builder": {
+    "classDes": "Constructs a RemoteMessage instance.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/remotemessage-builder-0000001050413831-V5",
+    "methods": {
+      "com.huawei.hms.push.RemoteMessage.Builder.setCollapseKey(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Builder-cls#setCollapseKey",
+        "methodDes": "Sets the classification identifier of a message.",
+        "params": {
+          "collapseKey": "If you set collapse_key to -1, all offline messages of the app are sent to the device.If you set collapse_key to 0, offline messages of the app sent to the device are determined by the default policy of HUAWEI Push"
+        },
+        "returns": "com.huawei.hms.push.RemoteMessage.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Builder.addData(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Builder-cls#addData",
+        "methodDes": "This method is used to add key-value pair data to a message.",
+        "params": {
+          "key": "Key in a key-value pair, for example, name",
+          "value": "Value in a key-value pair, for example, ZhangSan"
+        },
+        "returns": "com.huawei.hms.push.RemoteMessage.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Builder.setMessageId(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Builder-cls#setMessageId",
+        "methodDes": "Sets the ID of a message.",
+        "params": {
+          "messageId":"Message ID, which is generated by an app and is unique for each message  "
+        },
+        "returns": "com.huawei.hms.push.RemoteMessage.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Builder.setTtl(int)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Builder-cls#setTtl",
+        "methodDes": "Sets the maximum cache duration of a message, in seconds.",
+        "params": {
+          "ttl": "Maximum cache duration of an offline message set for HUAWEI Push Kit, in seconds. The duration can be set to 15 days at most"
+        },
+        "returns": "com.huawei.hms.push.RemoteMessage.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Builder.clearData()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Builder-cls#clearData",
+        "methodDes": "Deletes message data.",
+        "params": {},
+        "returns": "com.huawei.hms.push.RemoteMessage.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Builder.setData(java.util.Map\u003cjava.lang.String,java.lang.String\u003e)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Builder-cls#setData",
+        "methodDes": "Sets Map data to a message.",
+        "params": {
+          "map": "Map data provided by Java"
+        },
+        "returns": "com.huawei.hms.push.RemoteMessage.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Builder.setMessageType(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Builder-cls#setMessageType",
+        "methodDes": "Sets the type of a message.",
+        "params": {
+          "messageType": "Message type specified by the developer"
+        },
+        "returns": "com.huawei.hms.push.RemoteMessage.Builder:this is Builder",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.RemoteMessage.Builder.build()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-Builder-cls#build",
+        "methodDes": "This method is used to construct a RemoteMessage instance.",
+        "params": {},
+        "returns": "com.huawei.hms.push.RemoteMessage:Returns a RemoteMessage instance",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.push.HmsMessageService": {
+    "classDes": "Basic class of HUAWEI Push Kit for receiving downlink messages or updated tokens.",
+    "classUrl": "https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/hmsmessageservice-0000001050173839-V5",
+    "methods": {
+      "com.huawei.hms.push.HmsMessageService.onMessageReceived(com.huawei.hms.push.RemoteMessage)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hmsmessageservice-0000001050173839-V5#EN-US_TOPIC_0000001050173839__section2394629102116",
+        "methodDes": "Receives data messages pushed by the app server.",
+        "params": {
+          "message": "Message"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.HmsMessageService.HmsMessageService()": {
+        "methodUrl": "",
+        "methodDes": "Constructor of HmsMessageService.",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.HmsMessageService.onDeletedMessages()": {
+        "methodUrl": "",
+        "methodDes": "Called when the Cloud Messaging server deletes pending messages.",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.HmsMessageService.onMessageSent(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hmsmessageservice-0000001050173839-V5#EN-US_TOPIC_0000001050173839__section172125618218",
+        "methodDes": "Called after an uplink message is successfully sent.",
+        "params": {
+          "msgId": "Message ID"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.HmsMessageService.onSendError(java.lang.String,java.lang.Exception)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hmsmessageservice-0000001050173839-V5#EN-US_TOPIC_0000001050173839__section63844313230",
+        "methodDes": "Called after an uplink message fails to be sent.",
+        "params": {
+          "msgId": "Message ID",
+          "exception": "Exception of the BaseException type, including the error code obtained by getErrorCode() and the description obtained by getMessage()"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.HmsMessageService.onNewToken(java.lang.String)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hmsmessageservice-0000001050173839-V5#EN-US_TOPIC_0000001050173839__section814414561477",
+        "methodDes": "The app calls the getToken method in HmsInstanceId to apply for a token from the server.",
+        "params": {
+          "token": "Token returned by the HMS Core Push SDK."
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.HmsMessageService.onDestroy()": {
+        "methodUrl": "",
+        "methodDes": "Called by the system to notify a Service that it is no longer used and is being removed.",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.HmsMessageService.onBind(android.content.Intent)": {
+        "methodUrl": "",
+        "methodDes": "",
+        "params": {
+          "intent": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.push.BaseException": {
+    "classDes": "Exception class of Push SDK.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-baseexception",
+    "methods": {
+      "com.huawei.hms.push.BaseException.getErrorCode()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-baseexception#getErrorCode",
+        "methodDes": "Obtains a result code.",
+        "params": {},
+        "returns": "int:Result code. For the definition of result codes, please refer to ErrorEnum",
+        "Exceptions": {}
+      },
+      "com.huawei.hms.push.BaseException.getMessage()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMS-References/push-baseexception#getMessage",
+        "methodDes": "Obtains error description.",
+        "params": {},
+        "returns": "java.lang.String:",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.opendevice.OpenDeviceClient": {
+    "classDes": "Provides the method of obtaining an ODID.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References/opendeviceclient-0000001050831617-V5",
+    "methods": {
+      "com.huawei.hms.opendevice.OpenDeviceClient.getOdid()":{
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References/opendeviceclient-0000001050831617-V5#EN-US_TOPIC_0000001050831617__section1788692510237",
+        "methodDes": "Obtains an ODID in asynchronous mode.",
+        "params": {},
+        "returns": "com.huawei.hmf.tasks.Task<com.huawei.hms.support.api.opendevice.OdidResult>:An instance of the Task<OdidResult> type",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.support.api.opendevice.OdidResult": {
+    "classDes": "Entity class, which is used to carry and return the ODID obtained in asynchronous mode.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/odidresult-0000001050831619-V5",
+    "methods": {
+      "com.huawei.hms.support.api.opendevice.OdidResult.getId()": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/odidresult-0000001050831619-V5#EN-US_TOPIC_0000001050831619__section1788692510237",
+        "methodDes": "Obtains an ODID.",
+        "params": {},
+        "returns": "java.lang.String:An ODID",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.huawei.hms.opendevice.OpenDevice": {
+    "classDes": "Provides the method of obtaining the instance of the OpenDeviceClient implementation class.",
+    "classUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References/opendevice-cls-0000001051071661-V5",
+    "methods": {
+      "com.huawei.hms.opendevice.OpenDevice.getOpenDeviceClient(android.content.Context)": {
+        "methodUrl": "https://developer.huawei.com/consumer/en/doc/HMSCore-References/opendevice-cls-0000001051071661-V5#EN-US_TOPIC_0000001051071661__section3617929104119",
+        "methodDes": "Obtains the instance of the OpenDeviceClient implementation class.",
+        "params": {
+          "context": "Context of the app"
+        },
+        "returns": "com.huawei.hms.opendevice.OpenDeviceClient:An instance of the OpenDeviceClient implementation class",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  }
+}

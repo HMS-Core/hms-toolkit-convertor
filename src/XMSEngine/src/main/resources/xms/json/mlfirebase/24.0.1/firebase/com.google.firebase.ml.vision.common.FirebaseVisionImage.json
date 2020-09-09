@@ -1,0 +1,238 @@
+{
+  "gName": "com.google.firebase.ml.vision.common.FirebaseVisionImage",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromBitmap",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.graphics.Bitmap"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.common.FirebaseVisionImage"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromBitmap",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.graphics.Bitmap"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.common.MLFrame"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromByteArray",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.ml.vision.common.FirebaseVisionImageMetadata"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.common.FirebaseVisionImage"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromByteArray",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "byte[]"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.mlsdk.common.MLFrame.Property"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.common.MLFrame"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromByteBuffer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.nio.ByteBuffer"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.ml.vision.common.FirebaseVisionImageMetadata"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.common.FirebaseVisionImage"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromByteBuffer",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.nio.ByteBuffer"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.mlsdk.common.MLFrame.Property"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.common.MLFrame"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromFilePath",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.common.FirebaseVisionImage"
+      },
+      "h": {
+        "exceptions": [
+          "java.io.IOException"
+        ],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromFilePath",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.common.MLFrame"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromMediaImage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.media.Image"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.firebase.ml.vision.common.FirebaseVisionImage"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "fromMediaImage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.media.Image"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.common.MLFrame"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBitmap",
+        "paramTypes": [],
+        "retType": "android.graphics.Bitmap"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "readBitmap",
+        "paramTypes": [],
+        "retType": "android.graphics.Bitmap"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.common.MLFrame"
+}

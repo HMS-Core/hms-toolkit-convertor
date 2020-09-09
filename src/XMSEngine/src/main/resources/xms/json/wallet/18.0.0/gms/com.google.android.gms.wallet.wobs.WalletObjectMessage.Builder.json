@@ -1,0 +1,154 @@
+{
+  "gName": "com.google.android.gms.wallet.wobs.WalletObjectMessage.Builder",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.wallet.wobs.WalletObjectMessage"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/wallet-conversion-0000001050062275#EN-US_TOPIC_0000001050062275__section73041948162011",
+      "tipsInfo": "For details, please refer to the Manual Conversion Guide."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setActionUri",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.wobs.UriData"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.wobs.WalletObjectMessage.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setBody",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.wobs.WalletObjectMessage.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setValue",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hms.wallet.pass.AppendField.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setDisplayInterval",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.wobs.TimeInterval"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.wobs.WalletObjectMessage.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setHeader",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.wobs.WalletObjectMessage.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setLabel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.hms.wallet.pass.AppendField.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setImageUri",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.wallet.wobs.UriData"
+          }
+        ],
+        "retType": "com.google.android.gms.wallet.wobs.WalletObjectMessage.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently. You can determine how to process API. We recommend that you delete code related to this API."
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.wallet.pass.AppendField.Builder"
+}

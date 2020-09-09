@@ -17,7 +17,7 @@
 package com.huawei.generator.ast;
 
 /**
- * DeclareNode class
+ * Declare Node
  *
  * @since 2019-11-12
  */

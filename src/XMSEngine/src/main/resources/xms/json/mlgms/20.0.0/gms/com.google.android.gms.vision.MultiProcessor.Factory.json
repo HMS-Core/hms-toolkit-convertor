@@ -1,0 +1,44 @@
+{
+  "gName": "com.google.android.gms.vision.MultiProcessor.Factory<T>",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "create",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "T"
+          }
+        ],
+        "retType": "com.google.android.gms.vision.Tracker<T>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "create",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "T"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.common.MLResultTrailer<T>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [],
+  "type": "interface",
+  "hName": "com.huawei.hms.mlsdk.common.MLCompositeTransactor.TrailerFactory<T>"
+}

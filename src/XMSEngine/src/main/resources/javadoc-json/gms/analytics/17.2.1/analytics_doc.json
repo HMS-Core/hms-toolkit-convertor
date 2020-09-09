@@ -1,0 +1,2478 @@
+{
+  "com.google.android.gms.analytics.StandardExceptionParser": {
+    "classDes": "This class will capture the root cause (last in a chain of causes) Throwable and report the exception type, class name, method name and thread name. This class will attempt to report a class and method name that is relevant to the application if at all possible. It does this by finding the root cause Throwable, then checking each StackTraceElement for a class that is in a package list created by setIncludedPackages(Context, Collection), starting with the first StackTraceElement. The String returned by getDescription(String, Throwable) will take the form Exception class(@classname:methodname){threadname}. See getBestStackTraceElement(Throwable) and setIncludedPackages(Context, Collection) for details.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/StandardExceptionParser",
+    "methods": {
+      "com.google.android.gms.analytics.StandardExceptionParser.setIncludedPackages(android.content.Context,java.util.Collection<java.lang.String>)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/StandardExceptionParser#setIncludedPackages(android.content.Context, java.util.Collection<java.lang.String>)",
+        "methodDes": "Sets the list of packages considered relevant to the list of packages in the Context and the list of packages provided in the input parameter additionalPackages. Either parameter can be null. Any package names stored from a previous call to this method will be cleared.",
+        "params": {
+          "context": "any Context for the application",
+          "additionalPackages": "a collection of additional package names to add"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.StandardExceptionParser.StandardExceptionParser(android.content.Context,java.util.Collection<java.lang.String>)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/StandardExceptionParser#StandardExceptionParser(android.content.Context, java.util.Collection<java.lang.String>)",
+        "methodDes": "",
+        "params": {
+          "context": "",
+          "additionalPackages": ""
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.StandardExceptionParser.getCause(java.lang.Throwable)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/StandardExceptionParser#getCause(java.lang.Throwable)",
+        "methodDes": "Get the root cause of the input Throwable. This method chains through each cause of the original input and returns the last cause in the chain.",
+        "params": {
+          "t": "the initial Throwable"
+        },
+        "returns": "java.lang.Throwable: the root cause",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.StandardExceptionParser.getDescription(java.lang.String,java.lang.Throwable)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ExceptionParser#getDescription(java.lang.String, java.lang.Throwable)",
+        "methodDes": "Return a short description of a Throwable suitable for reporting to Google Analytics.",
+        "params": {
+          "threadName": "the name of the Thread that got the exception, or null",
+          "t": "the Throwable"
+        },
+        "returns": "java.lang.String: a String describing the Throwable and the name of the Class and method where the Throwable happened",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.StandardExceptionParser.getDescription(java.lang.Throwable,java.lang.StackTraceElement,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/StandardExceptionParser#getDescription(java.lang.Throwable, java.lang.StackTraceElement, java.lang.String)",
+        "methodDes": "Given input of a Throwable, a StackTraceElement and the name of the Thread, return a String describing the Throwable and the name of the Class and method where the Throwable happened. The String returned will also have the name of the thread appended (as provided in the input parameter threadName).",
+        "params": {
+          "cause": "",
+          "element": "",
+          "threadName": ""
+        },
+        "returns": "java.lang.String: the description",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.StandardExceptionParser.getBestStackTraceElement(java.lang.Throwable)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/StandardExceptionParser#getBestStackTraceElement(java.lang.Throwable)",
+        "methodDes": "Return the first StackTraceElement found that has a className in any packageName found in includedPackages. If none have a className in any packageName found in includedPackages, return the first StackTraceElement found. If the Throwable does not contain any StackTraceElements, return null.",
+        "params": {
+          "t": ""
+        },
+        "returns": "java.lang.StackTraceElement: the first StackTraceElement found that has a className in any packageName found in includedPackages",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.ExceptionReporter": {
+    "classDes": "Used to catch any uncaught exceptions and report them to Google Analytics. This class will call dispatchLocalHits() after calling send(Map).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ExceptionReporter",
+    "methods": {
+      "com.google.android.gms.analytics.ExceptionReporter.getExceptionParser()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ExceptionReporter#getExceptionParser()",
+        "methodDes": "",
+        "params": {},
+        "returns": "com.google.android.gms.analytics.ExceptionParser: the ExceptionParser instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ExceptionReporter.ExceptionReporter(com.google.android.gms.analytics.Tracker,java.lang.Thread.UncaughtExceptionHandler,android.content.Context)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ExceptionReporter#ExceptionReporter(com.google.android.gms.analytics.Tracker, java.lang.Thread.UncaughtExceptionHandler, android.content.Context)",
+        "methodDes": "Constructor of ExceptionReporter.",
+        "params": {
+          "tracker": "an active Tracker instance. Should not be null",
+          "originalHandler": "the current DefaultUncaughtExceptionHandler",
+          "context": "the current app context. Should not be null"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ExceptionReporter.setExceptionParser(com.google.android.gms.analytics.ExceptionParser)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ExceptionReporter#setExceptionParser(com.google.android.gms.analytics.ExceptionParser)",
+        "methodDes": "",
+        "params": {
+          "exceptionParser": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ExceptionReporter.uncaughtException(java.lang.Thread,java.lang.Throwable)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ExceptionReporter#uncaughtException(java.lang.Thread, java.lang.Throwable)",
+        "methodDes": "",
+        "params": {
+          "t": "",
+          "e": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.AnalyticsReceiver": {
+    "classDes": "A BroadcastReceiver used by Google Analytics. It will only be used when the receiver is correctly declared in AndroidManifest.xml and enabled.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/AnalyticsReceiver",
+    "methods": {
+      "com.google.android.gms.analytics.AnalyticsReceiver.onReceive(android.content.Context,android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/AnalyticsReceiver#onReceive(android.content.Context, android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "context": "",
+          "intent": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.AnalyticsReceiver.AnalyticsReceiver()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/AnalyticsReceiver#AnalyticsReceiver()",
+        "methodDes": "Constructor of AnalyticsReceiver.",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.CampaignTrackingReceiver": {
+    "classDes": "Google Analytics receiver for com.android.vending.INSTALL_REFERRER. Google Play will broadcast the intent when an app is installed from the Google Play Store and has campaign data available (i.e. the app was installed from a link to the Google Play Store). This BroadcastReceiver registers for that Intent and passes the campaign data to Google Analytics. To enable installation campaign reporting register CampaignTrackingReceiver in your AndroidManifest.xml file: <manifest> <application> <!-- ... --> <receiver android:name=com.google.android.gms.analytics.CampaignTrackingReceiver android:enabled=true> <intent-filter> <action android:name=com.android.vending.INSTALL_REFERRER /> </intent-filter> </receiver> <!-- ... --> </application> </manifest> Only one receiver can receive the install referrer setting. If Google Tag Manager is being used by the application, then only the Google Tag Manager receiver needs to be enabled. The Google Tag Manager receiver will invoke the Google Analytics receiver automatically.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/CampaignTrackingReceiver",
+    "methods": {
+      "com.google.android.gms.analytics.CampaignTrackingReceiver.CampaignTrackingReceiver()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/CampaignTrackingReceiver#CampaignTrackingReceiver()",
+        "methodDes": "Constructors of CampaignTrackingReceiver.",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.CampaignTrackingReceiver.onReceive(android.content.Context,android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/CampaignTrackingReceiver#onReceive(android.content.Context, android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "context": "",
+          "intent": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.HitBuilders.TimingBuilder": {
+    "classDes": "Hit builder used to collect timing related data. For example, this hit type can be useful to measure resource load times. For meaningful data, at least the category and the value should be set before sending the hit.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TimingBuilder",
+    "methods": {
+      "com.google.android.gms.analytics.HitBuilders.TimingBuilder.setVariable(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TimingBuilder#setVariable(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "variable": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.TimingBuilder: a TimingBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.TimingBuilder.setCategory(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TimingBuilder#setCategory(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "category": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.TimingBuilder: a TimingBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.TimingBuilder.setValue(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TimingBuilder#setValue(long)",
+        "methodDes": "",
+        "params": {
+          "value": "A timing value, in milliseconds"
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.TimingBuilder: a TimingBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.TimingBuilder.setLabel(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TimingBuilder#setLabel(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "label": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.TimingBuilder: a TimingBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.TimingBuilder.TimingBuilder(java.lang.String,java.lang.String,long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TimingBuilder#public-hitbuilders.timingbuilder-string-category,-string-variable,-long-value",
+        "methodDes": "Convenience constructor for creating a timing hit. Additional fields can be specified using the setter methods.",
+        "params": {
+          "category": "The type of variable being measured. Example: AssetLoader",
+          "variable": "The variable being measured. Example: AssetLoader.load",
+          "value": "The value associated with the variable. Example: 1000"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.TimingBuilder.TimingBuilder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TimingBuilder#public-hitbuilders.timingbuilder",
+        "methodDes": "Convenience constructor for creating a timing hit.",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.measurement.AppMeasurementContentProvider": {
+    "classDes": "This class is deprecated. Replaced by com.google.firebase.provider.FirebaseInitProvider.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementContentProvider",
+    "methods": {
+      "com.google.android.gms.measurement.AppMeasurementContentProvider.insert(android.net.Uri,android.content.ContentValues)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementContentProvider#insert(android.net.Uri, android.content.ContentValues)",
+        "methodDes": "",
+        "params": {
+          "uri": "",
+          "values": ""
+        },
+        "returns": "android.net.Uri: The URI for the newly inserted item. This value may be null",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementContentProvider.query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementContentProvider#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "uri": "",
+          "projection": "",
+          "selection": "",
+          "selectionArgs": "",
+          "sortOrder": ""
+        },
+        "returns": "android.database.Cursor: a Cursor or null",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementContentProvider.delete(android.net.Uri,java.lang.String,java.lang.String[])": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementContentProvider#delete(android.net.Uri, java.lang.String, java.lang.String[])",
+        "methodDes": "",
+        "params": {
+          "uri": "",
+          "selection": "",
+          "selectionArgs": ""
+        },
+        "returns": "int: The number of rows affected",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementContentProvider.update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[])": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementContentProvider#update(android.net.Uri, android.content.ContentValues, java.lang.String, java.lang.String[])",
+        "methodDes": "",
+        "params": {
+          "uri": "",
+          "values": "",
+          "selection": "",
+          "selectionArgs": ""
+        },
+        "returns": "int: the number of rows affected",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementContentProvider.getType(android.net.Uri)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementContentProvider#getType(android.net.Uri)",
+        "methodDes": "",
+        "params": {
+          "uri": ""
+        },
+        "returns": "java.lang.String: the Type",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementContentProvider.onCreate()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementContentProvider#onCreate()",
+        "methodDes": "",
+        "params": {},
+        "returns": "boolean: true if the provider was successfully loaded, false otherwise",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementContentProvider.AppMeasurementContentProvider()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementContentProvider#AppMeasurementContentProvider()",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementContentProvider.attachInfo(android.content.Context,android.content.pm.ProviderInfo)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementContentProvider#attachInfo(android.content.Context, android.content.pm.ProviderInfo)",
+        "methodDes": "",
+        "params": {
+          "context": "",
+          "info": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.Tracker": {
+    "classDes": "Composes and sends hits to Google Analytics. You can get an instance of this class by calling newTracker(int).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker",
+    "methods": {
+      "com.google.android.gms.analytics.Tracker.setReferrer(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setReferrer(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "referrer": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.set(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#set(java.lang.String, java.lang.String)",
+        "methodDes": "Sets the model value for the given key. All subsequent track or send calls will send this key-value pair along as well. To remove a particular field, simply set the value to null.",
+        "params": {
+          "key": "The key of the field that needs to be set. It starts with & followed by the parameter name. The complete list of fields can be found at //goo.gl/M6dK2U",
+          "value": "A string value to be sent to Google servers. A null value denotes that the value should not be sent over wire"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setAppInstallerId(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setAppInstallerId(java.lang.String)",
+        "methodDes": "Sets the Installer Id of the App for analytics reports. This value is populated by default using the information provided by the android package manager and the play store.",
+        "params": {
+          "appInstallerId": "String representing the name of the app"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setScreenColors(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setScreenColors(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "screenColors": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.enableAutoActivityTracking(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#enableAutoActivityTracking(boolean)",
+        "methodDes": "Specify whether Activity starts should automatically generate screen views from this Tracker.",
+        "params": {
+          "enabled": "True if screen views should be automatically generated"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setLocation(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setLocation(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "location": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setHostname(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setHostname(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "hostname": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setEncoding(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setEncoding(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "encoding": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setScreenName(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setScreenName(java.lang.String)",
+        "methodDes": "Set the screen name to be associated with all subsequent hits.",
+        "params": {
+          "screenName": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setAnonymizeIp(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setAnonymizeIp(boolean)",
+        "methodDes": "",
+        "params": {
+          "anonymize": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setPage(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setPage(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "page": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setUseSecure(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setUseSecure(boolean)",
+        "methodDes": "Sets whether hits should be sent securely over https. The default value is true.",
+        "params": {
+          "useSecure": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setAppId(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setAppId(java.lang.String)",
+        "methodDes": "Sets the id of the App for analytics reports. This value is populated by default using the information provided by the android package manager. This value is usually the package name used by the app.",
+        "params": {
+          "appId": "String representing the name of the app"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setAppName(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setAppName(java.lang.String)",
+        "methodDes": "Sets the name of the App for analytics reports. This value is populated by default using the information provided by the android package manager.",
+        "params": {
+          "appName": "String representing the name of the app"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setLanguage(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setLanguage(java.lang.String)",
+        "methodDes": "Sets the language based on user's preferred locale. The string should be of the format ll-cc where ll is the language and cc is the country. If no value is provided, the default value from the android SDK is used.",
+        "params": {
+          "language": "string that denotes a particular language/locale"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setTitle(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setTitle(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "title": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.enableExceptionReporting(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#enableExceptionReporting(boolean)",
+        "methodDes": "Enables or disables uncaught exception reporting for a given tracker. This method is equivalent to using 'ga_reportUncaughtExceptions' in the tracker configuration file. Note that as with the configuration setting, only the uncaught exceptions are reported using this method.",
+        "params": {
+          "enable": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.get(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#get(java.lang.String)",
+        "methodDes": "Gets the model value for the given key. Returns null if no model value has been set.",
+        "params": {
+          "key": ""
+        },
+        "returns": "java.lang.String: the model value for the given key",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setCampaignParamsOnNextHit(android.net.Uri)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setCampaignParamsOnNextHit(android.net.Uri)",
+        "methodDes": "Includes the campaign parameters contained in the URI referrer in the next hit. If there is no referrer, or the referrer does not contain campaign parameters, this method does not add anything to the next hit.",
+        "params": {
+          "uri": "the uri containing the referrer"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setAppVersion(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setAppVersion(java.lang.String)",
+        "methodDes": "Sets the version identifier of the App for analytics reports. This value is populated by default using the information provided by the android package manager.",
+        "params": {
+          "appVersion": "String representing the appVersion of the app"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setViewportSize(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setViewportSize(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "viewportSize": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setSessionTimeout(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setSessionTimeout(long)",
+        "methodDes": "Specify the time (in seconds) an app can stay in the background before a new session is started. Setting this to a negative number will result in a new session never being started. Default is 30 seconds.",
+        "params": {
+          "sessionTimeout": "Session timeout time in seconds"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setScreenResolution(int,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setScreenResolution(int, int)",
+        "methodDes": "Sets the screen resolution of the device. If no resolution is specified, the default resolution from the android SDK is used.",
+        "params": {
+          "width": "integer representing the width in pixels",
+          "height": "integer representing the height in pixels"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setClientId(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setClientId(java.lang.String)",
+        "methodDes": "Sets a particular client Id for the device. This Id should be a valid UUID (version 4) string as described in //goo.gl/0dlrGx. If not specified, the SDK automatically generates one for you and sets it.",
+        "params": {
+          "clientId": "A valid version 4 UUID string"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.setSampleRate(double)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#setSampleRate(double)",
+        "methodDes": "Set the sample rate for all hits generated by the app. The sampling is done at app level. The default value is 100. To enable sampling, the minimum rate required is 0.01%.",
+        "params": {
+          "sampleRate": "A value between 0 and 100, specifying the percentage of devices that should send hits"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.enableAdvertisingIdCollection(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#enableAdvertisingIdCollection(boolean)",
+        "methodDes": "Sets whether the advertising id and ad targeting preference should be collected while sending hits to GA servers. The collection of advertising id and the ad targeting preference is disabled by default and needs to be turned on for mobile audience features and any other features that require advertising id.",
+        "params": {
+          "enabled": "true if the advertising information should be collected. False otherwise"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Tracker.send(java.util.Map<java.lang.String,java.lang.String>)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Tracker#send(java.util.Map<java.lang.String, java.lang.String>)",
+        "methodDes": "Merges the model values set on this Tracker via send(Map) with params and generates a hit to be sent. The hit may not be dispatched immediately. Note that the hit type must set for the hit to be considered valid. More information on this can be found at //goo.gl/HVIXHR.",
+        "params": {
+          "params": "map of hit data to values which are merged with the existing values which are already set (using set(String, String)). Values in this map will override the values set earlier. The values in this map will not be reused for the subsequent hits. If you need to send a value in multiple hits, you can use the set(String, String) method"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.AnalyticsService": {
+    "classDes": "A Service used by Google Analytics. It will only be used when the service is correctly declared in AndroidManifest.xml.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/AnalyticsService",
+    "methods": {
+      "com.google.android.gms.analytics.AnalyticsService.onBind(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/AnalyticsService#onBind(android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "intent": ""
+        },
+        "returns": "android.os.IBinder: an IBinder through which clients can call on to the service",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.AnalyticsService.callServiceStopSelfResult(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/AnalyticsService#callServiceStopSelfResult(int)",
+        "methodDes": "",
+        "params": {
+          "startId": ""
+        },
+        "returns": "boolean:",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.HitBuilders.HitBuilder<T extends com.google.android.gms.analytics.HitBuilders.HitBuilder>": {
+    "classDes": "Internal class to provide common builder class methods. The most important methods from this class are the setXYZ and build methods. These methods can be used to set individual properties on the hit and then build it so that it is ready to be passed into the tracker.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder",
+    "methods": {
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.build()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#build()",
+        "methodDes": "Builds a Map of parameters and values that can be set on the Tracker object.",
+        "params": {},
+        "returns": "java.util.Map<java.lang.String,java.lang.String>: A map of string keys to string values that can be passed into the tracker for one or more hits",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.setCampaignParamsFromUrl(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#setCampaignParamsFromUrl(java.lang.String)",
+        "methodDes": "Parses and translates utm campaign parameters to analytics campaign parameters and returns them as a map.",
+        "params": {
+          "utmParams": "url containing utm campaign parameters"
+        },
+        "returns": "T: The builder object that you can use to chain calls. Valid campaign parameters are: utm_id utm_campaign utm_content utm_medium utm_source utm_term dclid gclid gmob_t Example: //my.site.com/index.html?utm_campaign=wow&utm_source=source utm_campaign=wow&utm_source=source. For more information on auto-tagging, see //support.google.com/googleanalytics/bin/answer.py?hl=en&answer=55590 For more information on manual tagging, see //support.google.com/googleanalytics/bin/answer.py?hl=en&answer=55518 *",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.addPromotion(com.google.android.gms.analytics.ecommerce.Promotion)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#addPromotion(com.google.android.gms.analytics.ecommerce.Promotion)",
+        "methodDes": "Adds promotion related information to the hit.",
+        "params": {
+          "promotion": ""
+        },
+        "returns": "T:",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.addProduct(com.google.android.gms.analytics.ecommerce.Product)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#addProduct(com.google.android.gms.analytics.ecommerce.Product)",
+        "methodDes": "Adds product information to be sent with a given hit. The action provided in setProductAction(ProductAction) affects how the products passed in through this method get processed.",
+        "params": {
+          "product": ""
+        },
+        "returns": "T:",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.get(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#get(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "paramName": ""
+        },
+        "returns": "java.lang.String:",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.setAll(java.util.Map<java.lang.String,java.lang.String>)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#setAll(java.util.Map<java.lang.String, java.lang.String>)",
+        "methodDes": "Adds a set of key, value pairs to the hit builder. These values will be added to the hit when it is built. This function should only be used for advanced cases where none of the explicit setters work. This function should usually be called after all the explicit setter have been called.",
+        "params": {
+          "params": "A map of all the values to be added to the builder"
+        },
+        "returns": "T: The builder object that you can use to chain calls",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.setNonInteraction(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#setNonInteraction(boolean)",
+        "methodDes": "",
+        "params": {
+          "nonInteraction": ""
+        },
+        "returns": "T:",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.setCustomDimension(int,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#setCustomDimension(int, java.lang.String)",
+        "methodDes": "Adds a custom dimension to the current hit builder. Calling this method with the same index will overwrite the previous dimension with the new one. Refer //goo.gl/igziD2 for details on how to set the custom dimensions up.",
+        "params": {
+          "index": "The index/slot in which the dimension will be set",
+          "dimension": "The value of the dimension for the given index"
+        },
+        "returns": "T: The builder object that you can use to chain calls",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.setCustomMetric(int,float)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#setCustomMetric(int, float)",
+        "methodDes": "Adds a custom metric to the current hit builder. Calling this method with the same index will overwrite the previous metric with the new one. Refer //goo.gl/igziD2 for details on how to set the custom metrics up.",
+        "params": {
+          "index": "The index/slot in which the metric will be set",
+          "metric": "The value of the metric for the given index"
+        },
+        "returns": "T: The builder object that you can use to chain calls",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.set(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#set(java.lang.String, java.lang.String)",
+        "methodDes": "Sets the value for the given parameter name. These values will be added to the hit when it is built. This function should only be used for advanced cases where none of the explicit setters do not work. This function should usually be called after all the explicit setter have been called.",
+        "params": {
+          "paramName": "The name of the parameter that should be sent over wire. This value should start with &",
+          "paramValue": "The value to be sent over the wire for the given parameter"
+        },
+        "returns": "T: The builder object that you can use to chain calls",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.HitBuilder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#protected-hitbuilders.hitbuilder",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.setProductAction(com.google.android.gms.analytics.ecommerce.ProductAction)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#setProductAction(com.google.android.gms.analytics.ecommerce.ProductAction)",
+        "methodDes": "Sets a product action for all the products included in this hit. The action and its associated properties affect how the products added through addProduct(Product) are processed.",
+        "params": {
+          "action": ""
+        },
+        "returns": "T:",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.setNewSession()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#setNewSession()",
+        "methodDes": "",
+        "params": {},
+        "returns": "T:",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.addImpression(com.google.android.gms.analytics.ecommerce.Product,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#addImpression(com.google.android.gms.analytics.ecommerce.Product, java.lang.String)",
+        "methodDes": "Adds a product impression to the hit. The product can be optionally associated with a named impression list.",
+        "params": {
+          "product": "",
+          "impressionList": ""
+        },
+        "returns": "T:",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.setHitType(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#setHitType(java.lang.String)",
+        "methodDes": "Sets the type of the hit to be sent. This can be used to reuse the builder object for multiple hit types. See //goo.gl/kMRwhS for possible hit values.",
+        "params": {
+          "hitType": "The value of the Hit"
+        },
+        "returns": "T:",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.HitBuilder.setPromotionAction(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.HitBuilder#setPromotionAction(java.lang.String)",
+        "methodDes": "Adds an action associated with the promotions in a given hit. Valid values for an action are defined in Promotion class.",
+        "params": {
+          "action": ""
+        },
+        "returns": "T:",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.measurement.AppMeasurementReceiver": {
+    "classDes": "A BroadcastReceiver for Firebase Analytics. Firebase Analytics requires this receiver to be correctly declared in AndroidManifest.xml and enabled.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementReceiver",
+    "methods": {
+      "com.google.android.gms.measurement.AppMeasurementReceiver.doStartService(android.content.Context,android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementReceiver#doStartService(android.content.Context, android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "context": "",
+          "service": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementReceiver.doGoAsync()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementReceiver#doGoAsync()",
+        "methodDes": "",
+        "params": {},
+        "returns": "android.content.BroadcastReceiver.PendingResult: a PendingResult representing the result of the active broadcast",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementReceiver.onReceive(android.content.Context,android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementReceiver#onReceive(android.content.Context, android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "context": "",
+          "intent": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementReceiver.AppMeasurementReceiver()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementReceiver#AppMeasurementReceiver()",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.GoogleAnalytics": {
+    "classDes": "The top level Google Analytics singleton that provides methods for configuring Google Analytics and creating Tracker objects. Applications can get an instance of this class by calling getInstance(Context). getInstance(Context) is thread safe and can be called from any thread. It is recommended that Google Analytics be initialized early in the application lifecycle to correctly report unhandled exceptions. Application.onCreate() is the recommended place for configuring Google Analytics. A basic configuration of Google Analytics look like this: package com.example; class MyApp extends Application { public static GoogleAnalytics analytics; public static Tracker tracker; @Overwrite public void onCreate() { analytics = GoogleAnalytics.getInstance(this); analytics.setLocalDispatchPeriod(1800); tracker = analytics.newTracker(UA-000-1); // Replace with actual tracker id tracker.enableExceptionReporting(true); tracker.enableAdvertisingIdCollection(true); tracker.enableAutoActivityTracking(true); } } Analytics requires INTERNET and ACCESS_NETWORK_STATE permissions. Optionally a WAKE_LOCK permission can be requested to improve dispatching on non-Google Play devices. To use a custom application class such as MyApp, it needs to be set in the AndroidManifest as the application name attribute. A snippet for common GoogleAnalytics configuration in ApplicationManifest.xml looks like this: <manifest> <!-- Google Analytics required permissions --> <uses-permission android:name=android.permission.INTERNET /> <uses-permission android:name=android.permission.ACCESS_NETWORK_STATE /> <!-- Optional permission for reliable local dispatching on non-Google Play devices --> <uses-permission android:name=android.permission.WAKE_LOCK /> <application name=com.example.MyApp> <!-- Replace with the custom app class when applicable --> <!-- Add the following meta-data for devices running Google Play service. --> <meta-data android:name=com.google.android.gms.version android:value=@integer/google_play_services_version /> <!-- Optionally, register AnalyticsReceiver and AnalyticsService to support background dispatching on non-Google Play devices --> <receiver android:name=com.google.android.gms.analytics.AnalyticsReceiver android:enabled=true> <intent-filter> <action android:name=com.google.android.gms.analytics.ANALYTICS_DISPATCH /> </intent-filter> </receiver> <service android:name=com.google.android.gms.analytics.AnalyticsService android:enabled=true android:exported=false/> <!-- Optionally, register CampaignTrackingReceiver to enable installation campaign reporting --> <receiver android:name=com.google.android.gms.analytics.CampaignTrackingReceiver android:exported=true> <intent-filter> <action android:name=com.android.vending.INSTALL_REFERRER /> </intent-filter> </receiver> <!-- ... --> </application> </manifest> Applications can optionally provide a metadata reference to a global configuration XML resource file in the <application> element of their AndroidManifest.xml: <manifest> <application> <!-- ... --> <meta-data android:name=com.google.android.gms.analytics.globalConfigResource android:resource=@xml/analytics_global_config /> <!-- ... --> </application> </manifest> The configuration file should be stored in the applications res/xml directory and it should look like this: <?xml version=1.0 encoding=utf-8 ?> <resources> <!-- The application name. Defaults to name specified for the application label --> <string name=ga_appName>My App</string> <!-- The application version. Defaults to android:versionName specified in the AndroidManifest.xml --> <string name=ga_appVersion>1.0</string> <!-- The dispatching period in seconds when Google Play services is unavailable. The default period is 1800 seconds or 30 minutes --> <integer name=ga_dispatchPeriod>1800</integer> <!-- Enable dry run mode. Default is false --> <bool name=ga_dryRun>false</bool> </resources> ga_logLevel setting is deprecated. See Logger interface for details.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics",
+    "methods": {
+      "com.google.android.gms.analytics.GoogleAnalytics.getLogger()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#getLogger()",
+        "methodDes": "This method was deprecated. Logger interface is deprecated. See Logger interface for details.",
+        "params": {},
+        "returns": "com.google.android.gms.analytics.Logger: the current Logger implementation in use",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.newTracker(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#newTracker(int)",
+        "methodDes": "Returns a Tracker instance preconfigured with the values specified in configResId. Calling newTracker() multiple times with the same trackingId will create multiple Tracker objects with the same configuration. If the trackingId is empty, you can still get a tracker, but you must set the tracking id before sending any hits. This is useful if you do not know the tracking id at the time of tracker creation, or if you want to use the same tracker instance to track multiple tracking ids. Using the same instance to track multiple tracking ids is not recommended since you need to be careful about not mixing the data you are sending to multiple profiles. It can be useful if you have a lot of tracking ids and you want to avoid object creation overhead involved in instantiating one tracker per tracking id.",
+        "params": {
+          "configResId": "The resource id of your tracker configuration file. See Tracker for more information about what configuration elements can be included in that file"
+        },
+        "returns": "com.google.android.gms.analytics.Tracker: a Tracker instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.newTracker(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#public-tracker-newtracker-string-trackingid",
+        "methodDes": "Returns a Tracker instance with the given trackingId.",
+        "params": {
+          "trackingId": "string of the form UA-xxxx-y"
+        },
+        "returns": "com.google.android.gms.analytics.Tracker: a Tracker instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.setLocalDispatchPeriod(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#setLocalDispatchPeriod(int)",
+        "methodDes": "Sets dispatch period for the local dispatcher. The dispatcher will check for hits to dispatch every dispatchPeriod seconds. If zero or a negative dispatch period is given, automatic dispatch will be disabled, and the application will need to dispatch events manually using dispatchLocalHits(). This method only works if local dispatching is in use. Local dispatching is only used in the absence of Google Play services on the device. In general, applications should not rely on the ability to dispatch hits manually.",
+        "params": {
+          "dispatchPeriodInSeconds": "the new dispatch period in seconds"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.reportActivityStop(android.app.Activity)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#reportActivityStop(android.app.Activity)",
+        "methodDes": "Report the end of an Activity. Note that this method should be called from the onStop() method in each Activity in your application that you'd like to track. For proper operation, this method must be called in all Activities where reportActivityStart(Activity) is called. If auto activity reports are enabled (see enableAutoActivityReports(Application)) on a device running API level 14 or above, this method will be a noop.",
+        "params": {
+          "activity": "the Activity that is to be tracked"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.getInstance(android.content.Context)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#getInstance(android.content.Context)",
+        "methodDes": "Gets the GoogleAnalytics instance, creating it when necessary. It is safe to call this method from any thread.",
+        "params": {
+          "context": ""
+        },
+        "returns": "com.google.android.gms.analytics.GoogleAnalytics: a GoogleAnalytics instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.reportActivityStart(android.app.Activity)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#reportActivityStart(android.app.Activity)",
+        "methodDes": "Report the start of an Activity, so that it can be tracked by any Trackers that have enabled auto activity tracking (see enableAutoActivityTracking(boolean).) This will also start a new session if necessary. This method should be called from the onStart() method in each Activity in your application that you'd like to track. If auto activity reports are enabled (see enableAutoActivityReports(Application)) on a device running API level 14 or above, this method will be a noop.",
+        "params": {
+          "activity": "the Activity that is to be tracked"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.dispatchLocalHits()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#dispatchLocalHits()",
+        "methodDes": "Dispatches hits queued in the application store (views, events, or transactions) to Google Analytics if a network connection is available. This method only works when Google Play service is not available on the device and local dispatching is used. In general, applications should not rely on the ability to dispatch hits manually.",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.enableAutoActivityReports(android.app.Application)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#enableAutoActivityReports(android.app.Application)",
+        "methodDes": "On devices running API level 14 (ICE_CREAM_SANDWICH) or above, applications can call this method in lieu of making explicit calls to reportActivityStart(Activity) and reportActivityStop(Activity). This method is a noop if called on a device running API level less than 14.",
+        "params": {
+          "application": "The Application whose activities starts and stops should be automatically reported"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.isDryRunEnabled()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#isDryRunEnabled()",
+        "methodDes": "Returns whether dry run mode is on.",
+        "params": {},
+        "returns": "boolean: true if dry run mode is on",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.getAppOptOut()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#getAppOptOut()",
+        "methodDes": "Returns whether the state of the application-level opt is on.",
+        "params": {},
+        "returns": "boolean: true if the state of the application-level opt is on",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.setLogger(com.google.android.gms.analytics.Logger)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#setLogger(com.google.android.gms.analytics.Logger)",
+        "methodDes": "This method was deprecated. Logger interface is deprecated. See Logger interface for details.",
+        "params": {
+          "logger": "The Logger implementation to use for logging"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.setAppOptOut(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#setAppOptOut(boolean)",
+        "methodDes": "Sets or resets the application-level opt out flag. If set, no hits will be sent to Google Analytics. The value of this flag will not persist across application starts. The correct value should thus be set in application initialization code.",
+        "params": {
+          "optOut": "true if application-level opt out should be enforced"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.GoogleAnalytics.setDryRun(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/GoogleAnalytics#setDryRun(boolean)",
+        "methodDes": "Toggles dry run mode. In dry run mode, the normal code paths are executed locally, but hits are not sent to Google Analytics servers. This is useful for debugging calls to the Google Analytics SDK without polluting recorded data. By default, this flag is disabled.",
+        "params": {
+          "dryRun": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.HitBuilders.TransactionBuilder": {
+    "classDes": "This class was deprecated. This class has been deprecated in favor of a richer set of APIs on all the HitBuilder classes. With the new approach, simply use addProduct, addImpression, addPromo and setAction to add ecommerce data to any of the hits. Transaction hit builder allows you to send in-app purchases and sales to Google Analytics. Transaction Id, affiliation and revenue are required for meaningful reports on transaction data.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TransactionBuilder",
+    "methods": {
+      "com.google.android.gms.analytics.HitBuilders.TransactionBuilder.setRevenue(double)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TransactionBuilder#setRevenue(double)",
+        "methodDes": "",
+        "params": {
+          "revenue": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.TransactionBuilder: a TransactionBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.TransactionBuilder.TransactionBuilder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TransactionBuilder#public-hitbuilders.transactionbuilder",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.TransactionBuilder.setTransactionId(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TransactionBuilder#setTransactionId(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "transactionid": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.TransactionBuilder: a TransactionBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.TransactionBuilder.setShipping(double)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TransactionBuilder#setShipping(double)",
+        "methodDes": "",
+        "params": {
+          "shipping": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.TransactionBuilder: a TransactionBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.TransactionBuilder.setCurrencyCode(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TransactionBuilder#setCurrencyCode(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "currencyCode": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.TransactionBuilder: a TransactionBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.TransactionBuilder.setAffiliation(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TransactionBuilder#setAffiliation(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "affiliation": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.TransactionBuilder: a TransactionBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.TransactionBuilder.setTax(double)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.TransactionBuilder#setTax(double)",
+        "methodDes": "",
+        "params": {
+          "tax": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.TransactionBuilder: a TransactionBuilder instance",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.HitBuilders.ExceptionBuilder": {
+    "classDes": "Exception builder allows you to measure the number and type of caught and uncaught crashes and exceptions that occur in your app.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ExceptionBuilder",
+    "methods": {
+      "com.google.android.gms.analytics.HitBuilders.ExceptionBuilder.setDescription(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ExceptionBuilder#setDescription(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "description": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.ExceptionBuilder: a ExceptionBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.ExceptionBuilder.setFatal(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ExceptionBuilder#setFatal(boolean)",
+        "methodDes": "",
+        "params": {
+          "fatal": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.ExceptionBuilder: a ExceptionBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.ExceptionBuilder.ExceptionBuilder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ExceptionBuilder#public-hitbuilders.exceptionbuilder",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver": {
+    "classDes": "This class is deprecated. This receiver is no longer used for Install Referrers. A BroadcastReceiver for Firebase Analytics. This receiver is deprecated and no longer required to capture install referrer data.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementInstallReferrerReceiver",
+    "methods": {
+      "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver.doStartService(android.content.Context,android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementInstallReferrerReceiver#doStartService(android.content.Context, android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "context": "",
+          "service": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver.doGoAsync()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementInstallReferrerReceiver#doGoAsync()",
+        "methodDes": "",
+        "params": {},
+        "returns": "android.content.BroadcastReceiver.PendingResult: a PendingResult representing the result of the active broadcast",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver.onReceive(android.content.Context,android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementInstallReferrerReceiver#onReceive(android.content.Context, android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "context": "",
+          "intent": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver.AppMeasurementInstallReferrerReceiver()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementInstallReferrerReceiver#AppMeasurementInstallReferrerReceiver()",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.firebase.analytics.FirebaseAnalytics.Param": {
+    "classDes": "Params supply information that contextualize Events. You can associate up to 25 unique Params with each Event type. Some Params are suggested below for certain common Events, but you are not limited to these. You may supply extra Params for suggested Events or custom Params for Custom events. Param names can be up to 40 characters long, may only contain alphanumeric characters and underscores (_), and must start with an alphabetic character. Param values can be up to 100 characters long. The firebase_, google_ and ga_ prefixes are reserved and should not be used.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param",
+    "methods": {
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.Param()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#protected-firebaseanalytics.param",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.ACHIEVEMENT_ID": {
+        "des": "Game achievement ID (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#ACHIEVEMENT_ID",
+        "value": "achievement_id"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.SHIPPING": {
+        "des": "Shipping cost associated with a transaction (double). Expecting a double value set with putDouble(String, double).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#SHIPPING",
+        "value": "shipping"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.VIRTUAL_CURRENCY_NAME": {
+        "des": "Name of virtual currency type (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#VIRTUAL_CURRENCY_NAME",
+        "value": "virtual_currency_name"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.CAMPAIGN": {
+        "des": "CAMPAIGN_DETAILS name; used for keyword analysis to identify a specific product promotion or strategic campaign.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#CAMPAIGN",
+        "value": "campaign"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.NUMBER_OF_ROOMS": {
+        "des": "Number of rooms for travel events (long). The parameter expects a long value set with putLong(String, long).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#NUMBER_OF_ROOMS",
+        "value": "number_of_rooms"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.START_DATE": {
+        "des": "The departure date, check-in date, or rental start date for the item (String). The parameter expects a date formatted as YYYY-MM-DD and set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#START_DATE",
+        "value": "start_date"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.INDEX": {
+        "des": "The index of the item in a list. The parameter expects a long value set with putLong(String, long).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#INDEX",
+        "value": "index"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.LOCATION": {
+        "des": "Location (String). The Google Place ID that corresponds to the associated event. Alternatively, you can supply your own custom Location ID. The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#LOCATION",
+        "value": "location"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.DESTINATION": {
+        "des": "Flight or Travel destination (String). The parameter expects a string value set with put String(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#DESTINATION",
+        "value": "destination"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.NUMBER_OF_NIGHTS": {
+        "des": "Number of nights staying at hotel (long). The parameter expects a long value set with putLong(String, long).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#NUMBER_OF_NIGHTS",
+        "value": "number_of_nights"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.SIGN_UP_METHOD": {
+        "des": "Sign up method (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#SIGN_UP_METHOD",
+        "value": "sign_up_method"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.TAX": {
+        "des": "Tax cost associated with a transaction (double). Expecting a double value set with putDouble(String, double).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#TAX",
+        "value": "tax"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.GROUP_ID": {
+        "des": "Group/clan/guild id (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#GROUP_ID",
+        "value": "group_id"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_CATEGORY": {
+        "des": "Item category (context-specific) (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#ITEM_CATEGORY",
+        "value": "item_category"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.PRICE": {
+        "des": "Purchase price (double). Expecting a double value set with putDouble(String, double).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#PRICE",
+        "value": "price"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.SOURCE": {
+        "des": "CAMPAIGN_DETAILS source; used to identify a search engine, newsletter, or other source.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#SOURCE",
+        "value": "source"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_LOCATION_ID": {
+        "des": "The Google Place ID that corresponds to the associated item (String). Alternatively, you can supply your own custom Location ID. The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#ITEM_LOCATION_ID",
+        "value": "item_location_id"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.ACLID": {
+        "des": "CAMPAIGN_DETAILS click ID.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#ACLID",
+        "value": "aclid"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.LEVEL": {
+        "des": "Level in game (long). The parameter expects a long value set with putLong(String, long).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#LEVEL",
+        "value": "level"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.METHOD": {
+        "des": "A particular approach used in an operation; for example, facebook or email in the context of a sign_up or login event. The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#SIGN_UP_METHOD",
+        "value": "method"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.VALUE": {
+        "des": "A context-specific numeric value which is accumulated automatically for each event type. Value should be specified with putLong(String, long) or putDouble(String, double). This is a general purpose parameter that is useful for accumulating a key metric that pertains to an event. Examples include revenue, distance, time, and points. Notes: Values for pre-defined currency-related events (such as ADD_TO_CART) should be accompanied by a CURRENCY param. The valid range of accumulated values is[-9,223,372,036,854.77, 9,223,372,036,854.77]. Supplying a non-numeric value, omitting the corresponding CURRENCY parameter, or supplying an invalid currency code for conversion events will cause that conversion tobe omitted from reporting.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#VALUE",
+        "value": "value"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.TRANSACTION_ID": {
+        "des": "The unique identifier of a transaction (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#TRANSACTION_ID",
+        "value": "transaction_id"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER": {
+        "des": "Character used in game (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#CHARACTER",
+        "value": "character"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.MEDIUM": {
+        "des": "CAMPAIGN_DETAILS medium; used to identify a medium such as email or cost-per-click (cpc).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#MEDIUM",
+        "value": "medium"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.SCORE": {
+        "des": "Score in game (long). The parameter expects a long value set with putLong(String, long).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#SCORE",
+        "value": "score"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.CHECKOUT_OPTION": {
+        "des": "Some option on a step in an ecommerce flow.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#CHECKOUT_OPTION",
+        "value": "checkout_option"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.TRAVEL_CLASS": {
+        "des": "Travel class (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#TRAVEL_CLASS",
+        "value": "travel_class"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.QUANTITY": {
+        "des": "Purchase quantity (long). The parameter expects a long value set with putLong(String, long).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#QUANTITY",
+        "value": "quantity"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.TERM": {
+        "des": "CAMPAIGN_DETAILS term; used with paid search to supply the keywords for ads.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#TERM",
+        "value": "term"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.EXTEND_SESSION": {
+        "des": "Indicates that the associated event should either extend the current session or start a new session if no session was active when the event was logged. Specify 1 to extend the current session or to start a new session; any other long value will not extend or start a session.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#EXTEND_SESSION",
+        "value": "extend_session"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.FLIGHT_NUMBER": {
+        "des": "Flight number for travel events (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#FLIGHT_NUMBER",
+        "value": "flight_number"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.AFFILIATION": {
+        "des": "A product affiliation to designate a supplying company or brick and mortar store location (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#AFFILIATION",
+        "value": "affiliation"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.LEVEL_NAME": {
+        "des": "The name of a level in a game (String). The parameter expects a String value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#LEVEL_NAME",
+        "value": "level_name"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.CHECKOUT_STEP": {
+        "des": "The checkout step (1..N).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#CHECKOUT_STEP",
+        "value": "checkout_step"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_BRAND": {
+        "des": "Item brand. The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#ITEM_BRAND",
+        "value": "item_brand"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.END_DATE": {
+        "des": "The arrival date, check-out date, or rental end date for the item (String). The parameter expects a date formatted as YYYY-MM-DD and set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#END_DATE",
+        "value": "end_date"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.ORIGIN": {
+        "des": "Flight or Travel origin (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#ORIGIN",
+        "value": "origin"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_ID": {
+        "des": "Item ID (context-specific) (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#ITEM_ID",
+        "value": "item_id"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.NUMBER_OF_PASSENGERS": {
+        "des": "Number of passengers traveling (long). The parameter expects a long value set with putLong(String, long).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#NUMBER_OF_PASSENGERS",
+        "value": "number_of_passengers"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.CP1": {
+        "des": "CAMPAIGN_DETAILS custom parameter.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#CP1",
+        "value": "cp1"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.CREATIVE_SLOT": {
+        "des": "The name of a creative slot (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#CREATIVE_SLOT",
+        "value": "creative_slot"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.CREATIVE_NAME": {
+        "des": "The name of a creative used in a promotional spot (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#CREATIVE_NAME",
+        "value": "creative_name"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_LIST": {
+        "des": "The list in which the item was presented to the user.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#ITEM_LIST",
+        "value": "item_list"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.SEARCH_TERM": {
+        "des": "The search string/keywords used (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#SEARCH_TERM",
+        "value": "search_term"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.SUCCESS": {
+        "des": "The result of an operation (long). Specify 1 to indicate success and 0 to indicate failure. The parameter expects a long value set with putLong(String, long).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#SUCCESS",
+        "value": "success"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.COUPON": {
+        "des": "Coupon code used for a purchase (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#COUPON",
+        "value": "coupon"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_VARIANT": {
+        "des": "Item variant. The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#ITEM_VARIANT",
+        "value": "item_variant"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_NAME": {
+        "des": "Item Name (context-specific) (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#ITEM_NAME",
+        "value": "item_name"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.CONTENT_TYPE": {
+        "des": "Type of content selected (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#CONTENT_TYPE",
+        "value": "content_type"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.CURRENCY": {
+        "des": "Currency of the purchase or items associated with the event, in 3-letter ISO_4217 format (String). The parameter expects a string value set with putString(String, String).",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#CURRENCY",
+        "value": "currency"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Param.CONTENT": {
+        "des": "CAMPAIGN_DETAILS content; used for A/B testing and content-targeted ads to differentiate ads or links that point to the same URL.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Param#CONTENT",
+        "value": "content"
+      }
+    }
+  },
+  "com.google.android.gms.analytics.HitBuilders.EventBuilder": {
+    "classDes": "A Builder object to build event hits. For meaningful data, event hits should contain at least the event category and the event action.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.EventBuilder",
+    "methods": {
+      "com.google.android.gms.analytics.HitBuilders.EventBuilder.setLabel(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.EventBuilder#setLabel(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "label": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.EventBuilder: the EventBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.EventBuilder.EventBuilder(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.EventBuilder#public-hitbuilders.eventbuilder-string-category,-string-action",
+        "methodDes": "Convenience constructor for creating an event hit. Additional fields can be specified using the setter methods.",
+        "params": {
+          "category": "Category in which the event will be filed. Example: Video",
+          "action": "Action associated with the event. Example: Play"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.EventBuilder.EventBuilder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.EventBuilder#public-hitbuilders.eventbuilder",
+        "methodDes": "Convenience constructor for creating an event hit.",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.EventBuilder.setCategory(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.EventBuilder#setCategory(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "category": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.EventBuilder: the EventBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.EventBuilder.setValue(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.EventBuilder#setValue(long)",
+        "methodDes": "",
+        "params": {
+          "value": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.EventBuilder: the EventBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.EventBuilder.setAction(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.EventBuilder#setAction(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "action": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.EventBuilder: the EventBuilder instance",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.firebase.analytics.FirebaseAnalytics.Event": {
+    "classDes": "An Event is an important occurrence in your app that you want to measure. You can report up to 500 different types of Events per app and you can associate up to 25 unique parameters with each Event type. Some common events are suggested below, but you may also choose to specify custom Event types that are associated with your specific app. Each event type is identified by a unique name. Event names can be up to 40 characters long, may only contain alphanumeric characters and underscores (_), and must start with an alphabetic character. The firebase_, google_ and ga_ prefixes are reserved and should not be used. The following event names are reserved and cannot be used: ad_activeview ad_click ad_exposure ad_impression ad_query adunit_exposure app_clear_data app_uninstall app_update error first_open first_visit in_app_purchase notification_dismiss notification_foreground notification_open notification_receive os_update screen_view session_start user_engagement.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event",
+    "methods": {
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.Event()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#protected-firebaseanalytics.event",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.SELECT_CONTENT": {
+        "des": "Select Content event. This general purpose event signifies that a user has selectedsome content of a certain type in an app. The content can be any object in your app.This event can help you identify popular content and categories of content in your app.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#SELECT_CONTENT",
+        "value": "select_content"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.VIEW_ITEM_LIST": {
+        "des": "View Item List event. Log this event when a user sees a list of items or offerings.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#VIEW_ITEM_LIST",
+        "value": "view_item_list"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.ADD_TO_WISHLIST": {
+        "des": "E-Commerce Add To Wishlist event. This event signifies that an item was added to awishlist. Use this event to identify popular gift items. Note: If you supply theVALUEparameter, you must also supply the CURRENCY parameter so that revenue metrics can be computed accurately.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#ADD_TO_WISHLIST",
+        "value": "add_to_wishlist"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.LEVEL_START": {
+        "des": "Level Start event.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#LEVEL_START",
+        "value": "level_start"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.APP_OPEN": {
+        "des": "App Open event. By logging this event when an App is moved to the foreground,developers can understand how often users leave and return during the course of aSession. Although Sessions are automatically reported, this event can provide furtherclarification around the continuous engagement of app-users.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#APP_OPEN",
+        "value": "app_open"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.LEVEL_UP": {
+        "des": "Level Up event. This event signifies that a player has leveled up in your gamingapp. It can help you gauge the level distribution of your userbase and help youidentify certain levels that are difficult to pass.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#LEVEL_UP",
+        "value": "level_up"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.LOGIN": {
+        "des": "Login event. Apps with a login feature can report this event to signify that a userhas logged in.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#LOGIN",
+        "value": "login"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.POST_SCORE": {
+        "des": "Post Score event. Log this event when the user posts a score in your gaming app.This event can help you understand how users are actually performing in your game andit can help you correlate high scores with certain audiences or behaviors.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#POST_SCORE",
+        "value": "post_score"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.UNLOCK_ACHIEVEMENT": {
+        "des": "Unlock Achievement event. Log this event when the user has unlocked an achievementin your game. Since achievements generally represent the breadth of a gamingexperience, this event can help you understand how many users are experiencing all thatyour game has to offer.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#UNLOCK_ACHIEVEMENT",
+        "value": "unlock_achievement"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.ADD_TO_CART": {
+        "des": "E-Commerce Add To Cart event. This event signifies that an item(s) was added to acart for purchase. Add this event to a funnel with PURCHASE to gauge the effectiveness of your checkout process. Note: If yousupply the VALUEparameter, you must also supply the CURRENCY parameter so that revenue metrics can be computed accurately.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#ADD_TO_CART",
+        "value": "add_to_cart"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.BEGIN_CHECKOUT": {
+        "des": "E-Commerce Begin Checkout event. This event signifies that a user has begun theprocess of checking out. Add this event to a funnel with your PURCHASE event to gauge the effectiveness of your checkout process. Note: Ifyou supply the VALUEparameter, you must also supply the CURRENCY parameter so that revenue metrics can be computed accurately.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#BEGIN_CHECKOUT",
+        "value": "begin_checkout"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.JOIN_GROUP": {
+        "des": "Join Group event. Log this event when a user joins a group such as a guild, team orfamily. Use this event to analyze how popular certain groups or social features are inyour app.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#JOIN_GROUP",
+        "value": "join_group"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.SET_CHECKOUT_OPTION": {
+        "des": "Set checkout option.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#SET_CHECKOUT_OPTION",
+        "value": "set_checkout_option"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.REMOVE_FROM_CART": {
+        "des": "E-Commerce Remove from Cart event. This event signifies that an item(s) was removedfrom a cart. Note: If you supply the VALUEparameter, you must also supply the @CURRENCYparameter so that revenue metrics can be computed accurately.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#REMOVE_FROM_CART",
+        "value": "remove_from_cart"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.SEARCH": {
+        "des": "Search event. Apps that support search features can use this event to contextualizesearch operations by supplying the appropriate, corresponding parameters. This eventcan help you identify the most popular content in your app.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#SEARCH",
+        "value": "search"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.PURCHASE_REFUND": {
+        "des": "E-Commerce Purchase Refund event. This event signifies that an item purchase wasrefunded. Note: If you supply the VALUEparameter, you must also supply the CURRENCY parameter so that revenue metrics can be computed accurately.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#PURCHASE_REFUND",
+        "value": "purchase_refund"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.ECOMMERCE_PURCHASE": {
+        "des": "E-Commerce Purchase event. This event signifies that an item was purchased by auser. Note: This is different from the in-app purchase event, which is reportedautomatically for Google Play-based apps. Note: If you supply the VALUEparameter, you must also supply the CURRENCY parameter so that revenue metrics can be computed accurately.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#ECOMMERCE_PURCHASE",
+        "value": "ecommerce_purchase"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.TUTORIAL_COMPLETE": {
+        "des": "Tutorial End event. Use this event to signify the user's completion of your app'son-boarding process. Add this to a funnel with TUTORIAL_BEGIN to gauge the completion rate of your on-boarding process.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#TUTORIAL_COMPLETE",
+        "value": "tutorial_complete"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.LEVEL_END": {
+        "des": "Level End event.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#LEVEL_END",
+        "value": "level_end"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.SHARE": {
+        "des": "Share event. Apps with social features can log the Share event to identify the mostviral content.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#SHARE",
+        "value": "share"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.VIEW_SEARCH_RESULTS": {
+        "des": "View Search Results event. Log this event when the user has been presented with theresults of a search.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#VIEW_SEARCH_RESULTS",
+        "value": "view_search_results"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.TUTORIAL_BEGIN": {
+        "des": "Tutorial Begin event. This event signifies the start of the on-boarding process inyour app. Use this in a funnel with TUTORIAL_COMPLETE to understand how many users complete this process andmove on to the full app experience.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#TUTORIAL_BEGIN",
+        "value": "tutorial_begin"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.CHECKOUT_PROGRESS": {
+        "des": "Checkout progress.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#CHECKOUT_PROGRESS",
+        "value": "checkout_progress"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.ADD_PAYMENT_INFO": {
+        "des": "Add Payment Info event. This event signifies that a user has submitted their paymentinformation. Note: If you supply the VALUEparameter, you must also supply the CURRENCY parameter so that revenue metrics can be computed accurately.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#ADD_PAYMENT_INFO",
+        "value": "add_payment_info"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.EARN_VIRTUAL_CURRENCY": {
+        "des": "Earn Virtual Currency event. This event tracks the awarding of virtual currency inyour app. Log this along with SPEND_VIRTUAL_CURRENCY to better understand your virtual economy.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#EARN_VIRTUAL_CURRENCY",
+        "value": "earn_virtual_currency"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.SPEND_VIRTUAL_CURRENCY": {
+        "des": "Spend Virtual Currency event. This event tracks the sale of virtual goods in yourapp and can help you identify which virtual goods are the most popular objects ofpurchase.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#SPEND_VIRTUAL_CURRENCY",
+        "value": "spend_virtual_currency"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.CAMPAIGN_DETAILS": {
+        "des": "Log this event to supply the referral details of a re-engagement campaign.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#CAMPAIGN_DETAILS",
+        "value": "campaign_details"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.GENERATE_LEAD": {
+        "des": "Generate Lead event. Log this event when a lead has been generated in the app tounderstand the efficacy of your install and re-engagement campaigns. Note: If yousupply the VALUEparameter, you must also supply the CURRENCY parameter so that revenue metrics can be computed accurately.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#GENERATE_LEAD",
+        "value": "generate_lead"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.VIEW_ITEM": {
+        "des": "View Item event. This event signifies that a user has viewed an item. Use theappropriate parameters to contextualize the event. Use this event to discover the mostpopular items viewed in your app. Note: If you supply the VALUEparameter, you must also supply the CURRENCY parameter so that revenue metrics can be computed accurately.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#VIEW_ITEM",
+        "value": "view_item"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.PRESENT_OFFER": {
+        "des": "Present Offer event. This event signifies that the app has presented a purchaseoffer to a user. Add this event to a funnel with the ADD_TO_CART and ECOMMERCE_PURCHASE to gauge your conversion process. Note: If you supply theVALUEparameter, you must also supply the CURRENCY parameter so that revenue metrics can be computed accurately.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#PRESENT_OFFER",
+        "value": "present_offer"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.Event.SIGN_UP": {
+        "des": "Sign Up event. This event indicates that a user has signed up for an account in yourapp. The parameter signifies the method by which the user signed up. Use this event tounderstand the different behaviors between logged in and logged out users.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.Event#SIGN_UP",
+        "value": "sign_up"
+      }
+    }
+  },
+  "com.google.android.gms.analytics.HitBuilders.AppViewBuilder": {
+    "classDes": "This class was deprecated. This class has been deprecated in favor of the new ScreenViewBuilder class. The two classes are semantically similar but the latter is consistent across all the Google Analytics platforms. Class to build a basic app view hit. You can add any of the other fields to the builder using common set methods.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.AppViewBuilder",
+    "methods": {
+      "com.google.android.gms.analytics.HitBuilders.AppViewBuilder.AppViewBuilder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.AppViewBuilder#public-hitbuilders.appviewbuilder",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.firebase.analytics.FirebaseAnalytics": {
+    "classDes": "The top level Firebase Analytics singleton that provides methods for logging events and setting user properties. See the developer guides for general information on using Firebase Analytics in your apps. Applications can get an instance of this class by calling getInstance(Context). getInstance(Context) is thread safe and can be called from any thread.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics",
+    "methods": {
+      "com.google.firebase.analytics.FirebaseAnalytics.setUserProperty(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#setUserProperty(java.lang.String, java.lang.String)",
+        "methodDes": "Sets a user property to a given value. Up to 25 user property names are supported. Once set, user property values persist throughout the app lifecycle and across sessions.",
+        "params": {
+          "name": "The name of the user property to set. Should contain 1 to 24 alphanumeric characters or underscores and must start with an alphabetic character. The firebase_, google_ and ga_ prefixes are reserved and should not be used for user property names",
+          "value": "The value of the user property. Values can be up to 36 characters long. Setting the value to null removes the user property"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.getAppInstanceId()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#getAppInstanceId()",
+        "methodDes": "Retrieves the app instance id from the service.",
+        "params": {},
+        "returns": "com.google.android.gms.tasks.Task<java.lang.String>:Task with the result of the retrieval",
+        "Exceptions": {}
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.setSessionTimeoutDuration(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#setSessionTimeoutDuration(long)",
+        "methodDes": "Sets the duration of inactivity that terminates the current session. The default value is 1800000 (30 minutes).",
+        "params": {
+          "milliseconds": "Session timeout duration in milliseconds"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.setCurrentScreen(android.app.Activity,java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#setCurrentScreen(android.app.Activity, java.lang.String, java.lang.String)",
+        "methodDes": "Sets the current screen name, which specifies the current visual context in your app. This helps identify the areas in your app where users spend their time and how they interact with your app. Note that screen reporting is enabled automatically and records the class name of the current Activity for you without requiring you to call this function. The class name can optionally be overridden by calling this function in the onResume callback of your Activity and specifying the screenClassOverride parameter. If your app does not use a distinct Activity for each screen, you should call this function and specify a distinct screenName each time a new screen is presented to the user. The name and classOverride remain in effect until the current Activity changes or a new call to setCurrentScreen is made. This method must be called from the app's main thread.",
+        "params": {
+          "activity": "The activity to which the screen name and class name apply",
+          "screenName": "The name of the current screen. Set to null to clear the current screen name",
+          "screenClassOverride": "The name of the screen class. By default this is the class name of the current Activity. Set to null to revert to the default class name"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.setMinimumSessionDuration(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#setMinimumSessionDuration(long)",
+        "methodDes": "This method is deprecated. This method is deprecated and no longer has any effect.",
+        "params": {
+          "milliseconds": "The minimum engagement time required to start a new session"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.resetAnalyticsData()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#resetAnalyticsData()",
+        "methodDes": "Clears all analytics data for this app from the device and resets the app instance id.",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.setAnalyticsCollectionEnabled(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#setAnalyticsCollectionEnabled(boolean)",
+        "methodDes": "Sets whether analytics collection is enabled for this app on this device. This setting is persisted across app sessions. By default it is enabled.",
+        "params": {
+          "enabled": "Whether analytics collection is enabled for this app on this device"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.setUserId(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#setUserId(java.lang.String)",
+        "methodDes": "Sets the user ID property. This feature must be used in accordance with Google's Privacy Policy.",
+        "params": {
+          "id": "The user ID to ascribe to the user of this app on this device, which must be non-empty and no more than 256 characters long. Setting the ID to null removes the user ID"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.getInstance(android.content.Context)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#getInstance(android.content.Context)",
+        "methodDes": "Returns the singleton FirebaseAnalytics interface.",
+        "params": {
+          "context": "the context used to initialize Firebase Analytics. Must not be null"
+        },
+        "returns": "com.google.firebase.analytics.FirebaseAnalytics: a FirebaseAnalytics instance",
+        "Exceptions": {}
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.logEvent(java.lang.String,android.os.Bundle)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics#logEvent(java.lang.String, android.os.Bundle)",
+        "methodDes": "Logs an app event. The event can have up to 25 parameters. Events with the same name must have the same parameters. Up to 500 event names are supported. Using predefined FirebaseAnalytics.Event and/or FirebaseAnalytics.Param is recommended for optimal reporting.",
+        "params": {
+          "name": "The name of the event. Should contain 1 to 40 alphanumeric characters or underscores. The name must start with an alphabetic character. Some event names are reserved. See FirebaseAnalytics.Event for the list of reserved event names. The firebase_, google_ and ga_ prefixes are reserved and should not be used. Note that event names are case-sensitive and that logging two events whose names differ only in case will result in two distinct events",
+          "params": "The map of event parameters. Passing null indicates that the event has no parameters. Parameter names can be up to 40 characters long and must start with an alphabetic character and contain only alphanumeric characters and underscores. String, long and double param types are supported. String parameter values can be up to 100 characters long. The firebase_, google_ and ga_ prefixes are reserved and should not be used for parameter names"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.HitBuilders": {
+    "classDes": "Helper class to build a map of hit parameters and values.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders",
+    "methods": {
+      "com.google.android.gms.analytics.HitBuilders.HitBuilders()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders#HitBuilders()",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.ecommerce.Product": {
+    "classDes": "Class to construct product related information for a Google Analytics hit.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product",
+    "methods": {
+      "com.google.android.gms.analytics.ecommerce.Product.setCategory(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#setCategory(java.lang.String)",
+        "methodDes": "Sets the category associated with the product in GA reports.",
+        "params": {
+          "value": "The product's category. Example: Toys"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Product:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Product.setName(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#setName(java.lang.String)",
+        "methodDes": "Sets the name that is used to identify the product in GA reports.",
+        "params": {
+          "value": "The product's name. Example: Space Monkeys"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Product:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Product.setCustomMetric(int,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#setCustomMetric(int, int)",
+        "methodDes": "Sets the custom metrics associated with the product.",
+        "params": {
+          "index": "The metric's index as configured in Google Analytics Account. Example: 4",
+          "value": "The product's custom metric. Example: 5"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Product:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Product.setPosition(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#setPosition(int)",
+        "methodDes": "Sets the position of the product on the page/product impression list etc.",
+        "params": {
+          "value": "The product's position. Example: 1 or 30"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Product:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Product.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String: a string about Product instace",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Product.setCustomDimension(int,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#setCustomDimension(int, java.lang.String)",
+        "methodDes": "Sets the custom dimensions associated with the product.",
+        "params": {
+          "index": "The dimension's index as configured in Google Analytics Account. Example: 3",
+          "value": "The product's custom dimension. Example: Foo Reseller"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Product:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Product.setQuantity(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#setQuantity(int)",
+        "methodDes": "Sets the quantity of the product. This field is usually not used with product impressions.",
+        "params": {
+          "value": "The product's quantity. Example: 42"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Product:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Product.Product()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#Product()",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Product.setPrice(double)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#setPrice(double)",
+        "methodDes": "Sets the price of the product.",
+        "params": {
+          "value": "The product's price. Example: 3.14"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Product:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Product.setBrand(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#setBrand(java.lang.String)",
+        "methodDes": "Sets the brand associated with the product in GA reports.",
+        "params": {
+          "value": "The product's brand. Example: Acme Toys"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Product:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Product.setId(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#setId(java.lang.String)",
+        "methodDes": "Sets the id that is used to identify a product in GA reports.",
+        "params": {
+          "value": "The product id"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Product:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Product.setCouponCode(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#setCouponCode(java.lang.String)",
+        "methodDes": "Sets the coupon code associated with the product. This field is usually not used with product impressions.",
+        "params": {
+          "value": "The product's coupon code. Example: EXTRA10"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Product:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Product.setVariant(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Product#setVariant(java.lang.String)",
+        "methodDes": "Sets the variant of the product.",
+        "params": {
+          "value": "The product's variant. Example: Yellow or Red"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Product:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.HitBuilders.ScreenViewBuilder": {
+    "classDes": "Class to build a screen view hit. You can add any of the other fields to the builder using common set and get methods.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ScreenViewBuilder",
+    "methods": {
+      "com.google.android.gms.analytics.HitBuilders.ScreenViewBuilder.ScreenViewBuilder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ScreenViewBuilder#public-hitbuilders.screenviewbuilder",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.Logger.LogLevel": {
+    "classDes": "This class was deprecated. See Logger interface for details. Log level settings. The log level is provided to the Logger through the setLogLevel(int) method.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger.LogLevel",
+    "methods": {
+      "com.google.android.gms.analytics.Logger.LogLevel.LogLevel()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger.LogLevel#public-logger.loglevel",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.analytics.Logger.LogLevel.INFO": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger.LogLevel#INFO",
+        "value": "1"
+      },
+      "com.google.android.gms.analytics.Logger.LogLevel.VERBOSE": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger.LogLevel#VERBOSE",
+        "value": "0"
+      },
+      "com.google.android.gms.analytics.Logger.LogLevel.ERROR": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger.LogLevel#ERROR",
+        "value": "3"
+      },
+      "com.google.android.gms.analytics.Logger.LogLevel.WARNING": {
+        "des": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger.LogLevel#WARNING",
+        "value": "2"
+      }
+    }
+  },
+  "com.google.android.gms.analytics.ecommerce.Promotion": {
+    "classDes": "Class to construct promotion related fields for Google Analytics hits. The fields from this class can be used to represent internal promotions that run within an app, such as banners, banner ads etc.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Promotion",
+    "methods": {
+      "com.google.android.gms.analytics.ecommerce.Promotion.Promotion()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Promotion#Promotion()",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Promotion.setCreative(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Promotion#setCreative(java.lang.String)",
+        "methodDes": "Sets the name of the creative associated with the promotion.",
+        "params": {
+          "value": "The promotion creative's name. Example: Cool pets creative"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Promotion:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Promotion.setName(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Promotion#setName(java.lang.String)",
+        "methodDes": "Sets the name that is used to identify the promotion in GA reports.",
+        "params": {
+          "value": "The promotion's name. Example: Home Banner"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Promotion:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Promotion.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Promotion#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String: a string about Promotion",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Promotion.setId(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Promotion#setId(java.lang.String)",
+        "methodDes": "Sets the id that is used to identify a promotion in GA reports.",
+        "params": {
+          "value": "The promotion's id"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Promotion:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.Promotion.setPosition(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Promotion#setPosition(java.lang.String)",
+        "methodDes": "Sets the position of the promotion.",
+        "params": {
+          "value": "The promotion's position. Example: top or bottom"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.Promotion:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.analytics.ecommerce.Promotion.ACTION_CLICK": {
+        "des": "Action to use when the user clicks/taps on a promotion.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Promotion#ACTION_CLICK",
+        "value": "click"
+      },
+      "com.google.android.gms.analytics.ecommerce.Promotion.ACTION_VIEW": {
+        "des": "Action to use when the user views a promotion.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/Promotion#ACTION_VIEW",
+        "value": "view"
+      }
+    }
+  },
+  "com.google.android.gms.analytics.HitBuilders.SocialBuilder": {
+    "classDes": "A Builder object to build social event hits. See //goo.gl/iydW9O for description of all social fields.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.SocialBuilder",
+    "methods": {
+      "com.google.android.gms.analytics.HitBuilders.SocialBuilder.setNetwork(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.SocialBuilder#setNetwork(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "network": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.SocialBuilder: a SocialBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.SocialBuilder.SocialBuilder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.SocialBuilder#public-hitbuilders.socialbuilder",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.SocialBuilder.setTarget(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.SocialBuilder#setTarget(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "target": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.SocialBuilder: a SocialBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.SocialBuilder.setAction(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.SocialBuilder#setAction(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "action": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.SocialBuilder: a SocialBuilder instance",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.firebase.analytics.FirebaseAnalytics.UserProperty": {
+    "classDes": "A UserProperty is an attribute that describes the app-user.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.UserProperty",
+    "methods": {
+      "com.google.firebase.analytics.FirebaseAnalytics.UserProperty.UserProperty()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.UserProperty#protected-firebaseanalytics.userproperty",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.firebase.analytics.FirebaseAnalytics.UserProperty.ALLOW_AD_PERSONALIZATION_SIGNALS": {
+        "des": "Indicates whether events logged by Google Analytics can be used to personalize adsfor the user. Set to true to enable, or false to disable. Default is enabled. Seethe documentationfor more details and information about related settings.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.UserProperty#ALLOW_AD_PERSONALIZATION_SIGNALS",
+        "value": "allow_personalized_ads"
+      },
+      "com.google.firebase.analytics.FirebaseAnalytics.UserProperty.SIGN_UP_METHOD": {
+        "des": "The method used to sign in. For example, google, facebook or twitter.",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/analytics/FirebaseAnalytics.UserProperty#SIGN_UP_METHOD",
+        "value": "sign_up_method"
+      }
+    }
+  },
+  "com.google.android.gms.analytics.Logger": {
+    "classDes": "This interface was deprecated. Logger interface is deprecated. Use adb shell setprop log.tag.GAv4 DEBUG to enable debug logging for Google Analytics. Deprecated Analytics Logger interface. Google Analytics will log to logcat under GAv4 tag using Android Log system. By default only ERROR, WARN and INFO levels are enabled. To enable DEBUG level run the following adb command on your device or emulator: adb shell setprop log.tag.GAv4 DEBUG To see only Google Analytics messages from logcat use the following command: adb logcat -v time -s GAv4 For more information consult the logcat and adb developer documentation.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger",
+    "methods": {
+      "com.google.android.gms.analytics.Logger.error(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger#error(java.lang.String)",
+        "methodDes": "This method was deprecated. See Logger interface for details.",
+        "params": {
+          "message": "A string describing the error that occurred"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Logger.error(java.lang.Exception)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger#public-abstract-void-error-exception-exception",
+        "methodDes": "Used to log runtime errors or unexpected conditions. These errors will likely result in data not being sent to the GA servers.",
+        "params": {
+          "exception": "The exception that was thrown that caused the error"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Logger.getLogLevel()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger#getLogLevel()",
+        "methodDes": "This method was deprecated. See Logger interface for details.",
+        "params": {},
+        "returns": "int: the level of Log",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Logger.warn(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger#warn(java.lang.String)",
+        "methodDes": "This method was deprecated. See Logger interface for details.",
+        "params": {
+          "message": "the message to log"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Logger.info(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger#info(java.lang.String)",
+        "methodDes": "This method was deprecated. See Logger interface for details.",
+        "params": {
+          "message": "the message to log"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Logger.setLogLevel(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger#setLogLevel(int)",
+        "methodDes": "This method was deprecated. See Logger interface for details.",
+        "params": {
+          "level": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.Logger.verbose(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/Logger#verbose(java.lang.String)",
+        "methodDes": "This method was deprecated. See Logger interface for details.",
+        "params": {
+          "message": "the message to log"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.CampaignTrackingService": {
+    "classDes": "This class was deprecated. Campaign tracking happens in CampaignTrackingReceiver only. This Service is no longer invoked. Campaign tracking happens in the receiver only. Remains for compatibility reasons.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/CampaignTrackingService",
+    "methods": {
+      "com.google.android.gms.analytics.CampaignTrackingService.CampaignTrackingService()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/CampaignTrackingService#CampaignTrackingService()",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.CampaignTrackingService.onBind(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/CampaignTrackingService#onBind(android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "intent": ""
+        },
+        "returns": "android.os.IBinder: an IBinder through which clients can call on to the service",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.measurement.AppMeasurementService": {
+    "classDes": "An Service used by FirebaseAnalytics. It will only be used when the service is correctly declared in AndroidManifest.xml.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementService",
+    "methods": {
+      "com.google.android.gms.measurement.AppMeasurementService.onBind(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementService#onBind(android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "intent": ""
+        },
+        "returns": "android.os.IBinder: an IBinder through which clients can call on to the service",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementService.onCreate()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementService#onCreate()",
+        "methodDes": "",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementService.AppMeasurementService()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementService#AppMeasurementService()",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementService.onStartCommand(android.content.Intent,int,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementService#onStartCommand(android.content.Intent, int, int)",
+        "methodDes": "",
+        "params": {
+          "intent": "",
+          "flags": "",
+          "startId": ""
+        },
+        "returns": "int: The return value indicates what semantics the system should use for the service's current started state",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementService.onDestroy()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementService#onDestroy()",
+        "methodDes": "",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementService.onRebind(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementService#onRebind(android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "intent": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementService.onUnbind(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementService#onUnbind(android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "intent": ""
+        },
+        "returns": "boolean: Return true if you would like to have the service's onRebind(Intent) method later called when new clients bind to it",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.HitBuilders.ItemBuilder": {
+    "classDes": "This class was deprecated. This class has been deprecated in favor of a richer set of APIs on all the HitBuilder classes. With the new approach, simply use addProduct, addImpression, addPromo and setAction to add ecommerce data to any of the hits. Item hit builder allows you to send item level sales data to Google Analytics. Transaction Id, Item Name, SKU price and quantity are required for meaningful reports on item data.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ItemBuilder",
+    "methods": {
+      "com.google.android.gms.analytics.HitBuilders.ItemBuilder.setCategory(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ItemBuilder#setCategory(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "category": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.ItemBuilder: the ItemBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.ItemBuilder.setTransactionId(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ItemBuilder#setTransactionId(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "transactionid": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.ItemBuilder: the ItemBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.ItemBuilder.setName(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ItemBuilder#setName(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "name": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.ItemBuilder: the ItemBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.ItemBuilder.setQuantity(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ItemBuilder#setQuantity(long)",
+        "methodDes": "",
+        "params": {
+          "quantity": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.ItemBuilder: the ItemBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.ItemBuilder.setCurrencyCode(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ItemBuilder#setCurrencyCode(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "currencyCode": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.ItemBuilder: the ItemBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.ItemBuilder.ItemBuilder()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ItemBuilder#public-hitbuilders.itembuilder",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.ItemBuilder.setSku(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ItemBuilder#setSku(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "sku": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.ItemBuilder: the ItemBuilder instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.HitBuilders.ItemBuilder.setPrice(double)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/HitBuilders.ItemBuilder#setPrice(double)",
+        "methodDes": "",
+        "params": {
+          "price": ""
+        },
+        "returns": "com.google.android.gms.analytics.HitBuilders.ItemBuilder: the ItemBuilder instance",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.AnalyticsJobService": {
+    "classDes": "A JobService used by Google Analytics. It will only be used when the service is correctly declared in AndroidManifest.xml.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/AnalyticsJobService",
+    "methods": {
+      "com.google.android.gms.analytics.AnalyticsJobService.onStopJob(android.app.job.JobParameters)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/AnalyticsJobService#onStopJob(android.app.job.JobParameters)",
+        "methodDes": "",
+        "params": {
+          "params": ""
+        },
+        "returns": "boolean: true to indicate to the JobManager whether you'd like to reschedule this job based on the retry criteria provided at job creation-time; or false to end the job entirely. Regardless of the value returned, your job must stop executing",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.AnalyticsJobService.callServiceStopSelfResult(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/AnalyticsJobService#callServiceStopSelfResult(int)",
+        "methodDes": "",
+        "params": {
+          "startId": ""
+        },
+        "returns": "boolean: Returns true if the startId matches the last start request and the service will be stopped, else false",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.AnalyticsJobService.onStartJob(android.app.job.JobParameters)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/AnalyticsJobService#onStartJob(android.app.job.JobParameters)",
+        "methodDes": "",
+        "params": {
+          "params": ""
+        },
+        "returns": "boolean: Return true from this method if your job needs to continue running",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.measurement.AppMeasurementJobService": {
+    "classDes": "A JobService used by FirebaseAnalytics. It will only be used when the service is correctly declared in AndroidManifest.xml.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementJobService",
+    "methods": {
+      "com.google.android.gms.measurement.AppMeasurementJobService.onRebind(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementJobService#onRebind(android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "intent": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementJobService.onUnbind(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementJobService#onUnbind(android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "intent": ""
+        },
+        "returns": "boolean: Return true if you would like to have the service's onRebind(Intent) method later called when new clients bind to it",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementJobService.onStopJob(android.app.job.JobParameters)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementJobService#onStopJob(android.app.job.JobParameters)",
+        "methodDes": "",
+        "params": {
+          "params": ""
+        },
+        "returns": "boolean: true to indicate to the JobManager whether you'd like to reschedule this job based on the retry criteria provided at job creation-time; or false to end the job entirely. Regardless of the value returned, your job must stop executing",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementJobService.onDestroy()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementJobService#onDestroy()",
+        "methodDes": "",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementJobService.onStartJob(android.app.job.JobParameters)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementJobService#onStartJob(android.app.job.JobParameters)",
+        "methodDes": "",
+        "params": {
+          "params": ""
+        },
+        "returns": "boolean: Return true from this method if your job needs to continue running",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementJobService.AppMeasurementJobService()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementJobService#AppMeasurementJobService()",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.measurement.AppMeasurementJobService.onCreate()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/measurement/AppMeasurementJobService#onCreate()",
+        "methodDes": "",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.analytics.ecommerce.ProductAction": {
+    "classDes": "Class to construct transaction/checkout or other product interaction related information for a Google Analytics hit. Use this class to report information about products sold, viewed or refunded. This class is intended to be used with Product. Instances of this class can be associated with setProductAction(ProductAction).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction",
+    "methods": {
+      "com.google.android.gms.analytics.ecommerce.ProductAction.setCheckoutOptions(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#setCheckoutOptions(java.lang.String)",
+        "methodDes": "Sets the label associated with the checkout. This value is used with ACTION_CHECKOUT and ACTION_CHECKOUT_OPTION actions.",
+        "params": {
+          "value": "A string label/option associated with the checkout"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.ProductAction:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.setTransactionCouponCode(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#setTransactionCouponCode(java.lang.String)",
+        "methodDes": "Sets the coupon code used in a transaction. This value is used for ACTION_PURCHASE and ACTION_REFUND actions.",
+        "params": {
+          "value": "A string representing the coupon code used in a transaction"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.ProductAction:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.setProductListSource(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#setProductListSource(java.lang.String)",
+        "methodDes": "Sets the list source name associated with the products in the analytics hit. This value is used with ACTION_DETAIL and ACTION_CLICK actions.",
+        "params": {
+          "value": "A string name identifying the product list's source"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.ProductAction:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String: a string about ProductAction",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.setCheckoutStep(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#setCheckoutStep(int)",
+        "methodDes": "Sets the checkout processes's progress. This value is used with ACTION_CHECKOUT and ACTION_CHECKOUT_OPTION actions.",
+        "params": {
+          "value": "An integer representing the progress of the checkout flow. example: 4 or 5"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.ProductAction:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.setTransactionRevenue(double)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#setTransactionRevenue(double)",
+        "methodDes": "Sets the transaction's total revenue. This value is used for ACTION_PURCHASE and ACTION_REFUND actions.",
+        "params": {
+          "value": "A number representing the revenue from a transaction"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.ProductAction:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.setTransactionShipping(double)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#setTransactionShipping(double)",
+        "methodDes": "Sets the transaction's shipping costs. This value is used for ACTION_PURCHASE and ACTION_REFUND actions.",
+        "params": {
+          "value": "A number representing the shipping costs from a transaction"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.ProductAction:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.setTransactionTax(double)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#setTransactionTax(double)",
+        "methodDes": "Sets the transaction's total tax. This value is used for ACTION_PURCHASE and ACTION_REFUND actions.",
+        "params": {
+          "value": "A number representing the revenue from a transaction"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.ProductAction:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.ProductAction(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#ProductAction(java.lang.String)",
+        "methodDes": "Sets the product action for all the products included in the hit. Valid values include detail, click, add, remove, checkout, checkout_option, purchase and refund. All these values are also defined in this class for ease of use. You also also send additional values with the hit for some specific actions. See the action documentation for details.",
+        "params": {
+          "action": "The value of product action"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.setTransactionId(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#setTransactionId(java.lang.String)",
+        "methodDes": "The unique id associated with the transaction. This value is used for ACTION_PURCHASE and ACTION_REFUND actions.",
+        "params": {
+          "value": "A string id identifying a transaction"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.ProductAction:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.setProductActionList(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#setProductActionList(java.lang.String)",
+        "methodDes": "Sets the list name associated with the products in the analytics hit. This value is used with ACTION_DETAIL and ACTION_CLICK actions.",
+        "params": {
+          "value": "A string name identifying the product list"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.ProductAction:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.setTransactionAffiliation(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#setTransactionAffiliation(java.lang.String)",
+        "methodDes": "Sets the transaction's affiliation value. This value is used for ACTION_PURCHASE and ACTION_REFUND actions.",
+        "params": {
+          "value": "A string identifying the transaction affiliation"
+        },
+        "returns": "com.google.android.gms.analytics.ecommerce.ProductAction:Returns the same object to enable chaining of methods",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.analytics.ecommerce.ProductAction.ACTION_REFUND": {
+        "des": "Action to use while reporting refunded transactions to GA.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#ACTION_REFUND",
+        "value": "refund"
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.ACTION_CHECKOUT": {
+        "des": "Action to use for hits with checkout data. This action can have accompanying fieldslike checkout step setCheckoutStep(int), checkout label setCheckoutOptions(String) and checkout options setCheckoutOptions(String).",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#ACTION_CHECKOUT",
+        "value": "checkout"
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.ACTION_CHECKOUT_OPTIONS": {
+        "des": "Action to be used for supplemental checkout data that needs to be provided after acheckout hit. This action can additionally have the same fields as the checkoutaction.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#ACTION_CHECKOUT_OPTIONS",
+        "value": "checkout_options"
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.ACTION_CLICK": {
+        "des": "Action to use when the user clicks on a set of products. This action can haveaccompanying fields like product action list name setProductActionList(String) and product list source setProductListSource(String).",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#ACTION_CLICK",
+        "value": "click"
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.ACTION_CHECKOUT_OPTION": {
+        "des": "Action to be used for supplemental checkout data that needs to be provided after acheckout hit. This action can additionally have the same fields as the checkoutaction.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#ACTION_CHECKOUT_OPTION",
+        "value": "checkout_option"
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.ACTION_REMOVE": {
+        "des": "Action to use when a product is removed from the cart.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#ACTION_REMOVE",
+        "value": "remove"
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.ACTION_ADD": {
+        "des": "Action to use when a product is added to the cart.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#ACTION_ADD",
+        "value": "add"
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.ACTION_PURCHASE": {
+        "des": "Action that is used to report all the transaction data to GA. This is equivalent tothe transaction hit type which was available in previous versions of the SDK. Thisaction can can also have accompanying fields like transaction id, affiliation, revenue,tax, shipping and coupon code. These fields can be specified with methods defined inthis class.",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#ACTION_PURCHASE",
+        "value": "purchase"
+      },
+      "com.google.android.gms.analytics.ecommerce.ProductAction.ACTION_DETAIL": {
+        "des": "Action to use when the user views detailed descriptions of products. This action canhave accompanying fields like product action list name setProductActionList(String) and product list source setProductListSource(String).",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ecommerce/ProductAction#ACTION_DETAIL",
+        "value": "detail"
+      }
+    }
+  },
+  "com.google.android.gms.analytics.ExceptionParser": {
+    "classDes": "This interface is responsible for parsing a Throwable and providing a short, meaningful description to report to Google Analytics. This class can be used in conjugation with the ExceptionReporter. UncaughtExceptionHandler myHandler = new ExceptionReporter( myTracker, // Currently used Tracker. Thread.getDefaultUncaughtExceptionHandler(), // Current default uncaught exception handler. context); // Context of the application. myHandler.setExceptionParser(new MyExceptionParser()); // Where MyExceptionParser provides a custom description for various exceptions.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ExceptionParser",
+    "methods": {
+      "com.google.android.gms.analytics.ExceptionParser.getDescription(java.lang.String,java.lang.Throwable)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/analytics/ExceptionParser#getDescription(java.lang.String, java.lang.Throwable)",
+        "methodDes": "Return a short description of a Throwable suitable for reporting to Google Analytics.",
+        "params": {
+          "threadName": "the name of the Thread that got the exception, or null",
+          "t": "the Throwable"
+        },
+        "returns": "java.lang.String:the description",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  }
+}

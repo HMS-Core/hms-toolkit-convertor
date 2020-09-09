@@ -25,6 +25,7 @@ public enum GeneratorStrategyKind {
     GOrH, // g+h, g first for Add hms mode and multi version mode
     HOrG, // g+h, h first for Add hms mode and multi version mode
     G, // only g for multi version mode
+    H, // only h
     XG, // for classloader
     XH, // for classloader
     XAPI, // for classloader

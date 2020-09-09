@@ -4,25 +4,50 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+
 import android.util.Log;
 
+/**
+ * Class for XmsLog
+ */
 public class XmsLog {
     private static XmsLogInterface logImpl;
     private static final String TAG_XmsLog = XmsLog.class.getSimpleName();
+    /**
+     * org.xms.g.utils.XmsLog.LOG_LEVEL_DEBUG debug level.<br/>
+     */
     public static final int LOG_LEVEL_DEBUG = 0;
+
+    /**
+     * org.xms.g.utils.XmsLog.LOG_LEVEL_INFO info level.<br/>
+     */
     public static final int LOG_LEVEL_INFO = 1;
+
+    /**
+     * org.xms.g.utils.XmsLog.LOG_LEVEL_WARN warn level.<br/>
+     */
     public static final int LOG_LEVEL_WARN = 2;
+
+    /**
+     * org.xms.g.utils.XmsLog.LOG_LEVEL_ERROR error level.<br/>
+     */
     public static final int LOG_LEVEL_ERROR = 3;
+
+    /**
+     * org.xms.g.utils.XmsLog.LOG_LEVEL_CLOSE close level.<br/>
+     */
     public static final int LOG_LEVEL_CLOSE = 4;
     private static int logLevel = LOG_LEVEL_WARN;
     private static final boolean DEBUG_ENABLE = false;
 
-    public static void newInstance(XmsLogInterface inLogImpl){
+    public static void newInstance(XmsLogInterface inLogImpl) {
         logImpl = inLogImpl;
     }
 
     /**
-     * If the user did'nt implements the log interface, use Android default log
+     * org.xms.g.utils.XmsLog.defaultImpl() If the user did'nt implements the log interface, use Android default log<br/>
+     *
+     * @return XmsLogInterface
      */
     private static XmsLogInterface defaultImpl() {
         return new XmsLogInterface() {
@@ -68,16 +93,25 @@ public class XmsLog {
         };
     }
 
+    /**
+     * org.xms.g.utils.XmsLog.ensureLogImpl() ensure log implementation.<br/>
+     */
     private static void ensureLogImpl() {
         if (logImpl == null) {
             XmsLog.newInstance(defaultImpl());
         }
     }
 
+    /**
+     * org.xms.g.utils.XmsLog.d(String TAG, String logStr) debug TAG and logStr.<br/>
+     */
     public static void d(String TAG, String logStr) {
         d(TAG, logStr, null);
     }
 
+    /**
+     * org.xms.g.utils.XmsLog.d(String TAG, String logStr, Throwable tr) debug TAG, logStr and Throwable.<br/>
+     */
     public static void d(String TAG, String logStr, Throwable tr) {
         if (!DEBUG_ENABLE || logLevel > LOG_LEVEL_DEBUG) {
             return;
@@ -90,10 +124,16 @@ public class XmsLog {
         }
     }
 
+    /**
+     * org.xms.g.utils.XmsLog.i(String TAG, String logStr) info of TAG, logStr.<br/>
+     */
     public static void i(String TAG, String logStr) {
         i(TAG, logStr, null);
     }
 
+    /**
+     * org.xms.g.utils.XmsLog.i(String TAG, String logStr, Throwable tr) info of TAG, logStr and Throwable.<br/>
+     */
     public static void i(String TAG, String logStr, Throwable tr) {
         if (!DEBUG_ENABLE || logLevel > LOG_LEVEL_INFO) {
             return;
@@ -106,10 +146,16 @@ public class XmsLog {
         }
     }
 
+    /**
+     * org.xms.g.utils.XmsLog.w(String TAG, String logStr) warning of TAG, logStr.<br/>
+     */
     public static void w(String TAG, String logStr) {
         w(TAG, logStr, null);
     }
 
+    /**
+     * org.xms.g.utils.XmsLog.w(String TAG, String logStr, Throwable tr) warning of TAG, logStr and Throwable.<br/>
+     */
     public static void w(String TAG, String logStr, Throwable tr) {
         if (!DEBUG_ENABLE || logLevel > LOG_LEVEL_WARN) {
             return;
@@ -122,10 +168,16 @@ public class XmsLog {
         }
     }
 
+    /**
+     * org.xms.g.utils.XmsLog.e(String TAG, String logStr) error of TAG, logStr.<br/>
+     */
     public static void e(String TAG, String logStr) {
         e(TAG, logStr, null);
     }
 
+    /**
+     * org.xms.g.utils.XmsLog.e(String TAG, String logStr, Throwable tr) error of TAG, logStr and Throwable.<br/>
+     */
     public static void e(String TAG, String logStr, Throwable tr) {
         if (!DEBUG_ENABLE || logLevel > LOG_LEVEL_ERROR) {
             return;

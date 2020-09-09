@@ -28,7 +28,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- * AstConstructor class
+ * Ast Constructor
  *
  * @since 2019-11-12
  */

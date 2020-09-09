@@ -1,0 +1,2105 @@
+{
+	"com.huawei.hms.location.LocationAvailability":{
+		"classDes":"Device location availability.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationavailability-0000001050746173-V5",
+		"methods":{
+			"com.huawei.hms.location.LocationAvailability.extractLocationAvailability(android.content.Intent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationavailability-0000001050746173-V5#EN-US_TOPIC_0000001050746173__section1653772245611",
+				"methodDes":"Obtains the LocationAvailability instance.",
+				"params":{
+					"intent":"Intent passed to the server for calling the requestLocationUpdates method"
+				},
+				"returns":"com.huawei.hms.location.LocationAvailability:null if the intent does not contain LocationAvailability",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationAvailability.hasLocationAvailability(android.content.Intent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationavailability-0000001050746173-V5#EN-US_TOPIC_0000001050746173__section15906933183111",
+				"methodDes":"Checks whether the intent contains LocationAvailability.",
+				"params":{
+					"intent":"Intent passed to the server for calling the requestLocationUpdates method"
+				},
+				"returns":"boolean: true if the intent contains LocationAvailability; false otherwise",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationAvailability.hashCode()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"int:a hash code value for this object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationAvailability.isLocationAvailable()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationavailability-0000001050746173-V5#EN-US_TOPIC_0000001050746173__section46791837113212",
+				"methodDes":"Checks whether the device location is known.",
+				"params":{},
+				"returns":"boolean: true if the value of locationStatus is smaller than 1000; false otherwise",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationAvailability.equals(java.lang.Object)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"obj":"The reference object with which to compare"
+				},
+				"returns":"boolean:true if this object is the same as the obj argument; false otherwise",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationAvailability.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationAvailability.toString()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"java.lang.String:a string representation of the object",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.LocationAvailability.CREATOR":{
+				"des":"Builder of LocationAvailability.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationavailability-0000001050746173-V5",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.Geofence.Builder":{
+		"classDes":"Builds a Geofence instance.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofence-builder-0000001050706136-V5",
+		"methods":{
+			"com.huawei.hms.location.Geofence.Builder.setUniqueId(java.lang.String)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofence-builder-0000001050706136-V5#EN-US_TOPIC_0000001050706136__section217115451211",
+				"methodDes":"Sets the unique ID of a geofence.",
+				"params":{
+					"uniqueId":"Request ID. If the request ID already exists, the new geofence will overwrite the old one"
+				},
+				"returns":"com.huawei.hms.location.Geofence.Builder: Builder class of the geofence instance",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.Geofence.Builder.setConversions(int)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofence-builder-0000001050706136-V5#EN-US_TOPIC_0000001050706136__section1988364352312",
+				"methodDes":"Sets the geofence trigger type.",
+				"params":{
+					"conversions":"Geofence trigger type. The bitwise-OR operation is supported"
+				},
+				"returns":"com.huawei.hms.location.Geofence.Builder: Builder class of the geofence instance",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.Geofence.Builder.Builder()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.Geofence.Builder.setValidContinueTime(long)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofence-builder-0000001050706136-V5#EN-US_TOPIC_0000001050706136__section3781419112518",
+				"methodDes":"Sets the geofence timeout interval.",
+				"params":{
+					"validContinueTime":"Geofence timeout interval, in milliseconds. The geofence will be automatically deleted after this amount of time"
+				},
+				"returns":"com.huawei.hms.location.Geofence.Builder: Builder class of the geofence instance",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.Geofence.Builder.setRoundArea(double,double,float)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofence-builder-0000001050706136-V5#EN-US_TOPIC_0000001050706136__section9254532817",
+				"methodDes":"Sets the round area covered by a geofence.",
+				"params":{
+					"latitude":"Latitude. The value ranges from �C90 to 90",
+					"radius":"Radius, in meters",
+					"longitude":"Longitude. The value ranges from �C180 to 180"
+				},
+				"returns":"com.huawei.hms.location.Geofence.Builder: Builder class of the geofence instance",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.Geofence.Builder.build()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofence-builder-0000001050706136-V5#EN-US_TOPIC_0000001050706136__section1114844123220",
+				"methodDes":"Builds a geofence object.",
+				"params":{},
+				"returns":"com.huawei.hms.location.Geofence: Geofence object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.Geofence.Builder.setDwellDelayTime(int)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofence-builder-0000001050706136-V5#EN-US_TOPIC_0000001050706136__section4655181732916",
+				"methodDes":"Sets the stay duration for triggering a geofence event.",
+				"params":{
+					"dwellDelayTime":"Stay duration for triggering a geofence event, in milliseconds. A geofence event is triggered when a user stays in a geofence for this amount of time"
+				},
+				"returns":"com.huawei.hms.location.Geofence.Builder: Builder class of the geofence instance",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.Geofence.Builder.setNotificationInterval(int)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofence-builder-0000001050706136-V5#EN-US_TOPIC_0000001050706136__section18215122583112",
+				"methodDes":"Sets the notification interval.",
+				"params":{
+					"notificationInterval":"Notification interval, in seconds. The default value is 0. Setting it to a larger value can reduce power consumption accordingly. However, reporting of geofence events may be delayed"
+				},
+				"returns":"com.huawei.hms.location.Geofence.Builder: Builder class of the geofence instance",
+				"Exceptions":{}
+			}
+		},
+		"fields":{}
+	},
+	"com.huawei.hms.location.SettingsClient":{
+		"classDes":"Class for checking location-related settings.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/settingsclient-0000001051066118-V5",
+		"methods":{
+			"com.huawei.hms.location.SettingsClient.checkLocationSettings(com.huawei.hms.location.LocationSettingsRequest)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/settingsclient-0000001051066118-V5#EN-US_TOPIC_0000001051066118__section1653772245611",
+				"methodDes":"Checks whether relevant location settings are valid.",
+				"params":{
+					"locationSettingsRequest":"Request object related to location settings"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<com.huawei.hms.location.LocationSettingsResponse>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener() to obtain the current method execution result. If the execution fails, the getStatusCode() method of ApiException is used to obtain the result code. The result code 6 indicates failure. (Information can be provided to instruct users to modify location settings to solve the problem.)",
+				"Exceptions":{}
+			}
+		},
+		"fields":{}
+	},
+	"com.huawei.hms.location.Geofence":{
+		"classDes":"Geofence entity API.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/geofence-0000001050706130-V5",
+		"methods":{
+			"com.huawei.hms.location.Geofence.getUniqueId()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/geofence-0000001050706130-V5#EN-US_TOPIC_0000001050706130__section58926443498",
+				"methodDes":"Obtains the unique ID of a geofence.",
+				"params":{},
+				"returns":"java.lang.String: Unique ID of a geofence",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.Geofence.EXIT_GEOFENCE_CONVERSION":{
+				"des":"A user exits the geofence.",
+				"url":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/geofence-0000001050706130-V5#EN-US_TOPIC_0000001050706130__section104194423618",
+				"value":"2"
+			},
+			"com.huawei.hms.location.Geofence.ENTER_GEOFENCE_CONVERSION":{
+				"des":"A user enters the geofence.",
+				"url":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/geofence-0000001050706130-V5#EN-US_TOPIC_0000001050706130__section1254213477129",
+				"value":"1"
+			},
+			"com.huawei.hms.location.Geofence.GEOFENCE_NEVER_EXPIRE":{
+				"des":"No timeout interval is configured for the geofence.",
+				"url":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/geofence-0000001050706130-V5#EN-US_TOPIC_0000001050706130__section1786514633613",
+				"value":"-1L"
+			},
+			"com.huawei.hms.location.Geofence.DWELL_GEOFENCE_CONVERSION":{
+				"des":"A user stays in the geofence.",
+				"url":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/geofence-0000001050706130-V5#EN-US_TOPIC_0000001050706130__section56571345113615",
+				"value":"4"
+			}
+		}
+	},
+	"com.huawei.hms.location.LocationSettingsRequest.Builder":{
+		"classDes":"Builds a LocationSettingsRequest instance.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationsettingsrequest-builder-0000001051066116-V5",
+		"methods":{
+			"com.huawei.hms.location.LocationSettingsRequest.Builder.addLocationRequest(com.huawei.hms.location.LocationRequest)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationsettingsrequest-builder-0000001051066116-V5#EN-US_TOPIC_0000001051066116__section1558216141796",
+				"methodDes":"Adds a LocationRequest object required by the app.",
+				"params":{
+					"request":"LocationRequest object"
+				},
+				"returns":"com.huawei.hms.location.LocationSettingsRequest.Builder: Builder of LocationSettingsRequest",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsRequest.Builder.setAlwaysShow(boolean)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationsettingsrequest-builder-0000001051066116-V5#EN-US_TOPIC_0000001051066116__section1525695411016",
+				"methodDes":"Sets whether the location is required for using the app.",
+				"params":{
+					"show":"Indicates whether the location is required for using the app. The options are true (yes) and false (no)"
+				},
+				"returns":"com.huawei.hms.location.LocationSettingsRequest.Builder: Builder of LocationSettingsRequest",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsRequest.Builder.addAllLocationRequests(java.util.Collection<com.huawei.hms.location.LocationRequest>)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationsettingsrequest-builder-0000001051066116-V5#EN-US_TOPIC_0000001051066116__section1653772245611",
+				"methodDes":"Adds a set of LocationRequest objects required by the app.",
+				"params":{
+					"requests":"A set of LocationRequest objects"
+				},
+				"returns":"com.huawei.hms.location.LocationSettingsRequest.Builder: Builder of LocationSettingsRequest",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsRequest.Builder.build()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationsettingsrequest-builder-0000001051066116-V5#EN-US_TOPIC_0000001051066116__section11618710141419",
+				"methodDes":"Builds a location setting request.",
+				"params":{},
+				"returns":"com.huawei.hms.location.LocationSettingsRequest: a location setting request",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsRequest.Builder.Builder()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationsettingsrequest-builder-0000001051066116-V5",
+				"methodDes":"Builds a LocationSettingsRequest.Builder() instance.",
+				"params":{},
+				"returns":"",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsRequest.Builder.setNeedBle(boolean)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationsettingsrequest-builder-0000001051066116-V5#EN-US_TOPIC_0000001051066116__section11565183771218",
+				"methodDes":"Sets whether BLE scanning needs to be enabled for the app.",
+				"params":{
+					"needBle":"Indicates whether BLE scanning needs to be enabled for the app. true: yes; false: no"
+				},
+				"returns":"com.huawei.hms.location.LocationSettingsRequest.Builder: Builder of LocationSettingsRequest",
+				"Exceptions":{}
+			}
+		},
+		"fields":{}
+	},
+	"com.huawei.hms.location.LocationResult":{
+		"classDes":"Location data information class.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationresult-0000001051066114-V5",
+		"methods":{
+			"com.huawei.hms.location.LocationResult.hashCode()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"int:a hash code value for this object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationResult.getLastLocation()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationresult-0000001051066114-V5#EN-US_TOPIC_0000001051066114__section17829111811544",
+				"methodDes":"Obtains the available location of the last request. If no location is available, null will be returned.",
+				"params":{},
+				"returns":"android.location.Location: Available location of the last request. If no location is available, null will be returned. This is a native class of Android. For details, please refer to the Android development document",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationResult.extractResult(android.content.Intent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationresult-0000001051066114-V5#EN-US_TOPIC_0000001051066114__section191671312526",
+				"methodDes":"Obtains the LocationResult object from the intent.",
+				"params":{
+					"intent":"Intent passed to the server for calling the requestLocationUpdates method"
+				},
+				"returns":"com.huawei.hms.location.LocationResult: LocationResult object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationResult.getLocations()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationresult-0000001051066114-V5#EN-US_TOPIC_0000001051066114__section0637438308",
+				"methodDes":"Obtains a set of available locations.",
+				"params":{},
+				"returns":"java.util.List<android.location.Location>: Available locations, which are sorted from oldest to newest",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationResult.toString()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"java.lang.String:a string representation of the object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationResult.equals(java.lang.Object)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"obj":"The reference object with which to compare"
+				},
+				"returns":"boolean:true if this object is the same as the obj argument; false otherwise",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationResult.create(java.util.List<android.location.Location>)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationresult-0000001051066114-V5#EN-US_TOPIC_0000001051066114__section1653772245611",
+				"methodDes":"Creates a LocationResult object for a specified location.",
+				"params":{
+					"locations":"Location list"
+				},
+				"returns":"com.huawei.hms.location.LocationResult: LocationResult object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationResult.hasResult(android.content.Intent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationresult-0000001051066114-V5#EN-US_TOPIC_0000001051066114__section122471915428",
+				"methodDes":"Checks whether the intent contains LocationResult.",
+				"params":{
+					"intent":"Intent passed to the server for calling the requestLocationUpdates method"
+				},
+				"returns":"boolean: true if the intent contains LocationResult; false otherwise",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationResult.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationResult.getLastHWLocation()": {
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationresult-0000001051066114-V5#EN-US_TOPIC_0000001051066114__section8448202118411",
+				"methodDes":"Obtains the available location of the last request, including the detailed address information.",
+				"params":{},
+				"returns":"com.huawei.hms.location.HWLocation: Available location of the last request, including the detailed address information. Available location of the last request. If no location is available, null will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationResult.getHWLocationList()": {
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationresult-0000001051066114-V5#EN-US_TOPIC_0000001051066114__section12535838611",
+				"methodDes":"Obtains a list of available locations, including detailed address information.",
+				"params":{},
+				"returns":"java.util.List<com.huawei.hms.location.HWLocation>: List of available locations sorted from oldest to newest, including the detailed address information. If no location is available, null will be returned",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.LocationResult.CREATOR":{
+				"des":"Builder of LocationResult.",
+				"url":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationresult-0000001051066114-V5",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.LocationSettingsStates":{
+		"classDes":"Current location-related setting status.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsstates-v4",
+		"methods":{
+			"com.huawei.hms.location.LocationSettingsStates.isGpsPresent()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsstates-v4",
+				"methodDes":"Indicates whether the GPS provider exists on the device.",
+				"params":{},
+				"returns":"boolean: true if the GPS provider exists on the device",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsStates.isBlePresent()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsstates-v4",
+				"methodDes":"Indicates whether the BLE exists on the device.",
+				"params":{},
+				"returns":"boolean: true if the BLE exists on the device",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsStates.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsStates.isBleUsable()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsstates-v4",
+				"methodDes":"Indicates whether the BLE is enabled and can be used by the app.",
+				"params":{},
+				"returns":"boolean: true if the BLE is enabled and can be used by the app",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsStates.fromIntent(android.content.Intent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsstates-v4#11",
+				"methodDes":"This API is used to obtain the LocationSettingsStates object to check the location setting status after the location status setting pop-up disappears.",
+				"params":{
+					"intent":"Intent returned in the rewritten onActivityResult() method"
+				},
+				"returns":"com.huawei.hms.location.LocationSettingsStates: Class for obtaining the location setting status",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsStates.isLocationPresent()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsstates-v4",
+				"methodDes":"Indicates whether the location provider exists on the device.",
+				"params":{},
+				"returns":"boolean: true if the location provider exists on the device",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsStates.isGpsUsable()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsstates-v4",
+				"methodDes":"Indicates whether the GPS provider is enabled and can be used by the app.",
+				"params":{},
+				"returns":"boolean: true if the GPS provider is enabled and can be used by the app",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsStates.isNetworkLocationPresent()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsstates-v4",
+				"methodDes":"Indicates whether the network location provider exists on the device.",
+				"params":{},
+				"returns":"boolean: true if the network location provider exists on the device",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsStates.isNetworkLocationUsable()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsstates-v4",
+				"methodDes":"Indicates whether the network location provider is enabled and can be used by the app.",
+				"params":{},
+				"returns":"boolean: true if the network location provider is enabled and can be used by the app",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsStates.isLocationUsable()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsstates-v4",
+				"methodDes":"Indicates whether the location provider is enabled and can be used by the app.",
+				"params":{},
+				"returns":"boolean: true if the location provider is enabled and can be used by the app",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.LocationSettingsStates.CREATOR":{
+				"des":"LocationSettingsStates builder.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsstates-v4",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.ActivityConversionInfo.Builder":{
+		"classDes":"Builds an ActivityConversionInfo instance.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/activityconversioninfo-builder-0000001050706132-V5",
+		"methods":{
+			"com.huawei.hms.location.ActivityConversionInfo.Builder.build()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/activityconversioninfo-builder-0000001050706132-V5#EN-US_TOPIC_0000001050706132__section323842119135",
+				"methodDes":"Builds an activity conversion instance.",
+				"params":{},
+				"returns":"com.huawei.hms.location.ActivityConversionInfo: Activity conversion instance",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionInfo.Builder.Builder()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/activityconversioninfo-builder-0000001050706132-V5#EN-US_TOPIC_0000001050706132__section114762417137",
+				"methodDes":"Builder of ActivityConversionInfo.Builder.",
+				"params":{},
+				"returns":"",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionInfo.Builder.setActivityType(int)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/activityconversioninfo-builder-0000001050706132-V5#EN-US_TOPIC_0000001050706132__section1968716181213",
+				"methodDes":"Sets the activity type. OTHERS is not supported.",
+				"params":{
+					"activityType":"Activity type. The value is a constant defined in ActivityIdentificationData"
+				},
+				"returns":"com.huawei.hms.location.ActivityConversionInfo.Builder: Internal class for building an ActivityConversionInfo instance",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionInfo.Builder.setConversionType(int)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/activityconversioninfo-builder-0000001050706132-V5#EN-US_TOPIC_0000001050706132__section9254532817",
+				"methodDes":"Sets the activity conversion condition.",
+				"params":{
+					"conversionType":"Activity conversion information. The options include ENTER_ACTIVITY_CONVERSION and EXIT_ACTIVITY_CONVERSION"
+				},
+				"returns":"com.huawei.hms.location.ActivityConversionInfo.Builder: Internal class for building an ActivityConversionInfo instance",
+				"Exceptions":{}
+			}
+		},
+		"fields":{}
+	},
+	"com.huawei.hms.location.LocationSettingsResponse":{
+		"classDes":"Response to the location check request. This class is used to obtain the status of the current location-related settings.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationsettingsresponse-0000001050706142-V5",
+		"methods":{
+			"com.huawei.hms.location.LocationSettingsResponse.getLocationSettingsStates()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationsettingsresponse-0000001050706142-V5#EN-US_TOPIC_0000001050706142__section1653772245611",
+				"methodDes":"Obtains the location setting status.",
+				"params":{},
+				"returns":"com.huawei.hms.location.LocationSettingsStates: Location setting status",
+				"Exceptions":{}
+			}
+		},
+		"fields":{}
+	},
+	"com.huawei.hms.location.LocationRequest":{
+		"classDes":"Location request class.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5",
+		"methods":{
+			"com.huawei.hms.location.LocationRequest.LocationRequest()":{
+				"methodUrl": "",
+				"methodDes":"",
+				"params":{},
+				"returns":"",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.create()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section1653772245611",
+				"methodDes":"Creates a LocationRequest object.",
+				"params":{},
+				"returns":"com.huawei.hms.location.LocationRequest: a LocationRequest object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.setNumUpdates(int)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section518711641618",
+				"methodDes":"Sets the number of location updates. If the value is 3, the app will receive three location updates.",
+				"params":{
+					"numUpdates":"Number of requested location updates. The default value is Integer.MAX_VALUE"
+				},
+				"returns":"com.huawei.hms.location.LocationRequest: a LocationRequest object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.isFastestIntervalExplicitlySet()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section11397333202215",
+				"methodDes":"Sets whether to use the shortest request interval.",
+				"params":{},
+				"returns":"boolean: true if the shortest request interval is used; false otherwise",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.setSmallestDisplacement(float)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section464205715275",
+				"methodDes":"Sets the smallest displacement between two locations, in meters.",
+				"params":{
+					"smallestDisplacement":"Smallest displacement between two locations, in meters. The default value is 0"
+				},
+				"returns":"com.huawei.hms.location.LocationRequest: a LocationRequest object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.setPriority(int)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section106231148987",
+				"methodDes":"Sets the priority.",
+				"params":{
+					"priority":"Request priority. The default value is 102"
+				},
+				"returns":"com.huawei.hms.location.LocationRequest: a LocationRequest object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.setMaxWaitTime(long)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section105968022917",
+				"methodDes":"Sets the maximum waiting time, in milliseconds.",
+				"params":{
+					"millis":"Maximum waiting time"
+				},
+				"returns":"com.huawei.hms.location.LocationRequest: a LocationRequest object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.equals(java.lang.Object)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"obj":"The reference object with which to compare"
+				},
+				"returns":"boolean:true if this object is the same as the obj argument; false otherwise",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.getMaxWaitTime()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"long:",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.getInterval()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"long:",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.setInterval(long)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section1523913396146",
+				"methodDes":"Sets the interval for requesting location updates, in milliseconds.",
+				"params":{
+					"millis":"Interval for requesting location updates, in milliseconds. The default value is 3600000"
+				},
+				"returns":"com.huawei.hms.location.LocationRequest: a LocationRequest object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.setExpirationDuration(long)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section18862171122619",
+				"methodDes":"Sets the request expiration duration, in milliseconds.",
+				"params":{
+					"millis":"Request expiration duration, in milliseconds. The default value is Long.MAX_VALUE"
+				},
+				"returns":"com.huawei.hms.location.LocationRequest: a LocationRequest object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.getPriority()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"int:",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.hashCode()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"int:a hash code value for this object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.getSmallestDisplacement()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section464205715275",
+				"methodDes":"Sets the smallest displacement between two locations, in meters.",
+				"params":{},
+				"returns":"float: a LocationRequest object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.getExpirationTime()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"long:",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.setFastestInterval(long)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section4468141915170",
+				"methodDes":"Sets the shortest interval for requesting location updates, in milliseconds. The values of Interval and FastestInterval, whichever is smaller, will be used for requesting location updates.",
+				"params":{
+					"millis":"Shortest request interval, in milliseconds. The default value is 600000. If another app initiates a location request, the location is also reported to that app at the interval specified in fastestInterval"
+				},
+				"returns":"com.huawei.hms.location.LocationRequest: a LocationRequest object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.toString()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"java.lang.String:a string representation of the object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.setExpirationTime(long)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section19996045152413",
+				"methodDes":"Sets the request expiration time, in milliseconds.",
+				"params":{
+					"millis":"Request expiration duration, in milliseconds. The default value is Long.MAX_VALUE"
+				},
+				"returns":"com.huawei.hms.location.LocationRequest: a LocationRequest object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.getFastestInterval()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"long:",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.getNumUpdates()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"int:",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.setNeedAddress(boolean)": {
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section10715318193016",
+				"methodDes":"Sets whether to return the address information.",
+				"params":{
+					"needAddress": "Whether to return the address information. The default value is false"
+				},
+				"returns":"com.huawei.hms.location.LocationRequest: a LocationRequest object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.setLanguage(java.lang.String)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section1991931043217",
+				"methodDes":"Sets the language.",
+				"params":{
+					"language": "Language. The value is a two-letter code complying with the ISO 639-1 standard. By default, this parameter is an empty string"
+				},
+				"returns":"com.huawei.hms.location.LocationRequest: a LocationRequest object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationRequest.setCountryCode(java.lang.String)":{
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section12985156183315",
+				"methodDes":"Sets the language.",
+				"params":{
+					"countryCode": "Country/region code. The value is a two-letter code complying with the ISO 3166-1 standard. By default, this parameter is an empty string"
+				},
+				"returns":"com.huawei.hms.location.LocationRequest: a LocationRequest object",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.LocationRequest.PRIORITY_HIGH_ACCURACY":{
+				"des":"Used to request the most accurate location.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section1254213477129",
+				"value":"100"
+			},
+			"com.huawei.hms.location.LocationRequest.PRIORITY_LOW_POWER":{
+				"des":"Used to request the city-level location.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section191618352589",
+				"value":"104"
+			},
+			"com.huawei.hms.location.LocationRequest.PRIORITY_NO_POWER":{
+				"des":"Used to request the location with the optimal accuracy without additional power consumption.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section83335182014",
+				"value":"105"
+			},
+			"com.huawei.hms.location.LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY":{
+				"des":"Used to request the block-level location.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section139848557579",
+				"value":"102"
+			},
+			"com.huawei.hms.location.LocationRequest.PRIORITY_HD_ACCURACY": {
+				"des": "Used to request the high-precision location information. Currently, this parameter is available only for the requestLocationUpdatesEx API.",
+				"url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5#EN-US_TOPIC_0000001050986189__section138882440113",
+				"value": "200"
+			},
+			"com.huawei.hms.location.LocationRequest.CREATOR":{
+				"des":"Builder of LocationRequest.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationrequest-0000001050986189-V5",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.GeofenceService":{
+		"classDes":"Geofence location class, which is used for interaction during location.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofenceservice-0000001050986187-V5",
+		"methods":{
+			"com.huawei.hms.location.GeofenceService.createGeofenceList(com.huawei.hms.location.GeofenceRequest,android.app.PendingIntent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofenceservice-0000001050986187-V5#EN-US_TOPIC_0000001050986187__section9254532817",
+				"methodDes":"Adds geofences through PendingIntent. When a geofence is triggered, a notification will be broadcasted.",
+				"params":{
+					"geofenceRequest":"Geofence request object",
+					"pendingIntent":"PendingIntent associated with each geofence request. When building a PendingIntent object, you need to set Class and Action. Do not build an empty intent"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<java.lang.Void>: Task execution result. You can add the onComplete(Task task) callback to receive the adding result. If task.isSuccessful() returns true, the geofences are added successfully. Otherwise, the geofences fail to be added",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceService.deleteGeofenceList(android.app.PendingIntent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofenceservice-0000001050986187-V5#EN-US_TOPIC_0000001050986187__section1270519314305",
+				"methodDes":"Removes geofences associated with a PendingIntent. An error will be reported if PendingIntent is empty.",
+				"params":{
+					"pendingIntent":"PendingIntent associated with geofences to be removed"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<java.lang.Void>: Task execution result. You can add the onComplete(Task task) callback to receive the removal result. If task.isSuccessful() returns true, the geofences are removed successfully. Otherwise, the geofences fail to be removed",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceService.deleteGeofenceList(java.util.List<java.lang.String>)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofenceservice-0000001050986187-V5#EN-US_TOPIC_0000001050986187__section8918132319409",
+				"methodDes":"Removes geofences by their request IDs. An error will be reported if the list is empty.",
+				"params":{
+					"geofenceRequestIds":"Request IDs of geofences to be removed"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<java.lang.Void>: Task execution result. You can add the onComplete(Task task) callback to receive the removal result. If task.isSuccessful() returns true, the geofences are removed successfully. Otherwise, the geofences fail to be removed",
+				"Exceptions":{
+					"java.lang.NullPointerException":"If geofenceRequestIds is null or an empty string"
+				}
+			}
+		},
+		"fields":{}
+	},
+	"com.huawei.hms.location.GeofenceErrorCodes":{
+		"classDes":"Geofence result codes.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofenceerrorcodes-0000001051066110-V5",
+		"methods":{
+			"com.huawei.hms.location.GeofenceErrorCodes.getErrorMessage(int)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofenceerrorcodes-0000001051066110-V5#EN-US_TOPIC_0000001051066110__section9254532817",
+				"methodDes":"Obtains the result information based on the result code.",
+				"params":{
+					"statusCode":"Result code"
+				},
+				"returns":"java.lang.String: Result description",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.GeofenceErrorCodes.GEOFENCE_UNAVAILABLE":{
+				"des":"The geofence service is unavailable.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofenceerrorcodes-0000001051066110-V5#EN-US_TOPIC_0000001051066110__section1254213477129",
+				"value":"10200"
+			},
+			"com.huawei.hms.location.GeofenceErrorCodes.GEOFENCE_PENDINGINTENT_OVER_LIMIT":{
+				"des":"A maximum of 5 PendingIntent objects can be used to add geofences.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofenceerrorcodes-0000001051066110-V5#EN-US_TOPIC_0000001051066110__section1312133196",
+				"value":"10202"
+			},
+			"com.huawei.hms.location.GeofenceErrorCodes.GEOFENCE_NUMBER_OVER_LIMIT":{
+				"des":"A maximum of 100 geofences can be added for an app.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofenceerrorcodes-0000001051066110-V5#EN-US_TOPIC_0000001051066110__section104412013581",
+				"value":"10201"
+			},
+			"com.huawei.hms.location.GeofenceErrorCodes.GEOFENCE_INSUFFICIENT_PERMISSION": {
+				"des": "Insufficient permission to perform geofence-related operations.",
+				"url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofenceerrorcodes-0000001051066110-V5#EN-US_TOPIC_0000001051066110__section98458329108",
+				"value": "10204"
+			},
+			"com.huawei.hms.location.GeofenceErrorCodes.GEOFENCE_REQUEST_TOO_OFTEN": {
+				"des": "Geofences are added too frequently.",
+				"url": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofenceerrorcodes-0000001051066110-V5#EN-US_TOPIC_0000001051066110__section20187627191112",
+				"value": "10205"
+			},
+			"com.huawei.hms.location.GeofenceErrorCodes.ERROR":{
+				"des":"",
+				"url":"",
+				"value":""
+			},
+			"com.huawei.hms.location.GeofenceErrorCodes.SUCCESS": {
+				"des":"",
+				"url":"",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.GeofenceRequest.Builder":{
+		"classDes":"Builds a GeofenceRequest instance.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofencingrequest-builder-0000001050706138-V5",
+		"methods":{
+			"com.huawei.hms.location.GeofenceRequest.Builder.createGeofenceList(java.util.List<com.huawei.hms.location.Geofence>)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofencingrequest-builder-0000001050706138-V5#EN-US_TOPIC_0000001050706138__section1842912113331",
+				"methodDes":"Adds multiple geofences.",
+				"params":{
+					"geofences":"List of geofence objects"
+				},
+				"returns":"com.huawei.hms.location.GeofenceRequest.Builder: Builder of GeofenceRequest",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceRequest.Builder.Builder()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceRequest.Builder.build()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofencingrequest-builder-0000001050706138-V5#EN-US_TOPIC_0000001050706138__section19287113774815",
+				"methodDes":"Builds a geofence request object.",
+				"params":{},
+				"returns":"com.huawei.hms.location.GeofenceRequest: Geofence request object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceRequest.Builder.createGeofence(com.huawei.hms.location.Geofence)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofencingrequest-builder-0000001050706138-V5#EN-US_TOPIC_0000001050706138__section9254532817",
+				"methodDes":"Adds a geofence.",
+				"params":{
+					"geofence":"Geofence object"
+				},
+				"returns":"com.huawei.hms.location.GeofenceRequest.Builder: Builder of GeofenceRequest",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceRequest.Builder.setInitConversions(int)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofencingrequest-builder-0000001050706138-V5#EN-US_TOPIC_0000001050706138__section25585613476",
+				"methodDes":"Sets the initial trigger type.",
+				"params":{
+					"initConversions":"Initial trigger type. This parameter is invalid if it is set to 0. The default value is GeofenceRequest.ENTER_INIT_CONVERSION | GeofenceRequest.DWELL_INIT_CONVERSION"
+				},
+				"returns":"com.huawei.hms.location.GeofenceRequest.Builder: Builder of GeofenceRequest",
+				"Exceptions":{}
+			}
+		},
+		"fields":{}
+	},
+	"com.huawei.hms.location.FusedLocationProviderClient":{
+		"classDes":"Fused location class, which is used for interaction during location.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5",
+		"methods":{
+			"com.huawei.hms.location.FusedLocationProviderClient.requestLocationUpdates(com.huawei.hms.location.LocationRequest,android.app.PendingIntent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section750571415131",
+				"methodDes":"Continuously requests location updates using PendingIntent.",
+				"params":{
+					"request":"Location request object",
+					"callbackIntent":"PendingIntent associated with each location update request. When building a PendingIntent object, you need to set Class and Action. Do not build an empty Intent object"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<java.lang.Void>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener(), and obtain the task execution result using onSuccess() and onFailure()",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.FusedLocationProviderClient.getLastLocation()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section1167913136559",
+				"methodDes":"Obtains the available location of the last request.",
+				"params":{},
+				"returns":"com.huawei.hmf.tasks.Task<android.location.Location>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener(), and obtain the task execution result using onSuccess() and onFailure()",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.FusedLocationProviderClient.removeLocationUpdates(com.huawei.hms.location.LocationCallback)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section14923192365816",
+				"methodDes":"Removes location updates of the specified callback.",
+				"params":{
+					"callback":"Callback for which location updates will be removed"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<java.lang.Void>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener(), and obtain the task execution result using onSuccess() and onFailure()",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.FusedLocationProviderClient.removeLocationUpdates(android.app.PendingIntent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section19967172214018",
+				"methodDes":"Removes location updates of the specified PendingIntent.",
+				"params":{
+					"callbackIntent":"PendingIntent object for which location updates will be removed"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<java.lang.Void>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener(), and obtain the task execution result using onSuccess() and onFailure()",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.FusedLocationProviderClient.flushLocations()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section1653772245611",
+				"methodDes":"Updates the location under processing.",
+				"params":{},
+				"returns":"com.huawei.hmf.tasks.Task<java.lang.Void>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener(), and obtain the task execution result using onSuccess() and onFailure()",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.FusedLocationProviderClient.requestLocationUpdates(com.huawei.hms.location.LocationRequest,com.huawei.hms.location.LocationCallback,android.os.Looper)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section1210118391289",
+				"methodDes":"Requests location updates using the callback on the specified looper thread.",
+				"params":{
+					"request":"Location request object",
+					"callback":"Location update callback",
+					"looper":"Looper object. If this parameter is left empty, the looper object of the current thread is used by default"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<Void>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener(), and obtain the task execution result using onSuccess() and onFailure()",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.FusedLocationProviderClient.getLocationAvailability()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section884216175717",
+				"methodDes":"Obtains the location availability.",
+				"params":{},
+				"returns":"com.huawei.hmf.tasks.Task<com.huawei.hms.location.LocationAvailability>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener(), obtain the task execution result, and check whether the execution is successful using getStatusCode(). (0: success; 1: failure; 404: no resource; 500: internal error)",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.FusedLocationProviderClient.setMockLocation(android.location.Location)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section33108178161",
+				"methodDes":"Sets a specific mock location.",
+				"params":{
+					"mockLocation":"Mock location. This is a native class of Android. For details, please refer to the Android development document"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<Void>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener(), and obtain the task execution result using onSuccess() and onFailure()",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.FusedLocationProviderClient.setMockMode(boolean)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section1333112213152",
+				"methodDes":"Sets whether to use the location mock mode.",
+				"params":{
+					"isMockMode":"If this parameter is set to true, the mock mode will be used. If this parameter is set to false, the mock mode will not be used"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<Void>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener(), and obtain the task execution result using onSuccess() and onFailure()",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.FusedLocationProviderClient.getLastLocationWithAddress(com.huawei.hms.location.LocationRequest)": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section2936151017173",
+				"methodDes": "Obtains the available location of the last request, including the detailed address information. If a location is unavailable, null will be returned.",
+				"params": {
+					"request": "Location request object"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<com.huawei.hms.location.HWLocation>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener(), and obtain the task execution result using onSuccess() and onFailure()",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.FusedLocationProviderClient.requestLocationUpdatesEx(com.huawei.hms.location.LocationRequest,com.huawei.hms.location.LocationCallback,android.os.Looper)": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/fusedlocationproviderclient-0000001050746169-V5#EN-US_TOPIC_0000001050746169__section710617120186",
+				"methodDes": "Requests location updates.",
+				"params": {
+					"request": "Location request object. To obtain high-precision location information, you must set priority to 200",
+					"callback": "Location update callback",
+					"looper": "Looper object. If this parameter is left empty, the looper object of the current thread is used by default"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<java.lang.Void>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener(), and obtain the task execution result using onSuccess() and onFailure()",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.FusedLocationProviderClient.KEY_VERTICAL_ACCURACY":{
+				"des":"",
+				"url":"",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.ActivityConversionRequest":{
+		"classDes":"Activity conversion request body.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/activityconversionrequest-0000001050986181-V5",
+		"methods":{
+			"com.huawei.hms.location.ActivityConversionRequest.equals(java.lang.Object)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"obj":"The reference object with which to compare"
+				},
+				"returns":"boolean:true if this object is the same as the obj argument; false otherwise",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionRequest.ActivityConversionRequest(java.util.List<com.huawei.hms.location.ActivityConversionInfo>)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversionrequest#1",
+				"methodDes":"Used to build an ActivityConversionRequest instance.",
+				"params":{
+					"activityConversions":"Activity conversion list"
+				},
+				"returns":"",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionRequest.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionRequest.hashCode()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"int:a hash code value for this object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionRequest.setDataToIntent(android.content.Intent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversionrequest#2",
+				"methodDes":"This API is used to serialize the activity conversion request into a given intent.",
+				"params":{
+					"intent":"Given intent"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionRequest.toString()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"java.lang.String:a string representation of the object",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.ActivityConversionRequest.CREATOR":{
+				"des":"Used to deserialize the activity conversion request.",
+				"url":"",
+				"value":""
+			},
+			"com.huawei.hms.location.ActivityConversionRequest.IS_EQUAL_CONVERSION":{
+				"des":"Checks whether two activity conversions are the same.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversionrequest#h1-1584412815916",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.ActivityIdentificationService":{
+		"classDes":"Interaction access point of activity identification.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/activityidentificationservice",
+		"methods":{
+			"com.huawei.hms.location.ActivityIdentificationService.deleteActivityConversionUpdates(android.app.PendingIntent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationservice#1",
+				"methodDes":"This API is used to remove activity conversion updates associated with the given pendingIntent object.",
+				"params":{
+					"pendingIntent":"pendingIntent associated with the activity conversion request to be removed"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<java.lang.Void>:You can add addOnSuccesslistener() and addOnFailureListener() to obtain the execution result of the current method, and add getStateCode() to check whether the execution is successful",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationService.deleteActivityIdentificationUpdates(android.app.PendingIntent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationservice#2",
+				"methodDes":"This API is used to remove all activity identification updates from the specified PendingIntent object.",
+				"params":{
+					"callbackIntent":"PendingIntent request to be removed"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<java.lang.Void>:You can add addOnSuccesslistener() and addOnFailureListener() to obtain the execution result of the current method, and add getStateCode() to check whether the execution is successful",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationService.createActivityConversionUpdates(com.huawei.hms.location.ActivityConversionRequest,android.app.PendingIntent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationservice#3",
+				"methodDes":"This API is used to activity conversions (entering and exit), for example, detecting user status change from walking to bicycling.",
+				"params":{
+					"activityConversionRequest":"Activity conversion request",
+					"pendingIntent":"PendingIntent parameter. When building a PendingIntent object, you need to set Class and Action. Do not build an empty Intent object"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<java.lang.Void>:You can add addOnSuccesslistener() and addOnFailureListener() to obtain the execution result of the current method, and add getStateCode() to check whether the execution is successful",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationService.createActivityIdentificationUpdates(long,android.app.PendingIntent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationservice#4",
+				"methodDes":"Registers activity identification updates.",
+				"params":{
+					"callbackIntent":"PendingIntent to be updated. When building a PendingIntent object, you need to set Class and Action. Do not build an empty Intent object",
+					"intervalMillis":"Interval for activity identification updates,in milliseconds. Larger values will result in fewer activity identifications. Smaller values will result in more activity identifications"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<java.lang.Void>:You can add addOnSuccesslistener() and addOnFailureListener() to obtain the execution result of the current method, and add getStateCode() to check whether the execution is successful",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationService.ActivityIdentificationService(android.content.Context)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"var1": "this is Context"
+				},
+				"returns":"",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationService.ActivityIdentificationService(android.app.Activity)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"var1": "this is Activity"
+				},
+				"returns":"",
+				"Exceptions":{}
+			}
+		},
+		"fields":{}
+	},
+	"com.huawei.hms.location.GeofenceRequest":{
+		"classDes":"Geofence request class.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/geofencerequest-0000001050746171-V5",
+		"methods":{
+			"com.huawei.hms.location.GeofenceRequest.getInitConversions()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/geofencerequest#2",
+				"methodDes":"This API is used to obtain the conversion type at the moment when the geofence is added successfully.",
+				"params":{},
+				"returns":"int:Geofence convert type",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceRequest.toString()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"java.lang.String:a string representation of the object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceRequest.getGeofences()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/geofencerequest#1",
+				"methodDes":"This API is used to obtain a list of geofences to be monitored.",
+				"params":{},
+				"returns":"java.util.List<com.huawei.hms.location.Geofence>:List of geofences to be monitored",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceRequest.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.GeofenceRequest.ENTER_INIT_CONVERSION":{
+				"des":"ENTER_INIT_CONVERSION is triggered immediately when a request is initiated to add the geofence where a user device has already entered.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/geofencerequest#h1-1584414442503",
+				"value":"1"
+			},
+			"com.huawei.hms.location.GeofenceRequest.DWELL_INIT_CONVERSION":{
+				"des":"DWELL_INIT_CONVERSION is triggered immediately when a request is initiated to add the geofence where a user device has already entered and stayed for the specified duration.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/geofencerequest#h1-1584414442503",
+				"value":"4"
+			},
+			"com.huawei.hms.location.GeofenceRequest.EXIT_INIT_CONVERSION":{
+				"des":"EXIT_INIT_CONVERSION is triggered immediately when a request is initiated to add the geofence where a user device has already exit.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/geofencerequest#h1-1584414442503",
+				"value":"2"
+			},
+			"com.huawei.hms.location.GeofenceRequest.CREATOR":{
+				"des":"",
+				"url":"",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.LocationSettingsRequest":{
+		"classDes":"Class for specifying the location service types and checking the location settings to obtain optimal functionality of all requested services.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationsettingsrequest-0000001050986191-V5",
+		"methods":{
+			"com.huawei.hms.location.LocationSettingsRequest.LocationSettingsRequest(java.util.List<com.huawei.hms.location.LocationRequest>,boolean,boolean)": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationsettingsrequest-0000001050986191-V5#EN-US_TOPIC_0000001050986191__section198371757182210",
+				"methodDes":"Builds a LocationSettingsRequest instance.",
+				"params":{
+					"requests": "Location request",
+					"alwaysShow": "Indicates whether the location is required for using the app",
+					"needBle": "Sets whether BLE scanning needs to be enabled for the app"
+				},
+				"returns":"",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsRequest.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.LocationSettingsRequest.CREATOR":{
+				"des":"Builder of LocationSettingsRequest.",
+				"url":"",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.LocationServices":{
+		"classDes":"Location service. It provides location-related instances for you to obtain the location access point.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationservice-0000001050746175-V5",
+		"methods":{
+			"com.huawei.hms.location.LocationServices.getFusedLocationProviderClient(android.content.Context)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationservice#2",
+				"methodDes":"This API is used to create a new FusedLocationProviderClient instance, which is used in the context.",
+				"params":{
+					"context":"this is Context"
+				},
+				"returns":"com.huawei.hms.location.FusedLocationProviderClient:Main entry class for obtaining the location information",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationServices.getGeofenceService(android.app.Activity)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"var0": "this is Activity"
+				},
+				"returns":"com.huawei.hms.location.GeofenceService:",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationServices.getFusedLocationProviderClient(android.app.Activity)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationservice#1",
+				"methodDes":"This API is used to create a new FusedLocationProviderClient instance, which is used in an activity.",
+				"params":{
+					"activity":"this is Activity"
+				},
+				"returns":"com.huawei.hms.location.FusedLocationProviderClient:Main entry class for obtaining the location information",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationServices.getGeofenceService(android.content.Context)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"var0": "this is Context"
+				},
+				"returns":"com.huawei.hms.location.GeofenceService:",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationServices.getSettingsClient(android.app.Activity)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationservice#4",
+				"methodDes":"This API is used to create a new SettingsClient instance, which is used in an activity.",
+				"params":{
+					"activity":"this is activity"
+				},
+				"returns":"com.huawei.hms.location.SettingsClient:Entry class for interacting with the location setting API",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationServices.getSettingsClient(android.content.Context)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationservice#3",
+				"methodDes":"This API is used to create a new SettingsClient instance, which is used in the context.",
+				"params":{
+					"context":"this is Context"
+				},
+				"returns":"com.huawei.hms.location.SettingsClient:Entry class for interacting with the location setting API",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationServices.getLocationEnhanceService(android.content.Context)": {
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationservice-0000001050746175-V5#EN-US_TOPIC_0000001050746175__section10184034204513",
+				"methodDes":"Creates a LocationEnhanceService instance.",
+				"params":{
+					"context":"Context"
+				},
+				"returns":"com.huawei.hms.location.LocationEnhanceService: Location capability extension class",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationServices.getLocationEnhanceService(android.app.Activity)": {
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationservice-0000001050746175-V5#EN-US_TOPIC_0000001050746175__section7232173034611",
+				"methodDes":"Creates a LocationEnhanceService instance, which is used in Activity.",
+				"params":{
+					"activity": "Activity"
+				},
+				"returns":"com.huawei.hms.location.LocationEnhanceService: Location capability extension class",
+				"Exceptions":{}
+			}
+		},
+		"fields":{}
+	},
+	"com.huawei.hms.location.ActivityConversionResponse":{
+		"classDes":"Activity conversion result.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/activityconversionresponse-0000001051066106-V5",
+		"methods":{
+			"com.huawei.hms.location.ActivityConversionResponse.equals(java.lang.Object)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"obj":"The reference object with which to compare"
+				},
+				"returns":"boolean:true if this object is the same as the obj argument; false otherwise",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionResponse.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionResponse.ActivityConversionResponse(java.util.List<com.huawei.hms.location.ActivityConversionData>)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversionresponse#1",
+				"methodDes":"This API is used to construct an ActivityConversionResponse object.",
+				"params":{
+					"activityConversionDatas":"List of activity conversion events"
+				},
+				"returns":"",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionResponse.getActivityConversionDatas()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversionresponse#3",
+				"methodDes":"This API is used to obtain all activity conversion events in the result. The obtained activity events are sorted by time in ascending order.",
+				"params":{},
+				"returns":"java.util.List<com.huawei.hms.location.ActivityConversionData>:List of activity conversion events",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionResponse.containDataFromIntent(android.content.Intent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversionresponse#4",
+				"methodDes":"This API is used to check whether an Intent contains ActivityConversionResponse.",
+				"params":{
+					"intent":"Intent transferred to the server when the createActivityConversionUpdates API is called"
+				},
+				"returns":"boolean:If Intent contains ActivityConversionResponse, this parameter returns true. Otherwise, this parameter returns false",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionResponse.hashCode()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"int:a hash code value for this object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionResponse.getDataFromIntent(android.content.Intent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversionresponse#2",
+				"methodDes":"This API is used to extract ActivityConversionResponse from an Intent.",
+				"params":{
+					"intent":"Intent transferred to the server when the createActivityConversionUpdates API is called"
+				},
+				"returns":"com.huawei.hms.location.ActivityConversionResponse:If the Intent does not contain ActivityConversionResponse, null is returned",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.ActivityConversionResponse.CREATOR":{
+				"des":"Used to deserialize ActivityConversionResponse.",
+				"url":"",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.GeofenceData":{
+		"classDes":"Geofence event.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/geofencedata-0000001050986185-V5",
+		"methods":{
+			"com.huawei.hms.location.GeofenceData.getConversion()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/geofencedata#3",
+				"methodDes":"This API is used to obtain the convert type of a geofence.",
+				"params":{},
+				"returns":"int:Geofence convert type",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceData.getConvertingGeofenceList()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/geofencedata#4",
+				"methodDes":"This API is used to obtain information about converted geofences.",
+				"params":{},
+				"returns":"java.util.List<com.huawei.hms.location.Geofence>:Information about converted geofences",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceData.getConvertingLocation()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/geofencedata#5",
+				"methodDes":"This API is used to obtain the location when a geofence is converted.",
+				"params":{},
+				"returns":"android.location.Location:Location information",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceData.getDataFromIntent(android.content.Intent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/geofencedata#1",
+				"methodDes":"This API is used to create a GeofenceData object from a specified intent.",
+				"params":{
+					"intent":"Intent object broadcasted when a geofence event is converted"
+				},
+				"returns":"com.huawei.hms.location.GeofenceData:Geofence convert event object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceData.getErrorCode()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/geofencedata#2",
+				"methodDes":"This API is used to obtain an error code.",
+				"params":{},
+				"returns":"int:For details, please refer to GeofenceErrorCodes",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceData.isFailure()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"boolean:",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.GeofenceData.isSuccess()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/geofencedata-0000001050986185-V5#EN-US_TOPIC_0000001050986185__section0756165085615",
+				"methodDes":"Checks whether the geofence event is normally triggered. An error occurred if this method returns false.",
+				"params":{},
+				"returns":"boolean: Whether the geofence event is normally triggered",
+				"Exceptions":{}
+			}
+		},
+		"fields":{}
+	},
+	"com.huawei.hms.location.ActivityConversionData":{
+		"classDes":"Activity conversion event.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/activityconversiondata-0000001051066104-V5",
+		"methods":{
+			"com.huawei.hms.location.ActivityConversionData.ActivityConversionData(int,int,long)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversiondata#1",
+				"methodDes":"Builds a ActivityConversionData.",
+				"params":{
+					"activityType":"Activity type",
+					"conversionType":"Activity conversion type",
+					"elapsedTimeFromReboot":"Conversion time. Number of milliseconds since boot"
+				},
+				"returns":"",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionData.hashCode()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"int:a hash code value for this object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionData.getConversionType()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversiondata#4",
+				"methodDes":"his API is used to obtain the comversion type.",
+				"params":{},
+				"returns":"int:Conversion type",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionData.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionData.getElapsedTimeFromReboot()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversiondata#3",
+				"methodDes":"This API is used to obtain the elapsed real time (in milliseconds) of this conversion since boot, including sleeping time obtained by SystemClock.elapsedRealtime().",
+				"params":{},
+				"returns":"long:timestamp, in milliseconds",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionData.getActivityType()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversiondata#2",
+				"methodDes":"This API is used to obtain the activity type of the conversion.",
+				"params":{},
+				"returns":"int:Activity type",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionData.equals(java.lang.Object)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"obj":"The reference object with which to compare"
+				},
+				"returns":"boolean:true if this object is the same as the obj argument; false otherwise",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionData.toString()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"java.lang.String:a string representation of the object",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.ActivityConversionData.CREATOR":{
+				"des":"Used to deserialize activity conversion events.",
+				"url":"",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.LocationSettingsStatusCodes":{
+		"classDes":"Location setting status code.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationsettingsstatuscodes-0000001050986193-V5",
+		"methods":{},
+		"fields":{
+			"com.huawei.hms.location.LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE":{
+				"des":"Position settings specific status code, which is used in getStatusCode().",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsstatuscodes_v4#1",
+				"value":"8502"
+			}
+		}
+	},
+	"com.huawei.hms.location.ActivityIdentification":{
+		"classDes":"Entry to the activity identification service, which is used to obtain an ActivityIdentificationService instance.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/activityidentification-0000001050746167",
+		"methods":{
+			"com.huawei.hms.location.ActivityIdentification.getService(android.content.Context)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentification#2",
+				"methodDes":"This API is used to create an ActivityIdentificationService instance.",
+				"params":{
+					"context":"this is Context"
+				},
+				"returns":"com.huawei.hms.location.ActivityIdentificationService:ActivityIdentificationService instance obtained based on the context",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentification.getService(android.app.Activity)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentification#1",
+				"methodDes":"This API is used to create an ActivityIdentificationService instance, which is used in an activity.",
+				"params":{
+					"activity":"this is Activity"
+				},
+				"returns":"com.huawei.hms.location.ActivityIdentificationService:ActivityIdentificationService instance obtained based on the activity",
+				"Exceptions":{}
+			}
+		},
+		"fields":{}
+	},
+	"com.huawei.hms.location.ActivityConversionInfo":{
+		"classDes":"Activity conversion.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/activityconversioninfo-0000001050746165-V5",
+		"methods":{
+			"com.huawei.hms.location.ActivityConversionInfo.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionInfo.getActivityType()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversioninfo#1",
+				"methodDes":"This API is used to obtain the activity status of the current activity conversion instance.",
+				"params":{},
+				"returns":"int:Activity type",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionInfo.getConversionType()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversioninfo#2",
+				"methodDes":"This API is used to obtain the conversion status of the current activity conversion instance.",
+				"params":{},
+				"returns":"int:Activity conversion information.The options are  ENTER_ACTIVITY_CONVERSION and EXIT_ACTIVITY_CONVERSION��",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionInfo.toString()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"java.lang.String:a string representation of the object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionInfo.equals(java.lang.Object)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"obj":"The reference object with which to compare"
+				},
+				"returns":"boolean:true if this object is the same as the obj argument; false otherwise",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityConversionInfo.hashCode()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"int:a hash code value for this object",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.ActivityConversionInfo.ENTER_ACTIVITY_CONVERSION":{
+				"des":"A user enters the given activity. The value is 0.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversioninfo#h1-1584413448207",
+				"value":"0"
+			},
+			"com.huawei.hms.location.ActivityConversionInfo.EXIT_ACTIVITY_CONVERSION":{
+				"des":"A user exits the given activity. The value is 1.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityconversioninfo#h1-1584413448207",
+				"value":"1"
+			},
+			"com.huawei.hms.location.ActivityConversionInfo.CREATOR":{
+				"des":"Used to deserialize activity conversion information.",
+				"url":"",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.LocationSettingsResult":{
+		"classDes":"Location setting result.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationsettingsresult-0000001050746177-V5",
+		"methods":{
+			"com.huawei.hms.location.LocationSettingsResult.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsResult.getStatus()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsresult#1",
+				"methodDes":"This API is used to obtain the Status object.",
+				"params":{},
+				"returns":"com.huawei.hms.support.api.client.Status:Status object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationSettingsResult.getLocationSettingsStates()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationsettingsresult#2",
+				"methodDes":"This API is used to obtain the LocationSettingsStates object.",
+				"params":{},
+				"returns":"com.huawei.hms.location.LocationSettingsStates:LocationSettingsStates object",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.LocationSettingsResult.CREATOR":{
+				"des":"Builder of LocationSettingsResult.",
+				"url":"",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.ActivityIdentificationData":{
+		"classDes":"Identified activity type.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/activityidentificationdata-0000001050706134-V5",
+		"methods":{
+			"com.huawei.hms.location.ActivityIdentificationData.toString()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"java.lang.String:a string representation of the object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationData.getIdentificationActivity()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationdata#3",
+				"methodDes":"This API is used to obtain the type of the detected activity.",
+				"params":{},
+				"returns":"int:Activity type",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationData.getPossibility()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationdata#2",
+				"methodDes":"This API is used to obtain the confidence for the user to execute the activity.",
+				"params":{},
+				"returns":"int:Confidence information",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationData.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationData.ActivityIdentificationData(int,int)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationdata#1",
+				"methodDes":"This API is used to construct a ActivityIdentificationData object.",
+				"params":{
+					"identificationActivity":"Detected activity type",
+					"possibility":"The Confidence"
+				},
+				"returns":"",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.ActivityIdentificationData.WALKING":{
+				"des":"The user of the device is walking,it is a sub-activity of FOOT.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationdata#h1-1584412361140",
+				"value":"107"
+			},
+			"com.huawei.hms.location.ActivityIdentificationData.VEHICLE":{
+				"des":"The device is in a vehicle, such as a car.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationdata#h1-1584412361140",
+				"value":"100"
+			},
+			"com.huawei.hms.location.ActivityIdentificationData.STILL":{
+				"des":"The device is still.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationdata#h1-1584412361140",
+				"value":"103"
+			},
+			"com.huawei.hms.location.ActivityIdentificationData.RUNNING":{
+				"des":"The user of the device is running,it is a sub-activity of FOOT.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationdata#h1-1584412361140",
+				"value":"108"
+			},
+			"com.huawei.hms.location.ActivityIdentificationData.CREATOR":{
+				"des":"",
+				"url":"",
+				"value":""
+			},
+			"com.huawei.hms.location.ActivityIdentificationData.TILTING":{
+				"des":"The device has an obvious tilt change.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationdata#h1-1584412361140",
+				"value":"105"
+			},
+			"com.huawei.hms.location.ActivityIdentificationData.OTHERS":{
+				"des":"The current activity cannot be detected.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationdata#h1-1584412361140",
+				"value":"104"
+			},
+			"com.huawei.hms.location.ActivityIdentificationData.FOOT":{
+				"des":"The device user is walking or running.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationdata#h1-1584412361140",
+				"value":"102"
+			},
+			"com.huawei.hms.location.ActivityIdentificationData.BIKE":{
+				"des":"The device is on a bicycle.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationdata#h1-1584412361140",
+				"value":"101"
+			}
+		}
+	},
+	"com.huawei.hms.location.LocationCallback":{
+		"classDes":"Callback class for reporting location information.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/HMSCore-References-V5/locationcallback-0000001050706140-V5",
+		"methods":{
+			"com.huawei.hms.location.LocationCallback.LocationCallback()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationcallback#h1-1584415510115",
+				"methodDes":"Build LocationCallback.",
+				"params":{},
+				"returns":"",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationCallback.onLocationAvailability(com.huawei.hms.location.LocationAvailability)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationcallback#1",
+				"methodDes":"This API is called when a change occurs in the availability of location data.",
+				"params":{
+					"locationAvailability":"Location availability object"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.LocationCallback.onLocationResult(com.huawei.hms.location.LocationResult)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/locationcallback#2",
+				"methodDes":"This API is called when device location information is available.",
+				"params":{
+					"locationResult":"Latest location result"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			}
+		},
+		"fields":{}
+	},
+	"com.huawei.hms.location.ActivityIdentificationResponse":{
+		"classDes":"Activity identification result.",
+		"classUrl":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/activityidentificationresponse-0000001051066108-V5",
+		"methods":{
+			"com.huawei.hms.location.ActivityIdentificationResponse.getActivityPossibility(int)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationresponse#4",
+				"methodDes":"the Activity Possibility.",
+				"params":{
+					"activityType":"The activity type"
+				},
+				"returns":"int:The Possibility",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationResponse.toString()":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{},
+				"returns":"java.lang.String:a string representation of the object",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationResponse.getDataFromIntent(android.content.Intent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationresponse#3",
+				"methodDes":"This API is used to obtain ActivityIdentificationResponse from extras of Intent sent by the activity Identification service.",
+				"params":{
+					"intent":"The intent was sent from the activity identification service"
+				},
+				"returns":"com.huawei.hms.location.ActivityIdentificationResponse:If the Intent does not contain ActivityIdentificationResponse, null is returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationResponse.getTime()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationresponse#8",
+				"methodDes":"This API is used to obtain the time of this identification, which is in milliseconds since January 1, 1970,obtained by System.currentTimeMillis().",
+				"params":{},
+				"returns":"long:timestamp, in milliseconds",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationResponse.getActivityIdentificationDatas()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationresponse#7",
+				"methodDes":"This API is used to obtain the list of activitiy identification list. The activity identifications are sorted by most probable activity first.",
+				"params":{},
+				"returns":"java.util.List<com.huawei.hms.location.ActivityIdentificationData>:activity identification list",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationResponse.containDataFromIntent(android.content.Intent)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationresponse#9",
+				"methodDes":"This API returns true if an Intent contains the ActivityIdentificationResponse object.This is a utility function that can be called inside an intent receiver to ensure that the received Intent is from activity identification.",
+				"params":{
+					"intent":"The intent was sent from the activity identification service"
+				},
+				"returns":"boolean:If the Intent contains ActivityIdentificationResponse, this parameter returns true. If the Intent is null or does not contain ActivityIdentificationResponse, this parameter returns false",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationResponse.getMostActivityIdentification()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationresponse#6",
+				"methodDes":"This API is used to obtain the most probable activity identification of the user.",
+				"params":{},
+				"returns":"com.huawei.hms.location.ActivityIdentificationData:Activity Identification",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationResponse.writeToParcel(android.os.Parcel,int)":{
+				"methodUrl":"",
+				"methodDes":"",
+				"params":{
+					"dest": "The Parcel in which the object should be written",
+					"flags": "Additional flags about how the object should be written"
+				},
+				"returns":"void",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationResponse.getElapsedTimeFromReboot()":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationresponse#5",
+				"methodDes":"This API is used to obtain the elapsed real time (in milliseconds) of this detection since boot, including sleeping time obtained by SystemClock.elapsedRealtimeNanos().",
+				"params":{},
+				"returns":"long:timestamp, in nanoseconds",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationResponse.ActivityIdentificationResponse(List<com.huawei.hms.locationActivityIdentificationData>,long,long)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationresponse#1",
+				"methodDes":"Builds a ActivityIdentificationResponse.",
+				"params":{
+					"activityIdentificationDatas":"List of all activitiy identifications in the period. The activitiy identifications are sorted by confidence",
+					"time":"Identification time. The value is the number of seconds elapsed since 00:00:00 of January 1, 1970",
+					"elapsedTimeFromReboot":"Identification time. Number of nanoseconds since boot"
+				},
+				"returns":"",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.ActivityIdentificationResponse.ActivityIdentificationResponse(com.huawei.hms.location.ActivityIdentificationData,long,long)":{
+				"methodUrl":"https://developer.huawei.com/consumer/en/doc/development/HMS-References/activityidentificationresponse#2",
+				"methodDes":"Builds a ActivityIdentificationResponse.",
+				"params":{
+					"mostActivityIdentificationData":"Most possible activity identification in the period",
+					"time":"Identification time. The value is the number of seconds elapsed since 00:00:00 of January 1, 1970",
+					"elapsedTimeFromReboot":"Identification time. Number of nanoseconds since boot"
+				},
+				"returns":"",
+				"Exceptions":{}
+			}
+		},
+		"fields":{
+			"com.huawei.hms.location.ActivityIdentificationResponse.CREATOR":{
+				"des":"Used to deserialize the activity identification result.",
+				"url":"",
+				"value":""
+			}
+		}
+	},
+	"com.huawei.hms.location.HWLocation": {
+		"classDes": "Location information, including the detailed address.",
+		"classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5",
+		"methods": {
+			"com.huawei.hms.location.HWLocation.getLatitude()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section1653772245611",
+				"methodDes": "Obtains the latitude of the current location.",
+				"params": {},
+				"returns": "double: Latitude of the current location. If no latitude is available, 0.0 will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getLongitude()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section10256134614405",
+				"methodDes": "Obtains the longitude of the current location.",
+				"params": {},
+				"returns": "double: Longitude of the current location. If no longitude is available, 0.0 will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getAltitude()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section268714924118",
+				"methodDes": "Obtains the altitude of the current location.",
+				"params": {},
+				"returns": "double: Altitude of the current location. If no altitude is available, 0.0 will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getSpeed()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section11440191264315",
+				"methodDes": "Obtains the device speed at the current location, in meters per second.",
+				"params": {},
+				"returns": "float: Device speed at the current location, in meters per second. If no speed is available, 0.0 will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getBearing()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section310916315441",
+				"methodDes": "Obtains the device bearing at the current location, in degrees.",
+				"params": {},
+				"returns": "float: Device bearing at the current location, in degrees. If no bearing is available, 0.0 will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getAccuracy()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section177991213457",
+				"methodDes": "Obtains the horizontal location accuracy, in meters.",
+				"params": {},
+				"returns": "float: Horizontal location accuracy, in meters. If no accuracy is available, 0.0 will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getVerticalAccuracyMeters()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section14298113264618",
+				"methodDes": "Obtains the vertical location accuracy, in meters.",
+				"params": {},
+				"returns": "float: Vertical location accuracy, in meters. If no accuracy is available, 0.0 will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getSpeedAccuracyMetersPerSecond()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section892593711472",
+				"methodDes": "Obtains the speed accuracy at the current location, in meters per second.",
+				"params": {},
+				"returns": "float: Device speed accuracy at the current location, in meters per second. If no speed accuracy is available, 0.0 will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getBearingAccuracyDegrees()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section10759114154815",
+				"methodDes": "Obtains the bearing accuracy at the current location, in degrees.",
+				"params": {},
+				"returns": "float: Bearing accuracy of the current location, in degrees. If no bearing accuracy is available, 0.0 will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getProvider()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section77719387496",
+				"methodDes": "Obtains the location method, for example, network location, GPS, Wi-Fi, and Bluetooth.",
+				"params": {},
+				"returns": "java.lang.String: Location method, such as network location, GPS, Wi-Fi, and Bluetooth. If no location method is available, null will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getTime()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section7495862526",
+				"methodDes": "Obtains the current timestamp, in milliseconds.",
+				"params": {},
+				"returns": "long: Current timestamp, in milliseconds",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getElapsedRealtimeNanos()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section1487515248115",
+				"methodDes": "Obtains the time elapsed since system boot, in nanoseconds.",
+				"params": {},
+				"returns": "long: Time elapsed since system boot, in nanoseconds",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getCountryCode()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section1254704442219",
+				"methodDes": "Obtains the country code of the current location. The value is a two-letter code complying with the ISO 3166-1 standard.",
+				"params": {},
+				"returns": "java.lang.String: Country code. The value is a two-letter code complying with the ISO 3166-1 standard. If no country code is available, null will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getCountryName()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section1234231925217",
+				"methodDes": "Obtains the country name of the current location.",
+				"params": {},
+				"returns": "java.lang.String: Country name. If no country name is available, null will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getState()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section152601724125410",
+				"methodDes": "Obtains the administrative region to which the current location belongs.",
+				"params": {},
+				"returns": "java.lang.String: Administrative region. If no administrative region is available, null will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getCity()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section69542301551",
+				"methodDes": "Obtains the city to which the current location belongs.",
+				"params": {},
+				"returns": "java.lang.String: City. If no city is available, null will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getCounty()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section158821930145616",
+				"methodDes": "Obtains the district/county to which the current location belongs.",
+				"params": {},
+				"returns": "java.lang.String: District/county. If no district/county is available, null will be returned.\n\n",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getStreet()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section55801432105719",
+				"methodDes": "Obtains the street to which the current location belongs.",
+				"params": {},
+				"returns": "java.lang.String: Street. If no street is available, null will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getFeatureName()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section9216521105819",
+				"methodDes": "Obtains the feature building of the current location.",
+				"params": {},
+				"returns": "java.lang.String: Feature building of the current location. If no feature building is available, null will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getPostalCode()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section133961794599",
+				"methodDes": "Obtains the postal code of the current location.",
+				"params": {},
+				"returns": "java.lang.String: Postal code of the current location. If no postal code is available, null will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getPhone()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section135725121012",
+				"methodDes": "Obtains the phone number of the feature building (such as a store or company) of the current location.",
+				"params": {},
+				"returns": "java.lang.String: Phone number of the feature building (such as a store or company) of the current location. If no phone number is available, null will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getUrl()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section41153416",
+				"methodDes": "Obtains the website of the feature building (such as a store or company) of the current location.",
+				"params": {},
+				"returns": "java.lang.String: Website of the feature building (such as a store or company) of the current location. If no website is available, null will be returned",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.HWLocation.getExtraInfo()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/hwlocation-0000001051066112-V5#EN-US_TOPIC_0000001051066112__section747420452013",
+				"methodDes": "Obtains additional information about the current location.",
+				"params": {},
+				"returns": "java.util.Map<java.lang.String,java.lang.Object>: Additional information, which is a key-value pair. If no additional information is available, null will be returned",
+				"Exceptions":{}
+			}
+		},
+		"fields": {}
+	},
+	"com.huawei.hms.location.LocationEnhanceService": {
+		"classDes": "Extension class for obtaining the navigation status and checking whether the user device supports high-precision location.",
+		"classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationenhanceservice-0000001050166783-V5",
+		"methods": {
+			"com.huawei.hms.location.LocationEnhanceService.getNavigationState(com.huawei.hms.location.NavigationRequest)": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/locationenhanceservice-0000001050166783-V5#EN-US_TOPIC_0000001050166783__section2936151017173",
+				"methodDes": "Obtains the requested navigation type.",
+				"params": {
+					"request": "Navigation request object"
+				},
+				"returns":"com.huawei.hmf.tasks.Task<com.huawei.hms.location.NavigationResult>: Task execution result. You can add listeners using addOnSuccessListener() and addOnFailureListener() to obtain the current method execution result. If the execution fails, the getStatusCode() method of ApiException is used to obtain the result code. The result code 6 indicates failure. (Information can be provided to instruct users to modify location settings to solve the problem.)",
+				"Exceptions":{}
+			}
+		},
+		"fields": {}
+	},
+	"com.huawei.hms.location.NavigationRequest": {
+		"classDes": "Navigation request class.",
+		"classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/navigation-request-0000001050165232-V5",
+		"methods": {
+			"com.huawei.hms.location.NavigationRequest.setType(int)": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/navigation-request-0000001050165232-V5#EN-US_TOPIC_0000001050165232__section1653772245611",
+				"methodDes": "Sets the requested navigation type.",
+				"params": {
+					"type": "Requested navigation type"
+				},
+				"returns": "void",
+				"Exceptions":{}
+			}
+		},
+		"fields": {
+			"com.huawei.hms.location.NavigationRequest.IS_SUPPORT_EX":{
+				"des":"Used to check whether the device supports high-precision location.",
+				"url":"https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/navigation-request-0000001050165232-V5#EN-US_TOPIC_0000001050165232__section6882934203212",
+				"value":"2"
+			}
+		}
+	},
+	"com.huawei.hms.location.NavigationResult": {
+		"classDes": "Navigation result class.",
+		"classUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/navigation-result-0000001050167187-V5",
+		"methods": {
+			"com.huawei.hms.location.NavigationResult.getState()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/navigation-result-0000001050167187-V5#EN-US_TOPIC_0000001050167187__section98183434218",
+				"methodDes": "Obtains the status information.",
+				"params": {},
+				"returns": "int: Status information",
+				"Exceptions":{}
+			},
+			"com.huawei.hms.location.NavigationResult.getPossibility()": {
+				"methodUrl": "https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/navigation-result-0000001050167187-V5#EN-US_TOPIC_0000001050167187__section2039818820266",
+				"methodDes": "Obtains the confidence of the status information. The value ranges from 0 to 100. A larger value indicates more reliable result authenticity.",
+				"params": {},
+				"returns": "int: Confidence",
+				"Exceptions":{}
+			}
+		},
+		"fields": {}
+	}
+}

@@ -1,0 +1,78 @@
+{
+  "gName": "com.google.android.gms.fido.fido2.Fido2PendingIntent",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "hasPendingIntent",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "canLaunch",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.content.IntentSender.SendIntentException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "launchPendingIntent",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "launchFido2Activity",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.hms.support.api.fido.fido2.Fido2Intent"
+}

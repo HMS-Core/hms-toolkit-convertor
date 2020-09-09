@@ -1,0 +1,241 @@
+{
+  "gName": "com.google.android.gms.awareness.fence.FenceState",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "extract",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.FenceState"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "extract",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Intent"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.BarrierStatus"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getCurrentState",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPresentStatus",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getFenceKey",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getBarrierLabel",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLastFenceUpdateTimeMillis",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLastBarrierUpdateTime",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getPreviousState",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getLastStatus",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "FenceState",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "protected"
+        ],
+        "name": "BarrierStatus",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "name": "FALSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "h": {
+        "name": "FALSE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "name": "TRUE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "h": {
+        "name": "TRUE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "name": "UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "0"
+      },
+      "h": {
+        "name": "UNKNOWN",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "2"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.kit.awareness.barrier.BarrierStatus"
+}

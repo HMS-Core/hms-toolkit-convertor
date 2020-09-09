@@ -1,0 +1,218 @@
+package org.xms.g.maps;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+/**
+ * org.xms.g.maps.MapFragment : xms A Map component in an app. This fragment is the simplest way to place a map in an application.<br/>
+ * com.google.android.gms.maps.MapFragment : A Map component in an app. This fragment is the simplest way to place a map in an application. <br/>
+ * GClassUrl: https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment <br/>
+ */
+public class MapFragment {
+    /**
+     * org.xms.g.maps.MapFragment.newInstance() Creates a map fragment, using default options.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.newInstance() :<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-static-mapfragment-newinstance">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-static-mapfragment-newinstance</a> <br/>
+     *
+     * @return org.xms.g.maps.MapFragment the return object is MapFragment
+     */
+    public static org.xms.g.maps.MapFragment newInstance() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.newInstance(org.xms.g.maps.ExtensionMapOptions) Creates a map fragment with the given options.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.newInstance(com.google.android.gms.maps.GoogleMapOptions):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-static-mapfragment-newinstance-googlemapoptions-options">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-static-mapfragment-newinstance-googlemapoptions-options</a> <br/>
+     *
+     * @param var0 the param should instanceof ExtensionMapOptions
+     * @return org.xms.g.maps.MapFragment the return object is MapFragment
+     */
+    public static org.xms.g.maps.MapFragment newInstance(ExtensionMapOptions var0) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.MapFragment() constructor of MapFragment .<br/>
+     */
+    public MapFragment() {
+        super();
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onAttach(android.app.Activity) on Attach.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.onAttach(android.app.Activity):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onattach-activity-activity">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onattach-activity-activity</a> <br/>
+     *
+     * @param activity the param should instanceof Activity
+     */
+    public void onAttach(Activity activity) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onInflate(android.app.Activity,android.util.AttributeSet,android.os.Bundle) Parse attributes during inflation from a view hierarchy into the arguments we handle.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.onInflate(android.app.Activity,android.util.AttributeSet,android.os.Bundle):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-oninflate-activity-activity,-attributeset-attrs,-bundle-savedinstancestate">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-oninflate-activity-activity,-attributeset-attrs,-bundle-savedinstancestate</a> <br/>
+     *
+     * @param activity     the param should instanceof Activity
+     * @param attributeSet the param should instanceof AttributeSet
+     * @param bundle       the param should instanceof Bundle
+     */
+    public void onInflate(Activity activity, AttributeSet attributeSet, Bundle bundle) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onCreate(android.os.Bundle) on Create.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.onCreate(android.os.Bundle):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-oncreate-bundle-savedinstancestate">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-oncreate-bundle-savedinstancestate</a> <br/>
+     *
+     * @param bundle the param should instanceof Bundle
+     */
+    public void onCreate(Bundle bundle) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) on Create View.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-view-oncreateview-layoutinflater-inflater,-viewgroup-container,-bundle-savedinstancestate">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-view-oncreateview-layoutinflater-inflater,-viewgroup-container,-bundle-savedinstancestate</a> <br/>
+     *
+     * @param layoutInflater the param should instanceof LayoutInflater
+     * @param viewGroup      the param should instanceof ViewGroup
+     * @param bundle         the param should instanceof Bundle
+     * @return android.view.View the return object is View
+     */
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onResume() on Resume.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.onResume():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onresume">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onresume</a> <br/>
+     */
+    public void onResume() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onPause() on Pause.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment:<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onpause">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onpause</a> <br/>
+     */
+    public void onPause() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onStart() on Start.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.onStart():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onstart">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onstart</a> <br/>
+     */
+    public void onStart() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onStop() MapFragment onStop. <br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.onStop():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onstop">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onstop</a> <br/>
+     */
+    public void onStop() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onDestroyView() on Destroy View.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.onDestroyView():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-ondestroyview">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-ondestroyview</a> <br/>
+     */
+    public void onDestroyView() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onDestroy() on Destroy.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.onDestroy():<a href=""></a> <br/>
+     */
+    public void onDestroy() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onLowMemory() on Low Memory.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.onLowMemory():<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#onLowMemory()">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#onLowMemory()</a> <br/>
+     */
+    public void onLowMemory() {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onActivityCreated(android.os.Bundle) on Activity Created .<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.onActivityCreated(android.os.Bundle):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onactivitycreated-bundle-savedinstancestate">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onactivitycreated-bundle-savedinstancestate</a> <br/>
+     *
+     * @param bundle the param should instanceof Bundle
+     */
+    public void onActivityCreated(Bundle bundle) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.onSaveInstanceState(android.os.Bundle) Provides a Bundle to store the state of the Fragment before it gets destroyed. It can later be retrieved when onCreate(Bundle) is called again.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.onSaveInstanceState(android.os.Bundle):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onsaveinstancestate-bundle-outstate">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-onsaveinstancestate-bundle-outstate</a> <br/>
+     *
+     * @param bundle the param should instanceof Bundle
+     */
+    public void onSaveInstanceState(Bundle bundle) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.getMapAsync(org.xms.g.maps.OnMapReadyCallback) Sets a callback object which will be triggered when the GoogleMap instance is ready to be used.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.getMapAsync(com.google.android.gms.maps.OnMapReadyCallback):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-getmapasync-onmapreadycallback-callback">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-getmapasync-onmapreadycallback-callback</a> <br/>
+     *
+     * @param onMapReadyCallback the param should be instanceof OnMapReadyCallback
+     */
+    public void getMapAsync(OnMapReadyCallback onMapReadyCallback) {
+       throw new java.lang.RuntimeException("Stub");
+    }
+
+    /**
+     * org.xms.g.maps.MapFragment.setArguments(android.os.Bundle) set Arguments.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis:<br/>
+     * com.google.android.gms.maps.MapFragment.setArguments(android.os.Bundle):<a href="https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-setarguments-bundle-args">https://developers.google.com/android/reference/com/google/android/gms/maps/MapFragment#public-void-setarguments-bundle-args</a> <br/>
+     *
+     * @param bundle the param should be instanceof Bundle
+     */
+    public void setArguments(Bundle bundle) {
+        throw new java.lang.RuntimeException("Stub");
+    }
+}

@@ -24,9 +24,9 @@ package com.huawei.generator.g2x.processor;
 public enum GeneratorResult {
     SUCCESS(0, "success"),
 
-    INNER_CRASH(1, "xms-engine.jar crash"),
+    INNER_CRASH(1, "xms-generator.jar crash"),
 
-    MISSING_PLUGIN(2, "missing xms-engine.jar"), // check description
+    MISSING_PLUGIN(2, "missing xms-generator.jar"), // check description
 
     INVALID_OUTPATH(3, "invalid output path"),
 
@@ -40,7 +40,7 @@ public enum GeneratorResult {
 
     INVALID_JSON_FORMAT(8, "invalid json format"),
 
-    INVALID_OUTTER_BLACKLIST(9, "invalid outer blacklist"),
+    INVALID_OUTTER_BLOCKLIST(9, "invalid outer blocklist"),
 
     MISSING_DEPENDENCY(10, "there is no dependency list"),
 

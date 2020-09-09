@@ -1,0 +1,1497 @@
+{
+  "com.google.android.gms.gcm.GcmTaskService": {
+    "classDes": "This class is deprecated. As of November 1, 2020, GCMNetworkManager client libraries are no longer supported. GCMNetworkManager API calls no longer work on devices running Android M and later once your app targets future Android versions ( \u003e Android 10). Migrate to Jetpack WorkManager for your background scheduling needs. Implemented by the client application to provide an endpoint for the GcmNetworkManager to call back to when a task is ready to be executed. Clients must add this service to their manifest and implement onRunTask(com.google.android.gms.gcm.TaskParams). This service must provide an IntentFilter on the action SERVICE_ACTION_EXECUTE_TASK. Here\u0027s an example: \u003cservice android:name\u003d\"MyTaskService\" android:permission\u003d\"com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE\" android:exported\u003d\"true\"\u003e \u003cintent-filter\u003e \u003caction android:name\u003d\"com.google.android.gms.gcm.ACTION_TASK_READY\"/\u003e \u003c/intent-filter\u003e \u003c/service\u003e The return value of onRunTask(TaskParams) will determine what the manager does with subsequent executions of this task. Returning either RESULT_FAILURE or RESULT_SUCCESS will signal that this invocation is finished. In the case of a periodic task, future invocations of the same task will continue to be executed according to the intervals that were originally assigned. Returning RESULT_RESCHEDULE will cause the task to be retried after an initially short backoff delay that grows exponentially with the number of retries requested. Once a task is running, it will not be stopped. You can change the schedule for a task by rescheduling using the same tag and service class, however if a task with the same identity is currently running then it will be allowed to finish. The new schedule then takes place, regardless of the value that the old task returned. Per service, two tasks with the same tag will never execute concurrently. Should a newly-scheduled task arrive while an existing task is still running, the new task will be dropped. In addition, different tasks may be scheduled concurrently, each invoked in a separate thread, if their schedules overlap. It is up to you to ensure thread safety when scheduling multiple tasks. The scheduler will hold a PowerManager.WakeLock for your service, however after three minutes of execution if your task has not returned it will be considered to have timed out, and the wakelock will be released. Rescheduling your task (returning RESULT_RESCHEDULE) at this point will have no effect. If you suspect your task will run longer than this, you should start your own service explicitly or use some other mechanism; this API is intended for relatively quick network operations.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmTaskService",
+    "methods": {},
+    "fields": {
+      "com.google.android.gms.gcm.GcmTaskService.SERVICE_PERMISSION": {
+        "des": "You must protect your service with this permission to avoid being bound to by an application other than Google Play Services.",
+        "value": "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmTaskService#SERVICE_PERMISSION"
+      }
+    }
+  },
+  "com.google.android.gms.gcm.PeriodicTask": {
+    "classDes": "This class is deprecated. As of November 1, 2020, GCMNetworkManager client libraries are no longer supported. GCMNetworkManager API calls no longer work on devices running Android M and later once your app targets future Android versions ( \u003e Android 10). Migrate to Jetpack WorkManager for your background scheduling needs. A periodic task is one that will recur at the specified interval, without needing to be rescheduled. Schedule a task that will recur until the user calls one of cancelAllTasks(Class), or cancelTask(String, Class) with an identifying tag. Periodic tasks will not be scheduled if their period is below a certain minimum (currently 30 seconds).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask",
+    "methods": {
+      "com.google.android.gms.gcm.PeriodicTask.getFlex()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#getFlex()",
+        "methodDes": "",
+        "params": {},
+        "returns": "long:The number of seconds before the end of the period returned via getPeriod() that this periodic task can be executed early",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.getPeriod()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#getPeriod()",
+        "methodDes": "",
+        "params": {},
+        "returns": "long:The period for this task. The number of seconds between subsequent executions",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.toBundle(android.os.Bundle)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#toBundle(android.os.Bundle)",
+        "methodDes": "Insert the task object into the provided bundle for IPC. Use #fromBundle to recreate the object on the other side.",
+        "params": {
+          "bundle": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "parcel": "",
+          "i": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.gcm.PeriodicTask.CREATOR": {
+        "des": "",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#CREATOR"
+      },
+      "com.google.android.gms.gcm.PeriodicTask.mFlexInSeconds":{
+        "des": "",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#mFlexInSeconds"
+      },
+      "com.google.android.gms.gcm.PeriodicTask.mIntervalInSeconds":{
+        "des": "",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask#mIntervalInSeconds"
+      }
+    }
+  },
+  "com.google.android.gms.iid.InstanceID": {
+    "classDes": "This class was deprecated. Instance ID is deprecated and replaced by Firebase Instance ID. See the FCM migration guide for details on how to migrate to Firebase Instance ID. Instance ID provides a unique identifier for each app instance and a mechanism to authenticate and authorize actions (for example, sending a GCM message). Instance ID is stable but may become invalid, if: App deletes Instance ID Device is factory reset User uninstalls the app User clears app data If Instance ID has become invalid, the app can call getId() to request a new Instance ID. To prove ownership of Instance ID and to allow servers to access data or services associated with the app, call getToken(String, String).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID",
+    "methods": {
+      "com.google.android.gms.iid.InstanceID.deleteInstanceID()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#deleteInstanceID()",
+        "methodDes": "This method was deprecated. Instance ID is deprecated and replaced by Firebase Instance ID. See the FCM migration guide for details on how to migrate to Firebase Instance ID.",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {
+          "java.io.IOException": ""
+        }
+      },
+      "com.google.android.gms.iid.InstanceID.deleteToken(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#deleteToken(java.lang.String, java.lang.String)",
+        "methodDes": "This method was deprecated. Instance ID is deprecated and replaced by Firebase Instance ID. See the FCM migration guide for details on how to migrate to Firebase Instance ID.",
+        "params": {
+          "authorizedEntity": "Entity that must no longer have access",
+          "scope": "Action that entity is no longer authorized to perform"
+        },
+        "returns": "void",
+        "Exceptions": {
+          "java.io.IOException": "if the request fails"
+        }
+      },
+      "com.google.android.gms.iid.InstanceID.getCreationTime()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#getCreationTime()",
+        "methodDes": "This method was deprecated. Instance ID is deprecated and replaced by Firebase Instance ID. See the FCM migration guide for details on how to migrate to Firebase Instance ID.",
+        "params": {},
+        "returns": "long:Time when instance ID was created (milliseconds since Epoch)",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.iid.InstanceID.getId()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#getId()",
+        "methodDes": "This method was deprecated. Instance ID is deprecated and replaced by Firebase Instance ID. See the FCM migration guide for details on how to migrate to Firebase Instance ID.",
+        "params": {},
+        "returns": "java.lang.String:The identifier for the application instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.iid.InstanceID.getInstance(android.content.Context)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#getInstance(android.content.Context)",
+        "methodDes": "This method was deprecated. Instance ID is deprecated and replaced by Firebase Instance ID. See the FCM migration guide for details on how to migrate to Firebase Instance ID.",
+        "params": {
+          "context": ""
+        },
+        "returns": "com.google.android.gms.iid.InstanceID:InstanceID instance",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.iid.InstanceID.getToken(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#getToken(java.lang.String, java.lang.String)",
+        "methodDes": "This method was deprecated. Instance ID is deprecated and replaced by Firebase Instance ID. See the FCM migration guide for details on how to migrate to Firebase Instance ID.",
+        "params": {
+          "authorizedEntity": "Entity authorized by the token",
+          "scope": "Action authorized for authorizedEntity"
+        },
+        "returns": "java.lang.String:a token that can identify and authorize the instance of the application on the device",
+        "Exceptions": {
+          "java.io.IOException": "if the request fails"
+        }
+      },
+      "com.google.android.gms.iid.InstanceID.getToken(java.lang.String,java.lang.String,android.os.Bundle)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#getToken(java.lang.String, java.lang.String, android.os.Bundle)",
+        "methodDes": "This method was deprecated. Instance ID is deprecated and replaced by Firebase Instance ID. See the FCM migration guide for details on how to migrate to Firebase Instance ID.",
+        "params": {
+          "authorizedEntity": "Entity authorized by the token",
+          "scope": "Action authorized for authorizedEntity",
+          "extras": "additional parameters specific to each token scope. Bundle keys starting with \u0027GCM.\u0027 and \u0027GOOGLE.\u0027 are reserved"
+        },
+        "returns": "java.lang.String:a token that can identify and authorize the instance of the application on the device",
+        "Exceptions": {
+          "java.io.IOException": "if the request fails"
+        }
+      }
+    },
+    "fields": {
+      "com.google.android.gms.iid.InstanceID.ERROR_MAIN_THREAD": {
+        "des": "Blocking methods must not be called on the main thread.",
+        "value": "\"MAIN_THREAD\"",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#ERROR_MAIN_THREAD"
+      },
+      "com.google.android.gms.iid.InstanceID.ERROR_MISSING_INSTANCEID_SERVICE": {
+        "des": "Tokens can\u0027t be generated. Only devices with Google Play are supported.",
+        "value": "\"MISSING_INSTANCEID_SERVICE\"",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#ERROR_MISSING_INSTANCEID_SERVICE"
+      },
+      "com.google.android.gms.iid.InstanceID.ERROR_SERVICE_NOT_AVAILABLE": {
+        "des": "The device cannot read the response, or there was a server error. Application should retry the request later using exponential backoff and retry (on each subsequent failure increase delay before retrying).",
+        "value": "\"SERVICE_NOT_AVAILABLE\"",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#ERROR_SERVICE_NOT_AVAILABLE"
+      },
+      "com.google.android.gms.iid.InstanceID.ERROR_TIMEOUT": {
+        "des": "Timeout waiting for a response.",
+        "value": "\"TIMEOUT\"",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceID#ERROR_TIMEOUT"
+      }
+    }
+  },
+  "com.google.android.gms.gcm.GcmNetworkManager": {
+    "classDes": "This class is deprecated. As of November 1, 2020, GCMNetworkManager client libraries are no longer supported. GCMNetworkManager API calls no longer work on devices running Android M and later once your app targets future Android versions ( \u003e Android 10). Migrate to Jetpack WorkManager for your background scheduling needs. Class to create apps with robust \"send-to-sync\", which is the mechanism to sync data with servers where new information is available. You can use the API to schedule network-oriented tasks, and let Google Play services batch network operations across the system. This greatly simplifies the implementation of common patterns, such as waiting for network connectivity, network retries, and backoff. Tasks must be scheduled based on an execution window in time. During this execution window the scheduler will use its discretion in picking an optimal execution time, based on network availability (whether the device has connectivity), network activity (whether packages are actively being transferred), and load (how many other pending tasks are available for execution at that point in time). If none of these factors are influential, the scheduler will always wait until the end of the specified window. To receive the notification from the scheduler that a task is ready to be executed, your client app must implement a GcmTaskService and filter on the action SERVICE_ACTION_EXECUTE_TASK. Note that tags of arbitrary length are not allowed; if the tag you provide is greater than 100 characters an exception will be thrown when you try to create your Task object. The service should be protected by the permission com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE, which is used by Google Play Services. This prevents other code from invoking the broadcast receiver. Here is an excerpt from a sample manifest: \u003cservice android:name\u003d\".MyUploadService\" android:exported\u003d\"true\" android:permission\u003d\"com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE\"\u003e \u003cintent-filter\u003e \u003caction android:name\u003d\"com.google.android.gms.gcm.ACTION_TASK_READY\" /\u003e \u003c/intent-filter\u003e \u003c/service\u003e An execution contains the tag identifier which your client app provides. This identifies one \"task,\" or piece of work, that you mean to perform. Consider the tag to be the key to which your task logic is paired. Here\u0027s an example that schedules a one-time task: // Schedule a task to occur between five and fifteen minutes from now: OneoffTask myTask \u003d new OneoffTask.Builder() .setService(MyUploadService.class) .setExecutionWindow( 5 * DateUtil.MINUTE_IN_SECONDS, 15 * DateUtil.MINUTE_IN_SECONDS) .setTag(\"test-upload\") .build(); GcmNetworkManager.getInstance(this).schedule(myTask); The service implementation might look something like this: // Implement service logic to be notified when the task elapses class MyUploadService extends GcmTaskService { @Override public int onRunTask(TaskParams params) { // Do some upload work return GcmNetworkManager.RESULT_SUCCESS; } } To aid in debugging tasks, you can dump the currently scheduled tasks using adb adb shell dumpsys activity service GcmService --endpoints \u003cclass1\u003e \u003cclass2\u003e ...",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager",
+    "methods": {
+      "com.google.android.gms.gcm.GcmNetworkManager.cancelAllTasks(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#cancelAllTasks(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)",
+        "methodDes": "Cancels all tasks previously scheduled against the provided GcmTaskService. Note that a cancel will have no effect on an in-flight task. Since this involves system IPC calls that can ocassionally be slow, it should be called on a background thread to avoid blocking the main (UI) thread.",
+        "params": {
+          "gcmTaskService": "The endpoint for which you want to cancel all outstanding tasks"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.GcmNetworkManager.cancelTask(java.lang.String,java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#cancelTask(java.lang.String, java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)",
+        "methodDes": "Cancel a task, specified by tag. Note that a cancel will have no effect on an in-flight task. Since this involves system IPC calls that can ocassionally be slow, it should be called on a background thread to avoid blocking the main (UI) thread.",
+        "params": {
+          "tag": "The tag to uniquely identify this task on this endpoint",
+          "gcmTaskService": "The endpoint of the task to cancel"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.GcmNetworkManager.getInstance(android.content.Context)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#getInstance(android.content.Context)",
+        "methodDes": "Use this function to access the GcmNetworkManager API.",
+        "params": {
+          "context": "Context of the calling app"
+        },
+        "returns": "com.google.android.gms.gcm.GcmNetworkManager:GcmNetworkManager object",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.GcmNetworkManager.schedule(com.google.android.gms.gcm.Task)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#schedule(com.google.android.gms.gcm.Task)",
+        "methodDes": "Entry point to schedule a task with the network manager. If Google Play services is unavailable (upgrading, missing, etc). This call will fail silently. You should wrap it in a call to isGooglePlayServicesAvailable(android.content.Context). Since this involves system IPC calls that can ocassionally be slow, it should be called on a background thread to avoid blocking the main (UI) thread. Rescheduling a currently executing task will release the corresponding wakelock, so this should be the last step in a onRunTask(TaskParams) implementation.",
+        "params": {
+          "task": "Task constructed using Task.Builder. Can be an instance of PeriodicTask or OneoffTask"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.gcm.GcmNetworkManager.RESULT_FAILURE": {
+        "des": "Indicates a task has failed, but not to reschedule.",
+        "value": "2",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#RESULT_FAILURE"
+      },
+      "com.google.android.gms.gcm.GcmNetworkManager.RESULT_RESCHEDULE": {
+        "des": "Indicates a task has failed to execute, and must be retried with back-off.",
+        "value": "1",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#RESULT_RESCHEDULE"
+      },
+      "com.google.android.gms.gcm.GcmNetworkManager.RESULT_SUCCESS": {
+        "des": "Indicates a task has successfully been executed, and can be removed from the queue.",
+        "value": "0",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmNetworkManager#RESULT_SUCCESS"
+      }
+    }
+  },
+  "com.google.firebase.iid.FirebaseInstanceIdReceiver": {
+    "classDes": "WakefulBroadcastReceiver that receives FirebaseInstanceId and FirebaseMessaging events and delivers them to the application-specific FirebaseInstanceIdService subclass. This receiver is automatically added to your application\u0027s manifest file via manifest merge. If necessary it can be manually declared via: \u003creceiver android:name\u003d\"com.google.firebase.iid.FirebaseInstanceIdReceiver\" android:exported\u003d\"true\" android:permission\u003d\"com.google.android.c2dm.permission.SEND\" \u003e \u003cintent-filter\u003e \u003caction android:name\u003d\"com.google.android.c2dm.intent.RECEIVE\" /\u003e \u003ccategory android:name\u003d\"YOUR_PACKAGE_NAME\" /\u003e \u003c/intent-filter\u003e \u003c/receiver\u003e The com.google.android.c2dm.permission.SEND permission is held by Google Play services. This prevents other apps from invoking the broadcast receiver.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceIdReceiver",
+    "methods": {
+      "com.google.firebase.iid.FirebaseInstanceIdReceiver.onReceive(android.content.Context,android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceIdReceiver#onReceive(android.content.Context, android.content.Intent)",
+        "methodDes": "",
+        "params": {
+          "context": "",
+          "intent": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.iid.InstanceIDListenerService": {
+    "classDes": "This class was deprecated. Instance ID is deprecated and replaced by Firebase Instance ID. See the FCM migration guide for details on how to migrate to Firebase Instance ID. Base class to handle Instance ID service notifications on token refresh. Any app using Instance ID or GCM must include a class extending InstanceIDListenerService and implement onTokenRefresh(). Include the following in the manifest: \u003cservice android:name\u003d\".YourInstanceIDListenerService\" android:exported\u003d\"false\"\u003e \u003cintent-filter\u003e \u003caction android:name\u003d\"com.google.android.gms.iid.InstanceID\"/\u003e \u003c/intent-filter\u003e \u003c/service\u003e Do not export this service. Instead, keep it private to prevent other apps accessing your service.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceIDListenerService",
+    "methods": {
+      "com.google.android.gms.iid.InstanceIDListenerService.InstanceIDListenerService()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceIDListenerService#InstanceIDListenerService()",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.iid.InstanceIDListenerService.onTokenRefresh()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceIDListenerService#onTokenRefresh()",
+        "methodDes": "Called when the system determines that the tokens need to be refreshed. The application should call getToken() and send the tokens to all application servers. This will not be called very frequently, it is needed for key rotation and to handle special cases. The system will throttle the refresh event across all devices to avoid overloading application servers with token updates.",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.iid.InstanceIDListenerService.onBind(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceIDListenerService#public-void-ontokenrefresh",
+        "methodDes": "Called when the system determines that the tokens need to be refreshed. The application should call getToken() and send the tokens to all application servers. This will not be called very frequently, it is needed for key rotation and to handle special cases. The system will throttle the refresh event across all devices to avoid overloading application servers with token updates.",
+        "params": {
+          "intent": "The Intent that was used to bind to this service, as given to Context bindService"
+        },
+        "returns": "android.os.IBinder:Return an IBinder through which clients can call on to the service",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.gcm.OneoffTask.Builder": {
+    "classDes": "This class is deprecated. As of November 1, 2020, GCMNetworkManager client libraries are no longer supported. GCMNetworkManager API calls no longer work on devices running Android M and later once your app targets future Android versions ( \u003e Android 10). Migrate to Jetpack WorkManager for your background scheduling needs. Builder class for constructing OneoffTask objects.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder",
+    "methods": {
+      "com.google.android.gms.gcm.OneoffTask.Builder.Builder()": {
+        "methodUrl": "https://developers.google.com",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.Builder.build()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#build()",
+        "methodDes": "",
+        "params": {},
+        "returns": "com.google.android.gms.gcm.OneoffTask:the OneoffTask",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.Builder.setExecutionWindow(long,long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask.Builder#setExecutionWindow(long, long)",
+        "methodDes": "Mandatory setter for creating a one-off task. You specify the earliest point in time in the future from which your task might start executing, as well as the latest point in time in the future at which your task must have executed.",
+        "params": {
+          "windowStartDelaySeconds": "Earliest point from which your task is eligible to run",
+          "windowEndDelaySeconds": "Latest point at which your task must be run"
+        },
+        "returns": "com.google.android.gms.gcm.OneoffTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.Builder.setExtras(android.os.Bundle)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setExtras(android.os.Bundle)",
+        "methodDes": "Optional setter for specifying any extra parameters necessary for the task.",
+        "params": {
+          "extras": ""
+        },
+        "returns": "com.google.android.gms.gcm.OneoffTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.Builder.setPersisted(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setPersisted(boolean)",
+        "methodDes": "Optional setter to specify whether this task should be persisted across reboots. Defaults to false. Callers must hold the permission android.Manifest.permission.RECEIVE_BOOT_COMPLETED, otherwise this setting is ignored.",
+        "params": {
+          "isPersisted": "True if this task should be persisted across device reboots"
+        },
+        "returns": "com.google.android.gms.gcm.OneoffTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.Builder.setRequiredNetwork(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setRequiredNetwork(int)",
+        "methodDes": "Set the network state your task requires to run. If the specified network is unavailable your task will not be executed until it becomes available. The default for either a periodic or one-off task is NETWORK_STATE_CONNECTED. Note that changing this to NETWORK_STATE_ANY means there is no guarantee that data will be available when your task executes. In addition, the only guarantee for connectivity is at the moment of execution - it is possible for the device to lose data shortly after your task begins executing.",
+        "params": {
+          "requiredNetworkState": ""
+        },
+        "returns": "com.google.android.gms.gcm.OneoffTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.Builder.setRequiresCharging(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setRequiresCharging(boolean)",
+        "methodDes": "Set whether your task requires that the device be connected to power in order to execute. Use this to defer nonessential operations whenever possible. Note that if you set this field and the device is not connected to power your task will not run until the device is plugged in. One way to deal with your task not executing until the constraint is met is to schedule another task without the constraints that is subject to some deadline that you can abide. This task would be responsible for executing your fallback logic.",
+        "params": {
+          "requiresCharging": ""
+        },
+        "returns": "com.google.android.gms.gcm.OneoffTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.Builder.setService(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setService(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)",
+        "methodDes": "Set whichever GcmTaskService you implement to execute the logic for this task.",
+        "params": {
+          "gcmTaskService": "Endpoint against which you\u0027re scheduling this task"
+        },
+        "returns": "com.google.android.gms.gcm.OneoffTask.Builder:",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.Builder.setTag(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setTag(java.lang.String)",
+        "methodDes": "Mandatory setter for specifying the tag identifier for this task. This tag will be returned at execution time to your endpoint. See onRunTask(com.google.android.gms.gcm.TaskParams) Maximum tag length is 100.",
+        "params": {
+          "tag": "String identifier for this task. Consecutive schedule calls for the same tag will update any preexisting task with the same tag"
+        },
+        "returns": "com.google.android.gms.gcm.OneoffTask.Builder:",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.Builder.setUpdateCurrent(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setUpdateCurrent(boolean)",
+        "methodDes": "Optional setter to specify whether this task should override any preexisting tasks with the same tag. This defaults to false, which means if a task with the same tag and service is already present then the new task will be dropped instead of replacing the previous task.",
+        "params": {
+          "updateCurrent": "True to update the current task with the parameters of the new. Default false"
+        },
+        "returns": "com.google.android.gms.gcm.OneoffTask.Builder:",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.Builder.checkConditions()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#checkConditions()",
+        "methodDes": "",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.firebase.iid.FirebaseInstanceId": {
+    "classDes": "Firebase Instance ID provides a unique identifier for each app instance and a mechanism to authenticate and authorize actions (example: sending FCM messages). Instance ID is stable except when: App deletes Instance ID App is restored on a new device User uninstalls/reinstall the app User clears app data Once an Instance ID is generated, the library periodically sends information about the application and the device where it\u0027s running to the Firebase backend. To stop this, see deleteInstanceId(). To prove ownership of Instance ID and to allow servers to access data or services associated with the app, call getToken(String, String).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId",
+    "methods": {
+      "com.google.firebase.iid.FirebaseInstanceId.deleteInstanceId()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#deleteInstanceId()",
+        "methodDes": "Delete the Instance ID and the data associated with it. This stops the periodic sending of data to the Firebase backend started when the Instance ID was generated, unless another library that requires InstanceId (like FCM, RemoteConfig or Analytics) is used or it\u0027s configured to be executed automatically. A new Instance ID is generated asynchronously if Firebase Cloud Messaging auto-init is enabled. This is a blocking function so do not call it on the main thread.",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {
+          "java.io.IOException": ""
+        }
+      },
+      "com.google.firebase.iid.FirebaseInstanceId.deleteToken(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#deleteToken(java.lang.String, java.lang.String)",
+        "methodDes": "Revokes access to a scope (action) for a sender ID previously authorized by getToken(). This is a blocking function so do not call it on the main thread.",
+        "params": {
+          "senderId": "ID of the sender that must no longer have access",
+          "scope": "Action that the sender ID is no longer authorized to perform. Set the scope to FCM to revoke the authorization to send messages via FirebaseMessaging"
+        },
+        "returns": "void",
+        "Exceptions": {
+          "java.io.IOException": "if the request fails"
+        }
+      },
+      "com.google.firebase.iid.FirebaseInstanceId.getCreationTime()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#getCreationTime()",
+        "methodDes": "Returns time when instance ID was created.",
+        "params": {},
+        "returns": "long:Time when instance ID was created (milliseconds since Epoch)",
+        "Exceptions": {}
+      },
+      "com.google.firebase.iid.FirebaseInstanceId.getId()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#getId()",
+        "methodDes": "Returns a stable identifier that uniquely identifies the app instance. Once an Instance ID is generated, the library periodically sends information about the application and the device where it\u0027s running to the Firebase backend. To stop this, see deleteInstanceId().",
+        "params": {},
+        "returns": "java.lang.String:The identifier for the application instance",
+        "Exceptions": {}
+      },
+      "com.google.firebase.iid.FirebaseInstanceId.getInstance()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#getInstance()",
+        "methodDes": "Returns an instance of this class.",
+        "params": {},
+        "returns": "com.google.firebase.iid.FirebaseInstanceId:FirebaseInstanceId instance",
+        "Exceptions": {}
+      },
+      "com.google.firebase.iid.FirebaseInstanceId.getInstance(com.google.firebase.FirebaseApp)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#getInstance(com.google.firebase.FirebaseApp)",
+        "methodDes": "Returns an instance for the given FirebaseApp.",
+        "params": {
+          "app": "FirebaseApp instance"
+        },
+        "returns": "com.google.firebase.iid.FirebaseInstanceId:FirebaseInstanceId instance",
+        "Exceptions": {}
+      },
+      "com.google.firebase.iid.FirebaseInstanceId.getInstanceId()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#getInstanceId()",
+        "methodDes": "Returns the ID and automatically generated token for this Firebase project. This generates an Instance ID if it does not exist yet, which starts periodically sending information to the Firebase backend (see getId()).",
+        "params": {},
+        "returns": "com.google.android.gms.tasks.Task\u003ccom.google.firebase.iid.InstanceIdResult\u003e:Task which you can use to see the result via the InstanceIdResult which holds the ID and token",
+        "Exceptions": {}
+      },
+      "com.google.firebase.iid.FirebaseInstanceId.getToken()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-string-gettoken",
+        "methodDes": "Returns the automatically generated token for the default Firebase project.",
+        "params": {},
+        "returns": "java.lang.String:the master token or null if the token is not yet available",
+        "Exceptions": {}
+      },
+      "com.google.firebase.iid.FirebaseInstanceId.getToken(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/FirebaseInstanceId#public-string-gettoken-string-senderid,-string-scope",
+        "methodDes": "Returns a token that authorizes a sender ID to perform an action on behalf of the application identified by Instance ID.",
+        "params": {
+          "senderId": "ID of the sender that is authorized by the token",
+          "scope": "Action authorized for senderId. Set the scope to FCM to get authorization to send messages via FirebaseMessaging"
+        },
+        "returns": "java.lang.String:a token that can identify and authorize the instance of the application on the device",
+        "Exceptions": {
+          "java.io.IOException": "if the request fails"
+        }
+      }
+    },
+    "fields": {}
+  },
+  "com.google.firebase.messaging.RemoteMessage": {
+    "classDes": "A remote Firebase Message. Messages will be received via onMessageReceived(RemoteMessage) and can be sent via send(RemoteMessage). Messages may have a RemoteMessage.Notification instance if they are received while the application is in the foreground, otherwise they will be automatically posted to the notification tray. Use the RemoteMessage.Builder class for building message instances to send via send(RemoteMessage).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage",
+    "methods": {
+      "com.google.firebase.messaging.RemoteMessage.getCollapseKey()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#getCollapseKey()",
+        "methodDes": "Gets the collapse key of the message.",
+        "params": {},
+        "returns": "java.lang.String:The collapse key",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.getData()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#getData()",
+        "methodDes": "Gets the message payload data.",
+        "params": {},
+        "returns": "java.util.Map\u003cjava.lang.String, java.lang.String\u003e:A map of the message payload",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.getFrom()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#getFrom()",
+        "methodDes": "Get the sender of this message. This will be the sender ID or the topic for topic messages.",
+        "params": {},
+        "returns": "java.lang.String:The message sender",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.getMessageId()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#getMessageId()",
+        "methodDes": "Gets the message\u0027s ID. This will be the message ID set when sending the message or automatically generated by the server.",
+        "params": {},
+        "returns": "java.lang.String:The message ID",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.getMessageType()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#getMessageType()",
+        "methodDes": "Gets the type of message.",
+        "params": {},
+        "returns": "java.lang.String:The message type",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.getNotification()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#getNotification()",
+        "methodDes": "Gets the notification data from the message if set. This field will be non-null if a notification message is received while the application is in the foreground.",
+        "params": {},
+        "returns": "com.google.firebase.messaging.RemoteMessage.Notification:The message notification or null",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.getOriginalPriority()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#getOriginalPriority()",
+        "methodDes": "Gets the original priority of message.",
+        "params": {},
+        "returns": "int:The original message priority",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.getPriority()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#getPriority()",
+        "methodDes": "Gets the priority of message as delivered. This may be lower than the priority originally requested.",
+        "params": {},
+        "returns": "int:The message priority as delivered",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.getSentTime()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#getSentTime()",
+        "methodDes": "Gets the time in milliseconds from the Epoch that the message was sent.",
+        "params": {},
+        "returns": "long:The time that the message was sent",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.getTo()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#getTo()",
+        "methodDes": "Gets the message destination. For upstream messages, this will be of the form SENDER_ID@gcm.googleapis.com. For downstream messages, this will be the Firebase installations ID (FID).",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.getTtl()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#getTtl()",
+        "methodDes": "Gets the message time to live (TTL) in seconds.",
+        "params": {},
+        "returns": "int:The message TTL",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "parcel": "",
+          "i": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.firebase.messaging.RemoteMessage.PRIORITY_HIGH": {
+        "des": "",
+        "value": "1",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#PRIORITY_HIGH"
+      },
+      "com.google.firebase.messaging.RemoteMessage.PRIORITY_NORMAL": {
+        "des": "",
+        "value": "2",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#PRIORITY_NORMAL"
+      },
+      "com.google.firebase.messaging.RemoteMessage.PRIORITY_UNKNOWN": {
+        "des": "",
+        "value": "0",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage#PRIORITY_UNKNOWN"
+      },
+      "com.google.firebase.messaging.RemoteMessage.CREATOR": {
+        "des": "a public CREATOR field that generates instances of your Parcelable class from a Parcel.",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage"
+      }
+    }
+  },
+  "com.google.android.gms.gcm.Task.Builder": {
+    "classDes": "This class is deprecated. As of November 1, 2020, GCMNetworkManager client libraries are no longer supported. GCMNetworkManager API calls no longer work on devices running Android M and later once your app targets future Android versions ( \u003e Android 10). Migrate to Jetpack WorkManager for your background scheduling needs. Builder object to construct these tasks before sending them to the network manager. Use either PeriodicTask.Builder or OneoffTask.Builder.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder",
+    "methods": {
+      "com.google.android.gms.gcm.Task.Builder.Builder()": {
+        "methodUrl": "https://developers.google.com",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.Builder.build()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#build()",
+        "methodDes": "",
+        "params": {},
+        "returns": "com.google.android.gms.gcm.Task:the Task",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.Builder.setExtras(android.os.Bundle)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setExtras(android.os.Bundle)",
+        "methodDes": "Optional setter for specifying any extra parameters necessary for the task.",
+        "params": {
+          "extras": ""
+        },
+        "returns": "com.google.android.gms.gcm.Task.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.Builder.setPersisted(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setPersisted(boolean)",
+        "methodDes": "Optional setter to specify whether this task should be persisted across reboots. This defaults to true for periodic tasks and false for one-off tasks. Callers must hold the permission android.Manifest.permission.RECEIVE_BOOT_COMPLETED, otherwise this setting is ignored.",
+        "params": {
+          "isPersisted": "True if this task should be persisted across device reboots"
+        },
+        "returns": "com.google.android.gms.gcm.Task.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.Builder.setRequiredNetwork(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setRequiredNetwork(int)",
+        "methodDes": "Set the network state your task requires to run. If the specified network is unavailable your task will not be executed until it becomes available. The default for either a periodic or one-off task is NETWORK_STATE_CONNECTED. Note that changing this to NETWORK_STATE_ANY means there is no guarantee that data will be available when your task executes. In addition, the only guarantee for connectivity is at the moment of execution - it is possible for the device to lose data shortly after your task begins executing.",
+        "params": {
+          "requiredNetworkState": ""
+        },
+        "returns": "com.google.android.gms.gcm.Task.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.Builder.setRequiresCharging(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setRequiresCharging(boolean)",
+        "methodDes": "Set whether your task requires that the device be connected to power in order to execute. Use this to defer nonessential operations whenever possible. Note that if you set this field and the device is not connected to power your task will not run until the device is plugged in. One way to deal with your task not executing until the constraint is met is to schedule another task without the constraints that is subject to some deadline that you can abide. This task would be responsible for executing your fallback logic.",
+        "params": {
+          "requiresCharging": ""
+        },
+        "returns": "com.google.android.gms.gcm.Task.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.Builder.setService(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setService(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)",
+        "methodDes": "Set whichever GcmTaskService you implement to execute the logic for this task.",
+        "params": {
+          "gcmTaskService": "Endpoint against which you\u0027re scheduling this task"
+        },
+        "returns": "com.google.android.gms.gcm.Task.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.Builder.setTag(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setTag(java.lang.String)",
+        "methodDes": "Mandatory setter for specifying the tag identifier for this task. This tag will be returned at execution time to your endpoint. See onRunTask(com.google.android.gms.gcm.TaskParams) Maximum tag length is 100.",
+        "params": {
+          "tag": "String identifier for this task. Consecutive schedule calls for the same tag will update any preexisting task with the same tag"
+        },
+        "returns": "com.google.android.gms.gcm.Task.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.Builder.setUpdateCurrent(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setUpdateCurrent(boolean)",
+        "methodDes": "Optional setter to specify whether this task should override any preexisting tasks with the same tag. This defaults to false, which means if a task with the same tag and service is already present then the new task will be dropped instead of replacing the previous task.",
+        "params": {
+          "updateCurrent": "True to update the current task with the parameters of the new. Default false"
+        },
+        "returns": "com.google.android.gms.gcm.Task.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.Builder.checkConditions()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#checkConditions()",
+        "methodDes": "",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.gcm.Task.Builder.extras": {
+        "des": "",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#extras"
+      },
+      "com.google.android.gms.gcm.Task.Builder.gcmTaskService": {
+        "des": "",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-string-gcmtaskservice"
+      },
+      "com.google.android.gms.gcm.Task.Builder.isPersisted": {
+        "des": "",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-boolean-ispersisted"
+      },
+      "com.google.android.gms.gcm.Task.Builder.requiredNetworkState": {
+        "des": "",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-int-requirednetworkstate"
+      },
+      "com.google.android.gms.gcm.Task.Builder.requiresCharging": {
+        "des": "",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-boolean-requirescharging"
+      },
+      "com.google.android.gms.gcm.Task.Builder.tag": {
+        "des": "",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-string-tag"
+      },
+      "com.google.android.gms.gcm.Task.Builder.updateCurrent": {
+        "des": "",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#protected-boolean-updatecurrent"
+      }
+    }
+  },
+  "com.google.firebase.iid.InstanceIdResult": {
+    "classDes": "Result object obtained from requests for an Instance ID and token.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/InstanceIdResult",
+    "methods": {
+      "com.google.firebase.iid.InstanceIdResult.getId()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/InstanceIdResult#getId()",
+        "methodDes": "Returns the stable identifier that uniquely identifies this application instance.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.iid.InstanceIdResult.getToken()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/iid/InstanceIdResult#getToken()",
+        "methodDes": "Returns the token that authorizes performing actions on behalf of this application instance. For example, this token authorizes sending messages via Firebase Cloud Messaging.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.firebase.messaging.RemoteMessage.Notification": {
+    "classDes": "Remote Firebase notification details. This class maps to the fields of a notification message.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification",
+    "methods": {
+      "com.google.firebase.messaging.RemoteMessage.Notification.getBody()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getBody()",
+        "methodDes": "Gets the body of the notification, or null if not set.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getBodyLocalizationArgs()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getBodyLocalizationArgs()",
+        "methodDes": "Gets the variable string values to be used as format specifiers in the body localization key, or null if not set.",
+        "params": {},
+        "returns": "java.lang.String[]:the String[]",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getBodyLocalizationKey()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getBodyLocalizationKey()",
+        "methodDes": "Gets the string resource name to use to localize the body of the notification, or null if not set.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getChannelId()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getChannelId()",
+        "methodDes": "Gets the channel id from the notification, or null if not set. Note that this method does not perform verification on the existence of a channel, nor does it fallback to the manifest defined default or the default Firebase Cloud Messaging channel.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getClickAction()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getClickAction()",
+        "methodDes": "Gets the action to be performed on the user opening the notification, or null if not set. The action is to open an Activity with matching intent filter.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getColor()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getColor()",
+        "methodDes": "Gets the color of the notification, or null if not set. Color is expressed in #rrggbb format.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getDefaultLightSettings()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getDefaultLightSettings()",
+        "methodDes": "Gets whether or not the notification uses the default notification light settings. See details about defaultLightSettings in Firebase Cloud Messaging Reference: HTTP v1 API.",
+        "params": {},
+        "returns": "boolean:true if it is set to true; Otherwise false",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getDefaultSound()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getDefaultSound()",
+        "methodDes": "Gets whether or not the notification uses the default sound. See details about defaultSound in Firebase Cloud Messaging Reference: HTTP v1 API.",
+        "params": {},
+        "returns": "boolean:true if it is set to true; Otherwise false",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getDefaultVibrateSettings()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getDefaultVibrateSettings()",
+        "methodDes": "Gets whether or not the notification uses the default vibrate pattern. See details about defaultVibrateTimings in Firebase Cloud Messaging Reference: HTTP v1 API.",
+        "params": {},
+        "returns": "boolean:true if it is set to true; Otherwise false",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getEventTime()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getEventTime()",
+        "methodDes": "Gets the eventTime from the notification. See details about eventTime in Firebase Cloud Messaging Reference: HTTP v1 API.",
+        "params": {},
+        "returns": "java.lang.Long:the Long",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getIcon()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getIcon()",
+        "methodDes": "Gets the image resource name of the icon of the notification, or null if not set.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getImageUrl()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getImageUrl()",
+        "methodDes": "Gets the image URL from the notification.",
+        "params": {},
+        "returns": "android.net.Uri:The image URL if it was set, null otherwise",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getLightSettings()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getLightSettings()",
+        "methodDes": "Gets the lightSettings from the notification. lightSettings is an primitive integer array of size three that includes color, lightOnDuration and lightOffDuration respectively. See details about lightSettings in Firebase Cloud Messaging Reference: HTTP v1 API.",
+        "params": {},
+        "returns": "int[]:the int[]",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getLink()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getLink()",
+        "methodDes": "Gets the deep link from the notification, or null if not set.",
+        "params": {},
+        "returns": "android.net.Uri:the Uri",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getLocalOnly()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getLocalOnly()",
+        "methodDes": "Gets whether or not this notification is only relevant to the current device. See details about localOnly in Firebase Cloud Messaging Reference: HTTP v1 API.",
+        "params": {},
+        "returns": "boolean:true if it is set to true; Otherwise false",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getNotificationCount()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getNotificationCount()",
+        "methodDes": "Gets the notificationCount from the notification. See details about notificationCount in Firebase Cloud Messaging Reference: HTTP v1 API.",
+        "params": {},
+        "returns": "java.lang.Integer:the Integer",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getNotificationPriority()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getNotificationPriority()",
+        "methodDes": "Gets the notificationPriority from the notification. See details about notificationPriority in Firebase Cloud Messaging Reference: HTTP v1 API.",
+        "params": {},
+        "returns": "java.lang.Integer:the Integer",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getSound()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getSound()",
+        "methodDes": "Gets the sound to be played when the notification is shown, or null if not set. This will be either a raw resource name, or \"default\" for the user\u0027s default notification sound.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getSticky()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getSticky()",
+        "methodDes": "Gets whether or not the notification is considered sticky. See details about sticky in Firebase Cloud Messaging Reference: HTTP v1 API.",
+        "params": {},
+        "returns": "boolean:true if it is set to true; Otherwise false",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getTag()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getTag()",
+        "methodDes": "Gets the tag of the notification, or null if not set.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getTicker()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getTicker()",
+        "methodDes": "Gets the ticker text from the notification.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getTitle()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getTitle()",
+        "methodDes": "Gets the title of the notification, or null if not set.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getTitleLocalizationArgs()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getTitleLocalizationArgs()",
+        "methodDes": "Gets the variable string values to be used as format specifiers in the title localization key, or null if not set.",
+        "params": {},
+        "returns": "java.lang.String[]:the String[]",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getTitleLocalizationKey()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getTitleLocalizationKey()",
+        "methodDes": "Gets the string resource name to use to localize the title of the notification, or null if not set.",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getVibrateTimings()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getVibrateTimings()",
+        "methodDes": "Gets the vibrateTimings from the notification. See details about vibrateTimings in Firebase Cloud Messaging Reference: HTTP v1 API.",
+        "params": {},
+        "returns": "long[]:the long[]",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Notification.getVisibility()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Notification#getVisibility()",
+        "methodDes": "Gets the visibility from the notification. See details about visibility in Firebase Cloud Messaging Reference: HTTP v1 API.",
+        "params": {},
+        "returns": "java.lang.Integer:the Integer",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.gcm.Task": {
+    "classDes": "This class is deprecated. As of November 1, 2020, GCMNetworkManager client libraries are no longer supported. GCMNetworkManager API calls no longer work on devices running Android M and later once your app targets future Android versions ( \u003e Android 10). Migrate to Jetpack WorkManager for your background scheduling needs. Encapsulates the parameters of a task that you will schedule on the GcmNetworkManager. Construct instances of either PeriodicTask or OneoffTask with the desired parameters/behaviour and schedule them using schedule(Task).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task",
+    "methods": {
+      "com.google.android.gms.gcm.Task.describeContents()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#describeContents()",
+        "methodDes": "",
+        "params": {},
+        "returns": "int:the int",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.getExtras()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#getExtras()",
+        "methodDes": "",
+        "params": {},
+        "returns": "android.os.Bundle:The extra parameters for the task set by the client",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.getRequiredNetwork()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#getRequiredNetwork()",
+        "methodDes": "If the specified network is unavailable, your task will not be run until it is.",
+        "params": {},
+        "returns": "int:The network type that this task requires in order to run. See the NETWORK_TYPE_* flavours for an explanation of what this value can be",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.getRequiresCharging()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#getRequiresCharging()",
+        "methodDes": "If the device is not charging and this is set to true, your task will not be run until it is.",
+        "params": {},
+        "returns": "boolean:Whether or not this task depends on the device being connected to power in order to execute",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.getServiceName()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#getServiceName()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String:The GcmTaskService component that this task will execute on",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.getTag()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#getTag()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String:The String identifier for this task, that is returned to onRunTask(com.google.android.gms.gcm.TaskParams) when this task executes",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.isPersisted()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#isPersisted()",
+        "methodDes": "",
+        "params": {},
+        "returns": "boolean:Whether this task will be persisted across devices restarts or Google Play Services crashes",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.isUpdateCurrent()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#isUpdateCurrent()",
+        "methodDes": "",
+        "params": {},
+        "returns": "boolean:Whether or not this task will update a pre-existing task in the scheduler queue",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.Task.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "parcel": "",
+          "i": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.gcm.Task.EXTRAS_LIMIT_BYTES": {
+        "des": "The maximum size allowed for extras bundle in bytes.",
+        "value": "10240",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#EXTRAS_LIMIT_BYTES"
+      },
+      "com.google.android.gms.gcm.Task.NETWORK_STATE_ANY": {
+        "des": "Specify using setRequiredNetwork(int) that your task will execute regardless of whether a network is available.",
+        "value": "2",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#NETWORK_STATE_ANY"
+      },
+      "com.google.android.gms.gcm.Task.NETWORK_STATE_CONNECTED": {
+        "des": "Specify using setRequiredNetwork(int) that your task will only execute if some sort of data connection is available - either metered or unmetered. This is the default.",
+        "value": "0",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#NETWORK_STATE_CONNECTED"
+      },
+      "com.google.android.gms.gcm.Task.NETWORK_STATE_UNMETERED": {
+        "des": "Specify using setRequiredNetwork(int) that your task will only execute if there is an unmetered network connection available.",
+        "value": "1",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#NETWORK_STATE_UNMETERED"
+      },
+      "com.google.android.gms.gcm.Task.UNINITIALIZED": {
+        "des": "",
+        "value": "-1",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#UNINITIALIZED"
+      },
+      "com.google.android.gms.gcm.Task.CREATOR": {
+        "des": "a public CREATOR field that generates instances of your Parcelable class from a Parcel.",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task"
+      }
+    }
+  },
+  "com.google.android.gms.gcm.PeriodicTask.Builder": {
+    "classDes": "This class is deprecated. As of November 1, 2020, GCMNetworkManager client libraries are no longer supported. GCMNetworkManager API calls no longer work on devices running Android M and later once your app targets future Android versions ( \u003e Android 10). Migrate to Jetpack WorkManager for your background scheduling needs. Builder class for constructing PeriodicTask objects.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder",
+    "methods": {
+      "com.google.android.gms.gcm.PeriodicTask.Builder.Builder()": {
+        "methodUrl": "https://developers.google.com",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.Builder.build()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#build()",
+        "methodDes": "",
+        "params": {},
+        "returns": "com.google.android.gms.gcm.PeriodicTask:the PeriodicTask",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.Builder.setExtras(android.os.Bundle)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setExtras(android.os.Bundle)",
+        "methodDes": "Optional setter for specifying any extra parameters necessary for the task.",
+        "params": {
+          "extras": ""
+        },
+        "returns": "com.google.android.gms.gcm.PeriodicTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.Builder.setFlex(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#setFlex(long)",
+        "methodDes": "Optional setter for specifying how close to the end of the period set in setPeriod(long) you are willing to execute. For example, specifying a period of 30 seconds, with a flex value of 10 seconds will allow the scheduler to determine the best moment between the 20th and 30th second at which to execute your task.",
+        "params": {
+          "flexInSeconds": ""
+        },
+        "returns": "com.google.android.gms.gcm.PeriodicTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.Builder.setPeriod(long)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/PeriodicTask.Builder#setPeriod(long)",
+        "methodDes": "Mandatory setter for creating a periodic task. This specifies that you would like this task to recur at most once every mIntervalInSeconds. By default you have no control over where within this period the task will execute. If you want to restrict the task to run within a certain timeframe from the end of the period, use setFlex(long).",
+        "params": {
+          "periodInSeconds": ""
+        },
+        "returns": "com.google.android.gms.gcm.PeriodicTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.Builder.setPersisted(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setPersisted(boolean)",
+        "methodDes": "Optional setter to specify whether this task should be persisted across reboots. Defaults to true. Callers must hold the permission android.Manifest.permission.RECEIVE_BOOT_COMPLETED, otherwise this setting is ignored.",
+        "params": {
+          "isPersisted": "True if this task should be persisted across device reboots"
+        },
+        "returns": "com.google.android.gms.gcm.PeriodicTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.Builder.setRequiredNetwork(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setRequiredNetwork(int)",
+        "methodDes": "Set the network state your task requires to run. If the specified network is unavailable your task will not be executed until it becomes available. The default for either a periodic or one-off task is NETWORK_STATE_CONNECTED. Note that changing this to NETWORK_STATE_ANY means there is no guarantee that data will be available when your task executes. In addition, the only guarantee for connectivity is at the moment of execution - it is possible for the device to lose data shortly after your task begins executing.",
+        "params": {
+          "requiredNetworkState": ""
+        },
+        "returns": "com.google.android.gms.gcm.PeriodicTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.Builder.setRequiresCharging(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setRequiresCharging(boolean)",
+        "methodDes": "Set whether your task requires that the device be connected to power in order to execute. Use this to defer nonessential operations whenever possible. Note that if you set this field and the device is not connected to power your task will not run until the device is plugged in. One way to deal with your task not executing until the constraint is met is to schedule another task without the constraints that is subject to some deadline that you can abide. This task would be responsible for executing your fallback logic.",
+        "params": {
+          "requiresCharging": ""
+        },
+        "returns": "com.google.android.gms.gcm.PeriodicTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.Builder.setService(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setService(java.lang.Class\u003c? extends com.google.android.gms.gcm.GcmTaskService\u003e)",
+        "methodDes": "Set whichever GcmTaskService you implement to execute the logic for this task.",
+        "params": {
+          "gcmTaskService": "Endpoint against which you\u0027re scheduling this task"
+        },
+        "returns": "com.google.android.gms.gcm.PeriodicTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.Builder.setTag(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setTag(java.lang.String)",
+        "methodDes": "Mandatory setter for specifying the tag identifier for this task. This tag will be returned at execution time to your endpoint. See onRunTask(com.google.android.gms.gcm.TaskParams) Maximum tag length is 100.",
+        "params": {
+          "tag": "String identifier for this task. Consecutive schedule calls for the same tag will update any preexisting task with the same tag"
+        },
+        "returns": "com.google.android.gms.gcm.PeriodicTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.Builder.setUpdateCurrent(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#setUpdateCurrent(boolean)",
+        "methodDes": "Optional setter to specify whether this task should override any preexisting tasks with the same tag. This defaults to false, which means if a task with the same tag and service is already present then the new task will be dropped instead of replacing the previous task.",
+        "params": {
+          "updateCurrent": "True to update the current task with the parameters of the new. Default false"
+        },
+        "returns": "com.google.android.gms.gcm.PeriodicTask.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.PeriodicTask.Builder.checkConditions()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task.Builder#checkConditions()",
+        "methodDes": "",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.gcm.TaskParams": {
+    "classDes": "This class is deprecated. As of November 1, 2020, GCMNetworkManager client libraries are no longer supported. GCMNetworkManager API calls no longer work on devices running Android M and later once your app targets future Android versions ( \u003e Android 10). Migrate to Jetpack WorkManager for your background scheduling needs. Container of parameters handed off to the client app in onRunTask(TaskParams).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/TaskParams",
+    "methods": {
+      "com.google.android.gms.gcm.TaskParams.TaskParams(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/TaskParams#TaskParams(java.lang.String)",
+        "methodDes": "",
+        "params": {
+          "tag": ""
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.TaskParams.TaskParams(java.lang.String,android.os.Bundle)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/TaskParams#TaskParams(java.lang.String, android.os.Bundle)",
+        "methodDes": "",
+        "params": {
+          "tag": "",
+          "extras": ""
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.TaskParams.TaskParams(java.lang.String,android.os.Bundle,java.util.List\u003candroid.net.Uri\u003e)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/TaskParams#TaskParams(java.lang.String, android.os.Bundle, java.util.List\u003candroid.net.Uri\u003e)",
+        "methodDes": "",
+        "params": {
+          "tag": "",
+          "extras": "",
+          "triggeredUris": ""
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.TaskParams.getExtras()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/TaskParams#getExtras()",
+        "methodDes": "",
+        "params": {},
+        "returns": "android.os.Bundle:the Bundle",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.TaskParams.getTag()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/TaskParams#getTag()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.firebase.messaging.SendException": {
+    "classDes": "Firebase message send exception. This will be passed to onSendError(String, Exception) on errors that prevented a message from being sent via send(RemoteMessage).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException",
+    "methods": {
+      "com.google.firebase.messaging.SendException.getErrorCode()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException#getErrorCode()",
+        "methodDes": "",
+        "params": {},
+        "returns": "int:the int",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.firebase.messaging.SendException.ERROR_INVALID_PARAMETERS": {
+        "des": "Message was sent with invalid parameters.",
+        "value": "1",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException#ERROR_INVALID_PARAMETERS"
+      },
+      "com.google.firebase.messaging.SendException.ERROR_SIZE": {
+        "des": "Message exceeded the maximum payload size.",
+        "value": "2",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException#ERROR_SIZE"
+      },
+      "com.google.firebase.messaging.SendException.ERROR_TOO_MANY_MESSAGES": {
+        "des": "App has too many pending messages so this one was dropped.",
+        "value": "4",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException#ERROR_TOO_MANY_MESSAGES"
+      },
+      "com.google.firebase.messaging.SendException.ERROR_TTL_EXCEEDED": {
+        "des": "Message time to live (TTL) was exceeded before the message could be sent.",
+        "value": "3",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException#ERROR_TTL_EXCEEDED"
+      },
+      "com.google.firebase.messaging.SendException.ERROR_UNKNOWN": {
+        "des": "Unknown error.",
+        "value": "0",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/messaging/SendException#ERROR_UNKNOWN"
+      }
+    }
+  },
+  "com.google.firebase.messaging.FirebaseMessagingService": {
+    "classDes": "Base class for receiving messages from Firebase Cloud Messaging. Extending this class is required to be able to handle downstream messages. It also provides functionality to automatically display notifications, and has methods that are invoked to give the status of upstream messages. Override base class methods to handle any events required by the application. All methods are invoked on a background thread, and may be called when the app is in the background or not open. Include the following in the manifest: \u003cservice android:name\u003d\".YourFirebaseMessagingService\" android:exported\u003d\"false\"\u003e \u003cintent-filter\u003e \u003caction android:name\u003d\"com.google.firebase.MESSAGING_EVENT\" /\u003e \u003c/intent-filter\u003e \u003c/service\u003e To support receiving messages in direct boot mode, add android:directBootAware\u003d\"true\" to the service declaration. See Receive FCM messages in direct boot mode for more information.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService",
+    "methods": {
+      "com.google.firebase.messaging.FirebaseMessagingService.FirebaseMessagingService()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#FirebaseMessagingService()",
+        "methodDes": "",
+        "params": {},
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.FirebaseMessagingService.onDeletedMessages()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#onDeletedMessages()",
+        "methodDes": "Called when the Firebase Cloud Messaging server deletes pending messages. This may be due to: Too many messages stored on the Firebase Cloud Messaging server. This can occur when the app\u0027s servers send a bunch of non-collapsible messages to Firebase Cloud Messaging servers while the device is offline. The device hasn\u0027t connected in a long time and the app server has recently (within the last 4 weeks) sent a message to the app on that device. It is recommended that the app do a full sync with the app server after receiving this call. See here for more information.",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.FirebaseMessagingService.onDestroy()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#onDestroy()",
+        "methodDes": "",
+        "params": {},
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.FirebaseMessagingService.onMessageReceived(com.google.firebase.messaging.RemoteMessage)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#onMessageReceived(com.google.firebase.messaging.RemoteMessage)",
+        "methodDes": "Called when a message is received. This is also called when a notification message is received while the app is in the foreground. The notification parameters can be retrieved with getNotification().",
+        "params": {
+          "message": "Remote message that has been received"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.FirebaseMessagingService.onMessageSent(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#onMessageSent(java.lang.String)",
+        "methodDes": "Called when an upstream message has been successfully sent to the GCM connection server.",
+        "params": {
+          "msgId": "of the upstream message sent using send(RemoteMessage)"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.FirebaseMessagingService.onNewToken(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#onNewToken(java.lang.String)",
+        "methodDes": "Called when a new token for the default Firebase project is generated. This is invoked after app install when a token is first generated, and again if the token changes.",
+        "params": {
+          "token": "The token used for sending messages to this application instance. This token is the same as the one retrieved by getInstanceId()"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.FirebaseMessagingService.onSendError(java.lang.String,java.lang.Exception)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessagingService#onSendError(java.lang.String, java.lang.Exception)",
+        "methodDes": "Called when there was an error sending an upstream message.",
+        "params": {
+          "msgId": "of the upstream message sent using send(RemoteMessage)",
+          "exception": "description of the error, typically a SendException"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.FirebaseMessagingService.onBind(android.content.Intent)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/iid/InstanceIDListenerService#public-void-ontokenrefresh",
+        "methodDes": "Called when the system determines that the tokens need to be refreshed. The application should call getToken() and send the tokens to all application servers. This will not be called very frequently, it is needed for key rotation and to handle special cases. The system will throttle the refresh event across all devices to avoid overloading application servers with token updates.",
+        "params": {
+          "intent": "The Intent that was used to bind to this service, as given to Context bindService"
+        },
+        "returns": "android.os.IBinder:Return an IBinder through which clients can call on to the service",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  },
+  "com.google.android.gms.gcm.OneoffTask": {
+    "classDes": "This class is deprecated. As of November 1, 2020, GCMNetworkManager client libraries are no longer supported. GCMNetworkManager API calls no longer work on devices running Android M and later once your app targets future Android versions ( \u003e Android 10). Migrate to Jetpack WorkManager for your background scheduling needs. A task that will execute once,at some point within the specified window. If one of cancelTask(String, Class) or cancelAllTasks(Class) is called before this executes it will be cancelled. Note that you can request a one-off task to be executed at any point in the future, but to prevent abuse the scheduler will only set an alarm at a minimum of 30 seconds in the future. Your task can still be run earlier than this if some network event occurs to wake up the scheduler.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask",
+    "methods": {
+      "com.google.android.gms.gcm.OneoffTask.getWindowEnd()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask#getWindowEnd()",
+        "methodDes": "",
+        "params": {},
+        "returns": "long:The number of seconds from now by which this task must have executed",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.getWindowStart()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask#getWindowStart()",
+        "methodDes": "",
+        "params": {},
+        "returns": "long:The number of seconds from now at which this task is eligible for execution",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.toBundle(android.os.Bundle)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask#toBundle(android.os.Bundle)",
+        "methodDes": "Insert the task object into the provided bundle for IPC. Use #fromBundle to recreate the object on the other side.",
+        "params": {
+          "bundle": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.toString()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask#toString()",
+        "methodDes": "",
+        "params": {},
+        "returns": "java.lang.String:the String",
+        "Exceptions": {}
+      },
+      "com.google.android.gms.gcm.OneoffTask.writeToParcel(android.os.Parcel,int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/android/gms/gcm/Task#writeToParcel(android.os.Parcel, int)",
+        "methodDes": "",
+        "params": {
+          "parcel": "",
+          "i": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.android.gms.gcm.OneoffTask.CREATOR": {
+        "des": "",
+        "value": "",
+        "url": "https://developers.google.com/android/reference/com/google/android/gms/gcm/OneoffTask#CREATOR"
+      }
+    }
+  },
+  "com.google.firebase.messaging.FirebaseMessaging": {
+    "classDes": "Top level Firebase Cloud Messaging singleton that provides methods for subscribing to topics and sending upstream messages. In order to receive Firebase messages, declare an implementation of FirebaseMessagingService in the app manifest. To process messages, override base class methods to handle any events required by the application. Client apps can send upstream messages back to the app server using the XMPP-based Cloud Connection Server. For example: FirebaseMessaging.getInstance().send( new RemoteMessage.Builder(SENDER_ID + \"@gcm.googleapis.com\") .setMessageId(id) .addData(\"key\", \"value\") .build()).",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging",
+    "methods": {
+      "com.google.firebase.messaging.FirebaseMessaging.getInstance()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#getInstance()",
+        "methodDes": "",
+        "params": {},
+        "returns": "com.google.firebase.messaging.FirebaseMessaging:the FirebaseMessaging",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.FirebaseMessaging.isAutoInitEnabled()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#isAutoInitEnabled()",
+        "methodDes": "Determines whether FCM auto-initialization is enabled or disabled.",
+        "params": {},
+        "returns": "boolean:true if auto-init is enabled and false if auto-init is disabled",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.FirebaseMessaging.send(com.google.firebase.messaging.RemoteMessage)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#send(com.google.firebase.messaging.RemoteMessage)",
+        "methodDes": "Sends message upstream to your app server. When there is an active connection the message will be sent immediately, otherwise the message will be queued up to the time to live (TTL) set in the message.",
+        "params": {
+          "message": ""
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.FirebaseMessaging.setAutoInitEnabled(boolean)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#setAutoInitEnabled(boolean)",
+        "methodDes": "Enables or disables auto-initialization of Firebase Cloud Messaging. When enabled, Firebase Cloud Messaging generates a registration token on app startup if there is no valid one and generates a new token when it is deleted (which prevents deleteInstanceId() from stopping the periodic sending of data). This setting is persisted across app restarts and overrides the setting specified in your manifest. By default, Firebase Cloud Messaging auto-initialization is enabled. If you need to change the default, (for example, because you want to prompt the user before Firebase Cloud Messaging generates/refreshes a registration token on app startup), add to your application��s manifest: \u003cmeta-data android:name\u003d\"firebase_messaging_auto_init_enabled\" android:value\u003d\"false\" /\u003e.",
+        "params": {
+          "enable": "Whether Firebase Cloud Messaging should auto-initialize"
+        },
+        "returns": "void",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.FirebaseMessaging.subscribeToTopic(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#subscribeToTopic(java.lang.String)",
+        "methodDes": "Subscribes to topic in the background. The subscribe operation is persisted and will be retried until successful. This uses a Firebase Instance ID token to identify the app instance and periodically sends data to the Firebase backend. To stop this, see deleteInstanceId().",
+        "params": {
+          "topic": "The name of the topic to subscribe. Must match the following regular expression: \"[a-zA-Z0-9-_.~%]{1,900}\""
+        },
+        "returns": "com.google.android.gms.tasks.Task\u003cjava.lang.Void\u003e:A task that will be completed when the topic has been successfully subscribed to",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.FirebaseMessaging.unsubscribeFromTopic(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#unsubscribeFromTopic(java.lang.String)",
+        "methodDes": "Unsubscribes from topic in the background. The unsubscribe operation is persisted and will be retried until successful. This does not stop FirebaseInstanceId\u0027s periodic sending of data started by subscribeToTopic(String). To stop this, see deleteInstanceId().",
+        "params": {
+          "topic": "The name of the topic to unsubscribe from. Must match the following regular expression: \"[a-zA-Z0-9-_.~%]{1,900}\""
+        },
+        "returns": "com.google.android.gms.tasks.Task\u003cjava.lang.Void\u003e:A task that will be completed when the topic has been successfully unsubscribed from",
+        "Exceptions": {}
+      }
+    },
+    "fields": {
+      "com.google.firebase.messaging.FirebaseMessaging.INSTANCE_ID_SCOPE": {
+        "des": "Specifies scope used in obtaining a registration token when calling getToken().",
+        "value": "\"FCM\"",
+        "url": "https://developers.google.com/android/reference/com/google/firebase/messaging/FirebaseMessaging#INSTANCE_ID_SCOPE"
+      }
+    }
+  },
+  "com.google.firebase.messaging.RemoteMessage.Builder": {
+    "classDes": "Builder object for constructing RemoteMessage instances.",
+    "classUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder",
+    "methods": {
+      "com.google.firebase.messaging.RemoteMessage.Builder.Builder(java.lang.String)": {
+        "methodUrl": "https://developers.google.com",
+        "methodDes": "Sets the destination of the message.",
+        "params": {
+          "to": "The destination of the message in the format of SENDER_ID@gcm.googleapis.com. The SENDER_ID should be one of the sender IDs used when calling getToken(String, String)"
+        },
+        "returns": "",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Builder.addData(java.lang.String,java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#addData(java.lang.String, java.lang.String)",
+        "methodDes": "Adds a data key value pair to the message. An existing value with the same key will be replaced by the new value.",
+        "params": {
+          "key": "",
+          "value": ""
+        },
+        "returns": "com.google.firebase.messaging.RemoteMessage.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Builder.build()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#build()",
+        "methodDes": "Build a RemoteMessage instance.",
+        "params": {},
+        "returns": "com.google.firebase.messaging.RemoteMessage:the RemoteMessage",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Builder.clearData()": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#clearData()",
+        "methodDes": "Clears the message data.",
+        "params": {},
+        "returns": "com.google.firebase.messaging.RemoteMessage.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Builder.setCollapseKey(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#setCollapseKey(java.lang.String)",
+        "methodDes": "Sets the collapse key of the message. A pending message will be replaced by a new message with the same collapse key if it is currently unable to be delivered to the recipient.",
+        "params": {
+          "collapseKey": ""
+        },
+        "returns": "com.google.firebase.messaging.RemoteMessage.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Builder.setData(java.util.Map\u003cjava.lang.String,java.lang.String\u003e)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#setData(java.util.Map\u003cjava.lang.String, java.lang.String\u003e)",
+        "methodDes": "Sets the message data to the contents of data. Any existing data will be removed.",
+        "params": {
+          "data": ""
+        },
+        "returns": "com.google.firebase.messaging.RemoteMessage.Builder:",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Builder.setMessageId(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#setMessageId(java.lang.String)",
+        "methodDes": "Sets the messages ID.",
+        "params": {
+          "messageId": "ID of the message. This is generated by the application. It must be unique for each message. This allows error callbacks and debugging"
+        },
+        "returns": "com.google.firebase.messaging.RemoteMessage.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Builder.setMessageType(java.lang.String)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#setMessageType(java.lang.String)",
+        "methodDes": "Sets the type of message.",
+        "params": {
+          "messageType": ""
+        },
+        "returns": "com.google.firebase.messaging.RemoteMessage.Builder:the Builder",
+        "Exceptions": {}
+      },
+      "com.google.firebase.messaging.RemoteMessage.Builder.setTtl(int)": {
+        "methodUrl": "https://developers.google.com/android/reference/com/google/firebase/messaging/RemoteMessage.Builder#setTtl(int)",
+        "methodDes": "Sets the message time to live in seconds. If 0, the message send will be attempted immediately and will be dropped if the device is not connected. Otherwise, the message will be queued.",
+        "params": {
+          "ttl": ""
+        },
+        "returns": "com.google.firebase.messaging.RemoteMessage.Builder:the Builder",
+        "Exceptions": {}
+      }
+    },
+    "fields": {}
+  }
+}

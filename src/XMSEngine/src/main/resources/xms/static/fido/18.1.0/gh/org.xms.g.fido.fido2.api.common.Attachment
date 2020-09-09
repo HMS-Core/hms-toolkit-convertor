@@ -1,0 +1,128 @@
+package org.xms.g.fido.fido2.api.common;
+
+public final class Attachment extends org.xms.g.utils.XEnum implements android.os.Parcelable {
+    public static final android.os.Parcelable.Creator CREATOR = new android.os.Parcelable.Creator() {
+
+        public org.xms.g.fido.fido2.api.common.Attachment createFromParcel(android.os.Parcel param0) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                String value = param0.readString();
+                com.huawei.hms.support.api.fido.fido2.Attachment hReturn = com.huawei.hms.support.api.fido.fido2.Attachment.fromValue(value);
+                return new org.xms.g.fido.fido2.api.common.Attachment(new org.xms.g.utils.XBox(null, hReturn));
+            } else {
+                com.google.android.gms.fido.fido2.api.common.Attachment gReturn = com.google.android.gms.fido.fido2.api.common.Attachment.CREATOR.createFromParcel(param0);
+                return new org.xms.g.fido.fido2.api.common.Attachment(new org.xms.g.utils.XBox(gReturn, null));
+            }
+        }
+
+        public org.xms.g.fido.fido2.api.common.Attachment[] newArray(int param0) {
+            return new org.xms.g.fido.fido2.api.common.Attachment[param0];
+        }
+    };
+
+    public Attachment(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    public static org.xms.g.fido.fido2.api.common.Attachment getCROSS_PLATFORM() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.support.api.fido.fido2.Attachment.CROSS_PLATFORM");
+            com.huawei.hms.support.api.fido.fido2.Attachment hReturn = null;
+            hReturn = com.huawei.hms.support.api.fido.fido2.Attachment.CROSS_PLATFORM;
+            return ((hReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.Attachment(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.google.android.gms.fido.fido2.api.common.Attachment.CROSS_PLATFORM");
+            com.google.android.gms.fido.fido2.api.common.Attachment gReturn = null;
+            gReturn = com.google.android.gms.fido.fido2.api.common.Attachment.CROSS_PLATFORM;
+            return ((gReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.Attachment(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    public static org.xms.g.fido.fido2.api.common.Attachment getPLATFORM() {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.huawei.hms.support.api.fido.fido2.Attachment.PLATFORM");
+            com.huawei.hms.support.api.fido.fido2.Attachment hReturn = null;
+            hReturn = com.huawei.hms.support.api.fido.fido2.Attachment.PLATFORM;
+            return ((hReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.Attachment(new org.xms.g.utils.XBox(null, hReturn))));
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "com.google.android.gms.fido.fido2.api.common.Attachment.PLATFORM");
+            com.google.android.gms.fido.fido2.api.common.Attachment gReturn = null;
+            gReturn = com.google.android.gms.fido.fido2.api.common.Attachment.PLATFORM;
+            return ((gReturn) == null ? null : (new org.xms.g.fido.fido2.api.common.Attachment(new org.xms.g.utils.XBox(gReturn, null))));
+        }
+    }
+
+    public void writeToParcel(android.os.Parcel param0, int param1) {
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            com.huawei.hms.support.api.fido.fido2.Attachment hAttachment = ((com.huawei.hms.support.api.fido.fido2.Attachment) this.getHInstance());
+            param0.writeString(hAttachment.getValue());
+        } else {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.fido.fido2.api.common.Attachment) this.getGInstance()).writeToParcel(param0, param1)");
+            ((com.google.android.gms.fido.fido2.api.common.Attachment) this.getGInstance()).writeToParcel(param0, param1);
+        }
+    }
+
+    public int describeContents() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    public static org.xms.g.fido.fido2.api.common.Attachment dynamicCast(java.lang.Object param0) {
+        return ((org.xms.g.fido.fido2.api.common.Attachment) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+            return ((org.xms.g.utils.XGettable) param0).getHInstance() instanceof com.huawei.hms.support.api.fido.fido2.Attachment;
+        } else {
+            return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.android.gms.fido.fido2.api.common.Attachment;
+        }
+    }
+
+    public static org.xms.g.fido.fido2.api.common.Attachment[] values() {
+        return new org.xms.g.fido.fido2.api.common.Attachment[] {
+            getCROSS_PLATFORM(), getPLATFORM(),
+        };
+    }
+
+    public static class UnsupportedAttachmentException extends java.lang.Exception implements org.xms.g.utils.XGettable {
+        public java.lang.Object gInstance;
+        public java.lang.Object hInstance;
+
+        public UnsupportedAttachmentException(org.xms.g.utils.XBox param0) {
+            if (param0 == null) {
+                return;
+            }
+            this.setGInstance(param0.getGInstance());
+            this.setHInstance(param0.getHInstance());
+        }
+
+        public UnsupportedAttachmentException(java.lang.String param0) {
+        }
+
+        public void setGInstance(java.lang.Object param0) {
+            this.gInstance = param0;
+        }
+
+        public void setHInstance(java.lang.Object param0) {
+            this.hInstance = param0;
+        }
+
+        public java.lang.Object getGInstance() {
+            return this.gInstance;
+        }
+
+        public java.lang.Object getHInstance() {
+            return this.hInstance;
+        }
+
+        public static org.xms.g.fido.fido2.api.common.Attachment.UnsupportedAttachmentException dynamicCast(java.lang.Object param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public static boolean isInstance(java.lang.Object param0) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+    }
+}

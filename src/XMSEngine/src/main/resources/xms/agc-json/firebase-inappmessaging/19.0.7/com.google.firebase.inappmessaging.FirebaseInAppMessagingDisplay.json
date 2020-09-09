@@ -1,0 +1,38 @@
+{
+  "gName": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplay",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "displayMessage",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.model.InAppMessage"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayCallbacks"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-inapp-0000001051053689#EN-US_TOPIC_0000001051053689__section171972291519",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

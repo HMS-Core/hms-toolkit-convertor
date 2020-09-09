@@ -26,7 +26,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Function description
+ * Generator for GetZInterfaceInstance method
  *
  * @since 2020-03-11
  */
@@ -42,8 +42,8 @@ public class GetZInterfaceInstanceGenerator implements BodyGenerator {
 
     @Override
     public List<StatementNode> generate() {
-        String calleeName = component.getInstancePrefix() + methodNode.parent().getXType().getTypeNameWithoutPackage();
-        ReturnNode rtNode = ReturnNode.create(CallNode.create(calleeName, Collections.emptyList()));
+        String callName = component.getInstancePrefix() + methodNode.parent().getXType().getTypeNameWithoutPackage();
+        ReturnNode rtNode = ReturnNode.create(CallNode.create(callName, Collections.emptyList()));
         return Collections.singletonList(rtNode);
     }
 }

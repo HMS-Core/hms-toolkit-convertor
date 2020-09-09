@@ -18,6 +18,9 @@ package com.huawei.generator.method.component;
 
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.TypeNode;
+import com.huawei.generator.ast.custom.XClassDoc;
+import com.huawei.generator.ast.custom.XFieldDoc;
+import com.huawei.generator.ast.custom.XMethodDoc;
 import com.huawei.generator.gen.AstConstants;
 import com.huawei.generator.gen.classes.GImplMethodFilter;
 import com.huawei.generator.json.JClass;
@@ -33,11 +36,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Component representing G, is used for XG generation.
+ * Class for GComponent
  *
  * @since 2020-02-19
  */
-public class GComponent extends Component {
+public final class GComponent extends Component {
     public GComponent() {
         super("Z");
     }
@@ -64,7 +67,10 @@ public class GComponent extends Component {
     @Override
     public String x2Z(String xType) {
         TypeNode tn = TypeNode.create(XMSUtils.xtoG(xType));
-        return tn == null ? "" : tn.getTypeName() == null ? "" : tn.getTypeName();
+        if (tn == null) {
+            return null;
+        }
+        return tn.getTypeName();
     }
 
     @Override
@@ -89,7 +95,7 @@ public class GComponent extends Component {
 
     @Override
     public List<JMapping<JMethod>> wholeMapping(ClassNode xNode) {
-        return KClassUtils.getGHierachicalMethodMapping(xNode);
+        return KClassUtils.getGHierarchicalMethodMapping(xNode);
     }
 
     @Override
@@ -140,5 +146,35 @@ public class GComponent extends Component {
     @Override
     public String getInstancePrefix() {
         return "getGInstance";
+    }
+
+    @Override
+    public String getZClassNameForDoc(XClassDoc classDocNode) {
+        return classDocNode.getGClassName();
+    }
+
+    @Override
+    public String getZClassInfoForDoc(XClassDoc classDocNode) {
+        return classDocNode.getGClassInfo();
+    }
+
+    @Override
+    public String getZMethodNameForDoc(XMethodDoc methodDocNode) {
+        return methodDocNode.getGName();
+    }
+
+    @Override
+    public String getZMethodInfoForDoc(XMethodDoc methodDocNode) {
+        return methodDocNode.getGmsInfo();
+    }
+
+    @Override
+    public String componentAttribute() {
+        return "G";
+    }
+
+    @Override
+    public String getFieldInfo(XFieldDoc fieldDoc) {
+        return fieldDoc.getDisplayGInfo();
     }
 }

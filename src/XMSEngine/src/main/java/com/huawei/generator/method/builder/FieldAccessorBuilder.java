@@ -17,7 +17,6 @@
 package com.huawei.generator.method.builder;
 
 import static com.huawei.generator.utils.XMSUtils.capitialize;
-import static com.huawei.generator.utils.XMSUtils.shouldNotReachHere;
 
 import com.huawei.generator.ast.ClassNode;
 import com.huawei.generator.ast.MethodNode;
@@ -28,7 +27,7 @@ import com.huawei.generator.json.JFieldOrMethod;
 import com.huawei.generator.json.JMapping;
 import com.huawei.generator.method.factory.MethodGeneratorFactory;
 import com.huawei.generator.method.gen.BodyGenerator;
-import com.huawei.generator.utils.Modifier;
+import com.huawei.generator.exception.UnExpectedProcessException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -45,7 +44,7 @@ public final class FieldAccessorBuilder extends AbstractMethodBuilder<JFieldOrMe
 
     @Override
     public MethodNode build(JClass jClass, ClassNode classNode) {
-        throw shouldNotReachHere();
+        throw new UnExpectedProcessException();
     }
 
     @Override
@@ -53,7 +52,10 @@ public final class FieldAccessorBuilder extends AbstractMethodBuilder<JFieldOrMe
         MethodNode method = createGetter(classNode, mapping);
         if (classNode.isInterface()) {
             method.modifiers().clear();
-            method.modifiers().add(Modifier.STATIC.getName());
+            method.modifiers().add("static");
+        }
+        if (classNode.isEnum()) {
+            method.modifiers().add("static");
         }
         BodyGenerator fieldGenerator = factory.createFieldGetterGenerator(method, jClass, mapping);
         method.setBody(fieldGenerator.generate());
@@ -75,8 +77,8 @@ public final class FieldAccessorBuilder extends AbstractMethodBuilder<JFieldOrMe
         method.setParameters(Collections.emptyList());
         method.setModifiers(new ArrayList<>());
         method.setBody(new ArrayList<>());
-        if (gField.modifiers().contains(Modifier.STATIC.getName())) {
-            method.modifiers().add(Modifier.STATIC.getName());
+        if (gField.modifiers().contains("static")) {
+            method.modifiers().add("static");
         }
         return method;
     }

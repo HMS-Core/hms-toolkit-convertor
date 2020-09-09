@@ -1,0 +1,146 @@
+{
+  "gName": "com.google.firebase.functions.FirebaseFunctions",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getHttpsCallable",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.functions.HttpsCallableReference"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "wrap",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "String"
+          }
+        ],
+        "retType": "com.huawei.agconnect.function.FunctionCallable"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.functions.FirebaseFunctions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [],
+        "retType": "com.google.firebase.functions.FirebaseFunctions"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getInstance",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.function.AGConnectFunction"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.FirebaseApp"
+          },
+          {
+            "pos": "1",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.functions.FirebaseFunctions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "getInstance",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.FirebaseApp"
+          }
+        ],
+        "retType": "com.google.firebase.functions.FirebaseFunctions"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "useFunctionsEmulator",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-func-0000001050159225#EN-US_TOPIC_0000001050159225__section1444764411017",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.function.AGConnectFunction"
+}

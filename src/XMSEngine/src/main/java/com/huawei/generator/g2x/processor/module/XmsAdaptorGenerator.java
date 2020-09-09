@@ -25,6 +25,8 @@ import com.huawei.generator.g2x.processor.ProcessorUtils;
 import com.huawei.generator.g2x.processor.XmsConstants;
 import com.huawei.generator.utils.FileUtils;
 import com.huawei.generator.utils.KitInfoRes;
+import com.huawei.generator.utils.PropertyUtils;
+import com.huawei.generator.utils.StaticPatcher;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.HashSet;
 import java.util.stream.Stream;
 
 /**
@@ -45,35 +48,36 @@ import java.util.stream.Stream;
  *
  * @since 2020-04-07
  */
-public class XmsAdaptorGenerator extends ModuleGenerator {
+public final class XmsAdaptorGenerator extends ModuleGenerator {
     private static final Logger LOGGER = LoggerFactory.getLogger(XmsAdaptorGenerator.class);
 
-    private boolean onlyG;
+    private final GeneratorStrategyKind kind;
 
-    private GeneratorStrategyKind kind;
+    private final boolean sdk;
 
-    private boolean sdk;
+    private final boolean isG;
+
+    private final boolean isH;
 
     public XmsAdaptorGenerator(ProcessorUtils processorUtils) {
-        super(processorUtils.getPathMap(), processorUtils.getKitMap(), processorUtils.getSummaries(),
-            processorUtils.getSummary());
+        super(processorUtils);
         resolveDepMap(processorUtils.getAllDepMap());
         modulePath = String.join(File.separator, targetPath, XmsConstants.XMS_MODULE_NAME);
         summaryPath = String.join(File.separator, targetPath, XmsConstants.XMS_MODULE_NAME, "config");
         manifestPath = String.join(File.separator, modulePath, "src", "main");
-        onlyG = processorUtils.getStrategyKindList().contains(GeneratorStrategyKind.G);
-        kind = processorUtils.getStrategyKindList().contains(GeneratorStrategyKind.GOrH)
-            ? GeneratorStrategyKind.GOrH
-            : GeneratorStrategyKind.HOrG;
+        List<GeneratorStrategyKind> kindList = processorUtils.getStrategyKindList();
+        kind = kindList.contains(GeneratorStrategyKind.GOrH) ? GeneratorStrategyKind.GOrH : GeneratorStrategyKind.HOrG;
         sdk = processorUtils.isThirdSDK();
-        newSummary.getStrategy().addAll(processorUtils.getStrategyKindList());
+        newSummary.getStrategy().addAll(kindList);
+        isG = kindList.contains(GeneratorStrategyKind.G);
+        isH = kindList.contains(GeneratorStrategyKind.H);
     }
 
     @Override
     void resolveDepMap(Map<String, Set<String>> allDepMap) {
-        kitSet.forEach(kit -> {
-            if (allDepMap.get(kit) != null) {
-                depList.put(kit, allDepMap.get(kit));
+        kitSet.forEach(kitName -> {
+            if (allDepMap.get(kitName) != null) {
+                depList.put(kitName, allDepMap.get(kitName));
             }
         });
     }
@@ -82,7 +86,7 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
     public boolean generateCode() {
         newSummary.setKitNames(kitSet);
         String ghJavaPath = String.join(File.separator, modulePath, "src", "main", "java");
-        if (onlyG) {
+        if (isG || isH) {
             ghJavaPath = String.join(File.separator, modulePath, "src", "xmsgh", "java");
         }
         GeneratorResult result = primaryGenerate(pluginPath, summaryPath, ghJavaPath, new ArrayList<>(kitSet), kind);
@@ -93,11 +97,21 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
             return false;
         }
 
-        if (onlyG) {
+        if (isG) {
             String gJavaPath = String.join(File.separator, modulePath, "src", "xmsg", "java");
             result =
                 primaryGenerate(pluginPath, summaryPath, gJavaPath, new ArrayList<>(kitSet), GeneratorStrategyKind.G);
-            generateSummary.xmsCodePaths.add(ghJavaPath);
+            generateSummary.xmsCodePaths.add(gJavaPath);
+            if (result != GeneratorResult.SUCCESS) {
+                generateSummary.setResult(result);
+                return false;
+            }
+        }
+        if (isH) {
+            String hJavaPath = String.join(File.separator, modulePath, "src", "xmsh", "java");
+            result =
+                primaryGenerate(pluginPath, summaryPath, hJavaPath, new ArrayList<>(kitSet), GeneratorStrategyKind.H);
+            generateSummary.xmsCodePaths.add(hJavaPath);
             if (result != GeneratorResult.SUCCESS) {
                 generateSummary.setResult(result);
                 return false;
@@ -113,6 +127,7 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
         generateReadme();
         createManifestFile();
         copyManifest();
+        checkFlavor();
     }
 
     private void generateReadme() {
@@ -131,6 +146,7 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
         }
         createManifest(stringBuilder);
         createInstruction(stringBuilder);
+        createAgcGuide(stringBuilder);
         if (sdk) {
             createReleaseGuide(stringBuilder, dependencyIsNull);
         }
@@ -141,10 +157,14 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
     @Override
     boolean generateGradle() {
         StringBuilder stringBuilder = new StringBuilder();
+
         fillApplyPart(stringBuilder);
         fillAndroidPart(stringBuilder);
         fillDependencyPart(stringBuilder);
         FileUtils.createFile(stringBuilder.toString(), modulePath, "build.gradle");
+
+        List<String> excludes = new ArrayList<>();
+        StaticPatcher.copyResourceDir(pluginPath, modulePath, "xms/scripts/", excludes);
         return true;
     }
 
@@ -153,6 +173,7 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
         // Can be extended in the future
         stringBuilder.append("apply plugin: 'com.android.library'").append(System.lineSeparator());
         stringBuilder.append("apply plugin: 'com.huawei.agconnect'").append(System.lineSeparator());
+        stringBuilder.append("apply from: 'scripts/productFlavor.gradle'").append(System.lineSeparator());
         stringBuilder.append(System.lineSeparator());
     }
 
@@ -186,9 +207,6 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
 
         stringBuilder.append("    compileOptions {\n" + "        sourceCompatibility = 1.8\n"
             + "        targetCompatibility = 1.8\n" + "    }\n" + "\n");
-        if (onlyG) {
-            fillFlavorsPart(stringBuilder);
-        }
         stringBuilder.append("}").append(System.lineSeparator());
         stringBuilder.append(System.lineSeparator());
     }
@@ -197,17 +215,13 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
     void fillDependencyPart(StringBuilder stringBuilder) {
         // add dependencyPart according to Kit-Information map
         stringBuilder.append("dependencies {").append(System.lineSeparator());
+        Set<String> addedDependency = new HashSet<>();
         for (Map.Entry<String, Set<String>> entry : depList.entrySet()) {
             String kitName = entry.getKey();
             stringBuilder.append("    //").append(kitName).append(System.lineSeparator());
             for (String s : entry.getValue()) {
-                if (s.contains("huawei") && onlyG) {
-                    stringBuilder.append("    xmsghImplementation ")
-                        .append("'")
-                        .append(s)
-                        .append("'")
-                        .append(System.lineSeparator());
-                } else {
+                if (!addedDependency.contains(s)) {
+                    addedDependency.add(s);
                     stringBuilder.append("    compileOnly ")
                         .append("'")
                         .append(s)
@@ -248,33 +262,8 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
             Path path = Paths.get(pathStr);
             Files.copy(path, copied, REPLACE_EXISTING);
         } catch (IOException e) {
-            LOGGER.warn("copy AndroidManifest.xml failed {}", e.getMessage());
+            LOGGER.warn("copy AndroidManifest.xml failed");
         }
-    }
-
-    private void fillFlavorsPart(StringBuilder strBuilder) {
-        addSpace(strBuilder, XmsConstants.LINE_SPACE);
-        strBuilder.append("flavorDimensions \"xadaptor\"").append(System.lineSeparator());
-        addSpace(strBuilder, XmsConstants.LINE_SPACE);
-        strBuilder.append("productFlavors {").append(System.lineSeparator());
-        addSpace(strBuilder, XmsConstants.LINE_SPACE * 2);
-        strBuilder.append("xmsg {").append(System.lineSeparator());
-        addSpace(strBuilder, XmsConstants.LINE_SPACE * 3);
-        strBuilder.append("dimension \"xadaptor\"").append(System.lineSeparator());
-        addSpace(strBuilder, XmsConstants.LINE_SPACE * 3);
-        strBuilder.append("versionNameSuffix \"-xmsg\"").append(System.lineSeparator());
-        addSpace(strBuilder, XmsConstants.LINE_SPACE * 2);
-        strBuilder.append("}").append(System.lineSeparator());
-        addSpace(strBuilder, XmsConstants.LINE_SPACE * 2);
-        strBuilder.append("xmsgh {").append(System.lineSeparator());
-        addSpace(strBuilder, XmsConstants.LINE_SPACE * 3);
-        strBuilder.append("dimension \"xadaptor\"").append(System.lineSeparator());
-        addSpace(strBuilder, XmsConstants.LINE_SPACE * 3);
-        strBuilder.append("versionNameSuffix \"-xmsgh\"").append(System.lineSeparator());
-        addSpace(strBuilder, XmsConstants.LINE_SPACE * 2);
-        strBuilder.append("}").append(System.lineSeparator());
-        addSpace(strBuilder, XmsConstants.LINE_SPACE);
-        strBuilder.append("}").append(System.lineSeparator());
     }
 
     private void createOverview(StringBuilder stringBuilder, boolean thirdSDK) {
@@ -283,9 +272,9 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
         } else {
             stringBuilder.append("# This document provides brief instructions for app developers.\n");
         }
-        stringBuilder.append("# More information can be obtained from the following URL:"
-            + " https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/90419706\n");
-        stringBuilder.append("# Please read the \"*\" sections to apply our module.\n\n");
+        stringBuilder
+            .append("# To learn more, visit the following link:" + PropertyUtils.getProperty("createOverview"));
+        stringBuilder.append("# Please read the sections marked with asterisks(*) to apply the xmsadapter module.\n\n");
     }
 
     private void createContent(StringBuilder stringBuilder, boolean thirdSDK) {
@@ -293,48 +282,46 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
         stringBuilder.append("1. Overview").append(System.lineSeparator());
         stringBuilder.append("2. Dependency *").append(System.lineSeparator());
         stringBuilder.append("3. AndroidManifest *").append(System.lineSeparator());
-        stringBuilder.append("4. How to use *").append(System.lineSeparator());
+        stringBuilder.append("4. How to Use the xmsadapter Module *").append(System.lineSeparator());
+        stringBuilder.append("5. About AppGallery Connect").append(System.lineSeparator());
         if (thirdSDK) {
-            stringBuilder.append("5. Release Guide").append(System.lineSeparator());
+            stringBuilder.append("6. SDK Release Guide").append(System.lineSeparator());
         }
         stringBuilder.append(System.lineSeparator());
     }
 
     private void createManifest(StringBuilder stringBuilder) {
         stringBuilder.append("AndroidManifest").append(System.lineSeparator());
-        stringBuilder.append("Please add permissions into \"AndroidManifest.xml\" of your own module"
-            + " instead of the xmsadapter module!");
+        stringBuilder.append(
+            "Add permissions to the \"AndroidManifest.xml\" of your own module" + " instead of the xmsadapter module!");
         stringBuilder.append(System.lineSeparator());
-        stringBuilder.append("For example, if you use \"Account\" kit, you have to add '<users-permission android:"
-            + "name=\"android.permission.MANAGE_ACCOUNTS\">'. Otherwise, it will generate \"Missing permissions...\""
-            + " error when compiling.").append(System.lineSeparator());
-        stringBuilder
-            .append("More information about permission you can refer to this URL: "
-                + "https://developer.android.com/reference/android/Manifest.permission.")
-            .append(System.lineSeparator());
-        stringBuilder.append("NOTICE: If you want to build xmsadapter module itself instead of the whole project, "
-            + "you may need copy permissions into \"AndroidManifest.xml\" of xmsadapter module.");
+        stringBuilder.append("For example, if you are integrating \"Account\" Kit, add '<users-permission android:"
+            + "name=\"android.permission.MANAGE_ACCOUNTS\"/>'. Otherwise, an error \"Missing permissions...\""
+            + " will occur during compilation.").append(System.lineSeparator());
+        stringBuilder.append("To learn more about the permissions, visit the following link: "
+            + PropertyUtils.getProperty("createManifest")).append(System.lineSeparator());
+        stringBuilder.append("NOTICE: If you want to build only the xmsadapter module rather than the whole project,"
+            + " you may need copy permissions to the \"AndroidManifest.xml\" of the xmsadapter module.");
         stringBuilder.append(System.lineSeparator());
-        stringBuilder.append("Because our convertor code requires these permissions when compiling separately.");
+        stringBuilder.append("Because the generated code requires these permissions when compiling separately.");
         stringBuilder.append(System.lineSeparator());
         stringBuilder.append(System.lineSeparator());
     }
 
     private void createDescription(StringBuilder stringBuilder) {
         stringBuilder.append("1. Overview\n");
-        stringBuilder.append("Convertor is a code conversion tool supporting Java and Kotlin projects. It helps"
-            + " developers to automatically convert GMS APIs called by apps into corresponding HMS APIs, "
-            + "implementing quick conversion and HMS integration.");
-        stringBuilder.append("\n");
-        stringBuilder.append("Convertor tool generates code in a separate module (named as xmsadapter) "
-            + "and provides it as a separate Android Library.\nIn order to ensure the normal use of the module, "
-            + "it is strongly recommended not to modify the generated convertor code.\n\n");
+        stringBuilder.append("HMS Convertor is a code conversion tool that supports Java and Kotlin projects."
+            + " It helps developers automatically convert GMS APIs called by apps into HMS APIs,"
+            + " implementing quick conversion and HMS integration.").append(System.lineSeparator());
+        stringBuilder.append("HMS Convertor generates code in a separate module (named as xmsadapter)"
+            + " and provides it as a separate Android Library.\nTo ensure the proper use of the module,"
+            + " it is recommended that you do not modify the generated code.\n\n");
     }
 
     private void createKitInfo(StringBuilder stringBuilder, Map<String, Set<String>> dependencyMap,
         List<String> xmsCodePaths) {
         stringBuilder.append("2. Dependency\n");
-        stringBuilder.append("The following kit is identified as being used in your code:\n");
+        stringBuilder.append("The following kits are identified in your code:\n");
         stringBuilder.append("Kit Name            ");
         stringBuilder.append("Dependencies\n");
         String kitName;
@@ -368,7 +355,7 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
                 }
             }
         }
-        stringBuilder.append("The generated convertor code are written into ");
+        stringBuilder.append("The generated code is written into ");
         for (int i = 0; i < xmsCodePaths.size(); i++) {
             String codePath = xmsCodePaths.get(i);
             String rootPath = codePath.substring(0, codePath.indexOf("xmsadapter") - 1);
@@ -379,66 +366,95 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
                 stringBuilder.append(codePath).append(", ");
             }
         }
-        stringBuilder.append(", and we have added these dependencies to the build.gradle of xmsadapter module"
-            + "(only for compile).\n\n");
+        stringBuilder.append(" and we have added these dependencies to the build.gradle of xmsadapter module"
+            + " (only for compile).\n\n");
     }
 
     private void createInstruction(StringBuilder stringBuilder) {
-        stringBuilder.append("4. How to use a separate module\n");
-        stringBuilder.append("Step 1: Please add \"implementation project (path: ':xmsadapter')\" into the dependency"
-            + " part of build.gradle file of the other module that depends on the convertor code.\n");
-        stringBuilder.append("Step 2: Add ‘xmsadapter’ to the settings.gradle file.\n");
-        stringBuilder.append("Step 3(Optional): Remove GMS related dependencies in your original build.gradle file,"
-            + " because we have added them in \"xmsadapter\" module.").append(System.lineSeparator());
+        stringBuilder.append("4. How to Use the xmsadapter Module\n");
+        stringBuilder.append("Step 1: Add \"implementation project (path: ':xmsadapter')\" to the \"dependencies\""
+            + " block in the build.gradle file of your module that depends on the generated code.\n");
+        stringBuilder.append("Step 2: Add \"xmsadapter\" to the settings.gradle file.\n");
+        stringBuilder.append("(Optional) Step 3: Remove GMS-related dependencies from your original build.gradle file,"
+            + " because they have been added in the \"xmsadapter\" module.").append(System.lineSeparator());
         stringBuilder.append("Notice:").append(System.lineSeparator());
-        stringBuilder.append("If you need more services(kits) and want to generate the corresponding convertor code, "
-            + "please refer the following tips:").append(System.lineSeparator());
-        stringBuilder.append("Choice 1: Please add the dependencies of new kit into build.gradle file of xmsadapter, "
-            + "and start a new conversion.");
+        stringBuilder
+            .append("If you need more kits and want to generate related code," + " please refer the following tips:")
+            .append(System.lineSeparator());
+        stringBuilder.append("Choice 1: Add the dependencies of the new kit to the build.gradle file of xmsadapter,"
+            + " and start a new conversion;");
         stringBuilder.append(System.lineSeparator());
-        stringBuilder.append("Choice 2: Add the dependencies of new kit into build.gradle file of your own project;");
+        stringBuilder.append("Choice 2: Add the dependencies of the new kit to the build.gradle file of your project.");
         stringBuilder.append(System.lineSeparator());
         stringBuilder.append("After rescanning with our plugin(start a new conversion),"
             + " copy the newly generated dependencies to build.gradle of xmsadapter."
             + " Because the newly generated code will depend on the new kit dependencies.\n\n");
     }
 
+    private void createAgcGuide(StringBuilder stringBuilder) {
+        stringBuilder.append("5. About AppGallery Connect").append(System.lineSeparator());
+        stringBuilder.append("Before accessing AppGallery Connect,");
+        stringBuilder.append(" make preparations to ensure that you are familiar with AppGallery Connect services.\n");
+        stringBuilder.append("The services provided by AGC may be different from those provided by Firebase.");
+        stringBuilder.append(
+            " For details about related documents and operation processes," + " please refer to the following:\n");
+        stringBuilder.append("1. Authentication:\n");
+        stringBuilder.append(PropertyUtils.getProperty("createAgc")
+            + "agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section104191036162614\n");
+        stringBuilder.append("2. Crashlytics:\n");
+        stringBuilder.append(PropertyUtils.getProperty("createAgc")
+            + "agc-conversion-crash-0000001050159223#EN-US_TOPIC_0000001050159223__section6170175914464\n");
+        stringBuilder.append("3. DynamicLinks:\n");
+        stringBuilder.append(PropertyUtils.getProperty("createAgc")
+            + "agc-conversion-dyna-0000001050157272#EN-US_TOPIC_0000001050157272__section567611378481\n");
+        stringBuilder.append("4. Functions:\n");
+        stringBuilder.append(PropertyUtils.getProperty("createAgc")
+            + "agc-conversion-func-0000001050159225#EN-US_TOPIC_0000001050159225__section974018491170\n");
+        stringBuilder.append("5. RemoteConfig:\n");
+        stringBuilder.append(PropertyUtils.getProperty("createAgc")
+            + "agc-conversion-remote-0000001050157274#EN-US_TOPIC_0000001050157274__section1897102414127\n");
+        stringBuilder.append("6. Performance:\n");
+        stringBuilder.append(PropertyUtils.getProperty("createAgc")
+            + "agc-conversion-perf-0000001050773636#EN-US_TOPIC_0000001050773636__section0147124193414\n");
+        stringBuilder.append("7. Storage:\n");
+        stringBuilder.append(PropertyUtils.getProperty("createAgcStorage")
+            + "agc-cloudstorage-introduction\n");
+        stringBuilder.append("8. InAppMessaging:\n");
+        stringBuilder.append(PropertyUtils.getProperty("createAgc")
+            + "agc-conversion-inapp-0000001051053689#EN-US_TOPIC_0000001051053689__section16275141675911\n\n");
+    }
+
     private void createReleaseGuide(StringBuilder stringBuilder, boolean dependencyIsNull) {
         if (dependencyIsNull) {
-            stringBuilder.append("4. ");
-        } else {
             stringBuilder.append("5. ");
+        } else {
+            stringBuilder.append("6. ");
         }
         stringBuilder.append("SDK Release Guide").append(System.lineSeparator());
-        stringBuilder.append("For Android Library SDK developers, the usage of convertor code is consistent with GMS. "
-            + "When packaging, please do not put the convertor code into the lib package, otherwise it will conflict"
-            + " with the App developer's source code.").append(System.lineSeparator());
         stringBuilder
-            .append(
-                "We provide the following release templates to help you supplementthe original release instructions.")
+            .append("For Android Library SDK developers," + " use the generated code in the same way as using GMS code."
+                + " When packaging, don't put the generated code into the lib package."
+                + " Otherwise, it will conflict with the app developer's source code.")
+            .append(System.lineSeparator());
+        stringBuilder.append("We provide the following release templates to help supplement your release instructions.")
             .append(System.lineSeparator())
             .append(System.lineSeparator());
-        stringBuilder.append("# user manual template for SDK developer\n" + "\n"
-            + "# template for original user manual\n" + "Add the SDK to your project\n"
-            + "If you are using Maven, add the following to your build.gradle file:\n" + "{your sdk dependency}\n"
-            + "\n" + "Add Google Play Services\n"
-            + "To enable the Google Mobile Service our SDK, you must integrate Google Play Services. "
-            + "If you haven't done this yet, please add dependency to the Google Play Services library by "
-            + "adding the following dependecy to your dependencies block of app's build.gradle file:\n"
-            + "{your dependency of GMS}\n" + "\n" + "# template for integration with Huawei Mobile Service\n"
-            + "Integrate Google Mobile Service and Huawei Mobile Service together\n"
-            + "For app developer, if you are integrating GMS and Huawei Mobile Service together in one app, "
-            + "{SDK-name} requires the convertor code (Please refer:"
-            + " https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/90419706). \n"
-            + "There are two ways to generate the convertor code by using HMS Toolkit"
-            + "(https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/05673260).\n" + "Choice One:\n"
-            + "1. please add the GMS dependencies into dependencies block of app's build.gradle file.\n"
-            + "2. use the HMS Toolkit - Convertor to start a new conversion"
-            + "(https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/90419706) \n" + "\n"
-            + "Choice Two(App has been working with HMS Toolkit-Convertor already):\n"
-            + "1. Use the HMS Toolkit - Repository by clicking HMS -> Repository menu\n"
-            + "2. choose the kit you used and click apply, HMS Toolkit will generate convertor code automatically.\n"
-            + "\n\n");
+        stringBuilder.append("# Template for your user manual\n" + "Add the SDK to your project\n"
+            + "If you are using the Maven repository, add the following to your build.gradle file:\n"
+            + "{your sdk dependency}\n" + "\n" + "Add Google Play Services\n"
+            + "To enable GMS in our SDK, you must integrate Google Play Services. "
+            + "If you haven't done this yet, add the dependency of the Google Play Services library to the"
+            + " \"dependencies\" block in your app's build.gradle file:\n" + "{your dependency of GMS}\n" + "\n"
+            + "# Template for integration with Huawei Mobile Service\n" + "Integrate both GMS and HMS\n"
+            + "For app developer, if you are integrating GMS and HMS in one app, "
+            + "you will need to call the generated SDK when developing your SDK {SDK-name}. \n"
+            + "The method below is provided for you to generate code using HMS ToolKit. "
+            + "(For more information, please visit the following URL: "
+            + PropertyUtils.getProperty("createReleaseGuideUsingHMSToolKit") + "\nMethod 1:\n"
+            + "1. Add the GMS dependencies to the dependencies block of your app's build.gradle file.\n"
+            + "2. Use HMS Convertor to start a new conversion. "
+            + "(For more information, please visit the following URL: "
+            + PropertyUtils.getProperty("createReleaseGuideNewConversion") + "\n\n" + "\n\n");
     }
 
     /**
@@ -448,14 +464,15 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
      * @return GorH or HorG
      */
     public static GeneratorStrategyKind inferGHFirst(String root) {
-        // 1. obtain GlobalEvnSetting.java if any,else GorH
-        // 2. if there exits code line"isHms = !gAvailable || hAvailable;", then HorG,else GorH
+        // 1. get GlobalEvnSetting.java, if failed, set GorH
+        // 2. if there is 'isHms = !gAvailable || hAvailable;', set HorG, others set GorH
         List<File> files = new ArrayList<>();
         FileUtils.findFileByName(new File(root), XmsConstants.GLOBAL_ENV_SETTING, files);
         if (files.size() == 0) {
             return GeneratorStrategyKind.GOrH;
         }
         File file = files.get(0);
+
         // more than 2 settings, use gh version
         if (files.size() >= 2) {
             for (File f : files) {
@@ -469,15 +486,67 @@ public class XmsAdaptorGenerator extends ModuleGenerator {
                 }
             }
         }
+
         // find GlobalEnvSetting.java
         // search isHms = !gAvailable || hAvailable;
-        try (Stream<String> s = Files.lines(file.toPath())) {
-            if (s.anyMatch(x -> x.contains("isHms = !gAvailable || hAvailable"))) {
+        try (Stream<String> lines = Files.lines(file.toPath())) {
+            if (lines.anyMatch(line -> line.contains("isHms = !gAvailable || hAvailable"))) {
                 return GeneratorStrategyKind.HOrG;
             }
         } catch (IOException e) {
             return GeneratorStrategyKind.GOrH;
         }
         return GeneratorStrategyKind.GOrH;
+    }
+
+    private void checkFlavor() {
+        String targetScriptPath = String.join(File.separator, modulePath, "scripts");
+        String gProductFlavor = String.join(File.separator, targetScriptPath, "gproductFlavor.gradle");
+        String hProductFlavor = String.join(File.separator, targetScriptPath, "hproductFlavor.gradle");
+        String ghProductFlavor = String.join(File.separator, targetScriptPath, "xproductFlavor.gradle");
+        String productFlavor = String.join(File.separator, targetScriptPath, "productFlavor.gradle");
+        if (!isG && !isH) {
+            FileUtils.delFile(new File(targetScriptPath));
+            FileUtils.createFile("", targetScriptPath, "productFlavor.gradle");
+        }
+        if (!isG && isH) {
+            FileUtils.delFile(new File(gProductFlavor));
+            FileUtils.delFile(new File(ghProductFlavor));
+            FileUtils.delFile(new File(productFlavor));
+            File hFile = new File(hProductFlavor);
+            if (hFile.exists()) {
+                if (hFile.renameTo(new File(productFlavor))) {
+                    LOGGER.info("renaming productFlavour.gradle!");
+                } else {
+                    LOGGER.error("rename productFlavour.gradle Failed!");
+                }
+            }
+        }
+        if (isG && !isH) {
+            FileUtils.delFile(new File(hProductFlavor));
+            FileUtils.delFile(new File(ghProductFlavor));
+            FileUtils.delFile(new File(productFlavor));
+            File gFile = new File(gProductFlavor);
+            if (gFile.exists()) {
+                if (gFile.renameTo(new File(productFlavor))) {
+                    LOGGER.info("renaming productFlavour.gradle");
+                } else {
+                    LOGGER.error("rename productFlavour.gradle Failed!");
+                }
+            }
+        }
+        if (isG && isH) {
+            FileUtils.delFile(new File(gProductFlavor));
+            FileUtils.delFile(new File(hProductFlavor));
+            FileUtils.delFile(new File(productFlavor));
+            File ghFile = new File(ghProductFlavor);
+            if (ghFile.exists()) {
+                if (ghFile.renameTo(new File(productFlavor))) {
+                    LOGGER.info("renaming productFlavour.gradle");
+                } else {
+                    LOGGER.error("rename productFlavour.gradle Failed!");
+                }
+            }
+        }
     }
 }

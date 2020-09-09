@@ -1,0 +1,295 @@
+{
+  "gName": "com.google.android.gms.nearby.Nearby",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getConnectionsClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.connection.ConnectionsClient"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getConnectionsClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.connection.ConnectionsClient"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessagesClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.MessagesOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.messages.MessagesClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessageEngine",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.message.MessageOption"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.message.MessageEngine"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessagesClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.messages.MessagesClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessageEngine",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.app.Activity"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.message.MessageEngine"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessagesClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.google.android.gms.nearby.messages.MessagesOptions"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.messages.MessagesClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessageEngine",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          },
+          {
+            "pos": "1",
+            "type": "com.huawei.hms.nearby.message.MessageOption"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.message.MessageEngine"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessagesClient",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.google.android.gms.nearby.messages.MessagesClient"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "name": "getMessageEngine",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": "com.huawei.hms.nearby.message.MessageEngine"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "name": "CONNECTIONS_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.common.api.Api.ApiOptions.NoOptions>",
+        "value": ""
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section181208329151",
+      "tipsInfo": "The The HMS Core Nearby SDK Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "name": "Connections",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.nearby.connection.Connections",
+        "value": ""
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/nearby-conversion-0000001050062247#EN-US_TOPIC_0000001050062247__section181208329151",
+      "tipsInfo": "The HMS Core Nearby SDK does not support this API because it has been discarded. Upgrade the API to the latest version that Google provides and then perform the conversion."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "MESSAGES_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.common.api.Api<com.google.android.gms.nearby.messages.MessagesOptions>",
+        "value": ""
+      },
+      "h": {
+        "name": "MESSAGES_API",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.api.Api<com.huawei.hms.nearby.message.MessagesOptions>",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "Messages",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.nearby.messages.Messages",
+        "value": ""
+      },
+      "h": {
+        "name": "MESSAGES",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.huawei.hms.nearby.message.Messages",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.nearby.Nearby"
+}

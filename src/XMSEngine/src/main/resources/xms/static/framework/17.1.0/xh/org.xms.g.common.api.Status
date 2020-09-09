@@ -1,0 +1,260 @@
+package org.xms.g.common.api;
+
+/**
+ * Represents the results of work.<br/>
+ * Wrapper class for com.huawei.hms.support.api.client.Status, but only the HMS API are provided.<br/>
+ * com.huawei.hms.support.api.client.Status : Represents the task processing result.<br/>
+ */
+public final class Status extends org.xms.g.utils.XObject implements org.xms.g.common.api.Result, android.os.Parcelable {
+
+    /**
+     * android.os.Parcelable.Creator.CREATOR a public CREATOR field that generates instances of your Parcelable class from a Parcel.<br/>
+     * <p>
+     * com.huawei.hms.support.api.client.Status.CREATOR: <a href=""></a><br/>
+     */
+    public static final android.os.Parcelable.Creator CREATOR = new android.os.Parcelable.Creator() {
+
+        public org.xms.g.common.api.Status createFromParcel(android.os.Parcel param0) {
+            com.huawei.hms.support.api.client.Status zReturn = com.huawei.hms.support.api.client.Status.CREATOR.createFromParcel(param0);
+            return new org.xms.g.common.api.Status(new org.xms.g.utils.XBox(zReturn));
+        }
+
+        public org.xms.g.common.api.Status[] newArray(int param0) {
+            return new org.xms.g.common.api.Status[param0];
+        }
+    };
+
+    /**
+     * org.xms.g.common.api.Status.Status(org.xms.g.utils.XBox)  constructor of Status with XBox.<br/>
+     *
+     * @param param0 the wrapper of xms instance
+     */
+    public Status(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+
+    /**
+     * org.xms.g.common.api.Status.Status(int) Creates a representation of the status resulting from a GoogleApiClient operation.<br/>
+     * com.huawei.hms.support.api.client.Status(int) : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section16416744121012">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section16416744121012</a><br/>
+     *
+     * @param param0 The status code
+     */
+    public Status(int param0) {
+        super(((org.xms.g.utils.XBox) null));
+        this.setZInstance(new com.huawei.hms.support.api.client.Status(param0));
+    }
+
+    /**
+     * org.xms.g.common.api.Status.Status(int,java.lang.String) Creates a representation of the status resulting from a GoogleApiClient operation.<br/>
+     * com.huawei.hms.support.api.client.Status.Status(int,java.lang.String) : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section16416744121012">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section16416744121012</a><br/>
+     *
+     * @param param0 The status code
+     * @param param1 The message associated with this status, or null
+     */
+    public Status(int param0, java.lang.String param1) {
+        super(((org.xms.g.utils.XBox) null));
+        this.setZInstance(new com.huawei.hms.support.api.client.Status(param0, param1));
+    }
+
+    /**
+     * org.xms.g.common.api.Status.Status(int,java.lang.String,android.app.PendingIntent) Creates a representation of the status resulting from a GoogleApiClient operation.<br/>
+     * com.huawei.hms.support.api.client.Status.Status(int,java.lang.String,android.app.PendingIntent) : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section9358439115">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section9358439115</a><br/>
+     *
+     * @param param0 The status code
+     * @param param1 The message associated with this status, or null
+     * @param param2 A pending intent that will resolve the issue when started, or null
+     */
+    public Status(int param0, java.lang.String param1, android.app.PendingIntent param2) {
+        super(((org.xms.g.utils.XBox) null));
+        this.setZInstance(new com.huawei.hms.support.api.client.Status(param0, param1, param2));
+    }
+
+    /**
+     * org.xms.g.common.api.Status.equals(java.lang.Object) Determines whether two instances are equal.<br/>
+     * com.huawei.hms.support.api.client.Status.equals(java.lang.Object) : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section144021234112617">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section144021234112617</a><br/>
+     *
+     * @param param0 Objects to be compared
+     * @return boolean Comparison result: equal if true, and unequal if false
+     */
+    public boolean equals(java.lang.Object param0) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).equals(param0)");
+        return ((com.huawei.hms.support.api.client.Status) this.getZInstance()).equals(param0);
+    }
+
+    /**
+     * org.xms.g.common.api.Status.getResolution() Obtains the pending intent to resolve the failure. <br/>
+     * com.huawei.hms.support.api.client.Status.getResolution() : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section10607104115214">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section10607104115214</a><br/>
+     *
+     * @return android.app.PendingIntent a pending intent to resolve the failure
+     */
+    public final android.app.PendingIntent getResolution() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).getResolution()");
+        return ((com.huawei.hms.support.api.client.Status) this.getZInstance()).getResolution();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.getStatus() Returns the status of this result.<br/>
+     * com.huawei.hms.support.api.client.Status.getStatus()
+     *
+     * @return org.xms.g.common.api.Status the status of this result
+     */
+    public final org.xms.g.common.api.Status getStatus() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).getStatus()");
+        com.huawei.hms.support.api.client.Status zReturn = ((com.huawei.hms.support.api.client.Status) this.getZInstance()).getStatus();
+        return ((zReturn) == null ? null : (new org.xms.g.common.api.Status(new org.xms.g.utils.XBox(zReturn))));
+    }
+
+    /**
+     * org.xms.g.common.api.Status.getStatusCode() Indicates the status of the operation.<br/>
+     * com.huawei.hms.support.api.client.Status.getStatusCode() : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section32821622269">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section32821622269</a><br/>
+     *
+     * @return int Status code resulting from the operation. The value is one of the constants in CommonStatusCodes or specific to the APIs added to the GoogleApiClient
+     */
+    public final int getStatusCode() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).getStatusCode()");
+        return ((com.huawei.hms.support.api.client.Status) this.getZInstance()).getStatusCode();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.getStatusMessage() Obtains the error description.<br/>
+     * com.huawei.hms.support.api.client.Status.getStatusMessage() : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section143141720142010">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section143141720142010</a><br/>
+     *
+     * @return java.lang.String Status description
+     */
+    public final java.lang.String getStatusMessage() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).getStatusMessage()");
+        return ((com.huawei.hms.support.api.client.Status) this.getZInstance()).getStatusMessage();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.hasResolution() Returns true if calling startResolutionForResult(Activity, int) will start any intents requiring user interaction.<br/>
+     * com.huawei.hms.support.api.client.Status.hasResolution() : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section289212616244">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section289212616244</a><br/>
+     *
+     * @return boolean true if there is a resolution that can be started
+     */
+    public final boolean hasResolution() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).hasResolution()");
+        return ((com.huawei.hms.support.api.client.Status) this.getZInstance()).hasResolution();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.hashCode() hashCode of a compute instance.<br/>
+     * com.huawei.hms.support.api.client.Status.hashCode() : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section0102201410491">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section0102201410491</a><br/>
+     *
+     * @return int hashCode of a compute instance
+     */
+    public final int hashCode() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).hashCode()");
+        return ((com.huawei.hms.support.api.client.Status) this.getZInstance()).hashCode();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.isCanceled() Returns true if the operation was canceled.<br/>
+     * com.huawei.hms.support.api.client.Status.isCanceled()
+     *
+     * @return boolean true if the operation was canceled
+     */
+    public final boolean isCanceled() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).isCanceled()");
+        return ((com.huawei.hms.support.api.client.Status) this.getZInstance()).isCanceled();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.isInterrupted() Returns true if the operation was interrupted.<br/>
+     * com.huawei.hms.support.api.client.Status.isInterrupted()
+     *
+     * @return boolean true if the operation was interrupted
+     */
+    public final boolean isInterrupted() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).isInterrupted()");
+        return ((com.huawei.hms.support.api.client.Status) this.getZInstance()).isInterrupted();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.isSuccess() Returns true if the operation was successful.<br/>
+     * com.huawei.hms.support.api.client.Status.isSuccess() : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section178461430142215">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section178461430142215</a><br/>
+     *
+     * @return boolean true if the operation was successful, false if there was an error
+     */
+    public final boolean isSuccess() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).isSuccess()");
+        return ((com.huawei.hms.support.api.client.Status) this.getZInstance()).isSuccess();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.startResolutionForResult(android.app.Activity,int) Resolves an error by starting any intents requiring user interaction. <br/>
+     * com.huawei.hms.support.api.client.Status.startResolutionForResult(android.app.Activity,int) : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section04641751152411">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section04641751152411</a><br/>
+     *
+     * @param param0 An Activity context to use to resolve the issue. The activity's onActivityResult method will be invoked after the user is done. If the resultCode is RESULT_OK, the application should try to connect again
+     * @param param1 The request code to pass to onActivityResult
+     * @throws android.content.IntentSender.SendIntentException If the resolution intent has been canceled or is no longer able to execute the request
+     */
+    public void startResolutionForResult(android.app.Activity param0, int param1) throws android.content.IntentSender.SendIntentException {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).startResolutionForResult(param0, param1)");
+        ((com.huawei.hms.support.api.client.Status) this.getZInstance()).startResolutionForResult(param0, param1);
+    }
+
+    /**
+     * org.xms.g.common.api.Status.toString() Constructs and outputs the string of an instance.<br/>
+     * com.huawei.hms.support.api.client.Status.toString() : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section5954172512309">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section5954172512309</a><br/>
+     *
+     * @return java.lang.String the string of an instance
+     */
+    public final java.lang.String toString() {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).toString()");
+        return ((com.huawei.hms.support.api.client.Status) this.getZInstance()).toString();
+    }
+
+    /**
+     * org.xms.g.common.api.Status.writeToParcel(android.os.Parcel,int) used in serialization and deserialization.<br/>
+     * com.huawei.hms.support.api.client.Status.writeToParcel(android.os.Parcel,int) : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section1270513112283">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/status-0000001050121132#EN-US_TOPIC_0000001050121132__section1270513112283</a><br/>
+     *
+     * @param param0 Parcel Object
+     * @param param1 Writing mode
+     */
+    public void writeToParcel(android.os.Parcel param0, int param1) {
+        org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hms.support.api.client.Status) this.getZInstance()).writeToParcel(param0, param1)");
+        ((com.huawei.hms.support.api.client.Status) this.getZInstance()).writeToParcel(param0, param1);
+    }
+
+    /**
+     * XMS does not provide this api.<br/>
+     */
+    public int describeContents() {
+        throw new java.lang.RuntimeException("Not Supported");
+    }
+
+    /**
+     * org.xms.g.common.api.Status.dynamicCast(java.lang.Object) dynamic cast the input object to org.xms.g.common.api.Status.<br/>
+     * <p>
+     *
+     * @param param0 the input object
+     * @return org.xms.g.common.api.Status casted Status object
+     */
+    public static org.xms.g.common.api.Status dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.g.common.api.Status) {
+            return ((org.xms.g.common.api.Status) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            com.huawei.hms.support.api.client.Status zReturn = ((com.huawei.hms.support.api.client.Status) ((org.xms.g.utils.XGettable) param0).getZInstance());
+            return new org.xms.g.common.api.Status(new org.xms.g.utils.XBox(zReturn));
+        }
+        if (param0 instanceof com.huawei.hms.support.api.client.Status) {
+            return new org.xms.g.common.api.Status(new org.xms.g.utils.XBox(param0));
+        }
+        return ((org.xms.g.common.api.Status) param0);
+    }
+
+    /**
+     * org.xms.g.common.api.Status.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+     *
+     * @param param0 the input object
+     * @return boolean true if the Object is XMS instance, otherwise false
+     */
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.huawei.hms.support.api.client.Status;
+    }
+}

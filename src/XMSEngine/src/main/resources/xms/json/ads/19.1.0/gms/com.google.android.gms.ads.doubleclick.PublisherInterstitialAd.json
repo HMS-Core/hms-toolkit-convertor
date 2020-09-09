@@ -1,0 +1,370 @@
+{
+  "gName": "com.google.android.gms.ads.doubleclick.PublisherInterstitialAd",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAdListener",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.ads.AdListener"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAdListener",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.ads.AdListener"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAdUnitId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAdId",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getAppEventListener",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.ads.doubleclick.AppEventListener"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it or replace it with InterstitialAd."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getMediationAdapterClassName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only GMS supports this method. For HMS, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "getOnCustomRenderedAdLoadedListener",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.ads.doubleclick.OnCustomRenderedAdLoadedListener"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it or replace it with InterstitialAd."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isLoaded",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isLoaded",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isLoading",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "isLoading",
+        "paramTypes": [],
+        "retType": "boolean"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "loadAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.doubleclick.PublisherAdRequest"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it or replace it with InterstitialAd."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setAdListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.AdListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setAdListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.ads.AdListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setAdUnitId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setAdId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setAppEventListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.doubleclick.AppEventListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it or replace it with InterstitialAd."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setImmersiveMode",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it or replace it with InterstitialAd."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setOnCustomRenderedAdLoadedListener",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.ads.doubleclick.OnCustomRenderedAdLoadedListener"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it or replace it with InterstitialAd."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "show",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "show",
+        "paramTypes": [],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "PublisherInterstitialAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "InterstitialAd",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.content.Context"
+          }
+        ],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getResponseInfo",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.ads.ResponseInfo"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.ads.InterstitialAd"
+}

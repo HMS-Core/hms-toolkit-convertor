@@ -1,0 +1,328 @@
+{
+  "gName": "com.google.firebase.storage.StorageMetadata",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBucket",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getBucket",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCacheControl",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCacheControl",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContentDisposition",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContentDisposition",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContentEncoding",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContentEncoding",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContentLanguage",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContentLanguage",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContentType",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getContentType",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCreationTimeMillis",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCustomMetadata",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getCustomMetadataKeys",
+        "paramTypes": [],
+        "retType": "java.util.Set<java.lang.String>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getGeneration",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMd5Hash",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSHA256Hash",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMetadataGeneration",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this API. You can ignore it."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getName",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPath",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getPath",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getReference",
+        "paramTypes": [],
+        "retType": "com.google.firebase.storage.StorageReference"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getStorageReference",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.cloud.storage.core.StorageReference"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSizeBytes",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getSize",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getUpdatedTimeMillis",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not support this API currently."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "com.huawei.agconnect:agconnect-storage:1.3.0.200",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "StorageMetadata",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.agconnect.cloud.storage.core.FileMetadata"
+}

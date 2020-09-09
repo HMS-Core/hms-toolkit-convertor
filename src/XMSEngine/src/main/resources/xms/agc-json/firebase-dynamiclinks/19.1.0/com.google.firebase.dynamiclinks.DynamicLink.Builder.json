@@ -1,0 +1,402 @@
+{
+  "gName": "com.google.firebase.dynamiclinks.DynamicLink.Builder",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "buildDynamicLink",
+        "paramTypes": [],
+        "retType": "com.google.firebase.dynamiclinks.DynamicLink"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "buildAppLinking",
+        "paramTypes": [],
+        "retType": "com.huawei.agconnect.applinking.AppLinking"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "buildShortDynamicLink",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.dynamiclinks.ShortDynamicLink>"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "buildShortAppLinking",
+        "paramTypes": [],
+        "retType": "com.huawei.hmf.tasks.Task<com.huawei.agconnect.applinking.ShortAppLinking>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "buildShortDynamicLink",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.dynamiclinks.ShortDynamicLink>"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getDomainUriPrefix",
+        "paramTypes": [],
+        "retType": "java.lang.String"
+      },
+      "helpUrl": "",
+      "tipsInfo": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLink",
+        "paramTypes": [],
+        "retType": "android.net.Uri"
+      },
+      "helpUrl": "",
+      "tipsInfo": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getLongLink",
+        "paramTypes": [],
+        "retType": "android.net.Uri"
+      },
+      "helpUrl": "",
+      "tipsInfo": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setAndroidParameters",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.dynamiclinks.DynamicLink.AndroidParameters"
+          }
+        ],
+        "retType": "com.google.firebase.dynamiclinks.DynamicLink.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setAndroidLinkInfo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.applinking.AppLinking.AndroidLinkInfo"
+          }
+        ],
+        "retType": "com.huawei.agconnect.applinking.AppLinking.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setDomainUriPrefix",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.dynamiclinks.DynamicLink.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setUriPrefix",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.agconnect.applinking.AppLinking.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setDynamicLinkDomain",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.google.firebase.dynamiclinks.DynamicLink.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setUriPrefix",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.lang.String"
+          }
+        ],
+        "retType": "com.huawei.agconnect.applinking.AppLinking.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setGoogleAnalyticsParameters",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.dynamiclinks.DynamicLink.GoogleAnalyticsParameters"
+          }
+        ],
+        "retType": "com.google.firebase.dynamiclinks.DynamicLink.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setCampaignInfo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.applinking.AppLinking.CampaignInfo"
+          }
+        ],
+        "retType": "com.huawei.agconnect.applinking.AppLinking.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setIosParameters",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.dynamiclinks.DynamicLink.IosParameters"
+          }
+        ],
+        "retType": "com.google.firebase.dynamiclinks.DynamicLink.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setItunesConnectAnalyticsParameters",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.dynamiclinks.DynamicLink.ItunesConnectAnalyticsParameters"
+          }
+        ],
+        "retType": "com.google.firebase.dynamiclinks.DynamicLink.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setLink",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.google.firebase.dynamiclinks.DynamicLink.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDeepLink",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.huawei.agconnect.applinking.AppLinking.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setLongLink",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.google.firebase.dynamiclinks.DynamicLink.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setLongLink",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.net.Uri"
+          }
+        ],
+        "retType": "com.huawei.agconnect.applinking.AppLinking.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setNavigationInfoParameters",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.dynamiclinks.DynamicLink.NavigationInfoParameters"
+          }
+        ],
+        "retType": "com.google.firebase.dynamiclinks.DynamicLink.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "final"
+        ],
+        "name": "setSocialMetaTagParameters",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.dynamiclinks.DynamicLink.SocialMetaTagParameters"
+          }
+        ],
+        "retType": "com.google.firebase.dynamiclinks.DynamicLink.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setSocialCardInfo",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.applinking.AppLinking.AndroidLinkInfo"
+          }
+        ],
+        "retType": "com.huawei.agconnect.applinking.AppLinking.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.agconnect.applinking.AppLinking.Builder"
+}

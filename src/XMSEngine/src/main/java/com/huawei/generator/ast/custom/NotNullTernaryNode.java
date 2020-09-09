@@ -20,11 +20,11 @@ import com.huawei.generator.ast.AstVisitor;
 import com.huawei.generator.ast.StatementNode;
 
 /**
- * NotNull node class
+ * NotNull Ternary Node.
  *
- * @since 2020-05-12
+ * @since 2019-12-18
  */
-public class NotNullTernaryNode extends StatementNode {
+public final class NotNullTernaryNode extends StatementNode {
     private StatementNode condition;
 
     private StatementNode statement;

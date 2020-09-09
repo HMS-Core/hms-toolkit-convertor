@@ -19,8 +19,8 @@ package com.huawei.generator.json.meta;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Relation class
- * 
+ * Relations for Classes
+ *
  * @since 2019-11-22
  */
 public class ClassRelation {

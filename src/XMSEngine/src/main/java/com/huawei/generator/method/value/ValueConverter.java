@@ -25,7 +25,7 @@ import com.huawei.generator.utils.TypeUtils;
 import com.huawei.generator.utils.XMSUtils;
 
 /**
- * Function description
+ * Converter for Some special Values
  *
  * @since 2020-02-14
  */
@@ -52,6 +52,8 @@ public abstract class ValueConverter {
             mapperName = AstConstants.GENERIC_ARRAY_COPY;
         } else if (TypeUtils.isIterable(node)) {
             mapperName = AstConstants.TRANSFORM_ITERABLE;
+        } else if (TypeUtils.isIterator(node)) {
+            mapperName = AstConstants.TRANSFORM_ITERATOR;
         } else {
             mapperName = AstConstants.MAP_COLLECTION;
         }
@@ -59,9 +61,9 @@ public abstract class ValueConverter {
     }
 
     /**
-     * Get type of elemenet
+     * Get type of element
      *
-     * @param node Represets array, vararg, List, Set, Map, SparseArray and so on
+     * @param node Represents array, vararg, List, Set, Map, SparseArray and so on
      * @return the type of element
      */
     static String extractGenericType(TypeNode node) {

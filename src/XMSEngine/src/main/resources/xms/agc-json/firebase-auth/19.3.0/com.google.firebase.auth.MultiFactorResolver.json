@@ -1,0 +1,94 @@
+{
+  "gName": "com.google.firebase.auth.MultiFactorResolver",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getSession",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.MultiFactorSession"
+      },
+      "helpUrl": "",
+      "tipsInfo": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getHints",
+        "paramTypes": [],
+        "retType": "java.util.List<com.google.firebase.auth.MultiFactorInfo>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "resolveSignIn",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.MultiFactorAssertion"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<com.google.firebase.auth.AuthResult>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "getFirebaseAuth",
+        "paramTypes": [],
+        "retType": "com.google.firebase.auth.FirebaseAuth"
+      },
+      "helpUrl": "",
+      "tipsInfo": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "MultiFactorResolver",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "class",
+  "hName": ""
+}

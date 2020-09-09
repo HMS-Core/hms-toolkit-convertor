@@ -20,7 +20,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Function description
+ * Some classes whose name should not be replaced
  *
  * @since 2020-04-02
  */

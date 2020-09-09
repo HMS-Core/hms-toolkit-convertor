@@ -1,0 +1,159 @@
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
+
+ext.ASSETS_PATH = this.android.sourceSets.main.assets.srcDirs[0].path
+ext.XMS_ASSET_PATH = "xms_impl"
+ext.XMS_CONFIG_PATH = "generated" + File.separator + "source" + File.separator + "xmsConfig" + File.separator + "main"
+
+android {
+    defaultConfig {
+        buildConfigField("String", "XMS_ASSET_PATH", "\"${XMS_ASSET_PATH}\"")
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += getBuildDir().absolutePath + File.separator + XMS_CONFIG_PATH
+        }
+    }
+}
+
+def isXImplProject(Project project) {
+    return project.hasProperty('xImpl') && project.xImpl == true
+}
+
+def isPackG(String variantName) {
+    boolean packG = false
+    if (!variantName.contains("Xmsh") || variantName.contains("Xmsgh")) {
+        // G + H
+        packG = true
+    }
+    return packG
+}
+
+def isPackH(String variantName) {
+    boolean packH = false
+    if (!variantName.contains("Xmsg") || variantName.contains("Xmsgh")) {
+        // G + H
+        packH = true
+    }
+    return packH
+}
+
+static String getSHA256(final String path) {
+    String sha256 = "";
+    File file = new File(path);
+    if (!file.exists() || !file.isFile()) {
+        return sha256;
+    }
+
+    try {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+        byte[] bytes = new byte[bis.available()];
+        if (bis.read(bytes) > 0) {
+            byte[] sha = digest.digest(bytes);
+            StringBuilder sb = new StringBuilder();
+            for (byte encde : sha) {
+                String hex = Integer.toHexString(0xff & encde);
+                if (hex.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hex);
+            }
+            sha256 = sb.toString();
+        }
+        bis.close();
+        return sha256;
+    } catch (NoSuchAlgorithmException | IOException e) {
+        e.printStackTrace();
+        throw e
+    }
+    return sha256;
+}
+
+def generateXmsconfig(String xg, String xh) {
+    def path = getBuildDir().absolutePath + File.separator + XMS_CONFIG_PATH + File.separator + "com" + File.separator + "config" + File.separator + "xmsaux" + File.separator + "XmsConfig.java"
+
+    File xmsConfig = new File(path)
+    if (!xmsConfig.exists()) {
+        xmsConfig.getParentFile().mkdirs()
+    } else {
+        xmsConfig.delete()
+    }
+
+    try {
+        xmsConfig.createNewFile();
+        FileWriter xmsWriter = new FileWriter(xmsConfig.getAbsolutePath(), true);
+        String text = "package com.config.xmsaux;\n\npublic final class XmsConfig {\n"
+        text += "\tpublic static final String XG_HASH = \"" + xg + "\";\n\tpublic static final String XH_HASH = \"" + xh + "\";\n"
+        text += "}\n"
+        xmsWriter.write(text)
+        xmsWriter.close()
+    } catch (IOException e) {
+        e.printStackTrace()
+        throw e
+    }
+}
+
+afterEvaluate {
+    android.libraryVariants.all { variant ->
+        String variantName = variant.name.capitalize()
+        String taskVariantPre = "generate${variantName}XmsConfig"
+        task "${taskVariantPre}" {
+            // only generate sha-256
+            this."generate${variantName}BuildConfig".dependsOn this."${taskVariantPre}"
+            doLast {
+                def xgSha = ""
+                def xhSha = ""
+                getProject().subprojects.each { subProject ->
+                    if (isXImplProject(subProject)) {
+                        def path = "${subProject.DEX_OUTPUT_DIR}/${subProject.name}-${variant.name}.apk"
+                        def hashValue = getSHA256(path)
+                        if (subProject.name.contains("xh") && isPackH(variantName)) {
+                            xhSha = hashValue
+                        } else if (subProject.name.contains("xg") && isPackG(variantName)) {
+                            xgSha = hashValue
+                        }
+
+                    }
+                }
+
+                generateXmsconfig(xgSha, xhSha)
+            }
+        }
+        String taskVariant = "copy${variantName}DexIntoAssets"
+        task "${taskVariant}" {
+            this."generate${variantName}Assets".dependsOn this."${taskVariant}"
+            doLast {
+                // clean assets here
+                File assetsPath = new File(ASSETS_PATH);
+                assetsPath.deleteDir();
+                getProject().subprojects.each { subProject ->
+                    if (isXImplProject(subProject)) {
+                        // Don't copy on pure-G model in xh module
+                        if ((subProject.name.contains("xh") && isPackH(variantName))
+                                || (subProject.name.contains("xg") && isPackG(variantName))) {
+                            copy {
+                                from file("${subProject.DEX_OUTPUT_DIR}/${subProject.name}-${variant.name}.apk")
+                                into ASSETS_PATH + File.separator + XMS_ASSET_PATH
+                                // XXX: Be careful here!
+                                // If you execute build/assemble Task, there will be ${variant}.size apk files here.
+                                // The last dex will overwrite others.
+                                rename "${subProject.name}-${variant.name}.apk", "${subProject.name}.apk"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// clean Assets when we execute 'clean' Task
+afterEvaluate {
+    def cleanTask = this.tasks.getByName('clean')
+    cleanTask.doLast {
+        File assetsPath = new File(ASSETS_PATH);
+        assetsPath.deleteDir();
+    }
+}

@@ -16,30 +16,22 @@
 
 package com.huawei.generator.g2x.po.map.convertor;
 
-import com.google.gson.annotations.Expose;
 import com.huawei.generator.g2x.po.map.Desc;
-import com.huawei.generator.g2x.po.map.MDesc;
+import com.huawei.generator.g2x.po.map.MethodDesc;
+
+import com.google.gson.annotations.Expose;
 
 /**
  * json parse base object
  *
  * @since 2019-11-28
  */
-public class JDesc {
+public class JDesc extends Desc {
     @Expose
-    private String text;
+    public String name;
 
     @Expose
-    private String url;
-
-    @Expose
-    private String kit;
-
-    @Expose
-    private String gmsVersion;
-
-    @Expose
-    private String hmsVersion;
+    private boolean autoConvert;
 
     @Expose
     private String methodName;
@@ -50,56 +42,31 @@ public class JDesc {
         this.kit = desc.getKit();
         this.gmsVersion = desc.getGmsVersion();
         this.hmsVersion = desc.getHmsVersion();
+        this.autoConvert = "AUTO".equals(desc.getStatus());
         this.methodName = "";
     }
 
-    public JDesc(MDesc desc) {
+    public JDesc(MethodDesc desc) {
         this.text = desc.getText();
         this.url = desc.getUrl();
         this.kit = desc.getKit();
         this.gmsVersion = desc.getGmsVersion();
         this.hmsVersion = desc.getHmsVersion();
+        this.autoConvert = "AUTO".equalsIgnoreCase(desc.getStatus());
         this.methodName = desc.getMethodName();
     }
 
-    public String getText() {
-        return text;
+    public boolean isAutoConvert() {
+        return autoConvert;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public String getName() {
+        return name;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getKit() {
-        return kit;
-    }
-
-    public void setKit(String kit) {
-        this.kit = kit;
-    }
-
-    public String getGmsVersion() {
-        return gmsVersion;
-    }
-
-    public void setGmsVersion(String gmsVersion) {
-        this.gmsVersion = gmsVersion;
-    }
-
-    public String getHmsVersion() {
-        return hmsVersion;
-    }
-
-    public void setHmsVersion(String hmsVersion) {
-        this.hmsVersion = hmsVersion;
+    @Override
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMethodName() {

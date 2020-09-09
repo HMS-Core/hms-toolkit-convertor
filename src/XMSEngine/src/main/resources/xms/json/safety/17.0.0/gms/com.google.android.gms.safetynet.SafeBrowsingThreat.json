@@ -1,0 +1,81 @@
+{
+  "gName": "com.google.android.gms.safetynet.SafeBrowsingThreat",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getThreatType",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getUrlCheckResult",
+        "paramTypes": [],
+        "retType": "int"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "TYPE_POTENTIALLY_HARMFUL_APPLICATION",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "4"
+      },
+      "h": {
+        "name": "MALWARE",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "1"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "4.0.0",
+      "g": {
+        "name": "TYPE_SOCIAL_ENGINEERING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "5"
+      },
+      "h": {
+        "name": "PHISHING",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "int",
+        "value": "3"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [],
+  "type": "class",
+  "hName": "com.huawei.hms.support.api.entity.safetydetect.UrlCheckThreat"
+}

@@ -1,0 +1,103 @@
+package org.xms.g.tasks;
+
+/**
+ * Represents the results of work.<br/>
+ * Wrapper class for com.huawei.hmf.tasks.OnFailureListener, but only the HMS API are provided.<br/>
+ * org.xms.g.tasks.OnFailureListener : Listener called when a Task fails with an exception.<br/>
+ * com.huawei.hmf.tasks.OnFailureListener : Called when a task fails.<br/>
+ */
+public interface OnFailureListener extends org.xms.g.utils.XInterface {
+    /**
+     * org.xms.g.tasks.OnFailureListener.onFailure(java.lang.Exception) Listener called when a Task fails with an exception.<br/>
+     *
+     * Support running environments including both HMS which are chosen by users.<br/>
+     * Below are the references of HMS apis:<br/>
+     * com.huawei.hmf.tasks.OnFailureListener.onFailure(java.lang.Exception) : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/onfailurelistener-0000001050123093#EN-US_TOPIC_0000001050123093__section32821622269">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/onfailurelistener-0000001050123093#EN-US_TOPIC_0000001050123093__section32821622269</a><br/>
+     *
+     * @param param0 the exception that caused the Task to fail. Never null
+     */
+    public void onFailure(java.lang.Exception param0);
+    
+    default java.lang.Object getZInstanceOnFailureListener() {
+        return getHInstanceOnFailureListener();
+    }
+    
+    default com.huawei.hmf.tasks.OnFailureListener getHInstanceOnFailureListener() {
+        if (this instanceof org.xms.g.utils.XGettable) {
+            return ((com.huawei.hmf.tasks.OnFailureListener) ((org.xms.g.utils.XGettable) this).getZInstance());
+        }
+        return new com.huawei.hmf.tasks.OnFailureListener() {
+            
+            public void onFailure(java.lang.Exception param0) {
+                if (org.xms.g.utils.Utils.isHmsType(param0)) {
+                    Object hobj = org.xms.g.utils.Utils.getXmsObjectWithHmsObject(param0);
+                    org.xms.g.tasks.OnFailureListener.this.onFailure((Exception) hobj);
+                } else {
+                    org.xms.g.tasks.OnFailureListener.this.onFailure(param0);
+                }
+            }
+        };
+    }
+
+    /**
+     * org.xms.g.tasks.OnFailureListener.dynamicCast(java.lang.Object) dynamic cast the input object to org.xms.g.tasks.OnFailureListener.<br/>
+     *
+     * @param param0 the input object
+     * @return casted OnFailureListener object
+     */
+    public static org.xms.g.tasks.OnFailureListener dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.g.tasks.OnFailureListener) {
+            return ((org.xms.g.tasks.OnFailureListener) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            com.huawei.hmf.tasks.OnFailureListener zReturn = ((com.huawei.hmf.tasks.OnFailureListener) ((org.xms.g.utils.XGettable) param0).getZInstance());
+            return new org.xms.g.tasks.OnFailureListener.XImpl(new org.xms.g.utils.XBox(zReturn));
+        }
+        return ((org.xms.g.tasks.OnFailureListener) param0);
+    }
+
+    /**
+     * org.xms.g.tasks.OnFailureListener.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+     *
+     * @param param0 the input object
+     * @return true if the Object is XMS instance, otherwise false
+     */
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XInterface)) {
+            return false;
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.huawei.hmf.tasks.OnFailureListener;
+        }
+        return param0 instanceof org.xms.g.tasks.OnFailureListener;
+    }
+
+    /**
+     * org.xms.g.tasks.OnFailureListener.XImpl : Listener called when a Task fails with an exception.<br/>
+     * com.huawei.hmf.tasks.OnFailureListener : Called when a task fails.<br/>
+     */
+    public static class XImpl extends org.xms.g.utils.XObject implements org.xms.g.tasks.OnFailureListener {
+         /**
+          * org.xms.g.tasks.OnFailureListener.XImpl.XImpl(org.xms.g.utils.XBox)  constructor of XImpl with XBox.<br/>
+          *
+          * @param xBox the wrapper of xms instance
+          */
+        public XImpl(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+
+        /**
+         * org.xms.g.tasks.OnFailureListener.XImpl.onFailure(java.lang.Exception) Listener called when a Task fails with an exception.<br/>
+         *
+         * Support running environments including both HMS which are chosen by users.<br/>
+         * Below are the references of HMS apis:<br/>
+         * com.huawei.hmf.tasks.OnFailureListener.onFailure(java.lang.Exception) : <a href="https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/onfailurelistener-0000001050123093#EN-US_TOPIC_0000001050123093__section32821622269">https://developer.huawei.com/consumer/en/doc/development/HMSCore-References/onfailurelistener-0000001050123093#EN-US_TOPIC_0000001050123093__section32821622269</a><br/>
+         *
+         * @param param0 the exception that caused the Task to fail. Never null
+         */
+        public void onFailure(java.lang.Exception param0) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.huawei.hmf.tasks.OnFailureListener) this.getZInstance()).onFailure(param0)");
+            ((com.huawei.hmf.tasks.OnFailureListener) this.getZInstance()).onFailure(param0);
+        }
+    }
+}

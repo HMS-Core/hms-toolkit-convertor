@@ -1,0 +1,122 @@
+{
+  "gName": "com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings.Builder",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "267",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getFetchTimeoutInSeconds",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "267",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "getMinimumFetchIntervalInSeconds",
+        "paramTypes": [],
+        "retType": "long"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setDeveloperModeEnabled",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "boolean"
+          }
+        ],
+        "retType": "com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalArgumentException"
+        ],
+        "modifiers": [],
+        "name": "setFetchTimeoutInSeconds",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setMinimumFetchIntervalInSeconds",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings.Builder"
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    },
+    {
+      "correspondingStatus": "dummy",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": "Only Firebase supports this method. For AGC, retain or delete this method as needed."
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": ""
+}

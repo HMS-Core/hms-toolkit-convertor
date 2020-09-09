@@ -111,7 +111,7 @@ public class GenericInheritResolver {
      */
     private KClass findKClass(String className, boolean isH) {
         if (className == null) {
-            throw new IllegalStateException();
+            return null;
         }
         if (isH) {
             return KClassReader.INSTANCE.getHClassList().get(degenerify(className));
@@ -191,6 +191,7 @@ public class GenericInheritResolver {
                 return TypeNode.create(topLevel, false);
             }
         }
+
         // has no generic type
         if (type.getGenericType() == null) {
             return type;

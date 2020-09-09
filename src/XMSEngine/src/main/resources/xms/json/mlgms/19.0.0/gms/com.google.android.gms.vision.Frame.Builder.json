@@ -1,0 +1,232 @@
+{
+  "gName": "com.google.android.gms.vision.Frame.Builder",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Builder",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "Creator",
+        "paramTypes": [],
+        "retType": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "build",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.vision.Frame"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "create",
+        "paramTypes": [],
+        "retType": "com.huawei.hms.mlsdk.common.MLFrame"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setBitmap",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.graphics.Bitmap"
+          }
+        ],
+        "retType": "com.google.android.gms.vision.Frame.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setBitmap",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.graphics.Bitmap"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.common.MLFrame.Creator"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setId",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.vision.Frame.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setItemIdentity",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.common.MLFrame.Creator"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "java.lang.IllegalArgumentException"
+        ],
+        "modifiers": [],
+        "name": "setImageData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.nio.ByteBuffer"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          },
+          {
+            "pos": "3",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.vision.Frame.Builder"
+      },
+      "h": {
+        "exceptions": [
+          "java.lang.IllegalArgumentException"
+        ],
+        "modifiers": [],
+        "name": "writeByteBufferData",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.nio.ByteBuffer"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          },
+          {
+            "pos": "2",
+            "type": "int"
+          },
+          {
+            "pos": "3",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.common.MLFrame.Creator"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setRotation",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.google.android.gms.vision.Frame.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setQuadrant",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "int"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.common.MLFrame.Creator"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTimestampMillis",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": "com.google.android.gms.vision.Frame.Builder"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "setTimestamp",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "long"
+          }
+        ],
+        "retType": "com.huawei.hms.mlsdk.common.MLFrame.Creator"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.mlsdk.common.MLFrame.Creator"
+}

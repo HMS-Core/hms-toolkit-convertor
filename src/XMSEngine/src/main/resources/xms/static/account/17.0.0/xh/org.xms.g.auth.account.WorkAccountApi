@@ -1,0 +1,119 @@
+package org.xms.g.auth.account;
+
+public interface WorkAccountApi extends org.xms.g.utils.XInterface {
+
+    public org.xms.g.common.api.PendingResult<org.xms.g.auth.account.WorkAccountApi.AddAccountResult> addWorkAccount(org.xms.g.common.api.ExtensionApiClient param0, java.lang.String param1);
+
+    public org.xms.g.common.api.PendingResult<org.xms.g.common.api.Result> removeWorkAccount(org.xms.g.common.api.ExtensionApiClient param0, android.accounts.Account param1);
+
+    public void setWorkAuthenticatorEnabled(org.xms.g.common.api.ExtensionApiClient param0, boolean param1);
+
+    public org.xms.g.common.api.PendingResult<org.xms.g.common.api.Result> setWorkAuthenticatorEnabledWithResult(org.xms.g.common.api.ExtensionApiClient param0, boolean param1);
+
+    default java.lang.Object getZInstanceWorkAccountApi() {
+        if (this instanceof org.xms.g.utils.XGettable) {
+            return ((java.lang.Object) ((org.xms.g.utils.XGettable) this).getZInstance());
+        }
+        return new java.lang.Object();
+    }
+
+    public static org.xms.g.auth.account.WorkAccountApi dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.g.auth.account.WorkAccountApi) {
+            return ((org.xms.g.auth.account.WorkAccountApi) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.dynamicCast(java.lang.Object)");
+            java.lang.Object hReturn = ((org.xms.g.utils.XGettable) param0).getZInstance();
+            return new org.xms.g.auth.account.WorkAccountApi.XImpl(new org.xms.g.utils.XBox(hReturn));
+        }
+        return ((org.xms.g.auth.account.WorkAccountApi) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XInterface)) {
+            return false;
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.isInstance(java.lang.Object)");
+            return false;
+        }
+        return param0 instanceof org.xms.g.auth.account.WorkAccountApi;
+    }
+
+    public static class XImpl extends org.xms.g.utils.XObject implements org.xms.g.auth.account.WorkAccountApi {
+
+        public XImpl(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+
+        public org.xms.g.common.api.PendingResult<org.xms.g.auth.account.WorkAccountApi.AddAccountResult> addWorkAccount(org.xms.g.common.api.ExtensionApiClient param0, java.lang.String param1) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.XImpl.addWorkAccount(org.xms.g.common.api.ExtensionApiClientjava.lang.String)");
+                return new org.xms.g.common.api.PendingResult.XImpl(new org.xms.g.utils.XBox(new org.xms.g.auth.PendingResultEmptyImpl()));
+        }
+
+        public org.xms.g.common.api.PendingResult<org.xms.g.common.api.Result> removeWorkAccount(org.xms.g.common.api.ExtensionApiClient param0, android.accounts.Account param1) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.XImpl.removeWorkAccount(org.xms.g.common.api.ExtensionApiClientandroid.accounts.Account)");
+                return new org.xms.g.common.api.PendingResult.XImpl(new org.xms.g.utils.XBox(new org.xms.g.auth.PendingResultEmptyImpl()));
+        }
+
+        public void setWorkAuthenticatorEnabled(org.xms.g.common.api.ExtensionApiClient param0, boolean param1) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+
+        public org.xms.g.common.api.PendingResult<org.xms.g.common.api.Result> setWorkAuthenticatorEnabledWithResult(org.xms.g.common.api.ExtensionApiClient param0, boolean param1) {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.XImpl.setWorkAuthenticatorEnabledWithResult(org.xms.g.common.api.ExtensionApiClientboolean)");
+                return new org.xms.g.common.api.PendingResult.XImpl(new org.xms.g.utils.XBox(new org.xms.g.auth.PendingResultEmptyImpl()));
+        }
+    }
+
+    public static interface AddAccountResult extends org.xms.g.utils.XInterface, org.xms.g.common.api.Result {
+
+        public android.accounts.Account getAccount();
+
+        default java.lang.Object getZInstanceAddAccountResult() {
+            if (this instanceof org.xms.g.utils.XGettable) {
+                return ((java.lang.Object) ((org.xms.g.utils.XGettable) this).getZInstance());
+            }
+            return new java.lang.Object();
+        }
+
+        public static org.xms.g.auth.account.WorkAccountApi.AddAccountResult dynamicCast(java.lang.Object param0) {
+            if (param0 instanceof org.xms.g.auth.account.WorkAccountApi.AddAccountResult) {
+                return ((org.xms.g.auth.account.WorkAccountApi.AddAccountResult) param0);
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.AddAccountResult.dynamicCast(java.lang.Object)");
+                java.lang.Object hReturn = ((org.xms.g.utils.XGettable) param0).getZInstance();
+                return new org.xms.g.auth.account.WorkAccountApi.AddAccountResult.XImpl(new org.xms.g.utils.XBox(hReturn));
+            }
+            return ((org.xms.g.auth.account.WorkAccountApi.AddAccountResult) param0);
+        }
+
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XInterface)) {
+                return false;
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.AddAccountResult.isInstance(java.lang.Object)");
+                return false;
+            }
+            return param0 instanceof org.xms.g.auth.account.WorkAccountApi.AddAccountResult;
+        }
+
+        public static class XImpl extends org.xms.g.utils.XObject implements org.xms.g.auth.account.WorkAccountApi.AddAccountResult {
+
+            public XImpl(org.xms.g.utils.XBox param0) {
+                super(param0);
+            }
+
+            public android.accounts.Account getAccount() {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.AddAccountResult.XImpl.getAccount()");
+                    return new android.accounts.Account("","");
+            }
+
+            public org.xms.g.common.api.Status getStatus() {
+                throw new java.lang.RuntimeException("Not Supported");
+            }
+        }
+    }
+}

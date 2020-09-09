@@ -17,9 +17,9 @@
 package com.huawei.generator.ast;
 
 /**
- * PackageNode class
+ * Package Node
  *
- * @since 2020-05-12
+ * @since 2019-12-31
  */
 public final class PackageNode extends AstNode {
     private String value;

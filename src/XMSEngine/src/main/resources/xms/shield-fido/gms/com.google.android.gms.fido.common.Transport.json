@@ -1,0 +1,132 @@
+{
+  "gName": "com.google.android.gms.fido.common.Transport",
+  "interfaces": [
+    "android.os.Parcelable"
+  ],
+  "superClass": "java.lang.Enum<com.google.android.gms.fido.common.Transport>",
+  "methods": [
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "writeToParcel",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "android.os.Parcel"
+          },
+          {
+            "pos": "1",
+            "type": "int"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "name": "BLUETOOTH_CLASSIC",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.common.Transport",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "BLUETOOTH_LOW_ENERGY",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.common.Transport",
+        "value": ""
+      },
+      "h": {
+        "name": "BLE",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "NFC",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.common.Transport",
+        "value": ""
+      },
+      "h": {
+        "name": "NFC",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "",
+      "g": {
+        "name": "USB",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "com.google.android.gms.fido.common.Transport",
+        "value": ""
+      },
+      "h": {
+        "name": "USB",
+        "modifiers": [],
+        "type": "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "manuallyAdapt",
+      "hmsVersion": "",
+      "g": {
+        "name": "CREATOR",
+        "modifiers": [
+          "static",
+          "final"
+        ],
+        "type": "android.os.Parcelable.Creator",
+        "value": ""
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "modifiers": [
+    "final"
+  ],
+  "type": "enum",
+  "hName": "com.huawei.hms.support.api.fido.fido2.AuthenticatorTransport"
+}

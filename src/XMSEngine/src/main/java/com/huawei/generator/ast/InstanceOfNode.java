@@ -17,11 +17,11 @@
 package com.huawei.generator.ast;
 
 /**
- * InstanceOfNode class
+ * InstanceOf Node
  *
  * @since 2019-11-20
  */
-public class InstanceOfNode extends StatementNode {
+public final class InstanceOfNode extends StatementNode {
     private VarNode exception;
 
     public VarNode getException() {

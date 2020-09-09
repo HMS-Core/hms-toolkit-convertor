@@ -19,7 +19,7 @@ package com.huawei.generator.method.gen;
 import com.huawei.generator.ast.CallNode;
 import com.huawei.generator.ast.CastExprNode;
 import com.huawei.generator.ast.ConstantNode;
-import com.huawei.generator.ast.GetField;
+import com.huawei.generator.ast.GetFieldNode;
 import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.StatementNode;
 import com.huawei.generator.ast.TypeNode;
@@ -36,7 +36,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Function description
+ * Generator for ZFieldAccessor
  *
  * @since 2020-03-04
  */
@@ -71,7 +71,7 @@ public class ZFieldAccessorGenerator implements BodyGenerator {
         JFieldOrMethod jFieldOrMethod = component.jMethod(mapping);
         StatementNode callNode;
         if (jFieldOrMethod.isJField()) {
-            callNode = GetField.create(receiver, jFieldOrMethod.asJField().name());
+            callNode = GetFieldNode.create(receiver, jFieldOrMethod.asJField().name());
         } else {
             callNode = CallNode.create(receiver, jFieldOrMethod.asJMethod().name(), Collections.emptyList());
         }

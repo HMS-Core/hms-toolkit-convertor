@@ -1,0 +1,53 @@
+{
+  "gName": "com.google.firebase.auth.FirebaseAuth.IdTokenListener",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "redundant",
+      "hmsVersion": "",
+      "h": {
+        "exceptions": [],
+        "modifiers": [],
+        "name": "onChanged",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.agconnect.core.service.auth.TokenSnapshot"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "onIdTokenChanged",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.auth.FirebaseAuth"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-auth-0000001050157270#EN-US_TOPIC_0000001050157270__section1916719447104",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    }
+  ],
+  "innerClass": true,
+  "fields": [],
+  "modifiers": [
+    "static",
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.agconnect.core.service.auth.OnTokenListener"
+}

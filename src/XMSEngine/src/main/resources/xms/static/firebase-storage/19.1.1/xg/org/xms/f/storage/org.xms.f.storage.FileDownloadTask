@@ -1,0 +1,60 @@
+package org.xms.f.storage;
+
+public class FileDownloadTask extends org.xms.f.storage.StorageTask<org.xms.f.storage.FileDownloadTask.TaskSnapshot> {
+    
+    public FileDownloadTask(org.xms.g.utils.XBox param0) {
+        super(param0);
+    }
+    
+    protected void onCanceled() {
+        java.lang.Object[] params = new java.lang.Object[0];
+        java.lang.Class[] types = new java.lang.Class[0];
+        org.xms.g.utils.Utils.invokeProtectMethod(((com.google.firebase.storage.FileDownloadTask) this.getZInstance()), com.google.firebase.storage.FileDownloadTask.class, "onCanceled", types, params);
+    }
+
+    public static org.xms.f.storage.FileDownloadTask dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.f.storage.FileDownloadTask) {
+            return ((org.xms.f.storage.FileDownloadTask) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            com.google.firebase.storage.FileDownloadTask zReturn = ((com.google.firebase.storage.FileDownloadTask) ((org.xms.g.utils.XGettable) param0).getZInstance());
+            return new org.xms.f.storage.FileDownloadTask(new org.xms.g.utils.XBox(zReturn));
+        }
+        return ((org.xms.f.storage.FileDownloadTask) param0);
+    }
+
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+            return false;
+        }
+        return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.google.firebase.storage.FileDownloadTask;
+    }
+
+    public static class TaskSnapshot extends org.xms.f.storage.StorageTask.SnapshotBase {
+
+        public TaskSnapshot(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+
+        public long getBytesTransferred() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.FileDownloadTask.TaskSnapshot) this.getZInstance()).getBytesTransferred()");
+            return ((com.google.firebase.storage.FileDownloadTask.TaskSnapshot) this.getZInstance()).getBytesTransferred();
+        }
+
+        public long getTotalByteCount() {
+            org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.firebase.storage.FileDownloadTask.TaskSnapshot) this.getZInstance()).getTotalByteCount()");
+            return ((com.google.firebase.storage.FileDownloadTask.TaskSnapshot) this.getZInstance()).getTotalByteCount();
+        }
+
+        public static org.xms.f.storage.FileDownloadTask.TaskSnapshot dynamicCast(java.lang.Object param0) {
+            return ((org.xms.f.storage.FileDownloadTask.TaskSnapshot) param0);
+        }
+
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XGettable)) {
+                return false;
+            }
+            return ((org.xms.g.utils.XGettable) param0).getZInstance() instanceof com.google.firebase.storage.FileDownloadTask.TaskSnapshot;
+        }
+    }
+}

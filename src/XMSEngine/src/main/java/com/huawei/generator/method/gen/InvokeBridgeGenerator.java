@@ -19,7 +19,7 @@ package com.huawei.generator.method.gen;
 import static com.huawei.generator.gen.AstConstants.THIS;
 
 import com.huawei.generator.ast.ConstantNode;
-import com.huawei.generator.ast.GetField;
+import com.huawei.generator.ast.GetFieldNode;
 import com.huawei.generator.ast.MethodNode;
 import com.huawei.generator.ast.StatementNode;
 import com.huawei.generator.method.component.Component;
@@ -45,7 +45,7 @@ public class InvokeBridgeGenerator implements BodyGenerator {
     @Override
     public List<StatementNode> generate() {
         return ReflectionUtils.genInvokeBridgeMethodBlock(methodNode,
-            GetField.create(ConstantNode.create("Ref", methodNode.parent().outerClass().longName()), THIS),
+            GetFieldNode.create(ConstantNode.create("Ref", methodNode.parent().outerClass().longName()), THIS),
             methodNode.name(), component.isH());
     }
 }

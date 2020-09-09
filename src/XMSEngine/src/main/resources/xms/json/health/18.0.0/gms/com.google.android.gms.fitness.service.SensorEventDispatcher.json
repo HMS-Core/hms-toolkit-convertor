@@ -1,0 +1,58 @@
+{
+  "gName": "com.google.android.gms.fitness.service.SensorEventDispatcher",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.os.RemoteException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "publish",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.fitness.data.DataPoint"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    },
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [
+          "android.os.RemoteException"
+        ],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "publish",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.List<com.google.android.gms.fitness.data.DataPoint>"
+          }
+        ],
+        "retType": "void"
+      },
+      "helpUrl": "",
+      "tipsInfo": "HMS Core does not provide this method. You are advised to delete it."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": ""
+}

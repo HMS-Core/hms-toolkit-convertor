@@ -1,0 +1,341 @@
+package org.xms.g.auth.account;
+
+/**
+ * org.xms.g.auth.account.account.WorkAccountApi: This interface is deprecated.Use WorkAccountClient via getClient(Activity) instead.<br/>
+ * com.google.android.gms.auth.account.WorkAccountApi: This interface is deprecated.Use WorkAccountClient via getClient(Activity) instead.<br/>
+ */
+public interface WorkAccountApi extends org.xms.g.utils.XInterface {
+
+    /**
+     * org.xms.g.auth.account.WorkAccountApi.addWorkAccount(org.xms.g.common.api.ExtensionApiClient,java.lang.String) This method is deprecated. Use WorkAccountClient via getClient(Activity) instead.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis: <br/>
+     * com.google.android.gms.auth.WorkAccountApi.addWorkAccount(com.google.android.gms.common.api.GoogleApiClient,java.lang.String): <a href="https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-pendingresultworkaccountapi.addaccountresult-addworkaccount-googleapiclient-apiclient,-string-token">https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-pendingresultworkaccountapi.addaccountresult-addworkaccount-googleapiclient-apiclient,-string-token</a><br/>
+     *
+     * @param param0 The ExtensionApiClient to service this call.
+     * @param param1 OAuth token for the account.
+     * @return PendingResult indicating whether adding the account has succeeded.
+     */
+    public org.xms.g.common.api.PendingResult<org.xms.g.auth.account.WorkAccountApi.AddAccountResult> addWorkAccount(org.xms.g.common.api.ExtensionApiClient param0, java.lang.String param1);
+
+    /**
+     * org.xms.g.auth.account.WorkAccountApi.removeWorkAccount(org.xms.g.common.api.ExtensionApiClient,android.accounts.Account) This method is deprecated. Use WorkAccountClient via getClient(Activity) instead.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis: <br/>
+     * com.google.android.gms.auth.WorkAccountApi.removeWorkAccount(com.google.android.gms.common.api.GoogleApiClient,android.accounts.Account): <a href="https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-pendingresultresult-removeworkaccount-googleapiclient-apiclient,-account-account">https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-pendingresultresult-removeworkaccount-googleapiclient-apiclient,-account-account</a><br/>
+     *
+     * @param param0 The ExtensionApiClient to service this call.
+     * @param param1 the account to be removed.
+     * @return PendingResult indicating whether removing the account has succeeded
+     */
+    public org.xms.g.common.api.PendingResult<org.xms.g.common.api.Result> removeWorkAccount(org.xms.g.common.api.ExtensionApiClient param0, android.accounts.Account param1);
+
+    /**
+     * org.xms.g.auth.account.WorkAccountApi.setWorkAuthenticatorEnabled(org.xms.g.common.api.ExtensionApiClient,boolean) This method is deprecated. Use WorkAccountClient via getClient(Activity) instead.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis: <br/>
+     * com.google.android.gms.auth.WorkAccountApi.setWorkAuthenticatorEnabled(com.google.android.gms.common.api.GoogleApiClient,boolean): <a href="https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-void-setworkauthenticatorenabled-googleapiclient-apiclient,-boolean-enabled">https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-void-setworkauthenticatorenabled-googleapiclient-apiclient,-boolean-enabled</a><br/>
+     *
+     * @param param0 The ExtensionApiClient to service this call.
+     * @param param1 true to enable work accounts; false to disable work accounts.
+     */
+    public void setWorkAuthenticatorEnabled(org.xms.g.common.api.ExtensionApiClient param0, boolean param1);
+
+    /**
+     * org.xms.g.auth.account.WorkAccountApi.setWorkAuthenticatorEnabledWithResult(org.xms.g.common.api.ExtensionApiClient,boolean) This method is deprecated. Use WorkAccountClient via getClient(Activity) instead.<br/>
+     * Devices under gms running environments are supported.<br/>
+     * Below is the reference of GMS apis: <br/>
+     * com.google.android.gms.auth.WorkAccountApi.setWorkAuthenticatorEnabledWithResult(com.google.android.gms.common.api.GoogleApiClient,boolean): <a href="https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-pendingresultresult-setworkauthenticatorenabledwithresult-googleapiclient-apiclient,-boolean-enabled">https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-pendingresultresult-setworkauthenticatorenabledwithresult-googleapiclient-apiclient,-boolean-enabled</a><br/>
+     *
+     * @param param0 The ExtensionApiClient to service this call.
+     * @param param1 true to enable work accounts; false to disable work accounts.
+     * @return PendingResult<Result> PendingResult indicating whether removing the account has succeeded
+     */
+    public org.xms.g.common.api.PendingResult<org.xms.g.common.api.Result> setWorkAuthenticatorEnabledWithResult(org.xms.g.common.api.ExtensionApiClient param0, boolean param1);
+
+    default com.google.android.gms.auth.account.WorkAccountApi getGInstanceWorkAccountApi() {
+        if (this instanceof org.xms.g.utils.XGettable) {
+            return ((com.google.android.gms.auth.account.WorkAccountApi) ((org.xms.g.utils.XGettable) this).getGInstance());
+        }
+        return new com.google.android.gms.auth.account.WorkAccountApi() {
+
+            public com.google.android.gms.common.api.PendingResult<com.google.android.gms.auth.account.WorkAccountApi.AddAccountResult> addWorkAccount(com.google.android.gms.common.api.GoogleApiClient param0, java.lang.String param1) {
+                org.xms.g.common.api.PendingResult xResult = org.xms.g.auth.account.WorkAccountApi.this.addWorkAccount(((param0) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.XImpl(new org.xms.g.utils.XBox(param0, null)))), param1);
+                return ((com.google.android.gms.common.api.PendingResult) ((xResult) == null ? null : (xResult.getGInstance())));
+            }
+
+            public com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Result> removeWorkAccount(com.google.android.gms.common.api.GoogleApiClient param0, android.accounts.Account param1) {
+                org.xms.g.common.api.PendingResult xResult = org.xms.g.auth.account.WorkAccountApi.this.removeWorkAccount(((param0) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.XImpl(new org.xms.g.utils.XBox(param0, null)))), param1);
+                return ((com.google.android.gms.common.api.PendingResult) ((xResult) == null ? null : (xResult.getGInstance())));
+            }
+
+            public void setWorkAuthenticatorEnabled(com.google.android.gms.common.api.GoogleApiClient param0, boolean param1) {
+                throw new java.lang.RuntimeException("Not Supported");
+            }
+
+            public com.google.android.gms.common.api.PendingResult<com.google.android.gms.common.api.Result> setWorkAuthenticatorEnabledWithResult(com.google.android.gms.common.api.GoogleApiClient param0, boolean param1) {
+                org.xms.g.common.api.PendingResult xResult = org.xms.g.auth.account.WorkAccountApi.this.setWorkAuthenticatorEnabledWithResult(((param0) == null ? null : (new org.xms.g.common.api.ExtensionApiClient.XImpl(new org.xms.g.utils.XBox(param0, null)))), param1);
+                return ((com.google.android.gms.common.api.PendingResult) ((xResult) == null ? null : (xResult.getGInstance())));
+            }
+        };
+    }
+
+    default java.lang.Object getHInstanceWorkAccountApi() {
+        if (this instanceof org.xms.g.utils.XGettable) {
+            return ((java.lang.Object) ((org.xms.g.utils.XGettable) this).getHInstance());
+        }
+        return new java.lang.Object();
+    }
+
+    /**
+     * org.xms.g.auth.account.WorkAccountApi.dynamicCast(java.lang.Object) dynamic cast the input object to org.xms.g.auth.account.WorkAccountApi.<br/>
+     * <p>
+     *
+     * @param param0 the input object
+     * @return casted WorkAccountApi object
+     */
+    public static org.xms.g.auth.account.WorkAccountApi dynamicCast(java.lang.Object param0) {
+        if (param0 instanceof org.xms.g.auth.account.WorkAccountApi) {
+            return ((org.xms.g.auth.account.WorkAccountApi) param0);
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            com.google.android.gms.auth.account.WorkAccountApi gReturn = ((com.google.android.gms.auth.account.WorkAccountApi) ((org.xms.g.utils.XGettable) param0).getGInstance());
+            org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.dynamicCast(java.lang.Object)");
+            java.lang.Object hReturn = ((org.xms.g.utils.XGettable) param0).getHInstance();
+            return new org.xms.g.auth.account.WorkAccountApi.XImpl(new org.xms.g.utils.XBox(gReturn, hReturn));
+        }
+        return ((org.xms.g.auth.account.WorkAccountApi) param0);
+    }
+
+    /**
+     * org.xms.g.auth.account.WorkAccountApi.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+     *
+     * @param param0 the input object
+     * @return true if the Object is XMS instance, otherwise false
+     */
+    public static boolean isInstance(java.lang.Object param0) {
+        if (!(param0 instanceof org.xms.g.utils.XInterface)) {
+            return false;
+        }
+        if (param0 instanceof org.xms.g.utils.XGettable) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.isInstance(java.lang.Object)");
+                return false;
+            } else {
+                return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.android.gms.auth.account.WorkAccountApi;
+            }
+        }
+        return param0 instanceof org.xms.g.auth.account.WorkAccountApi;
+    }
+
+    public static class XImpl extends org.xms.g.utils.XObject implements org.xms.g.auth.account.WorkAccountApi {
+
+        /**
+         * org.xms.g.auth.account.WorkAccountApi.XImpl(org.xms.g.utils.XBox)  constructor of XObject with XBox<br/>
+         *
+         * @param param0 the wrapper of xms instance
+         */
+        public XImpl(org.xms.g.utils.XBox param0) {
+            super(param0);
+        }
+
+        /**
+         * org.xms.g.auth.account.WorkAccountApi.addWorkAccount(org.xms.g.common.api.ExtensionApiClient,java.lang.String) This method is deprecated. Use WorkAccountClient via getClient(Activity) instead.<br/>
+         * Devices under gms running environments are supported.<br/>
+         * Below is the reference of GMS apis: <br/>
+         * com.google.android.gms.auth.WorkAccountApi.addWorkAccount(com.google.android.gms.common.api.GoogleApiClient,java.lang.String): <a href="https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-pendingresultworkaccountapi.addaccountresult-addworkaccount-googleapiclient-apiclient,-string-token">https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-pendingresultworkaccountapi.addaccountresult-addworkaccount-googleapiclient-apiclient,-string-token</a><br/>
+         *
+         * @param param0 The ExtensionApiClient to service this call.
+         * @param param1 OAuth token for the account.
+         * @return PendingResult indicating whether adding the account has succeeded.
+         */
+        public org.xms.g.common.api.PendingResult<org.xms.g.auth.account.WorkAccountApi.AddAccountResult> addWorkAccount(org.xms.g.common.api.ExtensionApiClient param0, java.lang.String param1) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.XImpl.addWorkAccount(org.xms.g.common.api.ExtensionApiClientjava.lang.String)");
+                return new org.xms.g.common.api.PendingResult.XImpl(new org.xms.g.utils.XBox(null, new org.xms.g.auth.PendingResultEmptyImpl()));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.auth.account.WorkAccountApi) this.getGInstance()).addWorkAccount(((com.google.android.gms.common.api.GoogleApiClient) ((param0) == null ? null : (param0.getGInstance()))), param1)");
+                com.google.android.gms.common.api.PendingResult gReturn = ((com.google.android.gms.auth.account.WorkAccountApi) this.getGInstance()).addWorkAccount(((com.google.android.gms.common.api.GoogleApiClient) ((param0) == null ? null : (param0.getGInstance()))), param1);
+                return ((gReturn) == null ? null : (new org.xms.g.common.api.PendingResult.XImpl(new org.xms.g.utils.XBox(gReturn, null))));
+            }
+        }
+        /**
+         * org.xms.g.auth.account.WorkAccountApi.removeWorkAccount(org.xms.g.common.api.ExtensionApiClient,android.accounts.Account) This method is deprecated. Use WorkAccountClient via getClient(Activity) instead.<br/>
+         * Devices under gms running environments are supported.<br/>
+         * Below is the reference of GMS apis: <br/>
+         * com.google.android.gms.auth.WorkAccountApi.removeWorkAccount(com.google.android.gms.common.api.GoogleApiClient,android.accounts.Account): <a href="https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-pendingresultresult-removeworkaccount-googleapiclient-apiclient,-account-account">https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-pendingresultresult-removeworkaccount-googleapiclient-apiclient,-account-account</a><br/>
+         *
+         * @param param0 The ExtensionApiClient to service this call.
+         * @param param1 the account to be removed.
+         * @return PendingResult indicating whether removing the account has succeeded
+         */
+        public org.xms.g.common.api.PendingResult<org.xms.g.common.api.Result> removeWorkAccount(org.xms.g.common.api.ExtensionApiClient param0, android.accounts.Account param1) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.XImpl.removeWorkAccount(org.xms.g.common.api.ExtensionApiClientandroid.accounts.Account)");
+                return new org.xms.g.common.api.PendingResult.XImpl(new org.xms.g.utils.XBox(null, new org.xms.g.auth.PendingResultEmptyImpl()));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.auth.account.WorkAccountApi) this.getGInstance()).removeWorkAccount(((com.google.android.gms.common.api.GoogleApiClient) ((param0) == null ? null : (param0.getGInstance()))), param1)");
+                com.google.android.gms.common.api.PendingResult gReturn = ((com.google.android.gms.auth.account.WorkAccountApi) this.getGInstance()).removeWorkAccount(((com.google.android.gms.common.api.GoogleApiClient) ((param0) == null ? null : (param0.getGInstance()))), param1);
+                return ((gReturn) == null ? null : (new org.xms.g.common.api.PendingResult.XImpl(new org.xms.g.utils.XBox(gReturn, null))));
+            }
+        }
+        /**
+         * org.xms.g.auth.account.WorkAccountApi.setWorkAuthenticatorEnabled(org.xms.g.common.api.ExtensionApiClient,boolean) This method is deprecated. Use WorkAccountClient via getClient(Activity) instead.<br/>
+         * Devices under gms running environments are supported.<br/>
+         * Below is the reference of GMS apis: <br/>
+         * com.google.android.gms.auth.WorkAccountApi.setWorkAuthenticatorEnabled(com.google.android.gms.common.api.GoogleApiClient,boolean): <a href="https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-void-setworkauthenticatorenabled-googleapiclient-apiclient,-boolean-enabled">https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-void-setworkauthenticatorenabled-googleapiclient-apiclient,-boolean-enabled</a><br/>
+         *
+         * @param param0 The ExtensionApiClient to service this call.
+         * @param param1 true to enable work accounts; false to disable work accounts.
+         */
+        public void setWorkAuthenticatorEnabled(org.xms.g.common.api.ExtensionApiClient param0, boolean param1) {
+            throw new java.lang.RuntimeException("Not Supported");
+        }
+        /**
+         * org.xms.g.auth.account.WorkAccountApi.setWorkAuthenticatorEnabledWithResult(org.xms.g.common.api.ExtensionApiClient,boolean) This method is deprecated. Use WorkAccountClient via getClient(Activity) instead.<br/>
+         * Devices under gms running environments are supported.<br/>
+         * Below is the reference of GMS apis: <br/>
+         * com.google.android.gms.auth.WorkAccountApi.setWorkAuthenticatorEnabledWithResult(com.google.android.gms.common.api.GoogleApiClient,boolean): <a href="https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-pendingresultresult-setworkauthenticatorenabledwithresult-googleapiclient-apiclient,-boolean-enabled">https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi#public-abstract-pendingresultresult-setworkauthenticatorenabledwithresult-googleapiclient-apiclient,-boolean-enabled</a><br/>
+         *
+         * @param param0 The ExtensionApiClient to service this call.
+         * @param param1 true to enable work accounts; false to disable work accounts.
+         * @return PendingResult<Result> PendingResult indicating whether removing the account has succeeded
+         */
+        public org.xms.g.common.api.PendingResult<org.xms.g.common.api.Result> setWorkAuthenticatorEnabledWithResult(org.xms.g.common.api.ExtensionApiClient param0, boolean param1) {
+            if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.XImpl.setWorkAuthenticatorEnabledWithResult(org.xms.g.common.api.ExtensionApiClientboolean)");
+                com.huawei.hms.support.api.client.PendingResult hReturn = new com.huawei.hms.support.api.client.EmptyPendingResult();
+                return new org.xms.g.common.api.PendingResult.XImpl(new org.xms.g.utils.XBox(null, hReturn));
+            } else {
+                org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.auth.account.WorkAccountApi) this.getGInstance()).setWorkAuthenticatorEnabledWithResult(((com.google.android.gms.common.api.GoogleApiClient) ((param0) == null ? null : (param0.getGInstance()))), param1)");
+                com.google.android.gms.common.api.PendingResult gReturn = ((com.google.android.gms.auth.account.WorkAccountApi) this.getGInstance()).setWorkAuthenticatorEnabledWithResult(((com.google.android.gms.common.api.GoogleApiClient) ((param0) == null ? null : (param0.getGInstance()))), param1);
+                return ((gReturn) == null ? null : (new org.xms.g.common.api.PendingResult.XImpl(new org.xms.g.utils.XBox(gReturn, null))));
+            }
+        }
+    }
+
+    public static interface AddAccountResult extends org.xms.g.utils.XInterface, org.xms.g.common.api.Result {
+
+        /**
+         * org.xms.g.auth.account.WorkAccountApi.AddAccountResult.getAccount() Returns a Account that has been added.<br/>
+         * Devices under gms running environments are supported.<br/>
+         * Below is the reference of GMS apis: <br/>
+         * com.google.android.gms.auth.AddAccountResult.getAccount(): <a href="https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi.AddAccountResult#public-abstract-account-getaccount">https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi.AddAccountResult#public-abstract-account-getaccount</a><br/>
+         *
+         * @return Returns a Account that has been added
+         */
+        public android.accounts.Account getAccount();
+
+        default com.google.android.gms.auth.account.WorkAccountApi.AddAccountResult getGInstanceAddAccountResult() {
+            if (this instanceof org.xms.g.utils.XGettable) {
+                return ((com.google.android.gms.auth.account.WorkAccountApi.AddAccountResult) ((org.xms.g.utils.XGettable) this).getGInstance());
+            }
+            return new com.google.android.gms.auth.account.WorkAccountApi.AddAccountResult() {
+
+                public android.accounts.Account getAccount() {
+                    return org.xms.g.auth.account.WorkAccountApi.AddAccountResult.this.getAccount();
+                }
+
+                public com.google.android.gms.common.api.Status getStatus() {
+                    org.xms.g.common.api.Status xResult = org.xms.g.auth.account.WorkAccountApi.AddAccountResult.this.getStatus();
+                    return ((com.google.android.gms.common.api.Status) ((xResult) == null ? null : (xResult.getGInstance())));
+                }
+            };
+        }
+
+        default java.lang.Object getHInstanceAddAccountResult() {
+            if (this instanceof org.xms.g.utils.XGettable) {
+                return ((java.lang.Object) ((org.xms.g.utils.XGettable) this).getHInstance());
+            }
+            return new java.lang.Object();
+        }
+
+        /**
+         * org.xms.g.auth.account.WorkAccountApi.AddAccountResult.dynamicCast(java.lang.Object) dynamic cast the input object to org.xms.g.auth.account.WorkAccountApi.AddAccountResult.<br/>
+         * <p>
+         *
+         * @param param0 the input object
+         * @return casted AddAccountResult object
+         */
+        public static org.xms.g.auth.account.WorkAccountApi.AddAccountResult dynamicCast(java.lang.Object param0) {
+            if (param0 instanceof org.xms.g.auth.account.WorkAccountApi.AddAccountResult) {
+                return ((org.xms.g.auth.account.WorkAccountApi.AddAccountResult) param0);
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                com.google.android.gms.auth.account.WorkAccountApi.AddAccountResult gReturn = ((com.google.android.gms.auth.account.WorkAccountApi.AddAccountResult) ((org.xms.g.utils.XGettable) param0).getGInstance());
+                org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.AddAccountResult.dynamicCast(java.lang.Object)");
+                java.lang.Object hReturn = ((org.xms.g.utils.XGettable) param0).getHInstance();
+                return new org.xms.g.auth.account.WorkAccountApi.AddAccountResult.XImpl(new org.xms.g.utils.XBox(gReturn, hReturn));
+            }
+            return ((org.xms.g.auth.account.WorkAccountApi.AddAccountResult) param0);
+        }
+
+        /**
+         * org.xms.g.auth.account.WorkAccountApi.AddAccountResult.isInstance(java.lang.Object) judge whether the Object is XMS instance or not.<br/>
+         *
+         * @param param0 the input object
+         * @return true if the Object is XMS instance, otherwise false
+         */
+        public static boolean isInstance(java.lang.Object param0) {
+            if (!(param0 instanceof org.xms.g.utils.XInterface)) {
+                return false;
+            }
+            if (param0 instanceof org.xms.g.utils.XGettable) {
+                if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                    org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.AddAccountResult.isInstance(java.lang.Object)");
+                return false;
+                } else {
+                    return ((org.xms.g.utils.XGettable) param0).getGInstance() instanceof com.google.android.gms.auth.account.WorkAccountApi.AddAccountResult;
+                }
+            }
+            return param0 instanceof org.xms.g.auth.account.WorkAccountApi.AddAccountResult;
+        }
+
+        public static class XImpl extends org.xms.g.utils.XObject implements org.xms.g.auth.account.WorkAccountApi.AddAccountResult {
+            /**
+             * org.xms.g.auth.account.WorkAccountApi.AddAccountResult.XImpl(org.xms.g.utils.XBox)  constructor of XObject with XBox<br/>
+             *
+             * @param param0 the wrapper of xms instance
+             */
+            public XImpl(org.xms.g.utils.XBox param0) {
+                super(param0);
+            }
+
+            /**
+             * org.xms.g.auth.account.WorkAccountApi.XImpl.getAccount() Returns a Account that has been added.<br/>
+             * Devices under gms running environments are supported.<br/>
+             * Below is the reference of GMS apis: <br/>
+             * com.google.android.gms.auth.AddAccountResult.getAccount(): <a href="https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi.AddAccountResult#public-abstract-account-getaccount">https://developers.google.com/android/reference/com/google/android/gms/auth/account/WorkAccountApi.AddAccountResult#public-abstract-account-getaccount</a><br/>
+             *
+             * @return Returns a Account that has been added
+             */
+            public android.accounts.Account getAccount() {
+                if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                    org.xms.g.utils.XmsLog.d("XMSRouter", "org.xms.g.auth.account.WorkAccountApi.AddAccountResult.XImpl.getAccount()");
+                    return new android.accounts.Account("","");
+                } else {
+                    org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.auth.account.WorkAccountApi.AddAccountResult) this.getGInstance()).getAccount()");
+                    return ((com.google.android.gms.auth.account.WorkAccountApi.AddAccountResult) this.getGInstance()).getAccount();
+                }
+            }
+            /**
+             * org.xms.g.auth.account.WorkAccountApi.XImpl.getStatus() Returns the status of this result. <br/>
+             *
+             * Support running environments including both HMS and GMS which are chosen by users.<br/>
+             * Below is the reference of GMS apis:<br/>
+             * com.google.android.gms.common.api.Result.getStatus() : <a href="https://developers.google.com/android/reference/com/google/android/gms/common/api/Result#public-abstract-status-getstatus">https://developers.google.com/android/reference/com/google/android/gms/common/api/Result#public-abstract-status-getstatus</a><br/>
+             *
+             * @return Status of the API call result.
+             */
+            public org.xms.g.common.api.Status getStatus() {
+                if (org.xms.g.utils.GlobalEnvSetting.isHms()) {
+                    throw new java.lang.RuntimeException("Not Supported");
+                } else {
+                    org.xms.g.utils.XmsLog.d("XMSRouter", "((com.google.android.gms.auth.account.WorkAccountApi.AddAccountResult) this.getGInstance()).getStatus()");
+                    com.google.android.gms.common.api.Status gReturn = ((com.google.android.gms.auth.account.WorkAccountApi.AddAccountResult) this.getGInstance()).getStatus();
+                    return ((gReturn) == null ? null : (new org.xms.g.common.api.Status(new org.xms.g.utils.XBox(gReturn, null))));
+                }
+            }
+        }
+    }
+}

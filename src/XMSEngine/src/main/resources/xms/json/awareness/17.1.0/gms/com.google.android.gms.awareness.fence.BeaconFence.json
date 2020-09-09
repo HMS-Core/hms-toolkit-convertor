@@ -1,0 +1,218 @@
+{
+  "gName": "com.google.android.gms.awareness.fence.BeaconFence",
+  "interfaces": [],
+  "superClass": "java.lang.Object",
+  "methods": [
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "found",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.google.android.gms.awareness.state.BeaconState.TypeFilter>"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "discover",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.huawei.hms.kit.awareness.status.BeaconStatus.Filter>"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "found",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.awareness.state.BeaconState.TypeFilter..."
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "discover",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.kit.awareness.status.BeaconStatus.Filter..."
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "lost",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.awareness.state.BeaconState.TypeFilter..."
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "missed",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.kit.awareness.status.BeaconStatus.Filter..."
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "lost",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.google.android.gms.awareness.state.BeaconState.TypeFilter>"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "missed",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.huawei.hms.kit.awareness.status.BeaconStatus.Filter>"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "near",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.android.gms.awareness.state.BeaconState.TypeFilter..."
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "keep",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.huawei.hms.kit.awareness.status.BeaconStatus.Filter..."
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    },
+    {
+      "correspondingStatus": "matching",
+      "hmsVersion": "1.0.0.300",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "near",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.google.android.gms.awareness.state.BeaconState.TypeFilter>"
+          }
+        ],
+        "retType": "com.google.android.gms.awareness.fence.AwarenessFence"
+      },
+      "h": {
+        "exceptions": [],
+        "modifiers": [
+          "static"
+        ],
+        "name": "keep",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "java.util.Collection<com.huawei.hms.kit.awareness.status.BeaconStatus.Filter>"
+          }
+        ],
+        "retType": "com.huawei.hms.kit.awareness.barrier.AwarenessBarrier"
+      },
+      "helpUrl": "",
+      "tipsInfo": ""
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "final"
+  ],
+  "type": "class",
+  "hName": "com.huawei.hms.kit.awareness.barrier.BeaconBarrier"
+}

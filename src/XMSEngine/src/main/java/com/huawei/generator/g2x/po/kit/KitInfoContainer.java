@@ -74,4 +74,8 @@ public class KitInfoContainer {
     public Map<String, Map<String, Integer>> getDefaultSdkVersion() {
         return defaultSdkVersion;
     }
+
+    public void setDefaultSdkVersion(Map<String, Map<String, Integer>> defaultSdkVersion) {
+        this.defaultSdkVersion = defaultSdkVersion;
+    }
 }

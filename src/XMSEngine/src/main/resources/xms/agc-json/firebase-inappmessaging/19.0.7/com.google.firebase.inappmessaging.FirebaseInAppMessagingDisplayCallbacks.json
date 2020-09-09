@@ -1,0 +1,89 @@
+{
+  "gName": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayCallbacks",
+  "interfaces": [],
+  "superClass": "",
+  "methods": [
+    {
+      "correspondingStatus": "notSupport",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "displayErrorEncountered",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayCallbacks.InAppMessagingErrorReason"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "",
+      "tipsInfo": "The AppGallery Connect SDK does not support this method currently,delete this method or implement this method yourself as needed."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "impressionDetected",
+        "paramTypes": [],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-inapp-0000001051053689#EN-US_TOPIC_0000001051053689__section11328133572611",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "messageClicked",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.model.Action"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-inapp-0000001051053689#EN-US_TOPIC_0000001051053689__section11328133572611",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    },
+    {
+      "correspondingStatus": "developerManual",
+      "hmsVersion": "",
+      "g": {
+        "exceptions": [],
+        "modifiers": [
+          "abstract"
+        ],
+        "name": "messageDismissed",
+        "paramTypes": [
+          {
+            "pos": "0",
+            "type": "com.google.firebase.inappmessaging.FirebaseInAppMessagingDisplayCallbacks.InAppMessagingDismissType"
+          }
+        ],
+        "retType": "com.google.android.gms.tasks.Task<java.lang.Void>"
+      },
+      "helpUrl": "https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/agc-conversion-inapp-0000001051053689#EN-US_TOPIC_0000001051053689__section11328133572611",
+      "tipsInfo": "Please convert this method manually according to the guide."
+    }
+  ],
+  "innerClass": false,
+  "fields": [],
+  "modifiers": [
+    "abstract"
+  ],
+  "type": "interface",
+  "hName": "com.huawei.agconnect.appmessaging.AGConnectAppMessagingCallback"
+}

@@ -1,0 +1,21 @@
+apply plugin: 'com.android.library'
+apply from: '../../scripts/productFlavor.gradle'
+android {
+    compileSdkVersion ${SDKVERSION}
+    defaultConfig {
+        minSdkVersion ${MINVERSION}
+        targetSdkVersion ${TARGETVERSION}
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    compileOnly project(':xmsadapter')
+    compileOnly 'com.google.android.gms:play-services-basement:17.1.0'
+    compileOnly 'com.google.android.gms:play-services-base:17.1.0'
+    compileOnly 'com.huawei.hms:base:4.0.1.300'
+}
+

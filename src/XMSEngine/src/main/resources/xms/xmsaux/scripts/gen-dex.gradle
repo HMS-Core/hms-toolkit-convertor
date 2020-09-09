@@ -1,0 +1,29 @@
+ext.xImpl = true
+ext.DEX_OUTPUT_DIR = "$buildDir/outputs/dex"
+
+
+afterEvaluate {
+    android.applicationVariants.all {variant ->
+        String assembleTask = "assemble${variant.name.capitalize()}"
+        String variantName = variant.name.capitalize()
+        String copyTaskVariant = "copy${variantName}DexIntoAssets"
+        getParent()."${copyTaskVariant}".dependsOn this."${assembleTask}"
+        String configTaskVariant = "generate${variantName}XmsConfig"
+        getParent()."${configTaskVariant}".dependsOn this."${assembleTask}"
+        this."${assembleTask}".doLast {
+            variant.outputs.each {output ->
+                File originFile = output.outputFile
+                def zipFile = originFile
+                if (zipFile.exists()) {
+                    copy {
+                        from zipFile
+                        into "${DEX_OUTPUT_DIR}"
+                        rename {
+                            "${project.name}-${variant.name}.apk"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
