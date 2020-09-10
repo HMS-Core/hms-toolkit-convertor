@@ -36,7 +36,7 @@ Convertor工具是为开发者提供的代码转换工具，支持Java和Kotlin�
 运行 **git clone**命令下载代码，切换至**Convertor/src**文件夹，运行以下命令：
 
 ```shell
-$ ./gradlew -p IDE/convertor-plugin buildPlugin
+$ ./gradlew -p IDE/intellij-plugin buildPlugin
 ```
 
 构建完成后，切换至 **Convertor/src/IDE/intellij-plugin/build/distributions** 文件夹获取.zip格式压缩包。 
