@@ -54,7 +54,7 @@ $ ./gradlew -p IDE/intellij-plugin buildPlugin
 您可以使用以下命令在沙箱中调试插件 :
 
 ```shell
-$ ./gradlew -p IDE/convertor-plugin runIde
+$ ./gradlew -p IDE/intellij-plugin runIde
 ```
 
 获取更详细的信息，可以点击[使用说明](https://developer.huawei.com/consumer/cn/doc/development/Tools-Guides/overview-0000001050060881)
