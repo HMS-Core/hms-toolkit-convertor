@@ -9,6 +9,7 @@ English | [中文](https://github.com/HMS-Core/hms-toolkit-convertor/blob/master
  * [Introduction](#introduction)
  * [Build](#build)
  * [Install](#install)
+ * [Develop](#run-and-debug-on-ide)
  * [Code Contributions](#code-contributions)
  * [License](#license)
  
@@ -41,6 +42,7 @@ $ ./gradlew -p IDE/intellij-plugin buildPlugin
 
 After the build is complete, go to the **Convertor/src/IDE/intellij-plugin/build/distributions** directory to view the plugin package in .zip format. 
 
+
 ## Install
 
 Start the IDEA or Android Studio and click the menu bar on the upper left, choose **File -> Settings -> Plugins -> Install Plugin from Disk**
@@ -58,6 +60,45 @@ $ ./gradlew -p IDE/intellij-plugin runIde
 ```
 
 For more details, please refer to [Usage Guide](https://developer.huawei.com/consumer/en/doc/development/Tools-Guides/90419706)
+
+
+## Run and Debug on IDE
+
+1. Clone the repo 
+
+```bash
+git clone https://github.com/HMS-Core/hms-toolkit-convertor.git
+
+```
+
+2. If you are using IntelliJ, from the Menu bar, go to `File>Open..` and open the __src__ folder inside the project.
+3. Open the `build.gradle` file, find `alternativeIdePath` property, uncomment it, and set the install path of the intellij IDE that the plugin will be launched on (in this case android studio)
+
+```json
+ intellij {
+
+        // [...] 
+        
+         /**
+         * Uncomment this for Debugging the plugin on Android Studio directly from the IDE (launches in a separate window/instance)
+         * From the menu bar: Run>Run (launches instances with plugin installed) or Run>Debug (debug mode)
+         *
+         * In this case, we are setting the android studio install path, another IDE/path can be used as well.
+        .*/
+        // alternativeIdePath '/C://Program Files/Android/Android Studio'
+        
+        
+        // [...] 
+ }
+
+```
+4. From the gradle side toolwindow, click the "Reload all Gradle Projects" icon.
+5. Now, you can run by choosing Run>Run (launches instance with plugin installed) or Run>Debug (debug mode)
+
+
+
+
+
 
 ## Code Contributions
 
