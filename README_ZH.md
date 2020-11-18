@@ -9,6 +9,7 @@
  * [简介](#简介)
  * [构建](#构建)
  * [安装](#安装)
+ * [运行和调试](#运行和调试)
  * [贡献代码](#贡献代码)
  * [许可证](#许可证)
 
@@ -58,6 +59,42 @@ $ ./gradlew -p IDE/intellij-plugin runIde
 ```
 
 获取更详细的信息，可以点击[使用说明](https://developer.huawei.com/consumer/cn/doc/development/Tools-Guides/overview-0000001050060881)
+
+
+
+## 运行和调试
+
+1. 运行 **git clone**命令下载代码 
+
+```bash
+git clone https://github.com/HMS-Core/hms-toolkit-convertor.git
+
+```
+
+2, 如果希望调用 IntelliJ，在菜单栏，前往 `File>Open..` 并打开项目中的 __src__ 文件夹
+3. 打开文件  `build.gradle` 并找到属性 `alternativeIdePath` ，之后清空内部值，然后设置  intellij IDE 的安装路径。  intellij IDE 将会在 (in this case  android studio)中打开。
+
+```
+ intellij {
+
+        // [...] 
+        
+         /**
+         * Uncomment this for Debugging the plugin on Android Studio directly from the IDE (launches in a separate window/instance)
+         * From the menu bar: Run>Run (launches instances with plugin installed) or Run>Debug (debug mode)
+         *
+         * In this case, we are setting the android studio install path, another IDE/path can be used as well.
+        .*/
+        // alternativeIdePath '/C://Program Files/Android/Android Studio'
+        
+        
+        // [...] 
+ }
+
+```
+4. 在 位于 gradle的 toolwindow，点击图标 "Reload all Gradle Projects"
+5. 现在您可以点击运行，方式为点击 Run>Run (在插件安装的条件下运行) 或者Run>Debug (安全模式)
+
 
 ## 代码贡献
 
