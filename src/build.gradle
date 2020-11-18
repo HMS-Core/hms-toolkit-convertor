@@ -89,6 +89,16 @@ configure(subprojects.findAll { it.name.contains('intellij-plugin') || it.name.c
     apply plugin: 'org.jetbrains.intellij'
 
     intellij {
+
+        /**
+         * Uncomment this for Debugging the plugin on Android Studio directly from the IDE (launches in a separate window/instance)
+         * From the menu bar: Run>Run (launches instances with plugin installed) or Run>Debug (debug mode)
+         *
+         * In this case, we are setting the android studio install path, another IDE/path can be used as well.
+        .*/
+        // alternativeIdePath '/C://Program Files/Android/Android Studio'
+
+
         plugins = ['android', 'java']
         pluginName "HMSConvertor"
         updateSinceUntilBuild false
