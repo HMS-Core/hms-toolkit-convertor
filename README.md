@@ -74,7 +74,7 @@ git clone https://github.com/HMS-Core/hms-toolkit-convertor.git
 2. If you are using IntelliJ, from the Menu bar, go to `File>Open..` and open the __src__ folder inside the project.
 3. Open the `build.gradle` file, find `alternativeIdePath` property, uncomment it, and set the install path of the intellij IDE that the plugin will be launched on (in this case android studio)
 
-```json
+```
  intellij {
 
         // [...] 
