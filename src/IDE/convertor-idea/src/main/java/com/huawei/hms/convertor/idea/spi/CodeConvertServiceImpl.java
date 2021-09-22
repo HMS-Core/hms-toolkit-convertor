@@ -65,7 +65,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class CodeConvertServiceImpl implements CodeConvertService {
 
-    public Map<String, Project> projectMap = new HashMap<>();
+    private Map<String, Project> projectMap = new HashMap<>();
 
     @Override
     public Result convert(String projectPath, ConversionItem conversionItem) {
