@@ -35,6 +35,15 @@ public class InferRawTypeHelper {
         map.put("arrayOfNulls", KotlinBasicType.ARRAY);
         map.put("emptyArray", KotlinBasicType.ARRAY);
 
+        map.put("booleanArrayOf", KotlinBasicType.BOOLEAN_ARRAY);
+        map.put("byteArrayOf", KotlinBasicType.BYTE_ARRAY);
+        map.put("charArrayOf", KotlinBasicType.CHAR_ARRAY);
+        map.put("doubleArrayOf", KotlinBasicType.DOUBLE_ARRAY);
+        map.put("floatArrayOf", KotlinBasicType.FLOAT_ARRAY);
+        map.put("intArrayOf", KotlinBasicType.INT_ARRAY);
+        map.put("longArrayOf", KotlinBasicType.LONG_ARRAY);
+        map.put("shortArrayOf", KotlinBasicType.SHORT_ARRAY);
+
 
     }
 
