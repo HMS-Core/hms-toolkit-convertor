@@ -65,8 +65,12 @@ public class InferRawTypeHelper {
         map.put("linkedSetOf", KotlinBasicType.LINKED_HASH_SET);
         map.put("mutableSetOf", KotlinBasicType.MUTABLE_SET);
         map.put("sortedSetOf", KotlinBasicType.TREE_SET);
-
     }
 
+    private InferRawTypeHelper() {
+    }
 
+    public KotlinBasicType getRawType(String funcName) {
+        return map.getOrDefault(funcName, null);
+    }
 }
