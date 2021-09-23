@@ -70,7 +70,7 @@ public class InferRawTypeHelper {
     private InferRawTypeHelper() {
     }
 
-    public KotlinBasicType getRawType(String funcName) {
+    public static KotlinBasicType getRawType(String funcName) {
         return map.getOrDefault(funcName, null);
     }
 }
