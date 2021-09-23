@@ -44,6 +44,11 @@ public class InferRawTypeHelper {
         map.put("longArrayOf", KotlinBasicType.LONG_ARRAY);
         map.put("shortArrayOf", KotlinBasicType.SHORT_ARRAY);
 
+        map.put("List", KotlinBasicType.LIST);
+        map.put("listOf", KotlinBasicType.LIST);
+        map.put("listOfNotNull", KotlinBasicType.LIST);
+        map.put("emptyList", KotlinBasicType.LIST);
+
 
     }
 
