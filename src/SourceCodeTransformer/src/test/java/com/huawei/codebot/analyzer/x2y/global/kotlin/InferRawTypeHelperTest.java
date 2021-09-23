@@ -18,6 +18,11 @@ package com.huawei.codebot.analyzer.x2y.global.kotlin;
 import com.huawei.codebot.analyzer.x2y.global.KotlinBasicType;
 import org.junit.Assert;
 
+/**
+ * InferRawTypeHelper Test
+ *
+ * @since 2021-09-23
+ */
 public class InferRawTypeHelperTest {
 
     @org.junit.Test
