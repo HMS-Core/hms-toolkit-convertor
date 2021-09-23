@@ -52,8 +52,20 @@ public class InferRawTypeHelperTest {
         Assert.assertEquals(inferRawType("linkedSetOf"), InferRawTypeHelper.getRawType("linkedSetOf").getQualifiedName());
         Assert.assertEquals(inferRawType("mutableSetOf"), InferRawTypeHelper.getRawType("mutableSetOf").getQualifiedName());
         Assert.assertEquals(inferRawType("sortedSetOf"), InferRawTypeHelper.getRawType("sortedSetOf").getQualifiedName());
+    }
 
+    @org.junit.Test
+    public void getRawType_null() {
+        Assert.assertNull(inferRawType(""));
+        Assert.assertNull(InferRawTypeHelper.getRawType(""));
 
+        Assert.assertNull(inferRawType("1"));
+        Assert.assertNull(InferRawTypeHelper.getRawType("1"));
+        Assert.assertNull(InferRawTypeHelper.getRawType(null));
+
+        Assert.assertNull(inferRawType("2"));
+        Assert.assertNull(InferRawTypeHelper.getRawType("2"));
+        Assert.assertNull(InferRawTypeHelper.getRawType(null));
     }
 
     private String inferRawType(String funcName) {
