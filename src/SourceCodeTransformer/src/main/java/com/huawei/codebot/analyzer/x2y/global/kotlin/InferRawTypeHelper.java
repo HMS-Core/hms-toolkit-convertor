@@ -20,8 +20,23 @@ import com.huawei.codebot.analyzer.x2y.global.KotlinBasicType;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * InferRawTypeHelper,
+ * inferRawType kotlinBasicType mapping
+ *
+ * @since 2021-09-23
+ */
 public class InferRawTypeHelper {
+    private static Map<String, KotlinBasicType> map = new HashMap<>();
 
+    static {
+        map.put("Array", KotlinBasicType.ARRAY);
+        map.put("arrayOf", KotlinBasicType.ARRAY);
+        map.put("arrayOfNulls", KotlinBasicType.ARRAY);
+        map.put("emptyArray", KotlinBasicType.ARRAY);
+
+
+    }
 
 
 }
