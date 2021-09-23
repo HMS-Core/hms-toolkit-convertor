@@ -36,6 +36,7 @@ dependencies {
     }
     compile 'com.ibm.icu:icu4j:64.2'
     compile 'org.json:json:20190722'
+    testCompile('junit:junit:4.12')
 }
 
 jar {
