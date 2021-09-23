@@ -27,7 +27,7 @@ import java.util.Map;
  * @since 2021-09-23
  */
 public class InferRawTypeHelper {
-    private static Map<String, KotlinBasicType> map = new HashMap<>();
+    private static final Map<String, KotlinBasicType> map = new HashMap<>();
 
     static {
         map.put("Array", KotlinBasicType.ARRAY);
