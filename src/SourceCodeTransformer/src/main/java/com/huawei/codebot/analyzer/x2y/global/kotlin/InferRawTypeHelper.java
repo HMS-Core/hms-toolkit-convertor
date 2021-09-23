@@ -54,6 +54,10 @@ public class InferRawTypeHelper {
 
         map.put("Map", KotlinBasicType.MAP);
         map.put("mapOf", KotlinBasicType.MAP);
+        map.put("hashMapOf", KotlinBasicType.HASH_MAP);
+        map.put("linkedMapOf", KotlinBasicType.LINKED_HASH_MAP);
+        map.put("mutableMapOf", KotlinBasicType.MUTABLE_MAP);
+        map.put("sortedMapOf", KotlinBasicType.SORTED_MAP);
 
 
 
