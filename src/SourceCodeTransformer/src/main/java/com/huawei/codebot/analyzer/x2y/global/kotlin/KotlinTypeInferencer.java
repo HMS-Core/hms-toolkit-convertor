@@ -636,62 +636,8 @@ public class KotlinTypeInferencer extends TypeInferencer {
     }
 
     private String inferRawType(String funcName) {
-        switch (funcName) {
-            case "Array":
-            case "arrayOf":
-            case "arrayOfNulls":
-            case "emptyArray":
-                return KotlinBasicType.ARRAY.getQualifiedName();
-            case "booleanArrayOf":
-                return KotlinBasicType.BOOLEAN_ARRAY.getQualifiedName();
-            case "byteArrayOf":
-                return KotlinBasicType.BYTE_ARRAY.getQualifiedName();
-            case "charArrayOf":
-                return KotlinBasicType.CHAR_ARRAY.getQualifiedName();
-            case "doubleArrayOf":
-                return KotlinBasicType.DOUBLE_ARRAY.getQualifiedName();
-            case "floatArrayOf":
-                return KotlinBasicType.FLOAT_ARRAY.getQualifiedName();
-            case "intArrayOf":
-                return KotlinBasicType.INT_ARRAY.getQualifiedName();
-            case "longArrayOf":
-                return KotlinBasicType.LONG_ARRAY.getQualifiedName();
-            case "shortArrayOf":
-                return KotlinBasicType.SHORT_ARRAY.getQualifiedName();
-            case "List":
-            case "listOf":
-            case "listOfNotNull":
-            case "emptyList":
-                return KotlinBasicType.LIST.getQualifiedName();
-            case "arrayListOf":
-                return KotlinBasicType.ARRAY_LIST.getQualifiedName();
-            case "mutableListOf":
-                return KotlinBasicType.MUTABLE_LIST.getQualifiedName();
-            case "Map":
-            case "mapOf":
-                return KotlinBasicType.MAP.getQualifiedName();
-            case "hashMapOf":
-                return KotlinBasicType.HASH_MAP.getQualifiedName();
-            case "linkedMapOf":
-                return KotlinBasicType.LINKED_HASH_MAP.getQualifiedName();
-            case "mutableMapOf":
-                return KotlinBasicType.MUTABLE_MAP.getQualifiedName();
-            case "sortedMapOf":
-                return KotlinBasicType.SORTED_MAP.getQualifiedName();
-            case "Set":
-            case "setOf":
-                return KotlinBasicType.SET.getQualifiedName();
-            case "hashSetOf":
-                return KotlinBasicType.HASH_SET.getQualifiedName();
-            case "linkedSetOf":
-                return KotlinBasicType.LINKED_HASH_SET.getQualifiedName();
-            case "mutableSetOf":
-                return KotlinBasicType.MUTABLE_SET.getQualifiedName();
-            case "sortedSetOf":
-                return KotlinBasicType.TREE_SET.getQualifiedName();
-            default:
-                return null;
-        }
+        KotlinBasicType rawType = InferRawTypeHelper.getRawType(funcName);
+        return rawType == null ? null : rawType.getQualifiedName();
     }
 
     private TypeInfo uniformType(List<TypeInfo> typeInfos) {
