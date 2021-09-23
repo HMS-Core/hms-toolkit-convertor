@@ -52,6 +52,10 @@ public class InferRawTypeHelper {
         map.put("arrayListOf", KotlinBasicType.ARRAY_LIST);
         map.put("mutableListOf", KotlinBasicType.MUTABLE_LIST);
 
+        map.put("Map", KotlinBasicType.MAP);
+        map.put("mapOf", KotlinBasicType.MAP);
+
+
 
     }
 
