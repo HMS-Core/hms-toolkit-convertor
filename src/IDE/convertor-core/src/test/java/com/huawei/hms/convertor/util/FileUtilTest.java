@@ -16,7 +16,6 @@
 
 package com.huawei.hms.convertor.util;
 
-import groovy.util.logging.Slf4j;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
@@ -30,7 +29,11 @@ import java.nio.file.Files;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-@Slf4j
+/**
+ * FileUtil Junit
+ *
+ * @since 2021-09-24
+ */
 public class FileUtilTest {
 
     @Rule
