@@ -78,6 +78,11 @@ public class FileUtilTest {
         assertFalse("Check No Exist", testFile.exists());
     }
 
+    @Test
+    public void testDeleteFilesForNull() {
+        FileUtil.deleteFiles(null);
+    }
+
 
     private static void generateTestData(final OutputStream out, final long size) throws IOException {
         for (int i = 0; i < size; i++) {
