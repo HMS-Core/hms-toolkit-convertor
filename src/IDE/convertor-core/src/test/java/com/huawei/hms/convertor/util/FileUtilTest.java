@@ -83,6 +83,13 @@ public class FileUtilTest {
         FileUtil.deleteFiles(null);
     }
 
+    @Test
+    public void testDeleteFilesNonExistent() {
+        final File testFile = new File("testDeleteQuietlyNonExistent");
+        assertFalse(testFile.exists());
+        FileUtil.deleteFiles(testFile);
+    }
+
 
     private static void generateTestData(final OutputStream out, final long size) throws IOException {
         for (int i = 0; i < size; i++) {
