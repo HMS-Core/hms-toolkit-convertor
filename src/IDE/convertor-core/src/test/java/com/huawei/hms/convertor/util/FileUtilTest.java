@@ -48,12 +48,8 @@ public class FileUtilTest {
             throw new IOException("Cannot create file " + testFile
                     + " as the parent directory does not exist");
         }
-        final OutputStream output =
-                new BufferedOutputStream(Files.newOutputStream(testFile.toPath()));
-        try {
+        try (OutputStream output = new BufferedOutputStream(Files.newOutputStream(testFile.toPath()))) {
             generateTestData(output, 0);
-        } finally {
-            output.close();
         }
         assertTrue(testDirectory.exists());
         assertTrue(testFile.exists());
@@ -69,12 +65,8 @@ public class FileUtilTest {
             throw new IOException("Cannot create file " + testFile
                     + " as the parent directory does not exist");
         }
-        final OutputStream output =
-                new BufferedOutputStream(Files.newOutputStream(testFile.toPath()));
-        try {
+        try (OutputStream output = new BufferedOutputStream(Files.newOutputStream(testFile.toPath()))) {
             generateTestData(output, 0);
-        } finally {
-            output.close();
         }
         assertTrue(testFile.exists());
         FileUtil.deleteFiles(testFile);
