@@ -21,6 +21,7 @@ import com.huawei.generator.g2x.processor.XmsPublicUtils;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;
@@ -193,17 +194,7 @@ public final class FileUtil {
     }
 
     public static void deleteFiles(File file) {
-        if (file.isDirectory()) {
-            File[] files = file.listFiles();
-            if (files == null) {
-                return;
-            }
-            for (File f : files) {
-                deleteFiles(f);
-            }
-        }
-
-        boolean result = file.delete();
+        boolean result = FileUtils.deleteQuietly(file);
         if (!result) {
             log.error("file backup directory failed");
         }
