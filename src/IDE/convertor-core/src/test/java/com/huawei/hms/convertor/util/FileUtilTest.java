@@ -17,14 +17,52 @@
 package com.huawei.hms.convertor.util;
 
 import groovy.util.logging.Slf4j;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.file.Files;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 @Slf4j
 public class FileUtilTest {
 
-    @org.junit.Test
-    public void deleteFiles() {
+    @Rule
+    public TemporaryFolder temporaryFolder = new TemporaryFolder();
 
+    @Test
+    public void testDeleteFiles_dir() throws IOException {
+        final File testDirectory = new File(temporaryFolder.newFolder(), "testDeleteQuietlyDir");
+        final File testFile = new File(testDirectory, "testDeleteQuietlyFile");
+        testDirectory.mkdirs();
+        if (!testFile.getParentFile().exists()) {
+            throw new IOException("Cannot create file " + testFile
+                    + " as the parent directory does not exist");
+        }
+        final OutputStream output =
+                new BufferedOutputStream(Files.newOutputStream(testFile.toPath()));
+        try {
+            generateTestData(output, 0);
+        } finally {
+            output.close();
+        }
+        assertTrue(testDirectory.exists());
+        assertTrue(testFile.exists());
+        FileUtil.deleteFiles(testDirectory);
+        assertFalse("Check No Exist", testDirectory.exists());
+        assertFalse("Check No Exist", testFile.exists());
     }
 
 
+    private static void generateTestData(final OutputStream out, final long size) throws IOException {
+        for (int i = 0; i < size; i++) {
+            out.write((byte) ((i % 127) + 1));
+        }
+    }
 }
